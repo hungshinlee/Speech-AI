@@ -9,7 +9,7 @@ $font-family-monospace:
   ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
   "Liberation Mono", monospace !default;
 
-$font-size-root:       16px !default;
+$font-size-root:       17px !default;
 $line-height-base:     1.75 !default;
 $body-color:           #1f2328 !default;
 $link-color:           #0b5cad !default;
@@ -35,8 +35,10 @@ h2 {
 h3 { margin-top: 1.8rem; }
 
 // ── 表格：桌機正常呈現，窄螢幕改為可橫向捲動 ──────────────
+// 字級用 rem（root 相對）而非 em：表格常出現在 blockquote 或其他有 em 的容器裡，
+// 用 em 會相乘，造成同一站的表格大小不一。表格是內容本體，與正文同級。
 main table {
-  font-size: .95rem;
+  font-size: 1rem;
   th { background: #f6f8fa; font-weight: 600; white-space: nowrap; }
   td, th { vertical-align: top; }
 }
@@ -83,7 +85,7 @@ code:not(pre code) {
 // ── 手機（≤ 768px）─────────────────────────────────────────
 @media (max-width: 768px) {
 
-  body { font-size: 15.5px; line-height: 1.8; }
+  body { font-size: 16.5px; line-height: 1.8; }
 
   h1 { font-size: 1.5rem; }
   h2 { font-size: 1.25rem; margin-top: 2rem; }
@@ -95,7 +97,7 @@ code:not(pre code) {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     max-width: 100%;
-    font-size: .88rem;
+    font-size: .95rem;
     border: 1px solid #e5e7eb;
     border-radius: 4px;
 
@@ -121,7 +123,7 @@ code:not(pre code) {
 // ── 超窄螢幕（≤ 400px）────────────────────────────────────
 @media (max-width: 400px) {
   pre { font-size: .68rem; }
-  main table { font-size: .84rem; }
+  main table { font-size: .9rem; }
 }
 
 // ── 列印（完整大綱頁供列印用）──────────────────────────────
