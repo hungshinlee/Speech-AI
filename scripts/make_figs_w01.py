@@ -13,6 +13,8 @@
 """
 
 import os
+import re
+import xml.dom.minidom as _minidom
 
 OUT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
                    "slides", "assets", "w01")
@@ -244,15 +246,109 @@ def fig_latency_blank():
     return "\n".join(o)
 
 
+def fig_course_map():
+    """14 週的依賴結構（不是週次清單——那是投影片的表格在做的事）。
+
+    重點是 W6 那條繞過整個 Part II、指向 Part III 全欄的虛線：課程地圖要傳達的是
+    「哪一週撐著哪一週」，而不是「第幾週上什麼」。W6 撐的不是某一週，是整個 Part III，
+    所以畫成括號而不是箭頭——順便也避開跟灰色匯總箭頭撞在同一個點上。
+    """
+    w, h = 1236, 458
+    o = head(w, h)
+    BW, BH, GAP = 248, 44, 52
+    cols = [
+        (30, [("W1", "systems view", "today"),
+              ("W2", "signals & front ends", None), ("W3", "alignment (CTC)", None),
+              ("W4", "streaming & RNN-T", None), ("W5", "self-supervised", None),
+              ("W6", "codecs / tokens", "hinge")]),
+        (490, [("W7", "ASR", None), ("W8", "TTS: generation", None),
+               ("W9", "TTS: control", None), ("W10", "front end / AEC", None)]),
+        (930, [("W11", "audio-native LM", None), ("W12", "turn-taking", None),
+               ("W13", "full-duplex arch.", None), ("W14", "evaluation", None)]),
+    ]
+    heads = ["Part I \u2014 foundations", "Part II \u2014 modules",
+             "Part III \u2014 dialogue systems"]
+    y0 = 74
+
+    for ci, (cx, items) in enumerate(cols):
+        o += ['<text x="%d" y="%d" font-size="19" font-weight="700" fill="%s">%s</text>'
+              % (cx, 46, C_TEXT, heads[ci])]
+        for ri, (wk, topic, kind) in enumerate(items):
+            y = y0 + ri * GAP
+            hinge, today = kind == "hinge", kind == "today"
+            fill = "#eff6ff" if hinge else ("#ffffff" if today else C_BOX)
+            o.append('<rect x="%d" y="%d" width="%d" height="%d" rx="6" fill="%s" '
+                     'stroke="%s" stroke-width="%s"%s/>'
+                     % (cx, y, BW, BH, fill, C_AUDIO if hinge else C_EDGE,
+                        "2.4" if hinge else "1.5",
+                        ' stroke-dasharray="5 4"' if today else ""))
+            o.append('<text x="%d" y="%.1f" font-size="19" font-weight="700" fill="%s" '
+                     'dominant-baseline="middle">%s</text>'
+                     % (cx + 14, y + BH / 2, C_AUDIO if hinge else C_TEXT, wk))
+            o.append('<text x="%d" y="%.1f" font-size="16" fill="%s" '
+                     'dominant-baseline="middle">%s</text>'
+                     % (cx + 68, y + BH / 2, C_TEXT if hinge else C_MUTED, topic))
+            if today:
+                o.append('<text x="%d" y="%.1f" font-size="14" font-weight="600" fill="%s" '
+                         'text-anchor="end" dominant-baseline="middle">today</text>'
+                         % (cx + BW - 12, y + BH / 2, C_MUTED))
+
+    # Part I → Part II，以及 Part II → Part III 的匯總箭頭（灰色＝一般的先後依賴）
+    for x1, x2, n1, n2 in ((278, 478, 6, 4), (738, 896, 4, 4)):
+        ym1 = y0 + (n1 - 1) * GAP / 2 + BH / 2
+        ym2 = y0 + (n2 - 1) * GAP / 2 + BH / 2
+        o.append('<path d="M %d %.1f C %d %.1f, %d %.1f, %d %.1f" fill="none" '
+                 'stroke="%s" stroke-width="9" opacity=".55"/>'
+                 % (x1, ym1, x1 + 70, ym1, x2 - 70, ym2, x2, ym2, C_EDGE))
+        o.append('<polygon points="%d,%.1f %d,%.1f %d,%.1f" fill="%s" opacity=".7"/>'
+                 % (x2, ym2 - 11, x2 + 14, ym2, x2, ym2 + 11, C_EDGE))
+
+    # W6 → 整個 Part III：繞過 Part II 下方，指進整欄的虛線框
+    # 畫成「框 + 一支從下方進來的箭頭」而不是指向某一週，因為 W6 撐的是整個 Part III；
+    # 同時也避開跟灰色匯總箭頭的箭頭撞在同一點上。
+    y6 = y0 + 5 * GAP + BH / 2
+    rx0, ry0 = 914, 56
+    rw, ry1 = 280, y0 + 3 * GAP + BH + 14
+    route_y = 436
+    o.append('<rect x="%d" y="%d" width="%d" height="%d" rx="10" fill="none" '
+             'stroke="%s" stroke-width="2.2" stroke-dasharray="8 5" opacity=".85"/>'
+             % (rx0, ry0, rw, ry1 - ry0, C_AUDIO))
+    xin = rx0 + rw / 2
+    o.append('<path d="M %d %.1f C %d %.1f, %d %d, %d %d H %.1f C %.1f %d, %.1f %d, %.1f %d" '
+             'fill="none" stroke="%s" stroke-width="2.6" stroke-dasharray="8 5"/>'
+             % (278, y6, 340, y6, 370, route_y, 410, route_y,
+                xin - 60, xin - 18, route_y, xin, route_y, xin, ry1 + 22, C_AUDIO))
+    o.append('<polygon points="%.1f,%d %.1f,%d %.1f,%d" fill="%s"/>'
+             % (xin - 9, ry1 + 22, xin, ry1 + 4, xin + 9, ry1 + 22, C_AUDIO))
+    o += caption("frame rate \u00b7 token budget \u00b7 semantic/acoustic disentanglement",
+                 route_y - 20, x=700, col=C_AUDIO, size=17)
+    o.append("</svg>")
+    return "\n".join(o)
+
+
+def xesc_svg(svg):
+    """把裸露的 & 轉成 &amp;（已經是 entity 的不動）。
+
+    SVG 是 XML，不是 HTML：一個裸 & 就會讓整份文件解析失敗，而瀏覽器不會報錯，
+    只會把 <img> 的 naturalWidth 算成 0，投影片上看起來就是一張空白。
+    "signals & front ends" 這種標籤踩過一次，所以改成在輸出前統一處理並驗證。
+    """
+    return re.sub(r"&(?![a-zA-Z][a-zA-Z0-9]*;|#[0-9]+;|#x[0-9a-fA-F]+;)", "&amp;", svg)
+
+
 def main():
     if not os.path.isdir(OUT):
         os.makedirs(OUT)
     for name, fn in (("arch-cascade", fig_cascade), ("arch-e2e", fig_e2e),
                      ("arch-duplex", fig_duplex),
-                     ("latency-budget-blank", fig_latency_blank)):
+                     ("latency-budget-blank", fig_latency_blank),
+                     ("course-map", fig_course_map)):
         p = os.path.join(OUT, name + ".svg")
+        svg = xesc_svg(fn())
+        # 產生後立刻驗證：解析不過的 SVG 在瀏覽器裡是靜默的空白，不是錯誤訊息
+        _minidom.parseString(svg)
         with open(p, "w") as f:
-            f.write(fn())
+            f.write(svg)
         print("→ %s (%d bytes)" % (os.path.relpath(p, os.path.dirname(OUT)), os.path.getsize(p)))
 
 

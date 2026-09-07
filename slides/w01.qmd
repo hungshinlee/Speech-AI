@@ -165,25 +165,20 @@ Not "know about" — **read the papers critically, measure the systems, defend d
 也要說清楚**這門課沒有評量**——沒有作業、沒有考試。所以讀論文完全自願，但每週的「若只讀一篇」清單就在課程網站上，那是我幫你們篩過的。
 :::
 
-## What you should be able to do by the end of today {.smaller}
+## Fourteen weeks, and which week holds up which {.smaller}
 
-1. **Draw** the data flow of a cascade, an end-to-end speech-to-speech model, and a native full-duplex model — and point at the place where each one narrows the channel.
-2. **Decompose** a target end-to-end latency into a per-module budget, and say which entries are algorithmic delay and which are computational.
-3. **Define** half duplex versus full duplex operationally, and name three interaction behaviours a half-duplex system cannot have.
-4. **Explain** why making the VAD faster does not solve turn-taking.
-
-::: {.claim}
-These four are the hooks that the next thirteen weeks attach to.
-:::
+![](assets/w01/course-map.svg){width="100%"}
 
 ::: {.notes}
-把今天的四個目標唸一遍，語氣是「這是你走出教室時該帶走的東西」，不是形式上的宣讀。
+這張是**依賴結構**，不是週次清單——週次清單是上一張的表格在做的事。
 
-四條刻意都用**可檢驗的動詞**：畫得出來、拆得出來、定義得出來、解釋得出來。可以直接說：「如果下課時第 4 條你講不出來，那今天有一段我沒講清楚，請當場問我。」
+先讓他們看整體形狀：左邊六週是地基（今天那一格是虛線框，標著 today），中間四週是模組，右邊四週是對話系統。灰色的匯總箭頭表示「前面撐後面」，這部分符合直覺。
 
-第 4 條（為什麼把 VAD 調快不等於解決 turn-taking）是四條裡最容易被低估的。它今天只會被建立成一個直覺，真正的處理在 W12——那裡會用一張 ROC 圖證明**單一靜音門檻不可能同時最佳化反應速度與誤觸發率**。今天先讓他們知道這是個問題。
+**重點是那條藍色虛線。** 它從 W6 出發、繞過整個 Part II、指進框住 Part III 的那個虛線框——注意它指的不是某一週，而是**整欄**。因為 Part III 的三條路線全部建立在 frame rate、token budget、以及語意／聲學解耦這三個概念上。這是全課唯一一條跨 Part 的依賴。
 
-如果時間緊，這一張可以只唸第 1 與第 4 條，其餘讓他們自己看投影片。
+可以說：「W7 到 W10 缺一週，你還是聽得懂 W13。W6 缺了，W11 之後全部聽不懂。」
+
+也順便告訴他們地圖的用法：每週開場我都會回到這張，指出今天在哪裡。如果他們某週缺課，看這張圖就知道會影響到哪幾週。
 :::
 
 ## W6 is the hinge. If you skip one week, do not skip that one.
@@ -209,6 +204,27 @@ token budget 決定一段 30 分鐘的對話會吃掉多少 context——W6 會�
 那句 claim 可以這樣講：「延遲與品質的天花板，在你決定怎麼把語音變成 token 的那一刻就已經定了。之後不管模型多大都突破不了。」
 
 如果進度落後，可壓縮的是 W7（ASR 三範式可以講快）與 W10（本來就是整併掃描週）。**不要壓 W6。**
+:::
+
+## What you should be able to do by the end of today {.smaller}
+
+1. **Draw** the data flow of a cascade, an end-to-end speech-to-speech model, and a native full-duplex model — and point at the place where each one narrows the channel.
+2. **Decompose** a target end-to-end latency into a per-module budget, and say which entries are algorithmic delay and which are computational.
+3. **Define** half duplex versus full duplex operationally, and name four interaction behaviours a half-duplex system cannot have.
+4. **Explain** why making the VAD faster does not solve turn-taking.
+
+::: {.claim}
+These four are the hooks that the next thirteen weeks attach to.
+:::
+
+::: {.notes}
+把今天的四個目標唸一遍，語氣是「這是你走出教室時該帶走的東西」，不是形式上的宣讀。
+
+四條刻意都用**可檢驗的動詞**：畫得出來、拆得出來、定義得出來、解釋得出來。可以直接說：「如果下課時第 4 條你講不出來，那今天有一段我沒講清楚，請當場問我。」
+
+第 4 條（為什麼把 VAD 調快不等於解決 turn-taking）是四條裡最容易被低估的。它今天只會被建立成一個直覺，真正的處理在 W12——那裡會用一張 ROC 圖證明**單一靜音門檻不可能同時最佳化反應速度與誤觸發率**。今天先讓他們知道這是個問題。
+
+如果時間緊，這一張可以只唸第 1 與第 4 條，其餘讓他們自己看投影片。
 :::
 
 ## Three questions we ask every single week {.smaller}
@@ -806,6 +822,63 @@ W10 的 AEC 與前端成本，以及一個反直覺的結果：增強有時會�
 W13 是把整條全雙工鏈的每 frame 成本算清楚。
 
 一句收束：**到 W14，他們手上會有一張圖，能解釋一個語音對話系統的每一毫秒去了哪裡。**
+:::
+
+## Some of the gaps are yours to fill {.smaller}
+
+Full-duplex research runs on **two-track conversational recordings** — one channel per speaker. English has corpora for this. Mandarin has some.
+
+For **Taiwanese Hokkien, Hakka and the Formosan languages**, publicly available two-track dialogue data is close to non-existent — and the text side that interleaving depends on has no single settled orthography.
+
+- The data does not exist, so even a small, well-designed corpus is a contribution.
+- The orthography question is research, not preprocessing. `[W6, W11]`
+- Almost nothing in Part III has been tested outside English and Mandarin.
+
+::: {.claim}
+When we reach W14's open problems, this one has your name on it more than mine.
+:::
+
+::: {.notes}
+這一張的目的是**告訴他們有空間**。碩博班的學生最需要知道的不是「這個領域多成熟」，而是「哪裡還沒有人做」。
+
+事實部分要講準：全雙工的訓練與評估都依賴**雙軌**錄音（一個聲道一個說話人）。英文有 Switchboard、Fisher、CANDOR 這類語料；中文有一些。**台語、客語、原住民族語幾乎沒有公開的雙軌對話資料。**
+
+第二點是比較深的：interleaving 需要文字側，而台語的書寫系統本身沒有定論（漢字、白話字、台羅並存），所以「先把文字準備好」這件事在這些語言上不是前處理，而是要做決定、而那個決定會影響模型。這是真的研究問題。
+
+第三點可以說得直接一些：Part III 那些漂亮的結果，幾乎沒有一個在英文與中文之外測過。所以「把某個方法搬到台語」不是練習題，是尚未有答案的問題。
+
+**不要把這張講成愛國動員。** 論證是資源與位置：資料在這裡、語言能力在這裡、而國際上沒有人有動機做。這是結構性優勢，不是情感訴求。
+
+W14 的 open problems 會再回到這一格。
+:::
+
+## Four questions to ask of every paper in this course {.smaller}
+
+1. **Was the input the same?** Today's two recordings shared one pre-recorded user track, so the difference was attributable. Most system comparisons do not have that property.
+2. **How was the timing measured?** Energy VAD, a reference VAD, forced alignment, or the model's own logs? Our 2.90&nbsp;s and 60&nbsp;ms came from an energy VAD — the magnitudes hold, the milliseconds do not.
+3. **What was normalised away?** WER depends on text normalisation; MOS depends on the rater pool and the scale anchors. Numbers from two different papers are usually not comparable at all.
+4. **What does the metric reward?** A benchmark that scores only latency rewards a system that interrupts.
+
+::: {.claim}
+You will use these four every week — and they are also how you avoid writing a paper that someone else has to ask them about.
+:::
+
+::: {.notes}
+這一張是把這門課的目標**變成可操作的工具**。課程目標寫的是「能讀懂論文、能量測系統、能為設計選擇辯護」——這四個問題就是那句話的具體版本。
+
+四個問題各給一個今天已經出現過的例子，這樣它們不抽象：
+
+一、輸入是否相同——今天那兩段的 ch0 完全一樣，所以差異可以歸因到後訓練。**這是罕見的乾淨對照**，多數論文比較兩個系統時，測試集、前處理、甚至取樣率都不同。
+
+二、時序怎麼量的——我們的 2.90 秒與 60 ms 是能量式 VAD 估的。我在課堂上說過兩次「量級可信、毫秒不可信」，這裡把它變成一條通用的檢查。
+
+三、什麼被標準化掉了——WER 受文字標準化影響（數字、縮寫、標點、大小寫），MOS 受評分者群體與量表錨定影響。**跨論文比 MOS 幾乎沒有意義**，這一點 W9 會展開。
+
+四、指標獎勵什麼——只評延遲的 benchmark 會獎勵搶話的模型。這是今天第三次碰到這個想法（Misconception 2、p95、這裡），刻意重複。
+
+最後那句話值得說出來：這四個問題不只是讀論文用的，**寫論文的時候自己先問一遍**，可以避免審稿人替你問。
+
+如果時間不夠，這一張可以只講第一與第四個問題，其餘讓他們看投影片。
 :::
 
 ## Next week, and what to read {.smaller}
