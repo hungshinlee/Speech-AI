@@ -254,39 +254,55 @@ slides/
 放大表格後 W1 有兩張溢出（slide 7 −40px、slide 18 −66px），修法同樣是**減字**：
 那兩張的儲存格原本是整段散文，改成以 `·` 分隔的關鍵詞。比較矩陣本來就不該放句子。
 
-### 手機橫向播放（唯一需要支援的行動情境）
+### 目標顯示尺寸：**只需要考慮 1280×800**
 
-使用者的要求是「投影片在手機**橫著**可以播放即可」，**直向不需要處理**。
-reveal 會把 1280×760 的 deck 等比縮放塞進視窗，所以橫向（例如 844×390）內容全部可見，
-只是四周留黑邊；正文 34px × 0.51 ≈ 17 物理 px，手持距離下可讀。
+使用者已明確界定唯一需要顧的尺寸。**不必為手機、平板或其他長寬比做任何調整**，
+新 deck 也不需要跑多視窗尺寸的驗證。
 
-**但有一個非常不直覺的陷阱**：reveal 用 `transform` 縮放的只有 `.slides`。
-**`.footer` 與 `.slide-number` 是畫在縮放容器之外的頁面層元素**，transform 不會作用到它們。
-所以用 `em` 設定字級時，桌機（scale = 1）看起來正常，手機橫向（scale ≈ 0.51）就等於**放大兩倍**，
-會蓋住頁碼與板書按鈕。W1 踩過。
+```yaml
+width: 1280
+height: 800      # 16:10，剛好填滿目標螢幕
+margin: 0.04     # reveal 預設 0.1
+```
 
-修法（`theme.scss` 已就位，新 deck 直接沿用）：
+`margin` 那一行是實際增益：reveal 預設留 10% 白邊，會把 deck 縮到 1152×720 才顯示
+（`Reveal.getScale()` = 0.9），白白損失一成字級。改成 0.04 後 scale = 0.96：
+
+| | scale 0.9（預設） | scale 0.96 |
+|---|---|---|
+| 正文 34px | 30.6 實際 px | **32.6 實際 px** |
+| 表格 26px | 23.4 | **25.0** |
+| 圖內文字 25.6px | 23.0 | **24.6** |
+
+不要為了「再大一點」把 margin 設到 0：投影機需要安全邊，且文字貼邊在教室後排更難讀。
+
+### footer 與頁碼不隨 deck 縮放（保留這個修正）
+
+即使只顧一個尺寸，這條仍然要留著——它是**正確性**問題而非適配問題：
+reveal 用 `transform` 縮放的只有 `.slides`，而 **`.footer` 與 `.slide-number` 畫在縮放容器之外**，
+transform 不會作用到它們。用 `em` 設字級時，任何 scale ≠ 1 的情況（現在是 0.96）都會偏大。
+
+`theme.scss` 已就位，新 deck 直接沿用：
 
 ```scss
 .reveal .footer {
   box-sizing: border-box;          // 少了這行，padding 會加在 100% 寬之外而衝出畫面
-  left: 16% !important;            // 讓出左下角的控制列
-  right: 12% !important;           // 讓出右下角的頁碼
+  left: 16% !important;            // 讓出左下角控制列
+  right: 12% !important;           // 讓出右下角頁碼
   bottom: 1.1em !important;
   padding: 0 !important;
   white-space: normal !important;  // Quarto 預設 nowrap，長引用會溢出盒子外
-  font-size: clamp(10px, 1.55vw, 21px) !important;   // 隨視窗寬度縮放，不隨 deck scale
+  font-size: clamp(10px, 1.55vw, 21px) !important;
 }
 .reveal .slide-number { font-size: clamp(9px, 1.1vw, 15px) !important; }
 ```
 
-同時**把每張的 footer 寫短**：完整引用放在最後的 Sources 投影片，各張只留
-`Audio: Ohashi et al., EMNLP 2026 · CC-BY-4.0 · stereo: left = user, right = model` 這種一行。
-CC-BY 的標註義務由簡短標註加上 Sources 頁的完整引用共同滿足。
+**每張的 footer 要寫短**：完整引用放最後的 Sources 投影片，各張只留一行
+（`Audio: Ohashi et al., EMNLP 2026 · CC-BY-4.0 · stereo: left = user, right = model`）。
+CC-BY 的標註義務由簡短標註 + Sources 頁共同滿足。
 
-**檢查 footer 時要量 `scrollWidth > clientWidth`，不只量 getBoundingClientRect。**
-`nowrap` 的文字會溢出盒子外，而盒子本身仍在畫面內——只量矩形會漏掉，W1 就漏過一次。
-已驗證 844×390、926×428、1024×768、1280×760 四種尺寸下 36 張全部乾淨。
+**檢查 footer 要量 `scrollWidth > clientWidth`，不能只量 `getBoundingClientRect`**：
+`nowrap` 的文字溢出盒子外時，盒子本身仍在畫面內，只量矩形會漏掉。W1 漏過一次。
 
 ### 版面驗證方法（做新的 deck 時照著跑）
 

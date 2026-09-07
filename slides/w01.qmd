@@ -8,8 +8,12 @@ format:
     theme: [default, theme.scss]
     slide-number: c/t
     show-slide-number: all
+    # 目標顯示尺寸：1280×800（16:10）。設成剛好填滿。
+    # margin 預設 0.1 會把 deck 縮到 90% 才顯示（1152×720），白白損失一成字級；
+    # 固定尺寸下取回大部分，只留投影安全邊。
     width: 1280
-    height: 760
+    height: 800
+    margin: 0.04
     center: false
     progress: true
     transition: none
