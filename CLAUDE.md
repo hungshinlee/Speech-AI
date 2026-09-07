@@ -134,9 +134,9 @@ quarto preview          # 本機即時預覽
 quarto render           # 產出 _site/
 ```
 
-### 首次上線需要手動做一次
+### 首次上線的一次性設定（**已完成，2026-09**）
 
-GitHub repo → **Settings → Pages → Build and deployment → Source 設為 `GitHub Actions`**。workflow 用的是 `upload-pages-artifact` + `deploy-pages`，不走 `gh-pages` 分支，所以 Source 選錯會 deploy 失敗。
+GitHub repo → **Settings → Pages → Build and deployment → Source 設為 `GitHub Actions`**。workflow 用的是 `upload-pages-artifact` + `deploy-pages`，不走 `gh-pages` 分支，所以 Source 選錯會 deploy 失敗。這條留著是備忘：若之後 repo 轉移或重建，要重設一次。
 
 ---
 
@@ -455,7 +455,6 @@ revealjs 的 PDF 走瀏覽器列印：開 `slides/w01.html?print-pdf` 後在 Chr
 
 ## 7. 待辦
 
-- [ ] **首次上線**：GitHub Pages 的 Source 設為 `GitHub Actions`（見 4.5）
 - [ ] 核對大綱中所有 `[驗]` 標記的引用（約 15 處）
 - [ ] `slides/` — 各週投影片（授課者自製；之後在 `_quarto.yml` sidebar 加入口）
 - [ ] `demos/` — 課堂 demo notebooks（授課者自製）
