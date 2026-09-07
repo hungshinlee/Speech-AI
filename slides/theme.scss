@@ -79,16 +79,27 @@ $c-muted: #6b7280;
 }
 
 // ── 表格 ────────────────────────────────────────────────────
+// 字級用「絕對值」而非 em：投影片常帶 .smaller，相對字級會相乘，
+// 造成同一份 deck 裡的表格大小不一（W1 曾經全部縮到 19.5px）。
 .reveal table {
-  font-size: .82em;
   border-collapse: collapse;
+  font-size: 26px;
+
+  th, td {
+    font-size: 26px;      // 明確覆寫，避免任何祖先的 em 疊乘
+    line-height: 1.34;
+    padding: .42em .62em;
+    vertical-align: top;
+  }
   th {
     background: #f6f8fa;
     font-weight: 650;
     border-bottom: 2px solid #d1d5db;
   }
-  td, th { padding: .34em .55em; vertical-align: top; }
   tbody tr + tr td { border-top: 1px solid #eef1f4; }
+
+  // 第一欄通常是短標籤，不換行讀起來更整齊
+  td:first-child, th:first-child { white-space: nowrap; }
 }
 
 // ── 引用與出處 ──────────────────────────────────────────────

@@ -127,13 +127,13 @@ This course is about the machinery that lets a system get both right at once —
 
 ## By week 14 you should be able to build one of these, and to argue about it {.smaller}
 
-Not "know about" — **read the papers critically, measure the systems, and defend design choices.**
+Not "know about" — **read the papers critically, measure the systems, defend design choices.**
 
 | Part | Weeks | What it gives you |
 |---|---|---|
-| **I — Foundations** | W2–W6 | signals and front ends; alignment (HMM → CTC); Transformers under a streaming constraint; self-supervised representations; neural codecs and discrete tokens |
-| **II — Modules** | W7–W10 | ASR; TTS generative paradigms; controllability and evaluation; the front end that full duplex cannot avoid |
-| **III — Dialogue systems** | W11–W14 | audio-native LMs; turn-taking; full-duplex architectures and data; evaluation, alignment, deployment |
+| **I — Foundations** | W2–W6 | front ends · alignment · streaming · SSL · neural codecs |
+| **II — Modules** | W7–W10 | ASR · TTS · controllability and evaluation · the front end |
+| **III — Dialogue** | W11–W14 | audio-native LMs · turn-taking · full duplex · evaluation |
 
 ::: {.notes}
 先修填「無」，所以要明說：W2 後半與 W3 前半承擔補課責任，第一週結束會發兩頁數學前置清單（內積與投影、條件獨立與邊際化、梯度下降）。
@@ -286,19 +286,19 @@ Once the model emits *something* every frame — including "say nothing" — tur
 順帶指出圖上那條虛線回饋：模型會聽到自己的聲音，所以真實部署一定要 AEC。學術資料集通常假設乾淨雙軌，這是 sim-to-real 最大的落差之一（W10）。
 :::
 
-## Which failure can you afford? {.smaller}
+## Which failure can you afford?
 
 | | Cascade | End-to-end S2S | Native full duplex |
 |---|---|---|---|
-| Paralinguistics | lost at the ASR output | preserved | preserved |
-| Turn-taking | external VAD / endpointer | external, usually | modelled per frame |
-| Semantic ability | full text LLM | degrades; mitigated by interleaving | same, plus timing to learn |
-| Controllability, tools, audit | strongest | weaker | weakest today |
-| Training cost | lowest | high | highest; needs two-track dialogue data |
-| Debuggability | per module | end to end only | end to end only |
+| Paralinguistics | lost at ASR output | preserved | preserved |
+| Turn-taking | external VAD | external, usually | per frame |
+| Semantic ability | full text LLM | degrades | degrades |
+| Control, tools, audit | strongest | weaker | weakest today |
+| Training cost | lowest | high | highest; needs two-track data |
+| Debugging | per module | end to end only | end to end only |
 
 ::: {.claim}
-There is no ranking here. Pick the architecture whose failure mode your application can survive.
+No ranking here. Pick the architecture whose failure mode your application can survive.
 :::
 
 ::: {.notes}
@@ -442,7 +442,7 @@ Prediction before we run it: which module will dominate?
 
 # Four behaviours a half-duplex system cannot have {.section-title}
 
-## The taxonomy {.smaller}
+## The taxonomy
 
 | Behaviour | The user is… | The system must… | Week |
 |---|---|---|---|
