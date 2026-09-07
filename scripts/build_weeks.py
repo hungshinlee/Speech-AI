@@ -143,7 +143,7 @@ def main():
         _ = (prev_link, next_link)  # page-navigation 由 Quarto 依 sidebar 順序處理
         out = "\n".join(fm + body) + "\n"
         written.append(write(os.path.join(WEEKS_DIR, "w%02d.qmd" % wnum), out))
-        sl = ("[▶](slides/w%02d.qmd)" % wnum) if slides_for(wnum) else "—"
+        sl = ("[▶ 開啟](slides/w%02d.qmd)" % wnum) if slides_for(wnum) else "—"
         index_rows.append("| **W%d** | [%s](weeks/w%02d.qmd) | %s | %s |"
                           % (wnum, title, wnum, PART_OF[wnum].split(" — ")[-1], sl))
 
@@ -225,6 +225,40 @@ def main():
 
     write(os.path.join(INC_DIR, "week-index.md"),
           BANNER + "\n\n" + "\n".join(index_rows) + "\n")
+
+    # ── 投影片索引頁：有幾份就列幾份，不必手動維護導覽 ──────────
+    rows = ["| 週次 | 主題 | 投影片 |", "|---|---|---|"]
+    have = 0
+    for _, wnum, title in week_heads:
+        if slides_for(wnum):
+            have += 1
+            rows.append("| **W%d** | [%s](weeks/w%02d.qmd) | [▶ 開啟投影片](slides/w%02d.qmd) |"
+                        % (wnum, title, wnum, wnum))
+        else:
+            rows.append("| W%d | %s | *尚未製作* |" % (wnum, title))
+    written.append(write(os.path.join(ROOT, "slides.qmd"), "\n".join([
+        "---",
+        'title: "投影片"',
+        'subtitle: "英文投影片、中文口述；共 %d / 14 週已完成"' % have,
+        "toc: false",
+        "---",
+        "",
+        BANNER,
+        "",
+        "投影片以英文製作，配合中文授課。每份都是 reveal.js 網頁，直接在瀏覽器開啟即可。",
+        "",
+        "::: {.callout-tip}",
+        "## 播放時的快捷鍵",
+        "`S` 開啟 presenter view（含中文備註）· `B` 開啟板書層可直接手寫 · "
+        "`ESC` 總覽全部投影片 · `F` 全螢幕 · 網址加上 `?print-pdf` 可列印",
+        ":::",
+        "",
+    ] + rows + [
+        "",
+        "投影片內嵌音訊，請確認裝置聲音已開啟。部分片段為左右聲道分離"
+        "（左＝使用者、右＝模型），建議使用耳機或立體聲喇叭。",
+        "",
+    ])))
 
     print("產生 %d 個檔案：" % len(written))
     for p in written:

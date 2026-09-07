@@ -5,6 +5,7 @@ project:
     - index.qmd
     - syllabus.qmd
     - resources.qmd
+    - slides.qmd
     - weeks/*.qmd
     - slides/*.qmd
   resources:
@@ -33,6 +34,8 @@ website:
         text: 首頁
       - href: syllabus.qmd
         text: 課程資訊
+      - href: slides.qmd
+        text: 投影片
       - href: resources.qmd
         text: 教材與資源
       - href: weeks/all.qmd
@@ -50,6 +53,8 @@ website:
         text: 首頁
       - href: syllabus.qmd
         text: 課程資訊
+      - href: slides.qmd
+        text: 投影片
       - section: "Part I — 基礎"
         contents:
           - href: weeks/w01.qmd

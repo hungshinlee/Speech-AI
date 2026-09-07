@@ -2,7 +2,7 @@
 
 | 週次 | 主題 | 區塊 | 投影片 |
 |---|---|---|---|
-| **W1** | [語音對話系統的系統觀與延遲預算](weeks/w01.qmd) | 基礎 | [▶](slides/w01.qmd) |
+| **W1** | [語音對話系統的系統觀與延遲預算](weeks/w01.qmd) | 基礎 | [▶ 開啟](slides/w01.qmd) |
 | **W2** | [語音訊號、聽覺前端與表徵的物理基礎](weeks/w02.qmd) | 基礎 | — |
 | **W3** | [對齊問題：從 HMM 到 CTC](weeks/w03.qmd) | 基礎 | — |
 | **W4** | [序列模型與 streaming 架構：Transformer、Conformer、RNN-T](weeks/w04.qmd) | 基礎 | — |
