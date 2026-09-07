@@ -30,7 +30,18 @@ python3 scripts/build_weeks.py    # 從大綱重建每週頁面
 quarto preview                    # 本機預覽
 ```
 
-`weeks/` 與 `_includes/` 由腳本自動產生，請勿直接編輯；內容一律改 `docs/course-outline.md`。
+`weeks/`、`_includes/`、`slides.qmd` 與 `notes/` 由腳本自動產生，請勿直接編輯：
+
+- 課程內容改 `docs/course-outline.md`，然後 `python3 scripts/build_weeks.py`
+- 投影片講稿改 `slides/wNN.qmd` 的 `::: {.notes}`，然後 `python3 scripts/extract_notes.py`
+
+## 上課時看中文講稿
+
+| 情境 | 做法 |
+|---|---|
+| 單螢幕備課 | 投影片網址加 `?showNotes=true` |
+| 有第二螢幕 | 按 `S` 開 presenter view |
+| 上課（畫面給學生看） | 讀 [`notes/w01.md`](notes/w01.md)，放平板或手機 |
 
 ## 待辦
 

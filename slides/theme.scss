@@ -49,7 +49,11 @@ $c-muted: #6b7280;
   line-height: 1.4;
   strong { color: $link-color; }
 }
-.reveal .claim.warn { border-left-color: $c-warn; background: #fef2f2; }
+.reveal .claim.warn {
+  border-left-color: $c-warn;
+  background: #fef2f2;
+  strong { color: $c-warn; }        // 警示框裡的強調要跟著警示色，不要留藍色
+}
 .reveal .claim.ok   { border-left-color: $c-ok;   background: #f0fdf4; }
 
 // ── 量測數字卡 ──────────────────────────────────────────────
