@@ -33,3 +33,6 @@ slides/*.html
 /Claude outputs/
 
 **/*.quarto_ipynb
+
+# 下載的原始音訊素材（大檔，不進版控；底線開頭 Quarto 也會忽略）
+/_media/

@@ -6,6 +6,10 @@ toc-depth: 2
 
 <!-- 此檔由 scripts/build_weeks.py 自動產生，請勿直接編輯；請改 docs/course-outline.md 後重跑腳本。 -->
 
+::: {.callout-note appearance="minimal"}
+[**▶ 本週投影片（English）**](../slides/w01.qmd)
+:::
+
 ## 定位
 不從訊號處理講起，而是先把終點攤開。目的是讓學生在第一週就知道後面 13 週每個模組要塞回哪個空格，並建立「latency 是第一級設計約束」的直覺。
 

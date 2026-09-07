@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1121 290" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<rect x="26.0" y="87.0" width="86.0" height="66.0" rx="7" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="69.0" y="120.0" font-size="17" font-weight="650" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Mic</text>
+<rect x="122.5" y="111.0" width="46.0" height="18.0" fill="#0b5cad" opacity=".9"/>
+<polygon points="168.5,111.0 179.5,120.0 168.5,129.0" fill="#0b5cad"/>
+<text x="145.5" y="102.0" font-size="12.5" fill="#0b5cad" text-anchor="middle">audio</text>
+<rect x="181.5" y="87.0" width="150.0" height="66.0" rx="7" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="256.5" y="114.0" font-size="17" font-weight="650" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">VAD /</text>
+<text x="256.5" y="134.0" font-size="13" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">endpointing</text>
+<rect x="342.0" y="111.0" width="40.0" height="18.0" fill="#0b5cad" opacity=".9"/>
+<polygon points="382.0,111.0 393.0,120.0 382.0,129.0" fill="#0b5cad"/>
+<text x="362.0" y="102.0" font-size="12.5" fill="#0b5cad" text-anchor="middle">audio</text>
+<rect x="395.0" y="87.0" width="108.0" height="66.0" rx="7" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="449.0" y="120.0" font-size="17" font-weight="650" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">ASR</text>
+<rect x="513.5" y="118.0" width="86.0" height="4.0" fill="#b45309" opacity=".9"/>
+<polygon points="599.5,111.0 610.5,120.0 599.5,129.0" fill="#b45309"/>
+<text x="556.5" y="109.0" font-size="12.5" fill="#b45309" text-anchor="middle">text only</text>
+<rect x="612.5" y="87.0" width="116.0" height="66.0" rx="7" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="670.5" y="120.0" font-size="17" font-weight="650" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">LLM</text>
+<rect x="739.0" y="118.0" width="86.0" height="4.0" fill="#b45309" opacity=".9"/>
+<polygon points="825.0,111.0 836.0,120.0 825.0,129.0" fill="#b45309"/>
+<text x="782.0" y="109.0" font-size="12.5" fill="#b45309" text-anchor="middle">text only</text>
+<rect x="838.0" y="87.0" width="108.0" height="66.0" rx="7" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="892.0" y="120.0" font-size="17" font-weight="650" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">TTS</text>
+<rect x="956.5" y="111.0" width="40.0" height="18.0" fill="#0b5cad" opacity=".9"/>
+<polygon points="996.5,111.0 1007.5,120.0 996.5,129.0" fill="#0b5cad"/>
+<text x="976.5" y="102.0" font-size="12.5" fill="#0b5cad" text-anchor="middle">audio</text>
+<rect x="1009.5" y="87.0" width="86.0" height="66.0" rx="7" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="1052.5" y="120.0" font-size="17" font-weight="650" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Speaker</text>
+<line x1="556.5" y1="68.0" x2="556.5" y2="194.0" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="4 3"/>
+<text x="556.5" y="212.0" font-size="13.5" font-weight="600" fill="#dc2626" text-anchor="middle">paralinguistics discarded here</text>
+<text x="560.8" y="42.0" font-size="15" fill="#1f2328" text-anchor="middle">Every module is separately trainable, monitorable, replaceable.</text>
+<text x="560.8" y="250.0" font-size="14" fill="#6b7280" text-anchor="middle">The system cannot act on anything the transcript does not carry: emotion, laughter, hesitation, speaking rate.</text>
+</svg>

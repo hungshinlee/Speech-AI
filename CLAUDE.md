@@ -125,6 +125,111 @@ GitHub repo → **Settings → Pages → Build and deployment → Source 設為 
 
 ---
 
+## 4.6 音訊素材與時間軸圖（W1 起）
+
+### 素材來源與授權
+
+課堂音訊來自 **Kyutai 的 `interactivity-alignment-samples`**（HuggingFace dataset，**CC-BY-4.0**），
+即 Ohashi, Zeghidour, Défossez & Kharitonov, *Multi-Faceted Interactivity Alignment in
+Full-Duplex Speech Models*, EMNLP 2026（arXiv:2606.11167）——這篇在 W14 的參考文獻裡已經有了，
+第一週開場的音訊、最後一週回來讀那篇論文，是刻意安排的閉環。
+
+**每一張用到這些音訊或其衍生圖的投影片都必須標註**（CC-BY 的要求）：
+
+> Audio: Ohashi, Zeghidour, Défossez & Kharitonov, *Multi-Faceted Interactivity Alignment
+> in Full-Duplex Speech Models*, EMNLP 2026 (arXiv:2606.11167).
+> Samples from `kyutai/interactivity-alignment-samples`, CC-BY-4.0.
+
+檔案格式：stereo WAV，**channel 0 = 輸入者、channel 1 = 模型輸出**。保留 stereo 很重要——
+教室播放時使用者在左耳、模型在右耳，重疊與否直接聽得出來。
+
+### 檔案配置
+
+| 位置 | 內容 | 版控 |
+|---|---|---|
+| `_media/` | 從 HF 下載的原始 WAV（143 MB） | **不進版控**（`.gitignore`）；`_` 開頭 Quarto 也忽略 |
+| `slides/assets/w01/` | 裁切後的 `.m4a` + `.opus`（140–220 KB）與時間軸 SVG | 進版控 |
+
+`.gitignore` 擋掉 `*.wav`，所以投影片用的音訊一律轉成 m4a（AAC，相容性最好）+ opus 備援，
+在 revealjs 裡用兩個 `<source>`。**HuggingFace 在雲端容器與本機 VM 都被代理擋掉（403）**——
+要補下載素材必須在 Mac 上做，指令見對話記錄或 `_media/` 的下載模式。
+
+### 兩支腳本
+
+- `scripts/analyze_duplex_audio.py` — 能量式 VAD 量出互動時序（response latency、overlap、
+  stop latency）。**指標命名刻意中性**（`usr_gap` 而非 `barge_in`），因為同一個時間量在不同
+  task 代表不同現象；曾經因為命名帶了解釋而得出誤導結論。
+- `scripts/make_duplex_timeline.py` — 產生雙軌時間軸 SVG（不需 matplotlib，直接寫 SVG）。
+
+**設計原則：圖只呈現資料，論點寫在投影片文字上。** 所以同一張圖能在 W1 與 W12 用不同論述
+重複使用。`no response for X s` 的自動標記有兩個嚴格條件——必須緊接使用者說完之後、且期間
+使用者也沒在說話——否則會把「模型在對方講話時正確地保持安靜」誤標成缺陷。這個判定條件
+改過兩次才對，不要隨意放寬。
+
+### W1 已選定的素材
+
+| 用途 | 檔案 | 關鍵數字 |
+|---|---|---|
+| Cold open | `synthetic_user_interruption/1`，Moshi base vs +Fisher | base：蓋過使用者 2.90 s，之後 10.2 s 無回應；Fisher：零重疊、60 ms 回應 |
+| 行為分類 | `icc_backchannel/3`，PersonaPlex base vs +Fisher | base：7 s 後沉默 35 s，overlap 0.88 s；Fisher：11 段短發聲，overlap 4.20 s |
+
+這兩組配在一起的教學價值在於：**同一個指標（overlap）在插話情境是壞事，在 backchannel
+情境是好事。** 這一刀同時砍掉「backchannel 就是短的 turn」與「overlap 越少越好」兩個誤解。
+
+`synthetic_pause_handling` **不用**：Moshi 是 ps3.0、PersonaPlex 是 ps0.0，兩個模型家族的輸入
+條件不同，不是對等比較；且分析結果不可信（多個變體量到零發聲）。要用得先讀清楚論文的 task 定義。
+
+---
+
+## 4.7 投影片（W1 起，`slides/w01.qmd` 是模板）
+
+### 格式決策
+
+| 決策 | 內容 | 理由 |
+|---|---|---|
+| 格式 | **Quarto revealjs** | 決定性因素是**能嵌入音訊**（PPTX/PDF 做不好，而 cold open 靠聽）；其次是原生數學、與網站同一個 build、純文字可 diff、`chalkboard` 可在投影片上直接手寫（W3/W6/W8 的白板時間） |
+| 語言分工 | 投影片英文、`::: {.notes}` 中文 | 對應「中文授課、英文投影片」。學生拿到投影片，拿不到 notes |
+| 標題 | **assertion-evidence**：標題寫主張，不寫主題 | 不是 "Cascade Architecture"，而是 "Cascade survives because every module can be debugged separately"。標題就是要學生記住的那句話 |
+| **不從大綱自動生成** | 投影片獨立撰寫 | 大綱是閱讀密度（連貫段落、完整論證），投影片是講述密度（一畫面一主張）。自動轉換必然產生 bullet 洪流 |
+| 網站連結 | `build_weeks.py` 偵測 `slides/wNN.qmd` 存在才注入連結 | 手動維護 nav 一定會漏；不存在就不給連結，避免死連結 |
+| 公開部署 | `slides/*.qmd` 在 `_quarto.yml` 的 render 清單內，一起上線 | 使用者決定。**但投影片應在課後才推上去**——cold open 的效果依賴學生沒有預先看過 |
+| `navigation-mode` | **`linear`**（必須） | `#` 章節標題會產生垂直堆疊，預設模式下左右鍵會在章節間跳而不是逐張前進，講課時會出事。踩過了 |
+| footer | 只用每張的 `::: {.footer}`，**不要設全域 `footer:`** | 兩者同時存在會疊字。踩過了 |
+| KaTeX | 與網站同樣釘 0.18.7 | 一致性 |
+
+### 檔案
+
+```
+slides/
+├── theme.scss     與網站同色票；字級下限等效 24pt（研究所教室後排看得到才算數）
+├── w01.qmd        36 張，對應大綱的 180 分鐘時間分配
+└── assets/w01/    音訊（m4a + opus 雙 source）與 SVG 圖
+```
+
+`theme.scss` 提供的自訂 class：`.claim`（主張框，另有 `.warn`/`.ok`）、`.metrics`/`.metric`（量測數字卡，`.bad`/`.good`）、`.ask`（提問，留白讓學生先答）、`.audio-label`、`.cite`、`.small`、`.dim`、`.tag`、`.section-title`。
+
+### W1 的敘事結構（後續各週可沿用）
+
+1. **Cold open 先播壞的**（3 張）：兩段音訊 → 時間軸 → 主張。不先解釋要聽什麼。
+2. **課程框架**（5 張）：目標、W6 是樞紐、三條主軸、實務說明。
+3. **三種架構**（8 張）：同一張圖用兩次——第一次講它為什麼有效，第二次只講瓶頸。中間插一張真正停下來的提問。
+4. **延遲**（7 張）：人類是瞄準目標不是最小化 → 誤解破解 → 預算母版 → 兩種延遲的公式 → p95 → live demo 骨架。
+5. **四種行為**（6 張）：taxonomy → backchannel 對照 → 「同一個指標在兩個情境相反」。
+6. **收尾**（4 張）：各週會填哪一格、下週、出處。
+
+**全 deck 最重要的一張**是「the same measurement is a defect in one task and a requirement in the other」——2.90 s 的重疊是失敗，4.20 s 的重疊是進步。它同時砍掉兩個誤解並推出「沒有可單向最佳化的指標」。
+
+### 產出 PDF
+
+revealjs 的 PDF 走瀏覽器列印：開 `slides/w01.html?print-pdf` 後在 Chrome 列印。音訊與逐步揭示會掉，所以那是補充版而非主要交付。
+
+### 待驗
+
+- W1 從未在真實投影機上跑過。第一次上課前請在教室環境確認：字級、色彩對比、以及**音訊在教室音響上的左右聲道**（左=使用者、右=模型，是 cold open 的關鍵）。
+- Stivers et al. 2009 那張投影片刻意**沒有**放常被引用的單一均值（例如「約 200 ms」）——那個數字我沒在論文正文讀到。若要放，請自己從 Fig. 1 / Table 1 讀出來。
+
+---
+
 ## 5. 寫作與引用規範（**優先於一切**）
 
 ### 語言與格式

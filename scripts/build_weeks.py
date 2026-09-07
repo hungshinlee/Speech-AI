@@ -114,7 +114,12 @@ def main():
         sys.exit("預期 14 個週次標題，實際找到 %d 個" % len(week_heads))
 
     written = []
-    index_rows = ["| 週次 | 主題 | 區塊 |", "|---|---|---|"]
+    index_rows = ["| 週次 | 主題 | 區塊 | 投影片 |", "|---|---|---|---|"]
+
+    def slides_for(n):
+        """該週是否已有投影片。存在才給連結，避免死連結。"""
+        rel = os.path.join("slides", "w%02d.qmd" % n)
+        return rel if os.path.exists(os.path.join(ROOT, rel)) else None
 
     for idx, (li, wnum, title) in enumerate(week_heads):
         body = trim(strip_hr(demote(slice_section(lines, li))))
@@ -130,11 +135,17 @@ def main():
             BANNER,
             "",
         ]
+        if slides_for(wnum):
+            fm += ["::: {.callout-note appearance=\"minimal\"}",
+                   "[**▶ 本週投影片（English）**](../slides/w%02d.qmd)" % wnum,
+                   ":::",
+                   ""]
         _ = (prev_link, next_link)  # page-navigation 由 Quarto 依 sidebar 順序處理
         out = "\n".join(fm + body) + "\n"
         written.append(write(os.path.join(WEEKS_DIR, "w%02d.qmd" % wnum), out))
-        index_rows.append("| **W%d** | [%s](weeks/w%02d.qmd) | %s |"
-                          % (wnum, title, wnum, PART_OF[wnum].split(" — ")[-1]))
+        sl = ("[▶](slides/w%02d.qmd)" % wnum) if slides_for(wnum) else "—"
+        index_rows.append("| **W%d** | [%s](weeks/w%02d.qmd) | %s | %s |"
+                          % (wnum, title, wnum, PART_OF[wnum].split(" — ")[-1], sl))
 
     # ── 2. 完整大綱單頁（排除附錄 C）──────────────────────────
     cut = find_heading(lines, "C. 課程設計備註（給授課者自己看）")

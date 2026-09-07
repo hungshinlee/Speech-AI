@@ -6,6 +6,9 @@ project:
     - syllabus.qmd
     - resources.qmd
     - weeks/*.qmd
+    - slides/*.qmd
+  resources:
+    - slides/assets/**
 
 lang: zh-Hant
 
