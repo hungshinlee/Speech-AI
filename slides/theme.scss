@@ -1,7 +1,7 @@
 /*-- scss:defaults --*/
 
 // 與課程網站同一組色票，讓網站與投影片看起來是同一套系統
-$presentation-font-size-root: 30px !default;
+$presentation-font-size-root: 34px !default;
 $presentation-h1-font-size:   1.62em !default;
 $presentation-h2-font-size:   1.24em !default;
 $presentation-h3-font-size:   1.02em !default;
@@ -12,7 +12,7 @@ $presentation-line-height:  1.42 !default;
 $body-color: #1f2328 !default;
 $body-bg:    #ffffff !default;
 $link-color: #0b5cad !default;
-$code-block-font-size: .52em !default;
+$code-block-font-size: .58em !default;
 
 $font-family-sans-serif:
   -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
@@ -45,7 +45,7 @@ $c-muted: #6b7280;
   background: #f8fafc;
   padding: .8em 1em;
   margin: .9em 0;
-  font-size: 1.12em;
+  font-size: 1.14em;
   line-height: 1.4;
   strong { color: $link-color; }
 }
@@ -64,15 +64,15 @@ $c-muted: #6b7280;
     padding: .5em .7em;
     background: #fff;
   }
-  .num { display: block; font-size: 1.5em; font-weight: 700; line-height: 1.1; }
-  .lab { display: block; font-size: .58em; color: $c-muted; margin-top: .25em; }
+  .num { display: block; font-size: 1.62em; font-weight: 700; line-height: 1.1; }
+  .lab { display: block; font-size: .68em; color: $c-muted; margin-top: .25em; }
   .bad  .num { color: $c-warn; }
   .good .num { color: $c-ok; }
 }
 
 // ── 提問slide：留白讓學生先答 ────────────────────────────────
 .reveal .ask {
-  font-size: 1.3em;
+  font-size: 1.34em;
   font-weight: 600;
   color: $link-color;
   margin: 1.2em 0 .6em;
@@ -80,7 +80,7 @@ $c-muted: #6b7280;
 
 // ── 表格 ────────────────────────────────────────────────────
 .reveal table {
-  font-size: .72em;
+  font-size: .82em;
   border-collapse: collapse;
   th {
     background: #f6f8fa;
@@ -93,15 +93,15 @@ $c-muted: #6b7280;
 
 // ── 引用與出處 ──────────────────────────────────────────────
 .reveal .cite, .reveal .footer {
-  font-size: .5em !important;
+  font-size: .6em !important;
   color: $c-muted;
   line-height: 1.35;
 }
-.reveal .small { font-size: .74em; }
+.reveal .small { font-size: .82em; }
 .reveal .dim   { color: $c-muted; }
 .reveal .tag {
   display: inline-block;
-  font-size: .52em;
+  font-size: .62em;
   font-weight: 650;
   padding: .12em .5em;
   border-radius: 20px;
@@ -113,11 +113,11 @@ $c-muted: #6b7280;
 // ── 音訊播放器：教室裡要一眼看到、一鍵按到 ──────────────────
 .reveal audio {
   width: 100%;
-  height: 44px;
+  height: 48px;
   margin: .35em 0 .1em;
 }
 .reveal .audio-label {
-  font-size: .6em;
+  font-size: .72em;
   font-weight: 650;
   color: $c-muted;
   margin-top: .5em;
@@ -137,4 +137,4 @@ $c-muted: #6b7280;
 // 兩欄
 .reveal .columns { align-items: flex-start; }
 
-.reveal .slide-number { font-size: .42em; }
+.reveal .slide-number { font-size: .5em; }

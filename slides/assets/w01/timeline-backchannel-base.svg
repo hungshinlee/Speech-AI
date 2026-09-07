@@ -1,56 +1,56 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 234" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 276" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
 <title>PersonaPlex (base) — listener over 42 s of narration — two-track conversation timeline</title>
 <desc>Channel 0 is the human input speaker; channel 1 is the model output. Red regions mark simultaneous speech.</desc>
 <defs><pattern id="hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="7" stroke="#dc2626" stroke-width="2.6" opacity=".85"/></pattern></defs>
-<line x1="118.0" y1="32" x2="118.0" y2="166" stroke="#e5e7eb" stroke-width="1"/>
-<text x="118.0" y="184" font-size="14" fill="#6b7280" text-anchor="middle">0s</text>
-<line x1="219.7" y1="32" x2="219.7" y2="166" stroke="#e5e7eb" stroke-width="1"/>
-<text x="219.7" y="184" font-size="14" fill="#6b7280" text-anchor="middle">5s</text>
-<line x1="321.3" y1="32" x2="321.3" y2="166" stroke="#e5e7eb" stroke-width="1"/>
-<text x="321.3" y="184" font-size="14" fill="#6b7280" text-anchor="middle">10s</text>
-<line x1="423.0" y1="32" x2="423.0" y2="166" stroke="#e5e7eb" stroke-width="1"/>
-<text x="423.0" y="184" font-size="14" fill="#6b7280" text-anchor="middle">15s</text>
-<line x1="524.6" y1="32" x2="524.6" y2="166" stroke="#e5e7eb" stroke-width="1"/>
-<text x="524.6" y="184" font-size="14" fill="#6b7280" text-anchor="middle">20s</text>
-<line x1="626.3" y1="32" x2="626.3" y2="166" stroke="#e5e7eb" stroke-width="1"/>
-<text x="626.3" y="184" font-size="14" fill="#6b7280" text-anchor="middle">25s</text>
-<line x1="728.0" y1="32" x2="728.0" y2="166" stroke="#e5e7eb" stroke-width="1"/>
-<text x="728.0" y="184" font-size="14" fill="#6b7280" text-anchor="middle">30s</text>
-<line x1="829.6" y1="32" x2="829.6" y2="166" stroke="#e5e7eb" stroke-width="1"/>
-<text x="829.6" y="184" font-size="14" fill="#6b7280" text-anchor="middle">35s</text>
-<line x1="931.3" y1="32" x2="931.3" y2="166" stroke="#e5e7eb" stroke-width="1"/>
-<text x="931.3" y="184" font-size="14" fill="#6b7280" text-anchor="middle">40s</text>
-<rect x="118" y="40" width="858" height="52" fill="#f8fafc" stroke="#e5e7eb" stroke-width="1" rx="3"/>
-<text x="104" y="64.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="end">User</text>
-<text x="104" y="81.0" font-size="12" fill="#6b7280" text-anchor="end">channel 0</text>
-<rect x="156.6" y="47" width="9.6" height="38" fill="#0b5cad" rx="2.5" opacity=".92"/>
-<rect x="176.4" y="47" width="27.2" height="38" fill="#0b5cad" rx="2.5" opacity=".92"/>
-<rect x="219.7" y="47" width="9.6" height="38" fill="#0b5cad" rx="2.5" opacity=".92"/>
-<rect x="239.4" y="47" width="8.1" height="38" fill="#0b5cad" rx="2.5" opacity=".92"/>
-<rect x="254.6" y="47" width="15.0" height="38" fill="#0b5cad" rx="2.5" opacity=".92"/>
-<rect x="276.8" y="47" width="55.1" height="38" fill="#0b5cad" rx="2.5" opacity=".92"/>
-<rect x="338.6" y="47" width="7.7" height="38" fill="#0b5cad" rx="2.5" opacity=".92"/>
-<rect x="353.2" y="47" width="13.2" height="38" fill="#0b5cad" rx="2.5" opacity=".92"/>
-<rect x="372.8" y="47" width="93.1" height="38" fill="#0b5cad" rx="2.5" opacity=".92"/>
-<rect x="475.8" y="47" width="19.7" height="38" fill="#0b5cad" rx="2.5" opacity=".92"/>
-<rect x="501.5" y="47" width="103.3" height="38" fill="#0b5cad" rx="2.5" opacity=".92"/>
-<rect x="611.2" y="47" width="13.2" height="38" fill="#0b5cad" rx="2.5" opacity=".92"/>
-<rect x="638.3" y="47" width="92.7" height="38" fill="#0b5cad" rx="2.5" opacity=".92"/>
-<rect x="739.7" y="47" width="38.6" height="38" fill="#0b5cad" rx="2.5" opacity=".92"/>
-<rect x="795.9" y="47" width="40.1" height="38" fill="#0b5cad" rx="2.5" opacity=".92"/>
-<rect x="845.5" y="47" width="18.1" height="38" fill="#0b5cad" rx="2.5" opacity=".92"/>
-<rect x="879.6" y="47" width="44.3" height="38" fill="#0b5cad" rx="2.5" opacity=".92"/>
-<rect x="933.3" y="47" width="21.8" height="38" fill="#0b5cad" rx="2.5" opacity=".92"/>
-<rect x="118" y="108" width="858" height="52" fill="#f8fafc" stroke="#e5e7eb" stroke-width="1" rx="3"/>
-<text x="104" y="132.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="end">Model</text>
-<text x="104" y="149.0" font-size="12" fill="#6b7280" text-anchor="end">channel 1</text>
-<rect x="126.5" y="115" width="31.1" height="38" fill="#b45309" rx="2.5" opacity=".92"/>
-<rect x="211.5" y="115" width="16.3" height="38" fill="#b45309" rx="2.5" opacity=".92"/>
-<rect x="240.0" y="115" width="15.9" height="38" fill="#b45309" rx="2.5" opacity=".92"/>
-<rect x="156.6" y="47" width="2.0" height="106" fill="url(#hatch)" stroke="#dc2626" stroke-width="1.2"/>
-<rect x="219.7" y="47" width="8.1" height="106" fill="url(#hatch)" stroke="#dc2626" stroke-width="1.2"/>
-<rect x="240.0" y="47" width="7.5" height="106" fill="url(#hatch)" stroke="#dc2626" stroke-width="1.2"/>
-<rect x="254.6" y="47" width="2.0" height="106" fill="url(#hatch)" stroke="#dc2626" stroke-width="1.2"/>
-<text x="118" y="24" font-size="19" font-weight="700" fill="#1f2328">PersonaPlex (base) — listener over 42 s of narration</text>
-<text x="976" y="24" font-size="14" fill="#dc2626" text-anchor="end">simultaneous speech: 0.88 s</text>
+<line x1="134.0" y1="40" x2="134.0" y2="188" stroke="#e5e7eb" stroke-width="1"/>
+<text x="134.0" y="213" font-size="20" fill="#6b7280" text-anchor="middle">0s</text>
+<line x1="233.8" y1="40" x2="233.8" y2="188" stroke="#e5e7eb" stroke-width="1"/>
+<text x="233.8" y="213" font-size="20" fill="#6b7280" text-anchor="middle">5s</text>
+<line x1="333.5" y1="40" x2="333.5" y2="188" stroke="#e5e7eb" stroke-width="1"/>
+<text x="333.5" y="213" font-size="20" fill="#6b7280" text-anchor="middle">10s</text>
+<line x1="433.3" y1="40" x2="433.3" y2="188" stroke="#e5e7eb" stroke-width="1"/>
+<text x="433.3" y="213" font-size="20" fill="#6b7280" text-anchor="middle">15s</text>
+<line x1="533.1" y1="40" x2="533.1" y2="188" stroke="#e5e7eb" stroke-width="1"/>
+<text x="533.1" y="213" font-size="20" fill="#6b7280" text-anchor="middle">20s</text>
+<line x1="632.8" y1="40" x2="632.8" y2="188" stroke="#e5e7eb" stroke-width="1"/>
+<text x="632.8" y="213" font-size="20" fill="#6b7280" text-anchor="middle">25s</text>
+<line x1="732.6" y1="40" x2="732.6" y2="188" stroke="#e5e7eb" stroke-width="1"/>
+<text x="732.6" y="213" font-size="20" fill="#6b7280" text-anchor="middle">30s</text>
+<line x1="832.3" y1="40" x2="832.3" y2="188" stroke="#e5e7eb" stroke-width="1"/>
+<text x="832.3" y="213" font-size="20" fill="#6b7280" text-anchor="middle">35s</text>
+<line x1="932.1" y1="40" x2="932.1" y2="188" stroke="#e5e7eb" stroke-width="1"/>
+<text x="932.1" y="213" font-size="20" fill="#6b7280" text-anchor="middle">40s</text>
+<rect x="134" y="48" width="842" height="58" fill="#f8fafc" stroke="#e5e7eb" stroke-width="1" rx="3"/>
+<text x="118" y="72.0" font-size="24" font-weight="600" fill="#1f2328" text-anchor="end">User</text>
+<text x="118" y="97.0" font-size="17" fill="#6b7280" text-anchor="end">channel 0</text>
+<rect x="171.9" y="55" width="9.4" height="44" fill="#0b5cad" rx="2.5" opacity=".92"/>
+<rect x="191.3" y="55" width="26.7" height="44" fill="#0b5cad" rx="2.5" opacity=".92"/>
+<rect x="233.8" y="55" width="9.4" height="44" fill="#0b5cad" rx="2.5" opacity=".92"/>
+<rect x="253.1" y="55" width="8.0" height="44" fill="#0b5cad" rx="2.5" opacity=".92"/>
+<rect x="268.1" y="55" width="14.8" height="44" fill="#0b5cad" rx="2.5" opacity=".92"/>
+<rect x="289.8" y="55" width="54.1" height="44" fill="#0b5cad" rx="2.5" opacity=".92"/>
+<rect x="350.5" y="55" width="7.6" height="44" fill="#0b5cad" rx="2.5" opacity=".92"/>
+<rect x="364.9" y="55" width="13.0" height="44" fill="#0b5cad" rx="2.5" opacity=".92"/>
+<rect x="384.0" y="55" width="91.4" height="44" fill="#0b5cad" rx="2.5" opacity=".92"/>
+<rect x="485.2" y="55" width="19.4" height="44" fill="#0b5cad" rx="2.5" opacity=".92"/>
+<rect x="510.3" y="55" width="101.4" height="44" fill="#0b5cad" rx="2.5" opacity=".92"/>
+<rect x="618.1" y="55" width="13.0" height="44" fill="#0b5cad" rx="2.5" opacity=".92"/>
+<rect x="644.6" y="55" width="91.0" height="44" fill="#0b5cad" rx="2.5" opacity=".92"/>
+<rect x="744.2" y="55" width="37.9" height="44" fill="#0b5cad" rx="2.5" opacity=".92"/>
+<rect x="799.2" y="55" width="39.3" height="44" fill="#0b5cad" rx="2.5" opacity=".92"/>
+<rect x="847.9" y="55" width="17.8" height="44" fill="#0b5cad" rx="2.5" opacity=".92"/>
+<rect x="881.4" y="55" width="43.5" height="44" fill="#0b5cad" rx="2.5" opacity=".92"/>
+<rect x="934.1" y="55" width="21.3" height="44" fill="#0b5cad" rx="2.5" opacity=".92"/>
+<rect x="134" y="124" width="842" height="58" fill="#f8fafc" stroke="#e5e7eb" stroke-width="1" rx="3"/>
+<text x="118" y="148.0" font-size="24" font-weight="600" fill="#1f2328" text-anchor="end">Model</text>
+<text x="118" y="173.0" font-size="17" fill="#6b7280" text-anchor="end">channel 1</text>
+<rect x="142.4" y="131" width="30.5" height="44" fill="#b45309" rx="2.5" opacity=".92"/>
+<rect x="225.8" y="131" width="16.0" height="44" fill="#b45309" rx="2.5" opacity=".92"/>
+<rect x="253.7" y="131" width="15.6" height="44" fill="#b45309" rx="2.5" opacity=".92"/>
+<rect x="171.9" y="55" width="2.0" height="120" fill="url(#hatch)" stroke="#dc2626" stroke-width="1.2"/>
+<rect x="233.8" y="55" width="8.0" height="120" fill="url(#hatch)" stroke="#dc2626" stroke-width="1.2"/>
+<rect x="253.7" y="55" width="7.4" height="120" fill="url(#hatch)" stroke="#dc2626" stroke-width="1.2"/>
+<rect x="268.1" y="55" width="2.0" height="120" fill="url(#hatch)" stroke="#dc2626" stroke-width="1.2"/>
+<text x="134" y="31" font-size="26" font-weight="700" fill="#1f2328">PersonaPlex (base) — listener over 42 s of narration</text>
+<text x="976" y="31" font-size="20" fill="#dc2626" text-anchor="end">simultaneous speech: 0.88 s</text>
 </svg>

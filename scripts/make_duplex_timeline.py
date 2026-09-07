@@ -21,8 +21,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from analyze_duplex_audio import read_stereo, vad   # noqa: E402
 
 W = 1000
-PAD_L, PAD_R, PAD_T, PAD_B = 118, 24, 40, 74
-LANE_H, LANE_GAP = 52, 16
+PAD_L, PAD_R, PAD_T, PAD_B = 134, 24, 48, 94
+LANE_H, LANE_GAP = 58, 18
 
 C_USER = "#0b5cad"
 C_MODEL = "#b45309"
@@ -107,8 +107,8 @@ def build(wav, title, tmax=None, mark_silence=True):
     while t <= T + 1e-6:
         a('<line x1="%.1f" y1="%d" x2="%.1f" y2="%d" stroke="%s" stroke-width="1"/>'
           % (x(t), PAD_T - 8, x(t), PAD_T + LANE_H * 2 + LANE_GAP + 6, C_GRID))
-        a('<text x="%.1f" y="%d" font-size="14" fill="%s" text-anchor="middle">%ds</text>'
-          % (x(t), y_model + LANE_H + 24, C_MUTED, t))
+        a('<text x="%.1f" y="%d" font-size="20" fill="%s" text-anchor="middle">%ds</text>'
+          % (x(t), y_model + LANE_H + 31, C_MUTED, t))
         t += step
 
     # 軌道
@@ -118,15 +118,15 @@ def build(wav, title, tmax=None, mark_silence=True):
     ):
         a('<rect x="%d" y="%d" width="%d" height="%d" fill="#f8fafc" stroke="%s" '
           'stroke-width="1" rx="3"/>' % (PAD_L, yy, plot_w, LANE_H, C_GRID))
-        a('<text x="%d" y="%.1f" font-size="17" font-weight="600" fill="%s" '
-          'text-anchor="end">%s</text>' % (PAD_L - 14, yy + LANE_H / 2 - 2, C_TEXT, label))
-        a('<text x="%d" y="%.1f" font-size="12" fill="%s" text-anchor="end">%s</text>'
-          % (PAD_L - 14, yy + LANE_H / 2 + 15, C_MUTED, sub))
+        a('<text x="%d" y="%.1f" font-size="24" font-weight="600" fill="%s" '
+          'text-anchor="end">%s</text>' % (PAD_L - 16, yy + LANE_H / 2 - 5, C_TEXT, label))
+        a('<text x="%d" y="%.1f" font-size="17" fill="%s" text-anchor="end">%s</text>'
+          % (PAD_L - 16, yy + LANE_H / 2 + 20, C_MUTED, sub))
         for s, e in segs:
             a('<rect x="%.1f" y="%d" width="%.1f" height="%d" fill="%s" rx="2.5" opacity=".92"/>'
               % (x(s), yy + 7, max(x(e) - x(s), 1.5), LANE_H - 14, col))
         if not segs:
-            a('<text x="%.1f" y="%.1f" font-size="14" fill="%s" font-style="italic">'
+            a('<text x="%.1f" y="%.1f" font-size="20" fill="%s" font-style="italic">'
               'no speech detected</text>' % (PAD_L + 12, yy + LANE_H / 2 + 5, C_MUTED))
 
     # 重疊區：跨兩軌的紅色斜線標記
@@ -140,25 +140,25 @@ def build(wav, title, tmax=None, mark_silence=True):
     # 模型最長靜默：量測跨距
     gap = longest_dead_air(user, model) if mark_silence else None
     if gap and gap[1] - gap[0] >= 1.5:
-        gy = y_model + LANE_H + 54
+        gy = y_model + LANE_H + 68
         x1, x2 = x(gap[0]), x(gap[1])
         a('<line x1="%.1f" y1="%d" x2="%.1f" y2="%d" stroke="%s" stroke-width="1.4"/>'
           % (x1, gy, x2, gy, C_TEXT))
         for xx in (x1, x2):
             a('<line x1="%.1f" y1="%d" x2="%.1f" y2="%d" stroke="%s" stroke-width="1.4"/>'
               % (xx, gy - 5, xx, gy + 5, C_TEXT))
-        a('<text x="%.1f" y="%d" font-size="14" fill="%s" text-anchor="middle">'
-          'no response for %.1f s</text>' % ((x1 + x2) / 2, gy - 10, C_TEXT, gap[1] - gap[0]))
+        a('<text x="%.1f" y="%d" font-size="20" fill="%s" text-anchor="middle">'
+          'no response for %.1f s</text>' % ((x1 + x2) / 2, gy - 13, C_TEXT, gap[1] - gap[0]))
 
     # 標題與圖例
-    a('<text x="%d" y="24" font-size="19" font-weight="700" fill="%s">%s</text>'
+    a('<text x="%d" y="31" font-size="26" font-weight="700" fill="%s">%s</text>'
       % (PAD_L, C_TEXT, esc(title)))
     if ov:
         tot = sum(e - s for s, e in ov)
-        a('<text x="%d" y="24" font-size="14" fill="%s" text-anchor="end">'
+        a('<text x="%d" y="31" font-size="20" fill="%s" text-anchor="end">'
           'simultaneous speech: %.2f s</text>' % (W - PAD_R, C_OVERLAP, tot))
     else:
-        a('<text x="%d" y="24" font-size="14" fill="%s" text-anchor="end">'
+        a('<text x="%d" y="31" font-size="20" fill="%s" text-anchor="end">'
           'simultaneous speech: none</text>' % (W - PAD_R, C_MUTED))
     a('</svg>')
     return "\n".join(o)

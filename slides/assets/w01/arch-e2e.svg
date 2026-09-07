@@ -1,32 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1096 290" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
-<rect x="26.0" y="87.0" width="86.0" height="66.0" rx="7" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6"/>
-<text x="69.0" y="120.0" font-size="17" font-weight="650" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Mic</text>
-<rect x="122.5" y="111.0" width="44.0" height="18.0" fill="#0b5cad" opacity=".9"/>
-<polygon points="166.5,111.0 177.5,120.0 166.5,129.0" fill="#0b5cad"/>
-<text x="144.5" y="102.0" font-size="12.5" fill="#0b5cad" text-anchor="middle">audio</text>
-<rect x="179.5" y="87.0" width="168.0" height="66.0" rx="7" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6"/>
-<text x="263.5" y="114.0" font-size="17" font-weight="650" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Audio encoder</text>
-<text x="263.5" y="134.0" font-size="13" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">SSL / codec</text>
-<rect x="358.0" y="114.0" width="74.0" height="12.0" fill="#7c3aed" opacity=".9"/>
-<polygon points="432.0,111.0 443.0,120.0 432.0,129.0" fill="#7c3aed"/>
-<text x="395.0" y="105.0" font-size="12.5" fill="#7c3aed" text-anchor="middle">speech tokens</text>
-<rect x="445.0" y="87.0" width="210.0" height="66.0" rx="7" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6"/>
-<text x="550.0" y="114.0" font-size="17" font-weight="650" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Speech–text LM</text>
-<text x="550.0" y="134.0" font-size="13" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">one autoregressive model</text>
-<rect x="665.5" y="114.0" width="74.0" height="12.0" fill="#7c3aed" opacity=".9"/>
-<polygon points="739.5,111.0 750.5,120.0 739.5,129.0" fill="#7c3aed"/>
-<text x="702.5" y="105.0" font-size="12.5" fill="#7c3aed" text-anchor="middle">speech tokens</text>
-<rect x="752.5" y="87.0" width="168.0" height="66.0" rx="7" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6"/>
-<text x="836.5" y="114.0" font-size="17" font-weight="650" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Codec decoder</text>
-<text x="836.5" y="134.0" font-size="13" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">vocoder</text>
-<rect x="931.0" y="111.0" width="40.0" height="18.0" fill="#0b5cad" opacity=".9"/>
-<polygon points="971.0,111.0 982.0,120.0 971.0,129.0" fill="#0b5cad"/>
-<text x="951.0" y="102.0" font-size="12.5" fill="#0b5cad" text-anchor="middle">audio</text>
-<rect x="984.0" y="87.0" width="86.0" height="66.0" rx="7" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6"/>
-<text x="1027.0" y="120.0" font-size="17" font-weight="650" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Speaker</text>
-<rect x="463.0" y="199.0" width="174.0" height="34.0" rx="7" fill="#fff7ed" stroke="#b45309" stroke-width="1.6"/>
-<text x="550.0" y="216.0" font-size="17" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">inner monologue (text)</text>
-<line x1="550.0" y1="153.0" x2="550.0" y2="191.0" stroke="#b45309" stroke-width="1.4" stroke-dasharray="4 3"/>
-<text x="548.0" y="42.0" font-size="15" fill="#1f2328" text-anchor="middle">Paralinguistics survive end to end — nothing is forced through a transcript.</text>
-<text x="548.0" y="268.0" font-size="14" fill="#6b7280" text-anchor="middle">Text is kept inside the loop as a planning channel, not as the interface.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1218 314" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<rect x="26.0" y="92.0" width="100.0" height="76.0" rx="7" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="76.0" y="130.0" font-size="22" font-weight="650" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Mic</text>
+<rect x="136.5" y="121.0" width="50.0" height="18.0" fill="#0b5cad" opacity=".9"/>
+<polygon points="186.5,121.0 197.5,130.0 186.5,139.0" fill="#0b5cad"/>
+<rect x="199.5" y="92.0" width="196.0" height="76.0" rx="7" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="297.5" y="122.0" font-size="22" font-weight="650" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Audio encoder</text>
+<text x="297.5" y="150.0" font-size="17" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">SSL / codec</text>
+<rect x="406.0" y="124.0" width="56.0" height="12.0" fill="#7c3aed" opacity=".9"/>
+<polygon points="462.0,121.0 473.0,130.0 462.0,139.0" fill="#7c3aed"/>
+<rect x="475.0" y="92.0" width="248.0" height="76.0" rx="7" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="599.0" y="122.0" font-size="22" font-weight="650" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Speech–text LM</text>
+<text x="599.0" y="150.0" font-size="17" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">one autoregressive model</text>
+<rect x="733.5" y="124.0" width="56.0" height="12.0" fill="#7c3aed" opacity=".9"/>
+<polygon points="789.5,121.0 800.5,130.0 789.5,139.0" fill="#7c3aed"/>
+<rect x="802.5" y="92.0" width="196.0" height="76.0" rx="7" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="900.5" y="122.0" font-size="22" font-weight="650" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Codec decoder</text>
+<text x="900.5" y="150.0" font-size="17" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">vocoder</text>
+<rect x="1009.0" y="121.0" width="46.0" height="18.0" fill="#0b5cad" opacity=".9"/>
+<polygon points="1055.0,121.0 1066.0,130.0 1055.0,139.0" fill="#0b5cad"/>
+<rect x="1068.0" y="92.0" width="124.0" height="76.0" rx="7" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="1130.0" y="130.0" font-size="22" font-weight="650" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Speaker</text>
+<rect x="455.0" y="190.0" width="288.0" height="44.0" rx="7" fill="#fff7ed" stroke="#b45309" stroke-width="1.6"/>
+<text x="599.0" y="212.0" font-size="22" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">inner monologue (text)</text>
+<line x1="599.0" y1="168.0" x2="599.0" y2="188.0" stroke="#b45309" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="26.0" y="253.0" width="34" height="18.0" fill="#0b5cad" opacity=".9"/>
+<text x="68.0" y="262.0" font-size="17" fill="#0b5cad" dominant-baseline="middle">audio</text>
+<rect x="149.0" y="256.0" width="34" height="12.0" fill="#7c3aed" opacity=".9"/>
+<text x="191.0" y="262.0" font-size="17" fill="#7c3aed" dominant-baseline="middle">speech tokens</text>
+<text x="609.0" y="296.0" font-size="18" fill="#6b7280" text-anchor="middle">Text is kept inside the loop as a planning channel, not as the interface.</text>
 </svg>

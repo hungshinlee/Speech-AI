@@ -143,14 +143,14 @@ Not "know about" — **read the papers critically, measure the systems, and defe
 
 ## W6 is the hinge. If you skip one week, do not skip that one.
 
-Everything in Part III is built on three ideas introduced in W6:
+All of Part III rests on three ideas from W6:
 
-- **frame rate** — how many tokens per second of speech, and therefore how many decoder steps per second
-- **token budget** — how much of the language model's context a 30-minute conversation costs
-- **semantic / acoustic disentanglement** — whether the model must learn meaning and timbre in the same representation
+- **frame rate** — tokens per second, and therefore decoder steps per second
+- **token budget** — what a 30-minute conversation costs in context
+- **semantic / acoustic disentanglement** — must meaning and timbre share one representation?
 
 ::: {.claim}
-Speech only becomes something a language model can consume once you have decided how to turn it into tokens. Every downstream latency and quality ceiling follows from that decision.
+Every latency and quality ceiling downstream follows from how you turned speech into tokens.
 :::
 
 ::: {.notes}
@@ -210,10 +210,10 @@ Thick line = audio. **Thin line = text.** The thickness is the information rate.
 
 ![](assets/w01/arch-cascade.svg){width="100%"}
 
-The LLM receives a string. It cannot know that the user was hesitant, amused, shouting, or speaking very fast — nor that they had not finished.
+The LLM receives a string. Hesitation, amusement, shouting, speaking rate — and whether the user had finished — are all gone.
 
 ::: {.claim .warn}
-The text bottleneck is not a quality problem you can fix with a better ASR. It is an **information-theoretic** one: the channel is too narrow for the signal.
+A better ASR cannot fix this. The channel is simply **too narrow for the signal**.
 :::
 
 ::: {.notes}
@@ -275,7 +275,7 @@ The field's current answer is neither pure cascade nor pure end-to-end. It is **
 ![](assets/w01/arch-duplex.svg){width="100%"}
 
 ::: {.claim}
-Once the model must emit *something* at every frame — including "say nothing" — turn-taking stops being a scheduling problem and becomes ordinary next-token prediction.
+Once the model emits *something* every frame — including "say nothing" — turn-taking becomes ordinary next-token prediction.
 :::
 
 ::: {.notes}
@@ -488,10 +488,10 @@ Audio: Ohashi et al., EMNLP 2026 (arXiv:2606.11167); `kyutai/interactivity-align
 
 ::: {.metrics}
 ::: {.metric}
-[0.88 s → 4.20 s]{.num}[simultaneous speech, base → post-trained]{.lab}
+[0.88 → 4.20 s]{.num}[simultaneous speech]{.lab}
 :::
 ::: {.metric}
-[3 → 11]{.num}[model utterances over the same 42 s]{.lab}
+[3 → 11]{.num}[model utterances, same 42 s]{.lab}
 :::
 :::
 
