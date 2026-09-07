@@ -46,7 +46,7 @@ Recording 2
 </audio>
 
 ::: {.footer}
-Audio: Ohashi, Zeghidour, Défossez & Kharitonov, *Multi-Faceted Interactivity Alignment in Full-Duplex Speech Models*, EMNLP 2026 (arXiv:2606.11167). Samples from `kyutai/interactivity-alignment-samples`, CC-BY-4.0. Stereo: left = user, right = model.
+Audio: Ohashi et al., EMNLP 2026 · CC-BY-4.0 · stereo: left = user, right = model
 :::
 
 ::: {.notes}
@@ -73,7 +73,7 @@ Audio: Ohashi, Zeghidour, Défossez & Kharitonov, *Multi-Faceted Interactivity A
 :::
 
 ::: {.footer}
-Energy-based VAD on each channel (25 ms frames, 10 ms hop) — an estimate, not a reference VAD. Analysis script: `scripts/analyze_duplex_audio.py`.
+Energy-based VAD, 25 ms / 10 ms hop — an estimate, not a reference VAD
 :::
 
 ::: {.notes}
@@ -339,7 +339,7 @@ Delay is a signal, not just a cost. A system that always answers instantly is no
 :::
 
 ::: {.footer}
-Stivers, Enfield, Brown, … Levinson, *Universals and cultural variation in turn-taking in conversation*, PNAS 106(26): 10587–10592, 2009. Open access.
+Stivers et al., PNAS 106(26): 10587–10592, 2009 · open access
 :::
 
 ::: {.notes}
@@ -473,7 +473,7 @@ PersonaPlex (base) — first 20 s
 </audio>
 
 ::: {.footer}
-Audio: Ohashi et al., EMNLP 2026 (arXiv:2606.11167); `kyutai/interactivity-alignment-samples`, CC-BY-4.0.
+Audio: Ohashi et al., EMNLP 2026 · CC-BY-4.0
 :::
 
 ::: {.notes}

@@ -103,10 +103,31 @@ $c-muted: #6b7280;
 }
 
 // ── 引用與出處 ──────────────────────────────────────────────
-.reveal .cite, .reveal .footer {
-  font-size: .6em !important;
+// .cite 在被縮放的 .slides 內，用 em 沒問題。
+.reveal .cite {
+  font-size: .6em;
   color: $c-muted;
   line-height: 1.35;
+}
+
+// .footer 與頁碼由 reveal 畫在「縮放容器之外」的頁面層，transform 不會作用到它們。
+// 用 em 的話，桌機 scale=1 看起來正常，但手機橫向 scale≈0.51 時就等於放大兩倍，
+// 會蓋住頁碼與板書按鈕。改用 vw 讓它隨視窗寬度縮放。
+.reveal .footer {
+  box-sizing: border-box;     // 少了這行，padding 會加在 100% 寬之外而衝出畫面
+  left: 16% !important;       // 讓出左下角的控制列
+  right: 12% !important;      // 讓出右下角的頁碼
+  bottom: 1.1em !important;
+  padding: 0 !important;
+  text-align: center;
+  white-space: normal !important;   // Quarto 預設 nowrap，長引用會溢出盒子外
+
+  font-size: clamp(10px, 1.55vw, 21px) !important;
+  color: $c-muted;
+  line-height: 1.3;
+}
+.reveal .slide-number {
+  font-size: clamp(9px, 1.1vw, 15px) !important;
 }
 .reveal .small { font-size: .82em; }
 .reveal .dim   { color: $c-muted; }
@@ -148,4 +169,3 @@ $c-muted: #6b7280;
 // 兩欄
 .reveal .columns { align-items: flex-start; }
 
-.reveal .slide-number { font-size: .5em; }
