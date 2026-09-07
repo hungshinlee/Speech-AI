@@ -176,6 +176,33 @@ def main():
         out = BANNER + "\n\n## " + display + "\n\n" + "\n".join(body) + "\n"
         written.append(write(os.path.join(INC_DIR, fname), out))
 
+    # 「課程地圖」區段裡用粗體（而非標題）分隔了三個子塊：ASCII 圖、三條主軸、
+    # 延遲預算。三條主軸在 index.qmd 已有手寫版本，會重複；因此在此拆開：
+    #   coursemap.md → 只留 ASCII 圖
+    #   latency.md   → 延遲預算，掛在 syllabus.qmd
+    i = find_heading(lines, "課程地圖（Course Map）")
+    if i is not None:
+        body = trim(strip_hr(slice_section(lines, i)))
+
+        def marker(prefix):
+            for n, ln in enumerate(body):
+                if ln.startswith(prefix):
+                    return n
+            return None
+
+        i_axes = marker("**三條貫穿全課的主軸")
+        i_lat = marker("**延遲預算")
+        if i_axes is not None:
+            write(os.path.join(INC_DIR, "coursemap.md"),
+                  BANNER + "\n\n## 課程地圖\n\n"
+                  + "\n".join(trim(body[:i_axes])) + "\n")
+        if i_lat is not None:
+            lat = trim(body[i_lat + 1:])   # 丟掉粗體那行，改用真正的標題
+            write(os.path.join(INC_DIR, "latency.md"),
+                  BANNER + "\n\n## 延遲預算：全課的共同座標系\n\n"
+                  + "\n".join(lat) + "\n")
+            written.append(os.path.join(INC_DIR, "latency.md"))
+
     # 速查表裡的相對連結需指回 weeks/
     rt = os.path.join(INC_DIR, "reading-table.md")
     if os.path.exists(rt):

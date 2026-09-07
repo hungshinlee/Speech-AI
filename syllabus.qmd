@@ -31,4 +31,6 @@ subtitle: "設定、閱讀方式與引用規範"
 
 W6（neural codec 與 tokenization）是全課樞紐：W11–W14 完全建立在 frame rate、token budget 與語意／聲學解耦這幾個概念之上。
 
+{{< include _includes/latency.md >}}
+
 {{< include _includes/disclaimer.md >}}
