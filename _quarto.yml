@@ -13,9 +13,17 @@ project:
 
 lang: zh-Hant
 
+# 網站骨架一律英文：覆寫 Quarto 內建的中文 UI 字串。
+# 頁內 TOC 標題見 format.html 的 toc-title。
+language:
+  search-text-placeholder: "Search"
+  repo-action-links-source: "View source"
+  repo-action-links-issue: "Report an issue"
+  back-to-top-title: "Back to top"
+
 website:
   title: "語音處理與人機互動"
-  description: "以建構半雙工／全雙工語音對話 AI 系統為最終目標的研究所課程"
+  description: "A graduate course built backwards from one goal: a half- and full-duplex spoken dialogue AI system"
   site-url: https://hungshinlee.github.io/Speech-AI/
   repo-url: https://github.com/hungshinlee/Speech-AI
   repo-actions: [source, issue]
@@ -31,15 +39,15 @@ website:
     collapse-below: lg
     left:
       - href: index.qmd
-        text: 首頁
+        text: Home
       - href: syllabus.qmd
-        text: 課程資訊
+        text: Syllabus
       - href: slides.qmd
-        text: 投影片
+        text: Slides
       - href: resources.qmd
-        text: 教材與資源
+        text: Resources
       - href: weeks/all.qmd
-        text: 完整大綱
+        text: Full outline
     right:
       - icon: github
         href: https://github.com/hungshinlee/Speech-AI
@@ -50,12 +58,12 @@ website:
     search: false
     contents:
       - href: index.qmd
-        text: 首頁
+        text: Home
       - href: syllabus.qmd
-        text: 課程資訊
+        text: Syllabus
       - href: slides.qmd
-        text: 投影片
-      - section: "Part I — 基礎"
+        text: Slides
+      - section: "Part I — Foundations"
         contents:
           - href: weeks/w01.qmd
           - href: weeks/w02.qmd
@@ -63,25 +71,25 @@ website:
           - href: weeks/w04.qmd
           - href: weeks/w05.qmd
           - href: weeks/w06.qmd
-      - section: "Part II — 模組"
+      - section: "Part II — Modules"
         contents:
           - href: weeks/w07.qmd
           - href: weeks/w08.qmd
           - href: weeks/w09.qmd
           - href: weeks/w10.qmd
-      - section: "Part III — 對話系統"
+      - section: "Part III — Dialogue Systems"
         contents:
           - href: weeks/w11.qmd
           - href: weeks/w12.qmd
           - href: weeks/w13.qmd
           - href: weeks/w14.qmd
       - href: resources.qmd
-        text: 教材與資源
+        text: Resources
       - href: weeks/all.qmd
-        text: 完整大綱（單頁）
+        text: Full outline (one page)
   page-footer:
-    left: "語音處理與人機互動 · 碩博班 · 14 週"
-    right: "以 [Quarto](https://quarto.org) 建置"
+    left: "語音處理與人機互動 · Speech Processing and Human-Machine Interaction · 14 weeks"
+    right: "Built with [Quarto](https://quarto.org)"
 
 format:
   html:
@@ -90,7 +98,7 @@ format:
       - styles.scss
     toc: true
     toc-depth: 2
-    toc-title: 本頁目錄
+    toc-title: "On this page"
     toc-expand: true
     smooth-scroll: true
     anchor-sections: true

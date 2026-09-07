@@ -1,5 +1,3 @@
-<!-- 此檔由 scripts/build_weeks.py 自動產生，請勿直接編輯；請改 docs/course-outline.md 後重跑腳本。 -->
-
 ## Course Map
 
 ```

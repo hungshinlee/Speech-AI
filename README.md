@@ -18,6 +18,7 @@
 | 授課對象 | 碩士班 / 博士班 |
 | 時數 | 14 週 × 3 小時，全為 lectures |
 | 語言 | 中文授課、英文投影片 |
+| 網站語言 | 首頁、投影片索引頁、導覽列與每週索引為英文；每週內頁、課程資訊與講稿為中文 |
 | 學生算力 | Colab 免費版 |
 
 ## 網站建置
@@ -33,6 +34,8 @@ quarto preview                    # 本機預覽
 `weeks/`、`_includes/`、`slides.qmd` 與 `notes/` 由腳本自動產生，請勿直接編輯：
 
 - 課程內容改 `docs/course-outline.md`，然後 `python3 scripts/build_weeks.py`
+- 每週的英文標題寫在大綱裡標題的下一行（`<!-- en: ... -->`），供首頁索引與投影片使用；缺了腳本會報錯
+- 首頁的英文課程地圖是手寫的 `docs/course-map-en.md`（ASCII 對齊敏感，不會自動更新）
 - 投影片講稿改 `slides/wNN.qmd` 的 `::: {.notes}`，然後 `python3 scripts/extract_notes.py`
 
 ## 上課時看中文講稿

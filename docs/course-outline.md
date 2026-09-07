@@ -83,6 +83,7 @@
 # Part I — 基礎（W1–W6）
 
 ## W1｜語音對話系統的系統觀與延遲預算
+<!-- en: A Systems View of Spoken Dialogue and the Latency Budget -->
 
 ### 定位
 不從訊號處理講起，而是先把終點攤開。目的是讓學生在第一週就知道後面 13 週每個模組要塞回哪個空格，並建立「latency 是第一級設計約束」的直覺。收尾放兩件不屬於任何單一模組的事：本土語言（台語、客語、原住民族語）缺少公開雙軌對話資料與統一正字法，這是結構性的研究缺口而不是工程雜事；以及一組「讀論文的四個問題」（輸入是否相同、時序怎麼量的、什麼被正規化掉了、這個指標在獎勵什麼），全課每週都會用到。
@@ -151,6 +152,7 @@
 ---
 
 ## W2｜語音訊號、聽覺前端與表徵的物理基礎
+<!-- en: Speech Signals, Auditory Front-Ends, and the Physics of Representation -->
 
 ### 定位
 本週提供之後所有模組的「輸入端語言」。對無先修背景的學生，這是整學期唯一一次系統性的 DSP，因此要極度節制：只講會在後面用到的東西（STFT、mel、phase、F0、SNR），不講完整的濾波器設計。
@@ -211,6 +213,7 @@
 ---
 
 ## W3｜對齊問題：從 HMM 到 CTC
+<!-- en: The Alignment Problem: From HMM to CTC -->
 
 ### 定位
 本課程的第一個核心數學週。語音辨識的本質困難不是分類，而是**未知對齊下的序列監督**。這一週把 HMM 的 forward-backward 與 CTC 的 forward-backward 放在同一個框架下講，讓學生看到 CTC 不是憑空發明，而是把 HMM 的邊際化搬到神經網路上。之後 W4 的 RNN-T、W13 的 streaming 對話狀態機都靠這個直覺。
@@ -271,6 +274,7 @@ Colab：用一個小型預訓練 CTC 模型（如 `torchaudio` 的 wav2vec2 CTC 
 ---
 
 ## W4｜序列模型與 streaming 架構：Transformer、Conformer、RNN-T
+<!-- en: Sequence Models and Streaming Architectures: Transformer, Conformer, RNN-T -->
 
 ### 定位
 把 W3 的對齊觀念接到現代架構，並第一次正式處理「因果性」這個貫穿全課的約束。RNN-T 在此登場，不只因為它是工業界 streaming ASR 的主力，更因為它的「輸出/不輸出」二元決策是 W12 全雙工 turn-taking 建模的直接前身。
@@ -336,6 +340,7 @@ Colab：用一個小型預訓練 CTC 模型（如 `torchaudio` 的 wav2vec2 CTC 
 ---
 
 ## W5｜自監督表徵學習（SSL）：語音基礎模型的來源
+<!-- en: Self-Supervised Representation Learning: Where Speech Foundation Models Come From -->
 
 ### 定位
 本週回答「特徵從哪來」。這是全課的表徵軸樞紐：W6 的 discrete token、W7 的 ASR encoder、W11 的 audio-native LM 幾乎都建在 SSL 表徵之上。
@@ -402,6 +407,7 @@ Colab：用一個小型預訓練 CTC 模型（如 `torchaudio` 的 wav2vec2 CTC 
 ---
 
 ## W6｜Neural Audio Codec 與離散化：語音成為「語言」的關鍵一步
+<!-- en: Neural Audio Codecs and Discretization: Turning Speech into a Language -->
 
 ### 定位
 **全課的樞紐週。** 這一週決定了學生能不能理解 W11–W13 的 audio-native LM。核心命題：把語音變成離散 token，語音才能被丟進 LLM；但每一種離散化都在「重建品質 / bitrate / frame rate / 語意可分性」四個軸上做取捨，而這些取捨會直接決定對話系統的延遲與品質上限。
@@ -486,6 +492,7 @@ Colab 可跑：`transformers` 的 EnCodec（或 `descript-audio-codec`）做逐�
 # Part II — 模組（W7–W10）
 
 ## W7｜語音辨識：三種範式、streaming 與 LLM 化
+<!-- en: Speech Recognition: Three Paradigms, Streaming, and the LLM Turn -->
 
 ### 定位
 把 W3–W5 收斂成一個可用的 ASR 系統觀。本週的重點不是「再講一次 CTC」，而是**選擇問題**：在給定延遲、算力、領域與可控性需求下，該選哪一種範式，以及 2025–2026 的 LLM-based ASR 改變了什麼。
@@ -547,6 +554,7 @@ Colab：`faster-whisper` 或 `transformers` Whisper-small。三格 cell：(1) �
 ---
 
 ## W8｜語音合成 I：生成範式與 streaming 合成
+<!-- en: Speech Synthesis I: Generative Paradigms and Streaming TTS -->
 
 ### 定位
 本課程的第二個核心數學週。TTS 是全雙工系統的輸出端，而它的兩個主流範式（autoregressive codec LM 與 flow matching / diffusion）分別對應「與 LLM 天然相容」和「品質與速度俱佳但非因果」兩種取捨。**flow matching 的推導在此完成，之後 W9 的 RL 後訓練與 W13 的 streaming 生成都會用到。**
@@ -638,6 +646,7 @@ Colab：`faster-whisper` 或 `transformers` Whisper-small。三格 cell：(1) �
 ---
 
 ## W9｜語音合成 II：可控性、後訓練對齊、評估與濫用防範
+<!-- en: Speech Synthesis II: Controllability, Post-Training Alignment, Evaluation, and Misuse -->
 
 ### 定位
 接續 W8。這一週處理三件在對話系統中真正決定體驗的事：**可控性**（情緒、語速、風格能不能被指令控制）、**後訓練**（RL 如何修 AR TTS 的穩定性與偏好對齊）、**評估與風險**（怎麼量、以及 voice cloning 的濫用防範）。評估方法論在此建立，W14 會擴展到對話層級。
@@ -719,6 +728,7 @@ Colab：`faster-whisper` 或 `transformers` Whisper-small。三格 cell：(1) �
 ---
 
 ## W10｜全雙工的「物理層」：VAD、AEC、增強、分離與說話人
+<!-- en: The Physical Layer of Full-Duplex: VAD, AEC, Enhancement, Separation, Speaker -->
 
 ### 定位
 本週把前端整併成一週，觀點是**「全雙工系統為什麼非做這些不可」**，而不是逐項深講。核心洞見：一個會邊聽邊說的系統，麥克風必然收到自己的聲音（→ AEC）、必然遇到多人與噪音（→ 分離／增強／diarization）、必然要決定「這句話是對我說的嗎」（→ 說話人辨識 + 目標語者抽取）。這些在 half-duplex 系統中可以繞過，在全雙工中不行。
@@ -796,6 +806,7 @@ Colab：`faster-whisper` 或 `transformers` Whisper-small。三格 cell：(1) �
 # Part III — 對話系統（W11–W14）
 
 ## W11｜Audio-Native 語言模型：半雙工語音對話的建成
+<!-- en: Audio-Native Language Models: Building Half-Duplex Spoken Dialogue -->
 
 ### 定位
 Part III 的起點。本週把 W5（SSL）、W6（codec）、W7（ASR）、W8（TTS）接成一個端到端的**半雙工** speech-to-speech 模型，並把「文字瓶頸」與「modality gap」這兩個核心問題講透。W12–W13 再加上時間軸的同步性。
@@ -880,6 +891,7 @@ Colab 免費版上跑完整 s2s 模型偏重，建議：(1) 用一個小型開�
 ---
 
 ## W12｜全雙工 I：Turn-Taking 的語言學基礎與建模
+<!-- en: Full-Duplex I: Linguistic Foundations and Modeling of Turn-Taking -->
 
 ### 定位
 本週是全課的概念高峰。刻意**先講對話分析（CA）的語言學發現，再講建模**，因為「什麼算一個好的 turn-taking 決策」這件事若沒有語言學基準，模型評估就無從設計。這一週也解釋了為何 VAD-based 的 endpointing 天生不夠。
@@ -957,6 +969,7 @@ Colab 免費版上跑完整 s2s 模型偏重，建議：(1) 用一個小型開�
 ---
 
 ## W13｜全雙工 II：架構路線、多串流建模與資料問題
+<!-- en: Full-Duplex II: Architectures, Multi-Stream Modeling, and Data -->
 
 ### 定位
 把 W12 的「決策問題」變成「架構問題」。本週的教學策略是**三條路線並排比較**，並用同一組評估維度（延遲、可控性、語意能力保留、訓練成本、資料需求）打分。資料問題單獨處理，因為它是目前最被低估的瓶頸。
@@ -1042,6 +1055,7 @@ Colab 上跑 Moshi 級模型偏重，替代方案：(1) 播放官方 demo 音訊
 ---
 
 ## W14｜評估、對齊、落地與 Open Problems
+<!-- en: Evaluation, Alignment, Deployment, and Open Problems -->
 
 ### 定位
 收束全課。三個主題：**怎麼量**（互動能力的評估方法論）、**怎麼調**（互動導向的 RL 與偏好對齊）、**怎麼上線**（延遲工程、on-device、安全）。最後用 open problems 收尾，並給出研究切入點。

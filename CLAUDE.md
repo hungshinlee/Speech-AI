@@ -35,7 +35,8 @@ Remote：`git@github.com:hungshinlee/Speech-AI.git`（branch `main`）
 ├── CLAUDE.md                 ← 本檔
 ├── README.md                 repo 說明
 ├── docs/
-│   └── course-outline.md     ★ single source of truth（14 週完整大綱，~117 KB）
+│   ├── course-outline.md     ★ single source of truth（14 週完整大綱，~117 KB）
+│   └── course-map-en.md      首頁課程地圖的英文版（手寫，ASCII 對齊敏感）
 │
 ├── _quarto.yml               Quarto 網站設定（導覽、主題、KaTeX）
 ├── styles.scss               自訂樣式（含手機版規則）
@@ -55,6 +56,17 @@ Remote：`git@github.com:hungshinlee/Speech-AI.git`（branch `main`）
 `docs/course-outline.md` 是所有後續產出的**單一真相來源**。投影片、demo notebook 都應該對得回它的週次編號與 learning objectives。
 
 同一份已上傳到 Claude Project「教學｜Speech AI」的 `claude/course-outline-14weeks.md`。**若改動 `docs/course-outline.md`，記得用 `project_write` 同步該 doc**，否則兩邊會漂移。
+
+### 每週英文標題的存放方式
+
+`docs/course-outline.md` 每個 `## WN｜中文標題` 的**下一行**是一句 HTML 註解：
+
+```markdown
+## W3｜對齊問題：從 HMM 到 CTC
+<!-- en: The Alignment Problem: From HMM to CTC -->
+```
+
+`build_weeks.py` 讀它產生首頁的英文週次索引與每週頁的 `subtitle`，並在寫檔前把註解濾掉（不會出現在網頁上）。新增或改寫週次標題時**必須同時給英文**，否則腳本會直接 `sys.exit`。英文標題也就是該週投影片標題的預設用法。
 
 ---
 
@@ -97,6 +109,9 @@ CI 在 deploy 前也會重跑一次這個腳本，所以就算忘了在本機跑
 | 網址 | `hungshinlee.github.io/Speech-AI/`（子路徑） | Quarto 用相對連結，子路徑可直接運作，不需改設定 |
 | KaTeX 版本 | **釘在 0.18.7**（`_quarto.yml` 的 `html-math-method.url`） | Quarto 預設載 `katex@latest`，上游改版會無聲壞掉 |
 | 附錄 C | **不上網站**，只存在 `docs/course-outline.md` | 那是授課者私用的課程設計備註 |
+| 網站語言 | **骨架英文、內容中文**。英文：`index.qmd`、`slides.qmd`、navbar／sidebar／footer、每週索引、頁內 TOC 標題、repo-actions 與搜尋（後四項靠 `_quarto.yml` 的 `language:` 覆寫 Quarto 內建中文字串）。中文：`weeks/`、`weeks/all.qmd`、`syllabus.qmd`、`resources.qmd`、投影片的 `::: {.notes}` 講稿 | 修課學生與外部訪客都要照顧。首頁與投影片是對外的門面，內頁對齊「中文授課」。站名 `語音處理與人機互動` 不翻 |
+| 週次索引 | 英文標題為連結、中文標題為次行（`[…]{.wk-zh}`） | 連結文字與點進去的中文頁面標題會對不起來，兩個都給才不會迷路 |
+| 首頁課程地圖 | 讀 `docs/course-map-en.md`，**不從中文大綱切** | ASCII 圖的對齊靠字元寬度，中英混排無法自動轉換；中文版仍留在大綱裡供 `all.qmd` 使用 |
 | 投影片與 demo | **由授課者自行製作**，AI 不代勞 | 使用者明確指示。之後放 `slides/` 與 `demos/`，並在 `_quarto.yml` 的 sidebar 加入口 |
 
 ### 手機閱讀：實際會壞的三個地方
@@ -450,7 +465,7 @@ revealjs 的 PDF 走瀏覽器列印：開 `slides/w01.html?print-pdf` 後在 Chr
 ## 8. 維護紀律
 
 - **W11–W14 的文獻半衰期約 6 個月。** 每次開課前重掃 arXiv `cs.CL` / `eess.AS` 近三個月，以及 Interspeech / ICASSP / ASRU / SLT 最新議程。
-- 動 `docs/course-outline.md` 之後：(a) **重跑 `python3 scripts/build_weeks.py`**；(b) 同步 Project doc（見第 3 節）；(c) 若改了週次結構或標題，回頭檢查附錄 A 速查表、`_quarto.yml` 的 sidebar 清單與 README。
+- 動 `docs/course-outline.md` 之後：(a) **重跑 `python3 scripts/build_weeks.py`**；(b) 同步 Project doc（見第 3 節）；(c) 若改了週次結構或標題，回頭檢查附錄 A 速查表、`_quarto.yml` 的 sidebar 清單與 README；(d) 改週次標題時**中英文一起改**（英文寫在標題下一行的 `<!-- en: -->`），改週次分組時記得 `docs/course-map-en.md` 是手寫的，不會自動更新。
 - 新增內容時注意兩個會破渲染的陷阱：**markdown 表格的 cell 裡不能出現裸的 `|`**（行內數學請用 `\lvert … \rvert`），以及 **KaTeX 不支援 `\mathbb{1}`**（用 `\mathbf{1}`）。這兩個都踩過了。
 - Commit 訊息用中文或英文皆可，但要說明**改了哪一週、改了什麼層級**（結構／內容／引用）。
 

@@ -7,7 +7,7 @@ $font-family-sans-serif:
   "Hiragino Sans GB", sans-serif !default;
 $font-family-monospace:
   ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
-  "Liberation Mono", monospace !default;
+  "DejaVu Sans Mono", "Liberation Mono", monospace !default;
 
 $font-size-root:       17px !default;
 $line-height-base:     1.75 !default;
@@ -41,6 +41,13 @@ main table {
   font-size: 1rem;
   th { background: #f6f8fa; font-weight: 600; white-space: nowrap; }
   td, th { vertical-align: top; }
+}
+
+// 首頁每週索引：英文標題為主，中文標題作次行
+.wk-zh {
+  color: #6b7280;
+  font-size: .86rem;
+  line-height: 1.5;
 }
 
 // ── 長行 display math 在手機上可橫捲，不溢出頁面 ───────────

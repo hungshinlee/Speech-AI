@@ -5,39 +5,43 @@ toc: false
 ---
 
 ::: {.lead}
-這門課的終點是一個問題：**要怎麼建出一個能邊聽邊說、可以被打斷、也知道什麼時候該開口的語音對話系統？**
+The course is built backwards from a single question: **how do you build a spoken dialogue system that can listen while it speaks, be interrupted, and know when it is its turn to talk?**
 :::
 
-課程從這個終點倒推，把 14 週分成三段：先建立訊號、對齊、表徵與離散化的基礎，再逐一拆解 ASR、TTS 與前端模組，最後進入 audio-native 語言模型與全雙工架構。內容對齊 2025–2026 的技術脈絡，含完整的數學推導路徑。
+Working back from that endpoint, the 14 weeks split into three parts. Part I lays the foundations — signals, alignment, representation learning and discretization. Part II takes the modules apart one at a time — ASR, TTS, and the acoustic front end. Part III arrives at audio-native language models and full-duplex architectures. The material tracks the 2025–2026 technical landscape and carries the derivations through rather than gesturing at them.
 
 | | |
 |---|---|
-| **授課對象** | 碩士班 / 博士班（無硬性先修） |
-| **時數** | 14 週 × 3 小時，全為 lectures |
-| **語言** | 中文授課、英文投影片 |
-| **算力** | 課堂 demo 以 Colab 免費版為上限設計 |
+| **Audience** | Master's / PhD students; no hard prerequisites |
+| **Format** | 14 weeks × 3 hours, lectures throughout |
+| **Language** | Lectures in Mandarin, slides in English |
+| **Compute** | In-class demos are designed to fit the free tier of Colab |
 
-## 三條貫穿全課的主軸
+## Three Threads Through the Course
 
-每一週都會回扣這三個問題。它們是全課的座標系，也是期末回頭看時能把 14 週串起來的線。
+Every week comes back to these three questions. They are the coordinate system of the course, and the line that ties the 14 weeks together when you look back from the end.
 
-| 主軸 | 問題 |
+| Thread | Question |
 |---|---|
-| **表徵軸** | 這一層用什麼表徵？waveform / spectrogram / continuous SSL feature / discrete token？誰決定 frame rate？ |
-| **延遲軸** | 這個模組吃掉多少 latency budget？是演算法延遲（lookahead）還是計算延遲？ |
-| **監督軸** | 這個能力從哪來？標註資料 / 自監督 / 合成資料 / 人類偏好（RLHF）？ |
+| **Representation** | What does this layer operate on — waveform / spectrogram / continuous SSL feature / discrete token? And what decides the frame rate? |
+| **Latency** | How much of the latency budget does this module spend? Is it algorithmic latency (lookahead) or compute latency? |
+| **Supervision** | Where does this capability come from — labeled data / self-supervision / synthetic data / human preference (RLHF)? |
 
 {{< include _includes/coursemap.md >}}
 
-## 每週內容
+## Weekly Schedule
 
 {{< include _includes/week-index.md >}}
 
-## 怎麼用這個網站
+## How to Use This Site
 
-- **分週閱讀**：左側導覽（手機上是左上角選單）依 Part I / II / III 分組，每週一頁。每頁含定位、learning objectives、概念拆解、關鍵數學骨架、常見誤解、課堂時間分配、demo 建議與參考文獻。
-- **[投影片](slides.qmd)**：英文投影片，reveal.js 網頁版，內嵌課堂用的音訊素材。按 `S` 可開啟含中文備註的 presenter view。
-- **全文搜尋**：右上角搜尋涵蓋全站，找特定論文或概念最快。
-- **[完整大綱單頁](weeks/all.qmd)**：14 週串成一頁，適合列印或一次瀏覽。行動裝置上不建議。
-- **[教材與資源](resources.qmd)**：教科書章節對照、每週「若只讀一篇」速查表、工具鏈建議。
-- **引用可信度**：文獻標了 `[驗]` 表示需要查證，`[主題]` 表示只給檢索關鍵字。詳見 [課程資訊](syllabus.qmd)。
+- **Read week by week**: the sidebar (top-left menu on mobile) groups the weeks into Part I / II / III, one page each. Every page carries the framing, learning objectives, the concept walkthrough, the mathematical skeleton, common misconceptions, a 180-minute time budget, demo suggestions, and references.
+- **[Slides](slides.qmd)**: English slides, served as reveal.js pages with the in-class audio embedded. Press `S` for the presenter view, which includes the Chinese speaker notes.
+- **Full-text search**: the box at the top right covers the whole site — the fastest way to locate a specific paper or concept.
+- **[Full outline, single page](weeks/all.qmd)**: all 14 weeks strung together, for printing or reading straight through. Not recommended on mobile.
+- **[Materials and resources](resources.qmd)**: textbook chapter mapping, a per-week "if you read only one paper" table, and toolchain suggestions.
+- **Citation reliability**: a reference tagged `[驗]` still needs verification; `[主題]` means only search keywords are given, not a citation. See [Syllabus](syllabus.qmd).
+
+::: {.callout-note appearance="simple"}
+**A note on language.** The site's navigation, this page and the slides are in English; the week pages, the syllabus and the resource pages are in Chinese, matching how the course is taught. Week titles in the schedule above are given in both languages.
+:::

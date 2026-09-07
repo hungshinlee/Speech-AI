@@ -1,35 +1,35 @@
 ---
-title: "投影片"
-subtitle: "英文投影片、中文口述；共 1 / 14 週已完成"
+title: "Slides"
+subtitle: "English slides, Mandarin delivery — 1 of 14 weeks ready"
 toc: false
 ---
 
 <!-- 此檔由 scripts/build_weeks.py 自動產生，請勿直接編輯；請改 docs/course-outline.md 後重跑腳本。 -->
 
-投影片以英文製作，配合中文授課。每份都是 reveal.js 網頁，直接在瀏覽器開啟即可。
+The slides are written in English to accompany the Mandarin lectures. Each deck is a reveal.js page — open it in a browser, nothing to install.
 
-講者備註為中文，並未加密——按 `S` 或在網址加上 `?showNotes=true` 都能看到。
+Speaker notes are in Chinese, and they are not private: press `S`, or add `?showNotes=true` to the URL, and anyone can read them.
 
 ::: {.callout-tip}
-## 播放時的快捷鍵
-`S` 開啟 presenter view（含中文備註）· `B` 開啟板書層可直接手寫 · `ESC` 總覽全部投影片 · `F` 全螢幕 · 網址加上 `?print-pdf` 可列印
+## Keyboard shortcuts
+`S` presenter view (with the Chinese speaker notes) · `B` chalkboard layer for writing on a slide · `ESC` slide overview · `F` full screen · add `?print-pdf` to the URL to print
 :::
 
-| 週次 | 主題 | 投影片 |
-|---|---|---|
-| **W1** | [語音對話系統的系統觀與延遲預算](weeks/w01.qmd) | [▶ 開啟投影片](slides/w01.qmd) |
-| W2 | 語音訊號、聽覺前端與表徵的物理基礎 | *尚未製作* |
-| W3 | 對齊問題：從 HMM 到 CTC | *尚未製作* |
-| W4 | 序列模型與 streaming 架構：Transformer、Conformer、RNN-T | *尚未製作* |
-| W5 | 自監督表徵學習（SSL）：語音基礎模型的來源 | *尚未製作* |
-| W6 | Neural Audio Codec 與離散化：語音成為「語言」的關鍵一步 | *尚未製作* |
-| W7 | 語音辨識：三種範式、streaming 與 LLM 化 | *尚未製作* |
-| W8 | 語音合成 I：生成範式與 streaming 合成 | *尚未製作* |
-| W9 | 語音合成 II：可控性、後訓練對齊、評估與濫用防範 | *尚未製作* |
-| W10 | 全雙工的「物理層」：VAD、AEC、增強、分離與說話人 | *尚未製作* |
-| W11 | Audio-Native 語言模型：半雙工語音對話的建成 | *尚未製作* |
-| W12 | 全雙工 I：Turn-Taking 的語言學基礎與建模 | *尚未製作* |
-| W13 | 全雙工 II：架構路線、多串流建模與資料問題 | *尚未製作* |
-| W14 | 評估、對齊、落地與 Open Problems | *尚未製作* |
+| Week | Topic | Slides |
+|:---|:--------------------------|:--------|
+| **W1** | [A Systems View of Spoken Dialogue and the Latency Budget](weeks/w01.qmd)<br>[語音對話系統的系統觀與延遲預算]{.wk-zh} | [▶ Open](slides/w01.qmd) |
+| W2 | Speech Signals, Auditory Front-Ends, and the Physics of Representation<br>[語音訊號、聽覺前端與表徵的物理基礎]{.wk-zh} | *Not yet available* |
+| W3 | The Alignment Problem: From HMM to CTC<br>[對齊問題：從 HMM 到 CTC]{.wk-zh} | *Not yet available* |
+| W4 | Sequence Models and Streaming Architectures: Transformer, Conformer, RNN-T<br>[序列模型與 streaming 架構：Transformer、Conformer、RNN-T]{.wk-zh} | *Not yet available* |
+| W5 | Self-Supervised Representation Learning: Where Speech Foundation Models Come From<br>[自監督表徵學習（SSL）：語音基礎模型的來源]{.wk-zh} | *Not yet available* |
+| W6 | Neural Audio Codecs and Discretization: Turning Speech into a Language<br>[Neural Audio Codec 與離散化：語音成為「語言」的關鍵一步]{.wk-zh} | *Not yet available* |
+| W7 | Speech Recognition: Three Paradigms, Streaming, and the LLM Turn<br>[語音辨識：三種範式、streaming 與 LLM 化]{.wk-zh} | *Not yet available* |
+| W8 | Speech Synthesis I: Generative Paradigms and Streaming TTS<br>[語音合成 I：生成範式與 streaming 合成]{.wk-zh} | *Not yet available* |
+| W9 | Speech Synthesis II: Controllability, Post-Training Alignment, Evaluation, and Misuse<br>[語音合成 II：可控性、後訓練對齊、評估與濫用防範]{.wk-zh} | *Not yet available* |
+| W10 | The Physical Layer of Full-Duplex: VAD, AEC, Enhancement, Separation, Speaker<br>[全雙工的「物理層」：VAD、AEC、增強、分離與說話人]{.wk-zh} | *Not yet available* |
+| W11 | Audio-Native Language Models: Building Half-Duplex Spoken Dialogue<br>[Audio-Native 語言模型：半雙工語音對話的建成]{.wk-zh} | *Not yet available* |
+| W12 | Full-Duplex I: Linguistic Foundations and Modeling of Turn-Taking<br>[全雙工 I：Turn-Taking 的語言學基礎與建模]{.wk-zh} | *Not yet available* |
+| W13 | Full-Duplex II: Architectures, Multi-Stream Modeling, and Data<br>[全雙工 II：架構路線、多串流建模與資料問題]{.wk-zh} | *Not yet available* |
+| W14 | Evaluation, Alignment, Deployment, and Open Problems<br>[評估、對齊、落地與 Open Problems]{.wk-zh} | *Not yet available* |
 
-投影片內嵌音訊，請確認裝置聲音已開啟。部分片段為左右聲道分離（左＝使用者、右＝模型），建議使用耳機或立體聲喇叭。
+The decks embed audio, so check that sound is on. Some clips are channel-separated (left = user, right = model); headphones or stereo speakers are recommended.
