@@ -1,0 +1,85 @@
+---
+title: "W6｜Neural Audio Codec 與離散化：語音成為「語言」的關鍵一步"
+subtitle: "Part I — 基礎"
+toc-depth: 2
+---
+
+<!-- 此檔由 scripts/build_weeks.py 自動產生，請勿直接編輯；請改 docs/course-outline.md 後重跑腳本。 -->
+
+## 定位
+**全課的樞紐週。** 這一週決定了學生能不能理解 W11–W13 的 audio-native LM。核心命題：把語音變成離散 token，語音才能被丟進 LLM；但每一種離散化都在「重建品質 / bitrate / frame rate / 語意可分性」四個軸上做取捨，而這些取捨會直接決定對話系統的延遲與品質上限。
+
+## Learning objectives
+1. 能推導 VQ-VAE 的三項損失（重建、codebook、commitment）與 straight-through 梯度，並解釋 EMA 更新的動機。
+2. 能說明 residual VQ 的階層結構與 bitrate 計算，並從 rate-distortion 觀點解釋為何 RVQ 的第一層承載最多語意。
+3. 能比較 acoustic token（重建導向）、semantic token（SSL 導向）、以及 semantic-acoustic 解耦／單 codebook 三種設計，並針對「餵給 LLM」這個用途評估各自代價。
+4. 能計算一個 codec 設定下的 token rate，並推算它對 LM context 長度、每秒解碼步數與延遲的影響。
+
+## 概念拆解路徑
+- **直覺比喻**：codec 就是「為語音發明一套字母」。RVQ 是「先寫大字、再用小字修正細節」的多層字母表。這個比喻延伸到 W13 的 Moshi：多層 codebook 的階層結構正好可以映射到「一個時間步輸出多個 token」的 RQ-Transformer 設計。失效點：codec 的「字母」沒有語言學意義，也不對齊音節邊界 —— 這是 2026 年 dynamic frame rate / character-aligned tokenizer 這一批工作的動機。
+- **形式化**：
+  - VQ：$z_q = e_k$，$k = \arg\min_j \lVert z_e - e_j \rVert_2$
+  - 損失：$\mathcal{L} = \lVert x - \hat{x}\rVert + \lVert \mathrm{sg}[z_e] - e \rVert^2 + \beta \lVert z_e - \mathrm{sg}[e] \rVert^2$
+  - RVQ：$r_0 = z_e$，$q_i = \mathrm{VQ}_i(r_{i-1})$，$r_i = r_{i-1} - q_i$，$z_q = \sum_i q_i$
+  - bitrate：$B = f_{\text{token}} \times N_q \times \log_2 V$（bits/s）
+- **為什麼有效**：語音的資訊率遠低於波形取樣率；RVQ 的階層讓 rate 可以逐層增加而不必重訓，且第一層天然學到最粗、最語意相關的成分。
+- **什麼情況下會壞掉**：
+  - **codebook collapse**：只有少數 code 被使用 → EMA、k-means 初始化、codebook reset、低維 codebook（DAC 的做法）、FSQ（完全去掉學習型 codebook）；
+  - **frame rate 太高**：token rate 直接乘上 LM 的每秒步數。12.5 Hz vs. 50 Hz 是四倍的解碼成本與 context 消耗；
+  - **frame rate 太低**：2026 年有一批工作專門在探討低 frame rate 造成的音質與可懂度退化；
+  - **語意/聲學糾纏**：純重建導向的 token 讓 LM 必須同時學語意與音色，這是 modality gap 的來源之一（W11）。
+
+## 關鍵數學（骨架）
+1. **VQ 的 straight-through**：$\dfrac{\partial \mathcal{L}}{\partial z_e} \approx \dfrac{\partial \mathcal{L}}{\partial z_q}$，說明這是「假裝量化是恆等映射」的偏誤估計，以及 commitment loss 為何能限制這個偏誤。
+2. **EMA codebook 更新**：$N_i^{(t)} = \gamma N_i^{(t-1)} + (1-\gamma) n_i^{(t)}$，$m_i^{(t)} = \gamma m_i^{(t-1)} + (1-\gamma)\sum z$，$e_i = m_i / N_i$ — 指出這等價於 online k-means。
+3. **RVQ 的 rate-distortion 直覺**：把 $\mathbb{E}\lVert r_i \rVert^2$ 隨層數遞減畫出來，說明為何前幾層的邊際增益最大、後幾層近似高斯殘差（→ 可用更少 bit 或直接丟棄）。
+4. **FSQ（finite scalar quantization）**：$z_q = \mathrm{round}(\lfloor L/2 \rfloor \tanh(z))$，隱含 codebook 大小 $\prod_i L_i$，無需 codebook loss。用它說明「collapse 問題有結構性解法」。
+5. **Token budget 的計算練習**（務必在課堂上算一遍）：
+   $$\text{每秒 LM 步數} = f_{\text{token}}, \quad \text{每步 token 數} = N_q, \quad \text{context 消耗} = f_{\text{token}} N_q \times \text{對話秒數}$$
+   代入 12.5 Hz × 8 層 = 100 tokens/s 與 50 Hz × 1 層 = 50 tokens/s 兩組，對比 30 分鐘對話的 context 需求。
+
+## 常見誤解排除
+| 誤解 | 破解 |
+|---|---|
+| 「bitrate 越低越好」 | 低 bitrate 對「餵 LLM」有利（context 省），對「音質」不利。這兩個目標在 codec 設計上是直接衝突的，這正是 semantic-acoustic dual-stream 設計存在的理由。 |
+| 「semantic token 就是音素」 | 播放只用 semantic token 重建的音訊：內容可懂但音色/語調被抹平。這是最有效的示範。 |
+| 「codec 的重建指標（PESQ/ViSQOL）好就代表適合當 LM 的輸入」 | 反例：高保真 codec 的 token 序列統計性質可能對 LM 很不友善（entropy 高、長程結構弱）。2025–2026 有一系列在分析 codec token 的「語言統計性質」的工作。 |
+| 「frame rate 是實作細節」 | 它同時決定延遲下限、context 成本與 LM 可學習性。它是**第一級設計選擇**。 |
+
+## 課堂骨架（180 min）
+| 時間 | 內容 |
+|---|---|
+| 0–15 | 動機：LLM 只吃 token，語音怎麼變 token？（回顧 W5 的 discrete unit） |
+| 15–55 | VQ-VAE 推導 → collapse 問題 → EMA / k-means init / 低維 codebook / FSQ |
+| 55–90 | RVQ 與 SoundStream / EnCodec / DAC 的架構對照（含 discriminator 與 multi-scale STFT loss 的角色） |
+| 90–100 | 休息 |
+| 100–130 | **Live demo**：同一段音訊在不同 $N_q$（1/2/4/8 層）下的重建聆聽，並播放「只保留第一層」的結果 |
+| 130–160 | Semantic vs. acoustic：SpeechTokenizer 的蒸餾式解耦、Mimi 的 split-RVQ、單 codebook 路線（WavTokenizer 類）、2026 的 dynamic frame rate |
+| 160–175 | **Token budget 計算練習**（學生動手算） |
+| 175–180 | 回填 W1 延遲預算表；宣告 W11 會用到本週全部內容 |
+
+## 課堂 demo 建議
+Colab 可跑：`transformers` 的 EnCodec（或 `descript-audio-codec`）做逐層重建對照聆聽。額外加一格 cell：把 token 序列印出來，讓學生看「語音的字母」長什麼樣，並算 token rate。
+
+## 參考資料
+**基礎**
+- van den Oord, Vinyals & Kavukcuoglu, **Neural Discrete Representation Learning**（VQ-VAE）, NeurIPS 2017
+- Razavi, van den Oord & Vinyals, **Generating Diverse High-Fidelity Images with VQ-VAE-2**, NeurIPS 2019 — 階層量化的先例
+- Mentzer et al., **Finite Scalar Quantization: VQ-VAE Made Simple**, ICLR 2024
+- **BB**（Bishop & Bishop, 2024）關於 VAE / 離散潛變數的章節
+
+**語音 codec**
+- Zeghidour et al., **SoundStream: An End-to-End Neural Audio Codec**, IEEE/ACM TASLP, 2021
+- Défossez, Copet, Synnaeve & Adi, **High Fidelity Neural Audio Compression**（EnCodec）, TMLR 2023
+- Kumar et al., **High-Fidelity Audio Compression with Improved RVQGAN**（DAC）, NeurIPS 2023
+- Zhang et al., **SpeechTokenizer: Unified Speech Tokenizer for Speech Language Models**, ICLR 2024
+- Ji et al., **WavTokenizer: An Efficient Acoustic Discrete Codec Tokenizer for Audio Language Modeling**, ICLR 2025 `[驗]`
+- Défossez et al., **Moshi: A Speech-Text Foundation Model for Real-Time Dialogue**, 2024 — 其中 **Mimi** codec 的設計（split-RVQ、semantic 蒸餾、12.5 Hz）是本週最重要的實例
+
+**2025–2026 前沿（適合當延伸閱讀或課堂討論）**
+- Chen et al., **SAC: Neural Speech Codec with Semantic-Acoustic Dual-Stream Quantization**, arXiv:2510.16841（2025）
+- Li et al., **FlexiCodec: A Dynamic Neural Audio Codec for Low Frame Rates**, ICLR 2026（arXiv:2510.00981）
+- Wang et al., **CodecSlime: Temporal Redundancy Compression of Neural Speech Codec via Dynamic Frame Rate**, arXiv:2506.21074（2025）
+- Della Libera, Subakan & Ravanelli, **Beyond Fixed Frames: Dynamic Character-Aligned Speech Tokenization**, arXiv:2601.23174（2026）
+- Gichamba & Busogi, **Probing Low Frame Rate Degradation in Neural Audio Codecs**, Interspeech 2026（arXiv:2606.16969）
+- Park et al., **Analysing the Language of Neural Audio Codecs**, ASRU 2025（arXiv:2509.01390）與其擴充版 **Language-Statistical Analysis of Neural Audio Codec Tokens Across Architectures, Corpora, and Noise Conditions**（arXiv:2608.31037, 投稿 TASLP） — 「codec token 的語言統計性質」這條線，非常適合當研究所級的討論題

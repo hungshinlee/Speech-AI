@@ -1,0 +1,59 @@
+---
+title: "W1｜語音對話系統的系統觀與延遲預算"
+subtitle: "Part I — 基礎"
+toc-depth: 2
+---
+
+<!-- 此檔由 scripts/build_weeks.py 自動產生，請勿直接編輯；請改 docs/course-outline.md 後重跑腳本。 -->
+
+## 定位
+不從訊號處理講起，而是先把終點攤開。目的是讓學生在第一週就知道後面 13 週每個模組要塞回哪個空格，並建立「latency 是第一級設計約束」的直覺。
+
+## Learning objectives
+1. 能畫出 cascaded ASR→LLM→TTS、speech-to-speech end-to-end、native full-duplex 三種架構的資料流，並指出各自的資訊瓶頸。
+2. 能把一個目標端到端延遲（例如 500 ms）分解成各模組的預算，並說明哪些項目是演算法延遲、哪些是計算延遲。
+3. 能定義 half-duplex / full-duplex 在語音互動中的操作性差異，並舉出三種 half-duplex 系統做不到的互動行為（barge-in、backchannel、overlap 中維持說話）。
+4. 能說明為什麼「把 VAD 調快」不等於解決了 turn-taking。
+
+## 概念拆解路徑
+- **直覺比喻**：對講機（push-to-talk）→ 電話（雙向但需輪替）→ 面對面對話（可重疊、可打斷、可以在對方說話時「嗯」一聲）。這個比喻可延伸整學期；它的失效點在於：人類的「同時說話」不是兩條獨立音軌，而是彼此即時互相調整的耦合系統，這正是 W12–W13 的難點。
+- **形式化**：把系統寫成一個 streaming 函數 $y_{1:t} = f(x_{1:t+\ell})$，其中 $\ell$ 為 lookahead。定義
+  - **演算法延遲** $\ell \cdot \Delta$（$\Delta$ 為 frame shift）：即使計算無限快也躲不掉；
+  - **計算延遲** = RTF（real-time factor）× 音訊長度 + 排隊；
+  - **端到端延遲** = 兩者相加 + 網路 + 播放緩衝。
+- **為什麼有效**：cascade 之所以在 2023–2024 還是主流，是因為它讓每個模組可獨立最佳化與監控；end-to-end 之所以逼近，是因為文字瓶頸丟掉了 paralinguistic 資訊（情緒、笑聲、語速、猶豫）。
+- **什麼情況下會壞掉**：cascade 在 overlap、非語言音、code-switching、以及「使用者說了半句就停」時退化最嚴重；end-to-end 在需要工具呼叫、長期記憶、可控性與可稽核性時退化。
+
+## 關鍵數學（骨架）
+只需兩件事：
+1. 延遲加總與 chunk 化的取捨：chunk size $C$、frame shift $\Delta$ 下，平均演算法延遲約 $\frac{C}{2}\Delta$ 到 $C\Delta$（依 chunk 邊界對齊方式），而 attention 的計算量 per chunk 隨 $C$ 增長；由此得到「chunk 大小是延遲與品質／算力的三方 trade-off」。
+2. 排隊視角：把每個模組看成 M/M/1，說明為什麼「平均延遲可接受」但 **p95 延遲爆掉**才是真正的使用者體驗殺手 —— 之後 W14 的評估會回來用這一點。
+
+## 常見誤解排除
+| 誤解 | 破解 |
+|---|---|
+| 「full-duplex = 支援打斷」 | 打斷只是最容易 demo 的一項。full-duplex 的定義是**模型在說話時持續處理輸入串流並持續決策**；一個用 VAD 硬停 TTS 的系統仍是 half-duplex。 |
+| 「延遲問題是工程問題，不是研究問題」 | streaming 約束會改變損失函數（RNN-T vs. AED）、改變表徵（低 frame rate codec）、改變架構（因果注意力）。它是建模問題。 |
+| 「end-to-end 一定比 cascade 好」 | 目前的實務是混合：語意能力仍多來自文字 LLM，token interleaving 與 inner monologue 正是為了保住文字能力（W11、W13）。 |
+
+## 課堂骨架（180 min）
+| 時間 | 內容 |
+|---|---|
+| 0–20 | 課程目標、地圖、評分（無）與閱讀方式；宣告三條主軸 |
+| 20–50 | **Live demo**：同一個問題分別餵給 (a) 自建 cascade、(b) 一個開源 end-to-end s2s 模型，錄下 waveform 與時間軸，逐段標出延遲來源 |
+| 50–60 | 休息 |
+| 60–105 | 三種架構的資料流與資訊瓶頸；**停下來提問**：文字瓶頸丟掉了什麼？（讓學生列，再對照 paralinguistic 清單） |
+| 105–140 | 延遲預算表格實作：一起把 demo 錄音的時間軸填進預算表 |
+| 140–170 | 全雙工的互動行為分類（barge-in、backchannel、overlap、proactive turn）與各自的評估難點（預告 W14） |
+| 170–180 | 下週前置：Colab 環境、`torchaudio` 安裝 |
+
+## 課堂 demo 建議
+用 `pyaudio`/`sounddevice` 錄一段「使用者在系統說話中途插話」的音訊，畫出兩軌 waveform + 系統狀態時間軸。重點不是模型好壞，而是**讓學生看到那 800 ms 的沉默**。
+
+## 參考資料
+- **JM3** Ch 26 *Conversation and its Structure*（對話結構、turn-taking 的語言學基礎）、App K *Frame-based Dialogue Systems*（對照組：傳統 pipeline）
+- Ji et al., **WavChat: A Survey of Spoken Dialogue Models**, arXiv:2411.13577（2024）— 半雙工時代的系統分類，適合當第一週的架構總覽
+- Lu et al., **A Survey of Full-Duplex Spoken Dialogue Systems: Architectural Hierarchy, Interaction Ontology, and Decision State Machine**, arXiv:2606.19453（2026）— 目前最新且最完整的全雙工架構分類，本課程 W12–W13 的骨幹
+- Chen & Yu, **From Turn-Taking to Synchronous Dialogue: A Survey of Full-Duplex Spoken Language Models**, arXiv:2509.14515（2025）
+- Wang et al., **Towards General Auditory Intelligence: Large Multimodal Models for Machine Listening and Speaking**, arXiv:2511.01299（2025）— 聽與說的統一視角
+- `[主題]` 人類 turn-taking 的時間統計：檢索 *turn-taking timing universals*、*Levinson Torreira timing in turn-taking*、*response latency conversation corpus*

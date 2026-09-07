@@ -1,0 +1,133 @@
+/*-- scss:defaults --*/
+
+// CJK 優先的字體堆疊：中文用系統黑體，英文與程式碼保留原生字體
+$font-family-sans-serif:
+  -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
+  "PingFang TC", "Noto Sans TC", "Microsoft JhengHei",
+  "Hiragino Sans GB", sans-serif !default;
+$font-family-monospace:
+  ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+  "Liberation Mono", monospace !default;
+
+$font-size-root:       16px !default;
+$line-height-base:     1.75 !default;
+$body-color:           #1f2328 !default;
+$link-color:           #0b5cad !default;
+$table-cell-padding-y: .5rem !default;
+$table-cell-padding-x: .7rem !default;
+$toc-font-size:        .85rem !default;
+
+/*-- scss:rules --*/
+
+// ── 中文排版 ──────────────────────────────────────────────
+body {
+  letter-spacing: .01em;
+  text-rendering: optimizeLegibility;
+}
+main p, main li, main td { text-wrap: pretty; }
+
+h1, h2, h3 { letter-spacing: .005em; line-height: 1.4; }
+h2 {
+  margin-top: 2.4rem;
+  padding-bottom: .3rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+h3 { margin-top: 1.8rem; }
+
+// ── 表格：桌機正常呈現，窄螢幕改為可橫向捲動 ──────────────
+main table {
+  font-size: .95rem;
+  th { background: #f6f8fa; font-weight: 600; white-space: nowrap; }
+  td, th { vertical-align: top; }
+}
+
+// ── 長行 display math 在手機上可橫捲，不溢出頁面 ───────────
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: .35rem 0;
+}
+.katex { font-size: 1.02em; }
+
+// ── ASCII 圖與程式碼：一律不換行，改為橫向捲動 ─────────────
+pre, pre code {
+  white-space: pre;
+  word-wrap: normal;
+}
+pre {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  line-height: 1.5;
+}
+
+// ── 引用區塊（大綱裡的免責聲明與提醒）─────────────────────
+main blockquote {
+  border-left: 3px solid $link-color;
+  background: #f8fafc;
+  padding: .8rem 1rem;
+  margin: 1.4rem 0;
+  font-size: .95rem;
+  color: #374151;
+  > :last-child { margin-bottom: 0; }
+}
+
+// 引用可信度標記
+code:not(pre code) {
+  background: #f2f4f7;
+  padding: .1em .35em;
+  border-radius: 3px;
+  font-size: .88em;
+  color: #9a3412;
+}
+
+// ── 手機（≤ 768px）─────────────────────────────────────────
+@media (max-width: 768px) {
+
+  body { font-size: 15.5px; line-height: 1.8; }
+
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.25rem; margin-top: 2rem; }
+  h3 { font-size: 1.08rem; }
+
+  // 表格改為獨立捲動容器：保留換行可讀性，必要時橫捲
+  main table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+    font-size: .88rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+
+    th, td { min-width: 7.5rem; }
+    // 最後一欄通常是長段落（破解方式、內容說明），給多一點寬度
+    th:last-child, td:last-child { min-width: 15rem; }
+    // 兩欄表（誤解／破解）不需要 nowrap 的表頭
+    th { white-space: normal; }
+  }
+
+  // 可橫捲的元素給一個視覺提示
+  main table, pre { box-shadow: inset -8px 0 8px -8px rgba(0,0,0,.18); }
+
+  pre { font-size: .74rem; }
+
+  .katex-display > .katex { font-size: .95em; }
+
+  // 段落與清單縮排收緊，換取閱讀寬度
+  main ul, main ol { padding-left: 1.25rem; }
+  main blockquote { padding: .7rem .8rem; margin: 1.1rem 0; }
+}
+
+// ── 超窄螢幕（≤ 400px）────────────────────────────────────
+@media (max-width: 400px) {
+  pre { font-size: .68rem; }
+  main table { font-size: .84rem; }
+}
+
+// ── 列印（完整大綱頁供列印用）──────────────────────────────
+@media print {
+  #quarto-sidebar, #quarto-margin-sidebar, .navbar, .nav-footer { display: none !important; }
+  main table { display: table; font-size: 9pt; }
+  h2 { page-break-after: avoid; }
+  pre { font-size: 7.5pt; }
+}

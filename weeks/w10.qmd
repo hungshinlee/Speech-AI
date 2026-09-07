@@ -1,0 +1,78 @@
+---
+title: "W10｜全雙工的「物理層」：VAD、AEC、增強、分離與說話人"
+subtitle: "Part II — 模組"
+toc-depth: 2
+---
+
+<!-- 此檔由 scripts/build_weeks.py 自動產生，請勿直接編輯；請改 docs/course-outline.md 後重跑腳本。 -->
+
+## 定位
+本週把前端整併成一週，觀點是**「全雙工系統為什麼非做這些不可」**，而不是逐項深講。核心洞見：一個會邊聽邊說的系統，麥克風必然收到自己的聲音（→ AEC）、必然遇到多人與噪音（→ 分離／增強／diarization）、必然要決定「這句話是對我說的嗎」（→ 說話人辨識 + 目標語者抽取）。這些在 half-duplex 系統中可以繞過，在全雙工中不行。
+
+## Learning objectives
+1. 能解釋 acoustic echo cancellation 的問題設定（已知參考訊號的自適應濾波），寫出 NLMS 更新式，並說明非線性失真與 double-talk 為何使線性 AEC 不足。
+2. 能比較 masking-based 與 mapping-based 語音增強，說明 complex ratio mask 的動機，並診斷增強造成的 ASR 退化（processing artifacts）。
+3. 能解釋 permutation invariant training 解決了什麼問題，並描述 target speaker extraction 在對話系統中取代 blind separation 的理由。
+4. 能說明 speaker verification 的 embedding + scoring 架構、以及 online diarization 在全雙工系統中的延遲約束。
+5. 能論證為何 SNR 改善不等於 WER 改善，並舉出一個具體機制。
+
+## 概念拆解路徑
+- **直覺比喻**：把前端想成「雞尾酒會上的一對耳朵 + 一個知道自己嘴巴在說什麼的腦」。AEC = 扣掉自己的聲音；beamforming = 轉頭朝向目標；分離 = 把兩個聲音拆開；diarization = 記住誰是誰。這組比喻可以完整支撐 W12–W13 的討論。失效點：人耳的選擇性有主動的注意力機制與跨模態線索（唇動），純音訊系統沒有。
+- **形式化**：
+  - AEC：麥克風訊號 $d(n) = s(n) + h(n) * x(n) + v(n)$，其中 $x$ 為已知的播放訊號；目標是估計 $\hat{h}$ 使殘餘 $e(n) = d(n) - \hat{h}^\top \mathbf{x}(n)$ 最小
+  - NLMS：$\hat{\mathbf{h}}(n+1) = \hat{\mathbf{h}}(n) + \dfrac{\mu\, e(n)\, \mathbf{x}(n)}{\lVert \mathbf{x}(n)\rVert^2 + \epsilon}$
+  - 增強（complex mask）：$\hat{S}(t,f) = M(t,f)\, Y(t,f)$，$M \in \mathbb{C}$；或直接 mapping $\hat{S} = g_\theta(Y)$
+  - PIT：$\mathcal{L} = \min_{\pi \in \mathcal{P}} \sum_i \ell(\hat{s}_i, s_{\pi(i)})$
+  - MVDR beamformer：$\mathbf{w} = \dfrac{\Phi_{\mathrm{NN}}^{-1}\mathbf{a}}{\mathbf{a}^{H}\Phi_{\mathrm{NN}}^{-1}\mathbf{a}}$
+- **為什麼有效**：AEC 之所以可行是因為參考訊號**已知**（這是與盲分離的根本差異）；beamforming 之所以有效是因為空間資訊提供了與頻譜無關的第二個維度。
+- **什麼情況下會壞掉**：
+  - **double-talk**：使用者與系統同時說話時，自適應濾波器的收斂會被破壞 → 需要 double-talk detector 或神經網路 AEC；
+  - 硬體非線性（喇叭失真、AGC、裝置延遲抖動）使線性模型失效 —— 2026 年 on-device 聯合 AEC+NS 的工作正是在處理這個；
+  - 增強造成的 artifacts 會讓 ASR 變差，即使 SNR/PESQ 上升（**這是本週最重要的破解**）。
+
+## 關鍵數學（骨架）
+1. **NLMS 的推導骨架**：從瞬時平方誤差的梯度下降出發，說明歸一化步長為何解決了輸入功率變化的問題；給出收斂條件 $0 < \mu < 2$ 的直覺。
+2. **Wiener filter 作為增強的最優解**：$H(f) = \dfrac{\Phi_{SS}(f)}{\Phi_{SS}(f)+\Phi_{NN}(f)} = \dfrac{\xi(f)}{1+\xi(f)}$（$\xi$ 為先驗 SNR）—— 用它說明所有 masking 方法都是在估計這個量的變體。
+3. **PIT 的組合複雜度**：$|\mathcal{P}| = C!$，說明為何它只在少量說話人時可行，並引出 target speaker extraction（用 enrollment 打破置換）。
+4. **MVDR 的推導骨架**：受約束最小化 $\min_\mathbf{w} \mathbf{w}^H \Phi_{\mathrm{NN}} \mathbf{w}$ s.t. $\mathbf{w}^H \mathbf{a} = 1$，用 Lagrange 乘子解。強調它需要噪音共變異數估計，而這在全雙工中是**時變**的。
+5. **DER 的定義與其陷阱**：$\mathrm{DER} = \dfrac{\text{FA} + \text{Miss} + \text{Confusion}}{\text{total speech time}}$，說明 collar 設定與 overlap 是否計入會讓數字差很多（跨論文不可比的另一個例子）。
+
+## 常見誤解排除
+| 誤解 | 破解 |
+|---|---|
+| **「增強後 SNR/PESQ 提升，ASR 就會變好」** | 反例極常見：增強引入的非線性 artifacts 是 ASR 訓練時沒見過的分布。示範：加噪 → 增強 → WER 反而上升。正解是聯合訓練或用增強後資料微調 ASR。 |
+| 「有了神經網路，AEC 不需要線性濾波器」 | 實務主流仍是「線性 AEC 做粗抵消 + 神經網路做殘餘抑制」。純神經網路 AEC 在長回響與裝置延遲抖動下不穩。 |
+| 「VAD 就能決定何時該回應」 | VAD 只知道「有沒有聲音」。「使用者說完了嗎」是語意問題（→ W12 的 semantic VAD / endpointing）。這是通往 W12 的橋。 |
+| 「diarization 是離線任務」 | 全雙工系統需要 online、低延遲、且能處理 overlap 的 diarization，這與離線最佳化的目標完全不同。 |
+
+## 課堂骨架（180 min）
+| 時間 | 內容 |
+|---|---|
+| 0–15 | 框架：為什麼全雙工必須處理前端（列出四個「非做不可」的理由） |
+| 15–50 | AEC：問題設定、NLMS、double-talk、非線性、神經網路 AEC；**live demo**：關掉 AEC 的自我迴授現象 |
+| 50–85 | 增強：Wiener → masking（IRM/cIRM）→ 生成式增強（diffusion/flow/codec-based）；**artifacts 聆聽 + WER 反轉 demo** |
+| 85–95 | 休息 |
+| 95–125 | 分離：Conv-TasNet → SepFormer → TF-GridNet；PIT 與其限制 → target speaker extraction |
+| 125–150 | 多通道：beamforming 的空間選擇性 **live demo**（用公開的多通道錄音，聽 MVDR 轉向的效果） |
+| 150–175 | 說話人：embedding（ECAPA-TDNN）、scoring、online diarization、以及「這句話是對我說的嗎」這個新問題 |
+| 175–180 | 回填延遲預算表；宣告下週進入 Part III |
+
+## 課堂 demo 建議
+最有效的一格：**SNR 掃描 → WER 曲線**。同一段音訊在 SNR = 20/10/5/0/-5 dB 下算 WER，再對照「先增強後再算 WER」。三條曲線（乾淨/加噪/增強後）畫在一起，交叉點就是全週的核心論點。Colab 可跑，資料用 LibriSpeech + MUSAN 各取 50 句。
+
+## 參考資料
+- **LOI**（Loizou, 2013）Ch 1–2（問題設定與評估）、Ch 5–7（Wiener/統計方法）、Ch 10–11（客觀與主觀評估）
+- **VVG**（Vincent, Virtanen & Gannot, 2018）Ch 2–4（多通道模型、beamforming）、Ch 6–8（分離）
+- Wang & Chen, **Supervised Speech Separation Based on Deep Learning: An Overview**, IEEE/ACM TASLP, 2018 — masking 觀點的權威整理
+- Luo & Mesgarani, **Conv-TasNet: Surpassing Ideal Time-Frequency Magnitude Masking for Speech Separation**, IEEE/ACM TASLP, 2019
+- Subakan et al., **Attention Is All You Need in Speech Separation**（SepFormer）, ICASSP 2021
+- Wang et al., **TF-GridNet: Integrating Full- and Sub-Band Modeling for Speech Separation**, IEEE/ACM TASLP, 2023
+- Yu et al., **Permutation Invariant Training of Deep Models for Speaker-Independent Multi-talker Speech Separation**, ICASSP 2017
+- Desplanques, Thienpondt & Demuynck, **ECAPA-TDNN: Emphasized Channel Attention, Propagation and Aggregation in TDNN Based Speaker Verification**, Interspeech 2020
+- Bredin et al., **pyannote.audio: Neural Building Blocks for Speaker Diarization**, ICASSP 2020
+- Benesty, Chen & Huang, **Microphone Array Signal Processing**, Springer, 2008 — beamforming 的推導來源
+- `[主題]` AEC：檢索 *AEC Challenge Microsoft deep echo cancellation*、*nonlinear acoustic echo cancellation neural*、*double-talk detection*
+- Liu et al., **LMPAN: A Lightweight Multi-Path Alignment Network for Joint Full-Duplex Acoustic Echo Cancellation and Noise Suppression**, Interspeech 2026（arXiv:2607.02062）— 直接針對全雙工對話系統的 on-device AEC+NS
+- Zhong et al., **IRAF: Interference-Resilient Adaptive Fusion for Noise-Robust End-to-End Full-Duplex Spoken Dialogue Systems**, arXiv:2606.06559（2026）
+- Jiang et al., **Cocktail-Talker: Multi-Speaker Dialog Modeling in Noisy Social Environments with Turn Action GRPO**, arXiv:2607.27756（2026）— 「這句話是對我說的嗎」的正面處理，非常適合當本週結尾的研究討論
+- `[主題]` 增強對 ASR 的負面影響：檢索 *speech enhancement front-end ASR mismatch*、*processing artifacts robust ASR*、*joint training enhancement recognition*

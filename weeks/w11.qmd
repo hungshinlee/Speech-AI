@@ -1,0 +1,87 @@
+---
+title: "W11｜Audio-Native 語言模型：半雙工語音對話的建成"
+subtitle: "Part III — 對話系統"
+toc-depth: 2
+---
+
+<!-- 此檔由 scripts/build_weeks.py 自動產生，請勿直接編輯；請改 docs/course-outline.md 後重跑腳本。 -->
+
+## 定位
+Part III 的起點。本週把 W5（SSL）、W6（codec）、W7（ASR）、W8（TTS）接成一個端到端的**半雙工** speech-to-speech 模型，並把「文字瓶頸」與「modality gap」這兩個核心問題講透。W12–W13 再加上時間軸的同步性。
+
+## Learning objectives
+1. 能分類 audio-native LM 的四種架構（speech-in-text-out、text-token interleaving、平行多串流、continuous embedding 注入），並針對延遲與能力保留做比較。
+2. 能解釋為何直接在 speech token 上做 next-token prediction 會導致語意能力大幅退化，並描述三種緩解手段（textual pretraining 初始化、text-speech interleaving、inner monologue / CoT）。
+3. 能計算一個端到端 s2s 模型的理論最小回應延遲，並指出它比 cascade 好在哪、差在哪。
+4. 能設計一個「thinking before speaking」的訓練資料格式，並說明它與延遲的衝突。
+
+## 概念拆解路徑
+- **直覺比喻**：語音 token 序列比文字長一到兩個數量級（12.5–50 Hz vs. 每秒約 3–4 個字），所以「用語音 token 學語言」像是「用逐字母、且每個字母重複十次的文本學語言」。這個比喻能同時解釋語意退化與 context 爆炸；它的失效點是語音 token 還帶著文字沒有的資訊（音色、情緒），所以不是純粹的冗餘。
+- **形式化**：
+  - 純語音 LM：$P(\mathbf{a}) = \prod_t P(a_t \mid \mathbf{a}_{<t})$
+  - Interleaving：訓練序列形如 $[\,\text{text}_1, \text{speech}_1, \text{text}_2, \text{speech}_2, \dots]$，讓文字與語音共享同一個 LM 的參數空間
+  - Inner monologue（Moshi 的做法）：同一時間步同時預測文字 token 與語音 token，並讓文字**領先**語音若干 frame，$P(w_t, a_t \mid \cdot)$，文字作為語音生成的即時規劃
+  - Continuous 注入：$\mathbf{h} = \mathrm{Proj}(\mathrm{Enc}_{\text{SSL}}(\mathbf{x}))$ 直接當 LLM 的 soft prompt（無量化損失，但無法用同一個 LM head 生成語音）
+- **為什麼有效**：文字是語意的高效壓縮。所有成功的 audio-native LM 都用某種方式把文字保留在迴路裡；「純語音端到端」在語意任務上至今仍明顯落後。
+- **什麼情況下會壞掉**：
+  - **catastrophic forgetting**：語音資料上的持續訓練會侵蝕文字能力，需要 replay 或凍結部分參數；
+  - **modality gap**：同一句話的文字表徵與語音表徵在 LLM 的表徵空間中並不重合，導致 speech-in 的指令遵循能力低於 text-in；
+  - **thinking 與延遲的衝突**：先想再說會直接加上思考時間 → 2025–2026 的做法是把思考搬到「聽的時候」（chronological thinking）或壓成 latent（W13 會講）。
+
+## 關鍵數學（骨架）
+1. **Token rate 與資訊率的對照計算**（承 W6）：把「每秒語音 token 數」與「每秒文字 token 數」並排，算出同一段 30 分鐘對話在兩種表徵下的 context 長度，說明為何低 frame rate codec 是 audio-native LM 的前提。
+2. **多串流的分解**：$P(\mathbf{a}^{1:K}_{1:T}) = \prod_t \prod_k P(a^k_t \mid a^{<k}_t, \mathbf{a}_{<t})$ —— 說明 RQ-Transformer / depth transformer 如何在一個時間步內處理 $K$ 層 codebook，以及它為何比「flatten 成 $K \times T$ 的序列」便宜。
+3. **延遲下限**：對 AR s2s 模型，最小回應延遲 $\ge$（endpoint 決策延遲）+（第一個語音 token 的生成時間）+（codec decoder 的 lookahead）。要求學生代入 12.5 Hz 的 Mimi 與一個 7B LM 的 TPOT 算一遍。
+4. **Interleaving 的比例**：文字 : 語音 token 的混合比例是一個超參數，說明它如何在「保住語意」與「學會語音」之間權衡（可引 scaling 分析類的工作）。
+
+## 常見誤解排除
+| 誤解 | 破解 |
+|---|---|
+| 「end-to-end s2s 表示沒有文字了」 | 幾乎所有成功系統內部都有文字（interleaving、inner monologue、或 ASR 分支）。「無文字」的純語音 LM 是研究路線，不是當前的產品架構。 |
+| 「speech-in 的能力等於把語音轉文字後餵進去」 | 對照 speech-in 與 text-in 同一批指令的表現差距（modality gap 的直接證據）。而且 speech-in 應該**多**一些能力（情緒、語者），現實是常常**少**。 |
+| 「加大模型就能解決語意退化」 | 語意退化主要來自資料分布與序列長度，不只是容量。同樣參數量下換 tokenizer 或換 interleaving 策略的效果，常大於加大模型。 |
+| 「thinking 一定改善品質」 | 在語音對話中，思考的時間成本直接轉成尷尬的沉默。品質與延遲必須一起報告。 |
+
+## 課堂骨架（180 min）
+| 時間 | 內容 |
+|---|---|
+| 0–20 | 從 W1 的三種架構回來：現在我們有工具了，把 end-to-end 那格填滿 |
+| 20–50 | GSLM → AudioLM → SpeechGPT：純語音 LM 的可能與其語意天花板（**live demo**：純語音 LM 的續寫，聽起來像語音但語意漂移） |
+| 50–85 | 四種架構分類：speech-in-text-out（LLaMA-Omni 類）、interleaving（SpiRit-LM、GLM-4-Voice 類）、平行多串流（Moshi）、continuous 注入（SALMONN 類） |
+| 85–95 | 休息 |
+| 95–130 | Modality gap 與 catastrophic forgetting：診斷方法與緩解手段 |
+| 130–160 | Inner monologue / CoT：資料格式設計、與延遲的衝突、chronological thinking 的想法 |
+| 160–180 | 2025–2026 的 omni 模型全景（Qwen 系、Kimi-Audio、Step-Audio 系等）與它們的共同設計選擇 |
+
+## 課堂 demo 建議
+Colab 免費版上跑完整 s2s 模型偏重，建議：(1) 用一個小型開源 s2s（如 Mini-Omni 級別）做**離線**推論，錄下 first-token 與 first-audio 的時間；(2) 更輕量且教學效果更好的一格：把同一批指令分別以文字與 TTS 語音餵給同一個 audio LLM，比較答案品質 —— 這就是 modality gap 的直接量測。
+
+## 參考資料
+**純語音 LM 的起點**
+- Lakhotia et al., **On Generative Spoken Language Modeling from Raw Audio**（GSLM）, TACL 2021
+- Borsos et al., **AudioLM**, IEEE/ACM TASLP, 2023
+- Hassid et al., **Textually Pretrained Speech Language Models**（TWIST）, NeurIPS 2023
+- Zhang et al., **SpeechGPT: Empowering Large Language Models with Intrinsic Cross-Modal Conversational Abilities**, EMNLP Findings 2023
+
+**架構分類的代表作**
+- Tang et al., **SALMONN: Towards Generic Hearing Abilities for Large Language Models**, ICLR 2024 — continuous 注入
+- Nguyen et al., **SpiRit-LM: Interleaved Spoken and Written Language Model**, TACL 2025 `[驗]` — interleaving
+- Fang et al., **LLaMA-Omni: Seamless Speech Interaction with Large Language Models**, ICLR 2025 `[驗]`
+- Xie & Wu, **Mini-Omni: Language Models Can Hear, Talk While Thinking in Streaming**, arXiv:2408.16725（2024）
+- Zeng et al., **GLM-4-Voice: Towards Intelligent and Human-Like End-to-End Spoken Chatbot**, arXiv:2412.02612（2024）`[驗]`
+- Défossez et al., **Moshi: A Speech-Text Foundation Model for Real-Time Dialogue**, arXiv:2410.00037（2024）— inner monologue + 多串流，本課程最重要的單一系統論文
+- Chu et al., **Qwen2-Audio Technical Report**, arXiv:2407.10759（2024）；及 **Qwen2.5-Omni** 技術報告（2025）`[驗]`
+- `[主題]` 2025–2026 的其他 omni / audio LLM：檢索 *Kimi-Audio technical report*、*Step-Audio 2*、*MiniCPM-o*、*Baichuan-Audio*、*Covo-Audio technical report*（arXiv:2602.09823, 2026）
+
+**Interleaving 與 scaling**
+- `[主題]` 檢索 *scaling analysis interleaved speech-text language models*、*synthetic interleaved data speech-text pretraining*
+- Sugiura et al., **Llama-Mimi: Exploring the Limits of Flattened Speech Language Modeling**, arXiv:2509.14882（2025）— 「flatten 多層 codebook」的極限測試，適合當反面教材
+
+**Thinking / CoT**
+- Arora et al., **Chain-of-Thought Reasoning in Streaming Full-Duplex End-to-End Spoken Dialogue Systems**, arXiv:2510.02066（2025）
+- Wu et al., **Chronological Thinking in Full-Duplex Spoken Dialogue Language Models**, SIGDIAL 2026（arXiv:2510.05150）— 「在聽的時候思考」，直接處理思考與延遲的衝突
+- Wu et al., **The Silent Thought: Modeling Internal Cognition in Full-Duplex Spoken Dialogue Models via Latent Reasoning**, ICML 2026（arXiv:2603.17837）
+
+**總覽**
+- Ji et al., **WavChat: A Survey of Spoken Dialogue Models**, arXiv:2411.13577（2024）
+- Peng et al., **A Survey on Speech Large Language Models for Understanding**, IEEE JSTSP, 2025（arXiv:2410.18908）

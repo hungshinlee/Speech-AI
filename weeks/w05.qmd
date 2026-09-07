@@ -1,0 +1,69 @@
+---
+title: "W5｜自監督表徵學習（SSL）：語音基礎模型的來源"
+subtitle: "Part I — 基礎"
+toc-depth: 2
+---
+
+<!-- 此檔由 scripts/build_weeks.py 自動產生，請勿直接編輯；請改 docs/course-outline.md 後重跑腳本。 -->
+
+## 定位
+本週回答「特徵從哪來」。這是全課的表徵軸樞紐：W6 的 discrete token、W7 的 ASR encoder、W11 的 audio-native LM 幾乎都建在 SSL 表徵之上。
+
+## Learning objectives
+1. 能推導 InfoNCE 作為互資訊下界，並說明 CPC 為何用「預測未來」當代理任務。
+2. 能比較 wav2vec 2.0（contrastive + Gumbel-VQ）、HuBERT（offline k-means 目標 + 迭代精煉）、data2vec / BEST-RQ（隨機投影量化）在**目標構造方式**上的差異，並說明各自的失敗模式。
+3. 能解釋 SSL 表徵的層級特性（layer-wise probing：低層偏聲學／說話人，中高層偏音素／語意），並用它來決定下游任務該取哪一層。
+4. 能批判性閱讀 SSL 的比較實驗，指出資料量、資料領域與模型大小如何混淆架構貢獻。
+
+## 概念拆解路徑
+- **直覺比喻**：SSL 是「把答案遮住，逼模型從上下文猜」，但語音沒有離散的字可以猜 —— 所以每個方法的核心創新都在**如何造出一個可猜的目標**。這個比喻延伸到 W6：codec 也是在造離散目標，但目標是重建而非預測。
+- **形式化**：
+  - InfoNCE：$\mathcal{L} = -\mathbb{E}\left[\log \dfrac{\exp(\mathrm{sim}(c_t, z_{t+k})/\kappa)}{\sum_{\tilde{z} \in \mathcal{Z}} \exp(\mathrm{sim}(c_t, \tilde{z})/\kappa)}\right]$
+  - HuBERT：$\mathcal{L} = -\sum_{t \in M} \log p(z_t \mid \tilde{X}, t)$，其中 $z_t$ 來自對前一輪表徵做 k-means
+  - Gumbel-softmax straight-through：$\hat{p}_j = \dfrac{\exp((l_j + n_j)/\tau)}{\sum_k \exp((l_k+n_k)/\tau)}$，$n_j = -\log(-\log u_j)$
+- **為什麼有效**：語音在 10 ms 尺度上高度可預測（協同發音），使得「從上下文預測被遮蔽片段」能迫使模型抽出音素層級的抽象；contrastive 的負樣本則防止塌縮（collapse）。
+- **什麼情況下會壞掉**：
+  - 表徵塌縮（尤其 non-contrastive 方法需要 EMA target / stop-gradient 等技巧）；
+  - domain shift：在朗讀語音上預訓練，用在自發對話語音（含 overlap、笑聲、填充詞）上明顯退化 —— 這對本課的最終目標非常關鍵；
+  - k-means 目標的品質上限：HuBERT 第一輪用 MFCC 做 k-means，其品質決定後續迭代的起點。
+
+## 關鍵數學（骨架）
+1. **InfoNCE 是互資訊下界的推導骨架**：從 $\mathcal{L}_{\text{NCE}}$ 的最佳解 $f^*(z_{t+k}, c_t) \propto \frac{p(z_{t+k}\mid c_t)}{p(z_{t+k})}$ 出發，代回損失得到 $I(z_{t+k}; c_t) \ge \log N - \mathcal{L}$。**卡點提示**：這裡的「$N$ 個負樣本」與下界緊度的關係要講清楚，否則學生會誤以為負樣本越多一定越好。
+2. **Gumbel-softmax 的重參數化**：只需說明為何需要它（VQ 的 argmax 不可微），以及溫度退火的作用；配 straight-through estimator 的一行式子。
+3. **VQ 的 codebook collapse 與 diversity loss**：$\mathcal{L}_d = \frac{1}{GV}\sum_g -H(\bar{p}_g)$，說明它是在最大化 codebook 使用率的熵。這個問題在 W6 會以更嚴重的形式再現。
+4. **Layer-wise weighted sum（SUPERB 的做法）**：$h_t = \sum_{l} w_l h_t^{(l)}$，$w = \mathrm{softmax}(\theta)$ — 說明學到的 $w$ 本身就是一種可解釋性工具。
+
+## 常見誤解排除
+| 誤解 | 破解 |
+|---|---|
+| **「SSL 模型 A 比 B 好，所以 A 的架構更好」** | 對照三者的預訓練資料量與領域。這是本領域最常見的解讀錯誤：預訓練資料的規模與領域差異，經常被誤讀成架構優劣。舉一個「同架構換資料」的 ablation 給學生看。 |
+| 「最後一層表徵最好」 | 展示 layer-wise probing 曲線：說話人辨識在低層最好，音素辨識在中層，語意任務才偏高層。最後一層常被預訓練任務「污染」。 |
+| 「SSL 就是無監督，所以不需要標註」 | 下游仍需標註；SSL 改變的是標註的**邊際效益曲線**，不是消除標註。 |
+| 「discrete unit = 音素」 | HuBERT unit 與音素只有部分對應，且高度受說話人與通道影響。這一點在 W6 與 W11 會反覆出現。 |
+
+## 課堂骨架（180 min）
+| 時間 | 內容 |
+|---|---|
+| 0–15 | 問題框架：標註昂貴、語音無天然離散單位 |
+| 15–45 | CPC 與 InfoNCE 推導 |
+| 45–85 | wav2vec 2.0（架構 + Gumbel-VQ + diversity loss）→ HuBERT（迭代 k-means）→ WavLM（denoising + 說話人任務）→ data2vec / BEST-RQ |
+| 85–95 | 休息 |
+| 95–125 | **Live demo**：layer-wise probing（同一段音訊，取不同層做 k-means 或 t-SNE，看說話人 vs. 音素的分群） |
+| 125–155 | SUPERB / Dynamic-SUPERB 的評估設計及其偏誤；**停下來提問**：SUPERB 的凍結上游設定，會偏好什麼樣的模型？ |
+| 155–180 | 從 continuous 到 discrete：為什麼 audio-native LM 需要離散化？→ 引入 W6 |
+
+## 課堂 demo 建議
+`transformers` 載入 HuBERT-base，抽出第 1/6/9/12 層表徵，各做 (a) 說話人分類線性探針、(b) 音素分類線性探針。Colab 免費版用 LibriSpeech dev-clean 的 100 句即可跑完。曲線交叉點就是教學重點。
+
+## 參考資料
+- Oord, Li & Vinyals, **Representation Learning with Contrastive Predictive Coding**, arXiv:1807.03748（2018）
+- Baevski, Zhou, Mohamed & Auli, **wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations**, NeurIPS 2020
+- Hsu et al., **HuBERT: Self-Supervised Speech Representation Learning by Masked Prediction of Hidden Units**, IEEE/ACM TASLP, 2021
+- Chen et al., **WavLM: Large-Scale Self-Supervised Pre-Training for Full Stack Speech Processing**, IEEE JSTSP, 2022
+- Baevski et al., **data2vec: A General Framework for Self-supervised Learning in Speech, Vision and Language**, ICML 2022
+- Chiu et al., **Self-supervised Learning with Random-projection Quantizer for Speech Recognition**（BEST-RQ）, ICML 2022
+- Yang et al., **SUPERB: Speech Processing Universal PERformance Benchmark**, Interspeech 2021
+- Huang et al., **Dynamic-SUPERB: Towards a Dynamic, Collaborative, and Comprehensive Instruction-Tuning Benchmark for Speech**, ICASSP 2024 `[驗]`
+- Mohamed et al., **Self-Supervised Speech Representation Learning: A Review**, IEEE JSTSP, 2022 — 最適合當本週的總覽閱讀
+- Pasad, Chou & Livescu, **Layer-wise Analysis of a Self-supervised Speech Representation Model**, ASRU 2021 — layer-wise probing 的代表作
+- `[主題]` 2026 年的新方向：檢索 *JEPA speech tokenizer*、*speech SSL scaling laws*、*SSL robustness spontaneous conversational speech*

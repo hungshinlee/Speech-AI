@@ -1,0 +1,84 @@
+---
+title: "W9｜語音合成 II：可控性、後訓練對齊、評估與濫用防範"
+subtitle: "Part II — 模組"
+toc-depth: 2
+---
+
+<!-- 此檔由 scripts/build_weeks.py 自動產生，請勿直接編輯；請改 docs/course-outline.md 後重跑腳本。 -->
+
+## 定位
+接續 W8。這一週處理三件在對話系統中真正決定體驗的事：**可控性**（情緒、語速、風格能不能被指令控制）、**後訓練**（RL 如何修 AR TTS 的穩定性與偏好對齊）、**評估與風險**（怎麼量、以及 voice cloning 的濫用防範）。評估方法論在此建立，W14 會擴展到對話層級。
+
+## Learning objectives
+1. 能設計一個 zero-shot voice cloning 系統的條件輸入方案，並比較 speaker embedding、prompt continuation、factorized codec 三種路線的可控性與洩漏風險。
+2. 能寫出 DPO 與 GRPO 的目標函數，並說明把它們套到 TTS 上時 reward 該如何構造（WER-based、SIM-based、MOS predictor-based）以及 reward hacking 會長什麼樣。
+3. 能列出 TTS 評估的四個維度（可懂度、自然度、相似度、可控性/指令遵循），為每個維度指定客觀與主觀指標，並說明各自的失效條件。
+4. 能解釋 anti-spoofing 與 audio watermarking 的威脅模型差異，並判斷各自適用的部署場景。
+
+## 概念拆解路徑
+- **直覺比喻**：可控性像「導演對演員下指示」。speaker embedding 是「換演員」，prompt continuation 是「給一段參考表演讓他模仿」，指令控制是「用語言描述要什麼表演」。失效點：語言描述的維度遠低於實際韻律自由度，所以 instruction-based TTS 的控制總是粗粒度的。
+- **形式化**：
+  - DPO：$\mathcal{L}_{\text{DPO}} = -\log \sigma\!\left(\beta \log \frac{\pi_\theta(y_w\mid x)}{\pi_{\text{ref}}(y_w\mid x)} - \beta \log \frac{\pi_\theta(y_l\mid x)}{\pi_{\text{ref}}(y_l\mid x)}\right)$
+  - GRPO：對同一 prompt 取樣 $G$ 個輸出，優勢 $\hat{A}_i = \frac{r_i - \mathrm{mean}(\mathbf{r})}{\mathrm{std}(\mathbf{r})}$，再做帶 KL 懲罰的 clipped policy gradient
+- **為什麼有效**：TTS 的多數失敗（漏詞、重複、音色漂移）是**可自動評分的**（用 ASR 算 WER、用 speaker encoder 算相似度），因此 reward 便宜且密集，這使 RL 在 TTS 上比在文字上更容易見效。
+- **什麼情況下會壞掉**：
+  - **reward hacking**：以 WER 為 reward 會讓模型講得過度清晰、機械化、語速平板（因為 ASR 喜歡這樣）；以 SIM 為 reward 會過度貼近參考音的通道特性；
+  - MOS predictor 作為 reward 有分布外失效（它只在訓練它的那些系統上校準過）；
+  - flow matching 模型做 RL 需要處理 ODE 取樣的可微性 → 這是 2026 年 FlowTTS-GRPO 這批工作的主題。
+
+## 關鍵數學（骨架）
+1. **從 RLHF 到 DPO 的簡化**：Bradley-Terry 偏好模型 → 最佳策略的封閉形式 $\pi^*(y\mid x) \propto \pi_{\text{ref}}(y\mid x)\exp(r(x,y)/\beta)$ → 反解 $r$ 代回 BT，得到 DPO 損失。**卡點提示**：這裡的關鍵是「reward 可以用策略比值表示」，學生若沒有 RL 背景，要用「不必訓練 reward model」這個實務動機帶進去。
+2. **GRPO 的 group-relative 優勢**：說明它為何免去 value network，以及在 TTS 上 $G$ 該多大（與 reward 噪音的關係）。
+3. **對 flow matching 做 policy gradient 的困難**：ODE 求解是確定性的 → 需要 SDE 化或把 solver 的隨機性當成 policy。只給結構，不展開。
+4. **相似度指標**：$\mathrm{SIM} = \cos(\mathbf{e}_{\text{gen}}, \mathbf{e}_{\text{ref}})$，並強調它取決於所用的 speaker encoder（換 encoder 數字就變，因此跨論文不可比）。
+5. **EER 與 min-DCF 的定義**（anti-spoofing 用），以及為何 EER 在極不平衡的部署場景下會誤導。
+
+## 常見誤解排除
+| 誤解 | 破解 |
+|---|---|
+| 「UTMOS 之類的 MOS predictor 可以取代人評」 | 展示它在 out-of-domain 系統上的失準。它適合做開發期的相對排序，不適合當最終結論或跨論文比較。 |
+| 「情緒控制就是加一個 emotion embedding」 | 情緒與語速、音量、F0 range、發聲品質高度糾纏；離散標籤的表達力遠低於實際韻律空間。示範同一個「憤怒」標籤在不同文本上的結果差異。 |
+| 「watermark 能防止 deepfake」 | watermark 的威脅模型是「合作的生成者 + 事後溯源」，不是「對抗性攻擊者」。防範惡意複製需要 anti-spoofing 檢測，兩者互補而非替代。 |
+| 「RL 後訓練會讓 TTS 全面變好」 | 它會把模型推向 reward 的方向。要學生預測：以 WER 為唯一 reward，三週後的模型聽起來會怎樣？（答案：清晰但無趣） |
+
+## 課堂骨架（180 min）
+| 時間 | 內容 |
+|---|---|
+| 0–25 | Zero-shot voice cloning 的三種條件方案與比較；**live demo**：3 秒 prompt 的 cloning 效果與失敗案例 |
+| 25–55 | 可控性：prosody control、instruction-based TTS、情緒與風格的糾纏問題 |
+| 55–65 | 休息 |
+| 65–110 | 後訓練對齊：DPO 推導 → GRPO → TTS 的 reward 設計 → **reward hacking 的具體聲音示範**（若能找到，播一段被 WER-reward 過度最佳化的樣本） |
+| 110–145 | 評估方法論：四維度 × 客觀/主觀指標矩陣；MOS 的統計陷阱（評分者間變異、量表錨定、CMOS 的正確做法） |
+| 145–170 | 濫用防範：anti-spoofing（ASVspoof 系列的任務設定演化）、watermarking、voice privacy |
+| 170–180 | 小結：把「輸出端」交給 W13 的全雙工架構 |
+
+## 課堂 demo 建議
+(1) 用 3 秒參考音做 cloning，再用**帶噪音／帶背景音樂**的參考音重做一次，聽通道洩漏；(2) 用同一個 TTS 生成 20 句，用 Whisper 算 WER 分布，指出長尾（漏詞/重複）—— 這就是 RL 要修的東西，且是可自動偵測的。
+
+## 參考資料
+**可控性**
+- Ju et al., **NaturalSpeech 3**（factorized codec：內容/韻律/音色/細節分離）, ICML 2024
+- Guo et al., **PromptTTS: Controllable Text-to-Speech with Text Descriptions**, ICASSP 2023 `[驗]`
+- `[主題]` instruction-based / 自然語言控制 TTS：檢索 *instruction following TTS natural language style prompt*、*emotion controllable zero-shot TTS*
+- Li et al., **IndexTTS 2.5 Technical Report**, arXiv:2601.03888（2026）— 近期工業級系統的設計取捨，含情緒與時長控制
+- Yin et al., **Luna-TTS Family Technical Report**, arXiv:2608.11593（2026）`[驗]`
+
+**後訓練 / RL**
+- Rafailov et al., **Direct Preference Optimization: Your Language Model is Secretly a Reward Model**, NeurIPS 2023
+- Shao et al., **DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models**, arXiv:2402.03300（2024）— GRPO 的原始出處
+- Gao, Du & Zhang, **Differentiable Reward Optimization for LLM based TTS system**（DiffRO）, arXiv:2507.05911（2025）
+- Zhong, Yang & Wang, **Multi-Reward GRPO for Stable and Prosodic Single-Codebook TTS LLMs at Scale**, arXiv:2511.21270（2025）
+- Wang et al., **FlowTTS-GRPO: Online Reinforcement Learning with Multi-Objective Reward Optimization for Flow-Matching Based Text-to-Speech**, Interspeech 2026（arXiv:2606.23190）
+- Shen et al., **GSRM: Generative Speech Reward Model for Speech RLHF**, arXiv:2602.13891（2026）
+- Zhang et al., **SpeechJudge: Towards Human-Level Judgment for Speech Naturalness**, arXiv:2511.07931（2025）
+
+**評估**
+- ITU-T Recommendation **P.800**（主觀評估方法）與 **P.808**（群眾外包主觀評估）— 做 MOS 實驗前必讀
+- `[主題]` MOS predictor：檢索 *UTMOS MOS prediction VoiceMOS challenge*、*NISQA speech quality*、*SpeechLMScore*
+- `[主題]` MOS 的方法論批判：檢索 *MOS comparability across papers*、*best practices subjective evaluation TTS*、*Kirkland et al. MOS reporting*
+
+**濫用防範**
+- `[主題]` ASVspoof：檢索 *ASVspoof 2019 database*、*ASVspoof 2021*、*ASVspoof 5 challenge*
+- San Roman et al., **Proactive Detection of Voice Cloning with Localized Watermarking**（AudioSeal）, ICML 2024
+- `[主題]` VoicePrivacy Challenge 系列（anonymization 的任務設定與指標）
+- Wang, Ge & Yamagishi, **Does Fine-tuning by Reinforcement Learning Improve Generalization in Binary Speech Deepfake Detection?**, arXiv:2603.02914（2026）

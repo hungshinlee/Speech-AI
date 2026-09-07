@@ -1,0 +1,68 @@
+---
+title: "W4｜序列模型與 streaming 架構：Transformer、Conformer、RNN-T"
+subtitle: "Part I — 基礎"
+toc-depth: 2
+---
+
+<!-- 此檔由 scripts/build_weeks.py 自動產生，請勿直接編輯；請改 docs/course-outline.md 後重跑腳本。 -->
+
+## 定位
+把 W3 的對齊觀念接到現代架構，並第一次正式處理「因果性」這個貫穿全課的約束。RNN-T 在此登場，不只因為它是工業界 streaming ASR 的主力，更因為它的「輸出/不輸出」二元決策是 W12 全雙工 turn-taking 建模的直接前身。
+
+## Learning objectives
+1. 能寫出 scaled dot-product attention 與 multi-head 的維度流動，並解釋 Conformer 中 convolution 與 self-attention 的分工。
+2. 能定義 RNN-T 的輸出格點（lattice），寫出其 forward recursion，並比較它與 CTC 在「路徑集合」上的差異。
+3. 能列出把非因果模型改成 streaming 的四類手段（causal mask、chunk-wise attention with lookahead、memory/state carry-over、latency-controlled BLSTM 類），並分析各自的延遲與品質代價。
+4. 能解釋 KV cache 的記憶體與計算複雜度，並說明它為何是即時語音系統的主要瓶頸之一。
+
+## 概念拆解路徑
+- **直覺比喻**：CTC 是「每個時間格必須蓋一個章（可以是空白章）」；RNN-T 是「每個時間格可以蓋任意多個章，蓋完才前進」。這個比喻在 W13 講 Moshi 的多串流 tokenizer 時可以直接複用。
+- **形式化**：
+  - Attention：$\mathrm{Attn}(Q,K,V) = \mathrm{softmax}\!\left(\frac{QK^\top}{\sqrt{d_k}} + M\right)V$，其中 $M$ 為 streaming mask（因果或 chunk 帶狀）
+  - RNN-T：$P(\mathbf{y}\mid \mathbf{x}) = \sum_{\hat{\mathbf{y}} \in \mathcal{B}^{-1}(\mathbf{y})} \prod_{i} P(\hat{y}_i \mid \mathbf{x}_{1:t_i}, \mathbf{y}_{1:u_i})$，joint network $z_{t,u} = \psi(f_t^{\text{enc}}, g_u^{\text{pred}})$
+- **為什麼有效**：RNN-T 的 prediction network 讓輸出端有 autoregressive 依賴（修掉 CTC 的條件獨立），同時保持嚴格單調與 streaming 相容。
+- **什麼情況下會壞掉**：
+  - RNN-T 訓練的記憶體是 $O(T \times U \times V)$，這是它難訓的主因（→ pruned transducer）；
+  - RNN-T 有 **emission delay** 的傾向（模型學會晚一點吐字以獲得更多右文），需要 FastEmit 類正則化；
+  - chunk-wise attention 的品質隨 chunk 變小急遽下降，且 chunk 邊界的資訊斷裂會在長句上累積。
+
+## 關鍵數學（骨架）
+1. **RNN-T forward**：$\alpha(t,u) = \alpha(t-1,u)\,\varnothing(t-1,u) + \alpha(t,u-1)\,y(t,u-1)$。在白板上畫 $T\times U$ 格點，用箭頭區分「往右 = 消耗一個 frame（blank）」與「往上 = 輸出一個 token」。**卡點提示**：學生最容易混淆的是「blank 在 RNN-T 中代表前進時間軸」，與 CTC 的 blank 語意不同。
+2. **從 CTC 到 RNN-T 的路徑集合對照表**：CTC 每 frame 恰好一個符號；RNN-T 每 frame 零到多個符號。從這裡自然推出兩者的 lattice 形狀差異。
+3. **Streaming mask 的形式化**：定義 chunk 大小 $C$、左文 $L$、右文（lookahead）$R$，寫出 mask $M_{ij} = 0$ 當且僅當 $j \le \lceil i/C \rceil C + R$ 且 $i-j \le L$；由此算出演算法延遲 $= R \cdot \Delta$ 並回填 W1 的延遲預算表。
+4. **KV cache 複雜度**：記憶體 $O(n_{\text{layer}} \cdot n_{\text{head}} \cdot d_{\text{head}} \cdot T)$，每步計算 $O(T)$ — 說明為什麼長對話的語音 LM 需要 sliding window 或 state-space 替代。
+
+## 常見誤解排除
+| 誤解 | 破解 |
+|---|---|
+| **「attention weight 就是對齊，attention 好看代表對齊好」** | 展示一個 WER 很低但 attention map 髒亂的 AED 模型，以及一個 attention 漂亮卻在長句上崩掉（重複/漏字）的模型。attention 是計算機制，不是對齊的估計量。 |
+| 「Transformer 一定比 RNN 好」 | 在嚴格 streaming、低延遲、on-device 的條件下，狀態式模型（RNN/SSM）的常數記憶體是結構性優勢。Zipformer / Emformer 的設計都是在對抗 attention 的 $O(T)$ 狀態。 |
+| 「加大 lookahead 就能救品質」 | lookahead 的邊際效益遞減很快，但延遲是線性成本。要學生自己算：$R$ 從 2 加到 8 frames，延遲從 20 ms 變 80 ms，這在 300 ms 的預算裡佔多少？ |
+| 「Conformer 的 conv 只是加點局部資訊」 | conv module 提供的是 relative/局部歸納偏誤，在低資源與短 context 下貢獻不小；把它拿掉做 ablation 是好的課堂思考題。 |
+
+## 課堂骨架（180 min）
+| 時間 | 內容 |
+|---|---|
+| 0–20 | 從 W3 的問題出發：CTC 的條件獨立要怎麼修？（讓學生先猜） |
+| 20–70 | Transformer 回顧（快）→ Conformer 的模組拆解 → relative positional encoding 的必要性 |
+| 70–80 | 休息 |
+| 80–130 | **RNN-T 完整推導**（白板 lattice） |
+| 130–155 | Streaming 化的四類手段與各自延遲；**停下來提問**：Emformer 的 memory bank 解決了什麼？ |
+| 155–175 | attention ≠ alignment 的 demo 與討論 |
+| 175–180 | 預告：下週開始講「表徵從哪來」 |
+
+## 課堂 demo 建議
+用 `k2/icefall` 或 `torchaudio` 的 streaming 範例，同一段音訊在 chunk = 640/320/160 ms 三種設定下即時解碼，把「文字何時出現」畫在時間軸上。學生會直接看到延遲與 WER 的交換。
+
+## 參考資料
+- Vaswani et al., **Attention Is All You Need**, NeurIPS 2017
+- Gulati et al., **Conformer: Convolution-augmented Transformer for Speech Recognition**, Interspeech 2020
+- Graves, **Sequence Transduction with Recurrent Neural Networks**, arXiv:1211.3711（2012）— RNN-T 原始論文
+- Zhang et al., **Transformer Transducer: A Streamable Speech Recognition Model with Transformer Encoders and RNN-T Loss**, ICASSP 2020
+- Shi et al., **Emformer: Efficient Memory Transformer Based Acoustic Model for Low Latency Streaming Speech Recognition**, ICASSP 2021
+- Yao et al., **Zipformer: A Faster and Better Encoder for Automatic Speech Recognition**, ICLR 2024
+- Yu et al., **FastEmit: Low-latency Streaming ASR with Sequence-level Emission Regularization**, ICASSP 2021 `[驗]`
+- Chan et al., **Listen, Attend and Spell**, ICASSP 2016 — AED 的起點，用來對照非單調對齊
+- **JM3** Ch 7 *Transformers and Pretraining*（有官方 slides）、Ch 16 *Automatic Speech Recognition*
+- `[主題]` pruned RNN-T 與記憶體最佳化：檢索 *pruned RNN-T loss k2*、*monotonic RNN-T memory efficient*
+- `[主題]` SSM / Mamba 在語音上的應用：檢索 *Mamba speech recognition streaming*、*state space model audio*

@@ -1,0 +1,35 @@
+# macOS
+.DS_Store
+._*
+
+# Python / notebooks
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# 模型權重與音訊素材（不進版控，改用下載腳本）
+*.ckpt
+*.pt
+*.pth
+*.safetensors
+*.wav
+*.flac
+*.mp3
+data/
+weights/
+
+# 投影片建置產物
+slides/*.pdf
+slides/*.html
+
+# Quarto
+/_site/
+/.quarto/
+*_files/
+
+# Cowork/Claude 桌面版存放輸出用（截圖等），不進版控
+/Claude outputs/
+
+**/*.quarto_ipynb

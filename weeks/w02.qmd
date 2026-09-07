@@ -1,0 +1,63 @@
+---
+title: "W2｜語音訊號、聽覺前端與表徵的物理基礎"
+subtitle: "Part I — 基礎"
+toc-depth: 2
+---
+
+<!-- 此檔由 scripts/build_weeks.py 自動產生，請勿直接編輯；請改 docs/course-outline.md 後重跑腳本。 -->
+
+## 定位
+本週提供之後所有模組的「輸入端語言」。對無先修背景的學生，這是整學期唯一一次系統性的 DSP，因此要極度節制：只講會在後面用到的東西（STFT、mel、phase、F0、SNR），不講完整的濾波器設計。
+
+## Learning objectives
+1. 能推導 STFT 的時頻解析度取捨，並解釋 window 長度／hop 如何決定下游模型的 frame rate。
+2. 能說明 source-filter model 如何把「說什麼」（filter/共振峰）與「誰在說、怎麼說」（source/F0）在頻域上分離，並指出這個分離在何處失效。
+3. 能解釋 mel-filterbank 與 MFCC 各步驟的動機，並說明為何深度學習時代 MFCC 幾乎被 log-mel（甚至 raw waveform）取代。
+4. 能診斷相位（phase）遺失造成的失真，並解釋為什麼 vocoder 是必要的。
+
+## 概念拆解路徑
+- **直覺比喻**：聲道 = 一根可變形的管子 + 一個週期性激發源（聲帶）。此比喻可延伸到 W8 的 vocoder（分開建模激發與濾波）與 W9 的 voice cloning（音色主要在 filter 與 F0 統計）。失效點：擦音、爆破音沒有週期性激發；耳語沒有 F0。
+- **形式化**：
+  - STFT：$X(m,k)=\sum_{n} x(n)\,w(n-mH)\,e^{-j2\pi kn/N}$
+  - source-filter：$S(\omega)=E(\omega)H(\omega)$，取 log 後成為加法 $\log|S| = \log|E| + \log|H|$ → cepstrum 用 IDFT 把兩者在 cepstral domain 分離（低階 = filter/包絡，高階 = source/pitch）
+  - mel 尺度：$m = 2595\log_{10}(1+f/700)$（強調這是**心理聲學近似**，不是物理定律）
+- **為什麼有效**：語音的資訊在頻譜包絡的時間演化上高度冗餘；log-mel 以約 80 維 / 10 ms 保留了辨識所需的幾乎全部語意資訊。
+- **什麼情況下會壞掉**：
+  - **時頻解析度**：25 ms window 抓不到 stop closure 的細節，也分不開 F0 相近的兩個說話人；
+  - **相位**：僅用 magnitude 重建（Griffin-Lim）會有金屬感 —— 這就是 neural vocoder 的存在理由；
+  - **mel 的不可逆性**：mel 壓縮是有損的，這對 TTS（要重建）比對 ASR（只要判別）致命得多。
+
+## 關鍵數學（骨架）
+1. **不確定性原理的離散版本**：window 長度 $L$ ↔ 頻率解析度 $\approx f_s/L$；推導骨架：矩形窗的 DTFT 主瓣寬度 → 說明 Hann/Hamming 的旁瓣抑制代價是主瓣變寬。
+2. **cepstrum 的推導**：$c(n) = \mathrm{IDFT}\{\log|X(k)|\}$，說明 liftering 的截斷點如何對應「包絡 vs. pitch」的分界；連到 W2 的 F0 估計（cepstral peak / autocorrelation / YIN）。
+3. **Griffin-Lim 的迭代**：交替投影 $\hat{x}^{(i+1)} = \mathrm{ISTFT}(|X| \cdot e^{j\angle \mathrm{STFT}(\hat{x}^{(i)})})$，說明它是一個非凸問題的交替投影法，不保證收斂到一致解 → 動機化 W8 的 GAN/flow vocoder。
+4. **SNR 與 segmental SNR 的定義差異**，以及為何 SNR 不預測 WER（連到 W10）。
+
+## 常見誤解排除
+| 誤解 | 破解 |
+|---|---|
+| 「spectrogram 就是語音的完整表示」 | 播放 Griffin-Lim 重建 vs. 原音；再播放隨機相位重建。學生會立刻聽出差別。 |
+| 「MFCC 比 log-mel 資訊多」 | MFCC 是 log-mel 的 DCT 截斷，資訊只會少不會多；它在 GMM 時代的價值是去相關（配合對角共變異數矩陣），神經網路不需要。 |
+| 「取樣率越高越好」 | 16 kHz 對辨識幾乎足夠（語意資訊主要在 8 kHz 以下）；但 TTS 與音質評估需要 24/48 kHz。取樣率選擇是任務依賴的。 |
+| 「F0 = pitch」 | F0 是物理量，pitch 是知覺量。缺 F0 的耳語仍可感知語調。 |
+
+## 課堂骨架（180 min）
+| 時間 | 內容 |
+|---|---|
+| 0–15 | 回顧 W1 的延遲軸：frame shift 就是延遲的最小單位 |
+| 15–55 | 產生機制：source-filter、共振峰、母音空間（**live demo**：即時 spectrogram，請學生發 /a/ /i/ /u/ 看 F1-F2 移動） |
+| 55–65 | 休息 |
+| 65–110 | STFT、window、時頻取捨、mel-filterbank、MFCC（**停下來提問**：為什麼 hop 選 10 ms？） |
+| 110–140 | 相位問題與 Griffin-Lim **live demo**（三種重建對比聆聽） |
+| 140–165 | F0 估計、SNR、以及「表徵選擇如何決定 frame rate」→ 預告 W6 |
+| 165–180 | 小結：把 log-mel / SSL feature / discrete token 三種表徵並排，宣告 W5、W6 會填滿 |
+
+## 課堂 demo 建議
+一個 Colab notebook（`torchaudio` + `librosa`），三段 cell：(1) 即時 spectrogram；(2) Griffin-Lim vs. 原音 vs. 隨機相位；(3) 逐步降低 mel bin 數（80→40→20→10）聽 ASR 與重建各自何時崩掉。**先播壞的再解釋機制。**
+
+## 參考資料
+- **JM3** Ch 15 *Phonetics and Speech Feature Extraction*（含官方 slides，可直接改）
+- **HAH** Ch 2（Spoken Language Structure）、Ch 5（Digital Signal Processing）、Ch 6（Speech Signal Representations）— cepstrum 與 source-filter 的完整推導在此
+- Griffin & Lim, **Signal Estimation from Modified Short-Time Fourier Transform**, IEEE TASSP, 1984
+- `[主題]` F0 估計：檢索 *YIN pitch estimation de Cheveigné*、*CREPE pitch tracking*、*pYIN probabilistic YIN*
+- `[主題]` 前端與深度學習的關係：檢索 *learnable filterbank speech*、*SincNet*、*LEAF frontend learnable audio*

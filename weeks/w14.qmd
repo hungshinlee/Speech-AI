@@ -1,0 +1,96 @@
+---
+title: "W14｜評估、對齊、落地與 Open Problems"
+subtitle: "Part III — 對話系統"
+toc-depth: 2
+---
+
+<!-- 此檔由 scripts/build_weeks.py 自動產生，請勿直接編輯；請改 docs/course-outline.md 後重跑腳本。 -->
+
+## 定位
+收束全課。三個主題：**怎麼量**（互動能力的評估方法論）、**怎麼調**（互動導向的 RL 與偏好對齊）、**怎麼上線**（延遲工程、on-device、安全）。最後用 open problems 收尾，並給出研究切入點。
+
+## Learning objectives
+1. 能設計一套全雙工系統的評估方案，涵蓋語意品質、互動時序、穩健性三個層面，並為每一項指定指標與其已知失效條件。
+2. 能說明互動導向 RL 與一般 RLHF 的差異（reward 訊號來自互動時序而非單輪偏好），並描述至少兩種 reward 設計。
+3. 能對一個目標延遲預算做端到端的工程拆解，指出量化、KV cache 管理、批次策略、串流分塊各能省下多少，並判斷瓶頸在哪。
+4. 能提出三個具體、可做的研究問題，並說明所需的資料與評估方式。
+
+## 概念拆解路徑
+- **直覺比喻**：評估全雙工系統像評審即興爵士對奏 —— 不只聽每個音對不對（語意），還要聽進出得是不是時候（時序），以及在意外時能不能收拾（穩健性）。這個比喻的失效點：爵士有共同的和聲框架，對話沒有；因此「正確答案」不唯一，逼得評估必須從「比對參考答案」轉向「行為分布比對 + 人類偏好」。
+- **形式化**：
+  - 互動時序指標（示意）：response latency 分布、interruption precision/recall、backchannel timing 誤差、overlap 期間的內容保存率
+  - 互動導向 RL：$r = \lambda_1 r_{\text{semantic}} + \lambda_2 r_{\text{timing}} + \lambda_3 r_{\text{safety}}$，其中 $r_{\text{timing}}$ 由 turn-taking 行為的分布距離定義
+  - 動作空間投影（ASPIRin 類做法）：把 policy 的動作空間限制在「互動決策」而非「全部 token」，以降低 RL 的搜索空間
+- **為什麼有效**：把互動行為變成可量化的分布距離，就能用 RL 直接最佳化「什麼時候說」，而這是監督學習（模仿單一參考軌跡）做不到的 —— 因為參考軌跡只是眾多合理行為之一。
+- **什麼情況下會壞掉**：
+  - 自動指標與人類感受的相關性在 timing 上比在語意上更弱；
+  - benchmark 的合成使用者行為（模擬打斷、模擬 backchannel）不代表真實使用者的分布；
+  - reward hacking：以「快」為 reward 的模型會學會搶話（回扣 W9 的教訓）。
+
+## 關鍵數學（骨架）
+1. **分布距離作為 timing reward**：用 Wasserstein 距離或 KL 比較「模型的 response latency 分布」與「人類語料的 latency 分布」，而非比較平均值。**這是本週最重要的一個觀念轉換**：timing 的目標是**匹配分布**，不是最小化。
+2. **多目標的 Pareto 前緣**：把 (延遲, 語意品質) 或 (interruption recall, false interruption rate) 畫成 Pareto 圖，說明報告單點數字為何不足。
+3. **延遲工程的 Amdahl 式分析**：$T_{\text{total}} = \sum_i T_i$，若把最大的 $T_i$ 減半，總延遲只降 $T_i/2$ —— 用它導出「先量測再最佳化」的紀律。配一張各模組實測佔比的圓餅圖範例。
+4. **量化的品質-成本曲線**：INT8 / INT4 對 LM 與對 codec decoder 的敏感度不同（codec decoder 對量化更敏感），說明混合精度策略的依據。
+
+## 常見誤解排除
+| 誤解 | 破解 |
+|---|---|
+| **「用 WER + MOS 就能評估語音對話系統」** | 兩者都測不到互動時序。一個 WER 0%、MOS 4.5 的系統可以完全不會 turn-taking。這是本週的核心破解。 |
+| 「latency 越低分數越高」 | 若 benchmark 這樣設計，就會獎勵搶話的模型。好的指標必須同時懲罰過早。 |
+| 「LLM-as-a-judge 可以評估語音對話」 | 若 judge 只讀轉錄文字，就等於把語音對話降維成文字對話，時序與 paralinguistic 資訊全丟。需要 audio-native judge 或明確的時序特徵輸入。 |
+| 「benchmark 分數高就能上線」 | 真實部署的殺手是 p95 延遲、AEC 失效、口音與環境噪音、以及使用者的非預期行為（長時間沉默、多人同時說話）。 |
+
+## 課堂骨架（180 min）
+| 時間 | 內容 |
+|---|---|
+| 0–15 | 回顧全課地圖，把三條主軸各收一次 |
+| 15–60 | 評估方法論：三層架構（語意／時序／穩健性）→ 現有 benchmark 逐一拆解其測什麼、不測什麼（Full-Duplex-Bench 系列、FD-Bench、M3-DuplexBench、Instruct-FD、VoiceBench、HumDial Challenge） |
+| 60–70 | 休息 |
+| 70–105 | 分布匹配觀點與 Pareto 分析；**停下來討論**：請學生設計一個懲罰搶話的指標 |
+| 105–140 | 互動導向的對齊：從使用者互動蒐集偏好、timing reward、動作空間投影、generative reward model |
+| 140–165 | 落地工程：延遲拆解實測方法、量化策略、KV cache 與長對話、on-device 取捨、安全（回音、隱私、深偽） |
+| 165–180 | **Open problems** 與研究切入點；期末專題方向建議 |
+
+## 課堂 demo 建議
+不做新 demo，改做**評估工作坊**：發三段全雙工系統與使用者的互動錄音（一段搶話、一段遲鈍、一段 backchannel 誤判），要學生用自己設計的指標打分，然後對照 Full-Duplex-Bench 的指標定義討論差異。這比再跑一個模型更有教學價值。
+
+## Open problems（建議放在最後 15 分鐘，並作為專題方向）
+1. **Proactive turn**：系統何時該主動開口（澄清、提醒、接話）？目前幾乎只有 reactive 建模。
+2. **時序的可控性**：能不能用自然語言指令控制互動風格（「講慢一點」「別打斷我」「積極一點」）？Instruct-FD 這條線剛起步。
+3. **多人場景**：三人以上的對話、addressee detection、以及「不是對我說的」的判斷。
+4. **Sim-to-real**：學術資料的乾淨雙軌 vs. 真實裝置的回音、AGC、延遲抖動。這是最被低估的落差。
+5. **低資源與本土語言**：台語、客語、原住民族語的對話資料幾乎不存在；正字法不統一使文字端的 interleaving 難以套用。這是本地研究者的結構性機會。
+6. **評估的根本問題**：對話沒有唯一正解，如何建立可重複、與人類感受相關、且不獎勵取巧的自動評估？
+7. **延遲與思考的權衡**：latent reasoning、chronological thinking 之外還有什麼？「在說的同時修正」（self-correction while speaking）幾乎沒有被研究。
+
+## 參考資料
+**Benchmark（本週的閱讀主體）**
+- Lin et al., **Full-Duplex-Bench: A Benchmark to Evaluate Full-duplex Spoken Dialogue Models on Turn-taking Capabilities**, ASRU 2025（arXiv:2503.04721）
+- Lin et al., **Full-Duplex-Bench v1.5: Evaluating Overlap Handling for Full-Duplex Speech Models**, ICASSP 2026（arXiv:2507.23159）
+- Peng et al., **FD-Bench: A Full-Duplex Benchmarking Pipeline Designed for Full Duplex Spoken Dialogue Systems**, Interspeech 2025（arXiv:2507.19040）
+- Fukuda et al., **M3-DuplexBench: A Multi-Turn, Multilingual, Multidomain Benchmark for Full-Duplex Spoken Dialogue Models**, arXiv:2607.29125（2026）
+- Tang et al., **Instruct-FD: Can Your Full-Duplex Speech System Follow Turn-Taking Instructions?**, arXiv:2607.20460（2026）
+- Ge et al., **FLEXI: Benchmarking Full-duplex Human-LLM Speech Interaction**, arXiv:2509.22243（2025）
+- Zhao et al., **The ICASSP 2026 HumDial Challenge: Benchmarking Human-like Spoken Dialogue Systems in the LLM Era**, arXiv:2601.05564（2026）；及賽後總結 Wang et al., **Full-Duplex Interaction in Spoken Dialogue Systems: A Comprehensive Study from the ICASSP 2026 HumDial Challenge**, arXiv:2604.21406（2026）— 挑戰賽論文通常包含最完整的指標定義與 baseline，非常適合教學
+- Chen et al., **VoiceBench: Benchmarking LLM-Based Voice Assistants**, arXiv:2410.17196（2024）— 半雙工的語意能力評估基準
+- Wang et al., **VoiceAssistant-Eval: Benchmarking AI Assistants across Listening, Speaking, and Viewing**, arXiv:2509.22651（2025）
+- Li et al., **AudioTrust: Benchmarking the Multifaceted Trustworthiness of Audio Large Language Models**, ICLR 2026（arXiv:2505.16211）
+- `[主題]` 語音 agent 與工具呼叫的評估：檢索 *VoiceAgentBench*、*Audio2Tool speech tool use*、*speech agent benchmark*
+
+**對齊**
+- Wu, Mazaré, Zeghidour & Défossez, **Aligning Spoken Dialogue Models from User Interactions**, ICML 2025（arXiv:2506.21463）— 從真實互動蒐集偏好，本週主文獻
+- Hsiao et al., **ASPIRin: Action Space Projection for Interactivity-Optimized Reinforcement Learning in Full-Duplex Speech Language Models**, arXiv:2604.10065（2026）
+- Li et al., **Decoupling Conversational Dynamics in Full-Duplex Spoken Models through Reinforcement Learning**, arXiv:2607.07148（2026）
+- Chen et al., **Dual-Axis Generative Reward Model Toward Semantic and Turn-taking Robustness in Interactive Spoken Dialogue Models**, arXiv:2604.14920（2026）
+- Ohashi et al., **Multi-Faceted Interactivity Alignment in Full-Duplex Speech Models**, EMNLP 2026（arXiv:2606.11167）
+- Züfle et al., **F-Actor: Controllable Conversational Behaviour in Full-Duplex Models**, arXiv:2601.11329（2026）
+- Fan et al., **SpeechGym: An Audio-Native Gym for Training Voice Agents via Reinforcement Learning**, arXiv:2608.26432（2026）— 若要帶學生做專題，這類環境很實用
+
+**落地與安全**
+- `[主題]` 延遲與吞吐工程：檢索 *streaming inference speech LLM latency*、*KV cache compression long context*、*on-device speech LLM quantization*
+- Roy et al., **PersonaPlex: Voice and Role Control for Full Duplex Conversational Speech Models**, arXiv:2602.06053（2026）— 可控性與角色一致性
+- `[主題]` 語音 agent 的安全與隱私：檢索 *voice agent prompt injection audio*、*speaker anonymization deployment*、*audio jailbreak speech LLM*
+
+**多模態延伸（若時間允許，可作為最後 10 分鐘的展望）**
+- Jiang, Ohashi & Higashinaka, **Integrating Facial Generation into Full-Duplex Spoken Dialogue Systems**, Interspeech 2026（arXiv:2606.21970）

@@ -1,0 +1,64 @@
+---
+title: "W7｜語音辨識：三種範式、streaming 與 LLM 化"
+subtitle: "Part II — 模組"
+toc-depth: 2
+---
+
+<!-- 此檔由 scripts/build_weeks.py 自動產生，請勿直接編輯；請改 docs/course-outline.md 後重跑腳本。 -->
+
+## 定位
+把 W3–W5 收斂成一個可用的 ASR 系統觀。本週的重點不是「再講一次 CTC」，而是**選擇問題**：在給定延遲、算力、領域與可控性需求下，該選哪一種範式，以及 2025–2026 的 LLM-based ASR 改變了什麼。
+
+## Learning objectives
+1. 能在延遲、可控性（biasing）、資料需求、訓練成本四個維度上比較 CTC / AED / RNN-T / LLM-based ASR。
+2. 能說明大規模弱監督（Whisper 路線）與自監督+微調（wav2vec 2.0 路線）在能力與失敗模式上的差異。
+3. 能實作／描述 contextual biasing 的三類做法（shallow fusion with WFST、attention-based deep biasing、prompt-based biasing），並分析各自在全雙工系統中的可用性。
+4. 能診斷一個 ASR 輸出的錯誤類型（刪除／插入／替換、幻覺、重複、語言誤判），並回推可能的成因。
+
+## 概念拆解路徑
+- **直覺比喻**：三種範式像三種考試方式 —— CTC 是填空（每格獨立）、AED 是作文（前後相關但可能離題）、RNN-T 是即時口譯（單調、可停頓）。LLM-based ASR 則是「一個很懂語言的人在聽，聽不清就用常識補」—— 這正是幻覺的來源。
+- **形式化**：LLM-based ASR 的一般形式 $P(\mathbf{y}\mid \mathbf{x}) = \prod_u P(y_u \mid \mathrm{Proj}(\mathrm{Enc}(\mathbf{x})), \mathbf{p}, \mathbf{y}_{<u})$，其中 $\mathbf{p}$ 為文字 prompt、$\mathrm{Proj}$ 為 modality adapter（常含降採樣）。
+- **為什麼有效**：把聲學不確定性交給一個強語言先驗去消歧，在自發語音、專有名詞、code-switching 上收益明顯。
+- **什麼情況下會壞掉**：
+  - **幻覺**：無語音段（純噪音、長靜音）產生完整句子 —— 這是 Whisper 家族的著名病理，在全雙工系統中特別危險（會誤觸發回應）；
+  - **streaming 困難**：decoder-only 的 LLM 要 streaming 需要 chunk-wise prefill 與部分假設修正；
+  - **時間戳不可靠**：LLM-based 系統的字級時間戳通常需要額外的 CTC/aligner 分支。
+
+## 關鍵數學（骨架）
+1. **Shallow fusion 的解碼目標**：$\hat{\mathbf{y}} = \arg\max_{\mathbf{y}} \log P_{\text{ASR}}(\mathbf{y}\mid\mathbf{x}) + \lambda \log P_{\text{LM}}(\mathbf{y}) - \mu \log P_{\text{ILM}}(\mathbf{y})$。**卡點提示**：internal LM 的減除（density ratio / ILME）是學生最容易忽略卻最能解釋「為什麼直接加 LM 有時變差」的一項。
+2. **Prefix beam search for CTC**：說明為何 CTC 的 beam search 必須在 prefix 空間（而非路徑空間）合併，以及 blank 造成的 $p_b, p_{nb}$ 雙軌記帳。
+3. **WER 的分解**：$\text{WER} = (S+D+I)/N$，並強調它的問題：對語意錯誤與功能詞錯誤等權、對標準化敏感、跨語言不可比（→ CER、以及對話系統該用什麼指標，留到 W14）。
+
+## 常見誤解排除
+| 誤解 | 破解 |
+|---|---|
+| **「WER 可以跨論文直接比較」** | 文字標準化（數字、縮寫、標點、大小寫）的差異就能造成可觀的變動；測試集版本與音訊前處理也不同。要求學生看到 WER 表格時先找 normalization 說明。 |
+| 「大模型 zero-shot 一定贏微調的小模型」 | 在窄領域（醫療、客服、特定口音）+ 有標註的情況下，微調的小模型常勝，且延遲與成本低一個量級。 |
+| 「幻覺是訓練資料不乾淨的偶發問題」 | 它是「強語言先驗 + 弱聲學證據」的結構性後果。示範餵一段純噪音給 Whisper。 |
+| 「streaming 只要把模型改成因果就好」 | 訓練/推論的不匹配（training-inference mismatch）、beam 的部分假設穩定性（partial hypothesis flicker）都是獨立的問題。 |
+
+## 課堂骨架（180 min）
+| 時間 | 內容 |
+|---|---|
+| 0–20 | 三種範式的比較矩陣（延遲/可控性/資料/成本） |
+| 20–55 | 大規模弱監督：Whisper 的資料建構、多任務格式、以及它帶來的「ASR 商品化」 |
+| 55–65 | 休息 |
+| 65–100 | LLM-based ASR：adapter 設計、降採樣、prompt-based biasing、streaming 化的難點 |
+| 100–130 | **Live demo**：幻覺與 biasing。(a) 餵純噪音；(b) 同一段含專有名詞的音訊，有/無 prompt biasing 對照 |
+| 130–160 | Decoding：prefix beam search、shallow fusion、ILM 減除；contextual biasing 三類做法 |
+| 160–180 | 錯誤分析工作坊：發一份含 5 種錯誤類型的輸出，學生分類並推測成因 |
+
+## 課堂 demo 建議
+Colab：`faster-whisper` 或 `transformers` Whisper-small。三格 cell：(1) 純噪音 → 觀察幻覺；(2) 加入 `initial_prompt` 的專有名詞 biasing；(3) 同一音訊在不同 `condition_on_previous_text` 設定下的重複現象。
+
+## 參考資料
+- Radford et al., **Robust Speech Recognition via Large-Scale Weak Supervision**（Whisper）, ICML 2023
+- Peng et al., **Reproducing Whisper-Style Training Using an Open-Source Toolkit and Publicly Available Data**（OWSM）, ASRU 2023
+- Pundak et al., **Deep Context: End-to-End Contextual Speech Recognition**（CLAS）, SLT 2018
+- McDermott, Sak & Variani, **A Density Ratio Approach to Language Model Fusion in End-to-End Automatic Speech Recognition**, ASRU 2019 `[驗]`
+- Meng et al., **Internal Language Model Estimation for Domain-Adaptive End-to-End Speech Recognition**, SLT 2021 `[驗]`
+- **JM3** Ch 16 *Automatic Speech Recognition*
+- **YD** Ch 7–8（sequence discriminative training、adaptation）— 雖是 hybrid 時代，但 discriminative 訓練的思路在 RL 後訓練時代重新有意義
+- `[主題]` LLM-based ASR：檢索 *speech LLM ASR adapter*、*SALMONN speech understanding*、*Qwen-ASR*、*whisper LLM decoder fusion*
+- `[主題]` Whisper 幻覺與穩健性：檢索 *whisper hallucination silence*、*ASR robustness long-form*
+- Kumar et al., **When Synthetic Speech Is All You Have: Better Call GRPO**, arXiv:2607.08409（2026）— RL 用於 ASR 領域適配的近例，可當延伸討論

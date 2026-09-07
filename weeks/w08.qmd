@@ -1,0 +1,94 @@
+---
+title: "W8｜語音合成 I：生成範式與 streaming 合成"
+subtitle: "Part II — 模組"
+toc-depth: 2
+---
+
+<!-- 此檔由 scripts/build_weeks.py 自動產生，請勿直接編輯；請改 docs/course-outline.md 後重跑腳本。 -->
+
+## 定位
+本課程的第二個核心數學週。TTS 是全雙工系統的輸出端，而它的兩個主流範式（autoregressive codec LM 與 flow matching / diffusion）分別對應「與 LLM 天然相容」和「品質與速度俱佳但非因果」兩種取捨。**flow matching 的推導在此完成，之後 W9 的 RL 後訓練與 W13 的 streaming 生成都會用到。**
+
+## Learning objectives
+1. 能敘述 TTS 從 concatenative → SPSS → Tacotron/FastSpeech → codec LM / flow matching 的演化，並指出每一次躍進解決了什麼具體問題。
+2. 能推導 conditional flow matching 的訓練目標，並解釋它與 diffusion（score matching）在目標與取樣路徑上的關係。
+3. 能設計一個 streaming TTS 的分塊策略，計算其 first-packet latency，並說明 lookahead 與 prosody 品質的衝突。
+4. 能解釋 neural vocoder 的三大類（GAN、flow、diffusion）與其 artifacts 的聽覺特徵。
+
+## 概念拆解路徑
+- **直覺比喻**：flow matching 是「學一個把噪音搬到資料的速度場」；把 diffusion 想成沿著彎曲小路走很多步，flow matching（尤其 rectified flow）是想把路拉直，好讓少數幾步就走完。這個比喻在 W8 後段講 distillation / MeanFlow 的一步生成時直接延伸；失效點在於「拉直」只在邊際分布層面成立，不代表任一條個別路徑真的是直線。
+- **形式化**：
+  - Autoregressive codec LM（VALL-E 型）：先用 AR 生成第一層 RVQ token（承載 prosody 與時長），再用 NAR 生成其餘層（承載細節）
+  - Flow matching：定義插值路徑 $x_t = (1-t)x_0 + t x_1$（$x_0 \sim \mathcal{N}(0,I)$，$x_1 \sim p_{\text{data}}$），目標速度場 $u_t = x_1 - x_0$，損失
+    $$\mathcal{L}_{\text{CFM}} = \mathbb{E}_{t,x_0,x_1}\left\lVert v_\theta(x_t, t, c) - (x_1 - x_0) \right\rVert^2$$
+  - 推論：解 ODE $\frac{dx}{dt} = v_\theta(x,t,c)$，$t: 0 \to 1$（Euler / midpoint / 高階 solver）
+- **為什麼有效**：CFM 把「學分布」變成「學一個回歸目標」，訓練穩定、無需 score 的對數導數估計；且路徑近似直線使 NFE（number of function evaluations）可以壓到個位數。
+- **什麼情況下會壞掉**：
+  - flow matching 需要**已知總時長**（因為它生成固定長度的 mel/latent），所以 duration predictor 或 span-filling 的設計成為系統瓶頸 —— 這也是它在 streaming 對話中比 AR 麻煩的根本原因；
+  - AR codec LM 的長度不穩定（漏詞、重複、停不下來），需要 CFG、重複懲罰或 RL 修正；
+  - vocoder artifacts：GAN vocoder 在高音、氣息音、樂音上的金屬感與 buzz。
+
+## 關鍵數學（骨架）
+1. **從 continuous normalizing flow 到 flow matching**：
+   - 起點：CNF 的 log-likelihood 需要解 trace of Jacobian（昂貴）；
+   - 關鍵一步：若已知條件路徑 $p_t(x\mid x_1)$ 與其對應向量場 $u_t(x\mid x_1)$，則對邊際場的回歸損失與對條件場的回歸損失有**相同梯度**（Lipman et al. 的核心定理）；
+   - 由此得到 $\mathcal{L}_{\text{CFM}}$。**卡點提示**：學生會問「為什麼可以用條件場代替邊際場」，要把「梯度相同、最佳解相同」這句話講清楚，不必展開完整證明。
+2. **與 diffusion 的關係**：把 VP-SDE 的 $x_t = \alpha_t x_1 + \sigma_t x_0$ 與線性插值並排，說明兩者只差在 noise schedule 的選擇；再說明 score $\nabla \log p_t$ 與速度場之間的線性關係。
+3. **Classifier-free guidance**：$\tilde{v} = v_\theta(x_t,t,\varnothing) + w\,(v_\theta(x_t,t,c) - v_\theta(x_t,t,\varnothing))$，並說明 $w$ 過大在語音上的具體後果（過度誇張的韻律、音色偏移）。
+4. **First-packet latency 的計算**：設 chunk 長度 $C_{\text{tts}}$、NFE $=n$、每次前向 $\tau$ 秒，則 first packet $\approx$ (文字前置處理) + $n\tau$ + (vocoder) + (播放緩衝)。要學生代數字進去算，並回填 W1 表格。
+5. **HiFi-GAN 的損失組合**（骨架即可）：adversarial + mel reconstruction + feature matching，說明每一項移除後聽起來會怎麼壞。
+
+## 常見誤解排除
+| 誤解 | 破解 |
+|---|---|
+| **「MOS 分數可以跨論文直接比較」** | MOS 受評分者群體、指導語、參照音訊、量表錨定影響極大。跨論文比 MOS 幾乎無意義；要比就用同一批評分者的 CMOS 或 preference test。本課程的第二重要破解。 |
+| 「diffusion / flow 一定比 AR 慢」 | NFE 已可壓到 1–4 步；反而 AR 在 token rate 高時每秒要跑幾十步。兩者的速度取決於實作與 token rate，不是範式本身。 |
+| 「TTS 的難點是音質」 | 音質在 24 kHz 上已接近飽和。現在的難點是**可控性、穩定性與延遲**，以及自發語音的非流暢現象（填充詞、重啟、笑聲）。 |
+| 「vocoder 只是最後一步的小模組」 | 它決定了整體音質上限，也常是延遲與算力的大戶。在 on-device 場景它經常是最貴的一段。 |
+
+## 課堂骨架（180 min）
+| 時間 | 內容 |
+|---|---|
+| 0–20 | TTS 演化史（極速）：每一代解決什麼、留下什麼問題 |
+| 20–45 | Tacotron（attention 崩壞）→ FastSpeech（duration predictor + 非自迴歸）→ 為何 duration 建模是 TTS 的核心 |
+| 45–75 | Codec LM 路線：VALL-E 的 AR+NAR 設計、in-context voice cloning 的機制 |
+| 75–85 | 休息 |
+| 85–140 | **Flow matching 推導**（白板）：CNF 的困難 → 條件路徑 → CFM 目標 → ODE 取樣 → CFG → 蒸餾與一步生成 |
+| 140–160 | Vocoder 三類與 **artifacts 聆聽 demo**（先播壞的） |
+| 160–180 | Streaming TTS：chunk 化、first-packet latency 計算、與 AR/NAR 的相容性；回填延遲預算表 |
+
+## 課堂 demo 建議
+兩格 cell 就夠：(1) 同一句話用 NFE = 1/2/4/16 生成，聆聽 + 計時（讓學生看到品質-速度曲線的膝點）；(2) vocoder artifacts 對照：mel → Griffin-Lim vs. HiFi-GAN vs. 原音。Colab 免費版可用 `F5-TTS` 或 `CosyVoice` 的小型設定（注意首次下載權重的時間，建議課前預熱 notebook）。
+
+## 參考資料
+**演化脈絡**
+- Shen et al., **Natural TTS Synthesis by Conditioning WaveNet on Mel Spectrogram Predictions**（Tacotron 2）, ICASSP 2018
+- Ren et al., **FastSpeech 2: Fast and High-Quality End-to-End Text to Speech**, ICLR 2021
+- Kim, Kong & Son, **Conditional Variational Autoencoder with Adversarial Learning for End-to-End Text-to-Speech**（VITS）, ICML 2021
+- Tan et al., **A Survey on Neural Speech Synthesis**, arXiv:2106.15561（2021）；書版見 **TAN**
+
+**Codec LM 路線**
+- Wang et al., **Neural Codec Language Models are Zero-Shot Text to Speech Synthesizers**（VALL-E）, arXiv:2301.02111（2023）
+- Borsos et al., **AudioLM: A Language Modeling Approach to Audio Generation**, IEEE/ACM TASLP, 2023
+- Borsos et al., **SoundStorm: Efficient Parallel Audio Generation**, arXiv:2305.09636（2023）— MaskGIT 式並行解碼，全雙工系統中很實用
+
+**Flow matching / diffusion 路線**
+- Lipman et al., **Flow Matching for Generative Modeling**, ICLR 2023 — 本週推導的主文獻
+- Lipman et al., **Flow Matching Guide and Code**, arXiv:2412.06264（2024）`[驗]` — 教學用最佳材料，含程式碼
+- Liu, Gong & Liu, **Flow Straight and Fast: Learning to Generate and Transfer Data with Rectified Flow**, ICLR 2023
+- Le et al., **Voicebox: Text-Guided Multilingual Universal Speech Generation at Scale**, NeurIPS 2023
+- Eskimez et al., **E2 TTS: Embarrassingly Easy Fully Non-Autoregressive Zero-Shot TTS**, SLT 2024
+- Chen et al., **F5-TTS: A Fairytaler that Fakes Fluent and Faithful Speech with Flow Matching**, arXiv:2410.06885（2024）
+- Ju et al., **NaturalSpeech 3: Zero-Shot Speech Synthesis with Factorized Codec and Diffusion Models**, ICML 2024
+
+**Vocoder**
+- Kong, Kim & Bae, **HiFi-GAN: Generative Adversarial Networks for Efficient and High Fidelity Speech Synthesis**, NeurIPS 2020
+- Lee et al., **BigVGAN: A Universal Neural Vocoder with Large-Scale Training**, ICLR 2023
+- Siuzdak, **Vocos: Closing the Gap Between Time-Domain and Fourier-Based Neural Vocoders for High-Quality Audio Synthesis**, ICLR 2024
+
+**Streaming / 加速（2025–2026）**
+- Du et al., **CosyVoice 3: Towards In-the-wild Speech Generation via Scaling-up and Post-training**, arXiv:2505.17589（2025）
+- Xie et al., **FlashTTS: Fast Streaming TTS with MTP Acceleration and X-pred Mean Flow Distillation**, Interspeech 2026（arXiv:2606.09141）
+- Dai et al., **One-Step Token-to-Waveform Generation with MeanFlow in Latent Space**, arXiv:2606.18072（2026）
+- Zhang et al., **CuteTTS: Efficient and High-Quality Speech Synthesis via Autoregressive Modeling of Continuous Latents**, arXiv:2608.08638（2026）— 「連續 latent 的 AR」這條線值得在課堂上與離散 token 路線對比
+- **JM3** Ch 17 *Text-to-Speech*

@@ -1,0 +1,80 @@
+---
+title: "W12｜全雙工 I：Turn-Taking 的語言學基礎與建模"
+subtitle: "Part III — 對話系統"
+toc-depth: 2
+---
+
+<!-- 此檔由 scripts/build_weeks.py 自動產生，請勿直接編輯；請改 docs/course-outline.md 後重跑腳本。 -->
+
+## 定位
+本週是全課的概念高峰。刻意**先講對話分析（CA）的語言學發現，再講建模**，因為「什麼算一個好的 turn-taking 決策」這件事若沒有語言學基準，模型評估就無從設計。這一週也解釋了為何 VAD-based 的 endpointing 天生不夠。
+
+## Learning objectives
+1. 能敘述 CA 的 turn-taking 系統（TCU、TRP、轉換規則）與 gap/overlap 的實證分布，並用它解釋為什麼固定的靜音門檻必然在「反應慢」與「搶話」之間擺盪。
+2. 能區分四種輸入端事件（backchannel、interruption、barge-in、overlap continuation），並說明各自需要的模型反應不同。
+3. 能寫出 voice activity projection 的預測目標形式，說明它與傳統 VAD 的差異，並解釋為何「預測未來的語音活動」是比「偵測當前語音」更好的建模目標。
+4. 能設計一個 semantic endpointing 模型的輸入輸出（聲學 + 部分 ASR 假設 + LM 機率）並分析其延遲構成。
+
+## 概念拆解路徑
+- **直覺比喻**：turn-taking 不是「等對方講完」，而是**持續預測對方什麼時候會講完**，並在預測的落點前就把回應準備好。像接力賽的接棒區：跑者在被交棒前就開始加速。這個比喻延伸到 W13 的架構（模型必須在聽的時候就開始規劃），失效點在於接力賽有固定接棒區，而對話的 TRP 是動態且可協商的。
+- **形式化**：
+  - 傳統 VAD + 靜音門檻：$\text{respond if } \sum_{\tau=t-T_{\text{sil}}}^{t}\mathbf{1}[\text{VAD}(\tau)=0] = T_{\text{sil}}$ —— 單一超參數 $T_{\text{sil}}$ 同時控制反應速度與誤觸發率
+  - VAP：預測未來窗格內雙方的語音活動模式，$P(\mathbf{v}^{A}_{t:t+H}, \mathbf{v}^{B}_{t:t+H} \mid \mathbf{x}_{1:t})$，實作上把未來窗格離散成有限個「活動模式」做分類
+  - Semantic endpointing：$P(\text{end of turn} \mid \text{acoustic}_{1:t}, \hat{w}_{1:u})$，同時吃聲學與串流 ASR 的部分假設
+- **為什麼有效**：語法完整性、語調輪廓（下降/上升）、語速減慢、注視（多模態時）都是 TRP 的預測線索，而它們在說話者停下來**之前**就已出現。因此預測型模型能把延遲壓到負值（在停頓發生前就準備好）。
+- **什麼情況下會壞掉**：
+  - 語言與文化差異（gap 分布、overlap 容忍度不同）；
+  - 自發語音的中途停頓（思考、找詞）與 turn 結束在聲學上高度相似 —— 這是 semantic 線索不可或缺的原因；
+  - 「該說話但不該現在說話」：proactive turn（系統主動發起）在現有框架中幾乎沒有被建模。
+
+## 關鍵數學（骨架）
+1. **門檻式 endpointing 的 ROC 分析**：把「誤觸發率」與「平均反應延遲」畫成一條曲線（掃 $T_{\text{sil}}$），說明**單一門檻不可能同時最佳化兩者**；再說明預測模型如何把整條曲線往左下推。這張圖是本週的核心投影片。
+2. **VAP 的標籤構造**：把未來 $H$ 秒切成 $B$ 個 bin、兩個說話人 → $2^{2B}$ 種模式，實務上用聚類或分解成邊際機率。給出「為何要離散化」的理由（多標籤相依性）。
+3. **決策理論框架**：定義代價 $\mathcal{C} = c_{\text{late}}\cdot \mathbb{E}[\text{delay}] + c_{\text{early}}\cdot P(\text{interrupt user})$，說明最佳決策門檻由 $c_{\text{late}}/c_{\text{early}}$ 決定，且這個比值**應該隨對話情境變化**（客服 vs. 陪伴 vs. 語言學習）。這是課堂上很好的討論題。
+4. **時間對齊的評估量**：定義 turn-taking 的三個量 —— response latency、interruption rate、backchannel timing error —— 為 W14 的 benchmark 鋪路。
+
+## 常見誤解排除
+| 誤解 | 破解 |
+|---|---|
+| **「turn-taking 是 VAD 的下游應用」** | 反了。turn-taking 是預測問題，VAD 是偵測問題。用 VAD 做 turn-taking 等於用「現在有沒有聲音」回答「他講完了嗎」。 |
+| 「backchannel 就是短的 turn」 | backchannel（「嗯」「對」）不索取發言權，且時機比內容重要。系統若把它當成 turn 處理，會不當地接手發言權。 |
+| 「打斷應該一律讓使用者贏」 | 人類對話中打斷有多種功能（澄清、補充、搶奪）。一律讓使用者贏，會使系統無法完成必要的長回答（例如唸完一個地址）。這是可控性問題，不是禮貌問題。 |
+| 「延遲越低越自然」 | 過快的回應會被感知為沒在聽、或機械化。自然的延遲有分布，不是越小越好。 |
+
+## 課堂骨架（180 min）
+| 時間 | 內容 |
+|---|---|
+| 0–35 | 對話分析基礎：TCU、TRP、轉換規則、gap/overlap 的實證分布；**放一段真人對話錄音**並在時間軸上標出 TRP |
+| 35–60 | 四種輸入端事件的分類與各自的正確反應（做成一張決策表） |
+| 60–70 | 休息 |
+| 70–100 | 門檻式 endpointing 的 ROC 分析（本週核心投影片）；**live demo**：同一段含中途停頓的音訊，掃 $T_{\text{sil}}$ = 200/500/900 ms，聽系統何時搶話、何時遲鈍 |
+| 100–140 | 預測型模型：TurnGPT（文字端）→ VAP（聲學端）→ 2025–2026 的聲學+語意聯合模型 |
+| 140–165 | 決策理論框架與情境相依的代價比值；**停下來討論**：客服機器人與陪伴型機器人的 $c_{\text{late}}/c_{\text{early}}$ 該差多少？ |
+| 165–180 | 從「決策模組」到「原生全雙工」：預告 W13 的三條架構路線 |
+
+## 課堂 demo 建議
+最有效的一格：錄一段自己說「我想訂一張……嗯……下週三去台南的票」，中間停 700 ms。把這段餵給三種門檻設定的 pipeline，錄下系統插話的時間點。學生會立刻理解為何純聲學門檻無解。進階：再加一格用一個 semantic VAD 模型對照。
+
+## 參考資料
+**語言學基礎（必讀）**
+- Sacks, Schegloff & Jefferson, **A Simplest Systematics for the Organization of Turn-Taking for Conversation**, *Language*, 50(4), 1974 — 全領域的起點
+- Duncan, **Some Signals and Rules for Taking Speaking Turns in Conversations**, *Journal of Personality and Social Psychology*, 1972 `[驗]` — turn-yielding cues 的來源
+- **JM3** Ch 26 *Conversation and its Structure* — 用計算的語言重述 CA，最適合做投影片
+- Skantze, **Turn-Taking in Conversational Systems and Human-Robot Interaction: A Review**, *Computer Speech & Language*, 2021 — 建模端的權威回顧，本週的骨幹文獻
+- `[主題]` gap/overlap 的跨語言實證：檢索 *universals and cultural variation in turn-taking*、*Stivers et al. turn-taking ten languages*
+
+**建模**
+- Ekstedt & Skantze, **TurnGPT: A Transformer-based Language Model for Predicting Turn-taking in Spoken Dialog**, EMNLP Findings 2020
+- Ekstedt & Skantze, **Voice Activity Projection: Self-supervised Learning of Turn-taking Events**, Interspeech 2022
+- `[主題]` 串流 VAD 與 endpointing 的工程實作：檢索 *Silero VAD*、*semantic VAD endpointing*、*smart turn detection open source*
+
+**2025–2026 的 turn-taking 專門工作**
+- Li et al., **Easy Turn: Integrating Acoustic and Linguistic Modalities for Robust Turn-Taking in Full-Duplex Spoken Dialogue Systems**, arXiv:2509.23938（2025）
+- Wu et al., **Phoenix-VAD: Streaming Semantic Endpoint Detection for Full-Duplex Speech Interaction**, arXiv:2509.20410（2025/2026 修訂）
+- Wang et al., **FastTurn: Unifying Acoustic and Streaming Semantic Cues for Low-Latency and Robust Turn Detection**, arXiv:2604.01897（2026）
+- Yang et al., **JAL-Turn: Joint Acoustic-Linguistic Modeling for Real-Time and Robust Turn-Taking Detection in Full-Duplex Spoken Dialogue Systems**, arXiv:2603.26515（2026）
+- Xia et al., **Semantic-Aware Interruption Detection in Spoken Dialogue Systems: Benchmark, Metric, and Model**, ICME 2026（arXiv:2603.24144）
+- Zhang et al., **TurnNat: Automatic Evaluation of Turn-Taking Naturalness in Dyadic Spoken Dialogue**, arXiv:2607.01345（2026）
+- Riera et al., **Synchronization and Turn-Taking in Full-Duplex Speech Dialogue Models**, arXiv:2605.20356（2026）
+- Pan et al., **Enabling Proactive Spoken Turns via a Generalized Style-Aware Full-Duplex Framework**, ACM MM 2026（arXiv:2608.28630）— proactive turn，目前最少被處理的方向
+- Li & Chu, **Decoupling Turn-Taking from Semantics: A Decoupled Data Approach for Finite-State-Machine-Based Full-Duplex Dialogue**, EMNLP 2026（arXiv:2609.03321）

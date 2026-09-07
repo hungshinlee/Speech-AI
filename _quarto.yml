@@ -1,0 +1,100 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - index.qmd
+    - syllabus.qmd
+    - resources.qmd
+    - weeks/*.qmd
+
+lang: zh-Hant
+
+website:
+  title: "語音處理與人機互動"
+  description: "以建構半雙工／全雙工語音對話 AI 系統為最終目標的研究所課程"
+  site-url: https://hungshinlee.github.io/Speech-AI/
+  repo-url: https://github.com/hungshinlee/Speech-AI
+  repo-actions: [source, issue]
+  page-navigation: true
+  back-to-top-navigation: true
+  reader-mode: true
+  search:
+    location: navbar
+    type: overlay
+  navbar:
+    logo: ""
+    title: "語音處理與人機互動"
+    collapse-below: lg
+    left:
+      - href: index.qmd
+        text: 首頁
+      - href: syllabus.qmd
+        text: 課程資訊
+      - href: resources.qmd
+        text: 教材與資源
+      - href: weeks/all.qmd
+        text: 完整大綱
+    right:
+      - icon: github
+        href: https://github.com/hungshinlee/Speech-AI
+        aria-label: GitHub
+  sidebar:
+    style: floating
+    collapse-level: 2
+    search: false
+    contents:
+      - href: index.qmd
+        text: 首頁
+      - href: syllabus.qmd
+        text: 課程資訊
+      - section: "Part I — 基礎"
+        contents:
+          - href: weeks/w01.qmd
+          - href: weeks/w02.qmd
+          - href: weeks/w03.qmd
+          - href: weeks/w04.qmd
+          - href: weeks/w05.qmd
+          - href: weeks/w06.qmd
+      - section: "Part II — 模組"
+        contents:
+          - href: weeks/w07.qmd
+          - href: weeks/w08.qmd
+          - href: weeks/w09.qmd
+          - href: weeks/w10.qmd
+      - section: "Part III — 對話系統"
+        contents:
+          - href: weeks/w11.qmd
+          - href: weeks/w12.qmd
+          - href: weeks/w13.qmd
+          - href: weeks/w14.qmd
+      - href: resources.qmd
+        text: 教材與資源
+      - href: weeks/all.qmd
+        text: 完整大綱（單頁）
+  page-footer:
+    left: "語音處理與人機互動 · 碩博班 · 14 週"
+    right: "以 [Quarto](https://quarto.org) 建置"
+
+format:
+  html:
+    theme:
+      - cosmo
+      - styles.scss
+    toc: true
+    toc-depth: 2
+    toc-title: 本頁目錄
+    toc-expand: true
+    smooth-scroll: true
+    anchor-sections: true
+    link-external-newwindow: true
+    # 釘住版本：Quarto 預設載 katex@latest，上游改版會無聲壞掉
+    html-math-method:
+      method: katex
+      url: "https://cdn.jsdelivr.net/npm/katex@0.18.7/dist/"
+    code-copy: true
+    code-overflow: scroll
+    fig-responsive: true
+    grid:
+      sidebar-width: 260px
+      body-width: 960px
+      margin-width: 220px

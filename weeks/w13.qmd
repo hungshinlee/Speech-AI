@@ -1,0 +1,88 @@
+---
+title: "W13｜全雙工 II：架構路線、多串流建模與資料問題"
+subtitle: "Part III — 對話系統"
+toc-depth: 2
+---
+
+<!-- 此檔由 scripts/build_weeks.py 自動產生，請勿直接編輯；請改 docs/course-outline.md 後重跑腳本。 -->
+
+## 定位
+把 W12 的「決策問題」變成「架構問題」。本週的教學策略是**三條路線並排比較**，並用同一組評估維度（延遲、可控性、語意能力保留、訓練成本、資料需求）打分。資料問題單獨處理，因為它是目前最被低估的瓶頸。
+
+## Learning objectives
+1. 能比較三條全雙工架構路線 —— (a) 平行多串流時間同步（dGSLM、Moshi 型）、(b) 外掛狀態機／可插拔控制器（Freeze-Omni、FlexDuo 型）、(c) 原生單一自迴歸（BayLing-Duplex 型）與 codec-free（SALMONN-omni 型）—— 並指出各自的關鍵設計決策。
+2. 能說明「時間同步的 token 串流」如何在架構層面實現「邊聽邊說」，並計算其每秒解碼步數。
+3. 能診斷全雙工訓練資料的三個問題（缺少真實 speaker-separated 雙軌對話、合成資料的 turn-taking 分布失真、標註 overlap 的困難）並描述現有的資料建構策略。
+4. 能為一個給定的產品約束（延遲預算、算力、可控性需求、語言）選擇架構路線並論證。
+
+## 概念拆解路徑
+- **直覺比喻**：三條路線像三種樂團編制 —— 多串流是「兩個樂手同讀一份總譜、逐拍對齊」（同步但耦合、訓練貴）；狀態機是「一個指揮在旁邊打手勢叫樂手停或起」（模組化、可控、但指揮不懂音樂內容）；原生單一 AR 是「一個人同時彈兩隻手」（最簡潔，但要重新學會怎麼彈）。這個比喻可以支撐整週的比較，失效點在於「指揮不懂內容」這件事正在被 semantic 狀態機修正。
+- **形式化**：
+  - **多串流時間同步**：在每個 frame $t$ 同時處理使用者串流與系統串流，$P(a^{\text{sys}}_t, w_t \mid \mathbf{a}^{\text{usr}}_{\le t}, \mathbf{a}^{\text{sys}}_{<t}, \mathbf{w}_{<t})$。系統在使用者說話時仍持續產生 token（可能是「靜音 token」），這是「持續決策」的技術實現。
+  - **狀態機**：外掛一個 $P(s_t \mid \cdot)$，$s_t \in \{\text{listen}, \text{speak}, \text{idle}, \text{interrupt}\}$，主 LLM 被凍結或半凍結；決策器可以是聲學+語意的小模型。
+  - **原生單一 AR**：把使用者與系統的 token 交錯進**同一條**序列，靠位置/角色標記區分，維持單一 next-token prediction 目標。
+- **為什麼有效**：關鍵洞見是「靜音也是一個 token」。一旦系統在每個 frame 都必須輸出某個東西（包含「什麼都不說」），full-duplex 就從一個調度問題變成一個標準的序列建模問題 —— 這句話值得單獨一張投影片。
+- **什麼情況下會壞掉**：
+  - 多串流：每秒解碼步數 = frame rate，12.5 Hz 已是最低限度；再加多層 codebook 則每步要跑 depth transformer。算力是硬約束。
+  - 狀態機：決策器與主模型的資訊不對稱（決策器不知道模型正要說什麼重要內容）；狀態轉移的抖動（頻繁 listen↔speak 切換）需要平滑化。
+  - 原生 AR：需要大量真實雙軌對話資料，而這正是最缺的。
+  - 全部路線共同的問題：**回音**（系統聽到自己的聲音）在真實部署中必須靠 AEC 解決，而學術資料集通常假設乾淨的雙軌 —— 這是 sim-to-real 的最大落差（回扣 W10）。
+
+## 關鍵數學（骨架）
+1. **多串流的解碼預算**：每秒總前向次數 $= f_{\text{token}} \times (1 + \text{depth transformer 層數的攤提})$；代入 12.5 Hz、8 層 codebook、一個 7B 主幹，估算所需的 tokens/s 吞吐量，對照單張消費級 GPU 的實測能力。**這是全課最實際的一次算術。**
+2. **狀態機的平滑化**：把 $s_t$ 的決策寫成 HMM 的解碼問題（回扣 W3！），轉移機率矩陣中的自轉移項就是平滑度超參數；說明 min-duration 約束如何用 state 拓樸實現。
+3. **Overlap 下的損失遮罩**：在 overlap 區段，系統的目標 token 該是什麼？討論三種選擇（照抄真實資料、強制靜音、自由）及其後果。
+4. **資料合成的偏誤分析**：若用「兩個 TTS 輪流唸文字對話」合成訓練資料，則 gap 分布是人工指定的 → 模型學到的 turn-taking 時序是**你的合成腳本的分布**，不是人類的分布。這一點要在課堂上明說。
+
+## 常見誤解排除
+| 誤解 | 破解 |
+|---|---|
+| 「全雙工模型就是把 VAD 換成神經網路」 | 對照三條路線的資料流圖。原生路線根本沒有一個叫做「VAD」的模組。 |
+| 「多串流架構比較先進，狀態機是過渡方案」 | 2026 年狀態機路線仍在活躍發展（因為可控、可用凍結的強 LLM、訓練便宜）。兩者是不同的工程取捨，不是世代關係。 |
+| **「模型會打斷、會被打斷，就是全雙工」** | 打斷是行為，不是架構。要看的是「模型在說話時，輸入串流有沒有進入模型的計算圖並影響下一步決策」。 |
+| 「合成資料夠用」 | 合成資料能教語意，難教時序。真實雙軌對話資料的價值主要在 turn-taking 時序分布。 |
+
+## 課堂骨架（180 min）
+| 時間 | 內容 |
+|---|---|
+| 0–15 | 「靜音也是一個 token」：把 full-duplex 化約為序列建模的關鍵一步 |
+| 15–60 | 路線 (a) 多串流：dGSLM 的雙塔 + cross-attention → Moshi 的 RQ-Transformer + inner monologue（逐一拆解架構圖，這是本週最重要的 45 分鐘） |
+| 60–70 | 休息 |
+| 70–105 | 路線 (b) 狀態機／可插拔：Freeze-Omni、FlexDuo、SoulX-Duplug 類；狀態平滑化與 HMM 的連結 |
+| 105–130 | 路線 (c) 原生單一 AR 與 codec-free：SALMONN-omni、BayLing-Duplex；以及 simultaneous S2ST（Hibiki）作為「邊聽邊說」的另一個實例 |
+| 130–155 | **解碼預算算術**（學生動手）；三路線評分表填寫 |
+| 155–180 | 資料問題：真實雙軌對話的取得、合成 pipeline 的偏誤、in-the-wild 音訊的軌道還原 |
+
+## 課堂 demo 建議
+Colab 上跑 Moshi 級模型偏重，替代方案：(1) 播放官方 demo 音訊並在時間軸上標出「使用者說話 / 系統說話 / 重疊」三軌，讓學生自己標注哪些行為只有全雙工做得到；(2) 用一個輕量的 turn-taking 決策模型（W12 的 demo 延伸），把它掛在一個 cascade 前面，實測「加了預測型決策器」前後的插話時間分布變化 —— 這是 Colab 可行且教學效果最好的一格。
+
+## 參考資料
+**路線 (a)：平行多串流**
+- Nguyen et al., **Generative Spoken Dialogue Language Modeling**（dGSLM）, TACL 2023 — 第一個真正的雙軌語音對話生成模型，必讀
+- Défossez et al., **Moshi: A Speech-Text Foundation Model for Real-Time Dialogue**, arXiv:2410.00037（2024）— 本週主文獻
+- Veluri et al., **Beyond Turn-Based Interfaces: Synchronous LLMs as Full-Duplex Dialogue Agents**（SyncLLM）, EMNLP 2024
+- Labiausse et al., **High-Fidelity Simultaneous Speech-To-Speech Translation**（Hibiki）, 2025 `[驗]`；後續無對齊資料版本見 Labiausse et al., **Simultaneous Speech-to-Speech Translation Without Aligned Data**, ICML 2026（arXiv:2602.11072）
+
+**路線 (b)：狀態機／可插拔**
+- Wang et al., **Freeze-Omni: A Smart and Low Latency Speech-to-Speech Dialogue Model with Frozen LLM**, arXiv:2411.00774（2024）`[驗]`
+- Liao et al., **FlexDuo: A Pluggable System for Enabling Full-Duplex Capabilities in Speech Dialogue Systems**, arXiv:2502.13472（2025）
+- Yan et al., **SoulX-Duplug: Plug-and-Play Streaming State Prediction Module for Realtime Full-Duplex Speech Conversation**, arXiv:2603.14877（2026）
+- Zhang et al., **LLM-Enhanced Dialogue Management for Full-Duplex Spoken Dialogue Systems**, arXiv:2502.14145（2025/2026 修訂）
+- Yang, Fujita & Sudo, **DuplexCascade: Full-Duplex Speech-to-Speech Dialogue with VAD-Free Cascaded ASR-LLM-TTS Pipeline and Micro-Turn Optimization**, arXiv:2603.09180（2026）— 證明 cascade 也能做全雙工，很好的反直覺教材
+- Yu, Chen & Cai, **Unit-Based Agent for Semi-Cascaded Full-Duplex Dialogue Systems**, ICASSP 2026 Grand Challenge（arXiv:2601.20230）
+
+**路線 (c)：原生 AR / codec-free**
+- Yu et al., **SALMONN-omni: A Codec-free LLM for Full-duplex Speech Understanding and Generation**, arXiv:2411.18138（2024）；及 **SALMONN-omni: A Standalone Speech LLM without Codec Injection for Full-duplex Conversation**, arXiv:2505.17060（2025）
+- Fang, Guo & Feng, **BayLing-Duplex: Native Full-Duplex Speech Dialogue with a Single Autoregressive LLM**, arXiv:2606.14528（2026）
+- Zhang et al., **DuplexSLA: A Full-Duplex Spoken Language Model with Synchronized Speech, Language, and Action**, arXiv:2605.20755（2026）
+- Shi et al., **Voila: Voice-Language Foundation Models for Real-Time Autonomous Interaction and Voice Role-Play**, arXiv:2505.02707（2025）
+- `[主題]` 檢索 *OmniFlatten full-duplex*、*SLAM-Omni*、*MinMo duplex*
+
+**資料**
+- Nakata, Saito & Saruwatari, **DuplexChat: Constructing Speaker-Separated Full-Duplex Dialogue Speech at Scale for Spoken Dialogue Language Modeling**, arXiv:2607.04941（2026）
+- Nakata et al., **DialogueSidon: Recovering Full-Duplex Dialogue Tracks from In-the-Wild Dialogue Audio**, SIGDIAL 2026（arXiv:2604.09344）
+- Lu et al., **How Should LLMs Listen While Speaking? A Study of User-Stream Routing in Full-Duplex Spoken Dialogue**, arXiv:2605.10199（2026）— 「聽的那條串流該接到模型的哪裡」，是很好的架構討論題
+- `[主題]` 經典雙軌對話語料：檢索 *Switchboard corpus*、*Fisher corpus*、*CANDOR corpus*、*MultiDialog*；中文可檢索 *MagicData conversational*、*AISHELL-4*
+
+**架構總覽（本週的閱讀骨幹）**
+- Lu et al., **A Survey of Full-Duplex Spoken Dialogue Systems: Architectural Hierarchy, Interaction Ontology, and Decision State Machine**, arXiv:2606.19453（2026）

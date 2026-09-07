@@ -1,0 +1,58 @@
+name: Publish course site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.qmd'
+      - '**.md'
+      - '_quarto.yml'
+      - 'styles.scss'
+      - 'scripts/**'
+      - '.github/workflows/publish.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # 以 docs/course-outline.md 為 single source of truth 重建每週頁面，
+      # 即使忘記在本機重跑腳本，網站內容也不會漂移。
+      - name: Rebuild week pages from outline
+        run: python3 scripts/build_weeks.py
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Render site
+        run: quarto render
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

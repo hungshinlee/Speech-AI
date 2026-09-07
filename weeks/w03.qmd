@@ -1,0 +1,63 @@
+---
+title: "W3｜對齊問題：從 HMM 到 CTC"
+subtitle: "Part I — 基礎"
+toc-depth: 2
+---
+
+<!-- 此檔由 scripts/build_weeks.py 自動產生，請勿直接編輯；請改 docs/course-outline.md 後重跑腳本。 -->
+
+## 定位
+本課程的第一個核心數學週。語音辨識的本質困難不是分類，而是**未知對齊下的序列監督**。這一週把 HMM 的 forward-backward 與 CTC 的 forward-backward 放在同一個框架下講，讓學生看到 CTC 不是憑空發明，而是把 HMM 的邊際化搬到神經網路上。之後 W4 的 RNN-T、W13 的 streaming 對話狀態機都靠這個直覺。
+
+## Learning objectives
+1. 能寫出 HMM 的 forward recursion 與 Viterbi recursion，並說明兩者在半環（sum-product vs. max-product）上的差異。
+2. 能完整推導 CTC 的 forward-backward，包含 blank 擴充路徑的定義與遞推邊界條件。
+3. 能解釋 CTC 的條件獨立假設造成的後果（peaky 輸出、無法建模輸出間依賴、需要外部 LM）。
+4. 能比較 frame-level 對齊（hybrid）、CTC（單調、多對一）與 attention（軟對齊、非單調）三者的歸納偏誤。
+
+## 概念拆解路徑
+- **直覺比喻**：把 CTC 想成「對所有可能的節拍（哪個字被拉長幾格）加總計分」，而不是「先決定節拍再算分」。這個比喻延伸到 RNN-T（節拍可以停在原地不輸出）與 W12 的 turn-taking（決策是逐 frame 的，但監督是稀疏的）。
+- **形式化**：
+  - HMM：$P(X\mid W)=\sum_{q} \prod_t a_{q_{t-1}q_t} b_{q_t}(x_t)$
+  - CTC：定義擴充標籤 $\ell' = (\varnothing, \ell_1, \varnothing, \ell_2, \dots, \varnothing)$、多對一映射 $\mathcal{B}$（先摺疊重複、再刪 blank），則 $P(\ell\mid X)=\sum_{\pi \in \mathcal{B}^{-1}(\ell)} \prod_t y^t_{\pi_t}$
+- **為什麼有效**：$\mathcal{B}^{-1}(\ell)$ 是指數多的路徑，但因為映射的結構是單調的，動態規劃把它壓到 $O(T\lvert\ell\rvert)$。
+- **什麼情況下會壞掉**：$T < \lvert \ell' \rvert$ 時機率為零（長句短音訊 → loss 變 inf，實務上常見的 bug）；條件獨立假設讓 CTC 的 greedy decode 對同音字無能為力；peaky 對齊使 CTC 不適合當強制對齊器（雖然常被誤用）。
+
+## 關鍵數學（骨架）
+這是本週的主體，建議用 60–70 分鐘白板推。
+1. **HMM forward**：$\alpha_t(i) = b_i(x_t)\sum_j \alpha_{t-1}(j) a_{ji}$；指出 Viterbi 只是把 $\sum$ 換成 $\max$（半環替換），這個觀點在 W4 的 RNN-T lattice 會再用。
+2. **CTC forward**：定義 $\alpha_t(s)$ 為「到時間 $t$ 走完 $\ell'$ 前 $s$ 個符號」的機率總和，遞推
+   $$\alpha_t(s) = y^t_{\ell'_s}\big(\alpha_{t-1}(s) + \alpha_{t-1}(s-1) + [\ell'_s \neq \varnothing \wedge \ell'_s \neq \ell'_{s-2}]\,\alpha_{t-1}(s-2)\big)$$
+   **卡點提示**：第三項的條件是全部推導中最容易錯的地方 —— 為什麼相同符號之間必須有 blank？請用 "hello" 的雙 l 當例子在白板上走一遍。
+3. **梯度**：$\dfrac{\partial \log P(\ell\mid X)}{\partial u^t_k} = y^t_k - \dfrac{1}{P(\ell\mid X)}\sum_{s \in \{s: \ell'_s = k\}} \alpha_t(s)\beta_t(s)$。這個「softmax 輸出減去後驗對齊」的形式和 hybrid 系統的 frame-level cross-entropy 只差在目標是軟的 —— 強調這一點。
+4. **數值穩定**：log-sum-exp 的實作必要性；順便提 `inf` loss 的診斷流程。
+
+## 常見誤解排除
+| 誤解 | 破解 |
+|---|---|
+| **「CTC 的 blank 就是靜音」** | 播一段音訊的 CTC 後驗熱圖：blank 在有聲段也佔絕大多數機率。blank 是「此 frame 不發射新符號」的**記帳符號**，與聲學靜音無關。這是本週最重要的破解。 |
+| 「CTC 的 argmax 對齊可以當 ground-truth 對齊」 | peaky 特性使尖峰位置有系統性偏移。要對齊請用 hybrid 的 forced alignment 或專門的對齊模型。 |
+| 「CTC 不需要語言模型」 | 條件獨立假設意味著 CTC 本身幾乎沒有輸出端 LM。shallow fusion / prefix beam search 的增益之大正是這個假設的代價。 |
+| 「HMM 已經過時，不用學」 | 全雙工的對話狀態機（W13 的 FSM 路線）本質上就是 HMM 的推論問題；semantic VAD 的 endpoint 決策也是。 |
+
+## 課堂骨架（180 min）
+| 時間 | 內容 |
+|---|---|
+| 0–15 | 問題設定：為什麼語音不能當成 frame 分類？（**live demo**：同一句話兩種語速的 spectrogram 疊圖） |
+| 15–55 | HMM-GMM 極速回顧：狀態拓樸、三音素、forward-backward、Viterbi、decision tree tying（只講「為什麼需要」，不講細節） |
+| 55–65 | 休息 |
+| 65–135 | **CTC 完整推導**（白板）：擴充標籤 → 遞推 → 梯度 → 數值穩定。中間停兩次讓學生自己走 "aa" 與 "aba" 的路徑 |
+| 135–160 | CTC 的病理：peakiness、$T < \lvert \ell' \rvert$、blank 誤解 demo（後驗熱圖） |
+| 160–180 | 三種對齊歸納偏誤的並排比較表；預告 RNN-T |
+
+## 課堂 demo 建議
+Colab：用一個小型預訓練 CTC 模型（如 `torchaudio` 的 wav2vec2 CTC head）畫出 posterior heatmap，把 blank 那一列單獨畫出來。再故意餵一句超長文字 + 短音訊，展示 `inf` loss。
+
+## 參考資料
+- Graves, Fernández, Gomez & Schmidhuber, **Connectionist Temporal Classification: Labelling Unsegmented Sequence Data with Recurrent Neural Networks**, ICML 2006 — 原始論文，推導請直接照它走
+- Graves, **Supervised Sequence Labelling with Recurrent Neural Networks**, Springer, 2012 — Ch 7 的 CTC 敘述比論文清楚，適合做投影片
+- **JM3** App A *Hidden Markov Models*、Ch 16 *Automatic Speech Recognition*（CTC 段）
+- **HAH** Ch 8（Hidden Markov Models）、Ch 9（Acoustic Modeling）
+- Gales & Young, **The Application of Hidden Markov Models in Speech Recognition**, Foundations and Trends in Signal Processing, 2007 — hybrid 時代的權威整理
+- **YD** Ch 3–6（DNN-HMM、sequence discriminative training）
+- `[主題]` CTC peakiness 的理論分析：檢索 *why does CTC result in peaky behavior*、*CTC alignment entropy regularization*

@@ -1,0 +1,20 @@
+---
+title: "教材與資源"
+subtitle: "教科書章節、核心文獻速查、工具鏈"
+---
+
+{{< include _includes/textbooks.md >}}
+
+{{< include _includes/reading-table.md >}}
+
+{{< include _includes/toolchain.md >}}
+
+## 課堂 demo 的算力現實
+
+Colab 免費版（T4, 16 GB）約可跑 7B 以下的 4-bit 量化推論，但**即時語音互動的吞吐量通常不足**。因此本課程所有 demo 都設計成「離線推論 + 事後對齊時間軸」，即時性用預錄的官方 demo 呈現。
+
+需要留意的實務細節：
+
+- 模型權重的首次下載時間常比推論本身長，notebook 要能課前預熱。
+- 資料建議用 LibriSpeech `dev-clean` + MUSAN 各取數十句，不要動用大資料集。
+- 六個「先播壞的」核心 demo 是全課最有記憶點的部分：Griffin-Lim 相位重建（W2）、CTC blank 後驗熱圖（W3）、Whisper 幻覺（W7）、vocoder artifacts（W8）、增強後 WER 反而上升（W10）、搶話與遲鈍（W12）。
