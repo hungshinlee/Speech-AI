@@ -222,7 +222,7 @@ Full-Duplex Speech Models*, EMNLP 2026（arXiv:2606.11167）——這篇在 W14 
 | 決策 | 內容 | 理由 |
 |---|---|---|
 | 格式 | **Quarto revealjs** | 決定性因素是**能嵌入音訊**（PPTX/PDF 做不好，而 cold open 靠聽）；其次是原生數學、與網站同一個 build、純文字可 diff、`chalkboard` 可在投影片上直接手寫（W3/W6/W8 的白板時間） |
-| 語言分工 | 投影片英文、`::: {.notes}` 中文 | 對應「中文授課、英文投影片」。**注意：notes 以 `<aside class="notes">` 內嵌在公開的 HTML 裡，只是 CSS 隱藏——並非私密**（使用者已知並接受） |
+| 語言分工 | 投影片英文、`::: {.notes}` 中文 | 對應「中文授課、英文投影片」。**注意：notes 以 `<aside class="notes">` 內嵌在公開的 HTML 裡，只是 CSS 隱藏——並非私密**。2026-09 起網站上**不再提示** `S` 與 `?showNotes=true`（不要再把那句話加回 `slides.qmd`），但那只是不主動告知，講稿仍在公開 HTML 裡；真要藏起來得在 deploy 前用 Lua filter 把 `.notes` div 拿掉 |
 | 標題 | **assertion-evidence**：標題寫主張，不寫主題 | 不是 "Cascade Architecture"，而是 "Cascade survives because every module can be debugged separately"。標題就是要學生記住的那句話 |
 | **不從大綱自動生成** | 投影片獨立撰寫 | 大綱是閱讀密度（連貫段落、完整論證），投影片是講述密度（一畫面一主張）。自動轉換必然產生 bullet 洪流 |
 | 網站連結 | `build_weeks.py` 偵測 `slides/wNN.qmd` 存在才注入連結 | 手動維護 nav 一定會漏；不存在就不給連結，避免死連結 |
