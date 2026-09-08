@@ -45,6 +45,10 @@ Remote：`git@github.com:hungshinlee/Speech-AI.git`（branch `main`）
 ├── index.qmd                 網站首頁
 ├── syllabus.qmd              課程資訊（設定、閱讀方式、引用規範）
 ├── resources.qmd             教材與資源（教科書、速查表、工具鏈）
+├── supplements.qmd           ⚙︎ 自動產生：補充教材索引頁
+├── supplements/
+│   ├── *.md                  ★ 補充教材的來源（手寫，中文）
+│   └── *.qmd                 ⚙︎ 自動產生，勿手改（每份一頁）
 ├── weeks/                    ⚙︎ 自動產生，勿手改
 │   └── w01.qmd … w14.qmd     每週一頁
 ├── _includes/                ⚙︎ 自動產生的頁面片段
@@ -70,6 +74,25 @@ Remote：`git@github.com:hungshinlee/Speech-AI.git`（branch `main`）
 `build_weeks.py` 讀它產生首頁與投影片索引的雙語表格，並把它放進每週頁的 **`title`**（中文標題降為 `subtitle`）。註解本身在寫檔前濾掉，不會出現在網頁上。新增或改寫週次標題時**必須同時給英文**，否則腳本會直接 `sys.exit`。英文標題也就是該週投影片標題的預設用法。
 
 `title` 放英文是刻意的：**Quarto 側欄的項目直接取自頁面 `title`**，這樣側欄不必在 `_quarto.yml` 手維護 14 條 `text:`，也就不會與大綱漂移。代價是每週頁的 H1 是英文、內文是中文，這與首頁「英文為主、中文為次」一致。
+
+### 補充教材（`supplements/`）
+
+期中報告、期末論文與論文寫作的教戰守策。**來源是手寫的 `supplements/*.md`（中文）**，`build_weeks.py` 產生每份一頁的 `supplements/<slug>.qmd` 與索引頁 `supplements.qmd`。
+
+每份 `.md` 的 H1 下方要有三行 metadata 註解，缺任何一行腳本會 `sys.exit`：
+
+```markdown
+# Speech AI 專案期中報告教戰守策：從問題定義到 Proof of Concept (PoC)
+<!-- en: Midterm Report: From Problem Statement to Proof of Concept -->
+<!-- order: 1 -->
+<!-- summary: How to frame the problem and the failure mode, … -->
+```
+
+`en` 進頁面的 `title`（側欄跟著它走，與週次頁同一套規則），中文 H1 降為 `subtitle`，`order` 決定索引頁與側欄的排序，`summary` 是索引頁「What it covers」那一欄，**寫英文**（索引頁是介面，內文才是中文）。
+
+網址 slug 由檔名推導：去掉 `Speech_AI_` 前綴與 `_Guide` 後綴、底線換連字號、轉小寫（`Speech_AI_Midterm_PoC_Guide.md` → `supplements/midterm-poc.html`）。改檔名等於改網址。
+
+**新增一份補充教材時**：放 `.md` 進 `supplements/`、補上三行 metadata、重跑腳本，然後**手動在 `_quarto.yml` 的 sidebar 那個 `Supplements` section 底下加一行 `href`**（sidebar 是手維護的，與週次頁一樣）。
 
 ### syllabus / resources 的英文片段
 
@@ -118,7 +141,7 @@ CI 在 deploy 前也會重跑一次這個腳本，所以就算忘了在本機跑
 | 網址 | `hungshinlee.github.io/Speech-AI/`（子路徑） | Quarto 用相對連結，子路徑可直接運作，不需改設定 |
 | KaTeX 版本 | **釘在 0.18.7**（`_quarto.yml` 的 `html-math-method.url`） | Quarto 預設載 `katex@latest`，上游改版會無聲壞掉 |
 | 附錄 C | **不上網站**，只存在 `docs/course-outline.md` | 那是授課者私用的課程設計備註 |
-| 網站語言 | **介面與框架英文、課程內文中文**。英文：`index.qmd`、`syllabus.qmd`、`resources.qmd`、`slides.qmd`、navbar／sidebar／footer、每週索引、每週頁的 `title`、頁內 TOC 標題、repo-actions 與搜尋（後三項靠 `_quarto.yml` 的 `language:` 覆寫 Quarto 內建中文字串）。中文：每週頁內文與 `subtitle`、投影片的 `::: {.notes}` 講稿 | 修課學生與外部訪客都要照顧。對外的門面一律英文，實際授課用的內文對齊「中文授課」。站名 `語音處理與人機互動` 不翻 |
+| 網站語言 | **介面與框架英文、課程內文中文**。英文：`index.qmd`、`syllabus.qmd`、`resources.qmd`、`slides.qmd`、`supplements.qmd`、navbar／sidebar／footer、每週索引、每週頁與補充教材頁的 `title`、頁內 TOC 標題、repo-actions 與搜尋（後三項靠 `_quarto.yml` 的 `language:` 覆寫 Quarto 內建中文字串）。中文：每週頁內文與 `subtitle`、`supplements/*.md` 的全部內文、投影片的 `::: {.notes}` 講稿 | 修課學生與外部訪客都要照顧。對外的門面一律英文，實際授課用的內文對齊「中文授課」。站名 `語音處理與人機互動` 不翻 |
 | 週次索引 | 英文標題為連結、中文標題為次行（`[…]{.wk-zh}`） | 連結文字與點進去的中文頁面標題會對不起來，兩個都給才不會迷路 |
 | 首頁課程地圖 | 讀 `docs/course-map-en.md`，**不從中文大綱切** | ASCII 圖的對齊靠字元寬度，中英混排無法自動轉換；中文版仍留在大綱裡（離線文件） |
 | 表格欄寬 | 用 pipe table 分隔列的**破折號長度**指定比例，不要留 `|---|---|` | Pandoc 依破折號長度分配欄寬；全部等長就是均分，雙語標題那一欄會被擠到不能看。`Not yet available` 這種不該斷行的短語用不斷行空格（U+00A0）釘住 |

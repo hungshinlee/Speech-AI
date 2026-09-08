@@ -1,0 +1,122 @@
+# Top Conference 語音論文寫作與敘事邏輯教戰守策
+<!-- en: Writing and Narrative Logic for Speech Papers -->
+<!-- order: 3 -->
+<!-- summary: Three narrative archetypes, section-by-section writing tactics, where AI tools belong in the process, and a pre-submission checklist. -->
+## 專注 ICASSP、INTERSPEECH、ASRU/SLT 與頂會 Audio Track
+
+頂級語音會議審稿週期短，審稿人（Reviewer）平均分配到 5 至 8 篇稿件，每篇初審通常僅花費 15 至 20 分鐘。一篇論文被 Reject，極少是因為程式碼 bug，絕大多數是因為**敘事邏輯（Narrative Logic）斷裂**——審稿人讀完前言仍看不出研究動機與提出的模組之間存在何種物理必然性，或在實驗表格中找不到支撐核心主張的關鍵證據。
+
+本手冊專注於建立無法被輕易擊破的學術敘事架構，並規範以 Prism 及現代 LLM 為代表的 AI 工具在學術寫作流程中的定位。
+
+---
+
+## 一、 核心心法：敘事邏輯（Narrative Logic）的建構
+
+在 4 頁正文限制下，論文不是實驗記錄本，而是一場高度精密的因果論證：
+$$\text{聲學訊號特異性} \longrightarrow \text{現有 SOTA 結構性缺陷} \longrightarrow \text{針對性架構/歸納偏置} \longrightarrow \text{特化驗證實驗}$$
+
+### 1. 三大經典敘事原型（Storyline Archetypes）
+動筆前必須先確定本篇工作屬於哪種敘事骨架，嚴禁多目標混雜：
+
+* **機制錯配型（Physics-informed Mismatch Story）**：
+  * *核心邏輯*：既有方法直接套用通用序列/影像模型，忽略了語音特有的聲學物理特性（如調頻/調幅特性、相位連續性、聲門激勵特徵）。
+  * *論證脈絡*：指出「因為某個聲學物理特性 $P$，導致既有通用模組 $M$ 出現系統性失真 $E$；本文設計新機制 $M^*$ 約束 $P$，從而消除 $E$」。
+* **Pareto 邊界破局型（Trade-off Story）**：
+  * *核心邏輯*：領域內存在公認的 Zero-sum Game（例如：串流 ASR 的 Latency vs. WER；Audio Codec 的 Bitrate vs. 重構品質；Full-duplex 的 Echo Cancellation vs. Double-talk 穿透力）。
+  * *論證脈絡*：既有方法僅在兩端妥協，本文引入了新的 Inductive Bias 或約束機制，打破了既有平衡，推進了 Pareto Frontier。
+* **表徵崩塌與分佈偏移型（Representation Collapse / OOD Story）**：
+  * *核心邏輯*：Foundation Model 在標準分佈（In-domain）表現優異，但在特定分佈偏移（強雜訊、台灣本土口音、病理語音）下特徵空間退化。
+  * *論證脈絡*：剖析特徵崩塌的數學幾何本質，提出輕量級介入手段（Adapter、Regularization）修復特徵流形。
+
+### 2. 敘事斷裂的典型反面範例（Anti-patterns）
+* **「拿著鐵鎚找釘子」（Solution looking for a problem）**：隨意將 NLP 或 CV 剛紅的模型（如 Mamba、Diffusion Transformer）搬到語音任務，卻無法論證該架構對音訊序列長度或頻譜局部特性的必要性。
+* **「Delta 游移」**：Introduction 主打解決即時運算延遲，Method 卻大篇幅介紹如何提高辨識精確度，最後 Experiments 的表格通篇只有 WER，沒有任何 Latency、RTF、FLOPs 數據。
+
+---
+
+## 二、 各章節寫作之攻防細節
+
+### 1. Title, Abstract & Figure 1：五分鐘決定命運
+審稿人在閱讀前 5 分鐘便已形成 70% 的預設立場。這三者必須構成完整自洽的微型論文。
+
+* **Abstract 五句骨架**：
+  1. *Context & Bottleneck*：點出主流範式成果及尚未解決的具體致命問題。
+  2. *Insight*：解釋為何單純增加資料或擴大模型無法解決該問題。
+  3. *Proposed Method*：一句話精確描述核心機制、演算法與歸納偏置。
+  4. *Empirical Proof*：提供具體測試資料集與量化指標（「在 LibriCSS 上達成 14.2% 的相對 WER 降低」）。
+  5. *Impact / Asset*：指出額外貢獻（如推論加速比、開源 Checkpoint）。
+* **Figure 1（架構與物理直覺圖）**：
+  避免單調無資訊量的方塊圖。Figure 1 必須同時展現「概念直覺」與「資料維度流向」。例如語音分離任務，應清楚呈現重疊頻譜如何透過核心模組被解耦為兩道乾淨頻譜，並標註關鍵張量維度變換。
+
+### 2. Introduction：標準漏斗論證
+Introduction 的核心功能在於逐步收窄研究戰場：
+
+```
+  [Broad Domain]  音訊原生大語言模型 (Audio-native LLMs) 的即時全雙工對話
+         │
+         ▼
+  [Sub-problem]  Barge-in (插話) 偵測時的自發語音回饋消除
+         │
+         ▼
+ [Core Friction] 傳統 AEC 破壞了語意表徵的連續性，導致對話狀態重置
+         │
+         ▼
+  [Our Action]   提出跨模態語意門控機制，將聲學殘差與對話 Context 聯合建模
+         │
+         ▼
+[Contributions]  1. 機制創新 / 2. 演算法實作 / 3. Benchmark 與可重現性
+```
+
+貢獻點（Contributions）嚴禁寫成勞動清單，必須寫成**學術增量（Intellectual Increments）**：
+* *Bad*：We evaluate our model on LibriSpeech dataset.
+* *Good*：We provide empirical evidence that the proposed phase-aware loss stabilizes training under low SNR conditions ($< -5$ dB), resolving the divergence observed in diffusion baselines.
+
+### 3. Proposed Methodology：訊號模型與數學一致性
+* **訊號退化/生成模型先行**：在介紹神經網路前，必須先建立聲學訊號的數學表述（如 $y[n] = x[n] * h[n] + v[n]$），定義好時域取樣、STFT 窗長、Hop Size 與頻率 Bin。
+* **張量維度即時追蹤**：行文中所有表徵符號必須伴隨維度標記（如 $H \in \mathbb{R}^{B \times T \times D}$ 經過卷積降採樣變為 $\tilde{H} \in \mathbb{R}^{B \times \frac{T}{4} \times 2D}$），便於 Reviewer 驗證因果性（Causality）與解析度合理性。
+
+### 4. Experiments & Ablations：建構無懈可擊的證據鏈
+
+| 實驗類型 | 核心目的 | 審稿人攻擊點（致命缺陷） |
+| :--- | :--- | :--- |
+| **Main Results** | 證明達到 Competitive SOTA。 | 避開近期 SOTA 論文；對比模型的訓練資料量或參數量未受控。 |
+| **Ablation Study** | 證明提出之各模組均具不可替代性。 | 一次移除多個模組；移除模組後未進行 Parameter Matching，無法排除增益僅來自參數擴增。 |
+| **Qualitative Analysis** | 揭示數值背後的聲學/語意機制。 | 光譜圖看不出差異、無箭頭標示局部細節、未解釋諧波結構。 |
+| **Runtime Analysis** | 驗證實際落地可行性。 | 聲稱即時串流，卻未提供 Latency、RTF、Lookahead 幀數與 VRAM 佔用。 |
+
+---
+
+## 三、 現代 AI 工具深度整合：Prism 與 LLM 的分工
+
+在專業寫作管線中，AI 的角色是**結構審計員（Structural Auditor）與排版編譯助手**，絕非代筆者。交由 LLM 通篇代寫會造成致命的「內容空洞化」與「語氣套版感」，極易引起審稿人反感。
+
+### 1. Prism 在頂會論文打磨中的核心應用
+Prism 作為具備全篇長脈絡理解與文件級差異對比（Document-level Diffs）的專業學術工作空間，在中後期重構階段具有獨特優勢：
+
+* **段落因果相干性審計（Coherence Auditing）**：
+  利用 Prism 審視長篇邏輯躍遷：
+  > *Prompt to Prism*：「*請分析這篇 Introduction 各段落的首句與末句。以表格列出：從段落 N 到段落 N+1 之間的邏輯躍遷（Logical Leap）為何？是否存在因果中斷？哪一段結尾未能自然導引出下一段開頭？*」
+* **符號與術語全篇嚴格一致性檢查（Notational Integrity Check）**：
+  跨章節檢查 LaTeX 數學符號漂移：
+  > *Prompt to Prism*：「*掃描全文所有 LaTeX 數學環境。列出所有代表音訊特徵、隱藏表徵與 Loss 的符號。標記出是否存在同一物理量使用不同變數表示（如前半部用 $X_t$ 後半部用 $X(t, f)$），或同一符號被重複賦予不同定義的情況。*」
+* **LaTeX 空間預算即時壓縮（Space Budgeting via LaTeX Diffs）**：
+  投稿前超出 4 頁版面的無痛壓縮：
+  > *Prompt to Prism*：「*這是一篇 ICASSP 論文的 Method 與 Experiment 節錄。在保留所有技術名詞、公式與數值的前提下，將總詞數精簡 12%。策略：消除被動語態中的贅詞（如 'It can be observed that' $\to$ 'Table 1 shows'），整併重複說明的句子。直接提供 LaTeX 替換對比。*」
+
+### 2. 一般 LLM 的對抗性審稿模式（Adversarial Reviewing）
+在送審前，透過具體 Persona 進行壓力測試：
+* *Reviewer 2 Prompt*：「*請扮演一位專精於 Speech Enhancement 的極端挑剔 ICASSP Reviewer。這是論文的 Experiments 與 Ablation 部分。請不要稱讚任何優點。直接列出 3 個最可能導致 Reject 的問題：例如 Baseline 是否過舊？PESQ 提升是否伴隨未說明的延遲代價？Ablation 是否存在未控制的變因？*」
+
+### 3. AI 協作不可跨越之界線
+1. **文獻搜尋絕不交由 LLM 自由發揮**：BibTeX 必須由作者在 DBLP、Google Scholar 或 ISCA Archive 手動取得。
+2. **數據解讀必須基於真實聲學現象**：AI 無法聆聽音檔中的金屬雜音、相位撕裂或音素截斷。分析文字必須由研究者親聽 Bad Cases 後寫下真實聲學觀察，再由 AI 協助潤飾英文語句。
+
+---
+
+## 四、 投稿前自我審查清單（The Submission Checklist）
+
+* [ ] **頁數與匿名性**：正文是否嚴格控制在 4 頁（第 5 頁僅 References）？全文是否徹底去除實驗室、計畫編號與個人 GitHub 等非匿名資訊？
+* [ ] **Table 1 自明性**：審稿人只看 Table 1 的 Caption 與欄位註解，能否完全理解所有指標與方法縮寫？
+* [ ] **串流邊界條件明確**：宣稱 Streaming / Real-time 時，是否白紙黑字寫明 Algorithmic Latency、Chunk Size 與推論時間？
+* [ ] **主觀評測信賴區間**：MOS / MUSHRA 測試是否標註 95% 信賴區間（CI）、受試者人數與母語背景？缺乏信賴區間的主觀指標在頂會等同無效數據。
+* [ ] **匿名 Demo 音訊頁面**：生成、增強與分離任務，是否提供匿名的展示網頁（如 GitHub Pages，需注意帳號匿名）？評審對客觀指標存疑時，Demo 是唯一的自證管道。

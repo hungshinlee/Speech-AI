@@ -37,6 +37,7 @@ quarto preview                    # 本機預覽
 `weeks/`、`_includes/`、`slides.qmd` 與 `notes/` 由腳本自動產生，請勿直接編輯：
 
 - 課程內容改 `docs/course-outline.md`，然後 `python3 scripts/build_weeks.py`
+- 補充教材改 `supplements/*.md`（H1 下方需有 `en` / `order` / `summary` 三行註解），同樣重跑腳本
 - 每週的英文標題寫在大綱裡標題的下一行（`<!-- en: ... -->`），供首頁索引與投影片使用；缺了腳本會報錯
 - 首頁的英文課程地圖是手寫的 `docs/course-map-en.md`（ASCII 對齊敏感，不會自動更新）
 - 課程資訊與教材頁的英文片段是手寫的 `docs/site-en.md`；`docs/course-outline.md` 是離線閱讀用的中文完整大綱，不上網站，兩邊各自維護

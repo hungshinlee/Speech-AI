@@ -5,12 +5,15 @@
 
 產出：
   weeks/w01.qmd … w14.qmd   每週一頁
+  supplements/*.qmd         補充教材各一頁（來源是 supplements/*.md）
+  supplements.qmd           補充教材索引頁
   _includes/*.md            首頁／課程資訊／資源頁引用的片段
 
 用法：python3 scripts/build_weeks.py
 改完 docs/course-outline.md 後務必重跑，否則網站與大綱會漂移。
 """
 
+import glob
 import io
 import os
 import re
@@ -23,6 +26,13 @@ INC_DIR = os.path.join(ROOT, "_includes")
 
 BANNER = ("<!-- 此檔由 scripts/build_weeks.py 自動產生，"
           "請勿直接編輯；請改 docs/course-outline.md 後重跑腳本。 -->")
+
+# 補充教材（期中／期末／寫作教戰守策）：來源是手寫的 supplements/*.md
+SUP_DIR = os.path.join(ROOT, "supplements")
+SUP_BANNER = ("<!-- 此檔由 scripts/build_weeks.py 自動產生，"
+              "請勿直接編輯；請改 supplements/*.md 後重跑腳本。 -->")
+# 每份補充教材在 H1 下方用三行 HTML 註解宣告 metadata
+META_RE = re.compile(r"^<!--\s*(en|order|summary):\s*(.+?)\s*-->$")
 
 # 網站骨架（首頁、導覽列、每週索引）一律英文；站名與每週內頁維持中文。
 PART_OF = {}
@@ -97,6 +107,80 @@ def slice_section(lines, start_idx):
             break
         body.append(ln)
     return body
+
+
+def sup_slug(path):
+    """Speech_AI_Midterm_PoC_Guide.md → midterm-poc（網址用，去掉共同前後綴）。"""
+    name = os.path.splitext(os.path.basename(path))[0]
+    for pre in ("Speech_AI_",):
+        if name.startswith(pre):
+            name = name[len(pre):]
+    for suf in ("_Guide",):
+        if name.endswith(suf):
+            name = name[:-len(suf)]
+    return name.replace("_", "-").lower()
+
+
+def build_supplements():
+    """supplements/*.md → 各一頁 supplements/<slug>.qmd + 索引 supplements.qmd。"""
+    written = []
+    items = []
+    for src in sorted(glob.glob(os.path.join(SUP_DIR, "*.md"))):
+        with io.open(src, encoding="utf-8") as f:
+            lines = f.read().replace("\r\n", "\n").split("\n")
+        if not lines or not lines[0].startswith("# "):
+            sys.exit("%s 第一行必須是 H1 標題" % src)
+        zh = lines[0][2:].strip()
+        meta, body = {}, []
+        for ln in lines[1:]:
+            m = META_RE.match(ln.strip())
+            if m:
+                meta[m.group(1)] = m.group(2)
+            else:
+                body.append(ln)
+        for key in ("en", "order", "summary"):
+            if key not in meta:
+                sys.exit("%s 缺 <!-- %s: ... -->" % (src, key))
+        slug = sup_slug(src)
+        out = "\n".join([
+            "---",
+            'title: "%s"' % yaml_escape(meta["en"]),
+            'subtitle: "%s"' % yaml_escape(zh),
+            "toc-depth: 2",
+            "---",
+            "",
+            SUP_BANNER,
+            "",
+        ] + trim(body)) + "\n"
+        written.append(write(os.path.join(SUP_DIR, slug + ".qmd"), out))
+        items.append((int(meta["order"]), meta["en"], zh, meta["summary"], slug))
+
+    if not items:
+        return written
+    items.sort()
+    rows = ["| Guide | What it covers |",
+            "|:-------------------------------|:--------------------------|"]
+    for _, en, zh, summary, slug in items:
+        rows.append("| **[%s](supplements/%s.qmd)**<br>[%s]{.wk-zh} | %s |"
+                    % (en, slug, zh, summary))
+    written.append(write(os.path.join(ROOT, "supplements.qmd"), "\n".join([
+        "---",
+        'title: "Supplements"',
+        'subtitle: "Guides for the midterm report, the final paper, and writing them up"',
+        "toc: false",
+        "---",
+        "",
+        SUP_BANNER,
+        "",
+        "These guides back the two assessed deliverables — the midterm report (40%) "
+        "and the final paper (60%). They treat both as submissions to ICASSP / "
+        "INTERSPEECH / ASRU / SLT rather than as coursework, which is the standard "
+        "the course is aiming at.",
+        "",
+        "**The guides themselves are in Chinese**, matching how the course is taught.",
+        "",
+    ] + rows + [""])))
+    return written
 
 
 def read_site_en():
@@ -253,6 +337,8 @@ def main():
         "speakers are recommended.",
         "",
     ])))
+
+    written += build_supplements()
 
     print("產生 %d 個檔案：" % len(written))
     for p in written:
