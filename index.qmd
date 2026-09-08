@@ -11,11 +11,14 @@ The course is built backwards from a single question: **how do you build a spoke
 Working back from that endpoint, the 14 weeks split into three parts. Part I lays the foundations — signals, alignment, representation learning and discretization. Part II takes the modules apart one at a time — ASR, TTS, and the acoustic front end. Part III arrives at audio-native language models and full-duplex architectures. The material tracks the 2025–2026 technical landscape and carries the derivations through rather than gesturing at them.
 
 | | |
-|---|---|
+|:-------------|:-----------------------------------------------------|
+| **Lecturer** | [Hung-Shin Lee (李鴻欣)](https://web.ntnu.edu.tw/~hslee/) |
 | **Audience** | Master's / PhD students; no hard prerequisites |
 | **Format** | 14 weeks × 3 hours, lectures throughout |
 | **Language** | Lectures in Mandarin, slides in English |
 | **Compute** | In-class demos are designed to fit the free tier of Colab |
+| **Assessment** | Midterm report (40%), final paper (60%) |
+| **Requirements** | Group work; participation in two online discussions |
 
 ## Three Threads Through the Course
 
@@ -41,7 +44,3 @@ Every week comes back to these three questions. They are the coordinate system o
 - **[Full outline, single page](weeks/all.qmd)**: all 14 weeks strung together, for printing or reading straight through. Not recommended on mobile.
 - **[Materials and resources](resources.qmd)**: textbook chapter mapping, a per-week "if you read only one paper" table, and toolchain suggestions.
 - **Citation reliability**: a reference tagged `[驗]` still needs verification; `[主題]` means only search keywords are given, not a citation. See [Syllabus](syllabus.qmd).
-
-::: {.callout-note appearance="simple"}
-**A note on language.** The site's navigation, this page and the slides are in English; the week pages, the syllabus and the resource pages are in Chinese, matching how the course is taught. Week titles in the schedule above are given in both languages.
-:::

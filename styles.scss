@@ -34,6 +34,12 @@ h2 {
 }
 h3 { margin-top: 1.8rem; }
 
+// Quarto 有一條 `main.content > section:first-of-type > h2:first-child { margin-top: 0 }`，
+// 用意是讓第一個標題緊接標題區塊。但首頁的第一個 section 前面還有一張表格，
+// 於是「Three Threads…」只離表格 9px，而其他 h2 都是 41px。
+// 只在「表格緊接著第一個 section」時補回間距；選擇器特異度要壓過上面那條 (0,3,3)。
+main.content > table + section.level2 > h2:first-child { margin-top: 2.4rem; }
+
 // ── 表格：桌機正常呈現，窄螢幕改為可橫向捲動 ──────────────
 // 字級用 rem（root 相對）而非 em：表格常出現在 blockquote 或其他有 em 的容器裡，
 // 用 em 會相乘，造成同一站的表格大小不一。表格是內容本體，與正文同級。

@@ -17,10 +17,11 @@ Remote：`git@github.com:hungshinlee/Speech-AI.git`（branch `main`）
 | 項目 | 設定 |
 |---|---|
 | 課程名稱 | 語音處理與人機互動 |
+| 授課教師 | 李鴻欣 Hung-Shin Lee（<https://web.ntnu.edu.tw/~hslee/>） |
 | 授課對象 | 碩士班 / 博士班 |
 | 先修背景 | **無**（線性代數、機率、Python 僅為軟性要求） |
 | 時數 | 14 週 × 3 小時，**全為 lectures** |
-| 評量 | **無**（不需要作業、考題、rubric） |
+| 評量 | **期中報告 40%、期末論文 60%**（2026-09 由無評量改為此制）；修課要求：分組、參與 2 次線上討論 |
 | 學生算力 | **Colab 免費版**（T4 16 GB） |
 | 語言 | 中文授課、**英文投影片** |
 | 深度分級 | 預設 `研究所`（推導、論文脈絡、open problems） |
@@ -90,7 +91,7 @@ Remote：`git@github.com:hungshinlee/Speech-AI.git`（branch `main`）
 | **三條貫穿主軸** | 表徵軸（用什麼表徵、誰決定 frame rate）／延遲軸（吃掉多少 latency budget）／監督軸（能力從哪來） | 每週投影片都要回扣一次 |
 | **延遲預算表** | 同一張投影片母版每週回填，學期末成為完整的系統延遲解剖圖 | 全課的黏著劑，W1、W4、W6、W8、W10、W13 都有回填點 |
 | **失敗案例優先** | 六個核心 demo：Griffin-Lim 相位、CTC blank 熱圖、Whisper 幻覺、vocoder artifacts、增強後 WER 反而上升、搶話／遲鈍 | 先播壞的再解釋機制。這六個優先投資製作時間 |
-| **不含評量設計** | 大綱不放作業、考題、rubric | 課程設定為無評量 |
+| **不含評量設計** | 大綱與網站不放題目、考題、rubric | 評量存在（期中報告 40% / 期末論文 60%），但題目與 rubric 由授課者另行處理，不進大綱 |
 
 ---
 
