@@ -90,6 +90,7 @@ website:
       - section: "Supplements"
         href: supplements.qmd
         contents:
+          - href: supplements/topics-for-interspeech27.qmd
           - href: supplements/midterm-poc.qmd
           - href: supplements/final-paper-mvp.qmd
           - href: supplements/paper-writing-and-narrative.qmd

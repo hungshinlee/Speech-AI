@@ -1,7 +1,10 @@
-# 鎖定 INTERSPEECH 2027：基於單張消費級 GPU 與臺灣多語語境之語音 AI 前瞻選題與研究路徑報告
-<!-- en: Ten Research Topics for INTERSPEECH 2027 on a Single Consumer GPU -->
-<!-- order: 1 -->
-<!-- summary: Where the field is heading, what a single 16 GB GPU can and cannot train, ten topic proposals grounded in Taiwan's languages, and a six-month path to a submission. -->
+---
+title: "Ten Research Topics for INTERSPEECH 2027 on a Single Consumer GPU"
+subtitle: "鎖定 INTERSPEECH 2027：基於單張消費級 GPU 與臺灣多語語境之語音 AI 前瞻選題與研究路徑報告"
+toc-depth: 2
+---
+
+<!-- 此檔由 scripts/build_weeks.py 自動產生，請勿直接編輯；請改 supplements/*.md 後重跑腳本。 -->
 
 在語音人工智慧領域，大型基礎模型與語音大型語言模型（Speech Large Language Models, Speech-LLMs）的演進正在深刻重塑學術研究範式。然而，工業界對大規模預訓練計算資源的壟斷，使計算資源受限的高校研究團隊面臨嚴峻挑戰。針對預計於 2027 年召開的國際語音通訊學會旗艦會議 INTERSPEECH 2027，本報告在單張消費級硬體（NVIDIA GeForce RTX 5070 Ti 等級，配備 16 GB 顯示記憶體）的硬體約束下，立足於臺灣高度獨特的多語與多方言語境（臺灣華語、臺灣台語、臺灣客語、臺灣原住民族語），提出兼具學術前瞻性與工程可行性的十項核心研究選題，並全面解析其技術突破口、實驗架構、生活化理解與論文組織策略。
 

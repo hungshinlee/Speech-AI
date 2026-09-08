@@ -6,12 +6,13 @@ toc: false
 
 <!-- 此檔由 scripts/build_weeks.py 自動產生，請勿直接編輯；請改 supplements/*.md 後重跑腳本。 -->
 
-These guides back the two assessed deliverables — the midterm report (40%) and the final paper (60%). They treat both as submissions to ICASSP / INTERSPEECH / ASRU / SLT rather than as coursework, which is the standard the course is aiming at.
+These guides back the two assessed deliverables — the midterm report (40%) and the final paper (60%) — from picking a topic through to the write-up. They treat both as submissions to ICASSP / INTERSPEECH / ASRU / SLT rather than as coursework, which is the standard the course is aiming at.
 
 **The guides themselves are in Chinese**, matching how the course is taught.
 
 | Guide | What it covers |
 |:-------------------------------|:--------------------------|
+| **[Ten Research Topics for INTERSPEECH 2027 on a Single Consumer GPU](supplements/topics-for-interspeech27.qmd)**<br>[鎖定 INTERSPEECH 2027：基於單張消費級 GPU 與臺灣多語語境之語音 AI 前瞻選題與研究路徑報告]{.wk-zh} | Where the field is heading, what a single 16 GB GPU can and cannot train, ten topic proposals grounded in Taiwan's languages, and a six-month path to a submission. |
 | **[Midterm Report: From Problem Statement to Proof of Concept](supplements/midterm-poc.qmd)**<br>[Speech AI 專案期中報告教戰守策：從問題定義到 Proof of Concept (PoC)]{.wk-zh} | How to frame the problem and the failure mode, position the work against prior art, plan the ablations, and what counts as a convincing proof of concept. |
 | **[Final Paper: From MVP to a Conference-Ready Paper](supplements/final-paper-mvp.qmd)**<br>[Speech AI 專案期末報告教戰守策：從 MVP 到 Top-Conference Ready Paper]{.wk-zh} | The 4+1 page format, fair baselines and ablations, the qualitative and error analysis reviewers actually look for, and the reproducibility assets to hand in. |
 | **[Writing and Narrative Logic for Speech Papers](supplements/paper-writing-and-narrative.qmd)**<br>[Top Conference 語音論文寫作與敘事邏輯教戰守策]{.wk-zh} | Three narrative archetypes, section-by-section writing tactics, where AI tools belong in the process, and a pre-submission checklist. |

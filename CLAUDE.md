@@ -88,7 +88,7 @@ Remote：`git@github.com:hungshinlee/Speech-AI.git`（branch `main`）
 <!-- summary: How to frame the problem and the failure mode, … -->
 ```
 
-`en` 進頁面的 `title`（側欄跟著它走，與週次頁同一套規則），中文 H1 降為 `subtitle`，`order` 決定索引頁與側欄的排序，`summary` 是索引頁「What it covers」那一欄，**寫英文**（索引頁是介面，內文才是中文）。
+`en` 進頁面的 `title`（側欄跟著它走，與週次頁同一套規則），中文 H1 降為 `subtitle`，`order` 決定索引頁與側欄的排序（目前照學生實際使用的順序：選題 → 期中 PoC → 期末論文 → 寫作與敘事），`summary` 是索引頁「What it covers」那一欄，**寫英文**（索引頁是介面，內文才是中文）。
 
 網址 slug 由檔名推導：去掉 `Speech_AI_` 前綴與 `_Guide` 後綴、底線換連字號、轉小寫（`Speech_AI_Midterm_PoC_Guide.md` → `supplements/midterm-poc.html`）。改檔名等於改網址。
 

@@ -1,6 +1,6 @@
 # Speech AI 專案期中報告教戰守策：從問題定義到 Proof of Concept (PoC)
 <!-- en: Midterm Report: From Problem Statement to Proof of Concept -->
-<!-- order: 1 -->
+<!-- order: 2 -->
 <!-- summary: How to frame the problem and the failure mode, position the work against prior art, plan the ablations, and what counts as a convincing proof of concept. -->
 
 這份期中報告不是單純的課堂修課作業，而是投稿至 ICASSP、INTERSPEECH、ASRU 或 SLT 的**研究提案（Research Proposal）與概念驗證（Proof of Concept, PoC）**。

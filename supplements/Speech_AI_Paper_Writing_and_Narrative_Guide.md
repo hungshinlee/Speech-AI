@@ -1,6 +1,6 @@
 # Top Conference 語音論文寫作與敘事邏輯教戰守策
 <!-- en: Writing and Narrative Logic for Speech Papers -->
-<!-- order: 3 -->
+<!-- order: 4 -->
 <!-- summary: Three narrative archetypes, section-by-section writing tactics, where AI tools belong in the process, and a pre-submission checklist. -->
 ## 專注 ICASSP、INTERSPEECH、ASRU/SLT 與頂會 Audio Track
 

@@ -1,6 +1,6 @@
 # Speech AI 專案期末報告教戰守策：從 MVP 到 Top-Conference Ready Paper
 <!-- en: Final Paper: From MVP to a Conference-Ready Paper -->
-<!-- order: 2 -->
+<!-- order: 3 -->
 <!-- summary: The 4+1 page format, fair baselines and ablations, the qualitative and error analysis reviewers actually look for, and the reproducibility assets to hand in. -->
 
 期末報告的目標是交付一個**最小可行產品（Minimum Viable Product, MVP）**，並以正式頂級會議（ICASSP / INTERSPEECH / ASRU / SLT）的規格呈現：**嚴格限制 4 頁正文 + 1 頁參考文獻**。

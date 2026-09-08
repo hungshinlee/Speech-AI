@@ -173,9 +173,9 @@ def build_supplements():
         SUP_BANNER,
         "",
         "These guides back the two assessed deliverables — the midterm report (40%) "
-        "and the final paper (60%). They treat both as submissions to ICASSP / "
-        "INTERSPEECH / ASRU / SLT rather than as coursework, which is the standard "
-        "the course is aiming at.",
+        "and the final paper (60%) — from picking a topic through to the write-up. "
+        "They treat both as submissions to ICASSP / INTERSPEECH / ASRU / SLT rather "
+        "than as coursework, which is the standard the course is aiming at.",
         "",
         "**The guides themselves are in Chinese**, matching how the course is taught.",
         "",
