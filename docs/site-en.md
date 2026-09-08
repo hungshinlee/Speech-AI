@@ -2,7 +2,7 @@
 網站英文片段的來源檔（手寫）。scripts/build_weeks.py 依 `<!-- file: X -->` 切段，
 寫成 _includes/X，供 syllabus.qmd 與 resources.qmd 引用。
 
-中文原文仍留在 docs/course-outline.md，供 weeks/all.qmd 使用；兩邊各自維護。
+中文原文仍留在 docs/course-outline.md（離線閱讀用的完整大綱，不上網站）；兩邊各自維護。
 改了大綱的對應區塊（免責聲明、延遲預算、教科書、附錄 A、附錄 B）記得回來同步這裡。
 首頁的英文課程地圖另存 docs/course-map-en.md（ASCII 對齊敏感，單獨一檔）。
 -->

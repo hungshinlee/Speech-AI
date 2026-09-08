@@ -6,7 +6,7 @@ project:
     - syllabus.qmd
     - resources.qmd
     - slides.qmd
-    - weeks/*.qmd
+    - weeks/w*.qmd          # all.qmd 已不再產生，也不上網站
     - slides/*.qmd
   resources:
     - slides/assets/**
@@ -46,8 +46,6 @@ website:
         text: Slides
       - href: resources.qmd
         text: Resources
-      - href: weeks/all.qmd
-        text: Full outline
     right:
       - icon: github
         href: https://github.com/hungshinlee/Speech-AI
@@ -85,8 +83,6 @@ website:
           - href: weeks/w14.qmd
       - href: resources.qmd
         text: Resources
-      - href: weeks/all.qmd
-        text: Full outline (one page)
   page-footer:
     left: "語音處理與人機互動 · Speech Processing and Human-Machine Interaction · 14 weeks"
     right: "Built with [Quarto](https://quarto.org)"

@@ -5,7 +5,6 @@
 
 產出：
   weeks/w01.qmd … w14.qmd   每週一頁
-  weeks/all.qmd             完整大綱單頁（不含附錄 C：授課者私用備註）
   _includes/*.md            首頁／課程資訊／資源頁引用的片段
 
 用法：python3 scripts/build_weeks.py
@@ -35,7 +34,7 @@ for w in range(11, 15):
     PART_OF[w] = "Part III — Dialogue Systems"
 
 # 首頁課程地圖的英文版（手寫，ASCII 對齊敏感）。
-# 中文版仍留在 docs/course-outline.md，供 weeks/all.qmd 使用。
+# 中文版仍留在 docs/course-outline.md（離線文件），不上網站。
 MAP_EN = os.path.join(ROOT, "docs", "course-map-en.md")
 
 # syllabus.qmd 與 resources.qmd 引用的英文片段（手寫，依 `<!-- file: X -->` 切段）
@@ -98,14 +97,6 @@ def slice_section(lines, start_idx):
             break
         body.append(ln)
     return body
-
-
-def find_heading(lines, text):
-    for i, ln in enumerate(lines):
-        m = re.match(r"^#+ (.*)$", ln)
-        if m and m.group(1).strip() == text:
-            return i
-    return None
 
 
 def read_site_en():
@@ -191,31 +182,9 @@ def main():
                           % (wnum, en_title, wnum, title,
                              PART_OF[wnum].split(" — ")[-1], sl))
 
-    # ── 2. 完整大綱單頁（排除附錄 C）──────────────────────────
-    cut = find_heading(lines, "C. 課程設計備註（給授課者自己看）")
-    full = lines[:cut] if cut is not None else lines[:]
-    # 去掉原始文件的 H1 標題行（頁標題改由 YAML 提供）
-    full = [ln for ln in full if not re.match(r"^# 語音處理與人機互動 — 14 週課程大綱$", ln)]
-    full = [("***" if ln.strip() == "---" else ln) for ln in full]
-    full_out = "\n".join([
-        "---",
-        'title: "14 週課程大綱（完整單頁）"',
-        'subtitle: "適合列印或全文搜尋；分週閱讀請用左側導覽"',
-        "toc-depth: 2",
-        "---",
-        "",
-        BANNER,
-        "",
-        "> 這一頁是把 14 週串起來的完整版，行動裝置上建議改用左側的分週頁面。",
-        "> 授課者私用的課程設計備註（附錄 C）不在網站上，僅存於 repo 的 "
-        "[`docs/course-outline.md`](https://github.com/hungshinlee/Speech-AI/blob/main/docs/course-outline.md)。",
-        "",
-    ] + trim(strip_en(full))) + "\n"
-    written.append(write(os.path.join(WEEKS_DIR, "all.qmd"), full_out))
-
-    # ── 3. syllabus.qmd 與 resources.qmd 引用的片段 ───────────
+    # ── 2. syllabus.qmd 與 resources.qmd 引用的片段 ───────────
     # 網站是英文的，這些片段改由手寫的 docs/site-en.md 提供；
-    # 中文原文仍留在 docs/course-outline.md，只供 weeks/all.qmd 使用。
+    # 中文原文留在 docs/course-outline.md，是離線閱讀用的文件，不上網站。
     en_parts = read_site_en()
     for fname in ("disclaimer.md", "latency.md", "textbooks.md",
                   "reading-table.md", "toolchain.md"):
