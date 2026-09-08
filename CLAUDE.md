@@ -36,7 +36,8 @@ Remote：`git@github.com:hungshinlee/Speech-AI.git`（branch `main`）
 ├── README.md                 repo 說明
 ├── docs/
 │   ├── course-outline.md     ★ single source of truth（14 週完整大綱，~117 KB）
-│   └── course-map-en.md      首頁課程地圖的英文版（手寫，ASCII 對齊敏感）
+│   ├── course-map-en.md      首頁課程地圖的英文版（手寫，ASCII 對齊敏感）
+│   └── site-en.md            syllabus / resources 的英文片段（手寫）
 │
 ├── _quarto.yml               Quarto 網站設定（導覽、主題、KaTeX）
 ├── styles.scss               自訂樣式（含手機版規則）
@@ -66,7 +67,15 @@ Remote：`git@github.com:hungshinlee/Speech-AI.git`（branch `main`）
 <!-- en: The Alignment Problem: From HMM to CTC -->
 ```
 
-`build_weeks.py` 讀它產生首頁的英文週次索引與每週頁的 `subtitle`，並在寫檔前把註解濾掉（不會出現在網頁上）。新增或改寫週次標題時**必須同時給英文**，否則腳本會直接 `sys.exit`。英文標題也就是該週投影片標題的預設用法。
+`build_weeks.py` 讀它產生首頁與投影片索引的雙語表格，並把它放進每週頁的 **`title`**（中文標題降為 `subtitle`）。註解本身在寫檔前濾掉，不會出現在網頁上。新增或改寫週次標題時**必須同時給英文**，否則腳本會直接 `sys.exit`。英文標題也就是該週投影片標題的預設用法。
+
+`title` 放英文是刻意的：**Quarto 側欄的項目直接取自頁面 `title`**，這樣側欄不必在 `_quarto.yml` 手維護 14 條 `text:`，也就不會與大綱漂移。代價是每週頁的 H1 是英文、內文是中文，這與首頁「英文為主、中文為次」一致。
+
+### syllabus / resources 的英文片段
+
+`docs/site-en.md` 是手寫的英文來源，依 `<!-- file: X -->` 切段，產生 `_includes/` 底下的 `disclaimer.md`、`latency.md`、`textbooks.md`、`reading-table.md`、`toolchain.md`。缺任一段腳本會 `sys.exit`。
+
+**中文原文仍留在 `docs/course-outline.md`**（使用說明、延遲預算、主要教科書、附錄 A、附錄 B），但現在只餵給 `weeks/all.qmd`。也就是說這五段內容有兩份，兩邊各自維護——改了大綱那邊，要回來同步 `site-en.md`，腳本不會替你翻。
 
 ---
 
@@ -109,9 +118,10 @@ CI 在 deploy 前也會重跑一次這個腳本，所以就算忘了在本機跑
 | 網址 | `hungshinlee.github.io/Speech-AI/`（子路徑） | Quarto 用相對連結，子路徑可直接運作，不需改設定 |
 | KaTeX 版本 | **釘在 0.18.7**（`_quarto.yml` 的 `html-math-method.url`） | Quarto 預設載 `katex@latest`，上游改版會無聲壞掉 |
 | 附錄 C | **不上網站**，只存在 `docs/course-outline.md` | 那是授課者私用的課程設計備註 |
-| 網站語言 | **骨架英文、內容中文**。英文：`index.qmd`、`slides.qmd`、navbar／sidebar／footer、每週索引、頁內 TOC 標題、repo-actions 與搜尋（後四項靠 `_quarto.yml` 的 `language:` 覆寫 Quarto 內建中文字串）。中文：`weeks/`、`weeks/all.qmd`、`syllabus.qmd`、`resources.qmd`、投影片的 `::: {.notes}` 講稿 | 修課學生與外部訪客都要照顧。首頁與投影片是對外的門面，內頁對齊「中文授課」。站名 `語音處理與人機互動` 不翻 |
+| 網站語言 | **介面與框架英文、課程內文中文**。英文：`index.qmd`、`syllabus.qmd`、`resources.qmd`、`slides.qmd`、navbar／sidebar／footer、每週索引、每週頁的 `title`、頁內 TOC 標題、repo-actions 與搜尋（後三項靠 `_quarto.yml` 的 `language:` 覆寫 Quarto 內建中文字串）。中文：每週頁內文與 `subtitle`、`weeks/all.qmd`、投影片的 `::: {.notes}` 講稿 | 修課學生與外部訪客都要照顧。對外的門面一律英文，實際授課用的內文對齊「中文授課」。站名 `語音處理與人機互動` 不翻 |
 | 週次索引 | 英文標題為連結、中文標題為次行（`[…]{.wk-zh}`） | 連結文字與點進去的中文頁面標題會對不起來，兩個都給才不會迷路 |
 | 首頁課程地圖 | 讀 `docs/course-map-en.md`，**不從中文大綱切** | ASCII 圖的對齊靠字元寬度，中英混排無法自動轉換；中文版仍留在大綱裡供 `all.qmd` 使用 |
+| 表格欄寬 | 用 pipe table 分隔列的**破折號長度**指定比例，不要留 `|---|---|` | Pandoc 依破折號長度分配欄寬；全部等長就是均分，雙語標題那一欄會被擠到不能看。`Not yet available` 這種不該斷行的短語用不斷行空格（U+00A0）釘住 |
 | 投影片與 demo | **由授課者自行製作**，AI 不代勞 | 使用者明確指示。之後放 `slides/` 與 `demos/`，並在 `_quarto.yml` 的 sidebar 加入口 |
 
 ### 手機閱讀：實際會壞的三個地方
@@ -464,7 +474,7 @@ revealjs 的 PDF 走瀏覽器列印：開 `slides/w01.html?print-pdf` 後在 Chr
 ## 8. 維護紀律
 
 - **W11–W14 的文獻半衰期約 6 個月。** 每次開課前重掃 arXiv `cs.CL` / `eess.AS` 近三個月，以及 Interspeech / ICASSP / ASRU / SLT 最新議程。
-- 動 `docs/course-outline.md` 之後：(a) **重跑 `python3 scripts/build_weeks.py`**；(b) 同步 Project doc（見第 3 節）；(c) 若改了週次結構或標題，回頭檢查附錄 A 速查表、`_quarto.yml` 的 sidebar 清單與 README；(d) 改週次標題時**中英文一起改**（英文寫在標題下一行的 `<!-- en: -->`），改週次分組時記得 `docs/course-map-en.md` 是手寫的，不會自動更新。
+- 動 `docs/course-outline.md` 之後：(a) **重跑 `python3 scripts/build_weeks.py`**；(b) 同步 Project doc（見第 3 節）；(c) 若改了週次結構或標題，回頭檢查附錄 A 速查表與 README（`_quarto.yml` 的 sidebar 只列週次檔名，標題自動跟著頁面 `title`，不必手改）；(d) 改週次標題時**中英文一起改**（英文寫在標題下一行的 `<!-- en: -->`）；(e) 改到「使用說明」「延遲預算」「主要教科書」「附錄 A」「附錄 B」這五段，要回頭同步 `docs/site-en.md`；改週次分組則要同步 `docs/course-map-en.md`。這兩個檔都是手寫的，不會自動更新。
 - 新增內容時注意兩個會破渲染的陷阱：**markdown 表格的 cell 裡不能出現裸的 `|`**（行內數學請用 `\lvert … \rvert`），以及 **KaTeX 不支援 `\mathbb{1}`**（用 `\mathbf{1}`）。這兩個都踩過了。
 - Commit 訊息用中文或英文皆可，但要說明**改了哪一週、改了什麼層級**（結構／內容／引用）。
 

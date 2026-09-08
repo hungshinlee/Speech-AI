@@ -38,6 +38,10 @@ for w in range(11, 15):
 # 中文版仍留在 docs/course-outline.md，供 weeks/all.qmd 使用。
 MAP_EN = os.path.join(ROOT, "docs", "course-map-en.md")
 
+# syllabus.qmd 與 resources.qmd 引用的英文片段（手寫，依 `<!-- file: X -->` 切段）
+SITE_EN = os.path.join(ROOT, "docs", "site-en.md")
+FILE_RE = re.compile(r"^<!-- file: (\S+) -->$")
+
 # 每週英文標題寫在 docs/course-outline.md 的標題下一行：<!-- en: ... -->
 EN_RE = re.compile(r"^<!--\s*en:\s*(.+?)\s*-->$")
 
@@ -104,6 +108,23 @@ def find_heading(lines, text):
     return None
 
 
+def read_site_en():
+    """把 docs/site-en.md 依 `<!-- file: X -->` 切成 {檔名: 內容}。"""
+    if not os.path.exists(SITE_EN):
+        sys.exit("找不到 %s（syllabus / resources 的英文片段來源）" % SITE_EN)
+    with io.open(SITE_EN, encoding="utf-8") as f:
+        lines = f.read().replace("\r\n", "\n").split("\n")
+    out, cur = {}, None
+    for ln in lines:
+        m = FILE_RE.match(ln.strip())
+        if m:
+            cur = m.group(1)
+            out[cur] = []
+        elif cur is not None:
+            out[cur].append(ln)
+    return dict((k, "\n".join(trim(v))) for k, v in out.items())
+
+
 def write(path, content):
     d = os.path.dirname(path)
     if d and not os.path.isdir(d):
@@ -148,8 +169,9 @@ def main():
         next_link = ("weeks/w%02d.qmd" % week_heads[idx + 1][1]) if idx + 1 < len(week_heads) else None
         fm = [
             "---",
-            'title: "W%d｜%s"' % (wnum, yaml_escape(title)),
-            'subtitle: "%s · %s"' % (PART_OF[wnum], yaml_escape(en_title)),
+            # 側欄的項目直接取自 title，所以英文標題放 title、中文降為 subtitle
+            'title: "W%d｜%s"' % (wnum, yaml_escape(en_title)),
+            'subtitle: "%s · %s"' % (PART_OF[wnum], yaml_escape(title)),
             "toc-depth: 2",
             "---",
             "",
@@ -191,46 +213,18 @@ def main():
     ] + trim(strip_en(full))) + "\n"
     written.append(write(os.path.join(WEEKS_DIR, "all.qmd"), full_out))
 
-    # ── 3. 首頁／課程資訊／資源頁的引用片段 ────────────────────
-    # (檔名, 大綱中的區段標題, 在網站上顯示的標題)
-    parts = [
-        ("disclaimer.md",    "使用說明與免責聲明",              "使用說明與免責聲明"),
-        ("textbooks.md",     "主要教科書（全課通用）",           "主要教科書"),
-        ("reading-table.md", "A. 每週核心文獻速查表（若只讀一篇）", "每週核心文獻速查表（若只讀一篇）"),
-        ("toolchain.md",     "B. 工具鏈建議",                    "工具鏈建議"),
-    ]
-    for fname, heading, display in parts:
-        i = find_heading(lines, heading)
-        if i is None:
-            print("  ! 找不到區段：%s（跳過 %s）" % (heading, fname))
-            continue
-        body = trim(strip_hr(slice_section(lines, i)))
-        out = BANNER + "\n\n## " + display + "\n\n" + "\n".join(body) + "\n"
-        written.append(write(os.path.join(INC_DIR, fname), out))
+    # ── 3. syllabus.qmd 與 resources.qmd 引用的片段 ───────────
+    # 網站是英文的，這些片段改由手寫的 docs/site-en.md 提供；
+    # 中文原文仍留在 docs/course-outline.md，只供 weeks/all.qmd 使用。
+    en_parts = read_site_en()
+    for fname in ("disclaimer.md", "latency.md", "textbooks.md",
+                  "reading-table.md", "toolchain.md"):
+        if fname not in en_parts:
+            sys.exit("docs/site-en.md 缺區段 <!-- file: %s -->" % fname)
+        written.append(write(os.path.join(INC_DIR, fname),
+                             BANNER + "\n\n" + en_parts[fname] + "\n"))
 
-    # 「課程地圖」區段裡用粗體（而非標題）分隔了三個子塊：ASCII 圖、三條主軸、
-    # 延遲預算。三條主軸在 index.qmd 已有手寫版本，會重複；因此在此拆開：
-    #   coursemap.md → 只留 ASCII 圖
-    #   latency.md   → 延遲預算，掛在 syllabus.qmd
-    i = find_heading(lines, "課程地圖（Course Map）")
-    if i is not None:
-        body = trim(strip_hr(slice_section(lines, i)))
-
-        def marker(prefix):
-            for n, ln in enumerate(body):
-                if ln.startswith(prefix):
-                    return n
-            return None
-
-        i_lat = marker("**延遲預算")
-        if i_lat is not None:
-            lat = trim(body[i_lat + 1:])   # 丟掉粗體那行，改用真正的標題
-            write(os.path.join(INC_DIR, "latency.md"),
-                  BANNER + "\n\n## 延遲預算：全課的共同座標系\n\n"
-                  + "\n".join(lat) + "\n")
-            written.append(os.path.join(INC_DIR, "latency.md"))
-
-    # 首頁為英文，課程地圖改用 docs/course-map-en.md（ASCII 對齊需手工維護）
+    # 首頁的課程地圖：ASCII 對齊敏感，單獨一檔手工維護
     if os.path.exists(MAP_EN):
         with io.open(MAP_EN, encoding="utf-8") as f:
             written.append(write(os.path.join(INC_DIR, "coursemap.md"),
