@@ -4,6 +4,44 @@
 
 ---
 
+## 0. 誰跑什麼（**每次交辦前先看這張**）
+
+`device_bash` 跑的是使用者機器上一個**獨立的 Linux VM**，只掛載連進來的資料夾，
+**不是** macOS 環境本身——所以 brew 裝的工具、macOS 的 python env、GUI 應用都看不到。
+那個 VM **對外連線被代理全數擋掉**（實測 `curl https://arxiv.org` 回 403），掛載的資料夾**預設禁止刪檔**。
+
+**Claude 可以直接做（別再叫使用者跑這些）**
+
+| 事項 | 備註 |
+|---|---|
+| 讀寫、搜尋 repo 裡任何檔案 | 寫入允許 |
+| `python3 scripts/build_weeks.py` | 只用標準函式庫 |
+| `python3 scripts/extract_notes.py` | 只用標準函式庫 |
+| `python3 scripts/make_figs_w01.py` | 只用標準函式庫 |
+| `python3 scripts/analyze_duplex_audio.py`<br>`python3 scripts/make_duplex_timeline.py` | 需要 numpy，**VM 裡有**（實測 2.2.6）。但音訊來源在不進版控的 `_media/`，那份要先存在 |
+| 唯讀 git：`log` / `show` / `diff` / `status` | 不寫 index。**注意此處的 git 不吃 `--no-optional-locks`**（會 `fatal: unrecognized argument`） |
+
+**只能使用者在本機跑**
+
+| 事項 | 原因 |
+|---|---|
+| `git add` / `git commit` | 需要建立**並刪除** `.git/index.lock`，VM 預設禁止刪檔 |
+| `git push` / `git fetch` | VM 沒有 SSH key，且對外無網路 |
+| `quarto preview` / `quarto render` | Quarto 裝在 macOS 上，VM 看不到。**改在雲端容器裡另裝一份驗證**（2026-09-11 用 quarto 1.7.32 render 全站 24 頁，可行） |
+| 刪除掛載資料夾裡的檔案 | 預設被擋。要刪得先 `device_request_delete_permission`（**每個 session 要重新授權一次**），或搬到 `_to_delete/` |
+| 需要下載的步驟 | VM 無對外網路。**HuggingFace 在雲端容器與 VM 都被擋（403）**，所以 `_media/` 的音訊素材補下載一律在 Mac 上做（見 4.6） |
+
+**雲端容器能做而 VM 不能的兩件事**：(a) 裝 Quarto 與 Playwright 做 render 與版面量測；
+(b) `WebFetch` / `WebSearch`——核對 `[驗]` 標記的引用、查 MLX 等套件的當下支援狀況（見第 6 節）都走這條。
+代價是要把檔案打包傳上去再傳回來，所以**只把該步驟需要的檔案送過去，能原地跑就原地跑**。
+
+**一個實務差異**：在雲端容器做好再經檔案傳輸寫進 repo 的檔案**會被加上 C2PA 標記**
+（SVG 每張約多 8 KB，仍是合法 SVG）；**在使用者機器上原地跑腳本產生的不會**。
+`make_figs_w01.py` 與 `make_duplex_timeline.py` 都是決定性產生的，所以萬一被標記了，
+**在 Mac 上重跑一次那支腳本**就會得到乾淨的版本；否則下次重跑時 diff 會很大。
+
+---
+
 ## 1. 這個 repo 是什麼
 
 `語音處理與人機互動` 這門課的教材開發庫。課程以**建構半雙工／全雙工語音對話 AI 系統**為最終目標，倒推所需的訊號處理、表徵學習、生成模型與互動建模知識。
@@ -22,7 +60,9 @@ Remote：`git@github.com:hungshinlee/Speech-AI.git`（branch `main`）
 | 先修背景 | **無**（線性代數、機率、Python 僅為軟性要求） |
 | 時數 | 14 週 × 3 小時，**全為 lectures** |
 | 評量 | **期中報告 40%、期末論文 60%**（2026-09 由無評量改為此制）；修課要求：分組、參與 2 次線上討論 |
-| 學生算力 | **Colab 免費版**（T4 16 GB） |
+| 學生算力 | **不需要**（全為 lectures，學生不實作；demo 由授課者現場執行）（2026-09-11 由「Colab 免費版 T4 16 GB」改為此制，與 NLP-LLM 對齊） |
+| **Demo 機器** | MacBook Pro **M5 Max**（64 GB 統一記憶體）。**無 CUDA** —— 見第 6 節 |
+| 專題硬體 | 單張 16 GB CUDA GPU（RTX 5070 Ti 級）；`supplements/Topics_for_Interspeech27.md` 的十個選題本來就依此預算挑選 |
 | 語言 | 中文授課、**英文投影片** |
 | 深度分級 | 預設 `研究所`（推導、論文脈絡、open problems） |
 
@@ -141,11 +181,12 @@ CI 在 deploy 前也會重跑一次這個腳本，所以就算忘了在本機跑
 | 網址 | `hungshinlee.github.io/Speech-AI/`（子路徑） | Quarto 用相對連結，子路徑可直接運作，不需改設定 |
 | KaTeX 版本 | **釘在 0.18.7**（`_quarto.yml` 的 `html-math-method.url`） | Quarto 預設載 `katex@latest`，上游改版會無聲壞掉 |
 | 附錄 C | **不上網站**，只存在 `docs/course-outline.md` | 那是授課者私用的課程設計備註 |
-| 網站語言 | **介面與框架英文、課程內文中文**。英文：`index.qmd`、`syllabus.qmd`、`resources.qmd`、`slides.qmd`、`supplements.qmd`、navbar／sidebar／footer、每週索引、每週頁與補充教材頁的 `title`、頁內 TOC 標題、repo-actions 與搜尋（後三項靠 `_quarto.yml` 的 `language:` 覆寫 Quarto 內建中文字串）。中文：每週頁內文與 `subtitle`、`supplements/*.md` 的全部內文、投影片的 `::: {.notes}` 講稿 | 修課學生與外部訪客都要照顧。對外的門面一律英文，實際授課用的內文對齊「中文授課」。站名 `語音處理與人機互動` 不翻 |
+| 網站語言 | **介面與框架英文、課程內文中文**。英文：`index.qmd`、`syllabus.qmd`、`resources.qmd`、`slides.qmd`、`supplements.qmd`、navbar／sidebar／footer、每週索引、每週頁與補充教材頁的 `title`、頁內 TOC 標題、repo-actions 與搜尋（後三項靠 `_quarto.yml` 的 `language:` 覆寫 Quarto 內建中文字串）。**`lang:` 必須寫 `zh-TW` 不能寫 `zh-Hant`**：Quarto 只有 `_language-zh-TW.yml`，給 `zh-Hant` 會退回簡體的 `_language-zh.yml`（畫面上會出現「切换阅读器模式」等 5 處簡體 tooltip）。中文：每週頁內文與 `subtitle`、`supplements/*.md` 的全部內文、投影片的 `::: {.notes}` 講稿 | 修課學生與外部訪客都要照顧。對外的門面一律英文，實際授課用的內文對齊「中文授課」。站名 `語音處理與人機互動` 不翻 |
 | 週次索引 | 英文標題為連結、中文標題為次行（`[…]{.wk-zh}`） | 連結文字與點進去的中文頁面標題會對不起來，兩個都給才不會迷路 |
-| 首頁課程地圖 | 讀 `docs/course-map-en.md`，**不從中文大綱切** | ASCII 圖的對齊靠字元寬度，中英混排無法自動轉換；中文版仍留在大綱裡（離線文件） |
+| 首頁課程地圖 | **HTML/CSS grid**，由 `build_weeks.py` 從週次資料產生（樣式在 `styles.scss` 的 `.coursemap`）（2026-09-11 由 ASCII 改成） | 方塊可點進該週頁面、文字進得了站內搜尋、窄螢幕自動疊成一欄——這三件事 ASCII 與 SVG 都做不到（SVG 以 `width:100%` 縮放時，390px 下 1240 寬的圖會縮到 0.31 倍，25px 的字變 8px）。短標籤在腳本的 `SHORT`，缺一週會 `sys.exit`；`docs/course-map-en.md` 保留備查但**不再上站** |
 | 表格欄寬 | 用 pipe table 分隔列的**破折號長度**指定比例，不要留 `|---|---|` | Pandoc 依破折號長度分配欄寬；全部等長就是均分，雙語標題那一欄會被擠到不能看。`Not yet available` 這種不該斷行的短語用不斷行空格（U+00A0）釘住 |
 | 投影片與 demo | **由授課者自行製作**，AI 不代勞 | 使用者明確指示。之後放 `slides/` 與 `demos/`，並在 `_quarto.yml` 的 sidebar 加入口 |
+| 展示模式 | 按 `z` 或點 navbar 的按鈕切換，`localStorage` 持久化、換頁保持（`_present-mode.html` + `styles.scss` 的 `html.present-mode`，2026-09-11 自 NLP-LLM 移植） | 投影時 zoom in 會落在「兩側導覽還沒收起、內容卻被擠掉」的區間（實測 1100px 等效寬時內容只剩 570px，左右佔掉 428px）。**不能用 Quarto 內建的 reader-mode**：那顆按鈕的 inline `onclick` 呼叫 `window.quartoToggleReader`，它由 `quarto.js` 定義、在 `include-in-header` 之後才載入，會吃掉同名覆寫，而且它只調整過場速度、不收側欄。所以用自己的函式名 + 在 document 的 capture 階段攔截點擊。**關鍵**：Quarto 是 named-line grid，只把側欄 `display:none` 不會收回欄寬，要讓 `main.content` 跨到 `page-start / page-end` |
 
 ### 手機閱讀：實際會壞的三個地方
 
@@ -154,6 +195,7 @@ CI 在 deploy 前也會重跑一次這個腳本，所以就算忘了在本機跑
 1. **寬表格**（課堂骨架的時間分配表）→ `≤768px` 時 `table` 改 `display:block; overflow-x:auto`，並給 cell `min-width`（最後一欄 15rem），保留換行可讀性而非壓成窄柱。
 2. **ASCII 課程地圖**（`pre`）→ `white-space:pre` + `overflow-x:auto`，字級降到 `.74rem`；靠橫向捲動而非換行，否則圖會散掉。
 3. **長行 display math** → `.katex-display{overflow-x:auto}`。
+4. **行內 `code` 的長識別字**（`torch.nn.functional.scaled_dot_product_attention` 這種不可斷詞的單一 token）→ `code:not(pre code)` 先把 `white-space` 收回 `normal` 再給 `overflow-wrap: anywhere`。**只給 `overflow-wrap` 不會生效**，因為上游 `code{white-space:pre}`；`p code` 與 `td code` 上游已是 `pre-wrap`，所以**壞掉的是清單項目、標題、blockquote 裡的行內 code**。實測（Quarto 1.7.32）清單項目內的長識別字在 390px 下把頁面撐寬 143px，加上這兩行後歸零。`pre` 區塊仍維持 `white-space:pre` + 橫向捲動，程式碼與 ASCII 圖不會被折行。
 
 驗證過的結果：390px 寬下 4 個代表頁面的 `document.scrollWidth === clientWidth`，**沒有頁面級橫向溢出**；寬表格與 ASCII 圖各自在容器內捲動（右側有 inset shadow 提示）。改完樣式建議重跑這個檢查。
 
@@ -476,17 +518,79 @@ revealjs 的 PDF 走瀏覽器列印：開 `slides/w01.html?print-pdf` 後在 Chr
 
 ---
 
-## 6. Demo 設計約束
+## 6. Demo 設計約束（**2026-09-11 大改**）
 
-- **Colab 免費版（T4 16 GB）跑不動即時語音互動。** 所有 demo 設計成「**離線推論 + 事後對齊時間軸**」，即時性用預錄的官方 demo 呈現。
-- 首選工具鏈：`torchaudio` + HF `transformers`（安裝最省事）；ASR 完整流程用 ESPnet / k2-icefall；語音模組用 SpeechBrain；codec 用 `descript-audio-codec` / HF EnCodec / Mimi。
+### 前提變了兩件事
+
+1. **學生不實作。** 全為 lectures，所以 demo 是「授課者現場跑給大家看」，不是「學生自己跑」。
+   原本整套 demo 設計是照「Colab 免費版 T4 16 GB 且學生要自己跑」寫的，那個限制已經不存在。
+2. **Demo 機器是 MacBook Pro M5 Max，64 GB 統一記憶體，但沒有 CUDA。**
+
+### 沒有 CUDA 的後果（**寫任何 demo script 前先看這個**）
+
+語音課受的衝擊比 NLP 課大：吃 CUDA 的不只是量化與 serving，**整條傳統 ASR 訓練流程**都綁在上面。
+
+| 不能用 | 原因 |
+|---|---|
+| `bitsandbytes`（4/8-bit、QLoRA） | CUDA-only |
+| `vLLM` | 實務上不支援 Apple silicon |
+| FlashAttention、自訂 Triton kernel | CUDA |
+| **k2 / icefall**（WFST、pruned RNN-T loss） | 核心 kernel 是 CUDA；CPU-only build 在 macOS 上即使裝得起來也慢到無法課堂演示 `[驗]` |
+| **ESPnet 的完整 recipe**（Kaldi 風格的 stage 1–13） | 依賴 Kaldi 工具與 GPU 訓練；**推論用的預訓練模型仍可跑**，要避開的是訓練 recipe `[驗]` |
+| NeMo | NVIDIA 自家堆疊，Apple silicon 不在支援範圍 `[驗]` |
+
+**可用的替代**（全部 `[驗]`，**寫實際 demo code 前必須先查當下版本與支援狀況**）：
+
+| 用途 | 工具 |
+|---|---|
+| 通用推論 | `torch` 走 **MPS** 後端 + HF `transformers`；部分 op 會 fallback 回 CPU，語音的 STFT／conv 尤其要實測 |
+| ASR | `whisper.cpp`（Metal，Apple silicon 上最成熟）、MLX 版 Whisper、HF `transformers` 的 Whisper／Wav2Vec2 推論 |
+| 語音模組（VAD／分離／說話人） | SpeechBrain、pyannote（純 torch，推論在 CPU/MPS 可行）；Silero VAD 純 CPU |
+| Codec | HF EnCodec、`descript-audio-codec`、Mimi（推論為主） |
+| 全雙工 | **Kyutai 的 Moshi 有 MLX 實作**，若屬實則 W12/W13 的「即時互動」有機會從預錄改成現場跑 —— `[驗]`，**這是最值得優先實測的一項** |
+| 訊號處理／評估 | `librosa`、`torchaudio` 的純 CPU 部分、`jiwer`、`pesq`、`pystoi` —— 不受影響 |
+
+⚠️ **M5 是很新的世代，Claude 的知識截止在 2026-05。** 上表每一列都要在 Mac 上實測過才能寫進講義，
+並在講義裡**寫死版本號**。不要憑印象寫。
+
+### 把限制當成教材
+
+在課堂上說「這個 demo 我在這台機器上跑不了，因為 k2 的 pruned RNN-T loss 是 CUDA kernel」，
+比任何投影片都更有力地說明 **W4 與 W14 的論點：語音系統的可行性是與硬體綁定的**。
+同一套 code 在不同硬體上能不能跑、跑多快，本來就是延遲軸要教的事。
+
+### 64 GB 是收穫
+
+原本 demo 全部設計成「**離線推論 + 事後對齊時間軸**」，即時性用預錄的官方 demo 呈現——
+那是 T4 16 GB 的限制。64 GB 統一記憶體之下，**W11–W13 的 audio-native LM 與全雙工模型有機會現場跑**，
+這正是全課終點最該讓學生親眼看到的東西。**但在 Mac 上實測成功之前，不要改寫任何一週的 demo 規格。**
+
+W1 cold open 用的 Kyutai 音訊樣本（見 4.6）是預錄素材，不受此變動影響。
+
+### 仍然成立的幾條
+
 - 標註套件版本、資料集大小、預期執行時間。
-- 權重下載時間是實際痛點 → notebook 要能課前預熱。
-- 資料建議用 LibriSpeech dev-clean + MUSAN 各取數十句即可，不要動用大資料集。
+- 權重下載時間是實際痛點 → 課前預熱。
+- 資料用 LibriSpeech dev-clean + MUSAN 各取數十句即可，不要動用大資料集。
+- 六個核心失敗案例 demo（見第 4 節）的教學價值與硬體無關，優先度不變。
 
 ---
 
 ## 7. 待辦
+
+### 硬體前提改動的未完成部分（2026-09-11）
+
+首頁與 `syllabus.qmd` 的 Course Setup 已改成「學生什麼都不用準備、demo 現場跑」＋新增
+「Project hardware＝單張 16 GB CUDA GPU」一列；**但工具鏈與 demo 的敘述還停在 Colab/T4 前提**，
+兩邊目前不一致。這是已知待辦，不是疏漏：
+
+- [ ] `docs/site-en.md` 的 `toolchain` 段（會重生 `_includes/toolchain.md`，顯示在 Resources 頁）：
+      「Friendliest on free Colab」「Free Colab probably cannot hold these」
+      與段末那則 "What free Colab actually allows" 提醒，全部要改寫成 Apple silicon 前提
+- [ ] `docs/course-outline.md` 的 14 週「課堂 demo 建議」與延遲預算／算力相關欄位
+- [ ] **動手前先在 Mac 上實測第 6 節那張替代工具表**，尤其 Moshi 的 MLX 實作能不能現場跑全雙工
+
+### 原有待辦
 
 - [ ] 核對大綱中所有 `[驗]` 標記的引用（約 15 處）
 - [ ] `slides/` — 各週投影片（授課者自製；之後在 `_quarto.yml` sidebar 加入口）
@@ -497,7 +601,7 @@ revealjs 的 PDF 走瀏覽器列印：開 `slides/w01.html?print-pdf` 後在 Chr
 ## 8. 維護紀律
 
 - **W11–W14 的文獻半衰期約 6 個月。** 每次開課前重掃 arXiv `cs.CL` / `eess.AS` 近三個月，以及 Interspeech / ICASSP / ASRU / SLT 最新議程。
-- 動 `docs/course-outline.md` 之後：(a) **重跑 `python3 scripts/build_weeks.py`**；(b) 同步 Project doc（見第 3 節）；(c) 若改了週次結構或標題，回頭檢查附錄 A 速查表與 README（`_quarto.yml` 的 sidebar 只列週次檔名，標題自動跟著頁面 `title`，不必手改）；(d) 改週次標題時**中英文一起改**（英文寫在標題下一行的 `<!-- en: -->`）；(e) 改到「使用說明」「延遲預算」「主要教科書」「附錄 A」「附錄 B」這五段，要回頭同步 `docs/site-en.md`；改週次分組則要同步 `docs/course-map-en.md`。這兩個檔都是手寫的，不會自動更新。
+- 動 `docs/course-outline.md` 之後：(a) **重跑 `python3 scripts/build_weeks.py`**；(b) 同步 Project doc（見第 3 節）；(c) 若改了週次結構或標題，回頭檢查附錄 A 速查表與 README（`_quarto.yml` 的 sidebar 只列週次檔名，標題自動跟著頁面 `title`，不必手改）；(d) 改週次標題時**中英文一起改**（英文寫在標題下一行的 `<!-- en: -->`）；(e) 改到「使用說明」「延遲預算」「主要教科書」「附錄 A」「附錄 B」這五段，要回頭同步 `docs/site-en.md`；改週次分組或週次主題則要同步 `scripts/build_weeks.py` 裡的 `SHORT`（首頁課程地圖的短標籤）與 `PART_OF`；`docs/course-map-en.md` 已不再上站，可不動。`docs/site-en.md` 是手寫的，不會自動更新。
 - 新增內容時注意兩個會破渲染的陷阱：**markdown 表格的 cell 裡不能出現裸的 `|`**（行內數學請用 `\lvert … \rvert`），以及 **KaTeX 不支援 `\mathbb{1}`**（用 `\mathbf{1}`）。這兩個都踩過了。
 - Commit 訊息用中文或英文皆可，但要說明**改了哪一週、改了什麼層級**（結構／內容／引用）。
 
@@ -509,4 +613,4 @@ revealjs 的 PDF 走瀏覽器列印：開 `slides/w01.html?print-pdf` 後在 Chr
 
 ---
 
-_最後更新：2026-09-07（建立 14 週大綱 v1.0 + Quarto 課程網站）_
+_最後更新：2026-09-11（自 NLP-LLM 移植網站改良：展示模式、`lang: zh-TW`、課程地圖改 HTML grid、行內 code 換行；硬體前提改為「學生不實作、demo 機為 M5 Max」——工具鏈敘述尚未跟上，見第 7 節）_

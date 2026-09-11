@@ -13,10 +13,11 @@ subtitle: "Setup, how to read the site, and citation conventions"
 | Prerequisites | None required; linear algebra, probability and Python are soft expectations |
 | Format | 14 weeks × 3 hours, lectures throughout |
 | Language | Lectures in Mandarin, slides in English |
-| Compute | Free-tier Colab (T4, 16 GB) |
+| Compute | **Nothing is required of students.** The course is lectures throughout, and every demo is run live in class on the lecturer's machine |
+| Project hardware | The term project assumes a single 16 GB CUDA GPU (RTX 5070 Ti class) — the [Supplements](supplements.qmd) topics were selected against that budget |
 | Assessment | Midterm report (40%), final paper (60%) — see [Supplements](supplements.qmd) for what each one has to contain |
 | Depth | Graduate — derivations, the literature behind each idea, open problems |
-| Requirements | Group work; participation in two online discussions |
+| Requirements | Group work in teams of 2–4; two online discussion sessions |
 
 ::: {.callout-note}
 ## On "no prerequisites" together with "full derivations"

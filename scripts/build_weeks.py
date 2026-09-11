@@ -43,9 +43,25 @@ for w in range(7, 11):
 for w in range(11, 15):
     PART_OF[w] = "Part III — Dialogue Systems"
 
-# 首頁課程地圖的英文版（手寫，ASCII 對齊敏感）。
-# 中文版仍留在 docs/course-outline.md（離線文件），不上網站。
+# 首頁課程地圖：改為由週次資料產生 HTML/CSS grid（樣式在 styles.scss 的 .coursemap）。
+# 好處是每個週次方塊可點、文字可被站內搜尋找到、窄螢幕會自動疊成一欄——這三件事 ASCII 與 SVG 都做不到。
+# 中文的 ASCII 版仍留在 docs/course-outline.md（離線文件），英文 ASCII 版 docs/course-map-en.md
+# 保留備查但不再上站。
 MAP_EN = os.path.join(ROOT, "docs", "course-map-en.md")
+
+# 地圖上的短標籤。週次的完整英文標題太長（"Sequence Models and Streaming
+# Architectures: Transformer, Conformer, RNN-T"），地圖需要另一組壓縮過的字。
+# **改動週次主題時這裡要一起改**，少一週腳本會 sys.exit。
+SHORT = {
+    1:  "Systems view &amp; latency",  2:  "Signals &amp; front-end",
+    3:  "Alignment: HMM \u2192 CTC",    4:  "Sequence models &amp; streaming",
+    5:  "SSL representations",         6:  "Codecs &amp; discretization",
+    7:  "ASR",                         8:  "TTS I: generative",
+    9:  "TTS II: control &amp; eval",  10: "VAD / AEC / sep / spk",
+    11: "Audio-native LM",             12: "Turn-taking",
+    13: "Full-duplex arch. &amp; data", 14: "Evaluation &amp; deployment",
+}
+HINGE = (6,)   # 全課樞紐（frame rate、token 預算、語意／聲學分離），地圖上要 highlight
 
 # syllabus.qmd 與 resources.qmd 引用的英文片段（手寫，依 `<!-- file: X -->` 切段）
 SITE_EN = os.path.join(ROOT, "docs", "site-en.md")
@@ -277,13 +293,40 @@ def main():
         written.append(write(os.path.join(INC_DIR, fname),
                              BANNER + "\n\n" + en_parts[fname] + "\n"))
 
-    # 首頁的課程地圖：ASCII 對齊敏感，單獨一檔手工維護
-    if os.path.exists(MAP_EN):
-        with io.open(MAP_EN, encoding="utf-8") as f:
-            written.append(write(os.path.join(INC_DIR, "coursemap.md"),
-                                 BANNER + "\n\n" + f.read().strip() + "\n"))
-    else:
-        print("  ! 找不到 %s，首頁課程地圖未更新" % MAP_EN)
+    # 首頁的課程地圖：HTML/CSS grid，由上面的 week_heads 產生
+    missing = [n for _, n, _, _ in week_heads if n not in SHORT]
+    if missing:
+        sys.exit("SHORT 缺少週次 %s 的短標籤（scripts/build_weeks.py）" % missing)
+    parts = [("Part I — Foundations", range(1, 7)),
+             ("Part II — Modules", range(7, 11)),
+             ("Part III — Dialogue Systems", range(11, 15))]
+    # 連結是相對路徑，因此這個片段只能被站根目錄的 index.qmd 引用
+    # 標題用 markdown 的 H2，與首頁其他區塊（Three Threads…、Weekly Schedule）一致，
+    # 也才會進到頁內 TOC
+    h = ['## Course Map', '', '<div class="coursemap">']
+    # 全課是從終點倒推的，地圖最上面先把那個終點講明白（原 ASCII 圖的目標方塊）
+    h.append('<p class="cm-goal"><strong>Endpoint — a full-duplex spoken dialogue '
+             'system:</strong> listen while speaking, survive barge-in, and answer '
+             'within roughly 300 ms. The 14 weeks are built backwards from it; W1 sets '
+             'out the systems view and the latency budget that the rest has to fit.</p>')
+    h.append('<div class="cm-grid">')
+    for title, rng in parts:
+        h.append('<div class="cm-col">')
+        h.append('<div class="cm-part">%s</div>' % title.replace("&", "&amp;"))
+        for n in rng:
+            cls = "cm-wk cm-hinge" if n in HINGE else "cm-wk"
+            h.append('<a class="%s" href="weeks/w%02d.html">'
+                     '<span class="cm-n">W%d</span>'
+                     '<span class="cm-t">%s</span></a>' % (cls, n, n, SHORT[n]))
+        h.append('</div>')
+    h.append('</div>')
+    h.append('<p class="cm-note"><strong>W6 is the hinge.</strong> Everything in '
+             'Part III rests on what is decided there — the <em>frame rate</em>, the '
+             '<em>token budget</em>, and the <em>split between semantic and acoustic '
+             'information</em> — so that is the week not to miss.</p>')
+    h.append('</div>')
+    written.append(write(os.path.join(INC_DIR, "coursemap.md"),
+                         BANNER + "\n\n" + "\n".join(h) + "\n"))
 
     # 速查表裡的相對連結需指回 weeks/
     rt = os.path.join(INC_DIR, "reading-table.md")

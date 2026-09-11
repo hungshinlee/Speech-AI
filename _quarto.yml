@@ -13,15 +13,21 @@ project:
   resources:
     - slides/assets/**
 
-lang: zh-Hant
+# 用 zh-TW 而非 zh-Hant：Quarto 只有 _language-zh-TW.yml，給 zh-Hant 會退回簡體的 _language-zh.yml
+lang: zh-TW
 
 # 網站骨架一律英文：覆寫 Quarto 內建的中文 UI 字串。
 # 頁內 TOC 標題見 format.html 的 toc-title。
 language:
   search-text-placeholder: "Search"
+  search-label: "Search"
   repo-action-links-source: "View source"
   repo-action-links-issue: "Report an issue"
   back-to-top-title: "Back to top"
+  toggle-reader-mode: "Presentation mode"
+  toggle-section: "Toggle section"
+  toggle-sidebar: "Toggle sidebar navigation"
+  toggle-navigation: "Toggle navigation"
 
 website:
   title: "語音處理與人機互動"
@@ -37,7 +43,8 @@ website:
     type: overlay
   navbar:
     logo: ""
-    title: "語音處理與人機互動"
+    # 只縮短 navbar 的品牌字；website.title 維持全名，分頁標題與 metadata 才完整
+    title: "Speech & HMI"
     collapse-below: lg
     left:
       - href: index.qmd
@@ -114,6 +121,8 @@ format:
     html-math-method:
       method: katex
       url: "https://cdn.jsdelivr.net/npm/katex@0.18.7/dist/"
+    include-in-header:
+      - _present-mode.html
     code-copy: true
     code-overflow: scroll
     fig-responsive: true

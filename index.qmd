@@ -1,6 +1,6 @@
 ---
 title: "語音處理與人機互動"
-subtitle: "Speech Processing and Human-Machine Interaction"
+subtitle: "**Speech Processing and Human-Machine Interaction**"
 toc: false
 ---
 
@@ -8,17 +8,16 @@ toc: false
 The course is built backwards from a single question: **how do you build a spoken dialogue system that can listen while it speaks, be interrupted, and know when it is its turn to talk?**
 :::
 
-Working back from that endpoint, the 14 weeks split into three parts. Part I lays the foundations — signals, alignment, representation learning and discretization. Part II takes the modules apart one at a time — ASR, TTS, and the acoustic front end. Part III arrives at audio-native language models and full-duplex architectures. The material tracks the 2025–2026 technical landscape and carries the derivations through rather than gesturing at them.
-
 | | |
 |:-------------|:-----------------------------------------------------|
 | **Lecturer** | [Hung-Shin Lee (李鴻欣)](https://web.ntnu.edu.tw/~hslee/) |
 | **Audience** | Master's / PhD students; no hard prerequisites |
 | **Format** | 14 weeks × 3 hours, lectures throughout |
 | **Language** | Lectures in Mandarin, slides in English |
-| **Compute** | In-class demos are designed to fit the free tier of Colab |
+| **Compute** | Nothing is required of students — every demo is run live in class |
+| **Project hardware** | The term project assumes a single 16 GB CUDA GPU (RTX 5070 Ti class) |
 | **Assessment** | Midterm report (40%), final paper (60%) |
-| **Requirements** | Group work; participation in two online discussions |
+| **Requirements** | Group work in teams of 2–4; two online discussion sessions |
 
 ## Three Threads Through the Course
 
@@ -35,11 +34,3 @@ Every week comes back to these three questions. They are the coordinate system o
 ## Weekly Schedule
 
 {{< include _includes/week-index.md >}}
-
-## How to Use This Site
-
-- **Read week by week**: the sidebar (top-left menu on mobile) groups the weeks into Part I / II / III, one page each. Every page carries the framing, learning objectives, the concept walkthrough, the mathematical skeleton, common misconceptions, a 180-minute time budget, demo suggestions, and references.
-- **[Slides](slides.qmd)**: English slides, served as reveal.js pages with the in-class audio embedded. Press `S` for the presenter view, which includes the Chinese speaker notes.
-- **Full-text search**: the box at the top right covers the whole site — the fastest way to locate a specific paper or concept.
-- **[Materials and resources](resources.qmd)**: textbook chapter mapping, a per-week "if you read only one paper" table, and toolchain suggestions.
-- **Citation reliability**: a reference tagged `[驗]` still needs verification; `[主題]` means only search keywords are given, not a citation. See [Syllabus](syllabus.qmd).
