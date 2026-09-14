@@ -34,9 +34,14 @@ slides/*.html
 
 **/*.quarto_ipynb
 
-# 下載的原始音訊素材（大檔，不進版控；底線開頭 Quarto 也會忽略）
+# 原始音訊素材已搬到 private repo 的 speech_ai/slides/_media/。
+# 這條留著擋回歸：萬一有人又在這裡下載素材，不要進版控。
 /_media/
 
 # 課程大綱正本在 private repo（Course-Hub）。萬一有人把它複製回來，先擋住。
 docs/course-outline.md
+
+# 投影片的中文講稿正本也在 private repo（speech_ai/slides/）。這裡的 slides/*.qmd
+# 是 bin/publish_slides.py 剝除講稿後的產物，**是要進版控的**，所以不能整包擋掉；
+# 保險絲改由 bin/publish.py 執行：產物含 ::: {.notes} 就中止發佈。
 notes/

@@ -36,7 +36,7 @@
 
 `quarto` 裝在 macOS 上，VM 看不到；要驗證 render 就在雲端容器裡另裝一份。
 在雲端容器產生再傳回 repo 的檔案**會被加上 C2PA 標記**（SVG 每張多約 8 KB），
-`make_figs_w01.py` 這類決定性腳本在 Mac 上重跑一次就會得到乾淨版本。
+`make_figs_w01.py` 這類決定性腳本在 Mac 上重跑一次就會得到乾淨版本（該腳本已搬到 private repo 的 `speech_ai/slides/scripts/`）。
 
 ## 1. 建置
 
@@ -66,7 +66,7 @@ docstring，改白名單就是改那裡的 `PUBLIC_SECTIONS`。
 | 網址 | `hungshinlee.github.io/Speech-AI/`（子路徑） | Quarto 用相對連結，子路徑可直接運作，不需改設定 |
 | KaTeX 版本 | **釘在 0.18.7**（`_quarto.yml` 的 `html-math-method.url`） | Quarto 預設載 `katex@latest`，上游改版會無聲壞掉 |
 | 附錄 C | **不上網站**，只存在 `docs/course-outline.md` | 那是授課者私用的課程設計備註 |
-| 網站語言 | **介面與框架英文、課程內文中文**。英文：`index.qmd`、`syllabus.qmd`、`resources.qmd`、`slides.qmd`、`supplements.qmd`、navbar／sidebar／footer、每週索引、每週頁與補充教材頁的 `title`、頁內 TOC 標題、repo-actions 與搜尋（後三項靠 `_quarto.yml` 的 `language:` 覆寫 Quarto 內建中文字串）。**`lang:` 必須寫 `zh-TW` 不能寫 `zh-Hant`**：Quarto 只有 `_language-zh-TW.yml`，給 `zh-Hant` 會退回簡體的 `_language-zh.yml`（畫面上會出現「切换阅读器模式」等 5 處簡體 tooltip）。中文：每週頁內文與 `subtitle`、`supplements/*.md` 的全部內文、投影片的 `::: {.notes}` 講稿 | 修課學生與外部訪客都要照顧。對外的門面一律英文，實際授課用的內文對齊「中文授課」。站名 `語音處理與人機互動` 不翻 |
+| 網站語言 | **介面與框架英文、課程內文中文**。英文：`index.qmd`、`syllabus.qmd`、`resources.qmd`、`slides.qmd`、`supplements.qmd`、navbar／sidebar／footer、每週索引、每週頁與補充教材頁的 `title`、頁內 TOC 標題、repo-actions 與搜尋（後三項靠 `_quarto.yml` 的 `language:` 覆寫 Quarto 內建中文字串）。**`lang:` 必須寫 `zh-TW` 不能寫 `zh-Hant`**：Quarto 只有 `_language-zh-TW.yml`，給 `zh-Hant` 會退回簡體的 `_language-zh.yml`（畫面上會出現「切换阅读器模式」等 5 處簡體 tooltip）。中文：每週頁內文與 `subtitle`、`supplements/*.md` 的全部內文。**投影片的 `::: {.notes}` 中文講稿不在這個 repo**——正本在 private repo，發佈時剝除 | 修課學生與外部訪客都要照顧。對外的門面一律英文，實際授課用的內文對齊「中文授課」。站名 `語音處理與人機互動` 不翻 |
 | 週次索引 | 英文標題為連結、中文標題為次行（`[…]{.wk-zh}`） | 連結文字與點進去的中文頁面標題會對不起來，兩個都給才不會迷路 |
 | 首頁課程地圖 | **HTML/CSS grid**，由 `build_weeks.py` 從週次資料產生（樣式在 `styles.scss` 的 `.coursemap`）（2026-09-11 由 ASCII 改成） | 方塊可點進該週頁面、文字進得了站內搜尋、窄螢幕自動疊成一欄——這三件事 ASCII 與 SVG 都做不到（SVG 以 `width:100%` 縮放時，390px 下 1240 寬的圖會縮到 0.31 倍，25px 的字變 8px）。短標籤在腳本的 `SHORT`，缺一週會 `sys.exit`；`docs/course-map-en.md` 保留備查但**不再上站** |
 | 表格欄寬 | 用 pipe table 分隔列的**破折號長度**指定比例，不要留 `|---|---|` | Pandoc 依破折號長度分配欄寬；全部等長就是均分，雙語標題那一欄會被擠到不能看。`Not yet available` 這種不該斷行的短語用不斷行空格（U+00A0）釘住 |
@@ -108,7 +108,7 @@ GitHub repo → **Settings → Pages → Build and deployment → Source 設為 
 | 決策 | 內容 | 理由 |
 |---|---|---|
 | 格式 | **Quarto revealjs** | 決定性因素是**能嵌入音訊**（PPTX/PDF 做不好，而 cold open 靠聽）；其次是原生數學、與網站同一個 build、純文字可 diff、`chalkboard` 可在投影片上直接手寫（W3/W6/W8 的白板時間） |
-| 語言分工 | 投影片英文、`::: {.notes}` 中文 | 對應「中文授課、英文投影片」。**注意：notes 以 `<aside class="notes">` 內嵌在公開的 HTML 裡，只是 CSS 隱藏——並非私密**。2026-09 起網站上**不再提示** `S` 與 `?showNotes=true`（不要再把那句話加回 `slides.qmd`），但那只是不主動告知，講稿仍在公開 HTML 裡；真要藏起來得在 deploy 前用 Lua filter 把 `.notes` div 拿掉 |
+| 語言分工 | 投影片英文，中文講稿**不在這個 repo** | 對應「中文授課、英文投影片」。2026-09-14 起：投影片正本（含 `::: {.notes}` 中文講稿）在 private repo 的 `speech_ai/slides/`，`bin/publish_slides.py` **剝掉 notes 之後**才寫進這裡的 `slides/*.qmd`。所以公開的 HTML 裡沒有 `<aside class="notes">`，`S` 與 `?showNotes=true` 打開是空的。**這裡的 `slides/*.qmd` 是產物，不要直接編輯**——改了會在下次發佈被覆蓋。（先前的狀態是講稿隨投影片上站、只靠 CSS 隱藏並非私密；那個問題已經解決） |
 | 標題 | **assertion-evidence**：標題寫主張，不寫主題 | 不是 "Cascade Architecture"，而是 "Cascade survives because every module can be debugged separately"。標題就是要學生記住的那句話 |
 | **不從大綱自動生成** | 投影片獨立撰寫 | 大綱是閱讀密度（連貫段落、完整論證），投影片是講述密度（一畫面一主張）。自動轉換必然產生 bullet 洪流 |
 | 網站連結 | `build_weeks.py` 偵測 `slides/wNN.qmd` 存在才注入連結 | 手動維護 nav 一定會漏；不存在就不給連結，避免死連結 |
