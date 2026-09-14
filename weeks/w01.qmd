@@ -7,22 +7,24 @@ toc-depth: 2
 <!-- 此檔由 scripts/build_weeks.py 從課程大綱過濾產生，請勿直接編輯。大綱正本在 private repo（$COURSE_OUTLINE），改完請重跑腳本。 -->
 
 ::: {.callout-note appearance="minimal"}
-[**▶ 本週投影片（English）**](../slides/w01.qmd)
+[**▶ Slides for this week**](../slides/w01.qmd)
 :::
 
-## 定位
-不從訊號處理講起，而是先把終點攤開。目的是讓學生在第一週就知道後面 13 週每個模組要塞回哪個空格，並建立「latency 是第一級設計約束」的直覺。收尾放兩件不屬於任何單一模組的事：本土語言（台語、客語、原住民族語）缺少公開雙軌對話資料與統一正字法，這是結構性的研究缺口而不是工程雜事；以及一組「讀論文的四個問題」（輸入是否相同、時序怎麼量的、什麼被正規化掉了、這個指標在獎勵什麼），全課每週都會用到。
+## Where This Fits
+The course does not open with signal processing; it opens with the endpoint. Week 1 lays out the system the remaining thirteen weeks are built towards, so that every module introduced later has a slot to go back into, and it establishes the habit of treating **latency as a first-class design constraint** rather than as something to tune once everything else works.
 
-## Learning objectives
-1. 能畫出 cascaded ASR→LLM→TTS、speech-to-speech end-to-end、native full-duplex 三種架構的資料流，並指出各自的資訊瓶頸。
-2. 能把一個目標端到端延遲（例如 500 ms）分解成各模組的預算，並說明哪些項目是演算法延遲、哪些是計算延遲。
-3. 能定義 half-duplex / full-duplex 在語音互動中的操作性差異，並舉出四種 half-duplex 系統做不到的互動行為（backchannel、barge-in、overlap 中維持說話、proactive turn）。
-4. 能說明為什麼「把 VAD 調快」不等於解決了 turn-taking。
+Two items that belong to no single module close the week. The first is data: Taiwanese Hokkien, Hakka and the Formosan languages have neither public two-channel conversational corpora nor a settled orthography — a structural research gap, not an engineering chore. The second is a set of four questions to put to any paper in this field — *is the input the same, how was the timing measured, what was normalised away, and what is this metric actually rewarding* — which come back every week for the rest of the course.
 
-## 參考資料
-- **JM3** Ch 26 *Conversation and its Structure*（對話結構、turn-taking 的語言學基礎）、App K *Frame-based Dialogue Systems*（對照組：傳統 pipeline）
-- Ji et al., **WavChat: A Survey of Spoken Dialogue Models**, arXiv:2411.13577（2024）— 半雙工時代的系統分類，適合當第一週的架構總覽
-- Lu et al., **A Survey of Full-Duplex Spoken Dialogue Systems: Architectural Hierarchy, Interaction Ontology, and Decision State Machine**, arXiv:2606.19453（2026）— 目前最新且最完整的全雙工架構分類，本課程 W12–W13 的骨幹
-- Chen & Yu, **From Turn-Taking to Synchronous Dialogue: A Survey of Full-Duplex Spoken Language Models**, arXiv:2509.14515（2025）
-- Wang et al., **Towards General Auditory Intelligence: Large Multimodal Models for Machine Listening and Speaking**, arXiv:2511.01299（2025）— 聽與說的統一視角
-- 人類 turn-taking 的時間統計：檢索 *turn-taking timing universals*、*Levinson Torreira timing in turn-taking*、*response latency conversation corpus*
+## Learning Objectives
+1. Draw the data flow of three architectures — cascaded ASR→LLM→TTS, end-to-end speech-to-speech, and native full-duplex — and identify the information bottleneck in each.
+2. Decompose a target end-to-end latency (500 ms, say) into a per-module budget, and say which items are algorithmic latency and which are computational latency.
+3. Define the operational difference between half-duplex and full-duplex speech interaction, and name four interactive behaviours a half-duplex system cannot produce: backchannels, barge-in, holding the floor through overlap, and proactive turns.
+4. Explain why making the VAD faster is not the same as solving turn-taking.
+
+## References
+- **JM3** Ch 26 *Conversation and its Structure* (the linguistic account of conversational structure and turn-taking); App K *Frame-based Dialogue Systems* (the classical pipeline, as a point of comparison)
+- Ji et al., **WavChat: A Survey of Spoken Dialogue Models**, arXiv:2411.13577 (2024) — a taxonomy of half-duplex-era systems; the right level of overview for week 1
+- Lu et al., **A Survey of Full-Duplex Spoken Dialogue Systems: Architectural Hierarchy, Interaction Ontology, and Decision State Machine**, arXiv:2606.19453 (2026) — the most recent and most complete taxonomy of full-duplex architectures, and the backbone of W12–W13
+- Chen & Yu, **From Turn-Taking to Synchronous Dialogue: A Survey of Full-Duplex Spoken Language Models**, arXiv:2509.14515 (2025)
+- Wang et al., **Towards General Auditory Intelligence: Large Multimodal Models for Machine Listening and Speaking**, arXiv:2511.01299 (2025) — listening and speaking under a single framework
+- Timing statistics for human turn-taking: search *turn-taking timing universals*, *Levinson Torreira timing in turn-taking*, *response latency conversation corpus*

@@ -19,7 +19,8 @@ import os
 import re
 import sys
 
-from visibility import public_only, assert_no_leak
+from visibility import (public_only, assert_no_leak, has_english,
+                        PUBLIC_SECTIONS, SECTION_EN)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # 大綱正本在 private repo（Course-Hub），不在這個公開 repo 裡。
@@ -38,7 +39,9 @@ SUP_BANNER = ("<!-- 此檔由 scripts/build_weeks.py 自動產生，"
 # 每份補充教材在 H1 下方用三行 HTML 註解宣告 metadata
 META_RE = re.compile(r"^<!--\s*(en|order|summary):\s*(.+?)\s*-->$")
 
-# 網站骨架（首頁、導覽列、每週索引）一律英文；站名與每週內頁維持中文。
+# 網站一律英文：骨架（首頁、導覽列、每週索引）與每週頁的內文都是英文，
+# 只有 YAML 的 subtitle 留中文週次標題當對照。每週內文的英文版寫在大綱的
+# <!-- en --> 區塊裡（見 visibility.py）；沒寫的週次會退回中文。
 PART_OF = {}
 for w in range(1, 7):
     PART_OF[w] = "Part I — Foundations"
@@ -239,6 +242,11 @@ def write(path, content):
 
 
 def main():
+    # 白名單裡的區塊都要有英文標題，否則英文頁面會冒出中文小標
+    lack = sorted(x for x in PUBLIC_SECTIONS if x not in SECTION_EN)
+    if lack:
+        sys.exit("visibility.SECTION_EN 缺少 %s 的英文標題" % lack)
+
     lines = read_source()
 
     # ── 1. 每週頁面 ───────────────────────────────────────────
@@ -267,9 +275,12 @@ def main():
         rel = os.path.join("slides", "w%02d.qmd" % n)
         return rel if os.path.exists(os.path.join(ROOT, rel)) else None
 
+    no_en = []
     for idx, (li, wnum, title, en_title) in enumerate(week_heads):
-        body = trim(strip_en(strip_hr(demote(
-            public_only(slice_section(lines, li))))))
+        raw = slice_section(lines, li)
+        if not has_english(raw):
+            no_en.append(wnum)
+        body = trim(strip_en(strip_hr(demote(public_only(raw)))))
         if not body:
             sys.exit("W%d 過濾後沒有任何可公開內容——索引會產生死連結。"
                      "請檢查 visibility.PUBLIC_SECTIONS 或該週的區塊標題。" % wnum)
@@ -288,7 +299,7 @@ def main():
         ]
         if slides_for(wnum):
             fm += ["::: {.callout-note appearance=\"minimal\"}",
-                   "[**▶ 本週投影片（English）**](../slides/w%02d.qmd)" % wnum,
+                   "[**▶ Slides for this week**](../slides/w%02d.qmd)" % wnum,
                    ":::",
                    ""]
         _ = (prev_link, next_link)  # page-navigation 由 Quarto 依 sidebar 順序處理
@@ -418,6 +429,10 @@ def main():
     print("產生 %d 個檔案：" % len(written))
     for p in written:
         print("  " + os.path.relpath(p, ROOT))
+    if no_en:
+        print("\n尚未有英文內文、頁面仍是中文的週次："
+              + "、".join("W%d" % n for n in no_en)
+              + "\n（在大綱的公開區塊加 <!-- en --> … <!-- /en --> 即可）")
 
 
 if __name__ == "__main__":
