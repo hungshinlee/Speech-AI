@@ -3,27 +3,10 @@
 寫成 _includes/X，供 syllabus.qmd 與 resources.qmd 引用。
 
 中文原文仍留在 docs/course-outline.md（離線閱讀用的完整大綱，不上網站）；兩邊各自維護。
-改了大綱的對應區塊（免責聲明、延遲預算、教科書、附錄 A、附錄 B）記得回來同步這裡。
+改了大綱的對應區塊（延遲預算、教科書、附錄 A、附錄 B）記得回來同步這裡。
+（原本的 disclaimer.md／"How to Read This Site" 已整段移除，不再上站。）
 首頁的英文課程地圖另存 docs/course-map-en.md（ASCII 對齊敏感，單獨一檔）。
 -->
-
-<!-- file: disclaimer.md -->
-## How to Read This Site
-
-1. **What each week's page contains.** The framing of the topic, the learning
-   objectives, and the reading. The lecture itself — the derivations, the
-   worked misconceptions, the live demos — happens in class; the slides go up
-   under **Slides** as each week is taught.
-2. **The reading list is a menu, not a requirement.** Each week lists more than
-   anyone can read. Appendix A of the syllabus names one paper per week if you
-   only read one.
-3. **No benchmark numbers here.** Where you need a WER / MOS / DER figure, take
-   it from the original paper's own table. Numbers quoted second-hand across
-   papers are rarely comparable — which is itself one of the recurring themes
-   of this course.
-4. **Currency.** Written against arXiv through August–September 2026.
-   Full-duplex spoken dialogue is one of the fastest-moving subfields in speech,
-   so expect Part III to shift between offerings.
 
 <!-- file: latency.md -->
 ## The Latency Budget: The Course's Shared Coordinate System
