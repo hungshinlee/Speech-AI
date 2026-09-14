@@ -1,0 +1,18 @@
+---
+title: "Materials and Resources"
+subtitle: "Textbook chapters, one paper per week, toolchain"
+---
+
+{{< include _includes/textbooks.md >}}
+
+{{< include _includes/reading-table.md >}}
+
+{{< include _includes/toolchain.md >}}
+
+## Practical Notes on the Demos
+
+Beyond the compute ceiling above, three things actually bite:
+
+- The first weight download often takes longer than the inference itself, so the notebook has to be warmed up before class.
+- A few dozen utterances from LibriSpeech `dev-clean` plus MUSAN are enough; there is no reason to touch a large dataset.
+- The six "play the broken one first" demos are the most memorable part of the course: Griffin-Lim phase reconstruction (W2), the CTC blank posterior heatmap (W3), Whisper hallucination (W7), vocoder artifacts (W8), WER going *up* after enhancement (W10), and barging in versus responding too slowly (W12).

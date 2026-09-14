@@ -1,0 +1,38 @@
+---
+title: "W6｜Neural Audio Codecs and Discretization: Turning Speech into a Language"
+subtitle: "Part I — Foundations · Neural Audio Codec 與離散化：語音成為「語言」的關鍵一步"
+toc-depth: 2
+---
+
+<!-- 此檔由 scripts/build_weeks.py 從課程大綱過濾產生，請勿直接編輯。大綱正本在 private repo（$COURSE_OUTLINE），改完請重跑腳本。 -->
+
+## 定位
+**全課的樞紐週。** 這一週決定了學生能不能理解 W11–W13 的 audio-native LM。核心命題：把語音變成離散 token，語音才能被丟進 LLM；但每一種離散化都在「重建品質 / bitrate / frame rate / 語意可分性」四個軸上做取捨，而這些取捨會直接決定對話系統的延遲與品質上限。
+
+## Learning objectives
+1. 能推導 VQ-VAE 的三項損失（重建、codebook、commitment）與 straight-through 梯度，並解釋 EMA 更新的動機。
+2. 能說明 residual VQ 的階層結構與 bitrate 計算，並從 rate-distortion 觀點解釋為何 RVQ 的第一層承載最多語意。
+3. 能比較 acoustic token（重建導向）、semantic token（SSL 導向）、以及 semantic-acoustic 解耦／單 codebook 三種設計，並針對「餵給 LLM」這個用途評估各自代價。
+4. 能計算一個 codec 設定下的 token rate，並推算它對 LM context 長度、每秒解碼步數與延遲的影響。
+
+## 參考資料
+**基礎**
+- van den Oord, Vinyals & Kavukcuoglu, **Neural Discrete Representation Learning**（VQ-VAE）, NeurIPS 2017
+- Razavi, van den Oord & Vinyals, **Generating Diverse High-Fidelity Images with VQ-VAE-2**, NeurIPS 2019 — 階層量化的先例
+- Mentzer et al., **Finite Scalar Quantization: VQ-VAE Made Simple**, ICLR 2024
+- **BB**（Bishop & Bishop, 2024）關於 VAE / 離散潛變數的章節
+
+**語音 codec**
+- Zeghidour et al., **SoundStream: An End-to-End Neural Audio Codec**, IEEE/ACM TASLP, 2021
+- Défossez, Copet, Synnaeve & Adi, **High Fidelity Neural Audio Compression**（EnCodec）, TMLR 2023
+- Kumar et al., **High-Fidelity Audio Compression with Improved RVQGAN**（DAC）, NeurIPS 2023
+- Zhang et al., **SpeechTokenizer: Unified Speech Tokenizer for Speech Language Models**, ICLR 2024
+- Défossez et al., **Moshi: A Speech-Text Foundation Model for Real-Time Dialogue**, 2024 — 其中 **Mimi** codec 的設計（split-RVQ、semantic 蒸餾、12.5 Hz）是本週最重要的實例
+
+**2025–2026 前沿（適合當延伸閱讀或課堂討論）**
+- Chen et al., **SAC: Neural Speech Codec with Semantic-Acoustic Dual-Stream Quantization**, arXiv:2510.16841（2025）
+- Li et al., **FlexiCodec: A Dynamic Neural Audio Codec for Low Frame Rates**, ICLR 2026（arXiv:2510.00981）
+- Wang et al., **CodecSlime: Temporal Redundancy Compression of Neural Speech Codec via Dynamic Frame Rate**, arXiv:2506.21074（2025）
+- Della Libera, Subakan & Ravanelli, **Beyond Fixed Frames: Dynamic Character-Aligned Speech Tokenization**, arXiv:2601.23174（2026）
+- Gichamba & Busogi, **Probing Low Frame Rate Degradation in Neural Audio Codecs**, Interspeech 2026（arXiv:2606.16969）
+- Park et al., **Analysing the Language of Neural Audio Codecs**, ASRU 2025（arXiv:2509.01390）與其擴充版 **Language-Statistical Analysis of Neural Audio Codec Tokens Across Architectures, Corpora, and Noise Conditions**（arXiv:2608.31037, 投稿 TASLP） — 「codec token 的語言統計性質」這條線，非常適合當研究所級的討論題

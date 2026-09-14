@@ -1,0 +1,28 @@
+---
+title: "W4｜Sequence Models and Streaming Architectures: Transformer, Conformer, RNN-T"
+subtitle: "Part I — Foundations · 序列模型與 streaming 架構：Transformer、Conformer、RNN-T"
+toc-depth: 2
+---
+
+<!-- 此檔由 scripts/build_weeks.py 從課程大綱過濾產生，請勿直接編輯。大綱正本在 private repo（$COURSE_OUTLINE），改完請重跑腳本。 -->
+
+## 定位
+把 W3 的對齊觀念接到現代架構，並第一次正式處理「因果性」這個貫穿全課的約束。RNN-T 在此登場，不只因為它是工業界 streaming ASR 的主力，更因為它的「輸出/不輸出」二元決策是 W12 全雙工 turn-taking 建模的直接前身。
+
+## Learning objectives
+1. 能寫出 scaled dot-product attention 與 multi-head 的維度流動，並解釋 Conformer 中 convolution 與 self-attention 的分工。
+2. 能定義 RNN-T 的輸出格點（lattice），寫出其 forward recursion，並比較它與 CTC 在「路徑集合」上的差異。
+3. 能列出把非因果模型改成 streaming 的四類手段（causal mask、chunk-wise attention with lookahead、memory/state carry-over、latency-controlled BLSTM 類），並分析各自的延遲與品質代價。
+4. 能解釋 KV cache 的記憶體與計算複雜度，並說明它為何是即時語音系統的主要瓶頸之一。
+
+## 參考資料
+- Vaswani et al., **Attention Is All You Need**, NeurIPS 2017
+- Gulati et al., **Conformer: Convolution-augmented Transformer for Speech Recognition**, Interspeech 2020
+- Graves, **Sequence Transduction with Recurrent Neural Networks**, arXiv:1211.3711（2012）— RNN-T 原始論文
+- Zhang et al., **Transformer Transducer: A Streamable Speech Recognition Model with Transformer Encoders and RNN-T Loss**, ICASSP 2020
+- Shi et al., **Emformer: Efficient Memory Transformer Based Acoustic Model for Low Latency Streaming Speech Recognition**, ICASSP 2021
+- Yao et al., **Zipformer: A Faster and Better Encoder for Automatic Speech Recognition**, ICLR 2024
+- Chan et al., **Listen, Attend and Spell**, ICASSP 2016 — AED 的起點，用來對照非單調對齊
+- **JM3** Ch 7 *Transformers and Pretraining*（有官方 slides）、Ch 16 *Automatic Speech Recognition*
+- pruned RNN-T 與記憶體最佳化：檢索 *pruned RNN-T loss k2*、*monotonic RNN-T memory efficient*
+- SSM / Mamba 在語音上的應用：檢索 *Mamba speech recognition streaming*、*state space model audio*

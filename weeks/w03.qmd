@@ -1,0 +1,25 @@
+---
+title: "W3｜The Alignment Problem: From HMM to CTC"
+subtitle: "Part I — Foundations · 對齊問題：從 HMM 到 CTC"
+toc-depth: 2
+---
+
+<!-- 此檔由 scripts/build_weeks.py 從課程大綱過濾產生，請勿直接編輯。大綱正本在 private repo（$COURSE_OUTLINE），改完請重跑腳本。 -->
+
+## 定位
+本課程的第一個核心數學週。語音辨識的本質困難不是分類，而是**未知對齊下的序列監督**。這一週把 HMM 的 forward-backward 與 CTC 的 forward-backward 放在同一個框架下講，讓學生看到 CTC 不是憑空發明，而是把 HMM 的邊際化搬到神經網路上。之後 W4 的 RNN-T、W13 的 streaming 對話狀態機都靠這個直覺。
+
+## Learning objectives
+1. 能寫出 HMM 的 forward recursion 與 Viterbi recursion，並說明兩者在半環（sum-product vs. max-product）上的差異。
+2. 能完整推導 CTC 的 forward-backward，包含 blank 擴充路徑的定義與遞推邊界條件。
+3. 能解釋 CTC 的條件獨立假設造成的後果（peaky 輸出、無法建模輸出間依賴、需要外部 LM）。
+4. 能比較 frame-level 對齊（hybrid）、CTC（單調、多對一）與 attention（軟對齊、非單調）三者的歸納偏誤。
+
+## 參考資料
+- Graves, Fernández, Gomez & Schmidhuber, **Connectionist Temporal Classification: Labelling Unsegmented Sequence Data with Recurrent Neural Networks**, ICML 2006 — 原始論文，推導請直接照它走
+- Graves, **Supervised Sequence Labelling with Recurrent Neural Networks**, Springer, 2012 — Ch 7 的 CTC 敘述比論文清楚，適合做投影片
+- **JM3** App A *Hidden Markov Models*、Ch 16 *Automatic Speech Recognition*（CTC 段）
+- **HAH** Ch 8（Hidden Markov Models）、Ch 9（Acoustic Modeling）
+- Gales & Young, **The Application of Hidden Markov Models in Speech Recognition**, Foundations and Trends in Signal Processing, 2007 — hybrid 時代的權威整理
+- **YD** Ch 3–6（DNN-HMM、sequence discriminative training）
+- CTC peakiness 的理論分析：檢索 *why does CTC result in peaky behavior*、*CTC alignment entropy regularization*

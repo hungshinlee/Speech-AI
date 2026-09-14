@@ -1,0 +1,42 @@
+---
+title: "W11｜Audio-Native Language Models: Building Half-Duplex Spoken Dialogue"
+subtitle: "Part III — Dialogue Systems · Audio-Native 語言模型：半雙工語音對話的建成"
+toc-depth: 2
+---
+
+<!-- 此檔由 scripts/build_weeks.py 從課程大綱過濾產生，請勿直接編輯。大綱正本在 private repo（$COURSE_OUTLINE），改完請重跑腳本。 -->
+
+## 定位
+Part III 的起點。本週把 W5（SSL）、W6（codec）、W7（ASR）、W8（TTS）接成一個端到端的**半雙工** speech-to-speech 模型，並把「文字瓶頸」與「modality gap」這兩個核心問題講透。W12–W13 再加上時間軸的同步性。
+
+## Learning objectives
+1. 能分類 audio-native LM 的四種架構（speech-in-text-out、text-token interleaving、平行多串流、continuous embedding 注入），並針對延遲與能力保留做比較。
+2. 能解釋為何直接在 speech token 上做 next-token prediction 會導致語意能力大幅退化，並描述三種緩解手段（textual pretraining 初始化、text-speech interleaving、inner monologue / CoT）。
+3. 能計算一個端到端 s2s 模型的理論最小回應延遲，並指出它比 cascade 好在哪、差在哪。
+4. 能設計一個「thinking before speaking」的訓練資料格式，並說明它與延遲的衝突。
+
+## 參考資料
+**純語音 LM 的起點**
+- Lakhotia et al., **On Generative Spoken Language Modeling from Raw Audio**（GSLM）, TACL 2021
+- Borsos et al., **AudioLM**, IEEE/ACM TASLP, 2023
+- Hassid et al., **Textually Pretrained Speech Language Models**（TWIST）, NeurIPS 2023
+- Zhang et al., **SpeechGPT: Empowering Large Language Models with Intrinsic Cross-Modal Conversational Abilities**, EMNLP Findings 2023
+
+**架構分類的代表作**
+- Tang et al., **SALMONN: Towards Generic Hearing Abilities for Large Language Models**, ICLR 2024 — continuous 注入
+- Xie & Wu, **Mini-Omni: Language Models Can Hear, Talk While Thinking in Streaming**, arXiv:2408.16725（2024）
+- Défossez et al., **Moshi: A Speech-Text Foundation Model for Real-Time Dialogue**, arXiv:2410.00037（2024）— inner monologue + 多串流，本課程最重要的單一系統論文
+- 2025–2026 的其他 omni / audio LLM：檢索 *Kimi-Audio technical report*、*Step-Audio 2*、*MiniCPM-o*、*Baichuan-Audio*、*Covo-Audio technical report*（arXiv:2602.09823, 2026）
+
+**Interleaving 與 scaling**
+- 檢索 *scaling analysis interleaved speech-text language models*、*synthetic interleaved data speech-text pretraining*
+- Sugiura et al., **Llama-Mimi: Exploring the Limits of Flattened Speech Language Modeling**, arXiv:2509.14882（2025）— 「flatten 多層 codebook」的極限測試，適合當反面教材
+
+**Thinking / CoT**
+- Arora et al., **Chain-of-Thought Reasoning in Streaming Full-Duplex End-to-End Spoken Dialogue Systems**, arXiv:2510.02066（2025）
+- Wu et al., **Chronological Thinking in Full-Duplex Spoken Dialogue Language Models**, SIGDIAL 2026（arXiv:2510.05150）— 「在聽的時候思考」，直接處理思考與延遲的衝突
+- Wu et al., **The Silent Thought: Modeling Internal Cognition in Full-Duplex Spoken Dialogue Models via Latent Reasoning**, ICML 2026（arXiv:2603.17837）
+
+**總覽**
+- Ji et al., **WavChat: A Survey of Spoken Dialogue Models**, arXiv:2411.13577（2024）
+- Peng et al., **A Survey on Speech Large Language Models for Understanding**, IEEE JSTSP, 2025（arXiv:2410.18908）

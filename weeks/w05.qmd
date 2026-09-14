@@ -1,0 +1,28 @@
+---
+title: "W5｜Self-Supervised Representation Learning: Where Speech Foundation Models Come From"
+subtitle: "Part I — Foundations · 自監督表徵學習（SSL）：語音基礎模型的來源"
+toc-depth: 2
+---
+
+<!-- 此檔由 scripts/build_weeks.py 從課程大綱過濾產生，請勿直接編輯。大綱正本在 private repo（$COURSE_OUTLINE），改完請重跑腳本。 -->
+
+## 定位
+本週回答「特徵從哪來」。這是全課的表徵軸樞紐：W6 的 discrete token、W7 的 ASR encoder、W11 的 audio-native LM 幾乎都建在 SSL 表徵之上。
+
+## Learning objectives
+1. 能推導 InfoNCE 作為互資訊下界，並說明 CPC 為何用「預測未來」當代理任務。
+2. 能比較 wav2vec 2.0（contrastive + Gumbel-VQ）、HuBERT（offline k-means 目標 + 迭代精煉）、data2vec / BEST-RQ（隨機投影量化）在**目標構造方式**上的差異，並說明各自的失敗模式。
+3. 能解釋 SSL 表徵的層級特性（layer-wise probing：低層偏聲學／說話人，中高層偏音素／語意），並用它來決定下游任務該取哪一層。
+4. 能批判性閱讀 SSL 的比較實驗，指出資料量、資料領域與模型大小如何混淆架構貢獻。
+
+## 參考資料
+- Oord, Li & Vinyals, **Representation Learning with Contrastive Predictive Coding**, arXiv:1807.03748（2018）
+- Baevski, Zhou, Mohamed & Auli, **wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations**, NeurIPS 2020
+- Hsu et al., **HuBERT: Self-Supervised Speech Representation Learning by Masked Prediction of Hidden Units**, IEEE/ACM TASLP, 2021
+- Chen et al., **WavLM: Large-Scale Self-Supervised Pre-Training for Full Stack Speech Processing**, IEEE JSTSP, 2022
+- Baevski et al., **data2vec: A General Framework for Self-supervised Learning in Speech, Vision and Language**, ICML 2022
+- Chiu et al., **Self-supervised Learning with Random-projection Quantizer for Speech Recognition**（BEST-RQ）, ICML 2022
+- Yang et al., **SUPERB: Speech Processing Universal PERformance Benchmark**, Interspeech 2021
+- Mohamed et al., **Self-Supervised Speech Representation Learning: A Review**, IEEE JSTSP, 2022 — 最適合當本週的總覽閱讀
+- Pasad, Chou & Livescu, **Layer-wise Analysis of a Self-supervised Speech Representation Model**, ASRU 2021 — layer-wise probing 的代表作
+- 2026 年的新方向：檢索 *JEPA speech tokenizer*、*speech SSL scaling laws*、*SSL robustness spontaneous conversational speech*

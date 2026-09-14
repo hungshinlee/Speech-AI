@@ -1,0 +1,110 @@
+---
+title: "Final Paper: From MVP to a Conference-Ready Paper"
+subtitle: "Speech AI 專案期末報告教戰守策：從 MVP 到 Top-Conference Ready Paper"
+toc-depth: 2
+---
+
+<!-- 此檔由 scripts/build_weeks.py 自動產生，請勿直接編輯；請改 supplements/*.md 後重跑腳本。 -->
+
+期末報告的目標是交付一個**最小可行產品（Minimum Viable Product, MVP）**，並以正式頂級會議（ICASSP / INTERSPEECH / ASRU / SLT）的規格呈現：**嚴格限制 4 頁正文 + 1 頁參考文獻**。
+
+在頂會審稿中，評審對於「期中初步跑通」與「可發表的頂會論文」之間的落差極度敏感。期末論文的核心價值在於：**實驗對比是否嚴謹公平、消融分析是否直擊關鍵機制、以及是否提供了具有學術洞察的質化分析與錯誤分析（Error Analysis）**。
+
+---
+
+## 一、 論文各章節執行規範
+
+請直接採用 IEEE ICASSP 或 ISCA INTERSPEECH 官方雙欄 LaTeX 模板。
+
+### 1. Abstract & Introduction：從構想收斂為定論
+* **Abstract**：期中承諾的「預期成果」全數替換為真實量化數據。摘要必須在 200 字內精準交代：核心痛點、提出機制的物理/結構本質、驗證基準資料集、核心指標提升幅度（如 WER 相對下降率、SI-SDR 增益、推論加速比）。
+* **Introduction 結構（標準四段漏斗論）**：
+  1. *任務價值與既有範式*：簡要點出當前主流技術與架構。
+  2. *核心瓶頸（Core Friction）*：指出現有方法在特定邊界條件下的崩潰點（例如相位估計失真、長程語義遺忘、高雜訊下對齊崩潰）。
+  3. *本文方法與物理直覺（Insight）*：說明提出之架構為何能從訊號特性或表徵幾何上根本解決該瓶頸。
+  4. *條列式具體貢獻（Contributions）*：明確列出 3 點學術增量（架構創新、理論/Loss 約束、實證成果與開源資產）。
+
+### 2. Proposed Methodology：數學完備性與張量追蹤
+* **清晰的架構圖**：圖表必須具備自明性（Self-contained），清楚區分訓練階段（Training-only，如 Discriminator、輔助 Loss Head）與推論階段（Inference-only）組件。
+* **數學與公式嚴謹性**：
+  * 所有變數必須有前置定義。
+  * 針對候選方案（Candidate Solutions）對比，給出嚴謹的數學形式，而非僅堆砌名詞。
+  * 完整交代總體損失函數及超參數數值：
+    $$\mathcal{L}_{\text{total}} = \lambda_{1} \mathcal{L}_{\text{rec}} + \lambda_{2} \mathcal{L}_{\text{adv}} + \lambda_{3} \mathcal{L}_{\text{reg}}$$
+    說明各 $\lambda$ 的設定依據與所對應的物理約束。
+
+### 3. Experiments & Results：多候選方案之嚴密對比
+本章節是整篇論文的核心證據鏈：
+* **實驗配置細節**：明確列出 Sampling Rate、Window / Hop Length、Optimizer 參數、Learning Rate Scheduler、硬體型號與總訓練 Steps。
+* **基準模型（Baselines）對齊**：所有對比模型必須在相同資料量、相同評測腳本、相近參數量下進行比較。使用預訓練模型時，需明確交代微調策略（Freeze、LoRA 或 Full Fine-tuning）。
+
+---
+
+## 二、 實驗分析深度：Reviewer 想看的深度
+
+審稿人最反感的是「照抄表格數字的流水帳」（例如：「如表 1 所示，方法 A 的 WER 是 5.2%，方法 B 是 4.8%」）。優秀論文必須解釋**數值背後的機制原因**。
+
+| 分析維度 | 淺層寫法（Reject 邊緣） | 頂會標準寫法（Strong Accept） |
+| :--- | :--- | :--- |
+| **主實驗對比 (Main Results)** | 單純宣稱自己模型在所有指標全面勝出。 | 區分「乾淨情境」與「困難情境」（低 SNR、強混響、重疊語音）。指出自研模型抗性來源的物理機制。 |
+| **消融實驗 (Ablation Study)** | 「移除模組 X 後效能下降，證明模組 X 有效。」 | 分解模組 X 的關鍵設計（Kernel Size、Loss 權重、層數）。分析性能變動究竟是來自參數量擴增，還是結構特異性。 |
+| **運算效率 (Efficiency)** | 僅列出參數量（Parameter Count）。 | 同時提供推論延遲（Latency）、Real-Time Factor (RTF)、FLOPs/MACs，以及推論時 GPU 顯存峰值（VRAM Footprint）。 |
+| **主客觀評測 (Evaluation)** | 僅依賴單一客觀指標（如 PESQ）。 | 探討客觀指標與主觀聽感的差異，搭配 MUSHRA / ABX 測試，或以下游任務（如 ASR WER）驗證生成品質。 |
+
+### 必備項目：質化分析與錯誤分析（Qualitative & Error Analysis）
+期末論文必須包含至少一組深度的質化分析：
+1. **聲學表徵視覺化**：繪製語音光譜圖（Mel-spectrogram）、注意力權重圖（Attention Map）或特徵空間分佈（t-SNE of Speaker/Phoneme Embeddings），指出提出之方法在何處修正了 Baseline 的具體聲學失真（如消除諧波間毛刺、改善高頻共振峰）。
+2. **Failure Modes 誠實剖析**：展示並分析模型失敗的邊界案例（如極端口音、非言語爆破音、重度語速變化），並從訊號特性或分佈偏移角度給出合理解釋。
+
+---
+
+## 三、 非資工背景同學的衝刺策略
+
+1. **候選方案及時收斂**：若期中規劃了多種架構，期末切忌分散算力。聚焦於「最具代表性且最能驗證核心假設」的 2 個主要方案深入對比，其餘以討論帶過。
+2. **標準評測管線防禦**：使用社群公認之評測標準庫（如 Hugging Face `evaluate`、SpeechBrain 評估腳本、JiWER），避免手寫 Text Normalization 邏輯導致 WER 出現偏差。
+3. **以聲學直覺建立優勢**：頂會頂尖論文並非全由暴力算力堆砌。深入分析 F0 軌跡、共振峰維護、能量動態等聲學物理特性所提出的架構改進，往往更受 Reviewer 青睞。
+
+---
+
+## 四、 AI 工具協作指引（收尾階段）
+
+期末收尾階段，AI 的核心任務是**版面預算壓縮（Page Budgeting）、語氣學術化與模擬對抗審稿**。
+
+```
+                  【期末論文 AI 協作管線】
+  
+  實驗數據產生 ───> 人工填入 LaTeX 原始表格 ───> 禁止 AI 介入數據解讀
+  初稿完成 (4.5頁) ──> 交由 AI 進行空間壓縮 (4頁) ──> 人工逐行確認論點未被刪改
+  全文完整 ───> 設定 Reviewer Persona 找漏洞 ──> 針對質疑補強實驗分析
+```
+
+### 1. 推薦使用情境
+* **LaTeX 空間壓縮（Page Budgeting）**：
+  * *Prompt 範例*：「*這是一篇 ICASSP 論文的第 3 節，目前超出 4 頁上限約 15 行。請在完全保留所有數學符號定義、公式與關鍵技術細節的前提下，精簡冗餘敘述，改以緊湊的學術被動語態改寫。*」
+* **對抗性審稿模擬（Adversarial Reviewing）**：
+  * 要求 AI 扮演「ICASSP 最挑剔的 Reviewer 2」，針對 Baseline 選擇公平性、消融實驗完整度、指標適用性提出 3–5 個尖銳的反駁點，提前進行自我防禦與論文修補。
+* **LaTeX 表格排版最佳化**：
+  * 使用 `booktabs` 規範最佳化表格排版，修正溢出欄寬或對齊問題。
+
+### 2. 嚴格禁止的行為
+* **嚴禁委託 AI 詮釋實驗數據**：AI 無法聆聽真實音檔，產生的多為空泛套話。所有質化分析必須來自研究者真實的聲學觀察。
+* **嚴禁使用 AI 生成的 BibTeX**：所有參考文獻必須由 Google Scholar、IEEE Xplore、ISCA Archive 匯出官方 BibTeX。
+
+---
+
+## 五、 審稿人拒稿紅線（Submission Checklist）
+
+* [ ] **版面超頁（Page Limit Violation）**：正文超過 4 頁（第 5 頁僅允許 References 與 Acknowledgements）。任何將正文或圖表溢出至第 5 頁者直接 Desk Reject。
+* [ ] **格式作弊**：刻意縮小 LaTeX 頁邊距、縮小內文字體至 8pt 以下、或過度擠壓公式行距。
+* [ ] **Text Normalization 不一致**：ASR 評測中，Baseline 與自研模型的大小寫、標點符號去除邏輯不對齊。
+* [ ] **主觀評測缺乏可重現 Demo**：生成任務（TTS / Voice Conversion / Separation）未提供匿名 Demo 音訊網頁連結。
+* [ ] **迴避關鍵細節**：在方法核心處寫「Due to space limitations, we omit details」，卻在 Introduction 花費一整頁鋪陳已知背景。
+* [ ] **絕對化用詞**：未經全盤文獻驗證，隨意聲稱「To the best of our knowledge, we are the first...」。
+
+---
+
+## 六、 交付資產規範（Reproducibility Assets）
+
+1. **代碼庫（Repository）**：包含 `requirements.txt` / `environment.yml`、推論範例腳本（Inference Script）與訓練組態檔（YAML）。
+2. **模型權重（Checkpoints）**：釋出可在單張消費級 GPU 上推論的最小可用權重。
+3. **音訊展示頁（Demo Page）**：語音生成、分離與增強類論文，務必建立匿名展示頁面（如 GitHub Pages），提供代表性範例與 Bad Cases 對比。

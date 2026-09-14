@@ -1,0 +1,26 @@
+---
+title: "W7｜Speech Recognition: Three Paradigms, Streaming, and the LLM Turn"
+subtitle: "Part II — Modules · 語音辨識：三種範式、streaming 與 LLM 化"
+toc-depth: 2
+---
+
+<!-- 此檔由 scripts/build_weeks.py 從課程大綱過濾產生，請勿直接編輯。大綱正本在 private repo（$COURSE_OUTLINE），改完請重跑腳本。 -->
+
+## 定位
+把 W3–W5 收斂成一個可用的 ASR 系統觀。本週的重點不是「再講一次 CTC」，而是**選擇問題**：在給定延遲、算力、領域與可控性需求下，該選哪一種範式，以及 2025–2026 的 LLM-based ASR 改變了什麼。
+
+## Learning objectives
+1. 能在延遲、可控性（biasing）、資料需求、訓練成本四個維度上比較 CTC / AED / RNN-T / LLM-based ASR。
+2. 能說明大規模弱監督（Whisper 路線）與自監督+微調（wav2vec 2.0 路線）在能力與失敗模式上的差異。
+3. 能實作／描述 contextual biasing 的三類做法（shallow fusion with WFST、attention-based deep biasing、prompt-based biasing），並分析各自在全雙工系統中的可用性。
+4. 能診斷一個 ASR 輸出的錯誤類型（刪除／插入／替換、幻覺、重複、語言誤判），並回推可能的成因。
+
+## 參考資料
+- Radford et al., **Robust Speech Recognition via Large-Scale Weak Supervision**（Whisper）, ICML 2023
+- Peng et al., **Reproducing Whisper-Style Training Using an Open-Source Toolkit and Publicly Available Data**（OWSM）, ASRU 2023
+- Pundak et al., **Deep Context: End-to-End Contextual Speech Recognition**（CLAS）, SLT 2018
+- **JM3** Ch 16 *Automatic Speech Recognition*
+- **YD** Ch 7–8（sequence discriminative training、adaptation）— 雖是 hybrid 時代，但 discriminative 訓練的思路在 RL 後訓練時代重新有意義
+- LLM-based ASR：檢索 *speech LLM ASR adapter*、*SALMONN speech understanding*、*Qwen-ASR*、*whisper LLM decoder fusion*
+- Whisper 幻覺與穩健性：檢索 *whisper hallucination silence*、*ASR robustness long-form*
+- Kumar et al., **When Synthetic Speech Is All You Have: Better Call GRPO**, arXiv:2607.08409（2026）— RL 用於 ASR 領域適配的近例，可當延伸討論

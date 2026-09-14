@@ -1,0 +1,48 @@
+---
+title: "W8｜Speech Synthesis I: Generative Paradigms and Streaming TTS"
+subtitle: "Part II — Modules · 語音合成 I：生成範式與 streaming 合成"
+toc-depth: 2
+---
+
+<!-- 此檔由 scripts/build_weeks.py 從課程大綱過濾產生，請勿直接編輯。大綱正本在 private repo（$COURSE_OUTLINE），改完請重跑腳本。 -->
+
+## 定位
+本課程的第二個核心數學週。TTS 是全雙工系統的輸出端，而它的兩個主流範式（autoregressive codec LM 與 flow matching / diffusion）分別對應「與 LLM 天然相容」和「品質與速度俱佳但非因果」兩種取捨。**flow matching 的推導在此完成，之後 W9 的 RL 後訓練與 W13 的 streaming 生成都會用到。**
+
+## Learning objectives
+1. 能敘述 TTS 從 concatenative → SPSS → Tacotron/FastSpeech → codec LM / flow matching 的演化，並指出每一次躍進解決了什麼具體問題。
+2. 能推導 conditional flow matching 的訓練目標，並解釋它與 diffusion（score matching）在目標與取樣路徑上的關係。
+3. 能設計一個 streaming TTS 的分塊策略，計算其 first-packet latency，並說明 lookahead 與 prosody 品質的衝突。
+4. 能解釋 neural vocoder 的三大類（GAN、flow、diffusion）與其 artifacts 的聽覺特徵。
+
+## 參考資料
+**演化脈絡**
+- Shen et al., **Natural TTS Synthesis by Conditioning WaveNet on Mel Spectrogram Predictions**（Tacotron 2）, ICASSP 2018
+- Ren et al., **FastSpeech 2: Fast and High-Quality End-to-End Text to Speech**, ICLR 2021
+- Kim, Kong & Son, **Conditional Variational Autoencoder with Adversarial Learning for End-to-End Text-to-Speech**（VITS）, ICML 2021
+- Tan et al., **A Survey on Neural Speech Synthesis**, arXiv:2106.15561（2021）；書版見 **TAN**
+
+**Codec LM 路線**
+- Wang et al., **Neural Codec Language Models are Zero-Shot Text to Speech Synthesizers**（VALL-E）, arXiv:2301.02111（2023）
+- Borsos et al., **AudioLM: A Language Modeling Approach to Audio Generation**, IEEE/ACM TASLP, 2023
+- Borsos et al., **SoundStorm: Efficient Parallel Audio Generation**, arXiv:2305.09636（2023）— MaskGIT 式並行解碼，全雙工系統中很實用
+
+**Flow matching / diffusion 路線**
+- Lipman et al., **Flow Matching for Generative Modeling**, ICLR 2023 — 本週推導的主文獻
+- Liu, Gong & Liu, **Flow Straight and Fast: Learning to Generate and Transfer Data with Rectified Flow**, ICLR 2023
+- Le et al., **Voicebox: Text-Guided Multilingual Universal Speech Generation at Scale**, NeurIPS 2023
+- Eskimez et al., **E2 TTS: Embarrassingly Easy Fully Non-Autoregressive Zero-Shot TTS**, SLT 2024
+- Chen et al., **F5-TTS: A Fairytaler that Fakes Fluent and Faithful Speech with Flow Matching**, arXiv:2410.06885（2024）
+- Ju et al., **NaturalSpeech 3: Zero-Shot Speech Synthesis with Factorized Codec and Diffusion Models**, ICML 2024
+
+**Vocoder**
+- Kong, Kim & Bae, **HiFi-GAN: Generative Adversarial Networks for Efficient and High Fidelity Speech Synthesis**, NeurIPS 2020
+- Lee et al., **BigVGAN: A Universal Neural Vocoder with Large-Scale Training**, ICLR 2023
+- Siuzdak, **Vocos: Closing the Gap Between Time-Domain and Fourier-Based Neural Vocoders for High-Quality Audio Synthesis**, ICLR 2024
+
+**Streaming / 加速（2025–2026）**
+- Du et al., **CosyVoice 3: Towards In-the-wild Speech Generation via Scaling-up and Post-training**, arXiv:2505.17589（2025）
+- Xie et al., **FlashTTS: Fast Streaming TTS with MTP Acceleration and X-pred Mean Flow Distillation**, Interspeech 2026（arXiv:2606.09141）
+- Dai et al., **One-Step Token-to-Waveform Generation with MeanFlow in Latent Space**, arXiv:2606.18072（2026）
+- Zhang et al., **CuteTTS: Efficient and High-Quality Speech Synthesis via Autoregressive Modeling of Continuous Latents**, arXiv:2608.08638（2026）— 「連續 latent 的 AR」這條線值得在課堂上與離散 token 路線對比
+- **JM3** Ch 17 *Text-to-Speech*

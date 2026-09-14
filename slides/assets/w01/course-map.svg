@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1236 458" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<text x="30" y="46" font-size="19" font-weight="700" fill="#1f2328">Part I — foundations</text>
+<rect x="30" y="74" width="248" height="44" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="44" y="96.0" font-size="19" font-weight="700" fill="#1f2328" dominant-baseline="middle">W1</text>
+<text x="98" y="96.0" font-size="16" fill="#6b7280" dominant-baseline="middle">systems view</text>
+<text x="266" y="96.0" font-size="14" font-weight="600" fill="#6b7280" text-anchor="end" dominant-baseline="middle">today</text>
+<rect x="30" y="126" width="248" height="44" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="44" y="148.0" font-size="19" font-weight="700" fill="#1f2328" dominant-baseline="middle">W2</text>
+<text x="98" y="148.0" font-size="16" fill="#6b7280" dominant-baseline="middle">signals &amp; front ends</text>
+<rect x="30" y="178" width="248" height="44" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="44" y="200.0" font-size="19" font-weight="700" fill="#1f2328" dominant-baseline="middle">W3</text>
+<text x="98" y="200.0" font-size="16" fill="#6b7280" dominant-baseline="middle">alignment (CTC)</text>
+<rect x="30" y="230" width="248" height="44" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="44" y="252.0" font-size="19" font-weight="700" fill="#1f2328" dominant-baseline="middle">W4</text>
+<text x="98" y="252.0" font-size="16" fill="#6b7280" dominant-baseline="middle">streaming &amp; RNN-T</text>
+<rect x="30" y="282" width="248" height="44" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="44" y="304.0" font-size="19" font-weight="700" fill="#1f2328" dominant-baseline="middle">W5</text>
+<text x="98" y="304.0" font-size="16" fill="#6b7280" dominant-baseline="middle">self-supervised</text>
+<rect x="30" y="334" width="248" height="44" rx="6" fill="#eff6ff" stroke="#0b5cad" stroke-width="2.4"/>
+<text x="44" y="356.0" font-size="19" font-weight="700" fill="#0b5cad" dominant-baseline="middle">W6</text>
+<text x="98" y="356.0" font-size="16" fill="#1f2328" dominant-baseline="middle">codecs / tokens</text>
+<text x="490" y="46" font-size="19" font-weight="700" fill="#1f2328">Part II — modules</text>
+<rect x="490" y="74" width="248" height="44" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="504" y="96.0" font-size="19" font-weight="700" fill="#1f2328" dominant-baseline="middle">W7</text>
+<text x="558" y="96.0" font-size="16" fill="#6b7280" dominant-baseline="middle">ASR</text>
+<rect x="490" y="126" width="248" height="44" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="504" y="148.0" font-size="19" font-weight="700" fill="#1f2328" dominant-baseline="middle">W8</text>
+<text x="558" y="148.0" font-size="16" fill="#6b7280" dominant-baseline="middle">TTS: generation</text>
+<rect x="490" y="178" width="248" height="44" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="504" y="200.0" font-size="19" font-weight="700" fill="#1f2328" dominant-baseline="middle">W9</text>
+<text x="558" y="200.0" font-size="16" fill="#6b7280" dominant-baseline="middle">TTS: control</text>
+<rect x="490" y="230" width="248" height="44" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="504" y="252.0" font-size="19" font-weight="700" fill="#1f2328" dominant-baseline="middle">W10</text>
+<text x="558" y="252.0" font-size="16" fill="#6b7280" dominant-baseline="middle">front end / AEC</text>
+<text x="930" y="46" font-size="19" font-weight="700" fill="#1f2328">Part III — dialogue systems</text>
+<rect x="930" y="74" width="248" height="44" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="944" y="96.0" font-size="19" font-weight="700" fill="#1f2328" dominant-baseline="middle">W11</text>
+<text x="998" y="96.0" font-size="16" fill="#6b7280" dominant-baseline="middle">audio-native LM</text>
+<rect x="930" y="126" width="248" height="44" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="944" y="148.0" font-size="19" font-weight="700" fill="#1f2328" dominant-baseline="middle">W12</text>
+<text x="998" y="148.0" font-size="16" fill="#6b7280" dominant-baseline="middle">turn-taking</text>
+<rect x="930" y="178" width="248" height="44" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="944" y="200.0" font-size="19" font-weight="700" fill="#1f2328" dominant-baseline="middle">W13</text>
+<text x="998" y="200.0" font-size="16" fill="#6b7280" dominant-baseline="middle">full-duplex arch.</text>
+<rect x="930" y="230" width="248" height="44" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="944" y="252.0" font-size="19" font-weight="700" fill="#1f2328" dominant-baseline="middle">W14</text>
+<text x="998" y="252.0" font-size="16" fill="#6b7280" dominant-baseline="middle">evaluation</text>
+<path d="M 278 226.0 C 348 226.0, 408 174.0, 478 174.0" fill="none" stroke="#94a3b8" stroke-width="9" opacity=".55"/>
+<polygon points="478,163.0 492,174.0 478,185.0" fill="#94a3b8" opacity=".7"/>
+<path d="M 738 174.0 C 808 174.0, 826 174.0, 896 174.0" fill="none" stroke="#94a3b8" stroke-width="9" opacity=".55"/>
+<polygon points="896,163.0 910,174.0 896,185.0" fill="#94a3b8" opacity=".7"/>
+<rect x="914" y="56" width="280" height="232" rx="10" fill="none" stroke="#0b5cad" stroke-width="2.2" stroke-dasharray="8 5" opacity=".85"/>
+<path d="M 278 356.0 C 340 356.0, 370 436, 410 436 H 994.0 C 1036.0 436, 1054.0 436, 1054.0 310" fill="none" stroke="#0b5cad" stroke-width="2.6" stroke-dasharray="8 5"/>
+<polygon points="1045.0,310 1054.0,292 1063.0,310" fill="#0b5cad"/>
+<text x="700.0" y="416.0" font-size="17" fill="#0b5cad" text-anchor="middle">frame rate · token budget · semantic/acoustic disentanglement</text>
+</svg>

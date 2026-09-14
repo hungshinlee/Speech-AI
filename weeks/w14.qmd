@@ -1,0 +1,47 @@
+---
+title: "W14｜Evaluation, Alignment, Deployment, and Open Problems"
+subtitle: "Part III — Dialogue Systems · 評估、對齊、落地與 Open Problems"
+toc-depth: 2
+---
+
+<!-- 此檔由 scripts/build_weeks.py 從課程大綱過濾產生，請勿直接編輯。大綱正本在 private repo（$COURSE_OUTLINE），改完請重跑腳本。 -->
+
+## 定位
+收束全課。三個主題：**怎麼量**（互動能力的評估方法論）、**怎麼調**（互動導向的 RL 與偏好對齊）、**怎麼上線**（延遲工程、on-device、安全）。最後用 open problems 收尾，並給出研究切入點。
+
+## Learning objectives
+1. 能設計一套全雙工系統的評估方案，涵蓋語意品質、互動時序、穩健性三個層面，並為每一項指定指標與其已知失效條件。
+2. 能說明互動導向 RL 與一般 RLHF 的差異（reward 訊號來自互動時序而非單輪偏好），並描述至少兩種 reward 設計。
+3. 能對一個目標延遲預算做端到端的工程拆解，指出量化、KV cache 管理、批次策略、串流分塊各能省下多少，並判斷瓶頸在哪。
+4. 能提出三個具體、可做的研究問題，並說明所需的資料與評估方式。
+
+## 參考資料
+**Benchmark（本週的閱讀主體）**
+- Lin et al., **Full-Duplex-Bench: A Benchmark to Evaluate Full-duplex Spoken Dialogue Models on Turn-taking Capabilities**, ASRU 2025（arXiv:2503.04721）
+- Lin et al., **Full-Duplex-Bench v1.5: Evaluating Overlap Handling for Full-Duplex Speech Models**, ICASSP 2026（arXiv:2507.23159）
+- Peng et al., **FD-Bench: A Full-Duplex Benchmarking Pipeline Designed for Full Duplex Spoken Dialogue Systems**, Interspeech 2025（arXiv:2507.19040）
+- Fukuda et al., **M3-DuplexBench: A Multi-Turn, Multilingual, Multidomain Benchmark for Full-Duplex Spoken Dialogue Models**, arXiv:2607.29125（2026）
+- Tang et al., **Instruct-FD: Can Your Full-Duplex Speech System Follow Turn-Taking Instructions?**, arXiv:2607.20460（2026）
+- Ge et al., **FLEXI: Benchmarking Full-duplex Human-LLM Speech Interaction**, arXiv:2509.22243（2025）
+- Zhao et al., **The ICASSP 2026 HumDial Challenge: Benchmarking Human-like Spoken Dialogue Systems in the LLM Era**, arXiv:2601.05564（2026）；及賽後總結 Wang et al., **Full-Duplex Interaction in Spoken Dialogue Systems: A Comprehensive Study from the ICASSP 2026 HumDial Challenge**, arXiv:2604.21406（2026）— 挑戰賽論文通常包含最完整的指標定義與 baseline，非常適合教學
+- Chen et al., **VoiceBench: Benchmarking LLM-Based Voice Assistants**, arXiv:2410.17196（2024）— 半雙工的語意能力評估基準
+- Wang et al., **VoiceAssistant-Eval: Benchmarking AI Assistants across Listening, Speaking, and Viewing**, arXiv:2509.22651（2025）
+- Li et al., **AudioTrust: Benchmarking the Multifaceted Trustworthiness of Audio Large Language Models**, ICLR 2026（arXiv:2505.16211）
+- 語音 agent 與工具呼叫的評估：檢索 *VoiceAgentBench*、*Audio2Tool speech tool use*、*speech agent benchmark*
+
+**對齊**
+- Wu, Mazaré, Zeghidour & Défossez, **Aligning Spoken Dialogue Models from User Interactions**, ICML 2025（arXiv:2506.21463）— 從真實互動蒐集偏好，本週主文獻
+- Hsiao et al., **ASPIRin: Action Space Projection for Interactivity-Optimized Reinforcement Learning in Full-Duplex Speech Language Models**, arXiv:2604.10065（2026）
+- Li et al., **Decoupling Conversational Dynamics in Full-Duplex Spoken Models through Reinforcement Learning**, arXiv:2607.07148（2026）
+- Chen et al., **Dual-Axis Generative Reward Model Toward Semantic and Turn-taking Robustness in Interactive Spoken Dialogue Models**, arXiv:2604.14920（2026）
+- Ohashi et al., **Multi-Faceted Interactivity Alignment in Full-Duplex Speech Models**, EMNLP 2026（arXiv:2606.11167）
+- Züfle et al., **F-Actor: Controllable Conversational Behaviour in Full-Duplex Models**, arXiv:2601.11329（2026）
+- Fan et al., **SpeechGym: An Audio-Native Gym for Training Voice Agents via Reinforcement Learning**, arXiv:2608.26432（2026）— 若要帶學生做專題，這類環境很實用
+
+**落地與安全**
+- 延遲與吞吐工程：檢索 *streaming inference speech LLM latency*、*KV cache compression long context*、*on-device speech LLM quantization*
+- Roy et al., **PersonaPlex: Voice and Role Control for Full Duplex Conversational Speech Models**, arXiv:2602.06053（2026）— 可控性與角色一致性
+- 語音 agent 的安全與隱私：檢索 *voice agent prompt injection audio*、*speaker anonymization deployment*、*audio jailbreak speech LLM*
+
+**多模態延伸（若時間允許，可作為最後 10 分鐘的展望）**
+- Jiang, Ohashi & Higashinaka, **Integrating Facial Generation into Full-Duplex Spoken Dialogue Systems**, Interspeech 2026（arXiv:2606.21970）

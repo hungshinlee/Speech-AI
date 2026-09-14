@@ -1,0 +1,28 @@
+---
+title: "W1｜A Systems View of Spoken Dialogue and the Latency Budget"
+subtitle: "Part I — Foundations · 語音對話系統的系統觀與延遲預算"
+toc-depth: 2
+---
+
+<!-- 此檔由 scripts/build_weeks.py 從課程大綱過濾產生，請勿直接編輯。大綱正本在 private repo（$COURSE_OUTLINE），改完請重跑腳本。 -->
+
+::: {.callout-note appearance="minimal"}
+[**▶ 本週投影片（English）**](../slides/w01.qmd)
+:::
+
+## 定位
+不從訊號處理講起，而是先把終點攤開。目的是讓學生在第一週就知道後面 13 週每個模組要塞回哪個空格，並建立「latency 是第一級設計約束」的直覺。收尾放兩件不屬於任何單一模組的事：本土語言（台語、客語、原住民族語）缺少公開雙軌對話資料與統一正字法，這是結構性的研究缺口而不是工程雜事；以及一組「讀論文的四個問題」（輸入是否相同、時序怎麼量的、什麼被正規化掉了、這個指標在獎勵什麼），全課每週都會用到。
+
+## Learning objectives
+1. 能畫出 cascaded ASR→LLM→TTS、speech-to-speech end-to-end、native full-duplex 三種架構的資料流，並指出各自的資訊瓶頸。
+2. 能把一個目標端到端延遲（例如 500 ms）分解成各模組的預算，並說明哪些項目是演算法延遲、哪些是計算延遲。
+3. 能定義 half-duplex / full-duplex 在語音互動中的操作性差異，並舉出四種 half-duplex 系統做不到的互動行為（backchannel、barge-in、overlap 中維持說話、proactive turn）。
+4. 能說明為什麼「把 VAD 調快」不等於解決了 turn-taking。
+
+## 參考資料
+- **JM3** Ch 26 *Conversation and its Structure*（對話結構、turn-taking 的語言學基礎）、App K *Frame-based Dialogue Systems*（對照組：傳統 pipeline）
+- Ji et al., **WavChat: A Survey of Spoken Dialogue Models**, arXiv:2411.13577（2024）— 半雙工時代的系統分類，適合當第一週的架構總覽
+- Lu et al., **A Survey of Full-Duplex Spoken Dialogue Systems: Architectural Hierarchy, Interaction Ontology, and Decision State Machine**, arXiv:2606.19453（2026）— 目前最新且最完整的全雙工架構分類，本課程 W12–W13 的骨幹
+- Chen & Yu, **From Turn-Taking to Synchronous Dialogue: A Survey of Full-Duplex Spoken Language Models**, arXiv:2509.14515（2025）
+- Wang et al., **Towards General Auditory Intelligence: Large Multimodal Models for Machine Listening and Speaking**, arXiv:2511.01299（2025）— 聽與說的統一視角
+- 人類 turn-taking 的時間統計：檢索 *turn-taking timing universals*、*Levinson Torreira timing in turn-taking*、*response latency conversation corpus*

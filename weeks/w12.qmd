@@ -1,0 +1,39 @@
+---
+title: "W12｜Full-Duplex I: Linguistic Foundations and Modeling of Turn-Taking"
+subtitle: "Part III — Dialogue Systems · 全雙工 I：Turn-Taking 的語言學基礎與建模"
+toc-depth: 2
+---
+
+<!-- 此檔由 scripts/build_weeks.py 從課程大綱過濾產生，請勿直接編輯。大綱正本在 private repo（$COURSE_OUTLINE），改完請重跑腳本。 -->
+
+## 定位
+本週是全課的概念高峰。刻意**先講對話分析（CA）的語言學發現，再講建模**，因為「什麼算一個好的 turn-taking 決策」這件事若沒有語言學基準，模型評估就無從設計。這一週也解釋了為何 VAD-based 的 endpointing 天生不夠。
+
+## Learning objectives
+1. 能敘述 CA 的 turn-taking 系統（TCU、TRP、轉換規則）與 gap/overlap 的實證分布，並用它解釋為什麼固定的靜音門檻必然在「反應慢」與「搶話」之間擺盪。
+2. 能區分四種輸入端事件（backchannel、interruption、barge-in、overlap continuation），並說明各自需要的模型反應不同。
+3. 能寫出 voice activity projection 的預測目標形式，說明它與傳統 VAD 的差異，並解釋為何「預測未來的語音活動」是比「偵測當前語音」更好的建模目標。
+4. 能設計一個 semantic endpointing 模型的輸入輸出（聲學 + 部分 ASR 假設 + LM 機率）並分析其延遲構成。
+
+## 參考資料
+**語言學基礎（必讀）**
+- Sacks, Schegloff & Jefferson, **A Simplest Systematics for the Organization of Turn-Taking for Conversation**, *Language*, 50(4), 1974 — 全領域的起點
+- **JM3** Ch 26 *Conversation and its Structure* — 用計算的語言重述 CA，最適合做投影片
+- Skantze, **Turn-Taking in Conversational Systems and Human-Robot Interaction: A Review**, *Computer Speech & Language*, 2021 — 建模端的權威回顧，本週的骨幹文獻
+- gap/overlap 的跨語言實證：檢索 *universals and cultural variation in turn-taking*、*Stivers et al. turn-taking ten languages*
+
+**建模**
+- Ekstedt & Skantze, **TurnGPT: A Transformer-based Language Model for Predicting Turn-taking in Spoken Dialog**, EMNLP Findings 2020
+- Ekstedt & Skantze, **Voice Activity Projection: Self-supervised Learning of Turn-taking Events**, Interspeech 2022
+- 串流 VAD 與 endpointing 的工程實作：檢索 *Silero VAD*、*semantic VAD endpointing*、*smart turn detection open source*
+
+**2025–2026 的 turn-taking 專門工作**
+- Li et al., **Easy Turn: Integrating Acoustic and Linguistic Modalities for Robust Turn-Taking in Full-Duplex Spoken Dialogue Systems**, arXiv:2509.23938（2025）
+- Wu et al., **Phoenix-VAD: Streaming Semantic Endpoint Detection for Full-Duplex Speech Interaction**, arXiv:2509.20410（2025/2026 修訂）
+- Wang et al., **FastTurn: Unifying Acoustic and Streaming Semantic Cues for Low-Latency and Robust Turn Detection**, arXiv:2604.01897（2026）
+- Yang et al., **JAL-Turn: Joint Acoustic-Linguistic Modeling for Real-Time and Robust Turn-Taking Detection in Full-Duplex Spoken Dialogue Systems**, arXiv:2603.26515（2026）
+- Xia et al., **Semantic-Aware Interruption Detection in Spoken Dialogue Systems: Benchmark, Metric, and Model**, ICME 2026（arXiv:2603.24144）
+- Zhang et al., **TurnNat: Automatic Evaluation of Turn-Taking Naturalness in Dyadic Spoken Dialogue**, arXiv:2607.01345（2026）
+- Riera et al., **Synchronization and Turn-Taking in Full-Duplex Speech Dialogue Models**, arXiv:2605.20356（2026）
+- Pan et al., **Enabling Proactive Spoken Turns via a Generalized Style-Aware Full-Duplex Framework**, ACM MM 2026（arXiv:2608.28630）— proactive turn，目前最少被處理的方向
+- Li & Chu, **Decoupling Turn-Taking from Semantics: A Decoupled Data Approach for Finite-State-Machine-Based Full-Duplex Dialogue**, EMNLP 2026（arXiv:2609.03321）

@@ -1,0 +1,39 @@
+---
+title: "Syllabus"
+subtitle: "Setup, how to read the site, and citation conventions"
+---
+
+## Course Setup
+
+| Item | Setting |
+|:------------|:--------------------------------------|
+| Course | 語音處理與人機互動 · Speech Processing and Human-Machine Interaction |
+| Lecturer | [Hung-Shin Lee (李鴻欣)](https://web.ntnu.edu.tw/~hslee/) |
+| Audience | Master's / PhD students |
+| Prerequisites | None required; linear algebra, probability and Python are soft expectations |
+| Format | 14 weeks × 3 hours, lectures throughout |
+| Language | Lectures in Mandarin, slides in English |
+| Compute | **Nothing is required of students.** The course is lectures throughout, and every demo is run live in class on the lecturer's machine |
+| Project hardware | The term project assumes a single 16 GB CUDA GPU (RTX 5070 Ti class) — the [Supplements](supplements.qmd) topics were selected against that budget |
+| Assessment | Midterm report (40%), final paper (60%) — see [Supplements](supplements.qmd) for what each one has to contain |
+| Depth | Graduate — derivations, the literature behind each idea, open problems |
+| Requirements | Group work in teams of 2–4; two online discussion sessions |
+
+::: {.callout-note}
+## On "no prerequisites" together with "full derivations"
+The two are in tension, and the course accepts that deliberately. The catch-up load is concentrated in the second half of W2 (signals and representation) and the first half of W3 (a fast review of HMMs), and week 1 hands out a two-page list of the mathematics assumed: inner products and projection from linear algebra, conditional independence and marginalization from probability, and gradient descent. W3, W6 and W8 are the three mathematical peaks; each needs an hour or more at the board.
+:::
+
+## Course Structure
+
+| Part | Weeks | Content |
+|:-----------|:---------|:-----------------------------------|
+| **Part I — Foundations** | W1–W6 | Systems view and the latency budget; signals and the front end; alignment (HMM → CTC); Transformers and streaming; SSL representation learning; neural codecs and discretization |
+| **Part II — Modules** | W7–W10 | ASR; TTS generative paradigms; TTS controllability and evaluation; the acoustic front end (VAD / AEC / enhancement / separation / speaker) |
+| **Part III — Dialogue Systems** | W11–W14 | Audio-native LMs (half-duplex); modeling turn-taking; full-duplex architectures and data; evaluation and deployment |
+
+W6 — neural codecs and tokenization — is the hinge of the course: W11–W14 rest entirely on frame rate, token budget, and the separation of semantic from acoustic information.
+
+{{< include _includes/latency.md >}}
+
+{{< include _includes/disclaimer.md >}}

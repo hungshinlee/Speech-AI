@@ -1,0 +1,42 @@
+---
+title: "W9｜Speech Synthesis II: Controllability, Post-Training Alignment, Evaluation, and Misuse"
+subtitle: "Part II — Modules · 語音合成 II：可控性、後訓練對齊、評估與濫用防範"
+toc-depth: 2
+---
+
+<!-- 此檔由 scripts/build_weeks.py 從課程大綱過濾產生，請勿直接編輯。大綱正本在 private repo（$COURSE_OUTLINE），改完請重跑腳本。 -->
+
+## 定位
+接續 W8。這一週處理三件在對話系統中真正決定體驗的事：**可控性**（情緒、語速、風格能不能被指令控制）、**後訓練**（RL 如何修 AR TTS 的穩定性與偏好對齊）、**評估與風險**（怎麼量、以及 voice cloning 的濫用防範）。評估方法論在此建立，W14 會擴展到對話層級。
+
+## Learning objectives
+1. 能設計一個 zero-shot voice cloning 系統的條件輸入方案，並比較 speaker embedding、prompt continuation、factorized codec 三種路線的可控性與洩漏風險。
+2. 能寫出 DPO 與 GRPO 的目標函數，並說明把它們套到 TTS 上時 reward 該如何構造（WER-based、SIM-based、MOS predictor-based）以及 reward hacking 會長什麼樣。
+3. 能列出 TTS 評估的四個維度（可懂度、自然度、相似度、可控性/指令遵循），為每個維度指定客觀與主觀指標，並說明各自的失效條件。
+4. 能解釋 anti-spoofing 與 audio watermarking 的威脅模型差異，並判斷各自適用的部署場景。
+
+## 參考資料
+**可控性**
+- Ju et al., **NaturalSpeech 3**（factorized codec：內容/韻律/音色/細節分離）, ICML 2024
+- instruction-based / 自然語言控制 TTS：檢索 *instruction following TTS natural language style prompt*、*emotion controllable zero-shot TTS*
+- Li et al., **IndexTTS 2.5 Technical Report**, arXiv:2601.03888（2026）— 近期工業級系統的設計取捨，含情緒與時長控制
+
+**後訓練 / RL**
+- Rafailov et al., **Direct Preference Optimization: Your Language Model is Secretly a Reward Model**, NeurIPS 2023
+- Shao et al., **DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models**, arXiv:2402.03300（2024）— GRPO 的原始出處
+- Gao, Du & Zhang, **Differentiable Reward Optimization for LLM based TTS system**（DiffRO）, arXiv:2507.05911（2025）
+- Zhong, Yang & Wang, **Multi-Reward GRPO for Stable and Prosodic Single-Codebook TTS LLMs at Scale**, arXiv:2511.21270（2025）
+- Wang et al., **FlowTTS-GRPO: Online Reinforcement Learning with Multi-Objective Reward Optimization for Flow-Matching Based Text-to-Speech**, Interspeech 2026（arXiv:2606.23190）
+- Shen et al., **GSRM: Generative Speech Reward Model for Speech RLHF**, arXiv:2602.13891（2026）
+- Zhang et al., **SpeechJudge: Towards Human-Level Judgment for Speech Naturalness**, arXiv:2511.07931（2025）
+
+**評估**
+- ITU-T Recommendation **P.800**（主觀評估方法）與 **P.808**（群眾外包主觀評估）— 做 MOS 實驗前必讀
+- MOS predictor：檢索 *UTMOS MOS prediction VoiceMOS challenge*、*NISQA speech quality*、*SpeechLMScore*
+- MOS 的方法論批判：檢索 *MOS comparability across papers*、*best practices subjective evaluation TTS*、*Kirkland et al. MOS reporting*
+
+**濫用防範**
+- ASVspoof：檢索 *ASVspoof 2019 database*、*ASVspoof 2021*、*ASVspoof 5 challenge*
+- San Roman et al., **Proactive Detection of Voice Cloning with Localized Watermarking**（AudioSeal）, ICML 2024
+- VoicePrivacy Challenge 系列（anonymization 的任務設定與指標）
+- Wang, Ge & Yamagishi, **Does Fine-tuning by Reinforcement Learning Improve Generalization in Binary Speech Deepfake Detection?**, arXiv:2603.02914（2026）
