@@ -107,6 +107,18 @@ $c-muted: #6b7280;
 }
 
 // ── 引用與出處 ──────────────────────────────────────────────
+// 投影可讀性：Quarto 的 .smaller 是 0.7em，在 34px 的 root 下內文只剩約 24px，
+// 教室後排讀不到。需要放大的內文用這兩個類別包起來（`::: {.big}` / `::: {.bigger}`）。
+// **刻意用絕對 px**：投影片幾乎都帶 .smaller，用 em 會疊乘，改了字級卻沒感覺——
+// 這與上面表格用絕對值是同一個理由。
+.reveal .big,
+.reveal .big p,
+.reveal .big li    { font-size: 32px; line-height: 1.5; }
+
+.reveal .bigger,
+.reveal .bigger p,
+.reveal .bigger li { font-size: 36px; line-height: 1.5; }
+
 // .cite 在被縮放的 .slides 內，用 em 沒問題。
 .reveal .cite {
   font-size: .6em;

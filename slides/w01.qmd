@@ -125,11 +125,13 @@ Every latency and quality ceiling downstream follows from how you turned speech 
 
 ## What you should be able to do by the end of today {.smaller}
 
+::: {.big}
 1. **Draw** the data flow of a cascade, an end-to-end speech-to-speech model, and a native full-duplex model — and point at the place where each one narrows the channel.
 2. **Decompose** a target end-to-end latency into a per-module budget, say which entries are algorithmic delay and which are computational — and say what each entry actually measures.
 3. **Define** half duplex versus full duplex operationally, and name four interaction behaviours a half-duplex system cannot have.
 4. **Argue**, from human timing data, that turn-taking is prediction rather than detection — and therefore that a faster VAD does not solve it.
 5. **Interrogate** a paper with four questions: is the input the same, how was the timing measured, what was normalised away, and what is the metric rewarding.
+:::
 
 ::: {.claim}
 These five are the hooks that the next thirteen weeks attach to.
@@ -149,6 +151,7 @@ These three are the coordinate system for the whole course. Slides in every late
 
 ## From walkie-talkie to face to face {.smaller}
 
+::: {.bigger}
 **Walkie-talkie** — one party at a time, and the handover has to be announced out loud.
 
 **Telephone** — both channels are open the whole time, but people still take turns.
@@ -156,6 +159,7 @@ These three are the coordinate system for the whole course. Slides in every late
 **Face to face** — speakers overlap, interrupt, hum agreement, and adjust a sentence while it is still coming out.
 
 Spoken dialogue systems climbed this ladder in the same order. We are somewhere between the second rung and the third.
+:::
 
 ::: {.claim .warn}
 Where the metaphor breaks: two people talking are not two independent tracks that happen to overlap. Each is **continuously adjusting to the other**. That coupling is the hard part — and it is what W12 and W13 are about.
@@ -185,11 +189,19 @@ Write down everything you can think of. Two minutes.
 
 . . .
 
+::: {.bigger}
 emotion · laughter · sighs · hesitation and filled pauses · speaking rate · loudness · pitch range · accent and dialect · who is speaking · how many people are speaking · overlap · whether the utterance is finished · background environment · whether the speech is even addressed to the system
+:::
 
-. . .
+## ...and the one almost nobody writes down {.smaller}
 
-...and the one almost nobody writes down: **the clock.** When each word landed. How long that pause in the middle was. How long ago the user stopped.
+::: {.bigger}
+**The clock.** When each word landed. How long that pause in the middle was. How long ago the user stopped.
+:::
+
+::: {.claim .warn}
+A string has no timestamps. Not one.
+:::
 
 ## End-to-end keeps the paralinguistics, and keeps text as a planning channel {.smaller}
 
