@@ -22,35 +22,40 @@
        這段只有我看得到
        <!-- /private -->
 
-引用可信度
-----------
-含 `[驗]` 的行（尚未查證的引用）整行不上站：未查證的引用一旦進了學生的
-閱讀清單，錯誤會被當成事實轉引出去。查證完拿掉標記，它自然就上站了。
-含 `[主題]` 的行保留，只移除標記本身——那本來就是誠實的檢索關鍵字。
+引用標記的處理是**逐課程設定**的，見下方 DROP_UNVERIFIED / STRIP_MARKERS。
 """
 
 import re
 
-# ---------------------------------------------------------------------------
-# 想多開一個區塊就加進來（例如 "概念拆解路徑"）。預設保守：
-# 只給「這週在幹嘛」「你該學會什麼」「要讀什麼」。
-# ---------------------------------------------------------------------------
+# ===========================================================================
+# 逐課程設定 —— 改這裡，不要改下面的邏輯
+# ===========================================================================
+
+# 會上站的 `###` 區塊。想多開一個就加進來（例如 "概念拆解路徑"）。
 PUBLIC_SECTIONS = {
     "定位",
     "Learning objectives",
     "參考資料",
 }
 
-# 寫檔前的保險絲：頁面若含這些字串，代表過濾邏輯被改壞了，建置直接中止。
+# 含「未查證」標記的行是否整行不上站。
+DROP_UNVERIFIED = True
+UNVERIFIED_MARKER = "[驗]"
+
+# 保留該行、但把標記本身拿掉的標記。
+STRIP_MARKERS = ("[主題]",)
+
+# 寫檔前的保險絲：頁面含這些字串就中止建置。
 LEAK_MARKERS = ("課堂骨架", "常見誤解", "卡點提示", "demo 建議", "[驗]")
+
+# ===========================================================================
 
 _SEC = re.compile(r"^###\s+(.+?)\s*$")
 _VIS = re.compile(r"^<!--\s*vis:\s*(public|private)\s*-->\s*$")
 _POPEN = re.compile(r"^<!--\s*private\s*-->\s*$")
 _PCLOSE = re.compile(r"^<!--\s*/private\s*-->\s*$")
 _PAREN = re.compile(r"[（(][^（(]*?[）)]\s*$")
-_TOPIC = re.compile(r"`?\[主題\]`?\s*")
-_UNVERIFIED = "[驗]"
+_STRIP = [re.compile(r"`?" + re.escape(m) + r"`?\s*") for m in STRIP_MARKERS]
 
 
 def canon(heading):
@@ -108,9 +113,13 @@ def public_only(body):
         if _PCLOSE.match(ln.strip()):
             skip = False
             continue
-        if skip or _UNVERIFIED in ln:
+        if skip:
             continue
-        out.append(_TOPIC.sub("", ln))
+        if DROP_UNVERIFIED and UNVERIFIED_MARKER in ln:
+            continue
+        for rx in _STRIP:
+            ln = rx.sub("", ln)
+        out.append(ln)
 
     return _drop_empty_sections(out)
 
