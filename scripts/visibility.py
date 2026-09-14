@@ -43,7 +43,7 @@ DROP_UNVERIFIED = True
 UNVERIFIED_MARKER = "[驗]"
 
 # 保留該行、但把標記本身拿掉的標記。
-STRIP_MARKERS = ("[主題]",)
+STRIP_MARKERS = ("[題]",)
 
 # 寫檔前的保險絲：頁面含這些字串就中止建置。
 LEAK_MARKERS = ("課堂骨架", "常見誤解", "卡點提示", "demo 建議", "[驗]")
