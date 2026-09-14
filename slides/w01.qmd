@@ -126,12 +126,13 @@ Every latency and quality ceiling downstream follows from how you turned speech 
 ## What you should be able to do by the end of today {.smaller}
 
 1. **Draw** the data flow of a cascade, an end-to-end speech-to-speech model, and a native full-duplex model — and point at the place where each one narrows the channel.
-2. **Decompose** a target end-to-end latency into a per-module budget, and say which entries are algorithmic delay and which are computational.
+2. **Decompose** a target end-to-end latency into a per-module budget, say which entries are algorithmic delay and which are computational — and say what each entry actually measures.
 3. **Define** half duplex versus full duplex operationally, and name four interaction behaviours a half-duplex system cannot have.
-4. **Explain** why making the VAD faster does not solve turn-taking.
+4. **Argue**, from human timing data, that turn-taking is prediction rather than detection — and therefore that a faster VAD does not solve it.
+5. **Interrogate** a paper with four questions: is the input the same, how was the timing measured, what was normalised away, and what is the metric rewarding.
 
 ::: {.claim}
-These four are the hooks that the next thirteen weeks attach to.
+These five are the hooks that the next thirteen weeks attach to.
 :::
 
 ## Three questions we ask every single week {.smaller}
@@ -181,10 +182,10 @@ Thick line = audio. **Thin line = text.** The thickness is the information rate.
 
 ![](assets/w01/arch-cascade.svg){width="100%"}
 
-The LLM receives a string. Hesitation, amusement, shouting, speaking rate — and whether the user had finished — are all gone.
+The LLM receives a string. Hesitation, amusement, shouting, speaking rate, whether the user had finished — and **the timing of all of it** — are gone.
 
 ::: {.claim .warn}
-A better ASR cannot fix this. The channel is simply **too narrow for the signal**.
+A better ASR cannot fix this. The channel is simply **too narrow for the signal**. And note what a string has no field for at all: **a clock**.
 :::
 
 ## Stop. What does a transcript throw away? {.smaller}
@@ -196,6 +197,10 @@ Write down everything you can think of. Two minutes.
 . . .
 
 emotion · laughter · sighs · hesitation and filled pauses · speaking rate · loudness · pitch range · accent and dialect · who is speaking · how many people are speaking · overlap · whether the utterance is finished · background environment · whether the speech is even addressed to the system
+
+. . .
+
+...and the one almost nobody writes down: **the clock.** When each word landed. How long that pause in the middle was. How long ago the user stopped.
 
 ## End-to-end keeps the paralinguistics, and keeps text as a planning channel {.smaller}
 
@@ -275,15 +280,69 @@ Like it was not listening. Like it had prepared the answer before you finished. 
 
 Remember Recording 2: **60 ms**. Is that good? We genuinely do not know from the number alone — it depends on whether the content was worth 60 ms.
 
+## Humans answer faster than they can plan {.smaller}
+
+Two numbers that do not fit together:
+
+| Quantity | Order of magnitude |
+|:--|:--|
+| Gap at a turn transition | clusters near **zero** — most transitions land within a couple of hundred ms |
+| Planning one word for production | **hundreds of ms** before articulation even begins — call it 600 ms |
+
+If planning only started when the other person stopped, the earliest anyone could speak would be roughly 600 ms later. People do not take 600 ms.
+
+::: {.claim}
+So planning is already under way **while the other person is still talking**. The listener is predicting *when* the turn will end, and *how*. Turn-taking in humans is a **prediction** problem, not a detection problem.
+:::
+
+Anything that only starts thinking after the user stops has already lost the race — and that is exactly what an endpoint threshold does.
+
+::: {.footer}
+Gap statistics: Stivers et al., PNAS 106(26), 2009. Production timing: word-production chronometry — an order of magnitude, not a measurement of this task.
+:::
+
+## Misconception 3 — "just make the VAD faster" {.smaller}
+
+A VAD answers **is someone speaking right now?** — detection, answerable from the current frame.
+
+Turn-taking asks **is this person about to finish, and does what I just heard count as an interruption?** — prediction, not answerable from the current frame at all.
+
+| Silence threshold | What you get |
+|:--|:--|
+| 700 ms | safe, and the system feels slow |
+| 300 ms | fast, and it cuts people off mid-sentence |
+| any value | one failure traded for the other |
+
+::: {.claim .warn}
+Tuning a threshold trades one failure for the other. It never creates the ability to predict, because a silence timer has no access to **what was being said**.
+:::
+
+That is why W12 is about *semantic* endpointing — deciding from the words and the prosody, not from the length of the silence.
+
 ## The budget we will refill every week {.smaller}
 
 ![](assets/w01/latency-budget-blank.svg){width="100%"}
+
+## Two rules before you fill in a single cell {.smaller}
+
+**1 — Every cell holds only what happens *after* the user stops speaking.**
+
+Not the module's total processing time. A streaming ASR has already consumed most of the utterance by the time the user stops; counting that work again inflates the whole budget by an order of magnitude. The ASR cell is the *tail*, not the transcription.
+
+**2 — This template is cascade-shaped.**
+
+A native full-duplex model has no endpoint-detection cell and no ASR tail. It emits on every frame, so there is nothing to wait for and nothing to flush.
+
+::: {.claim}
+In W13 this sheet will not fit the system we are studying. That failure is not a flaw in the sheet — **it is the definition of full duplex**, drawn in negative space.
+:::
 
 ## Two kinds of delay, and only one of them is a hardware problem {.smaller}
 
 Write the streaming system as $y_{1:t} = f(x_{1:t+\ell})$, where $\ell$ is the lookahead in frames and $\Delta$ is the frame shift.
 
 - **Algorithmic delay** $= \ell \cdot \Delta$. Present even with infinitely fast hardware. It is a modelling choice.
+- **$\ell$ is not a knob you set once.** It is the *sum of every layer's right context*. Fifteen layers each looking two frames ahead is thirty frames — 300 ms, gone before a single multiply happens.
 - **Computational delay** $=$ RTF $\times$ audio duration $+$ queueing. Buy a faster GPU, or make the model smaller.
 
 For chunk-based processing with chunk size $C$, the mean algorithmic delay sits between $\tfrac{C}{2}\Delta$ and $C\Delta$, while attention cost per chunk grows with $C$.
@@ -292,7 +351,7 @@ For chunk-based processing with chunk size $C$, the mean algorithmic delay sits 
 Chunk size is a three-way trade-off between latency, quality and compute. You will meet it again in W4 (streaming ASR), W8 (streaming TTS) and W13 (per-frame decoding).
 :::
 
-## Misconception 3 — "latency is an engineering problem, not a research problem" {.smaller}
+## Misconception 4 — "latency is an engineering problem, not a research problem" {.smaller}
 
 The streaming constraint does not sit on top of a model. It reaches inside and changes it.
 
@@ -388,13 +447,31 @@ Simultaneous speech: **2.90 s was the failure** in Recording 1. **4.20 s was the
 
 There is no metric you can minimise to get good turn-taking. The target depends on what the user is doing — which means the system has to *classify the situation* before it decides.
 
-## Misconception 4 — "the user should always win an interruption" {.smaller}
+## The other budget: how long it takes to stop {.smaller}
+
+Everything in the last section measured one direction: *user stops → system starts*. Interruption runs the other way.
+
+| *user starts → system stops* | |
+|:--|:--|
+| Detection | noticing the user has started at all |
+| Decision | backchannel to talk through, or barge-in to yield to? |
+| **Committed buffer** | audio already handed to the sound card. It will be heard. It cannot be recalled. |
+
+::: {.claim .warn}
+The third one is the trap. A larger playout buffer protects you from glitches **and** makes you slower to shut up. One parameter, two faces — and only one of them shows up in the usual latency number.
+:::
+
+Recording 1 was **2.90 s** of exactly this. `analyze_duplex_audio.py` reports three numbers — response latency, overlap, stop latency — because a system that answers fast and stops slowly is still a bad listener.
+
+## Misconception 5 — "the user should always win an interruption" {.smaller}
 
 Interruptions have different functions: clarification, correction, agreement, seizing the floor. Yielding unconditionally means the system can never finish a necessary long answer — reading out an address, a dosage, a confirmation number.
 
 ::: {.claim .warn}
 "Always yield" is not politeness. It is a controllability failure, and it is measurable: W14's benchmarks score both premature yielding and failure to yield.
 :::
+
+And the cost of getting it wrong is now a number you can put on the sheet: every false yield costs one stop budget, committed buffer included.
 
 # Where we go from here {.section-title}
 
