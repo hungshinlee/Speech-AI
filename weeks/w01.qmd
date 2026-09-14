@@ -17,14 +17,18 @@ Two items that belong to no single module close the week. The first is data: Tai
 
 ## Learning Objectives
 1. Draw the data flow of three architectures — cascaded ASR→LLM→TTS, end-to-end speech-to-speech, and native full-duplex — and identify the information bottleneck in each.
-2. Decompose a target end-to-end latency (500 ms, say) into a per-module budget, and say which items are algorithmic latency and which are computational latency.
+2. Decompose a target end-to-end latency (500 ms, say) into a per-module budget, say which items are algorithmic latency and which are computational latency, and state what each cell actually measures: the time that elapses *after* the user stops speaking, not the module's total processing time.
 3. Define the operational difference between half-duplex and full-duplex speech interaction, and name four interactive behaviours a half-duplex system cannot produce: backchannels, barge-in, holding the floor through overlap, and proactive turns.
-4. Explain why making the VAD faster is not the same as solving turn-taking.
+4. Use the mismatch between human transition timing and the time it takes to plan an utterance to argue that turn-taking is a prediction problem rather than a detection problem — and therefore that making the VAD faster is not the same as solving it.
+5. Put four diagnostic questions to any paper in this field — is the input the same, how was the timing measured, what was normalised away, and what is the metric rewarding — and say which of the four that paper is weakest on.
 
 ## References
 - **JM3** Ch 26 *Conversation and its Structure* (the linguistic account of conversational structure and turn-taking); App K *Frame-based Dialogue Systems* (the classical pipeline, as a point of comparison)
+- Sacks, Schegloff & Jefferson, **A Simplest Systematics for the Organization of Turn-Taking for Conversation**, *Language* 50(4), 1974 — the paper JM3 Ch 26 is built on. At graduate level, read the original rather than the textbook summary
+- Stivers et al., **Universals and Cultural Variation in Turn-Taking in Conversation**, *PNAS* 106(26): 10587–10592 (2009, open access) — ten languages on five continents, and the evidence behind the *minimal gap, minimal overlap* norm that the whole latency budget rests on. Read the numbers off the figures yourself rather than quoting the single mean that circulates second-hand
+- Ohashi, Zeghidour, Défossez & Kharitonov, **Multi-Faceted Interactivity Alignment in Full-Duplex Speech Models**, EMNLP 2026 (arXiv:2606.11167) — the source of the audio used in the week 1 cold open (`kyutai/interactivity-alignment-samples`, CC-BY-4.0). We listen to it in week 1 and read it in W14; the loop is deliberate
 - Ji et al., **WavChat: A Survey of Spoken Dialogue Models**, arXiv:2411.13577 (2024) — a taxonomy of half-duplex-era systems; the right level of overview for week 1
 - Lu et al., **A Survey of Full-Duplex Spoken Dialogue Systems: Architectural Hierarchy, Interaction Ontology, and Decision State Machine**, arXiv:2606.19453 (2026) — the most recent and most complete taxonomy of full-duplex architectures, and the backbone of W12–W13
 - Chen & Yu, **From Turn-Taking to Synchronous Dialogue: A Survey of Full-Duplex Spoken Language Models**, arXiv:2509.14515 (2025)
 - Wang et al., **Towards General Auditory Intelligence: Large Multimodal Models for Machine Listening and Speaking**, arXiv:2511.01299 (2025) — listening and speaking under a single framework
-- Timing statistics for human turn-taking: search *turn-taking timing universals*, *Levinson Torreira timing in turn-taking*, *response latency conversation corpus*
+- Timing statistics for human turn-taking (further searching): *turn-taking gap distribution*, *response latency conversation corpus*, *floor transfer offset*
