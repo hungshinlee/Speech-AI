@@ -340,17 +340,47 @@ In W13 this sheet will not fit the system we are studying. That failure is not a
 
 ## Two kinds of delay, and only one of them is a hardware problem {.smaller}
 
-Write the streaming system as $y_{1:t} = f(x_{1:t+\ell})$, where $\ell$ is the lookahead in frames and $\Delta$ is the frame shift.
+A streaming model is a function that may peek $\ell$ frames into the future:
 
-- **Algorithmic delay** $= \ell \cdot \Delta$. Present even with infinitely fast hardware. It is a modelling choice.
-- **$\ell$ is not a knob you set once.** It is the *sum of every layer's right context*. Fifteen layers each looking two frames ahead is thirty frames — 300 ms, gone before a single multiply happens.
-- **Computational delay** $=$ RTF $\times$ audio duration $+$ queueing. Buy a faster GPU, or make the model smaller.
+::: {.big}
+$$\hat{y}_{1:t} \;=\; f\!\left(x_{1:\,t+\ell}\right)$$
 
-For chunk-based processing with chunk size $C$, the mean algorithmic delay sits between $\tfrac{C}{2}\Delta$ and $C\Delta$, while attention cost per chunk grows with $C$.
+$\Delta$ frame shift (s) · $\ell$ lookahead (frames) · $L$ layers · $r_k$ right context of layer $k$ · $C$ chunk size (frames)
+:::
+
+::: {.big}
+**Algorithmic delay** — still there on infinitely fast hardware:
+
+$$D_{\text{alg}} \;=\; \underbrace{\ell\,\Delta}_{\text{lookahead}} \;+\; \underbrace{\alpha\,C\,\Delta}_{\text{waiting for the chunk}},
+\qquad \ell \;=\; \sum_{k=1}^{L} r_k, \qquad \alpha \in [\tfrac{1}{2},\,1]$$
+
+**Computational delay** — this is the one you can buy your way out of:
+
+$$D_{\text{comp}} \;=\; \mathrm{RTF}\cdot C\Delta \;+\; T_{\text{queue}}$$
+:::
 
 ::: {.claim}
-Chunk size is a three-way trade-off between latency, quality and compute. You will meet it again in W4 (streaming ASR), W8 (streaming TTS) and W13 (per-frame decoding).
+$D_{\text{e2e}} = D_{\text{alg}} + D_{\text{comp}} + D_{\text{net}} + D_{\text{buf}}$ — every term counted **after the user stops speaking**. A faster GPU moves exactly one of them.
 :::
+
+## The arithmetic that eats the whole budget {.smaller}
+
+A 15-layer encoder, each layer looking **two frames** to the right, at $\Delta = 10$ ms:
+
+::: {.big}
+$$\ell \;=\; \sum_{k=1}^{15} r_k \;=\; 15 \times 2 \;=\; 30 \text{ frames}
+\qquad\Longrightarrow\qquad \ell\,\Delta \;=\; 30 \times 10\,\text{ms} \;=\; 300\,\text{ms}$$
+
+With a chunk of $C = 32$ frames and $\alpha = \tfrac{1}{2}$:
+
+$$D_{\text{alg}} \;=\; 300\,\text{ms} \;+\; \tfrac{1}{2}\times 32 \times 10\,\text{ms} \;=\; 300 + 160 \;=\; \mathbf{460\ \text{ms}}$$
+:::
+
+::: {.claim .warn}
+The whole budget was 300 ms. We are at 460 ms **before a single multiplication has happened** — and $D_{\text{comp}}$ has not been added yet.
+:::
+
+Why not just shrink $C$? Chunks arrive at $1/(C\Delta)$ per second, and each costs $O\!\big(C(C+H)d\big)$ — so the per-second cost is $O\!\big((C+H)d/\Delta\big)$: **smaller chunks are not cheaper per second, they are more often and less efficient.**
 
 ## Misconception 4 — "latency is an engineering problem, not a research problem" {.smaller}
 
