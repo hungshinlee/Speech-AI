@@ -108,9 +108,15 @@ $c-muted: #6b7280;
 
 // ── 引用與出處 ──────────────────────────────────────────────
 // 投影可讀性：Quarto 的 .smaller 是 0.7em，在 34px 的 root 下內文只剩約 24px，
-// 教室後排讀不到。需要放大的內文用這兩個類別包起來（`::: {.big}` / `::: {.bigger}`）。
+// 教室後排讀不到。需要調整的內文用這三個類別包起來
+// （`::: {.mid}` 28px ／ `::: {.big}` 32px ／ `::: {.bigger}` 36px）。
+// `.mid` 仍比預設的 24px 大，是給「內容多、放 32px 會溢出」的那幾張用的。
 // **刻意用絕對 px**：投影片幾乎都帶 .smaller，用 em 會疊乘，改了字級卻沒感覺——
 // 這與上面表格用絕對值是同一個理由。
+.reveal .mid,
+.reveal .mid p,
+.reveal .mid li    { font-size: 28px; line-height: 1.4; }
+
 .reveal .big,
 .reveal .big p,
 .reveal .big li    { font-size: 32px; line-height: 1.5; }

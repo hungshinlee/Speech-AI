@@ -342,13 +342,13 @@ In W13 this sheet will not fit the system we are studying. That failure is not a
 
 A streaming model is a function that may peek $\ell$ frames into the future:
 
-::: {.big}
+::: {.mid}
 $$\hat{y}_{1:t} \;=\; f\!\left(x_{1:\,t+\ell}\right)$$
 
 $\Delta$ frame shift (s) · $\ell$ lookahead (frames) · $L$ layers · $r_k$ right context of layer $k$ · $C$ chunk size (frames)
 :::
 
-::: {.big}
+::: {.mid}
 **Algorithmic delay** — still there on infinitely fast hardware:
 
 $$D_{\text{alg}} \;=\; \underbrace{\ell\,\Delta}_{\text{lookahead}} \;+\; \underbrace{\alpha\,C\,\Delta}_{\text{waiting for the chunk}},
