@@ -24,8 +24,11 @@ Part III 的起點。本週把 W5（SSL）、W6（codec）、W7（ASR）、W8（
 
 **架構分類的代表作**
 - Tang et al., **SALMONN: Towards Generic Hearing Abilities for Large Language Models**, ICLR 2024 — continuous 注入
+- Fang et al., **LLaMA-Omni: Seamless Speech Interaction with Large Language Models**, ICLR 2025（arXiv:2409.06666，v1 2024-09-10）
 - Xie & Wu, **Mini-Omni: Language Models Can Hear, Talk While Thinking in Streaming**, arXiv:2408.16725（2024）
+- Zeng et al., **GLM-4-Voice: Towards Intelligent and Human-Like End-to-End Spoken Chatbot**, arXiv:2412.02612（v1 2024-12-03）
 - Défossez et al., **Moshi: A Speech-Text Foundation Model for Real-Time Dialogue**, arXiv:2410.00037（2024）— inner monologue + 多串流，本課程最重要的單一系統論文
+- Chu et al., **Qwen2-Audio Technical Report**, arXiv:2407.10759（v1 2024-07-15）；及 Xu et al., **Qwen2.5-Omni Technical Report**, arXiv:2503.20215（v1 2025-03-26）。**兩篇都是技術報告，不是同儕審查文獻**
 - 2025–2026 的其他 omni / audio LLM：檢索 *Kimi-Audio technical report*、*Step-Audio 2*、*MiniCPM-o*、*Baichuan-Audio*、*Covo-Audio technical report*（arXiv:2602.09823, 2026）
 
 **Interleaving 與 scaling**

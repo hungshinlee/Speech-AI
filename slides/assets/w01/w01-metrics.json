@@ -1,0 +1,392 @@
+{
+ "_note": "W1 投影片用到的量測數字。由 make_slide_metrics_w01.py 從 _media/metrics.json 抽出；_media/ 不進版控，這份進。量測方法是能量式 VAD（analyze_duplex_audio.py），是估計不是 ground truth，投影片上已標明。",
+ "_source_records": {
+  "interruption_bad": "synthetic_user_interruption/1/moshika-ps3.0",
+  "interruption_good": "synthetic_user_interruption/1/e9b4a3ec-ckpt100-ps3.0",
+  "backchannel_base": "icc_backchannel/3/personaplex-ps0.0",
+  "backchannel_tuned": "icc_backchannel/3/74a180f1-ckpt100-ps0.0"
+ },
+ "slides": {
+  "user_starts_at_s": {
+   "value": 9.59,
+   "from": "interruption_bad.user_segs[1][0]",
+   "slide": "The user started speaking at 9.6 s…（標題）"
+  },
+  "kept_talking_over_user_s": {
+   "value": 2.9,
+   "from": "interruption_bad.stop_latency_ms",
+   "slide": "2.90 s — the model kept talking over the user"
+  },
+  "then_silent_s": {
+   "value": 10.2,
+   "from": "interruption_bad.model_segs 之間最長靜默（推得）",
+   "slide": "10.2 s — then said nothing at all"
+  },
+  "simultaneous_speech_bad_s": {
+   "value": 2.9,
+   "from": "interruption_bad.overlap_s",
+   "slide": "Simultaneous speech: 2.90 s was the failure"
+  },
+  "simultaneous_speech_good_s": {
+   "value": 0.0,
+   "from": "interruption_good.overlap_s",
+   "slide": "0.00 s — simultaneous speech"
+  },
+  "response_latency_good_ms": {
+   "value": 60,
+   "from": "interruption_good.response_latency_ms",
+   "slide": "our 2.90 s and 60 ms（讀論文的四個問題）"
+  },
+  "clip_length_s": {
+   "value": 42.16,
+   "from": "backchannel_tuned.duration_s",
+   "slide": "Forty-two seconds of narration / same 42 s"
+  },
+  "model_utterances_base": {
+   "value": 3,
+   "from": "backchannel_base.n_model_seg",
+   "slide": "3 → 11 model utterances（前者）"
+  },
+  "model_utterances_tuned": {
+   "value": 11,
+   "from": "backchannel_tuned.n_model_seg",
+   "slide": "3 → 11 model utterances（後者）"
+  },
+  "overlap_base_s": {
+   "value": 0.88,
+   "from": "backchannel_base.overlap_s",
+   "slide": "0.88 → 4.20 s simultaneous speech（前者）"
+  },
+  "overlap_tuned_s": {
+   "value": 4.2,
+   "from": "backchannel_tuned.overlap_s",
+   "slide": "0.88 → 4.20 s simultaneous speech（後者）"
+  }
+ },
+ "records": {
+  "interruption_bad": {
+   "duration_s": 27.57,
+   "user_speech_s": 5.6,
+   "model_speech_s": 14.48,
+   "overlap_s": 2.9,
+   "n_user_seg": 2,
+   "n_model_seg": 3,
+   "user_segs": [
+    [
+     0.0,
+     2.62
+    ],
+    [
+     9.59,
+     12.57
+    ]
+   ],
+   "model_segs": [
+    [
+     2.65,
+     7.9
+    ],
+    [
+     8.12,
+     12.49
+    ],
+    [
+     22.69,
+     27.55
+    ]
+   ],
+   "user_internal_pause": [
+    2.62,
+    9.59,
+    6.97
+   ],
+   "barge_in_during_pause_ms": 30,
+   "response_latency_ms": 10120,
+   "stop_latency_ms": 2900
+  },
+  "interruption_good": {
+   "duration_s": 27.57,
+   "user_speech_s": 5.6,
+   "model_speech_s": 11.58,
+   "overlap_s": 0.0,
+   "n_user_seg": 2,
+   "n_model_seg": 6,
+   "user_segs": [
+    [
+     0.0,
+     2.62
+    ],
+    [
+     9.59,
+     12.57
+    ]
+   ],
+   "model_segs": [
+    [
+     2.66,
+     3.06
+    ],
+    [
+     3.27,
+     4.41
+    ],
+    [
+     4.71,
+     7.09
+    ],
+    [
+     12.63,
+     14.85
+    ],
+    [
+     17.02,
+     20.42
+    ],
+    [
+     23.19,
+     25.23
+    ]
+   ],
+   "user_internal_pause": [
+    2.62,
+    9.59,
+    6.97
+   ],
+   "barge_in_during_pause_ms": 40,
+   "response_latency_ms": 60,
+   "stop_latency_ms": null
+  },
+  "backchannel_base": {
+   "duration_s": 42.16,
+   "user_speech_s": 31.01,
+   "model_speech_s": 3.11,
+   "overlap_s": 0.88,
+   "n_user_seg": 18,
+   "n_model_seg": 3,
+   "user_segs": [
+    [
+     1.9,
+     2.37
+    ],
+    [
+     2.87,
+     4.21
+    ],
+    [
+     5.0,
+     5.47
+    ],
+    [
+     5.97,
+     6.37
+    ],
+    [
+     6.72,
+     7.46
+    ],
+    [
+     7.81,
+     10.52
+    ],
+    [
+     10.85,
+     11.23
+    ],
+    [
+     11.57,
+     12.22
+    ],
+    [
+     12.53,
+     17.11
+    ],
+    [
+     17.6,
+     18.57
+    ],
+    [
+     18.86,
+     23.94
+    ],
+    [
+     24.26,
+     24.91
+    ],
+    [
+     25.59,
+     30.15
+    ],
+    [
+     30.58,
+     32.48
+    ],
+    [
+     33.34,
+     35.31
+    ],
+    [
+     35.78,
+     36.67
+    ],
+    [
+     37.46,
+     39.64
+    ],
+    [
+     40.1,
+     41.17
+    ]
+   ],
+   "model_segs": [
+    [
+     0.42,
+     1.95
+    ],
+    [
+     4.6,
+     5.4
+    ],
+    [
+     6.0,
+     6.78
+    ]
+   ],
+   "user_internal_pause": null,
+   "barge_in_during_pause_ms": null,
+   "response_latency_ms": null,
+   "stop_latency_ms": 50
+  },
+  "backchannel_tuned": {
+   "duration_s": 42.16,
+   "user_speech_s": 31.01,
+   "model_speech_s": 9.3,
+   "overlap_s": 4.2,
+   "n_user_seg": 18,
+   "n_model_seg": 11,
+   "user_segs": [
+    [
+     1.9,
+     2.37
+    ],
+    [
+     2.87,
+     4.21
+    ],
+    [
+     5.0,
+     5.47
+    ],
+    [
+     5.97,
+     6.37
+    ],
+    [
+     6.72,
+     7.46
+    ],
+    [
+     7.81,
+     10.52
+    ],
+    [
+     10.85,
+     11.23
+    ],
+    [
+     11.57,
+     12.22
+    ],
+    [
+     12.53,
+     17.11
+    ],
+    [
+     17.6,
+     18.57
+    ],
+    [
+     18.86,
+     23.94
+    ],
+    [
+     24.26,
+     24.91
+    ],
+    [
+     25.59,
+     30.15
+    ],
+    [
+     30.58,
+     32.48
+    ],
+    [
+     33.34,
+     35.31
+    ],
+    [
+     35.78,
+     36.67
+    ],
+    [
+     37.46,
+     39.64
+    ],
+    [
+     40.1,
+     41.17
+    ]
+   ],
+   "model_segs": [
+    [
+     0.43,
+     0.87
+    ],
+    [
+     4.48,
+     4.94
+    ],
+    [
+     5.16,
+     8.11
+    ],
+    [
+     14.04,
+     14.42
+    ],
+    [
+     18.62,
+     19.45
+    ],
+    [
+     23.97,
+     24.47
+    ],
+    [
+     30.36,
+     31.06
+    ],
+    [
+     32.21,
+     33.22
+    ],
+    [
+     35.47,
+     35.96
+    ],
+    [
+     39.4,
+     40.2
+    ],
+    [
+     41.4,
+     42.14
+    ]
+   ],
+   "user_internal_pause": null,
+   "barge_in_during_pause_ms": null,
+   "response_latency_ms": 230,
+   "stop_latency_ms": 2140
+  }
+ }
+}

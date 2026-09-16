@@ -22,6 +22,7 @@ toc-depth: 2
 - Zhang et al., **Transformer Transducer: A Streamable Speech Recognition Model with Transformer Encoders and RNN-T Loss**, ICASSP 2020
 - Shi et al., **Emformer: Efficient Memory Transformer Based Acoustic Model for Low Latency Streaming Speech Recognition**, ICASSP 2021
 - Yao et al., **Zipformer: A Faster and Better Encoder for Automatic Speech Recognition**, ICLR 2024
+- Yu et al., **FastEmit: Low-Latency Streaming ASR with Sequence-Level Emission Regularization**, ICASSP 2021（DOI 10.1109/icassp39728.2021.9413803）
 - Chan et al., **Listen, Attend and Spell**, ICASSP 2016 — AED 的起點，用來對照非單調對齊
 - **JM3** Ch 7 *Transformers and Pretraining*（有官方 slides）、Ch 16 *Automatic Speech Recognition*
 - pruned RNN-T 與記憶體最佳化：檢索 *pruned RNN-T loss k2*、*monotonic RNN-T memory efficient*

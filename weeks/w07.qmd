@@ -19,6 +19,8 @@ toc-depth: 2
 - Radford et al., **Robust Speech Recognition via Large-Scale Weak Supervision**（Whisper）, ICML 2023
 - Peng et al., **Reproducing Whisper-Style Training Using an Open-Source Toolkit and Publicly Available Data**（OWSM）, ASRU 2023
 - Pundak et al., **Deep Context: End-to-End Contextual Speech Recognition**（CLAS）, SLT 2018
+- McDermott, Sak & Variani, **A Density Ratio Approach to Language Model Fusion in End-to-End Automatic Speech Recognition**, ASRU 2019, pp. 434–441（DOI 10.1109/asru46091.2019.9003790）
+- Meng et al., **Internal Language Model Estimation for Domain-Adaptive End-to-End Speech Recognition**, SLT 2021, pp. 243–250（DOI 10.1109/slt48900.2021.9383515）
 - **JM3** Ch 16 *Automatic Speech Recognition*
 - **YD** Ch 7–8（sequence discriminative training、adaptation）— 雖是 hybrid 時代，但 discriminative 訓練的思路在 RL 後訓練時代重新有意義
 - LLM-based ASR：檢索 *speech LLM ASR adapter*、*SALMONN speech understanding*、*Qwen-ASR*、*whisper LLM decoder fusion*

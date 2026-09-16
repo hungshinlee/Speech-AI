@@ -20,8 +20,10 @@ toc-depth: 2
 - Nguyen et al., **Generative Spoken Dialogue Language Modeling**（dGSLM）, TACL 2023 — 第一個真正的雙軌語音對話生成模型，必讀
 - Défossez et al., **Moshi: A Speech-Text Foundation Model for Real-Time Dialogue**, arXiv:2410.00037（2024）— 本週主文獻
 - Veluri et al., **Beyond Turn-Based Interfaces: Synchronous LLMs as Full-Duplex Dialogue Agents**（SyncLLM）, EMNLP 2024
+- Labiausse et al., **High-Fidelity Simultaneous Speech-To-Speech Translation**, arXiv:2502.03382（v1 2025-02-05）— 系統名 Hibiki。**「Hibiki」不在題目也不在 metadata 裡，用系統名檢索找不到這篇**，所以引用時一定要給 ID；後續無對齊資料版本見 Labiausse et al., **Simultaneous Speech-to-Speech Translation Without Aligned Data**, ICML 2026（arXiv:2602.11072，PMLR 306）
 
 **路線 (b)：狀態機／可插拔**
+- Wang et al., **Freeze-Omni: A Smart and Low Latency Speech-to-speech Dialogue Model with Frozen LLM**, arXiv:2411.00774（v1 2024-11-01）
 - Liao et al., **FlexDuo: A Pluggable System for Enabling Full-Duplex Capabilities in Speech Dialogue Systems**, arXiv:2502.13472（2025）
 - Yan et al., **SoulX-Duplug: Plug-and-Play Streaming State Prediction Module for Realtime Full-Duplex Speech Conversation**, arXiv:2603.14877（2026）
 - Zhang et al., **LLM-Enhanced Dialogue Management for Full-Duplex Spoken Dialogue Systems**, arXiv:2502.14145（2025/2026 修訂）
