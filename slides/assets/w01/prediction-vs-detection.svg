@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 400" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<text x="984.0" y="22.0" font-size="15" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">schematic — not a measurement</text>
+<text x="214.0" y="86.0" font-size="16" font-weight="700" fill="#1f2328" text-anchor="end" dominant-baseline="middle">the other speaker</text>
+<rect x="230.0" y="70.0" width="385.7" height="32.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.4"/>
+<text x="422.9" y="86.0" font-size="15" font-weight="400" fill="#0b5cad" text-anchor="middle" dominant-baseline="middle">speaking …</text>
+<line x1="615.7" y1="56.0" x2="615.7" y2="318.0" stroke="#1f2328" stroke-width="1.6" stroke-dasharray="5 4"/>
+<text x="615.7" y="48.0" font-size="15" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">other speaker stops</text>
+<line x1="230.0" y1="336.0" x2="962.0" y2="336.0" stroke="#6b7280" stroke-width="1.4"/>
+<polygon points="970.0,336.0 960.0,331.0 960.0,341.0" fill="#6b7280"/>
+<line x1="307.1" y1="331.0" x2="307.1" y2="341.0" stroke="#6b7280" stroke-width="1.4"/>
+<text x="307.1" y="358.0" font-size="14" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">-1200 ms</text>
+<line x1="461.4" y1="331.0" x2="461.4" y2="341.0" stroke="#6b7280" stroke-width="1.4"/>
+<text x="461.4" y="358.0" font-size="14" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">-600 ms</text>
+<line x1="615.7" y1="331.0" x2="615.7" y2="341.0" stroke="#6b7280" stroke-width="1.4"/>
+<text x="615.7" y="358.0" font-size="14" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">0</text>
+<line x1="770.0" y1="331.0" x2="770.0" y2="341.0" stroke="#6b7280" stroke-width="1.4"/>
+<text x="770.0" y="358.0" font-size="14" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">+600 ms</text>
+<line x1="924.3" y1="331.0" x2="924.3" y2="341.0" stroke="#6b7280" stroke-width="1.4"/>
+<text x="924.3" y="358.0" font-size="14" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">+1200 ms</text>
+<g class="fragment" data-fragment-index="0">
+<text x="214.0" y="157.0" font-size="16" font-weight="700" fill="#1f2328" text-anchor="end" dominant-baseline="middle">listener, if planning</text>
+<text x="214.0" y="177.0" font-size="16" font-weight="700" fill="#1f2328" text-anchor="end" dominant-baseline="middle">starts at the end</text>
+<rect x="615.7" y="150.0" width="154.3" height="32.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.4" stroke-dasharray="5 3"/>
+<text x="692.9" y="166.0" font-size="14" font-weight="400" fill="#b45309" text-anchor="middle" dominant-baseline="middle">planning ≈ 600 ms</text>
+<rect x="770.0" y="150.0" width="180.0" height="32.0" rx="3" fill="#fee2e2" stroke="#dc2626" stroke-width="1.4"/>
+<text x="860.0" y="166.0" font-size="15" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">reply</text>
+<text x="621.7" y="202.0" font-size="15" font-weight="600" fill="#dc2626" text-anchor="start" dominant-baseline="auto">earliest reply at +600 ms — nobody waits that long</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<text x="214.0" y="257.0" font-size="16" font-weight="700" fill="#1f2328" text-anchor="end" dominant-baseline="middle">listener, if planning</text>
+<text x="214.0" y="277.0" font-size="16" font-weight="700" fill="#1f2328" text-anchor="end" dominant-baseline="middle">starts before the end</text>
+<rect x="461.4" y="250.0" width="154.3" height="32.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.4" stroke-dasharray="5 3"/>
+<text x="538.6" y="266.0" font-size="14" font-weight="400" fill="#b45309" text-anchor="middle" dominant-baseline="middle">planning (still listening)</text>
+<rect x="615.7" y="250.0" width="334.3" height="32.0" rx="3" fill="#dcfce7" stroke="#15803d" stroke-width="1.4"/>
+<text x="782.9" y="266.0" font-size="15" font-weight="700" fill="#15803d" text-anchor="middle" dominant-baseline="middle">reply</text>
+<text x="621.7" y="302.0" font-size="15" font-weight="600" fill="#15803d" text-anchor="start" dominant-baseline="auto">reply at ≈ 0 — what is actually observed</text>
+</g>
+<text x="500.0" y="392.0" font-size="15" fill="#6b7280" text-anchor="middle">Planning time is an order of magnitude from word-production chronometry, not a measurement of this task.</text>
+</svg>

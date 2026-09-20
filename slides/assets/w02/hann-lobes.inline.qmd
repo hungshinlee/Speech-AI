@@ -1,0 +1,2435 @@
+<!-- 由 scripts/make_figs_w02.py 產生，勿手改；投影片用 {{< include assets/w02/hann-lobes.inline.qmd >}} 貼入 -->
+```{=html}
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" id="fig-hann-lobes" width="100%" style="display:block;height:auto" viewBox="0 0 835.2 252" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <defs>
+  <style type="text/css">#fig-hann-lobes *{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="hann-lobes-figure_1">
+  <g id="hann-lobes-patch_1">
+   <path d="M 0 252 
+L 835.2 252 
+L 835.2 0 
+L 0 0 
+L 0 252 
+z
+" style="fill: none"/>
+  </g>
+  <g id="hann-lobes-axes_1">
+   <g id="hann-lobes-patch_2">
+    <path d="M 41.706899 188.8 
+L 799.319695 188.8 
+L 799.319695 16.2 
+L 41.706899 16.2 
+L 41.706899 188.8 
+z
+" style="fill: none"/>
+   </g>
+   <g id="hann-lobes-matplotlib.axis_1">
+    <g id="hann-lobes-xtick_1">
+     <g id="hann-lobes-line2d_1">
+      <path d="M 41.706899 188.8 
+L 41.706899 16.2 
+" clip-path="url(#hann-lobes-p3fcf9c03a3)" style="fill: none; stroke: #e5e7eb; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="hann-lobes-line2d_2">
+      <defs>
+       <path id="hann-lobes-m7ff25acc16" d="M 0 0 
+L 0 3.5 
+" style="stroke: #1f2328; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#hann-lobes-m7ff25acc16" x="41.706899" y="188.8" style="fill: #1f2328; stroke: #1f2328; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="hann-lobes-text_1">
+      <!-- $-4f_s/L$ -->
+      <g style="fill: #1f2328" transform="translate(16.656899 207.05) scale(0.15 -0.15)">
+       <defs>
+        <path id="hann-lobes-Cmsy10-a1" d="M 653 1472 
+Q 600 1472 565 1512 
+Q 531 1553 531 1600 
+Q 531 1647 565 1687 
+Q 600 1728 653 1728 
+L 4325 1728 
+Q 4375 1728 4408 1687 
+Q 4441 1647 4441 1600 
+Q 4441 1553 4408 1512 
+Q 4375 1472 4325 1472 
+L 653 1472 
+z
+" transform="scale(0.015625)"/>
+        <path id="hann-lobes-Cmr10-34" d="M 178 1056 
+L 178 1281 
+L 2156 4231 
+Q 2178 4263 2222 4263 
+L 2316 4263 
+Q 2388 4263 2388 4191 
+L 2388 1281 
+L 3016 1281 
+L 3016 1056 
+L 2388 1056 
+L 2388 428 
+Q 2388 297 2575 261 
+Q 2763 225 3009 225 
+L 3009 0 
+L 1247 0 
+L 1247 225 
+Q 1494 225 1681 261 
+Q 1869 297 1869 428 
+L 1869 1056 
+L 178 1056 
+z
+M 391 1281 
+L 1906 1281 
+L 1906 3547 
+L 391 1281 
+z
+" transform="scale(0.015625)"/>
+        <path id="hann-lobes-Cmmi10-66" d="M 622 -1056 
+Q 741 -1147 909 -1147 
+Q 1138 -1147 1281 -641 
+Q 1341 -397 1606 966 
+L 1900 2534 
+L 1350 2534 
+Q 1288 2534 1288 2619 
+Q 1313 2759 1369 2759 
+L 1941 2759 
+L 2016 3175 
+Q 2053 3369 2084 3508 
+Q 2116 3647 2152 3765 
+Q 2188 3884 2259 4031 
+Q 2369 4241 2555 4377 
+Q 2741 4513 2956 4513 
+Q 3097 4513 3230 4461 
+Q 3363 4409 3447 4306 
+Q 3531 4203 3531 4063 
+Q 3531 3900 3423 3779 
+Q 3316 3659 3163 3659 
+Q 3059 3659 2986 3723 
+Q 2913 3788 2913 3891 
+Q 2913 4031 3008 4136 
+Q 3103 4241 3244 4256 
+Q 3125 4347 2950 4347 
+Q 2853 4347 2767 4256 
+Q 2681 4166 2656 4063 
+Q 2616 3900 2478 3181 
+L 2400 2759 
+L 3059 2759 
+Q 3122 2759 3122 2675 
+Q 3119 2659 3109 2620 
+Q 3100 2581 3083 2557 
+Q 3066 2534 3041 2534 
+L 2356 2534 
+L 2059 972 
+Q 2003 631 1929 279 
+Q 1856 -72 1723 -442 
+Q 1591 -813 1384 -1063 
+Q 1178 -1313 897 -1313 
+Q 681 -1313 511 -1189 
+Q 341 -1066 341 -863 
+Q 341 -700 445 -579 
+Q 550 -459 709 -459 
+Q 816 -459 887 -523 
+Q 959 -588 959 -691 
+Q 959 -828 857 -942 
+Q 756 -1056 622 -1056 
+z
+" transform="scale(0.015625)"/>
+        <path id="hann-lobes-Cmmi10-73" d="M 556 391 
+Q 728 97 1247 97 
+Q 1472 97 1675 173 
+Q 1878 250 2011 403 
+Q 2144 556 2144 775 
+Q 2144 941 2025 1047 
+Q 1906 1153 1734 1191 
+L 1388 1259 
+Q 1150 1319 997 1481 
+Q 844 1644 844 1875 
+Q 844 2159 998 2378 
+Q 1153 2597 1406 2712 
+Q 1659 2828 1931 2828 
+Q 2222 2828 2451 2689 
+Q 2681 2550 2681 2278 
+Q 2681 2131 2598 2018 
+Q 2516 1906 2369 1906 
+Q 2284 1906 2223 1961 
+Q 2163 2016 2163 2100 
+Q 2163 2175 2205 2245 
+Q 2247 2316 2317 2358 
+Q 2388 2400 2463 2400 
+Q 2406 2538 2251 2600 
+Q 2097 2663 1919 2663 
+Q 1756 2663 1593 2597 
+Q 1431 2531 1332 2404 
+Q 1234 2278 1234 2106 
+Q 1234 1991 1315 1903 
+Q 1397 1816 1516 1778 
+L 1888 1703 
+Q 2066 1666 2214 1570 
+Q 2363 1475 2448 1329 
+Q 2534 1184 2534 997 
+Q 2534 759 2401 528 
+Q 2269 297 2075 159 
+Q 1734 -72 1241 -72 
+Q 900 -72 615 84 
+Q 331 241 331 550 
+Q 331 725 432 854 
+Q 534 984 709 984 
+Q 813 984 883 921 
+Q 953 859 953 756 
+Q 953 609 843 500 
+Q 734 391 588 391 
+L 556 391 
+z
+" transform="scale(0.015625)"/>
+        <path id="hann-lobes-Cmmi10-3d" d="M 359 -1472 
+Q 359 -1453 366 -1447 
+L 2591 4722 
+Q 2603 4759 2634 4779 
+Q 2666 4800 2706 4800 
+Q 2763 4800 2798 4765 
+Q 2834 4731 2834 4672 
+L 2834 4647 
+L 609 -1522 
+Q 572 -1600 488 -1600 
+Q 434 -1600 396 -1562 
+Q 359 -1525 359 -1472 
+z
+" transform="scale(0.015625)"/>
+        <path id="hann-lobes-Cmmi10-4c" d="M 300 0 
+Q 238 0 238 84 
+Q 241 100 250 139 
+Q 259 178 276 201 
+Q 294 225 319 225 
+Q 709 225 863 269 
+Q 947 297 984 441 
+L 1863 3956 
+Q 1875 4019 1875 4044 
+Q 1875 4113 1797 4122 
+Q 1678 4147 1338 4147 
+Q 1275 4147 1275 4231 
+Q 1297 4313 1309 4342 
+Q 1322 4372 1381 4372 
+L 3272 4372 
+Q 3328 4372 3328 4288 
+Q 3319 4222 3306 4184 
+Q 3294 4147 3244 4147 
+Q 2772 4147 2613 4116 
+Q 2456 4088 2419 3928 
+L 1544 416 
+Q 1516 338 1516 275 
+Q 1516 225 1734 225 
+L 2328 225 
+Q 2831 225 3143 425 
+Q 3456 625 3606 876 
+Q 3756 1128 3857 1398 
+Q 3959 1669 4006 1678 
+L 4063 1678 
+Q 4128 1678 4128 1594 
+L 3559 44 
+Q 3550 0 3500 0 
+L 300 0 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#hann-lobes-Cmsy10-a1"/>
+       <use xlink:href="#hann-lobes-Cmr10-34" transform="translate(77.685547 0)"/>
+       <use xlink:href="#hann-lobes-Cmmi10-66" transform="translate(127.685547 0)"/>
+       <use xlink:href="#hann-lobes-Cmmi10-73" transform="translate(176.5625 -17.00625) scale(0.7)"/>
+       <use xlink:href="#hann-lobes-Cmmi10-3d" transform="translate(215.683984 0)"/>
+       <use xlink:href="#hann-lobes-Cmmi10-4c" transform="translate(265.683984 0)"/>
+      </g>
+     </g>
+    </g>
+    <g id="hann-lobes-xtick_2">
+     <g id="hann-lobes-line2d_3">
+      <path d="M 136.408498 188.8 
+L 136.408498 16.2 
+" clip-path="url(#hann-lobes-p3fcf9c03a3)" style="fill: none; stroke: #e5e7eb; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="hann-lobes-line2d_4">
+      <g>
+       <use xlink:href="#hann-lobes-m7ff25acc16" x="136.408498" y="188.8" style="fill: #1f2328; stroke: #1f2328; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="hann-lobes-text_2">
+      <!-- $-3f_s/L$ -->
+      <g style="fill: #1f2328" transform="translate(111.358498 207.05) scale(0.15 -0.15)">
+       <defs>
+        <path id="hann-lobes-Cmr10-33" d="M 609 494 
+Q 759 275 1012 169 
+Q 1266 63 1556 63 
+Q 1928 63 2084 380 
+Q 2241 697 2241 1100 
+Q 2241 1281 2208 1462 
+Q 2175 1644 2097 1800 
+Q 2019 1956 1883 2050 
+Q 1747 2144 1550 2144 
+L 1125 2144 
+Q 1069 2144 1069 2203 
+L 1069 2259 
+Q 1069 2309 1125 2309 
+L 1478 2338 
+Q 1703 2338 1851 2506 
+Q 2000 2675 2069 2917 
+Q 2138 3159 2138 3378 
+Q 2138 3684 1994 3881 
+Q 1850 4078 1556 4078 
+Q 1313 4078 1091 3986 
+Q 869 3894 738 3706 
+Q 750 3709 759 3711 
+Q 769 3713 781 3713 
+Q 925 3713 1022 3613 
+Q 1119 3513 1119 3372 
+Q 1119 3234 1022 3134 
+Q 925 3034 781 3034 
+Q 641 3034 541 3134 
+Q 441 3234 441 3372 
+Q 441 3647 606 3850 
+Q 772 4053 1033 4158 
+Q 1294 4263 1556 4263 
+Q 1750 4263 1965 4205 
+Q 2181 4147 2356 4039 
+Q 2531 3931 2642 3762 
+Q 2753 3594 2753 3378 
+Q 2753 3109 2633 2881 
+Q 2513 2653 2303 2487 
+Q 2094 2322 1844 2241 
+Q 2122 2188 2372 2031 
+Q 2622 1875 2773 1631 
+Q 2925 1388 2925 1106 
+Q 2925 753 2731 467 
+Q 2538 181 2222 20 
+Q 1906 -141 1556 -141 
+Q 1256 -141 954 -26 
+Q 653 88 461 316 
+Q 269 544 269 863 
+Q 269 1022 375 1128 
+Q 481 1234 641 1234 
+Q 744 1234 830 1186 
+Q 916 1138 964 1050 
+Q 1013 963 1013 863 
+Q 1013 706 903 600 
+Q 794 494 641 494 
+L 609 494 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#hann-lobes-Cmsy10-a1"/>
+       <use xlink:href="#hann-lobes-Cmr10-33" transform="translate(77.685547 0)"/>
+       <use xlink:href="#hann-lobes-Cmmi10-66" transform="translate(127.685547 0)"/>
+       <use xlink:href="#hann-lobes-Cmmi10-73" transform="translate(176.5625 -17.00625) scale(0.7)"/>
+       <use xlink:href="#hann-lobes-Cmmi10-3d" transform="translate(215.683984 0)"/>
+       <use xlink:href="#hann-lobes-Cmmi10-4c" transform="translate(265.683984 0)"/>
+      </g>
+     </g>
+    </g>
+    <g id="hann-lobes-xtick_3">
+     <g id="hann-lobes-line2d_5">
+      <path d="M 231.110098 188.8 
+L 231.110098 16.2 
+" clip-path="url(#hann-lobes-p3fcf9c03a3)" style="fill: none; stroke: #e5e7eb; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="hann-lobes-line2d_6">
+      <g>
+       <use xlink:href="#hann-lobes-m7ff25acc16" x="231.110098" y="188.8" style="fill: #1f2328; stroke: #1f2328; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="hann-lobes-text_3">
+      <!-- $-2f_s/L$ -->
+      <g style="fill: #1f2328" transform="translate(206.060098 207.05) scale(0.15 -0.15)">
+       <defs>
+        <path id="hann-lobes-Cmr10-32" d="M 319 0 
+L 319 172 
+Q 319 188 331 206 
+L 1325 1306 
+Q 1550 1550 1690 1715 
+Q 1831 1881 1968 2097 
+Q 2106 2313 2186 2536 
+Q 2266 2759 2266 3009 
+Q 2266 3272 2169 3511 
+Q 2072 3750 1880 3894 
+Q 1688 4038 1416 4038 
+Q 1138 4038 916 3870 
+Q 694 3703 603 3438 
+Q 628 3444 672 3444 
+Q 816 3444 917 3347 
+Q 1019 3250 1019 3097 
+Q 1019 2950 917 2848 
+Q 816 2747 672 2747 
+Q 522 2747 420 2851 
+Q 319 2956 319 3097 
+Q 319 3338 409 3548 
+Q 500 3759 670 3923 
+Q 841 4088 1055 4175 
+Q 1269 4263 1509 4263 
+Q 1875 4263 2190 4108 
+Q 2506 3953 2690 3670 
+Q 2875 3388 2875 3009 
+Q 2875 2731 2753 2481 
+Q 2631 2231 2440 2026 
+Q 2250 1822 1953 1562 
+Q 1656 1303 1563 1216 
+L 838 519 
+L 1453 519 
+Q 1906 519 2211 526 
+Q 2516 534 2534 550 
+Q 2609 631 2688 1141 
+L 2875 1141 
+L 2694 0 
+L 319 0 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#hann-lobes-Cmsy10-a1"/>
+       <use xlink:href="#hann-lobes-Cmr10-32" transform="translate(77.685547 0)"/>
+       <use xlink:href="#hann-lobes-Cmmi10-66" transform="translate(127.685547 0)"/>
+       <use xlink:href="#hann-lobes-Cmmi10-73" transform="translate(176.5625 -17.00625) scale(0.7)"/>
+       <use xlink:href="#hann-lobes-Cmmi10-3d" transform="translate(215.683984 0)"/>
+       <use xlink:href="#hann-lobes-Cmmi10-4c" transform="translate(265.683984 0)"/>
+      </g>
+     </g>
+    </g>
+    <g id="hann-lobes-xtick_4">
+     <g id="hann-lobes-line2d_7">
+      <path d="M 325.811697 188.8 
+L 325.811697 16.2 
+" clip-path="url(#hann-lobes-p3fcf9c03a3)" style="fill: none; stroke: #e5e7eb; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="hann-lobes-line2d_8">
+      <g>
+       <use xlink:href="#hann-lobes-m7ff25acc16" x="325.811697" y="188.8" style="fill: #1f2328; stroke: #1f2328; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="hann-lobes-text_4">
+      <!-- $-f_s/L$ -->
+      <g style="fill: #1f2328" transform="translate(304.511697 207.05) scale(0.15 -0.15)">
+       <use xlink:href="#hann-lobes-Cmsy10-a1"/>
+       <use xlink:href="#hann-lobes-Cmmi10-66" transform="translate(77.685547 0)"/>
+       <use xlink:href="#hann-lobes-Cmmi10-73" transform="translate(126.5625 -17.00625) scale(0.7)"/>
+       <use xlink:href="#hann-lobes-Cmmi10-3d" transform="translate(165.683984 0)"/>
+       <use xlink:href="#hann-lobes-Cmmi10-4c" transform="translate(215.683984 0)"/>
+      </g>
+     </g>
+    </g>
+    <g id="hann-lobes-xtick_5">
+     <g id="hann-lobes-line2d_9">
+      <path d="M 420.513297 188.8 
+L 420.513297 16.2 
+" clip-path="url(#hann-lobes-p3fcf9c03a3)" style="fill: none; stroke: #e5e7eb; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="hann-lobes-line2d_10">
+      <g>
+       <use xlink:href="#hann-lobes-m7ff25acc16" x="420.513297" y="188.8" style="fill: #1f2328; stroke: #1f2328; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="hann-lobes-text_5">
+      <!-- 0 -->
+      <g style="fill: #1f2328" transform="translate(415.741422 207.197656) scale(0.15 -0.15)">
+       <defs>
+        <path id="hann-lobes-DejaVuSans-30" d="M 2034 4250 
+Q 1547 4250 1301 3770 
+Q 1056 3291 1056 2328 
+Q 1056 1369 1301 889 
+Q 1547 409 2034 409 
+Q 2525 409 2770 889 
+Q 3016 1369 3016 2328 
+Q 3016 3291 2770 3770 
+Q 2525 4250 2034 4250 
+z
+M 2034 4750 
+Q 2819 4750 3233 4129 
+Q 3647 3509 3647 2328 
+Q 3647 1150 3233 529 
+Q 2819 -91 2034 -91 
+Q 1250 -91 836 529 
+Q 422 1150 422 2328 
+Q 422 3509 836 4129 
+Q 1250 4750 2034 4750 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#hann-lobes-DejaVuSans-30"/>
+      </g>
+     </g>
+    </g>
+    <g id="hann-lobes-xtick_6">
+     <g id="hann-lobes-line2d_11">
+      <path d="M 515.214896 188.8 
+L 515.214896 16.2 
+" clip-path="url(#hann-lobes-p3fcf9c03a3)" style="fill: none; stroke: #e5e7eb; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="hann-lobes-line2d_12">
+      <g>
+       <use xlink:href="#hann-lobes-m7ff25acc16" x="515.214896" y="188.8" style="fill: #1f2328; stroke: #1f2328; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="hann-lobes-text_6">
+      <!-- $f_s/L$ -->
+      <g style="fill: #1f2328" transform="translate(499.689896 207.05) scale(0.15 -0.15)">
+       <use xlink:href="#hann-lobes-Cmmi10-66"/>
+       <use xlink:href="#hann-lobes-Cmmi10-73" transform="translate(48.876953 -17.00625) scale(0.7)"/>
+       <use xlink:href="#hann-lobes-Cmmi10-3d" transform="translate(87.998437 0)"/>
+       <use xlink:href="#hann-lobes-Cmmi10-4c" transform="translate(137.998437 0)"/>
+      </g>
+     </g>
+    </g>
+    <g id="hann-lobes-xtick_7">
+     <g id="hann-lobes-line2d_13">
+      <path d="M 609.916496 188.8 
+L 609.916496 16.2 
+" clip-path="url(#hann-lobes-p3fcf9c03a3)" style="fill: none; stroke: #e5e7eb; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="hann-lobes-line2d_14">
+      <g>
+       <use xlink:href="#hann-lobes-m7ff25acc16" x="609.916496" y="188.8" style="fill: #1f2328; stroke: #1f2328; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="hann-lobes-text_7">
+      <!-- $2f_s/L$ -->
+      <g style="fill: #1f2328" transform="translate(590.641496 207.05) scale(0.15 -0.15)">
+       <use xlink:href="#hann-lobes-Cmr10-32"/>
+       <use xlink:href="#hann-lobes-Cmmi10-66" transform="translate(50 0)"/>
+       <use xlink:href="#hann-lobes-Cmmi10-73" transform="translate(98.876953 -17.00625) scale(0.7)"/>
+       <use xlink:href="#hann-lobes-Cmmi10-3d" transform="translate(137.998437 0)"/>
+       <use xlink:href="#hann-lobes-Cmmi10-4c" transform="translate(187.998437 0)"/>
+      </g>
+     </g>
+    </g>
+    <g id="hann-lobes-xtick_8">
+     <g id="hann-lobes-line2d_15">
+      <path d="M 704.618095 188.8 
+L 704.618095 16.2 
+" clip-path="url(#hann-lobes-p3fcf9c03a3)" style="fill: none; stroke: #e5e7eb; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="hann-lobes-line2d_16">
+      <g>
+       <use xlink:href="#hann-lobes-m7ff25acc16" x="704.618095" y="188.8" style="fill: #1f2328; stroke: #1f2328; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="hann-lobes-text_8">
+      <!-- $3f_s/L$ -->
+      <g style="fill: #1f2328" transform="translate(685.343095 207.05) scale(0.15 -0.15)">
+       <use xlink:href="#hann-lobes-Cmr10-33"/>
+       <use xlink:href="#hann-lobes-Cmmi10-66" transform="translate(50 0)"/>
+       <use xlink:href="#hann-lobes-Cmmi10-73" transform="translate(98.876953 -17.00625) scale(0.7)"/>
+       <use xlink:href="#hann-lobes-Cmmi10-3d" transform="translate(137.998437 0)"/>
+       <use xlink:href="#hann-lobes-Cmmi10-4c" transform="translate(187.998437 0)"/>
+      </g>
+     </g>
+    </g>
+    <g id="hann-lobes-xtick_9">
+     <g id="hann-lobes-line2d_17">
+      <path d="M 799.319695 188.8 
+L 799.319695 16.2 
+" clip-path="url(#hann-lobes-p3fcf9c03a3)" style="fill: none; stroke: #e5e7eb; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="hann-lobes-line2d_18">
+      <g>
+       <use xlink:href="#hann-lobes-m7ff25acc16" x="799.319695" y="188.8" style="fill: #1f2328; stroke: #1f2328; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="hann-lobes-text_9">
+      <!-- $4f_s/L$ -->
+      <g style="fill: #1f2328" transform="translate(780.044695 207.05) scale(0.15 -0.15)">
+       <use xlink:href="#hann-lobes-Cmr10-34"/>
+       <use xlink:href="#hann-lobes-Cmmi10-66" transform="translate(50 0)"/>
+       <use xlink:href="#hann-lobes-Cmmi10-73" transform="translate(98.876953 -17.00625) scale(0.7)"/>
+       <use xlink:href="#hann-lobes-Cmmi10-3d" transform="translate(137.998437 0)"/>
+       <use xlink:href="#hann-lobes-Cmmi10-4c" transform="translate(187.998437 0)"/>
+      </g>
+     </g>
+    </g>
+    <g id="hann-lobes-text_10">
+     <!-- frequency offset, in units of $f_s/L$ — linear amplitude, not dB -->
+     <g style="fill: #1f2328" transform="translate(195.963297 226.2) scale(0.15 -0.15)">
+      <defs>
+       <path id="hann-lobes-DejaVuSans-66" d="M 2375 4863 
+L 2375 4384 
+L 1825 4384 
+Q 1516 4384 1395 4259 
+Q 1275 4134 1275 3809 
+L 1275 3500 
+L 2222 3500 
+L 2222 3053 
+L 1275 3053 
+L 1275 0 
+L 697 0 
+L 697 3053 
+L 147 3053 
+L 147 3500 
+L 697 3500 
+L 697 3744 
+Q 697 4328 969 4595 
+Q 1241 4863 1831 4863 
+L 2375 4863 
+z
+" transform="scale(0.015625)"/>
+       <path id="hann-lobes-DejaVuSans-72" d="M 2631 2963 
+Q 2534 3019 2420 3045 
+Q 2306 3072 2169 3072 
+Q 1681 3072 1420 2755 
+Q 1159 2438 1159 1844 
+L 1159 0 
+L 581 0 
+L 581 3500 
+L 1159 3500 
+L 1159 2956 
+Q 1341 3275 1631 3429 
+Q 1922 3584 2338 3584 
+Q 2397 3584 2469 3576 
+Q 2541 3569 2628 3553 
+L 2631 2963 
+z
+" transform="scale(0.015625)"/>
+       <path id="hann-lobes-DejaVuSans-65" d="M 3597 1894 
+L 3597 1613 
+L 953 1613 
+Q 991 1019 1311 708 
+Q 1631 397 2203 397 
+Q 2534 397 2845 478 
+Q 3156 559 3463 722 
+L 3463 178 
+Q 3153 47 2828 -22 
+Q 2503 -91 2169 -91 
+Q 1331 -91 842 396 
+Q 353 884 353 1716 
+Q 353 2575 817 3079 
+Q 1281 3584 2069 3584 
+Q 2775 3584 3186 3129 
+Q 3597 2675 3597 1894 
+z
+M 3022 2063 
+Q 3016 2534 2758 2815 
+Q 2500 3097 2075 3097 
+Q 1594 3097 1305 2825 
+Q 1016 2553 972 2059 
+L 3022 2063 
+z
+" transform="scale(0.015625)"/>
+       <path id="hann-lobes-DejaVuSans-71" d="M 947 1747 
+Q 947 1113 1208 752 
+Q 1469 391 1925 391 
+Q 2381 391 2643 752 
+Q 2906 1113 2906 1747 
+Q 2906 2381 2643 2742 
+Q 2381 3103 1925 3103 
+Q 1469 3103 1208 2742 
+Q 947 2381 947 1747 
+z
+M 2906 525 
+Q 2725 213 2448 61 
+Q 2172 -91 1784 -91 
+Q 1150 -91 751 415 
+Q 353 922 353 1747 
+Q 353 2572 751 3078 
+Q 1150 3584 1784 3584 
+Q 2172 3584 2448 3432 
+Q 2725 3281 2906 2969 
+L 2906 3500 
+L 3481 3500 
+L 3481 -1331 
+L 2906 -1331 
+L 2906 525 
+z
+" transform="scale(0.015625)"/>
+       <path id="hann-lobes-DejaVuSans-75" d="M 544 1381 
+L 544 3500 
+L 1119 3500 
+L 1119 1403 
+Q 1119 906 1312 657 
+Q 1506 409 1894 409 
+Q 2359 409 2629 706 
+Q 2900 1003 2900 1516 
+L 2900 3500 
+L 3475 3500 
+L 3475 0 
+L 2900 0 
+L 2900 538 
+Q 2691 219 2414 64 
+Q 2138 -91 1772 -91 
+Q 1169 -91 856 284 
+Q 544 659 544 1381 
+z
+M 1991 3584 
+L 1991 3584 
+z
+" transform="scale(0.015625)"/>
+       <path id="hann-lobes-DejaVuSans-6e" d="M 3513 2113 
+L 3513 0 
+L 2938 0 
+L 2938 2094 
+Q 2938 2591 2744 2837 
+Q 2550 3084 2163 3084 
+Q 1697 3084 1428 2787 
+Q 1159 2491 1159 1978 
+L 1159 0 
+L 581 0 
+L 581 3500 
+L 1159 3500 
+L 1159 2956 
+Q 1366 3272 1645 3428 
+Q 1925 3584 2291 3584 
+Q 2894 3584 3203 3211 
+Q 3513 2838 3513 2113 
+z
+" transform="scale(0.015625)"/>
+       <path id="hann-lobes-DejaVuSans-63" d="M 3122 3366 
+L 3122 2828 
+Q 2878 2963 2633 3030 
+Q 2388 3097 2138 3097 
+Q 1578 3097 1268 2742 
+Q 959 2388 959 1747 
+Q 959 1106 1268 751 
+Q 1578 397 2138 397 
+Q 2388 397 2633 464 
+Q 2878 531 3122 666 
+L 3122 134 
+Q 2881 22 2623 -34 
+Q 2366 -91 2075 -91 
+Q 1284 -91 818 406 
+Q 353 903 353 1747 
+Q 353 2603 823 3093 
+Q 1294 3584 2113 3584 
+Q 2378 3584 2631 3529 
+Q 2884 3475 3122 3366 
+z
+" transform="scale(0.015625)"/>
+       <path id="hann-lobes-DejaVuSans-79" d="M 2059 -325 
+Q 1816 -950 1584 -1140 
+Q 1353 -1331 966 -1331 
+L 506 -1331 
+L 506 -850 
+L 844 -850 
+Q 1081 -850 1212 -737 
+Q 1344 -625 1503 -206 
+L 1606 56 
+L 191 3500 
+L 800 3500 
+L 1894 763 
+L 2988 3500 
+L 3597 3500 
+L 2059 -325 
+z
+" transform="scale(0.015625)"/>
+       <path id="hann-lobes-DejaVuSans-20" transform="scale(0.015625)"/>
+       <path id="hann-lobes-DejaVuSans-6f" d="M 1959 3097 
+Q 1497 3097 1228 2736 
+Q 959 2375 959 1747 
+Q 959 1119 1226 758 
+Q 1494 397 1959 397 
+Q 2419 397 2687 759 
+Q 2956 1122 2956 1747 
+Q 2956 2369 2687 2733 
+Q 2419 3097 1959 3097 
+z
+M 1959 3584 
+Q 2709 3584 3137 3096 
+Q 3566 2609 3566 1747 
+Q 3566 888 3137 398 
+Q 2709 -91 1959 -91 
+Q 1206 -91 779 398 
+Q 353 888 353 1747 
+Q 353 2609 779 3096 
+Q 1206 3584 1959 3584 
+z
+" transform="scale(0.015625)"/>
+       <path id="hann-lobes-DejaVuSans-73" d="M 2834 3397 
+L 2834 2853 
+Q 2591 2978 2328 3040 
+Q 2066 3103 1784 3103 
+Q 1356 3103 1142 2972 
+Q 928 2841 928 2578 
+Q 928 2378 1081 2264 
+Q 1234 2150 1697 2047 
+L 1894 2003 
+Q 2506 1872 2764 1633 
+Q 3022 1394 3022 966 
+Q 3022 478 2636 193 
+Q 2250 -91 1575 -91 
+Q 1294 -91 989 -36 
+Q 684 19 347 128 
+L 347 722 
+Q 666 556 975 473 
+Q 1284 391 1588 391 
+Q 1994 391 2212 530 
+Q 2431 669 2431 922 
+Q 2431 1156 2273 1281 
+Q 2116 1406 1581 1522 
+L 1381 1569 
+Q 847 1681 609 1914 
+Q 372 2147 372 2553 
+Q 372 3047 722 3315 
+Q 1072 3584 1716 3584 
+Q 2034 3584 2315 3537 
+Q 2597 3491 2834 3397 
+z
+" transform="scale(0.015625)"/>
+       <path id="hann-lobes-DejaVuSans-74" d="M 1172 4494 
+L 1172 3500 
+L 2356 3500 
+L 2356 3053 
+L 1172 3053 
+L 1172 1153 
+Q 1172 725 1289 603 
+Q 1406 481 1766 481 
+L 2356 481 
+L 2356 0 
+L 1766 0 
+Q 1100 0 847 248 
+Q 594 497 594 1153 
+L 594 3053 
+L 172 3053 
+L 172 3500 
+L 594 3500 
+L 594 4494 
+L 1172 4494 
+z
+" transform="scale(0.015625)"/>
+       <path id="hann-lobes-DejaVuSans-2c" d="M 750 794 
+L 1409 794 
+L 1409 256 
+L 897 -744 
+L 494 -744 
+L 750 256 
+L 750 794 
+z
+" transform="scale(0.015625)"/>
+       <path id="hann-lobes-DejaVuSans-69" d="M 603 3500 
+L 1178 3500 
+L 1178 0 
+L 603 0 
+L 603 3500 
+z
+M 603 4863 
+L 1178 4863 
+L 1178 4134 
+L 603 4134 
+L 603 4863 
+z
+" transform="scale(0.015625)"/>
+       <path id="hann-lobes-DejaVuSans-2014" d="M 313 1978 
+L 6088 1978 
+L 6088 1528 
+L 313 1528 
+L 313 1978 
+z
+" transform="scale(0.015625)"/>
+       <path id="hann-lobes-DejaVuSans-6c" d="M 603 4863 
+L 1178 4863 
+L 1178 0 
+L 603 0 
+L 603 4863 
+z
+" transform="scale(0.015625)"/>
+       <path id="hann-lobes-DejaVuSans-61" d="M 2194 1759 
+Q 1497 1759 1228 1600 
+Q 959 1441 959 1056 
+Q 959 750 1161 570 
+Q 1363 391 1709 391 
+Q 2188 391 2477 730 
+Q 2766 1069 2766 1631 
+L 2766 1759 
+L 2194 1759 
+z
+M 3341 1997 
+L 3341 0 
+L 2766 0 
+L 2766 531 
+Q 2569 213 2275 61 
+Q 1981 -91 1556 -91 
+Q 1019 -91 701 211 
+Q 384 513 384 1019 
+Q 384 1609 779 1909 
+Q 1175 2209 1959 2209 
+L 2766 2209 
+L 2766 2266 
+Q 2766 2663 2505 2880 
+Q 2244 3097 1772 3097 
+Q 1472 3097 1187 3025 
+Q 903 2953 641 2809 
+L 641 3341 
+Q 956 3463 1253 3523 
+Q 1550 3584 1831 3584 
+Q 2591 3584 2966 3190 
+Q 3341 2797 3341 1997 
+z
+" transform="scale(0.015625)"/>
+       <path id="hann-lobes-DejaVuSans-6d" d="M 3328 2828 
+Q 3544 3216 3844 3400 
+Q 4144 3584 4550 3584 
+Q 5097 3584 5394 3201 
+Q 5691 2819 5691 2113 
+L 5691 0 
+L 5113 0 
+L 5113 2094 
+Q 5113 2597 4934 2840 
+Q 4756 3084 4391 3084 
+Q 3944 3084 3684 2787 
+Q 3425 2491 3425 1978 
+L 3425 0 
+L 2847 0 
+L 2847 2094 
+Q 2847 2600 2669 2842 
+Q 2491 3084 2119 3084 
+Q 1678 3084 1418 2786 
+Q 1159 2488 1159 1978 
+L 1159 0 
+L 581 0 
+L 581 3500 
+L 1159 3500 
+L 1159 2956 
+Q 1356 3278 1631 3431 
+Q 1906 3584 2284 3584 
+Q 2666 3584 2933 3390 
+Q 3200 3197 3328 2828 
+z
+" transform="scale(0.015625)"/>
+       <path id="hann-lobes-DejaVuSans-70" d="M 1159 525 
+L 1159 -1331 
+L 581 -1331 
+L 581 3500 
+L 1159 3500 
+L 1159 2969 
+Q 1341 3281 1617 3432 
+Q 1894 3584 2278 3584 
+Q 2916 3584 3314 3078 
+Q 3713 2572 3713 1747 
+Q 3713 922 3314 415 
+Q 2916 -91 2278 -91 
+Q 1894 -91 1617 61 
+Q 1341 213 1159 525 
+z
+M 3116 1747 
+Q 3116 2381 2855 2742 
+Q 2594 3103 2138 3103 
+Q 1681 3103 1420 2742 
+Q 1159 2381 1159 1747 
+Q 1159 1113 1420 752 
+Q 1681 391 2138 391 
+Q 2594 391 2855 752 
+Q 3116 1113 3116 1747 
+z
+" transform="scale(0.015625)"/>
+       <path id="hann-lobes-DejaVuSans-64" d="M 2906 2969 
+L 2906 4863 
+L 3481 4863 
+L 3481 0 
+L 2906 0 
+L 2906 525 
+Q 2725 213 2448 61 
+Q 2172 -91 1784 -91 
+Q 1150 -91 751 415 
+Q 353 922 353 1747 
+Q 353 2572 751 3078 
+Q 1150 3584 1784 3584 
+Q 2172 3584 2448 3432 
+Q 2725 3281 2906 2969 
+z
+M 947 1747 
+Q 947 1113 1208 752 
+Q 1469 391 1925 391 
+Q 2381 391 2643 752 
+Q 2906 1113 2906 1747 
+Q 2906 2381 2643 2742 
+Q 2381 3103 1925 3103 
+Q 1469 3103 1208 2742 
+Q 947 2381 947 1747 
+z
+" transform="scale(0.015625)"/>
+       <path id="hann-lobes-DejaVuSans-42" d="M 1259 2228 
+L 1259 519 
+L 2272 519 
+Q 2781 519 3026 730 
+Q 3272 941 3272 1375 
+Q 3272 1813 3026 2020 
+Q 2781 2228 2272 2228 
+L 1259 2228 
+z
+M 1259 4147 
+L 1259 2741 
+L 2194 2741 
+Q 2656 2741 2882 2914 
+Q 3109 3088 3109 3444 
+Q 3109 3797 2882 3972 
+Q 2656 4147 2194 4147 
+L 1259 4147 
+z
+M 628 4666 
+L 2241 4666 
+Q 2963 4666 3353 4366 
+Q 3744 4066 3744 3513 
+Q 3744 3084 3544 2831 
+Q 3344 2578 2956 2516 
+Q 3422 2416 3680 2098 
+Q 3938 1781 3938 1306 
+Q 3938 681 3513 340 
+Q 3088 0 2303 0 
+L 628 0 
+L 628 4666 
+z
+" transform="scale(0.015625)"/>
+      </defs>
+      <use xlink:href="#hann-lobes-DejaVuSans-66" transform="translate(0 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-72" transform="translate(35.205078 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-65" transform="translate(76.318359 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-71" transform="translate(137.841797 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-75" transform="translate(201.318359 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-65" transform="translate(264.697266 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-6e" transform="translate(326.220703 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-63" transform="translate(389.599609 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-79" transform="translate(444.580078 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-20" transform="translate(503.759766 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-6f" transform="translate(535.546875 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-66" transform="translate(596.728516 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-66" transform="translate(631.933594 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-73" transform="translate(667.138672 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-65" transform="translate(719.238281 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-74" transform="translate(780.761719 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-2c" transform="translate(819.970703 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-20" transform="translate(851.757812 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-69" transform="translate(883.544922 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-6e" transform="translate(911.328125 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-20" transform="translate(974.707031 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-75" transform="translate(1006.494141 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-6e" transform="translate(1069.873047 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-69" transform="translate(1133.251953 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-74" transform="translate(1161.035156 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-73" transform="translate(1200.244141 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-20" transform="translate(1252.34375 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-6f" transform="translate(1284.130859 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-66" transform="translate(1345.3125 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-20" transform="translate(1380.517578 0.015625)"/>
+      <use xlink:href="#hann-lobes-Cmmi10-66" transform="translate(1412.304688 0.015625)"/>
+      <use xlink:href="#hann-lobes-Cmmi10-73" transform="translate(1461.181641 -16.990625) scale(0.7)"/>
+      <use xlink:href="#hann-lobes-Cmmi10-3d" transform="translate(1500.303125 0.015625)"/>
+      <use xlink:href="#hann-lobes-Cmmi10-4c" transform="translate(1550.303125 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-20" transform="translate(1618.320703 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-2014" transform="translate(1650.107812 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-20" transform="translate(1750.107812 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-6c" transform="translate(1781.894922 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-69" transform="translate(1809.678125 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-6e" transform="translate(1837.461328 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-65" transform="translate(1900.840234 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-61" transform="translate(1962.363672 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-72" transform="translate(2023.642969 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-20" transform="translate(2064.75625 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-61" transform="translate(2096.543359 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-6d" transform="translate(2157.822656 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-70" transform="translate(2255.234766 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-6c" transform="translate(2318.711328 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-69" transform="translate(2346.494531 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-74" transform="translate(2374.277734 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-75" transform="translate(2413.486719 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-64" transform="translate(2476.865625 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-65" transform="translate(2540.342187 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-2c" transform="translate(2601.865625 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-20" transform="translate(2633.652734 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-6e" transform="translate(2665.439844 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-6f" transform="translate(2728.81875 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-74" transform="translate(2790.000391 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-20" transform="translate(2829.209375 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-64" transform="translate(2860.996484 0.015625)"/>
+      <use xlink:href="#hann-lobes-DejaVuSans-42" transform="translate(2924.473047 0.015625)"/>
+     </g>
+    </g>
+   </g>
+   <g id="hann-lobes-matplotlib.axis_2"/>
+   <g id="hann-lobes-line2d_19">
+    <path d="M 41.706899 119.096154 
+L 62.067743 123.459406 
+L 69.170363 124.721717 
+L 75.325967 125.603737 
+L 81.008062 126.20283 
+L 86.21665 126.545552 
+L 91.425238 126.673758 
+L 96.633826 126.576788 
+L 101.842414 126.250222 
+L 107.051002 125.696207 
+L 112.25959 124.923589 
+L 117.941686 123.849818 
+L 124.09729 122.447625 
+L 131.19991 120.582657 
+L 140.67007 117.836692 
+L 155.822326 113.422 
+L 162.451438 111.72549 
+L 168.133534 110.486891 
+L 173.342122 109.574297 
+L 178.077202 108.961098 
+L 182.812282 108.578 
+L 187.073854 108.445409 
+L 191.335426 108.524349 
+L 195.596998 108.821213 
+L 199.85857 109.338517 
+L 204.120142 110.07472 
+L 208.381714 111.024121 
+L 213.116794 112.316864 
+L 217.851874 113.840844 
+L 223.060462 115.753306 
+L 228.742558 118.072753 
+L 236.318686 121.430995 
+L 255.259006 129.96624 
+L 260.941102 132.198041 
+L 265.676182 133.819971 
+L 269.937754 135.048866 
+L 273.725818 135.927382 
+L 277.513882 136.579972 
+L 281.301946 136.984844 
+L 284.616501 137.120404 
+L 287.931057 137.039601 
+L 291.245613 136.732374 
+L 294.560169 136.190361 
+L 297.874725 135.407003 
+L 301.189281 134.37765 
+L 304.503837 133.099632 
+L 307.818393 131.572326 
+L 311.132949 129.797202 
+L 314.447505 127.777845 
+L 317.762061 125.519967 
+L 321.550125 122.657598 
+L 325.338189 119.508977 
+L 329.599761 115.647714 
+L 333.861333 111.478846 
+L 338.596413 106.530171 
+L 343.805001 100.766962 
+L 350.434113 93.076309 
+L 374.109513 65.217448 
+L 379.318101 59.636846 
+L 383.579673 55.372955 
+L 387.841245 51.434035 
+L 391.629309 48.242781 
+L 394.943865 45.714179 
+L 398.258421 43.450695 
+L 401.572977 41.468533 
+L 404.414025 40.004295 
+L 407.255073 38.764986 
+L 410.096121 37.757175 
+L 412.937169 36.986216 
+L 415.778217 36.456209 
+L 418.619265 36.169973 
+L 421.460313 36.129034 
+L 424.301361 36.333609 
+L 427.142409 36.782609 
+L 429.983457 37.473643 
+L 432.824505 38.403037 
+L 435.665553 39.565851 
+L 438.506601 40.955917 
+L 441.347649 42.565873 
+L 444.662205 44.710663 
+L 447.976761 47.127748 
+L 451.291317 49.79986 
+L 455.079381 53.141521 
+L 459.340953 57.230757 
+L 463.602525 61.623433 
+L 468.811113 67.330339 
+L 474.966717 74.428694 
+L 484.910384 86.299478 
+L 494.854052 98.058053 
+L 501.009656 104.98848 
+L 506.218244 110.514205 
+L 510.953324 115.199077 
+L 515.214896 119.096154 
+L 519.00296 122.279329 
+L 522.791024 125.178371 
+L 526.579088 127.777845 
+L 529.893644 129.797202 
+L 533.2082 131.572326 
+L 536.522756 133.099632 
+L 539.837312 134.37765 
+L 543.151868 135.407003 
+L 546.466424 136.190361 
+L 549.78098 136.732374 
+L 553.095536 137.039601 
+L 556.410092 137.120404 
+L 559.724648 136.984844 
+L 563.039204 136.644553 
+L 566.827268 136.021777 
+L 570.615332 135.170244 
+L 574.876904 133.968057 
+L 579.611984 132.370999 
+L 584.820572 130.35628 
+L 590.976176 127.721445 
+L 600.919844 123.173142 
+L 611.33702 118.47866 
+L 617.492624 115.938079 
+L 622.701212 114.005018 
+L 627.436292 112.459235 
+L 632.171372 111.142381 
+L 636.432944 110.169826 
+L 640.694516 109.409575 
+L 644.956088 108.867798 
+L 649.21766 108.546492 
+L 653.479232 108.443585 
+L 657.740804 108.553104 
+L 662.475884 108.91209 
+L 667.210964 109.503248 
+L 672.419552 110.394495 
+L 678.101648 111.613791 
+L 684.257252 113.166204 
+L 692.306887 115.441065 
+L 713.614747 121.605577 
+L 720.243859 123.231019 
+L 726.399463 124.504088 
+L 732.081559 125.439874 
+L 737.290147 126.074758 
+L 742.498735 126.484632 
+L 747.707323 126.66492 
+L 752.915911 126.617683 
+L 758.124499 126.351357 
+L 763.806595 125.828011 
+L 769.962199 125.016526 
+L 776.591311 123.905024 
+L 784.640947 122.310643 
+L 798.372679 119.304091 
+L 799.319695 119.096154 
+L 799.319695 119.096154 
+" clip-path="url(#hann-lobes-p3fcf9c03a3)" style="fill: none; stroke: #6b7280; stroke-width: 2.2; stroke-linecap: square"/>
+   </g>
+   <g id="hann-lobes-frag1-15" class="fragment" data-fragment-index="1">
+    <path d="M 41.706899 119.096154 
+L 65.382299 121.062179 
+L 75.799475 121.671557 
+L 84.796126 121.972951 
+L 93.31927 122.031068 
+L 101.368906 121.869747 
+L 109.89205 121.473727 
+L 118.888702 120.828731 
+L 129.305878 119.852734 
+L 147.77269 117.843126 
+L 160.557406 116.563671 
+L 169.554058 115.872224 
+L 177.603694 115.468552 
+L 185.179822 115.310748 
+L 192.282442 115.376973 
+L 199.385062 115.656321 
+L 206.96119 116.182436 
+L 215.010826 116.975394 
+L 224.007478 118.093531 
+L 236.792194 119.937891 
+L 253.364974 122.310744 
+L 261.888118 123.305742 
+L 268.990738 123.927082 
+L 275.61985 124.293066 
+L 281.775453 124.421526 
+L 287.931057 124.329659 
+L 294.086661 124.009148 
+L 300.242265 123.46028 
+L 306.397869 122.692358 
+L 313.026981 121.641722 
+L 320.603109 120.201085 
+L 329.599761 118.251638 
+L 353.275161 112.99357 
+L 359.904273 111.809648 
+L 365.586369 111.000025 
+L 370.794957 110.462654 
+L 376.003545 110.151809 
+L 380.738625 110.087785 
+L 385.473705 110.249 
+L 390.208785 110.648525 
+L 394.470357 111.21966 
+L 398.731929 111.995493 
+L 402.993501 112.977306 
+L 407.728581 114.307795 
+L 412.463661 115.884247 
+L 417.198741 117.695923 
+L 422.407329 119.942339 
+L 427.615917 122.429198 
+L 433.298013 125.379145 
+L 439.927125 129.070531 
+L 448.923777 134.359761 
+L 465.970065 144.443729 
+L 472.599177 148.083269 
+L 478.281273 150.957753 
+L 483.489861 153.340459 
+L 488.22494 155.261024 
+L 492.486512 156.765639 
+L 496.748084 158.039637 
+L 501.009656 159.067898 
+L 504.79772 159.765643 
+L 508.585784 160.252926 
+L 512.373848 160.525142 
+L 516.161912 160.579714 
+L 519.949976 160.416126 
+L 523.73804 160.035928 
+L 527.526104 159.442712 
+L 531.314168 158.642083 
+L 535.57574 157.502919 
+L 539.837312 156.124395 
+L 544.098884 154.52284 
+L 548.833964 152.504802 
+L 554.042552 150.028852 
+L 559.724648 147.071021 
+L 566.35376 143.360339 
+L 575.82392 137.767825 
+L 590.976176 128.799606 
+L 598.078796 124.872181 
+L 604.2344 121.728821 
+L 609.442988 119.30464 
+L 614.651576 117.128536 
+L 619.386656 115.38604 
+L 624.121736 113.882448 
+L 628.856816 112.627185 
+L 633.118388 111.714001 
+L 637.37996 111.006682 
+L 641.641532 110.503014 
+L 646.376612 110.176138 
+L 651.111692 110.084029 
+L 655.846772 110.212559 
+L 661.05536 110.587933 
+L 666.263948 111.182068 
+L 671.946044 112.043758 
+L 678.575156 113.274398 
+L 687.098299 115.101204 
+L 713.141239 120.859111 
+L 720.243859 122.11852 
+L 726.872971 123.07304 
+L 733.028575 123.7416 
+L 739.184179 124.185676 
+L 745.339783 124.400161 
+L 751.495387 124.388807 
+L 757.650991 124.163682 
+L 764.280103 123.704748 
+L 771.856231 122.946862 
+L 780.852883 121.803455 
+L 795.058123 119.725885 
+L 799.319695 119.096154 
+L 799.319695 119.096154 
+" clip-path="url(#hann-lobes-p3fcf9c03a3)" style="fill: none; stroke-dasharray: 7.4,3.2; stroke-dashoffset: 0; stroke: #b45309; stroke-width: 2"/>
+   </g>
+   <g id="hann-lobes-frag1-16" class="fragment" data-fragment-index="1">
+    <path d="M 41.706899 119.096154 
+L 67.276331 122.724933 
+L 75.325967 123.580112 
+L 82.428586 124.111227 
+L 89.057698 124.378874 
+L 95.213302 124.407201 
+L 101.368906 124.210332 
+L 107.52451 123.78385 
+L 113.680114 123.13217 
+L 120.309226 122.194222 
+L 127.411846 120.949773 
+L 135.461482 119.30254 
+L 147.299182 116.619617 
+L 160.557406 113.661111 
+L 168.133534 112.206158 
+L 174.289138 111.245896 
+L 179.971234 110.587933 
+L 185.179822 110.212559 
+L 189.914902 110.084029 
+L 194.649982 110.176138 
+L 199.385062 110.503014 
+L 203.646634 111.006682 
+L 207.908206 111.714001 
+L 212.169778 112.627185 
+L 216.904858 113.882448 
+L 221.639938 115.38604 
+L 226.375018 117.128536 
+L 231.110098 119.096154 
+L 236.318686 121.49894 
+L 242.000782 124.371037 
+L 248.629894 127.992883 
+L 256.67953 132.666793 
+L 279.407914 146.035507 
+L 285.563517 149.312377 
+L 290.772105 151.854536 
+L 295.507185 153.942622 
+L 300.242265 155.787141 
+L 304.503837 157.216733 
+L 308.765409 158.41036 
+L 313.026981 159.35384 
+L 316.815045 159.973329 
+L 320.603109 160.380393 
+L 324.391173 160.571184 
+L 328.179237 160.543896 
+L 331.967301 160.298787 
+L 335.755365 159.838177 
+L 339.543429 159.166419 
+L 343.805001 158.166272 
+L 348.066573 156.918883 
+L 352.328145 155.439061 
+L 357.063225 153.54357 
+L 361.798305 151.41029 
+L 367.006893 148.825808 
+L 373.162497 145.509753 
+L 380.738625 141.151126 
+L 406.781565 125.891696 
+L 412.937169 122.666151 
+L 418.619265 119.942339 
+L 423.827853 117.695923 
+L 428.562933 115.884247 
+L 433.298013 114.307795 
+L 438.033093 112.977306 
+L 442.768173 111.899116 
+L 447.029745 111.146143 
+L 451.291317 110.597552 
+L 456.026397 110.222342 
+L 460.761477 110.084298 
+L 465.496557 110.169993 
+L 470.705145 110.502567 
+L 475.913733 111.059109 
+L 481.595829 111.886385 
+L 488.22494 113.086248 
+L 496.274576 114.783508 
+L 525.632072 121.216364 
+L 532.734692 122.414613 
+L 539.363804 123.301985 
+L 545.519408 123.902563 
+L 551.675012 124.276121 
+L 557.830616 124.420318 
+L 563.98622 124.341537 
+L 570.615332 124.024091 
+L 577.717952 123.446983 
+L 585.767588 122.551218 
+L 595.711256 121.19993 
+L 623.648228 117.248717 
+L 632.171372 116.348599 
+L 639.7475 115.766338 
+L 646.85012 115.43066 
+L 653.95274 115.307685 
+L 661.528868 115.407848 
+L 669.104996 115.730225 
+L 677.62814 116.321729 
+L 687.571807 117.243652 
+L 704.618095 119.096154 
+L 718.823335 120.540916 
+L 728.767003 121.325096 
+L 737.290147 121.782394 
+L 745.813291 122.01214 
+L 753.862927 122.012247 
+L 762.386071 121.791604 
+L 771.856231 121.311742 
+L 782.746915 120.526316 
+L 799.319695 119.096154 
+L 799.319695 119.096154 
+" clip-path="url(#hann-lobes-p3fcf9c03a3)" style="fill: none; stroke-dasharray: 7.4,3.2; stroke-dashoffset: 0; stroke: #b45309; stroke-width: 2"/>
+   </g>
+   <g id="hann-lobes-frag2-19" class="fragment" data-fragment-index="2">
+    <path d="M 41.706899 119.096154 
+L 60.647219 127.571475 
+L 66.329315 129.789179 
+L 71.064395 131.40617 
+L 75.325967 132.640994 
+L 79.587538 133.635614 
+L 83.375602 134.296739 
+L 87.163666 134.731755 
+L 90.95173 134.928235 
+L 94.739794 134.877089 
+L 98.05435 134.62476 
+L 101.842414 134.097298 
+L 105.630478 133.316383 
+L 109.418542 132.287418 
+L 113.206606 131.019707 
+L 116.99467 129.526407 
+L 121.256242 127.598 
+L 125.991322 125.181783 
+L 131.19991 122.247547 
+L 137.355514 118.506243 
+L 158.663374 105.270305 
+L 163.398454 102.719199 
+L 167.660026 100.676636 
+L 171.44809 99.104006 
+L 174.762646 97.942128 
+L 178.077202 97.001091 
+L 181.391758 96.299009 
+L 184.706314 95.851951 
+L 187.547362 95.682264 
+L 190.38841 95.717388 
+L 193.229458 95.963181 
+L 196.070506 96.424026 
+L 198.911554 97.102771 
+L 201.752602 98.000674 
+L 204.59365 99.117372 
+L 207.434698 100.450846 
+L 210.749254 102.275539 
+L 214.06381 104.381485 
+L 217.378366 106.756892 
+L 220.692922 109.386953 
+L 224.480986 112.681677 
+L 228.742558 116.719289 
+L 233.477638 121.556527 
+L 238.686226 127.212192 
+L 245.788846 135.280803 
+L 258.573562 149.849803 
+L 263.78215 155.416486 
+L 268.043722 159.663668 
+L 271.831786 163.14182 
+L 275.146342 165.914643 
+L 278.460898 168.401539 
+L 281.301946 170.282864 
+L 284.142993 171.914578 
+L 286.984041 173.28049 
+L 289.825089 174.365881 
+L 292.192629 175.046564 
+L 294.560169 175.516596 
+L 296.927709 175.770137 
+L 299.295249 175.802247 
+L 301.662789 175.608914 
+L 304.030329 175.187086 
+L 306.397869 174.534689 
+L 308.765409 173.650652 
+L 311.132949 172.534918 
+L 313.500489 171.188457 
+L 315.868029 169.613267 
+L 318.709077 167.425454 
+L 321.550125 164.919869 
+L 324.391173 162.105794 
+L 327.232221 158.994572 
+L 330.546777 155.007169 
+L 333.861333 150.658086 
+L 337.649397 145.280808 
+L 341.437461 139.514496 
+L 345.699033 132.626988 
+L 350.907621 123.747044 
+L 357.536733 111.948682 
+L 373.636005 83.057893 
+L 378.844593 74.285462 
+L 383.106165 67.527226 
+L 386.894229 61.913743 
+L 390.208785 57.353927 
+L 393.523341 53.160779 
+L 396.364389 49.883974 
+L 399.205437 46.920522 
+L 402.046485 44.287909 
+L 404.414025 42.358074 
+L 406.781565 40.676765 
+L 409.149105 39.250901 
+L 411.516645 38.086356 
+L 413.884185 37.187931 
+L 416.251725 36.559333 
+L 418.619265 36.203157 
+L 420.986805 36.120872 
+L 423.354345 36.312818 
+L 425.721885 36.778202 
+L 428.089425 37.515105 
+L 430.456965 38.520484 
+L 432.824505 39.790193 
+L 435.192045 41.319 
+L 437.559585 43.100607 
+L 439.927125 45.127685 
+L 442.768173 47.872405 
+L 445.609221 50.942342 
+L 448.450269 54.319396 
+L 451.764825 58.620855 
+L 455.079381 63.278876 
+L 458.867445 68.991268 
+L 463.129017 75.842652 
+L 467.864097 83.878022 
+L 474.019701 94.783889 
+L 492.486512 127.837637 
+L 497.221592 135.735798 
+L 501.483164 142.443158 
+L 505.271228 148.021123 
+L 509.059292 153.186011 
+L 512.373848 157.331626 
+L 515.688404 161.101118 
+L 518.529452 164.015603 
+L 521.3705 166.625152 
+L 524.211548 168.919791 
+L 527.052596 170.891636 
+L 529.420136 172.284035 
+L 531.787676 173.446025 
+L 534.155216 174.376429 
+L 536.522756 175.075101 
+L 538.890296 175.542909 
+L 541.257836 175.781727 
+L 543.625376 175.794415 
+L 545.992916 175.584794 
+L 548.360456 175.157622 
+L 550.727996 174.51856 
+L 553.095536 173.674138 
+L 555.936584 172.400174 
+L 558.777632 170.855331 
+L 561.61868 169.055325 
+L 564.933236 166.655708 
+L 568.247792 163.961408 
+L 572.035856 160.561619 
+L 575.82392 156.867302 
+L 580.559 151.914073 
+L 586.241096 145.616211 
+L 597.605288 132.562176 
+L 604.707908 124.604795 
+L 609.916496 119.096154 
+L 614.178068 114.884408 
+L 618.43964 110.997471 
+L 622.227704 107.853847 
+L 625.54226 105.367316 
+L 628.856816 103.144266 
+L 632.171372 101.197788 
+L 635.485928 99.537924 
+L 638.326976 98.348662 
+L 641.168024 97.377705 
+L 644.009072 96.625968 
+L 646.85012 96.092728 
+L 649.691168 95.775663 
+L 652.532216 95.670896 
+L 655.373264 95.773052 
+L 658.214312 96.075327 
+L 661.528868 96.669953 
+L 664.843424 97.510684 
+L 668.15798 98.580256 
+L 671.946044 100.058149 
+L 675.734108 101.778524 
+L 679.99568 103.961785 
+L 684.73076 106.635763 
+L 690.886363 110.38661 
+L 711.720715 123.343796 
+L 716.929303 126.18008 
+L 721.190875 128.268429 
+L 725.452447 130.111837 
+L 729.240511 131.522325 
+L 733.028575 132.701843 
+L 736.816639 133.63867 
+L 740.604703 134.324964 
+L 744.392767 134.756781 
+L 748.180831 134.934047 
+L 751.968895 134.860461 
+L 755.756959 134.543363 
+L 759.545023 133.99354 
+L 763.333087 133.224993 
+L 767.594659 132.120129 
+L 771.856231 130.788013 
+L 776.591311 129.079933 
+L 782.273407 126.77874 
+L 789.376027 123.644396 
+L 799.319695 119.096154 
+L 799.319695 119.096154 
+" clip-path="url(#hann-lobes-p3fcf9c03a3)" style="fill: none; stroke: #0b5cad; stroke-width: 3; stroke-linecap: square"/>
+   </g>
+   <g id="hann-lobes-frag2-21" class="fragment" data-fragment-index="2">
+    <defs>
+     <path id="hann-lobes-mc3dd49993a" d="M 0 5 
+C 1.326016 5 2.597899 4.473168 3.535534 3.535534 
+C 4.473168 2.597899 5 1.326016 5 0 
+C 5 -1.326016 4.473168 -2.597899 3.535534 -3.535534 
+C 2.597899 -4.473168 1.326016 -5 0 -5 
+C -1.326016 -5 -2.597899 -4.473168 -3.535534 -3.535534 
+C -4.473168 -2.597899 -5 -1.326016 -5 0 
+C -5 1.326016 -4.473168 2.597899 -3.535534 3.535534 
+C -2.597899 4.473168 -1.326016 5 0 5 
+z
+" style="stroke: #0b5cad"/>
+    </defs>
+    <g clip-path="url(#hann-lobes-p3fcf9c03a3)">
+     <use xlink:href="#hann-lobes-mc3dd49993a" x="231.110098" y="119.096154" style="fill: #0b5cad; stroke: #0b5cad"/>
+     <use xlink:href="#hann-lobes-mc3dd49993a" x="609.916496" y="119.096154" style="fill: #0b5cad; stroke: #0b5cad"/>
+    </g>
+   </g>
+   <g id="hann-lobes-line2d_20">
+    <path d="M 41.706899 119.096154 
+L 799.319695 119.096154 
+" clip-path="url(#hann-lobes-p3fcf9c03a3)" style="fill: none; stroke: #6b7280; stroke-width: 0.8; stroke-linecap: square"/>
+   </g>
+   <g id="hann-lobes-patch_3">
+    <path d="M 41.706899 188.8 
+L 41.706899 16.2 
+" style="fill: none; stroke: #6b7280; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="hann-lobes-patch_4">
+    <path d="M 41.706899 188.8 
+L 799.319695 188.8 
+" style="fill: none; stroke: #6b7280; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="hann-lobes-text_11">
+    <!-- $\frac{1}{2}\,D(f)\ \ \mathsf{(rectangular\ window)}$ -->
+    <g style="fill: #6b7280" transform="translate(49.283027 39.415385) scale(0.15 -0.15)">
+     <defs>
+      <path id="hann-lobes-Cmr10-31" d="M 594 0 
+L 594 225 
+Q 1394 225 1394 428 
+L 1394 3788 
+Q 1063 3628 556 3628 
+L 556 3853 
+Q 1341 3853 1741 4263 
+L 1831 4263 
+Q 1853 4263 1873 4245 
+Q 1894 4228 1894 4206 
+L 1894 428 
+Q 1894 225 2694 225 
+L 2694 0 
+L 594 0 
+z
+" transform="scale(0.015625)"/>
+      <path id="hann-lobes-Cmmi10-44" d="M 313 0 
+Q 250 0 250 84 
+Q 253 100 262 139 
+Q 272 178 289 201 
+Q 306 225 331 225 
+Q 722 225 878 269 
+Q 959 297 997 441 
+L 1875 3956 
+Q 1888 4019 1888 4044 
+Q 1888 4113 1813 4122 
+Q 1691 4147 1350 4147 
+Q 1288 4147 1288 4231 
+Q 1291 4247 1300 4286 
+Q 1309 4325 1326 4348 
+Q 1344 4372 1369 4372 
+L 3669 4372 
+Q 4116 4372 4450 4155 
+Q 4784 3938 4962 3570 
+Q 5141 3203 5141 2759 
+Q 5141 2269 4937 1778 
+Q 4734 1288 4368 881 
+Q 4003 475 3534 237 
+Q 3066 0 2572 0 
+L 313 0 
+z
+M 1509 275 
+Q 1509 225 1728 225 
+L 2472 225 
+Q 2828 225 3159 372 
+Q 3491 519 3750 775 
+Q 3991 1016 4175 1406 
+Q 4359 1797 4461 2222 
+Q 4563 2647 4563 3003 
+Q 4563 3263 4486 3472 
+Q 4409 3681 4270 3831 
+Q 4131 3981 3922 4064 
+Q 3713 4147 3450 4147 
+L 2747 4147 
+Q 2572 4147 2515 4117 
+Q 2459 4088 2413 3928 
+L 1538 416 
+Q 1509 338 1509 275 
+z
+" transform="scale(0.015625)"/>
+      <path id="hann-lobes-Cmr10-28" d="M 1984 -1588 
+Q 1628 -1306 1370 -942 
+Q 1113 -578 948 -165 
+Q 784 247 703 697 
+Q 622 1147 622 1600 
+Q 622 2059 703 2509 
+Q 784 2959 951 3375 
+Q 1119 3791 1378 4153 
+Q 1638 4516 1984 4788 
+Q 1984 4800 2016 4800 
+L 2075 4800 
+Q 2094 4800 2109 4783 
+Q 2125 4766 2125 4744 
+Q 2125 4716 2113 4703 
+Q 1800 4397 1592 4047 
+Q 1384 3697 1257 3301 
+Q 1131 2906 1075 2482 
+Q 1019 2059 1019 1600 
+Q 1019 -434 2106 -1491 
+Q 2125 -1509 2125 -1544 
+Q 2125 -1559 2108 -1579 
+Q 2091 -1600 2075 -1600 
+L 2016 -1600 
+Q 1984 -1600 1984 -1588 
+z
+" transform="scale(0.015625)"/>
+      <path id="hann-lobes-Cmr10-29" d="M 416 -1600 
+Q 359 -1600 359 -1544 
+Q 359 -1516 372 -1503 
+Q 1466 -434 1466 1600 
+Q 1466 3634 384 4691 
+Q 359 4706 359 4744 
+Q 359 4766 376 4783 
+Q 394 4800 416 4800 
+L 475 4800 
+Q 494 4800 506 4788 
+Q 966 4425 1272 3906 
+Q 1578 3388 1720 2800 
+Q 1863 2213 1863 1600 
+Q 1863 1147 1786 708 
+Q 1709 269 1542 -157 
+Q 1375 -584 1119 -945 
+Q 863 -1306 506 -1588 
+Q 494 -1600 475 -1600 
+L 416 -1600 
+z
+" transform="scale(0.015625)"/>
+      <path id="hann-lobes-Cmss10-72" d="M 513 0 
+L 513 2881 
+L 984 2881 
+L 984 2328 
+Q 1109 2503 1287 2637 
+Q 1466 2772 1670 2842 
+Q 1875 2913 2094 2913 
+L 2094 2456 
+Q 1809 2456 1561 2315 
+Q 1313 2175 1166 1933 
+Q 1019 1691 1019 1403 
+L 1019 0 
+L 513 0 
+z
+" transform="scale(0.015625)"/>
+      <path id="hann-lobes-Cmss10-65" d="M 1594 -72 
+Q 1300 -72 1044 51 
+Q 788 175 602 390 
+Q 416 606 314 882 
+Q 213 1159 213 1441 
+Q 213 1806 373 2159 
+Q 534 2513 831 2731 
+Q 1128 2950 1503 2950 
+Q 2116 2950 2386 2500 
+Q 2656 2050 2656 1403 
+L 684 1403 
+Q 684 1150 801 904 
+Q 919 659 1130 503 
+Q 1341 347 1594 347 
+Q 2150 347 2584 691 
+L 2625 256 
+Q 2491 122 2162 25 
+Q 1834 -72 1594 -72 
+z
+M 722 1778 
+L 2259 1778 
+Q 2209 2103 2015 2318 
+Q 1822 2534 1503 2534 
+Q 1316 2534 1150 2426 
+Q 984 2319 876 2145 
+Q 769 1972 722 1778 
+z
+" transform="scale(0.015625)"/>
+      <path id="hann-lobes-Cmss10-63" d="M 1594 -72 
+Q 1309 -72 1053 50 
+Q 797 172 609 386 
+Q 422 600 320 870 
+Q 219 1141 219 1422 
+Q 219 1713 320 1988 
+Q 422 2263 608 2480 
+Q 794 2697 1044 2823 
+Q 1294 2950 1594 2950 
+Q 1934 2950 2136 2897 
+Q 2338 2844 2625 2675 
+L 2547 2228 
+Q 2288 2403 2102 2459 
+Q 1916 2516 1594 2516 
+Q 1322 2516 1126 2355 
+Q 931 2194 837 1945 
+Q 744 1697 744 1422 
+Q 744 1163 842 919 
+Q 941 675 1134 520 
+Q 1328 366 1594 366 
+Q 1894 366 2139 448 
+Q 2384 531 2619 697 
+L 2656 250 
+Q 2513 106 2183 17 
+Q 1853 -72 1594 -72 
+z
+" transform="scale(0.015625)"/>
+      <path id="hann-lobes-Cmss10-74" d="M 1141 -72 
+Q 859 -72 753 211 
+Q 647 494 647 831 
+L 647 2444 
+L 122 2444 
+L 122 2841 
+L 666 2841 
+L 666 3653 
+L 1131 3653 
+L 1131 2841 
+L 2022 2841 
+L 2022 2444 
+L 1131 2444 
+L 1131 916 
+Q 1131 366 1428 366 
+Q 1756 366 2016 569 
+L 2125 166 
+Q 1884 47 1646 -12 
+Q 1409 -72 1141 -72 
+z
+" transform="scale(0.015625)"/>
+      <path id="hann-lobes-Cmss10-61" d="M 972 -72 
+Q 766 -72 605 48 
+Q 444 169 356 359 
+Q 269 550 269 763 
+Q 269 1072 580 1256 
+Q 891 1441 1305 1511 
+Q 1719 1581 2041 1581 
+L 2041 1881 
+Q 2041 2128 1900 2337 
+Q 1759 2547 1522 2547 
+Q 1225 2547 1000 2473 
+Q 775 2400 531 2222 
+L 494 2675 
+Q 753 2825 987 2887 
+Q 1222 2950 1522 2950 
+Q 1806 2950 2047 2801 
+Q 2288 2653 2427 2408 
+Q 2566 2163 2566 1881 
+L 2566 0 
+L 2059 0 
+L 2059 238 
+Q 1859 84 1576 6 
+Q 1294 -72 972 -72 
+z
+M 756 763 
+Q 756 566 937 456 
+Q 1119 347 1331 347 
+Q 1600 347 1820 467 
+Q 2041 588 2041 831 
+L 2041 1228 
+Q 1641 1228 1198 1125 
+Q 756 1022 756 763 
+z
+" transform="scale(0.015625)"/>
+      <path id="hann-lobes-Cmss10-6e" d="M 506 0 
+L 506 2881 
+L 991 2881 
+L 991 2444 
+Q 1163 2666 1402 2789 
+Q 1641 2913 1913 2913 
+Q 2391 2913 2594 2645 
+Q 2797 2378 2797 1881 
+L 2797 0 
+L 2272 0 
+L 2272 1881 
+Q 2272 2200 2114 2348 
+Q 1956 2497 1638 2497 
+Q 1425 2497 1289 2355 
+Q 1153 2213 1092 2005 
+Q 1031 1797 1031 1588 
+L 1031 0 
+L 506 0 
+z
+" transform="scale(0.015625)"/>
+      <path id="hann-lobes-Cmss10-67" d="M 178 -453 
+Q 178 -256 283 -82 
+Q 388 91 569 206 
+Q 403 413 403 691 
+Q 403 972 594 1234 
+Q 384 1516 384 1869 
+Q 384 2081 467 2273 
+Q 550 2466 690 2606 
+Q 831 2747 1018 2830 
+Q 1206 2913 1422 2913 
+Q 1591 2913 1762 2852 
+Q 1934 2791 2069 2681 
+L 2028 2713 
+Q 2078 2763 2275 2809 
+Q 2472 2856 2701 2884 
+Q 2931 2913 3028 2913 
+L 3103 2484 
+Q 2906 2509 2663 2509 
+Q 2463 2509 2259 2491 
+L 2209 2541 
+Q 2450 2250 2450 1869 
+Q 2450 1584 2309 1343 
+Q 2169 1103 1931 961 
+Q 1694 819 1422 819 
+Q 1100 819 831 1006 
+Q 775 891 775 781 
+Q 775 650 853 551 
+Q 931 453 1056 453 
+L 1600 453 
+Q 2213 453 2614 270 
+Q 3016 88 3016 -453 
+Q 3016 -675 2870 -844 
+Q 2725 -1013 2503 -1117 
+Q 2281 -1222 2040 -1270 
+Q 1800 -1319 1600 -1319 
+Q 1309 -1319 979 -1226 
+Q 650 -1134 414 -937 
+Q 178 -741 178 -453 
+z
+M 653 -453 
+Q 653 -694 975 -811 
+Q 1297 -928 1600 -928 
+Q 1759 -928 1981 -883 
+Q 2203 -838 2372 -731 
+Q 2541 -625 2541 -453 
+Q 2541 -181 2259 -106 
+Q 1978 -31 1600 -31 
+L 1056 -31 
+Q 888 -31 770 -157 
+Q 653 -284 653 -453 
+z
+M 1422 1209 
+Q 1691 1209 1834 1396 
+Q 1978 1584 1978 1869 
+Q 1978 2150 1836 2336 
+Q 1694 2522 1422 2522 
+Q 1144 2522 1000 2333 
+Q 856 2144 856 1869 
+Q 856 1591 1003 1400 
+Q 1150 1209 1422 1209 
+z
+" transform="scale(0.015625)"/>
+      <path id="hann-lobes-Cmss10-75" d="M 1147 -72 
+Q 906 -72 765 26 
+Q 625 125 565 297 
+Q 506 469 506 703 
+L 506 2841 
+L 1031 2841 
+L 1031 703 
+Q 1031 519 1093 436 
+Q 1156 353 1267 329 
+Q 1378 306 1563 306 
+Q 1841 306 2056 484 
+Q 2272 663 2272 934 
+L 2272 2841 
+L 2797 2841 
+L 2797 0 
+L 2291 0 
+L 2291 294 
+Q 2094 119 1786 23 
+Q 1478 -72 1147 -72 
+z
+" transform="scale(0.015625)"/>
+      <path id="hann-lobes-Cmss10-6c" d="M 506 0 
+L 506 4441 
+L 1013 4441 
+L 1013 0 
+L 506 0 
+z
+" transform="scale(0.015625)"/>
+      <path id="hann-lobes-Cmss10-77" d="M 959 0 
+L 91 2841 
+L 603 2841 
+Q 897 1869 1078 1219 
+Q 1259 569 1259 347 
+Q 1263 463 1323 731 
+Q 1384 1000 1470 1308 
+Q 1556 1616 1670 1995 
+Q 1784 2375 1925 2841 
+L 2400 2841 
+Q 2641 2059 2755 1681 
+Q 2869 1303 2980 889 
+Q 3091 475 3091 347 
+Q 3094 509 3284 1179 
+Q 3475 1850 3781 2841 
+L 4275 2841 
+L 3406 0 
+L 2822 0 
+Q 2163 2122 2156 2497 
+Q 2156 2272 1964 1589 
+Q 1772 906 1491 0 
+L 959 0 
+z
+" transform="scale(0.015625)"/>
+      <path id="hann-lobes-Cmss10-69" d="M 506 0 
+L 506 2841 
+L 1013 2841 
+L 1013 0 
+L 506 0 
+z
+M 459 3756 
+L 459 4353 
+L 1056 4353 
+L 1056 3756 
+L 459 3756 
+z
+" transform="scale(0.015625)"/>
+      <path id="hann-lobes-Cmss10-64" d="M 1300 -72 
+Q 959 -72 712 161 
+Q 466 394 342 741 
+Q 219 1088 219 1422 
+Q 219 1675 291 1933 
+Q 363 2191 500 2414 
+Q 638 2638 847 2775 
+Q 1056 2913 1319 2913 
+Q 1591 2913 1842 2822 
+Q 2094 2731 2284 2572 
+L 2284 4441 
+L 2791 4441 
+L 2791 0 
+L 2266 0 
+L 2266 319 
+Q 2059 128 1818 28 
+Q 1578 -72 1300 -72 
+z
+M 1594 347 
+Q 1806 347 1984 465 
+Q 2163 584 2266 781 
+L 2266 2163 
+Q 2166 2316 2006 2406 
+Q 1847 2497 1672 2497 
+Q 1372 2497 1161 2350 
+Q 950 2203 847 1958 
+Q 744 1713 744 1422 
+Q 744 981 959 664 
+Q 1175 347 1594 347 
+z
+" transform="scale(0.015625)"/>
+      <path id="hann-lobes-Cmss10-6f" d="M 1600 -72 
+Q 1203 -72 878 133 
+Q 553 338 365 680 
+Q 178 1022 178 1403 
+Q 178 1697 284 1976 
+Q 391 2256 580 2476 
+Q 769 2697 1033 2823 
+Q 1297 2950 1600 2950 
+Q 1900 2950 2161 2825 
+Q 2422 2700 2615 2476 
+Q 2809 2253 2912 1975 
+Q 3016 1697 3016 1403 
+Q 3016 1022 2830 680 
+Q 2644 338 2317 133 
+Q 1991 -72 1600 -72 
+z
+M 1600 366 
+Q 1894 366 2095 525 
+Q 2297 684 2394 940 
+Q 2491 1197 2491 1478 
+Q 2491 1753 2389 1995 
+Q 2288 2238 2086 2386 
+Q 1884 2534 1600 2534 
+Q 1313 2534 1111 2387 
+Q 909 2241 806 1997 
+Q 703 1753 703 1478 
+Q 703 1278 756 1079 
+Q 809 881 926 714 
+Q 1044 547 1214 456 
+Q 1384 366 1600 366 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#hann-lobes-Cmr10-31" transform="translate(0 38.373438) scale(0.7)"/>
+     <use xlink:href="#hann-lobes-Cmr10-32" transform="translate(0 -39.503125) scale(0.7)"/>
+     <use xlink:href="#hann-lobes-Cmmi10-44" transform="translate(62.132454 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmr10-28" transform="translate(144.847298 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmmi10-66" transform="translate(183.665657 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmr10-29" transform="translate(232.54261 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmr10-28" transform="translate(329.88903 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmss10-72" transform="translate(368.70739 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmss10-65" transform="translate(402.789421 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmss10-63" transform="translate(447.174187 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmss10-74" transform="translate(491.558952 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmss10-61" transform="translate(527.642937 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmss10-6e" transform="translate(575.640983 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmss10-67" transform="translate(627.252312 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmss10-75" transform="translate(677.252312 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmss10-6c" transform="translate(728.86364 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmss10-61" transform="translate(752.642937 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmss10-72" transform="translate(800.640983 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmss10-77" transform="translate(863.987045 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmss10-69" transform="translate(932.297592 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmss10-6e" transform="translate(956.076889 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmss10-64" transform="translate(1007.688217 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmss10-6f" transform="translate(1059.299545 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmss10-77" transform="translate(1109.299545 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmr10-29" transform="translate(1177.610092 0.873437)"/>
+     <path d="M 0 13.373437 
+L 0 19.623437 
+L 35 19.623437 
+L 35 13.373437 
+L 0 13.373437 
+z
+"/>
+    </g>
+   </g>
+   <g id="hann-lobes-frag1-17" class="fragment" data-fragment-index="1">
+    <!-- $-\frac{1}{4}\,D(f - f_s/L)$ -->
+    <g style="fill: #b45309" transform="translate(691.543567 172.184615) scale(0.15 -0.15)">
+     <use xlink:href="#hann-lobes-Cmsy10-a1" transform="translate(0 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmr10-31" transform="translate(77.685547 38.373438) scale(0.7)"/>
+     <use xlink:href="#hann-lobes-Cmr10-34" transform="translate(77.685547 -39.503125) scale(0.7)"/>
+     <use xlink:href="#hann-lobes-Cmmi10-44" transform="translate(139.818001 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmr10-28" transform="translate(222.532845 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmmi10-66" transform="translate(261.351204 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmsy10-a1" transform="translate(327.786751 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmmi10-66" transform="translate(423.030892 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmmi10-73" transform="translate(471.907845 -16.132812) scale(0.7)"/>
+     <use xlink:href="#hann-lobes-Cmmi10-3d" transform="translate(511.029329 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmmi10-4c" transform="translate(561.029329 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmr10-29" transform="translate(629.046907 0.873437)"/>
+     <path d="M 77.685547 13.373437 
+L 77.685547 19.623437 
+L 112.685547 19.623437 
+L 112.685547 13.373437 
+L 77.685547 13.373437 
+z
+"/>
+    </g>
+   </g>
+   <g id="hann-lobes-frag1-18" class="fragment" data-fragment-index="1">
+    <!-- $-\frac{1}{4}\,D(f + f_s/L)$ -->
+    <g style="fill: #b45309" transform="translate(49.283027 172.184615) scale(0.15 -0.15)">
+     <defs>
+      <path id="hann-lobes-Cmr10-2b" d="M 481 1472 
+Q 428 1472 393 1512 
+Q 359 1553 359 1600 
+Q 359 1647 393 1687 
+Q 428 1728 481 1728 
+L 2363 1728 
+L 2363 3616 
+Q 2363 3666 2400 3698 
+Q 2438 3731 2491 3731 
+Q 2538 3731 2578 3698 
+Q 2619 3666 2619 3616 
+L 2619 1728 
+L 4500 1728 
+Q 4547 1728 4581 1687 
+Q 4616 1647 4616 1600 
+Q 4616 1553 4581 1512 
+Q 4547 1472 4500 1472 
+L 2619 1472 
+L 2619 -416 
+Q 2619 -466 2578 -498 
+Q 2538 -531 2491 -531 
+Q 2438 -531 2400 -498 
+Q 2363 -466 2363 -416 
+L 2363 1472 
+L 481 1472 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#hann-lobes-Cmsy10-a1" transform="translate(0 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmr10-31" transform="translate(77.685547 38.373438) scale(0.7)"/>
+     <use xlink:href="#hann-lobes-Cmr10-34" transform="translate(77.685547 -39.503125) scale(0.7)"/>
+     <use xlink:href="#hann-lobes-Cmmi10-44" transform="translate(139.818001 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmr10-28" transform="translate(222.532845 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmmi10-66" transform="translate(261.351204 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmr10-2b" transform="translate(327.786751 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmmi10-66" transform="translate(423.030892 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmmi10-73" transform="translate(471.907845 -16.132812) scale(0.7)"/>
+     <use xlink:href="#hann-lobes-Cmmi10-3d" transform="translate(511.029329 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmmi10-4c" transform="translate(561.029329 0.873437)"/>
+     <use xlink:href="#hann-lobes-Cmr10-29" transform="translate(629.046907 0.873437)"/>
+     <path d="M 77.685547 13.373437 
+L 77.685547 19.623437 
+L 112.685547 19.623437 
+L 112.685547 13.373437 
+L 77.685547 13.373437 
+z
+"/>
+    </g>
+   </g>
+   <g id="hann-lobes-frag2-20" class="fragment" data-fragment-index="2">
+    <!-- $\mathsf{sum\ =\ Hann\ window:\ first\ zero\ at\ } \pm 2 f_s/L$ -->
+    <g style="fill: #0b5cad" transform="translate(510.793567 39.865385) scale(0.15 -0.15)">
+     <defs>
+      <path id="hann-lobes-Cmss10-73" d="M 178 213 
+L 263 672 
+Q 716 359 1259 359 
+Q 1494 359 1659 461 
+Q 1825 563 1825 781 
+Q 1825 947 1698 1053 
+Q 1572 1159 1403 1191 
+L 1013 1269 
+Q 688 1334 450 1559 
+Q 213 1784 213 2100 
+Q 213 2391 353 2583 
+Q 494 2775 731 2862 
+Q 969 2950 1259 2950 
+Q 1538 2950 1745 2904 
+Q 1953 2859 2194 2747 
+L 2119 2297 
+Q 1888 2434 1673 2490 
+Q 1459 2547 1191 2547 
+Q 981 2547 836 2455 
+Q 691 2363 691 2163 
+Q 691 2025 800 1926 
+Q 909 1828 1063 1791 
+L 1491 1709 
+Q 1709 1659 1895 1537 
+Q 2081 1416 2192 1233 
+Q 2303 1050 2303 831 
+Q 2303 525 2167 323 
+Q 2031 122 1798 25 
+Q 1566 -72 1259 -72 
+Q 684 -72 178 213 
+z
+" transform="scale(0.015625)"/>
+      <path id="hann-lobes-Cmss10-6d" d="M 506 0 
+L 506 2881 
+L 991 2881 
+L 991 2444 
+Q 1163 2666 1403 2789 
+Q 1644 2913 1919 2913 
+Q 2563 2913 2731 2400 
+Q 2903 2638 3158 2775 
+Q 3413 2913 3694 2913 
+Q 4172 2913 4373 2644 
+Q 4575 2375 4575 1881 
+L 4575 0 
+L 4050 0 
+L 4050 1881 
+Q 4050 2497 3419 2497 
+Q 3206 2497 3065 2355 
+Q 2925 2213 2864 2005 
+Q 2803 1797 2803 1588 
+L 2803 0 
+L 2278 0 
+L 2278 1881 
+Q 2278 2203 2120 2350 
+Q 1963 2497 1644 2497 
+Q 1428 2497 1290 2355 
+Q 1153 2213 1092 2005 
+Q 1031 1797 1031 1588 
+L 1031 0 
+L 506 0 
+z
+" transform="scale(0.015625)"/>
+      <path id="hann-lobes-Cmr10-3d" d="M 481 850 
+Q 428 850 393 890 
+Q 359 931 359 978 
+Q 359 1031 393 1068 
+Q 428 1106 481 1106 
+L 4500 1106 
+Q 4547 1106 4581 1068 
+Q 4616 1031 4616 978 
+Q 4616 931 4581 890 
+Q 4547 850 4500 850 
+L 481 850 
+z
+M 481 2094 
+Q 428 2094 393 2131 
+Q 359 2169 359 2222 
+Q 359 2269 393 2309 
+Q 428 2350 481 2350 
+L 4500 2350 
+Q 4547 2350 4581 2309 
+Q 4616 2269 4616 2222 
+Q 4616 2169 4581 2131 
+Q 4547 2094 4500 2094 
+L 481 2094 
+z
+" transform="scale(0.015625)"/>
+      <path id="hann-lobes-Cmss10-48" d="M 588 0 
+L 588 4441 
+L 1184 4441 
+L 1184 2516 
+L 3341 2516 
+L 3341 4441 
+L 3938 4441 
+L 3938 0 
+L 3341 0 
+L 3341 2100 
+L 1184 2100 
+L 1184 0 
+L 588 0 
+z
+" transform="scale(0.015625)"/>
+      <path id="hann-lobes-Cmr10-3a" d="M 538 353 
+Q 538 497 644 600 
+Q 750 703 891 703 
+Q 978 703 1062 656 
+Q 1147 609 1194 525 
+Q 1241 441 1241 353 
+Q 1241 213 1137 106 
+Q 1034 0 891 0 
+Q 750 0 644 106 
+Q 538 213 538 353 
+z
+M 538 2406 
+Q 538 2497 584 2578 
+Q 631 2659 714 2709 
+Q 797 2759 891 2759 
+Q 981 2759 1064 2709 
+Q 1147 2659 1194 2578 
+Q 1241 2497 1241 2406 
+Q 1241 2263 1139 2158 
+Q 1038 2053 891 2053 
+Q 747 2053 642 2158 
+Q 538 2263 538 2406 
+z
+" transform="scale(0.015625)"/>
+      <path id="hann-lobes-Cmss10-66" d="M 634 0 
+L 634 2444 
+L 172 2444 
+L 172 2841 
+L 634 2841 
+L 634 3438 
+Q 634 3722 775 3969 
+Q 916 4216 1159 4364 
+Q 1403 4513 1684 4513 
+Q 1784 4513 1990 4491 
+Q 2197 4469 2222 4441 
+L 2222 3988 
+Q 2097 4044 1967 4070 
+Q 1838 4097 1684 4097 
+Q 1475 4097 1297 3976 
+Q 1119 3856 1119 3653 
+L 1119 2841 
+L 1831 2841 
+L 1831 2444 
+L 1141 2444 
+L 1141 0 
+L 634 0 
+z
+" transform="scale(0.015625)"/>
+      <path id="hann-lobes-Cmss10-7a" d="M 178 0 
+L 178 275 
+L 1850 2444 
+L 269 2438 
+L 269 2841 
+L 2559 2841 
+L 2559 2578 
+L 897 416 
+L 2572 422 
+L 2572 0 
+L 178 0 
+z
+" transform="scale(0.015625)"/>
+      <path id="hann-lobes-Cmsy10-a7" d="M 481 0 
+Q 428 0 393 37 
+Q 359 75 359 128 
+Q 359 175 393 215 
+Q 428 256 481 256 
+L 2363 256 
+L 2363 2003 
+L 481 2003 
+Q 428 2003 393 2043 
+Q 359 2084 359 2131 
+Q 359 2178 393 2218 
+Q 428 2259 481 2259 
+L 2363 2259 
+L 2363 4147 
+Q 2363 4197 2400 4230 
+Q 2438 4263 2491 4263 
+Q 2534 4263 2576 4230 
+Q 2619 4197 2619 4147 
+L 2619 2259 
+L 4500 2259 
+Q 4547 2259 4581 2218 
+Q 4616 2178 4616 2131 
+Q 4616 2084 4581 2043 
+Q 4547 2003 4500 2003 
+L 2619 2003 
+L 2619 256 
+L 4500 256 
+Q 4547 256 4581 215 
+Q 4616 175 4616 128 
+Q 4616 75 4581 37 
+Q 4547 0 4500 0 
+L 481 0 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#hann-lobes-Cmss10-73"/>
+     <use xlink:href="#hann-lobes-Cmss10-75" transform="translate(38.28125 0)"/>
+     <use xlink:href="#hann-lobes-Cmss10-6d" transform="translate(89.892578 0)"/>
+     <use xlink:href="#hann-lobes-Cmr10-3d" transform="translate(216.109733 0)"/>
+     <use xlink:href="#hann-lobes-Cmss10-48" transform="translate(340.617904 0)"/>
+     <use xlink:href="#hann-lobes-Cmss10-61" transform="translate(411.418686 0)"/>
+     <use xlink:href="#hann-lobes-Cmss10-6e" transform="translate(459.416732 0)"/>
+     <use xlink:href="#hann-lobes-Cmss10-6e" transform="translate(511.028061 0)"/>
+     <use xlink:href="#hann-lobes-Cmss10-77" transform="translate(591.903419 0)"/>
+     <use xlink:href="#hann-lobes-Cmss10-69" transform="translate(660.213966 0)"/>
+     <use xlink:href="#hann-lobes-Cmss10-6e" transform="translate(683.993263 0)"/>
+     <use xlink:href="#hann-lobes-Cmss10-64" transform="translate(735.604591 0)"/>
+     <use xlink:href="#hann-lobes-Cmss10-6f" transform="translate(787.215919 0)"/>
+     <use xlink:href="#hann-lobes-Cmss10-77" transform="translate(837.215919 0)"/>
+     <use xlink:href="#hann-lobes-Cmr10-3a" transform="translate(923.08506 0)"/>
+     <use xlink:href="#hann-lobes-Cmss10-66" transform="translate(997.59323 0)"/>
+     <use xlink:href="#hann-lobes-Cmss10-69" transform="translate(1028.110809 0)"/>
+     <use xlink:href="#hann-lobes-Cmss10-72" transform="translate(1051.890105 0)"/>
+     <use xlink:href="#hann-lobes-Cmss10-73" transform="translate(1085.972137 0)"/>
+     <use xlink:href="#hann-lobes-Cmss10-74" transform="translate(1124.253387 0)"/>
+     <use xlink:href="#hann-lobes-Cmss10-7a" transform="translate(1189.601401 0)"/>
+     <use xlink:href="#hann-lobes-Cmss10-65" transform="translate(1233.009604 0)"/>
+     <use xlink:href="#hann-lobes-Cmss10-72" transform="translate(1277.39437 0)"/>
+     <use xlink:href="#hann-lobes-Cmss10-6f" transform="translate(1311.476401 0)"/>
+     <use xlink:href="#hann-lobes-Cmss10-61" transform="translate(1390.740432 0)"/>
+     <use xlink:href="#hann-lobes-Cmss10-74" transform="translate(1438.738479 0)"/>
+     <use xlink:href="#hann-lobes-Cmsy10-a7" transform="translate(1521.645087 0)"/>
+     <use xlink:href="#hann-lobes-Cmr10-32" transform="translate(1616.889228 0)"/>
+     <use xlink:href="#hann-lobes-Cmmi10-66" transform="translate(1666.889228 0)"/>
+     <use xlink:href="#hann-lobes-Cmmi10-73" transform="translate(1715.766181 -17.00625) scale(0.7)"/>
+     <use xlink:href="#hann-lobes-Cmmi10-3d" transform="translate(1754.887665 0)"/>
+     <use xlink:href="#hann-lobes-Cmmi10-4c" transform="translate(1804.887665 0)"/>
+    </g>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="hann-lobes-p3fcf9c03a3">
+   <rect x="41.706899" y="16.2" width="757.612796" height="172.6"/>
+  </clipPath>
+ </defs>
+</svg>
+
+```

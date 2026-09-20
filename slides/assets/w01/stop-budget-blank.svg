@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 350" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<text x="960.0" y="30.0" font-size="17" fill="#6b7280" text-anchor="end">widths are placeholders, not measurements</text>
+<rect x="40.0" y="52.0" width="770.0" height="22.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="50.0" y="63.0" font-size="15" font-weight="600" fill="#b45309" text-anchor="start" dominant-baseline="middle">system audio still audible</text>
+<text x="820.0" y="63.0" font-size="15" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">silence at last</text>
+<line x1="40.0" y1="40.0" x2="40.0" y2="170.0" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="5 4"/>
+<text x="46.0" y="44.0" font-size="15" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="auto">user starts speaking</text>
+<rect x="40.0" y="94.0" width="248.7" height="84.0" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="6 4"/>
+<text x="164.3" y="118.0" font-size="18" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">detection</text>
+<text x="164.3" y="142.0" font-size="14.5" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">noticing the user has started</text>
+<text x="164.3" y="204.0" font-size="20" font-weight="700" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">____ ms</text>
+<rect x="300.7" y="94.0" width="248.7" height="84.0" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="6 4"/>
+<text x="425.0" y="118.0" font-size="18" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">decision</text>
+<text x="425.0" y="142.0" font-size="14.5" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">backchannel to talk through, or</text>
+<text x="425.0" y="161.0" font-size="14.5" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">barge-in to yield to?</text>
+<text x="425.0" y="204.0" font-size="20" font-weight="700" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">____ ms</text>
+<rect x="561.3" y="94.0" width="248.7" height="84.0" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="6 4"/>
+<text x="685.7" y="118.0" font-size="18" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">committed buffer</text>
+<text x="685.7" y="142.0" font-size="14.5" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">already at the sound card — will</text>
+<text x="685.7" y="161.0" font-size="14.5" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">be heard, cannot be recalled</text>
+<text x="685.7" y="204.0" font-size="20" font-weight="700" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">____ ms</text>
+<line x1="40.0" y1="222.0" x2="802.0" y2="222.0" stroke="#6b7280" stroke-width="1.4"/>
+<polygon points="810.0,222.0 800.0,217.0 800.0,227.0" fill="#6b7280"/>
+<text x="40.0" y="244.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">user starts → system stops</text>
+<text x="40.0" y="286.0" font-size="20" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">stop latency = ______ ms</text>
+<rect x="360.0" y="262.0" width="400.0" height="32.0" rx="5" fill="#fee2e2" stroke="#dc2626" stroke-width="1.3"/>
+<text x="560.0" y="284.0" font-size="17" font-weight="600" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">Recording 1: 2.90 s of exactly this</text>
+<text x="500.0" y="338.0" font-size="16" fill="#6b7280" text-anchor="middle">The last cell grows with the playout buffer — the same buffer that protects the response budget from glitches.</text>
+</svg>

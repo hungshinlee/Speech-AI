@@ -20,11 +20,35 @@ format:
     # 章節標題會產生垂直堆疊；linear 讓左右鍵逐張前進，講課時才不會跳章
     navigation-mode: linear
     incremental: false
+    # inline SVG 的 fragment（2026-09-19 起，七張示意圖）：?print-pdf 時整張印在一頁，
+    # 不要每個 fragment 各印一頁——講義要看的是完整的圖
+    pdf-separate-fragments: false
     chalkboard:
       buttons: true
     html-math-method:
       method: katex
       url: "https://cdn.jsdelivr.net/npm/katex@0.18.7/dist/"
+    # 講稿（notes 區塊）裡的數學只輸出 MathML（與 w02.qmd、nlp_llm/slides/w01.qmd 相同的做法）。
+    # presenter view 是另一個視窗，沒有 KaTeX 的 CSS；KaTeX 預設同時輸出 HTML 與 MathML，
+    # 沒有 CSS 時兩份都會顯示，符號就重複了（例如 ℓℓ）。MathML 由瀏覽器原生排版，不需要 CSS。
+    # 2026-09-19 隨講稿全面改寫為新格式時加入；從此 W1 的講稿可以寫 LaTeX。
+    include-after-body:
+      - text: |
+          <script>
+          (function () {
+            var items = [];
+            document.querySelectorAll('aside.notes .math').forEach(function (el) {
+              items.push({ el: el, tex: el.textContent, display: el.classList.contains('display') });
+              el.classList.remove('math');
+              el.classList.add('notes-math');
+            });
+            document.addEventListener('DOMContentLoaded', function () {
+              items.forEach(function (it) {
+                katex.render(it.tex, it.el, { displayMode: it.display, output: 'mathml', throwOnError: false });
+              });
+            });
+          })();
+          </script>
 ---
 
 <!-- 此檔由 bin/publish_slides.py 從投影片正本產生（中文講稿區塊已剝除），請勿直接編輯。正本在 private repo 的 <course>/slides/。 -->
@@ -217,8 +241,10 @@ The field's current answer is neither pure cascade nor pure end-to-end. It is **
 
 ![](assets/w01/arch-duplex.svg){width="100%"}
 
+$$y_t \;=\; f\!\left(x_{1:\,t+\ell},\; y_{1:\,t-1}\right), \qquad y_t \in \mathcal{V} \cup \{\varnothing\}$$
+
 ::: {.claim}
-Once the model emits *something* every frame — including "say nothing" — turn-taking becomes ordinary next-token prediction.
+Once the model emits *something* every frame — including $\varnothing$, "say nothing" — turn-taking becomes ordinary next-token prediction.
 :::
 
 ## Which failure can you afford?
@@ -245,6 +271,12 @@ The test is architectural: **while the model is speaking, does the input stream 
 :::
 
 A VAD-gated cascade and a native full-duplex model can look identical on a clean interruption — and diverge completely on a mid-utterance pause, a backchannel, or two people talking.
+
+## The same test, drawn as two clocks
+
+{{< include assets/w01/output-clock.inline.qmd >}}
+
+A VAD-gated cascade **decides once** — when the endpoint fires — and then plays a string. Between that decision and the external "stop", $x_t$ is not read and no $y_t$ is chosen. Its output clock is **broken**; the frame clock of the model above it never stops.
 
 # The latency budget {.section-title}
 
@@ -296,6 +328,12 @@ Anything that only starts thinking after the user stops has already lost the rac
 Gap statistics: Stivers et al., PNAS 106(26), 2009. Production timing: word-production chronometry — an order of magnitude, not a measurement of this task.
 :::
 
+## Detection would reply 600 ms late. Prediction lands on time.
+
+{{< include assets/w01/prediction-vs-detection.inline.qmd >}}
+
+Put the two numbers on one axis and the conclusion is forced: the planning box has to start **before** the other speaker stops. Nothing else fits the observed gap.
+
 ## Misconception 3 — "just make the VAD faster"
 
 A VAD answers **is someone speaking right now?** — detection, answerable from the current frame.
@@ -313,6 +351,12 @@ Tuning a threshold trades one failure for the other. It never creates the abilit
 :::
 
 That is why W12 is about *semantic* endpointing — deciding from the words and the prosody, not from the length of the silence.
+
+## One sentence, two thresholds
+
+{{< include assets/w01/vad-threshold.inline.qmd >}}
+
+The 500 ms pause inside the sentence and the silence after it are **the same signal** to a timer. Only the words tell them apart — and the timer never sees the words.
 
 ## The budget we will refill every week
 
@@ -345,12 +389,43 @@ $\Delta$ frame shift (s) · $\ell$ lookahead (frames) · $L$ layers · $r_k$ rig
 $$D_{\text{alg}} \;=\; \underbrace{\ell\,\Delta}_{\text{lookahead}} \;+\; \underbrace{\alpha\,C\,\Delta}_{\text{waiting for the chunk}},
 \qquad \ell \;=\; \sum_{k=1}^{L} r_k, \qquad \alpha \in [\tfrac{1}{2},\,1]$$
 
-**Computational delay** — this is the one you can buy your way out of:
+**Computational delay** — the one you can buy your way out of:
 
 $$D_{\text{comp}} \;=\; \mathrm{RTF}\cdot C\Delta \;+\; T_{\text{queue}}$$
 
+Two claims hide in the first line: $\ell$ is a *sum*, and $\alpha$ is a *range*. The next two slides derive them.
+
+## Why $\ell$ is a sum: right context stacks
+
+{{< include assets/w01/lookahead-stack.inline.qmd >}}
+
+Layer $k$ at time $t$ needs layer $k-1$ up to $t + r_k$. Apply that $L$ times:
+
+$$t^{(k)} \;=\; t^{(k-1)} + r_k \qquad\Longrightarrow\qquad t^{(L)} \;=\; t + \sum_{k=1}^{L} r_k \;=\; t + \ell$$
+
+## Why $\alpha \in [\tfrac12, 1]$: waiting for the chunk to fill
+
+{{< include assets/w01/chunk-wait.inline.qmd >}}
+
+The user's last frame lands at position $j$ in its chunk and waits $(C-1-j)\,\Delta$. Averaged over where it lands:
+
+$$\frac{1}{C}\sum_{j=0}^{C-1} (C-1-j)\,\Delta \;=\; \frac{C-1}{2}\,\Delta \;\approx\; \tfrac12\,C\Delta, \qquad\text{worst case } (C-1)\,\Delta \;\approx\; C\Delta$$
+
+The mean is $\alpha = \tfrac12$; the tail is $\alpha = 1$. The p95 slide makes that distinction bite.
+
+## Add them up — every term after the user stops speaking
+
+$$D_{\text{e2e}} \;=\; D_{\text{alg}} \;+\; D_{\text{comp}} \;+\; D_{\text{net}} \;+\; D_{\text{buf}}$$
+
+| Term | What it is | What moves it |
+|:--|:--|:--|
+| $D_{\text{alg}}$ | $\ell\Delta + \alpha C\Delta$ | the model's *definition* |
+| $D_{\text{comp}}$ | $\mathrm{RTF}\cdot C\Delta + T_{\text{queue}}$ | hardware, model size, batching |
+| $D_{\text{net}}$ | round trip to wherever the model runs | deployment — on-device makes it zero |
+| $D_{\text{buf}}$ | audio held back so playback never stutters | the same buffer we meet again in the stop budget |
+
 ::: {.claim}
-$D_{\text{e2e}} = D_{\text{alg}} + D_{\text{comp}} + D_{\text{net}} + D_{\text{buf}}$ — every term counted **after the user stops speaking**. A faster GPU moves exactly one of them.
+A faster GPU moves exactly **one** of the four.
 :::
 
 ## The arithmetic that eats the whole budget
@@ -368,7 +443,17 @@ $$D_{\text{alg}} \;=\; 300\,\text{ms} \;+\; \tfrac{1}{2}\times 32 \times 10\,\te
 The whole budget was 300 ms. We are at 460 ms **before a single multiplication has happened** — and $D_{\text{comp}}$ has not been added yet.
 :::
 
-Why not just shrink $C$? Chunks arrive at $1/(C\Delta)$ per second, and each costs $O\!\big(C(C+H)d\big)$ — so the per-second cost is $O\!\big((C+H)d/\Delta\big)$: **smaller chunks are not cheaper per second, they are more often and less efficient.**
+The obvious counter-move — *just shrink $C$* — is the next slide.
+
+## Why not just shrink $C$?
+
+{{< include assets/w01/chunk-cost.inline.qmd >}}
+
+Chunks arrive at $1/(C\Delta)$ per second; each is $C$ queries against $C+H$ keys ($H$ = cached history):
+
+$$\text{cost per second} \;\propto\; \frac{1}{C\Delta}\cdot C\,(C+H)\,d \;=\; \frac{(C+H)\,d}{\Delta}$$
+
+Halving $C$ halves the wait but removes only $C$ from $C+H$: **smaller chunks are more often and less efficient, not cheaper.**
 
 ## Misconception 4 — "latency is an engineering problem, not a research problem"
 
@@ -384,14 +469,13 @@ Each of those is a **modelling** decision forced by a timing requirement. Latenc
 
 ## The number that hurts is p95, not the mean
 
-Treat each module as a queue. Mean latency can be comfortable while the tail is not.
+{{< include assets/w01/tail-latency.inline.qmd >}}
 
-- A pipeline that averages 320 ms but hits 1.4 s twice a minute feels **broken**, not fast
-- Tail latency compounds across modules; means do not
-- Users do not experience a distribution, they experience the bad turns
+- Means **add** along a pipeline. Probabilities of being on time **multiply**: five modules each inside its own p95 leave the chain inside its budget only $0.95^5 \approx 77\%$ of the time (assuming independence).
+- Averaging 320 ms but hitting 1.4 s twice a minute feels **broken**, not fast. Users experience the bad turns, not the distribution.
 
 ::: {.claim}
-Report distributions. In W14 we will make this precise: the goal is to *match* the human latency distribution, measured with a distributional distance — not to minimise a mean.
+Report distributions. In W14 the goal becomes *matching* the human latency distribution with a distributional distance — not minimising a mean.
 :::
 
 ## Live: measure your own pipeline
@@ -468,19 +552,13 @@ There is no metric you can minimise to get good turn-taking. The target depends 
 
 ## The other budget: how long it takes to stop
 
-Everything in the last section measured one direction: *user stops → system starts*. Interruption runs the other way.
+The last section measured *user stops → system starts*. Interruption runs the other way.
 
-| *user starts → system stops* | |
-|:--|:--|
-| Detection | noticing the user has started at all |
-| Decision | backchannel to talk through, or barge-in to yield to? |
-| **Committed buffer** | audio already handed to the sound card. It will be heard. It cannot be recalled. |
+![](assets/w01/stop-budget-blank.svg){width="100%"}
 
 ::: {.claim .warn}
-The third one is the trap. A larger playout buffer protects you from glitches **and** makes you slower to shut up. One parameter, two faces — and only one of them shows up in the usual latency number.
+The third cell is the trap: a larger playout buffer protects you from glitches **and** makes you slower to shut up. One parameter, two faces — only one of them shows up in the usual latency number.
 :::
-
-Recording 1 was **2.90 s** of exactly this. `analyze_duplex_audio.py` reports three numbers — response latency, overlap, stop latency — because a system that answers fast and stops slowly is still a bad listener.
 
 ## Misconception 5 — "the user should always win an interruption"
 
