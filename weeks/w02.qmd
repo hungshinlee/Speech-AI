@@ -6,18 +6,31 @@ toc-depth: 2
 
 <!-- 此檔由 scripts/build_weeks.py 從課程大綱過濾產生，請勿直接編輯。大綱正本在 private repo（$COURSE_OUTLINE），改完請重跑腳本。 -->
 
+::: {.callout-note appearance="minimal"}
+[**▶ Slides for this week**](../slides/w02.qmd)
+:::
+
 ## 定位
-本週提供之後所有模組的「輸入端語言」。對無先修背景的學生，這是整學期唯一一次系統性的 DSP，因此要極度節制：只講會在後面用到的東西（STFT、mel、phase、F0、SNR），不講完整的濾波器設計。
+本週提供之後所有模組的「輸入端語言」。對無先修背景的學生，這是整學期唯一一次系統性的 DSP，也是唯一一次系統性的 phonetics，因此要極度節制：只講會在後面用到的東西。訊號這一側是取樣、STFT、mel、相位、F0、SNR，不講完整的濾波器設計；語音學這一側是 phone 與 phoneme、子音的發音方式、coarticulation，以及 prosody 的三個聲學相關量（F0、duration、energy）。最後一項對本課特別重要：華語、台語、客語都是聲調語言，F0 同時承載詞彙內容與語調，之後談 tokenization（W6）、可控合成（W9）與 turn-taking 線索（W12）時，這件事會反覆回來。
 
 ## Learning objectives
-1. 能推導 STFT 的時頻解析度取捨，並解釋 window 長度／hop 如何決定下游模型的 frame rate。
-2. 能說明 source-filter model 如何把「說什麼」（filter/共振峰）與「誰在說、怎麼說」（source/F0）在頻域上分離，並指出這個分離在何處失效。
-3. 能解釋 mel-filterbank 與 MFCC 各步驟的動機，並說明為何深度學習時代 MFCC 幾乎被 log-mel（甚至 raw waveform）取代。
-4. 能診斷相位（phase）遺失造成的失真，並解釋為什麼 vocoder 是必要的。
+1. 能推導 STFT 的時頻解析度取捨，並把三個常被混為一談的量分開：window 長度決定頻率解析度與 lookahead，hop 決定 frame rate，FFT 點數只決定 bin 的間距。
+2. 能說明 source-filter model 如何把激發源（F0、voicing）與聲道濾波（共振峰、頻譜包絡）在頻域上分離，並指出這個分離在何處失效——包括「source＝誰在說、filter＝說什麼」這個對應在聲調語言裡為什麼不成立。
+3. 能解釋 log-mel 與 MFCC 各步驟的動機（為什麼取 log、為什麼用 mel、為什麼做 DCT），說明為何深度學習時代 MFCC 幾乎被 log-mel 取代，並指出兩份「log-mel」實作之間可能不同的地方。
+4. 能把「從 spectrogram 重建波形」的失真拆成三個來源——相位、mel 壓縮、預測頻譜的過度平滑——並用 STFT 的 consistency 解釋 Griffin-Lim 為什麼可能、又為什麼不夠。
+5. 能列出 prosody 的三個聲學相關量，說明聲調與語調如何共用 F0，並預測這對以英語為主發展出來的方法（semantic token、prosody control、韻律式 turn-taking 線索）意味著什麼。
 
 ## 參考資料
-- **JM3** Ch 15 *Phonetics and Speech Feature Extraction*（含官方 slides，可直接改）
-- **HAH** Ch 2（Spoken Language Structure）、Ch 5（Digital Signal Processing）、Ch 6（Speech Signal Representations）— cepstrum 與 source-filter 的完整推導在此
+- **JM3** Ch 15 *Phonetics and Speech Feature Extraction*（含官方 slides，可直接改）——本週的 phonetics 與特徵抽取兩半都以這一章為準
+- **HAH** Ch 2（Spoken Language Structure）、Ch 5（Digital Signal Processing）、Ch 6（Speech Signal Representations）— cepstrum、LPC 與 source-filter 的完整推導在此
 - Griffin & Lim, **Signal Estimation from Modified Short-Time Fourier Transform**, IEEE TASSP, 1984
-- F0 估計：檢索 *YIN pitch estimation de Cheveigné*、*CREPE pitch tracking*、*pYIN probabilistic YIN*
+- Nawab, Quatieri & Lim, **Signal Reconstruction from Short-Time Fourier Transform Magnitude**, IEEE TASSP 31(4):986–998, 1983 — STFT magnitude 在何種條件下唯一決定訊號
+- Davis & Mermelstein, **Comparison of Parametric Representations for Monosyllabic Word Recognition in Continuously Spoken Sentences**, IEEE TASSP 28(4):357–366, 1980 — MFCC 的原始出處
+- Stevens, Volkmann & Newman, **A Scale for the Measurement of the Psychological Magnitude Pitch**, JASA 8(3):185–190, 1937 — mel 尺度的原始出處；讀它是為了看到 mel 來自一個小規模的知覺實驗，不是物理量
+- de Cheveigné & Kawahara, **YIN, a Fundamental Frequency Estimator for Speech and Music**, JASA 111(4):1917–1930, 2002
+- Mauch & Dixon, **pYIN: A Fundamental Frequency Estimator Using Probabilistic Threshold Distributions**, ICASSP 2014
+- Kim, Salamon, Li & Bello, **CREPE: A Convolutional Representation for Pitch Estimation**, ICASSP 2018
+- 聲調語言的 F0 建模：檢索 *tone sandhi Taiwanese Southern Min acoustic*、*lexical tone discrete speech units*、*tonal language self-supervised speech representation tone*、*tone intonation interaction F0*
+- SI-SDR 的定義與動機：檢索 *SDR half-baked or well done*（W10 會正式用到）
+- LPC 與神經網路的結合：檢索 *LPCNet linear prediction neural vocoder*
 - 前端與深度學習的關係：檢索 *learnable filterbank speech*、*SincNet*、*LEAF frontend learnable audio*

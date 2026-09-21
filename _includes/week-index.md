@@ -3,7 +3,7 @@
 | Week | Topic | Part | Slides |
 |:---|:-----------------------------|:------|:------|
 | **W1** | [A Systems View of Spoken Dialogue and the Latency Budget](weeks/w01.qmd)<br>[語音對話系統的系統觀與延遲預算]{.wk-zh} | Foundations | [▶ Open](slides/w01.qmd) |
-| **W2** | Speech Signals, Auditory Front-Ends, and the Physics of Representation<br>[語音訊號、聽覺前端與表徵的物理基礎]{.wk-zh} | Foundations | — |
+| **W2** | Speech Signals, Auditory Front-Ends, and the Physics of Representation<br>[語音訊號、聽覺前端與表徵的物理基礎]{.wk-zh} | Foundations | [▶ Open](slides/w02.qmd) |
 | **W3** | The Alignment Problem: From HMM to CTC<br>[對齊問題：從 HMM 到 CTC]{.wk-zh} | Foundations | — |
 | **W4** | Sequence Models and Streaming Architectures: Transformer, Conformer, RNN-T<br>[序列模型與 streaming 架構：Transformer、Conformer、RNN-T]{.wk-zh} | Foundations | — |
 | **W5** | Self-Supervised Representation Learning: Where Speech Foundation Models Come From<br>[自監督表徵學習（SSL）：語音基礎模型的來源]{.wk-zh} | Foundations | — |

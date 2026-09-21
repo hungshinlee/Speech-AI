@@ -1,6 +1,6 @@
 ---
 title: "Slides"
-subtitle: "English slides, Mandarin delivery — 1 of 14 weeks ready"
+subtitle: "English slides, Mandarin delivery — 2 of 14 weeks ready"
 toc: false
 ---
 
@@ -16,7 +16,7 @@ The slides are written in English to accompany the Mandarin lectures. Each deck 
 | Week | Topic | Slides |
 |:---|:--------------------------|:--------|
 | **W1** | [A Systems View of Spoken Dialogue and the Latency Budget](weeks/w01.qmd)<br>[語音對話系統的系統觀與延遲預算]{.wk-zh} | [▶ Open](slides/w01.qmd) |
-| W2 | Speech Signals, Auditory Front-Ends, and the Physics of Representation<br>[語音訊號、聽覺前端與表徵的物理基礎]{.wk-zh} | *Not yet available* |
+| **W2** | [Speech Signals, Auditory Front-Ends, and the Physics of Representation](weeks/w02.qmd)<br>[語音訊號、聽覺前端與表徵的物理基礎]{.wk-zh} | [▶ Open](slides/w02.qmd) |
 | W3 | The Alignment Problem: From HMM to CTC<br>[對齊問題：從 HMM 到 CTC]{.wk-zh} | *Not yet available* |
 | W4 | Sequence Models and Streaming Architectures: Transformer, Conformer, RNN-T<br>[序列模型與 streaming 架構：Transformer、Conformer、RNN-T]{.wk-zh} | *Not yet available* |
 | W5 | Self-Supervised Representation Learning: Where Speech Foundation Models Come From<br>[自監督表徵學習（SSL）：語音基礎模型的來源]{.wk-zh} | *Not yet available* |

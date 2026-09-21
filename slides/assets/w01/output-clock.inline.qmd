@@ -1,6 +1,6 @@
 <!-- 由 scripts/make_figs_w01.py 產生，勿手改；投影片用 {{< include assets/w01/output-clock.inline.qmd >}} 貼入 -->
 ```{=html}
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 350" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 380" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
 <text x="984.0" y="22.0" font-size="15" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">schematic — not a measurement</text>
 <text x="280.0" y="74.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="end" dominant-baseline="middle">input</text>
 <svg x="286" y="66.5794" width="16.02" height="17.4206" viewBox="0 0 16.02 17.420625"><defs>
@@ -129,21 +129,21 @@ z
 <rect x="330.0" y="60.0" width="24.0" height="26.0" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
 <rect x="361.0" y="60.0" width="24.0" height="26.0" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
 <rect x="392.0" y="60.0" width="24.0" height="26.0" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<rect x="423.0" y="60.0" width="24.0" height="26.0" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<rect x="454.0" y="60.0" width="24.0" height="26.0" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<rect x="485.0" y="60.0" width="24.0" height="26.0" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<rect x="516.0" y="60.0" width="24.0" height="26.0" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<rect x="423.0" y="60.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="1.0" stroke-dasharray="3 2"/>
+<rect x="454.0" y="60.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="1.0" stroke-dasharray="3 2"/>
+<rect x="485.0" y="60.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="1.0" stroke-dasharray="3 2"/>
+<rect x="516.0" y="60.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="1.0" stroke-dasharray="3 2"/>
 <rect x="547.0" y="60.0" width="24.0" height="26.0" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
 <rect x="578.0" y="60.0" width="24.0" height="26.0" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<rect x="609.0" y="60.0" width="24.0" height="26.0" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<rect x="640.0" y="60.0" width="24.0" height="26.0" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<rect x="671.0" y="60.0" width="24.0" height="26.0" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<rect x="702.0" y="60.0" width="24.0" height="26.0" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<rect x="733.0" y="60.0" width="24.0" height="26.0" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<rect x="764.0" y="60.0" width="24.0" height="26.0" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<rect x="795.0" y="60.0" width="24.0" height="26.0" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<rect x="826.0" y="60.0" width="24.0" height="26.0" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<rect x="857.0" y="60.0" width="24.0" height="26.0" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<rect x="609.0" y="60.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="1.0" stroke-dasharray="3 2"/>
+<rect x="640.0" y="60.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="1.0" stroke-dasharray="3 2"/>
+<rect x="671.0" y="60.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="1.0" stroke-dasharray="3 2"/>
+<rect x="702.0" y="60.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="1.0" stroke-dasharray="3 2"/>
+<rect x="733.0" y="60.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="1.0" stroke-dasharray="3 2"/>
+<rect x="764.0" y="60.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="1.0" stroke-dasharray="3 2"/>
+<rect x="795.0" y="60.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="1.0" stroke-dasharray="3 2"/>
+<rect x="826.0" y="60.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="1.0" stroke-dasharray="3 2"/>
+<rect x="857.0" y="60.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="1.0" stroke-dasharray="3 2"/>
 <svg x="896" y="69" width="27.6" height="15" viewBox="0 0 27.6 15"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
@@ -219,11 +219,15 @@ z
   </g>
  </g>
 </svg>
+<text x="373.0" y="104.0" font-size="13" font-weight="600" fill="#0b5cad" text-anchor="middle" dominant-baseline="auto">speech</text>
+<text x="448.0" y="104.0" font-size="13" font-weight="600" fill="#6b7280" text-anchor="end" dominant-baseline="auto">silent</text>
+<line x1="454.0" y1="54.0" x2="454.0" y2="288.0" stroke="#15803d" stroke-width="1.4" stroke-dasharray="5 3"/>
+<text x="454.0" y="314.0" font-size="14" font-weight="600" fill="#15803d" text-anchor="middle" dominant-baseline="auto">endpoint fires</text>
 <g class="fragment" data-fragment-index="0">
-<text x="314.0" y="136.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="end" dominant-baseline="middle">native full duplex</text>
-<text x="314.0" y="158.0" font-size="14" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="middle">one decision per frame</text>
-<rect x="330.0" y="128.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#7c3aed" stroke-width="1.2" stroke-dasharray="3 2"/>
-<svg x="336.995" y="136.418" width="10.01" height="12.5816" viewBox="0 0 10.01 12.581563"><defs>
+<text x="314.0" y="158.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="end" dominant-baseline="middle">native full duplex</text>
+<text x="314.0" y="180.0" font-size="14" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="middle">one decision per frame</text>
+<rect x="330.0" y="150.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#7c3aed" stroke-width="1.2" stroke-dasharray="3 2"/>
+<svg x="336.995" y="158.418" width="10.01" height="12.5816" viewBox="0 0 10.01 12.581563"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="t35-figure_1">
@@ -278,8 +282,8 @@ z
   </g>
  </g>
 </svg>
-<rect x="361.0" y="128.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#7c3aed" stroke-width="1.2" stroke-dasharray="3 2"/>
-<svg x="367.995" y="136.418" width="10.01" height="12.5816" viewBox="0 0 10.01 12.581563"><defs>
+<rect x="361.0" y="150.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#7c3aed" stroke-width="1.2" stroke-dasharray="3 2"/>
+<svg x="367.995" y="158.418" width="10.01" height="12.5816" viewBox="0 0 10.01 12.581563"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="t36-figure_1">
@@ -334,8 +338,8 @@ z
   </g>
  </g>
 </svg>
-<rect x="392.0" y="128.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#7c3aed" stroke-width="1.2" stroke-dasharray="3 2"/>
-<svg x="398.995" y="136.418" width="10.01" height="12.5816" viewBox="0 0 10.01 12.581563"><defs>
+<rect x="392.0" y="150.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#7c3aed" stroke-width="1.2" stroke-dasharray="3 2"/>
+<svg x="398.995" y="158.418" width="10.01" height="12.5816" viewBox="0 0 10.01 12.581563"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="t37-figure_1">
@@ -390,8 +394,8 @@ z
   </g>
  </g>
 </svg>
-<rect x="423.0" y="128.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#7c3aed" stroke-width="1.2" stroke-dasharray="3 2"/>
-<svg x="429.995" y="136.418" width="10.01" height="12.5816" viewBox="0 0 10.01 12.581563"><defs>
+<rect x="423.0" y="150.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#7c3aed" stroke-width="1.2" stroke-dasharray="3 2"/>
+<svg x="429.995" y="158.418" width="10.01" height="12.5816" viewBox="0 0 10.01 12.581563"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="t38-figure_1">
@@ -446,15 +450,15 @@ z
   </g>
  </g>
 </svg>
-<rect x="454.0" y="128.0" width="24.0" height="26.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<rect x="485.0" y="128.0" width="24.0" height="26.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<rect x="516.0" y="128.0" width="24.0" height="26.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<rect x="547.0" y="128.0" width="24.0" height="26.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<rect x="578.0" y="128.0" width="24.0" height="26.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<rect x="609.0" y="128.0" width="24.0" height="26.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<rect x="640.0" y="128.0" width="24.0" height="26.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<rect x="671.0" y="128.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#7c3aed" stroke-width="1.2" stroke-dasharray="3 2"/>
-<svg x="677.995" y="136.418" width="10.01" height="12.5816" viewBox="0 0 10.01 12.581563"><defs>
+<rect x="454.0" y="150.0" width="24.0" height="26.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<rect x="485.0" y="150.0" width="24.0" height="26.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<rect x="516.0" y="150.0" width="24.0" height="26.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<rect x="547.0" y="150.0" width="24.0" height="26.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<rect x="578.0" y="150.0" width="24.0" height="26.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<rect x="609.0" y="150.0" width="24.0" height="26.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<rect x="640.0" y="150.0" width="24.0" height="26.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<rect x="671.0" y="150.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#7c3aed" stroke-width="1.2" stroke-dasharray="3 2"/>
+<svg x="677.995" y="158.418" width="10.01" height="12.5816" viewBox="0 0 10.01 12.581563"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="t39-figure_1">
@@ -509,8 +513,8 @@ z
   </g>
  </g>
 </svg>
-<rect x="702.0" y="128.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#7c3aed" stroke-width="1.2" stroke-dasharray="3 2"/>
-<svg x="708.995" y="136.418" width="10.01" height="12.5816" viewBox="0 0 10.01 12.581563"><defs>
+<rect x="702.0" y="150.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#7c3aed" stroke-width="1.2" stroke-dasharray="3 2"/>
+<svg x="708.995" y="158.418" width="10.01" height="12.5816" viewBox="0 0 10.01 12.581563"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="t40-figure_1">
@@ -565,8 +569,8 @@ z
   </g>
  </g>
 </svg>
-<rect x="733.0" y="128.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#7c3aed" stroke-width="1.2" stroke-dasharray="3 2"/>
-<svg x="739.995" y="136.418" width="10.01" height="12.5816" viewBox="0 0 10.01 12.581563"><defs>
+<rect x="733.0" y="150.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#7c3aed" stroke-width="1.2" stroke-dasharray="3 2"/>
+<svg x="739.995" y="158.418" width="10.01" height="12.5816" viewBox="0 0 10.01 12.581563"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="t41-figure_1">
@@ -621,8 +625,8 @@ z
   </g>
  </g>
 </svg>
-<rect x="764.0" y="128.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#7c3aed" stroke-width="1.2" stroke-dasharray="3 2"/>
-<svg x="770.995" y="136.418" width="10.01" height="12.5816" viewBox="0 0 10.01 12.581563"><defs>
+<rect x="764.0" y="150.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#7c3aed" stroke-width="1.2" stroke-dasharray="3 2"/>
+<svg x="770.995" y="158.418" width="10.01" height="12.5816" viewBox="0 0 10.01 12.581563"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="t42-figure_1">
@@ -677,10 +681,10 @@ z
   </g>
  </g>
 </svg>
-<rect x="795.0" y="128.0" width="24.0" height="26.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<rect x="826.0" y="128.0" width="24.0" height="26.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<rect x="857.0" y="128.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#7c3aed" stroke-width="1.2" stroke-dasharray="3 2"/>
-<svg x="863.995" y="136.418" width="10.01" height="12.5816" viewBox="0 0 10.01 12.581563"><defs>
+<rect x="795.0" y="150.0" width="24.0" height="26.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<rect x="826.0" y="150.0" width="24.0" height="26.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<rect x="857.0" y="150.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#7c3aed" stroke-width="1.2" stroke-dasharray="3 2"/>
+<svg x="863.995" y="158.418" width="10.01" height="12.5816" viewBox="0 0 10.01 12.581563"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="t43-figure_1">
@@ -735,7 +739,7 @@ z
   </g>
  </g>
 </svg>
-<svg x="896" y="133.85" width="80.85" height="18.15" viewBox="0 0 80.85 18.15"><defs>
+<svg x="896" y="155.85" width="80.85" height="18.15" viewBox="0 0 80.85 18.15"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="t44-figure_1">
@@ -1067,27 +1071,28 @@ z
 </svg>
 </g>
 <g class="fragment" data-fragment-index="1">
-<text x="314.0" y="224.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="end" dominant-baseline="middle">VAD-gated cascade</text>
-<text x="314.0" y="246.0" font-size="14" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="middle">decide once, then play back</text>
-<rect x="454.0" y="216.0" width="241.0" height="26.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.4"/>
-<text x="578.0" y="230.0" font-size="13" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="middle">TTS plays a fixed string</text>
-<rect x="330.0" y="216.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
-<rect x="361.0" y="216.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
-<rect x="392.0" y="216.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
-<rect x="423.0" y="216.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
-<rect x="702.0" y="216.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
-<rect x="733.0" y="216.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
-<rect x="764.0" y="216.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
-<rect x="795.0" y="216.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
-<rect x="826.0" y="216.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
-<rect x="857.0" y="216.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
-<rect x="454.0" y="54.0" width="241.0" height="38.0" rx="3" fill="#f3f4f6" stroke="#dc2626" stroke-width="1.4" stroke-dasharray="5 3" opacity=".85"/>
+<text x="314.0" y="246.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="end" dominant-baseline="middle">VAD-gated cascade</text>
+<text x="314.0" y="268.0" font-size="14" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="middle">decide once, then play back</text>
+<rect x="454.0" y="238.0" width="241.0" height="26.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.4"/>
+<text x="578.0" y="252.0" font-size="13" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="middle">TTS plays a fixed string</text>
+<rect x="330.0" y="238.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
+<rect x="361.0" y="238.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
+<rect x="392.0" y="238.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
+<rect x="423.0" y="238.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
+<rect x="702.0" y="238.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
+<rect x="733.0" y="238.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
+<rect x="764.0" y="238.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
+<rect x="795.0" y="238.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
+<rect x="826.0" y="238.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
+<rect x="857.0" y="238.0" width="24.0" height="26.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
+<rect x="454.0" y="54.0" width="241.0" height="38.0" rx="3" fill="#f3f4f6" stroke="#dc2626" stroke-width="1.4" stroke-dasharray="5 3" opacity=".6"/>
 <text x="578.0" y="46.0" font-size="14" font-weight="600" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">input not consulted while speaking</text>
-<line x1="698.0" y1="276.0" x2="698.0" y2="252.0" stroke="#dc2626" stroke-width="1.6"/>
-<polygon points="698.0,244.0 693.0,254.0 703.0,254.0" fill="#dc2626"/>
-<text x="698.0" y="292.0" font-size="14" font-weight="600" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">external VAD says “stop”</text>
+<text x="550.0" y="104.0" font-size="13" font-weight="600" fill="#dc2626" text-anchor="start" dominant-baseline="auto">speaks again — nobody reads it</text>
+<line x1="698.0" y1="298.0" x2="698.0" y2="274.0" stroke="#dc2626" stroke-width="1.6"/>
+<polygon points="698.0,266.0 693.0,276.0 703.0,276.0" fill="#dc2626"/>
+<text x="698.0" y="314.0" font-size="14" font-weight="600" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">external VAD says “stop”</text>
 </g>
-<svg x="145.68" y="328.515" width="708.64" height="15.485" viewBox="0 0 708.64 15.485"><defs>
+<svg x="145.68" y="358.515" width="708.64" height="15.485" viewBox="0 0 708.64 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="t45-figure_1">
