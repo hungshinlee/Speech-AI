@@ -16,6 +16,7 @@ project:
     - slides/*.qmd
   resources:
     - slides/assets/**
+    - slides/scripts/**    # bin/publish.py 白名單發佈的分析腳本；不列在這裡 Quarto 不會複製進 _site
 
 # 用 zh-TW 而非 zh-Hant：Quarto 只有 _language-zh-TW.yml，給 zh-Hant 會退回簡體的 _language-zh.yml
 lang: zh-TW
