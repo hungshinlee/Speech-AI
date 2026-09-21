@@ -614,7 +614,7 @@ You will use these four every week — and they are also how you avoid writing a
 
 ## Next week, and what to read
 
-**W2 — Signals, auditory front ends, and the physics of representation.** The only systematic DSP week. Come with the maths sheet.
+**W2 — Speech Signals, Auditory Front-Ends, and the Physics of Representation.** The only systematic DSP week. It opens with a short refresher — inner products and projections — and uses them three times.
 
 If you read one thing this week:
 
@@ -636,4 +636,4 @@ Two more, if you have time:
 **Architecture taxonomy**
 : Lu et al., arXiv:2606.19453 (2026).
 
-Analysis and figure code: `scripts/analyze_duplex_audio.py`, `scripts/make_duplex_timeline.py`, `scripts/make_figs_w01.py` in the course repository.
+Audio analysis code (energy VAD, overlap / response / stop latency, the two-track timeline): `slides/scripts/analyze_duplex_audio.py`, `slides/scripts/make_duplex_timeline.py` in the course repository.
