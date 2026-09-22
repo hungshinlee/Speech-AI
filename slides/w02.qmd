@@ -280,7 +280,7 @@ A rectangular window of $L$ samples is $L$ ones in a row. Its spectrum is a geom
 
 $$W(f) = \sum_{n=0}^{L-1} e^{-j2\pi f n/f_s} \quad\Longrightarrow\quad |W(f)| = \left|\frac{\sin(\pi f L/f_s)}{\sin(\pi f/f_s)}\right|, \qquad \text{zero whenever } \tfrac{fL}{f_s} \in \{\pm 1, \pm 2, \dots\}$$
 
-First zero at $f_s/L$, so the main lobe is $2f_s/L$ wide. Hann is $w(n) = \tfrac12 - \tfrac12\cos(2\pi n/L)$: the cosine is two complex exponentials, so its spectrum is **three copies** of $W$, shifted by $0$ and $\pm f_s/L$.
+First zero at $f_s/L$, so the main lobe is $2f_s/L$ wide. Centre the window at $n = 0$ and Hann is $w(n) = \tfrac12 + \tfrac12\cos(2\pi n/L)$: the cosine is two complex exponentials, so its spectrum is **three copies** of $W$ with weights $\tfrac12, \tfrac14, \tfrac14$, shifted by $0$ and $\pm f_s/L$.
 
 {{< include assets/w02/hann-lobes.inline.qmd >}}
 

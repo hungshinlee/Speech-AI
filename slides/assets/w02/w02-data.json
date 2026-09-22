@@ -130,7 +130,7 @@
  },
  "hann_lobes": {
   "kind": "computed",
-  "note": "D(f) drawn in its large-L limit sin(πu)/(πu), u = fL/fs; the zero positions k·fs/L are exact for any L. Hann = ½D(f) − ¼D(f − fs/L) − ¼D(f + fs/L), so its first zero moves from fs/L to 2fs/L."
+  "note": "D(f) drawn in its large-L limit sin(πu)/(πu), u = fL/fs; the zero positions k·fs/L are exact for any L. Hann centred at n = 0 is ½ + ½cos(2πn/L), so its spectrum is ½D(f) + ¼D(f − fs/L) + ¼D(f + fs/L): at ±fs/L the sum is +¼ (D's zero is filled in), so the first zero moves from fs/L to 2fs/L. The causal form ½ − ½cos carries the same magnitude; its minus signs are absorbed by the shifted kernels' linear phase."
  },
  "latency_window": {
   "hop_ms": 10,
