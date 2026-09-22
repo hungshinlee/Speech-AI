@@ -75,7 +75,7 @@ HINGE = (6,)   # 全課樞紐（frame rate、token 預算、語意／聲學分�
 # 與 Reading table 都只顯示文字，不給連結；_quarto.yml 也把它們排除在
 # render 清單與 sidebar 之外，所以站上不會有那些頁面，連結才不會是死的。
 # **要開放某一週就把週次加進來，並同步解開 _quarto.yml 裡對應的兩處註解。**
-PUBLISHED_WEEKS = {1}
+PUBLISHED_WEEKS = {1, 2}
 
 # syllabus.qmd 與 resources.qmd 引用的英文片段（手寫，依 `<!-- file: X -->` 切段）
 SITE_EN = os.path.join(ROOT, "docs", "site-en.md")

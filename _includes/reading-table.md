@@ -5,7 +5,7 @@
 | Week | Topic | If you read only one |
 |:--|:----------|:-------------------------|
 | [W1](weeks/w01.qmd) | Systems view | Lu et al., *A Survey of Full-Duplex Spoken Dialogue Systems*, arXiv:2606.19453 |
-| W2 | Signals and front end | **JM3** Ch 15 |
+| [W2](weeks/w02.qmd) | Signals and front end | **JM3** Ch 15 |
 | W3 | Alignment | Graves et al., *CTC*, ICML 2006 |
 | W4 | Sequence models and streaming | Graves, *Sequence Transduction with RNNs*, arXiv:1211.3711 |
 | W5 | SSL | Hsu et al., *HuBERT*, TASLP 2021 |

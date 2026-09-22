@@ -8,7 +8,7 @@
 <div class="cm-col">
 <div class="cm-part">Part I — Foundations</div>
 <a class="cm-wk" href="weeks/w01.html"><span class="cm-n">W1</span><span class="cm-t">Systems view &amp; latency</span></a>
-<div class="cm-wk cm-soon"><span class="cm-n">W2</span><span class="cm-t">Signals &amp; front-end</span></div>
+<a class="cm-wk" href="weeks/w02.html"><span class="cm-n">W2</span><span class="cm-t">Signals &amp; front-end</span></a>
 <div class="cm-wk cm-soon"><span class="cm-n">W3</span><span class="cm-t">Alignment: HMM → CTC</span></div>
 <div class="cm-wk cm-soon"><span class="cm-n">W4</span><span class="cm-t">Sequence models &amp; streaming</span></div>
 <div class="cm-wk cm-soon"><span class="cm-n">W5</span><span class="cm-t">SSL representations</span></div>
