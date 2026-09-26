@@ -6,20 +6,34 @@ toc-depth: 2
 
 <!-- 此檔由 scripts/build_weeks.py 從課程大綱過濾產生，請勿直接編輯。大綱正本在 private repo（$COURSE_OUTLINE），改完請重跑腳本。 -->
 
-## 定位
-本課程的第一個核心數學週。語音辨識的本質困難不是分類，而是**未知對齊下的序列監督**。這一週把 HMM 的 forward-backward 與 CTC 的 forward-backward 放在同一個框架下講，讓學生看到 CTC 不是憑空發明，而是把 HMM 的邊際化搬到神經網路上。之後 W4 的 RNN-T、W13 的 streaming 對話狀態機都靠這個直覺。
+## Where This Fits
+This is the first mathematically dense week of the course. The core difficulty of speech recognition is not classification but **sequence supervision under an unknown alignment**. At the end of W2 we hold 100 feature vectors per second; the training data is an audio clip paired with one line of text, and nothing tells us which frames belong to which symbol. This week puts the forward–backward algorithm of the HMM and that of CTC into one frame: both **marginalise over a hidden alignment variable**. They differ in the direction of the probability — the HMM is generative, $P(\mathbf{X}\mid W)$; CTC is discriminative, $P(\ell\mid\mathbf{X})$ — and in whether transition probabilities exist at all. CTC was not invented from nothing: it is an HMM with a particular topology, no transition probabilities and full-sum training, moved onto the output layer of a neural network.
 
-## Learning objectives
-1. 能寫出 HMM 的 forward recursion 與 Viterbi recursion，並說明兩者在半環（sum-product vs. max-product）上的差異。
-2. 能完整推導 CTC 的 forward-backward，包含 blank 擴充路徑的定義與遞推邊界條件。
-3. 能解釋 CTC 的條件獨立假設造成的後果（peaky 輸出、無法建模輸出間依賴、需要外部 LM）。
-4. 能比較 frame-level 對齊（hybrid）、CTC（單調、多對一）與 attention（軟對齊、非單調）三者的歸納偏誤。
+Where the three course-long axes sit this week. **Supervision:** historically CTC mattered because it removed the bootstrap "you need an alignment before you can train" — hybrid systems had to run forced alignment with a GMM-HMM before a DNN could be trained; with CTC, audio plus a transcript is enough. **Representation:** CTC requires $T \geq |\ell| + r$, so the choice of label unit (characters, phones, BPE) and the encoder's subsampling factor constrain each other; the W2 question "who decides the frame rate" gets its first lower bound here. **Latency:** every frame emits independently, so a causal encoder makes CTC streamable for free — but there is no dependency between outputs, and that price is only paid back by the RNN-T in W4. The RNN-T lattice (W4), prefix beam search (W7) and the streaming dialogue state machines of W13 all rest on this week's intuition.
 
-## 參考資料
-- Graves, Fernández, Gomez & Schmidhuber, **Connectionist Temporal Classification: Labelling Unsegmented Sequence Data with Recurrent Neural Networks**, ICML 2006 — 原始論文，推導請直接照它走
-- Graves, **Supervised Sequence Labelling with Recurrent Neural Networks**, Springer, 2012 — Ch 7 的 CTC 敘述比論文清楚，適合做投影片
-- **JM3** App A *Hidden Markov Models*、Ch 16 *Automatic Speech Recognition*（CTC 段）
-- **HAH** Ch 8（Hidden Markov Models）、Ch 9（Acoustic Modeling）
-- Gales & Young, **The Application of Hidden Markov Models in Speech Recognition**, Foundations and Trends in Signal Processing, 2007 — hybrid 時代的權威整理
-- **YD** Ch 3–6（DNN-HMM、sequence discriminative training）
-- CTC peakiness 的理論分析：檢索 *why does CTC result in peaky behavior*、*CTC alignment entropy regularization*
+The first half of the week also carries remedial duty: marginalisation, conditional independence, the chain rule and log-domain arithmetic — the probability page of the week-one prerequisite sheet is cashed in here.
+
+## Learning Objectives
+1. Write down the forward recursion and the Viterbi recursion of an HMM, explain that they differ only in the semiring (sum-product vs. max-product), and state that forward computes the probability of the sequence while Viterbi computes the probability of a single best alignment — the two are not interchangeable.
+2. Derive CTC forward–backward in full: the extended label sequence $\ell'$, the many-to-one map $\mathcal{B}$, the condition on the third term of the recursion, the boundary conditions, and $P(\ell\mid\mathbf{X}) = \alpha_T(S) + \alpha_T(S-1)$; and state the exact zero-probability condition $T < |\ell| + r$.
+3. Read $\partial \mathcal{L}_{\text{CTC}} / \partial u^t_k = y^t_k - \gamma_t(k)$ as "CTC is a per-frame cross-entropy whose target is the soft alignment posterior", and use that reading to relate CTC to hybrid training and to explain where peaky outputs come from.
+4. Explain the consequences of CTC's conditional-independence assumption (no dependency between outputs, need for an external LM, homophones), and separate two different things: the encoder sees the whole acoustic context, but there is no dependency between the output layers.
+5. Write CTC as an HMM with a special topology, and compare on one table the inductive biases of frame-level alignment (hybrid), CTC (monotonic, many-to-one, no transition probabilities) and attention (soft, non-monotonic; developed in W4).
+
+## References
+- Graves, Fernández, Gomez & Schmidhuber, **Connectionist Temporal Classification: Labelling Unsegmented Sequence Data with Recurrent Neural Networks**, ICML 2006, pp. 369–376 (DOI 10.1145/1143844.1143891) — the original paper. Note that its $\beta$ includes $y^t$, so its gradient carries an extra $1/y^t_k$; the slides use a different convention
+- Graves, **Supervised Sequence Labelling with Recurrent Neural Networks**, Springer, *Studies in Computational Intelligence*, 2012 (DOI 10.1007/978-3-642-24797-2) — Chapter 7 explains CTC more clearly than the paper; **this week's notation and $\beta$ convention follow this book**
+- Rabiner, **A Tutorial on Hidden Markov Models and Selected Applications in Speech Recognition**, *Proceedings of the IEEE* 77(2):257–286, 1989 — the standard tutorial on forward, Viterbi and Baum–Welch; its "three basic problems" framing is used directly
+- Gales & Young, **The Application of Hidden Markov Models in Speech Recognition**, *Foundations and Trends in Signal Processing* 1(3):195–304, 2008 (monograph 2007) — the authoritative summary of the hybrid era; read this for triphones and state tying
+- Zeyer, Beck, Schlüter & Ney, **CTC in the Context of Generalized Full-Sum HMM Training**, Interspeech 2017, pp. 944–948 — the source of "CTC is an HMM with a special topology"
+- Raissi, Zhou, Berger, Schlüter & Ney, **HMM vs. CTC for Automatic Speech Recognition: Comparison Based on Full-Sum Training from Scratch**, IEEE SLT 2022, pp. 287–294 — an empirical comparison of the two under one framework
+- Zeyer, Schlüter & Ney, **Why does CTC result in peaky behavior?**, arXiv:2105.14849 (2021) — the theoretical analysis of peaky outputs; cited as a preprint
+- Hannun, **Sequence Modeling with CTC**, *Distill*, 2017 (DOI 10.23915/distill.00008) — an interactive walkthrough; its drawings of the path set and the collapsing map are worth redrawing. **Not a peer-reviewed paper**: an editorially reviewed online journal article
+- Bain, Huh, Han & Zisserman, **WhisperX: Time-Accurate Speech Transcription of Long-Form Audio**, Interspeech 2023 (arXiv:2303.00747) — word-level alignment of Whisper output with a wav2vec 2.0 CTC model; evidence for "CTC can align"
+- Pratap et al., **Scaling Speech Technology to 1,000+ Languages**, arXiv:2305.13516 (2023) — MMS; its CTC forced aligner underlies the `torchaudio` alignment tutorial
+- **JM3** App A *Hidden Markov Models*, Ch 16 *Automatic Speech Recognition* (the CTC section)
+- **HAH** Ch 8 (Hidden Markov Models), Ch 9 (Acoustic Modeling)
+- **YD** Ch 3–6 (DNN-HMM, sequence discriminative training)
+- The original decision-tree state-tying paper (further searching): *tree-based state tying acoustic modelling Young Odell Woodland 1994*
+- Entropy regularisation for CTC: *connectionist temporal classification maximum entropy regularization NeurIPS 2018*, *CTC alignment entropy regularization*
+- The implicit language model inside CTC: *CTC internal language model estimation*, *does CTC learn a language model*
