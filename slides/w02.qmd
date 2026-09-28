@@ -455,6 +455,10 @@ Redundant means constrained. Pick a complex matrix at random, and almost surely 
 
 $$\mathcal{C} = \bigl\{\, \mathbf{X} \;:\; \mathbf{X} = \mathrm{STFT}\bigl(\mathrm{ISTFT}(\mathbf{X})\bigr) \bigr\} \qquad \text{the \textbf{consistent} spectrograms}$$
 
+::: {.small}
+For ISTFT to reconstruct perfectly, window and hop must agree — **COLA**, constant overlap-add: $\sum_m w[n - mH] = \text{const}$ for every $n$. The least-squares ISTFT of Griffin & Lim (what Demo 2 uses) needs only $\sum_m w^2[n - mH] > 0$, so it works for any hop.
+:::
+
 ::: {.claim}
 A real magnitude with a made-up phase is, in general, **not** in $\mathcal{C}$. Convert it to audio and analyse that audio again: you do not get back what you started with.
 :::
