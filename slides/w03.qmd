@@ -90,7 +90,7 @@ Speech recognition is **sequence supervision under an unknown alignment**. The a
 | Sum over every alignment, train on the sum | HMM full-sum, **CTC** (today) |
 | Let the model learn a soft alignment on its own | attention (W4) |
 
-## Three things to leave with today
+## Five things to leave with today
 
 1. **HMM forward and Viterbi are one recursion in two semirings** — sum gives the probability of the sequence, max gives one best alignment, and they are not interchangeable.
 2. **CTC in full**: the extended sequence $\ell'$, the collapsing map $\mathcal{B}$, the recursion and its third term, the boundaries, $P(\ell \mid \mathbf{X}) = \alpha_T(S) + \alpha_T(S-1)$, and the exact condition for zero probability, $T < U + r$.
