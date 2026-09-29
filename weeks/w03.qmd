@@ -6,6 +6,10 @@ toc-depth: 2
 
 <!-- 此檔由 scripts/build_weeks.py 從課程大綱過濾產生，請勿直接編輯。大綱正本在 private repo（$COURSE_OUTLINE），改完請重跑腳本。 -->
 
+::: {.callout-note appearance="minimal"}
+[**▶ Slides for this week**](../slides/w03.qmd)
+:::
+
 ## Where This Fits
 This is the first mathematically dense week of the course. The core difficulty of speech recognition is not classification but **sequence supervision under an unknown alignment**. At the end of W2 we hold 100 feature vectors per second; the training data is an audio clip paired with one line of text, and nothing tells us which frames belong to which symbol. This week puts the forward–backward algorithm of the HMM and that of CTC into one frame: both **marginalise over a hidden alignment variable**. They differ in the direction of the probability — the HMM is generative, $P(\mathbf{X}\mid W)$; CTC is discriminative, $P(\ell\mid\mathbf{X})$ — and in whether transition probabilities exist at all. CTC was not invented from nothing: it is an HMM with a particular topology, no transition probabilities and full-sum training, moved onto the output layer of a neural network.
 
