@@ -6,24 +6,39 @@ toc-depth: 2
 
 <!-- 此檔由 scripts/build_weeks.py 從課程大綱過濾產生，請勿直接編輯。大綱正本在 private repo（$COURSE_OUTLINE），改完請重跑腳本。 -->
 
-## 定位
-把 W3 的對齊觀念接到現代架構，並第一次正式處理「因果性」這個貫穿全課的約束。RNN-T 在此登場，不只因為它是工業界 streaming ASR 的主力，更因為它的「輸出/不輸出」二元決策是 W12 全雙工 turn-taking 建模的直接前身。
+## Where This Fits
+At the end of W3 we had a usable loss with two holes in it. CTC's outputs are independent of one another (homophones can only be guessed from acoustics), and the encoder itself — the box that turns $\mathbf{X}$ into $\mathbf{y}^t$ — was never discussed. This week fills both holes and treats **causality**, a constraint that runs through the whole course, formally for the first time. Three protagonists. The **Transformer / Conformer** is the box itself: self-attention lets every frame see the whole utterance, and the convolution module puts the local inductive bias back. The **RNN-T** adds a prediction network to CTC's lattice, giving the output side an autoregressive dependency while staying monotonic and streamable — W3 said "that price is only paid back by the RNN-T in W4", and this is where it is paid. **Attention as a third kind of alignment** (AED, from LAS onwards) fills the column W3's comparison table left blank: soft, non-monotonic, and — the most important correction of the week — **an attention weight is not an estimate of the alignment**.
 
-## Learning objectives
-1. 能寫出 scaled dot-product attention 與 multi-head 的維度流動，並解釋 Conformer 中 convolution 與 self-attention 的分工。
-2. 能定義 RNN-T 的輸出格點（lattice），寫出其 forward recursion，並比較它與 CTC 在「路徑集合」上的差異。
-3. 能列出把非因果模型改成 streaming 的四類手段（causal mask、chunk-wise attention with lookahead、memory/state carry-over、latency-controlled BLSTM 類），並分析各自的延遲與品質代價。
-4. 能解釋 KV cache 的記憶體與計算複雜度，並說明它為何是即時語音系統的主要瓶頸之一。
+Where the three course-long axes sit this week. **Latency:** W1 wrote $D_{\text{alg}} = \ell\Delta + \alpha C\Delta$ as a statement; this week supplies the mechanism. Lookahead **accumulates layer by layer** (each layer looks $r_k$ frames to the right, $m = \sum_k r_k$); the wait inside a chunk **does not accumulate** (every layer shares the same chunk boundary), and that difference drives the design of streaming architectures. Two further terms appear that W1 did not have: the **delay a model learns on its own** (the RNN-T's emission delay), and the KV cache, a computational delay that grows linearly with $T$. **Representation:** the subsampling factor $s$ at the front of the encoder fixes $T$, and so fixes how tight W3's bound $T \geq U + r$ is; the RNN-T can emit several symbols per frame, so that bound disappears and is replaced by a compute constraint. W2 asked "who decides the frame rate"; this week the answer first becomes a design parameter you can turn. **Supervision:** the RNN-T and CTC use the same kind of data (audio paired with a transcript), but FastEmit shows that **latency itself can be written into the training objective** — the first precedent for W12's treatment of turn-taking as a learnable decision.
 
-## 參考資料
-- Vaswani et al., **Attention Is All You Need**, NeurIPS 2017
-- Gulati et al., **Conformer: Convolution-augmented Transformer for Speech Recognition**, Interspeech 2020
-- Graves, **Sequence Transduction with Recurrent Neural Networks**, arXiv:1211.3711（2012）— RNN-T 原始論文
-- Zhang et al., **Transformer Transducer: A Streamable Speech Recognition Model with Transformer Encoders and RNN-T Loss**, ICASSP 2020
-- Shi et al., **Emformer: Efficient Memory Transformer Based Acoustic Model for Low Latency Streaming Speech Recognition**, ICASSP 2021
-- Yao et al., **Zipformer: A Faster and Better Encoder for Automatic Speech Recognition**, ICLR 2024
-- Yu et al., **FastEmit: Low-Latency Streaming ASR with Sequence-Level Emission Regularization**, ICASSP 2021（DOI 10.1109/icassp39728.2021.9413803）
-- Chan et al., **Listen, Attend and Spell**, ICASSP 2016 — AED 的起點，用來對照非單調對齊
-- **JM3** Ch 7 *Transformers and Pretraining*（有官方 slides）、Ch 16 *Automatic Speech Recognition*
-- pruned RNN-T 與記憶體最佳化：檢索 *pruned RNN-T loss k2*、*monotonic RNN-T memory efficient*
-- SSM / Mamba 在語音上的應用：檢索 *Mamba speech recognition streaming*、*state space model audio*
+The RNN-T's per-frame binary decision — emit or do not emit — is the direct ancestor of turn-taking modelling in W12, and W13's multi-stream tokenisation in Moshi relies on the same idea of "several symbols may share one time step". On the local-language thread: W3 marked "Mandarin homophones make conditional independence bite harder" as my judgement; this week gives it a mechanism, because the prediction network is an output-side language model. And a character-level Mandarin vocabulary pushes the RNN-T's $T \times U \times |\mathcal{V}'|$ tensor straight into the memory wall — exactly the case the pruned RNN-T paper names in its abstract.
+
+## Learning Objectives
+1. Write down the dimension flow of scaled dot-product and multi-head attention ($\mathbf{Q}, \mathbf{K}, \mathbf{V}$ are each $T \times d_k$; the score matrix is $T \times T$), write the streaming mask formally, and explain the division of labour between convolution and self-attention inside a Conformer block, as well as why relative positional encoding becomes necessary under chunking or recurrence.
+2. Define the RNN-T output lattice $(t, u)$, write its forward recursion and $P(\ell \mid \mathbf{X}) = \alpha(T, U)\,\varnothing(T, U)$, read the gradient as "node-occupancy times softmax, minus the edge posterior" — a generalisation of W3's $y - \gamma$ — and compare the path sets of RNN-T and CTC (exactly one symbol per frame vs. zero or more; $\binom{T+U-1}{U}$ paths vs. a set constrained by $T \geq U + r$).
+3. List the four families of techniques that turn a non-causal encoder into a streaming one (causal mask, chunk-wise attention with lookahead, memory / state carry-over, latency-controlled BLSTM-style), state for each which term the algorithmic delay comes from ($m\,s\Delta$ or $\alpha C\,s\Delta$) and whether it accumulates across layers, and identify emission delay as a third kind of latency that lives outside the architecture.
+4. Compute the memory of a KV cache ($2\,n_{\text{layer}}\, d\, T$ numbers) and its per-step cost $O(n_{\text{layer}}\, d\, T)$, and explain why spoken dialogue measured in minutes needs bounded state (sliding windows, memory banks, state-space models).
+5. Diagnose "attention is not alignment": explain why the encoder has already mixed context into every position, so the decoder can read the right content without sharp attention; and state that Whisper's word timestamps actually come from dynamic time warping over a small selected subset of cross-attention heads, not from attention as a whole.
+
+## References
+- Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser & Polosukhin, **Attention Is All You Need**, NeurIPS 2017 (arXiv:1706.03762)
+- Gulati et al., **Conformer: Convolution-augmented Transformer for Speech Recognition**, Interspeech 2020, pp. 5036–5040 (DOI 10.21437/Interspeech.2020-3015; arXiv:2005.08100) — read this for the module-by-module breakdown and the ablation
+- Dai, Yang, Yang, Carbonell, Le & Salakhutdinov, **Transformer-XL: Attentive Language Models beyond a Fixed-Length Context**, ACL 2019, pp. 2978–2988 (DOI 10.18653/v1/P19-1285) — the source of the relative-position score decomposition and segment-level recurrence; the Conformer's self-attention reuses it
+- Graves, **Sequence Transduction with Recurrent Neural Networks**, arXiv:1211.3711 (2012; ICML 2012 Representation Learning Workshop) — the original RNN-T paper; **this week's $\alpha$ / $\beta$ notation and conventions follow it**
+- He et al., **Streaming End-to-end Speech Recognition for Mobile Devices**, ICASSP 2019 (arXiv:1811.06621) — the evidence for the RNN-T becoming the on-device streaming workhorse
+- Zhang, Lu, Sak, Tripathi, McDermott, Koo & Kumar, **Transformer Transducer: A Streamable Speech Recognition Model with Transformer Encoders and RNN-T Loss**, ICASSP 2020 (arXiv:2002.02562)
+- Chen, Wu, Wang, Liu & Li, **Developing Real-time Streaming Transformer Transducer for Speech Recognition on Large-scale Dataset**, ICASSP 2021 (DOI 10.1109/ICASSP39728.2021.9413535; arXiv:2010.11395) — implementation details of the chunk-wise mask with Transformer-XL-style history; the mask in this week's maths follows it
+- Shi, Wang, Wu, Yeh, Chan, Zhang, Le & Seltzer, **Emformer: Efficient Memory Transformer Based Acoustic Model for Low Latency Streaming Speech Recognition**, ICASSP 2021, pp. 6783–6787 (DOI 10.1109/icassp39728.2021.9414560; arXiv:2010.10759) — the memory bank, and right context that does not leak across layers
+- Zhang, Chen, Yu, Yao, Khudanpur & Glass, **Highway Long Short-Term Memory RNNs for Distant Speech Recognition**, ICASSP 2016 (arXiv:1510.08983) — the source of latency-controlled BLSTMs (stated in the abstract); the historical member of the four streaming families
+- Yao, Guo, Yang, Kang, Kuang, Yang, Jin, Lin & Povey, **Zipformer: A Faster and Better Encoder for Automatic Speech Recognition**, ICLR 2024 (arXiv:2310.11230) — the current efficient-encoder design; **not** a paper about bounding KV state
+- Kuang, Guo, Kang, Lin, Luo, Yao & Povey, **Pruned RNN-T for fast, memory-efficient ASR training**, Interspeech 2022, pp. 2068–2072 (DOI 10.21437/Interspeech.2022-10340; arXiv:2206.13236) — the memory wall and pruning with a linear joiner; the abstract names character-level Chinese vocabularies explicitly
+- Yu et al., **FastEmit: Low-Latency Streaming ASR with Sequence-Level Emission Regularization**, ICASSP 2021, pp. 6004–6008 (DOI 10.1109/icassp39728.2021.9413803; arXiv:2010.11148) — emission delay and gradient reweighting
+- Xu, Jia, Majumdar, Huang, Watanabe & Ginsburg, **Efficient Sequence Transduction by Jointly Predicting Tokens and Durations**, arXiv:2304.06795 (2023) — TDT, the transducer variant used by the Parakeet models; if Demo 2 uses `parakeet-mlx`, note that it is not a standard RNN-T; cited as a preprint
+- Chan, Jaitly, Le & Vinyals, **Listen, Attend and Spell**, ICASSP 2016 (arXiv:1508.01211) — the starting point of AED, used to contrast non-monotonic alignment
+- Chorowski, Bahdanau, Serdyuk, Cho & Bengio, **Attention-Based Models for Speech Recognition**, NIPS 2015 (arXiv:1506.07503) — degradation of content-only attention on long (ten-times repeated) utterances, and the source of location-aware attention
+- Radford, Kim, Xu, Brockman, McLeavey & Sutskever, **Robust Speech Recognition via Large-Scale Weak Supervision**, ICML 2023, PMLR 202:28492–28518 (arXiv:2212.04356) — Whisper; the model used in Demo 3
+- The `_ALIGNMENT_HEADS` comment in `whisper/__init__.py` of OpenAI's `openai/whisper` source: "cross-attention heads that are highly correlated to the word-level timing" — **a source-code comment, not peer-reviewed literature**; the source for "even the authors trust only a handful of heads" in Demo 3
+- **JM3** Ch 7 *Transformers and Pretraining*, Ch 16 *Automatic Speech Recognition* (2026-08-19 release)
+- The systems side of KV caches and inference efficiency (further searching): *efficiently scaling transformer inference KV cache*, *multi-query attention memory bandwidth*
+- SSMs / Mamba applied to speech: *Mamba speech recognition streaming*, *state space model audio*
+- Streaming attention-based encoder–decoders: *monotonic chunkwise attention MoChA*, *triggered attention streaming*
