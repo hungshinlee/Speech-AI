@@ -52,7 +52,23 @@ format:
 
 # The gap between frames and symbols {.section-title}
 
-## Last week ended with a number nobody assigned
+## Where we are: week 3 of 14
+
+![](assets/w03/course-map.svg){width="100%"}
+
+## Last week, in one picture
+
+{{< include assets/w03/last-week.inline.qmd >}}
+
+::: {.claim}
+**Week 2 gave us the clock.** Nobody gave us what each tick belongs to — and that gap is the whole of this week.
+:::
+
+::: {.footer}
+Settings from W2 · 16 kHz · 25 / 10 ms · 80 mel · phone rate is an order of magnitude
+:::
+
+## The same gap, in symbols — and on the three axes
 
 Week 2 left us with **100 feature vectors per second**, $\mathbf{X} = (\mathbf{x}_1, \dots, \mathbf{x}_T)$. The training data gives each clip **one line of text**, $\ell = (\ell_1, \dots, \ell_U)$ — and nothing in between.
 
@@ -74,21 +90,17 @@ Week 2 left us with **100 feature vectors per second**, $\mathbf{X} = (\mathbf{x
 Demo 1 · two takes, starts aligned · one spectrogram column = one 10 ms frame
 :::
 
-## Why speech is not frame classification
+## The problem this week handles, in one picture
 
-If someone handed us a label for every frame, this would be an ordinary classifier: $T$ inputs, $T$ targets, cross-entropy, done.
-
-Nobody does. A transcript is **shorter than the input, in an unknown proportion, at unknown positions**.
+{{< include assets/w03/problem-map.inline.qmd >}}
 
 ::: {.claim}
-Speech recognition is **sequence supervision under an unknown alignment**. The alignment is a hidden variable, and every method this week is a different way of dealing with it.
+Speech recognition is **sequence supervision under an unknown alignment**. Every method this week is a way of handling that hidden variable.
 :::
 
-| Strategy | Who uses it |
-|:--|:--|
-| Guess the alignment first, then train a frame classifier on the guess | hybrid DNN–HMM (needs a bootstrap) |
-| Sum over every alignment, train on the sum | HMM full-sum, **CTC** (today) |
-| Let the model learn a soft alignment on its own | attention (W4) |
+::: {.footer}
+Today's route: remedial → HMM (road 1) → CTC (road 2) · attention (road 3) is W4
+:::
 
 ## Five things to leave with today
 
