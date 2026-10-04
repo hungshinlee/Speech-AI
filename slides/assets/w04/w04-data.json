@@ -1,0 +1,237 @@
+{
+  "_note": "由 scripts/make_figs_w04.py 產生，勿手改。RNN-T 路徑 = 從 (1,0) 到 (T,U) 的 T−1 次 blank 與 U 次 emit 的交錯再補一個 blank，個數應為 C(T+U−1, U)；CTC 同題的路徑數用 W3 同一支 enumerate（V = {a, b}）。均勻 y 時每條 RNN-T 路徑機率都是 K^−(T+U)，P = N·K^−(T+U)；隨機 y 用固定 seed。forward 照 Graves 2012 eq. 16–17、backward eq. 18、對角線 eq. 19。memory_wall 與 latency 是算例：輸入是量級假設（大綱〈關鍵數學 6〉〈2〉標明），不是任何系統的量測。",
+  "paths": {
+    "ab": {
+      "U": 2,
+      "r": 0,
+      "ctc_min_T": 2,
+      "by_T": {
+        "1": {
+          "rnnt_count": 1,
+          "binom_T_plus_U_minus_1_choose_U": 1,
+          "rnnt_paths": [
+            "EER"
+          ],
+          "ctc_count": 0,
+          "ctc_paths": []
+        },
+        "2": {
+          "rnnt_count": 3,
+          "binom_T_plus_U_minus_1_choose_U": 3,
+          "rnnt_paths": [
+            "EERR",
+            "ERER",
+            "REER"
+          ],
+          "ctc_count": 1,
+          "ctc_paths": [
+            "ab"
+          ]
+        },
+        "3": {
+          "rnnt_count": 6,
+          "binom_T_plus_U_minus_1_choose_U": 6,
+          "rnnt_paths": [
+            "EERRR",
+            "ERERR",
+            "ERRER",
+            "REERR",
+            "RERER",
+            "RREER"
+          ],
+          "ctc_count": 5,
+          "ctc_paths": [
+            "aab",
+            "abb",
+            "ab-",
+            "a-b",
+            "-ab"
+          ]
+        }
+      }
+    },
+    "aa": {
+      "U": 2,
+      "r": 1,
+      "ctc_min_T": 3,
+      "by_T": {
+        "1": {
+          "rnnt_count": 1,
+          "binom_T_plus_U_minus_1_choose_U": 1,
+          "rnnt_paths": [
+            "EER"
+          ],
+          "ctc_count": 0,
+          "ctc_paths": []
+        },
+        "2": {
+          "rnnt_count": 3,
+          "binom_T_plus_U_minus_1_choose_U": 3,
+          "rnnt_paths": [
+            "EERR",
+            "ERER",
+            "REER"
+          ],
+          "ctc_count": 0,
+          "ctc_paths": []
+        },
+        "3": {
+          "rnnt_count": 6,
+          "binom_T_plus_U_minus_1_choose_U": 6,
+          "rnnt_paths": [
+            "EERRR",
+            "ERERR",
+            "ERRER",
+            "REERR",
+            "RERER",
+            "RREER"
+          ],
+          "ctc_count": 1,
+          "ctc_paths": [
+            "a-a"
+          ]
+        }
+      }
+    }
+  },
+  "forward_check": {
+    "ab": {
+      "1": {
+        "uniform": {
+          "forward": 0.037037037037037035,
+          "enumeration": 0.037037037037037035,
+          "match": true
+        },
+        "random_seed_20261004": {
+          "forward": 0.00990393820881958,
+          "enumeration": 0.00990393820881958,
+          "abs_diff": 0.0,
+          "diagonal_sums_all_equal_P": true
+        }
+      },
+      "2": {
+        "uniform": {
+          "forward": 0.037037037037037035,
+          "enumeration": 0.037037037037037035,
+          "match": true
+        },
+        "random_seed_20261004": {
+          "forward": 0.008173862970686905,
+          "enumeration": 0.008173862970686905,
+          "abs_diff": 0.0,
+          "diagonal_sums_all_equal_P": true
+        }
+      },
+      "3": {
+        "uniform": {
+          "forward": 0.024691358024691357,
+          "enumeration": 0.02469135802469136,
+          "match": true
+        },
+        "random_seed_20261004": {
+          "forward": 0.005690276788526073,
+          "enumeration": 0.005690276788526073,
+          "abs_diff": 0.0,
+          "diagonal_sums_all_equal_P": true
+        }
+      }
+    },
+    "aa": {
+      "1": {
+        "uniform": {
+          "forward": 0.037037037037037035,
+          "enumeration": 0.037037037037037035,
+          "match": true
+        },
+        "random_seed_20261004": {
+          "forward": 0.07053060229679549,
+          "enumeration": 0.07053060229679549,
+          "abs_diff": 0.0,
+          "diagonal_sums_all_equal_P": true
+        }
+      },
+      "2": {
+        "uniform": {
+          "forward": 0.037037037037037035,
+          "enumeration": 0.037037037037037035,
+          "match": true
+        },
+        "random_seed_20261004": {
+          "forward": 0.004956014368726363,
+          "enumeration": 0.004956014368726362,
+          "abs_diff": 8.673617379884035e-19,
+          "diagonal_sums_all_equal_P": true
+        }
+      },
+      "3": {
+        "uniform": {
+          "forward": 0.024691358024691357,
+          "enumeration": 0.02469135802469136,
+          "match": true
+        },
+        "random_seed_20261004": {
+          "forward": 0.006148287329908196,
+          "enumeration": 0.006148287329908195,
+          "abs_diff": 8.673617379884035e-19,
+          "diagonal_sums_all_equal_P": true
+        }
+      }
+    }
+  },
+  "memory_wall": {
+    "T": 500,
+    "U": 50,
+    "V_prime": 5000,
+    "numbers_per_utterance": 125000000,
+    "fp32_bytes_per_utterance": 500000000,
+    "fp32_GB_per_utterance": 0.5,
+    "batch_32_fp32_GB": 16.0,
+    "_inputs_are": "order-of-magnitude assumptions for character-level Mandarin, not a measurement"
+  },
+  "latency": {
+    "delta_ms": 10,
+    "s": 4,
+    "encoder_frame_ms": 40,
+    "r_k": 2,
+    "n_layer": 12,
+    "m_frames": 24,
+    "m_ms": 960,
+    "C_encoder_frames": 8,
+    "C_ms": 320,
+    "alpha_mean": 0.5,
+    "chunk_wait_mean_ms": 160,
+    "D_alg_mean_ms": 1120,
+    "D_alg_worst_ms": 1280,
+    "w1_example": {
+      "n_layer": 15,
+      "r_k": 2,
+      "s_assumed": 1,
+      "m_ms_as_W1_computed": 300,
+      "m_ms_at_s_4": 1200
+    },
+    "misconception_lookahead": {
+      "r_k_from": 2,
+      "r_k_to": 8,
+      "per_layer_ms_wrong_at_s_1": [
+        20,
+        80
+      ],
+      "per_layer_ms_at_s_4": [
+        80,
+        320
+      ]
+    },
+    "_note": "worked examples, not the setting of any particular system"
+  },
+  "kv_cache": {
+    "formula_numbers": "2 * n_layer * d * T",
+    "example": {
+      "n_layer": 12,
+      "d": 512,
+      "T": 1500,
+      "numbers": 18432000,
+      "fp16_MB": 36.864,
+      "_T_is": "about 60 s of 40 ms frames; an example"
+    }
+  }
+}

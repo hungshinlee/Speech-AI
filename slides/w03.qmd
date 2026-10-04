@@ -485,13 +485,13 @@ Neither is wrong. Mixing them is. If your code's $\beta$ starts at $t$ and your 
 
 | Measured on the sentence | value |
 |:--|:--|
-| frames $T$ (after the model's own subsampling) | — |
-| characters $U$, repeats $r$, $U + r$ | — |
-| frames where $\varnothing$ is the argmax | — |
-| frames inside speech where $\varnothing$ is the argmax | — |
+| frames $T$ (after the model's own subsampling) | 292 (5.86 s, one frame per 20 ms) |
+| characters $U$, repeats $r$, $U + r$ | 89 (73 letters + 16 `\|`), 2, 91 |
+| frames where $\varnothing$ is the argmax | 149 / 292 = 51 % |
+| frames inside speech where $\varnothing$ is the argmax | 94 / 232 = 41 % |
 
 ::: {.footer}
-Demo 3 · `facebook/wav2vec2-base-960h` via transformers, CPU · LibriSpeech dev-clean, one sentence
+Demo 3 · `facebook/wav2vec2-base-960h` (94.4 M params) via transformers 5.17, CPU · LibriSpeech dev-clean 1272-128104-0000 · measured 2026-09-26
 :::
 
 ## Misconception 4 — "the blank is silence"
@@ -563,7 +563,7 @@ Row three is the dangerous one. A data pipeline that trims audio but not text, o
 :::
 
 ::: {.footer}
-Demo 3 · `torch.nn.functional.ctc_loss`, batch of one, `reduction="sum"` · MPS support untested
+Demo 3 · `torch.nn.functional.ctc_loss`, batch of one, `reduction="sum"` · torch 2.14.0: identical on CPU and MPS (forward + backward, measured 2026-09-26)
 :::
 
 ## Conditional independence: what the encoder sees, what the outputs share

@@ -6,6 +6,10 @@ toc-depth: 2
 
 <!-- 此檔由 scripts/build_weeks.py 從課程大綱過濾產生，請勿直接編輯。大綱正本在 private repo（$COURSE_OUTLINE），改完請重跑腳本。 -->
 
+::: {.callout-note appearance="minimal"}
+[**▶ Slides for this week**](../slides/w04.qmd)
+:::
+
 ## Where This Fits
 At the end of W3 we had a usable loss with two holes in it. CTC's outputs are independent of one another (homophones can only be guessed from acoustics), and the encoder itself — the box that turns $\mathbf{X}$ into $\mathbf{y}^t$ — was never discussed. This week fills both holes and treats **causality**, a constraint that runs through the whole course, formally for the first time. Three protagonists. The **Transformer / Conformer** is the box itself: self-attention lets every frame see the whole utterance, and the convolution module puts the local inductive bias back. The **RNN-T** adds a prediction network to CTC's lattice, giving the output side an autoregressive dependency while staying monotonic and streamable — W3 said "that price is only paid back by the RNN-T in W4", and this is where it is paid. **Attention as a third kind of alignment** (AED, from LAS onwards) fills the column W3's comparison table left blank: soft, non-monotonic, and — the most important correction of the week — **an attention weight is not an estimate of the alignment**.
 

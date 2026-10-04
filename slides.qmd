@@ -1,6 +1,6 @@
 ---
 title: "Slides"
-subtitle: "English slides, Mandarin delivery — 3 of 14 weeks ready"
+subtitle: "English slides, Mandarin delivery — 4 of 14 weeks ready"
 toc: false
 ---
 
@@ -18,7 +18,7 @@ The slides are written in English to accompany the Mandarin lectures. Each deck 
 | **W1** | [A Systems View of Spoken Dialogue and the Latency Budget](weeks/w01.qmd)<br>[語音對話系統的系統觀與延遲預算]{.wk-zh} | [▶ Open](slides/w01.qmd) |
 | **W2** | [Speech Signals, Auditory Front-Ends, and the Physics of Representation](weeks/w02.qmd)<br>[語音訊號、聽覺前端與表徵的物理基礎]{.wk-zh} | [▶ Open](slides/w02.qmd) |
 | **W3** | [The Alignment Problem: From HMM to CTC](weeks/w03.qmd)<br>[對齊問題：從 HMM 到 CTC]{.wk-zh} | [▶ Open](slides/w03.qmd) |
-| W4 | Sequence Models and Streaming Architectures: Transformer, Conformer, RNN-T<br>[序列模型與 streaming 架構：Transformer、Conformer、RNN-T]{.wk-zh} | *Not yet available* |
+| **W4** | [Sequence Models and Streaming Architectures: Transformer, Conformer, RNN-T](weeks/w04.qmd)<br>[序列模型與 streaming 架構：Transformer、Conformer、RNN-T]{.wk-zh} | [▶ Open](slides/w04.qmd) |
 | W5 | Self-Supervised Representation Learning: Where Speech Foundation Models Come From<br>[自監督表徵學習（SSL）：語音基礎模型的來源]{.wk-zh} | *Not yet available* |
 | W6 | Neural Audio Codecs and Discretization: Turning Speech into a Language<br>[Neural Audio Codec 與離散化：語音成為「語言」的關鍵一步]{.wk-zh} | *Not yet available* |
 | W7 | Speech Recognition: Three Paradigms, Streaming, and the LLM Turn<br>[語音辨識：三種範式、streaming 與 LLM 化]{.wk-zh} | *Not yet available* |

@@ -1,0 +1,782 @@
+<!-- 由 scripts/make_figs_w04.py 產生，勿手改；投影片用 {{< include assets/w04/problem-map.inline.qmd >}} 貼入 -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 384" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<text x="984.0" y="22.0" font-size="15" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">schematic — not a measurement</text>
+<g class="fragment" data-fragment-index="0">
+<rect x="30.0" y="60.0" width="250.0" height="292.0" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="155.0" y="48.0" font-size="15" font-weight="600" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">the stream, as it arrives</text>
+<rect x="60.0" y="100.0" width="17.0" height="24.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.9"/>
+<rect x="78.0" y="100.0" width="17.0" height="24.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.9"/>
+<rect x="96.0" y="100.0" width="17.0" height="24.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.9"/>
+<rect x="114.0" y="100.0" width="17.0" height="24.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.9"/>
+<rect x="132.0" y="100.0" width="17.0" height="24.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.9"/>
+<rect x="150.0" y="100.0" width="17.0" height="24.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.9"/>
+<rect x="168.0" y="100.0" width="17.0" height="24.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.9"/>
+<rect x="186.0" y="100.0" width="17.0" height="24.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.9"/>
+<rect x="204.0" y="100.0" width="17.0" height="24.0" rx="1" fill="#ffffff" stroke="#e5e7eb" stroke-width="0.9"/>
+<rect x="222.0" y="100.0" width="17.0" height="24.0" rx="1" fill="#ffffff" stroke="#e5e7eb" stroke-width="0.9"/>
+<rect x="240.0" y="100.0" width="17.0" height="24.0" rx="1" fill="#ffffff" stroke="#e5e7eb" stroke-width="0.9"/>
+<rect x="258.0" y="100.0" width="17.0" height="24.0" rx="1" fill="#ffffff" stroke="#e5e7eb" stroke-width="0.9"/>
+<svg x="121.775" y="74.4828" width="66.45" height="14.5172" viewBox="0 0 66.45 14.517187"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w4t8-figure_1">
+  <g id="w4t8-patch_1">
+   <path d="M 0 14.517187 
+L 66.45 14.517187 
+L 66.45 -0 
+L 0 -0 
+L 0 14.517187 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w4t8-text_1">
+   <!-- $\mathbf{X}:\ \mathsf{frames}$ -->
+   <g style="fill: #1f2328" transform="translate(0 11.397656) scale(0.15 -0.15)">
+    <defs>
+     <path id="w4t8-Cmb10-58" d="M 184 0 
+L 184 325 
+Q 856 325 909 384 
+L 2009 2106 
+L 825 4063 
+L 269 4063 
+L 269 4391 
+L 2291 4391 
+L 2291 4063 
+L 1838 4063 
+L 2528 2919 
+L 3225 4013 
+Q 3225 4028 3158 4036 
+Q 3091 4044 3053 4044 
+Q 2872 4063 2688 4063 
+L 2688 4391 
+L 4384 4391 
+L 4384 4063 
+Q 4159 4063 3925 4053 
+Q 3691 4044 3653 4006 
+L 2741 2572 
+L 4091 325 
+L 4653 325 
+L 4653 0 
+L 2625 0 
+L 2625 325 
+L 3084 325 
+L 2222 1759 
+L 1344 378 
+Q 1344 369 1411 358 
+Q 1478 347 1509 347 
+Q 1681 325 1881 325 
+L 1881 0 
+L 184 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w4t8-Cmr10-3a" d="M 538 353 
+Q 538 497 644 600 
+Q 750 703 891 703 
+Q 978 703 1062 656 
+Q 1147 609 1194 525 
+Q 1241 441 1241 353 
+Q 1241 213 1137 106 
+Q 1034 0 891 0 
+Q 750 0 644 106 
+Q 538 213 538 353 
+z
+M 538 2406 
+Q 538 2497 584 2578 
+Q 631 2659 714 2709 
+Q 797 2759 891 2759 
+Q 981 2759 1064 2709 
+Q 1147 2659 1194 2578 
+Q 1241 2497 1241 2406 
+Q 1241 2263 1139 2158 
+Q 1038 2053 891 2053 
+Q 747 2053 642 2158 
+Q 538 2263 538 2406 
+z
+" transform="scale(0.015625)"/>
+     <path id="w4t8-Cmss10-66" d="M 634 0 
+L 634 2444 
+L 172 2444 
+L 172 2841 
+L 634 2841 
+L 634 3438 
+Q 634 3722 775 3969 
+Q 916 4216 1159 4364 
+Q 1403 4513 1684 4513 
+Q 1784 4513 1990 4491 
+Q 2197 4469 2222 4441 
+L 2222 3988 
+Q 2097 4044 1967 4070 
+Q 1838 4097 1684 4097 
+Q 1475 4097 1297 3976 
+Q 1119 3856 1119 3653 
+L 1119 2841 
+L 1831 2841 
+L 1831 2444 
+L 1141 2444 
+L 1141 0 
+L 634 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w4t8-Cmss10-72" d="M 513 0 
+L 513 2881 
+L 984 2881 
+L 984 2328 
+Q 1109 2503 1287 2637 
+Q 1466 2772 1670 2842 
+Q 1875 2913 2094 2913 
+L 2094 2456 
+Q 1809 2456 1561 2315 
+Q 1313 2175 1166 1933 
+Q 1019 1691 1019 1403 
+L 1019 0 
+L 513 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w4t8-Cmss10-61" d="M 972 -72 
+Q 766 -72 605 48 
+Q 444 169 356 359 
+Q 269 550 269 763 
+Q 269 1072 580 1256 
+Q 891 1441 1305 1511 
+Q 1719 1581 2041 1581 
+L 2041 1881 
+Q 2041 2128 1900 2337 
+Q 1759 2547 1522 2547 
+Q 1225 2547 1000 2473 
+Q 775 2400 531 2222 
+L 494 2675 
+Q 753 2825 987 2887 
+Q 1222 2950 1522 2950 
+Q 1806 2950 2047 2801 
+Q 2288 2653 2427 2408 
+Q 2566 2163 2566 1881 
+L 2566 0 
+L 2059 0 
+L 2059 238 
+Q 1859 84 1576 6 
+Q 1294 -72 972 -72 
+z
+M 756 763 
+Q 756 566 937 456 
+Q 1119 347 1331 347 
+Q 1600 347 1820 467 
+Q 2041 588 2041 831 
+L 2041 1228 
+Q 1641 1228 1198 1125 
+Q 756 1022 756 763 
+z
+" transform="scale(0.015625)"/>
+     <path id="w4t8-Cmss10-6d" d="M 506 0 
+L 506 2881 
+L 991 2881 
+L 991 2444 
+Q 1163 2666 1403 2789 
+Q 1644 2913 1919 2913 
+Q 2563 2913 2731 2400 
+Q 2903 2638 3158 2775 
+Q 3413 2913 3694 2913 
+Q 4172 2913 4373 2644 
+Q 4575 2375 4575 1881 
+L 4575 0 
+L 4050 0 
+L 4050 1881 
+Q 4050 2497 3419 2497 
+Q 3206 2497 3065 2355 
+Q 2925 2213 2864 2005 
+Q 2803 1797 2803 1588 
+L 2803 0 
+L 2278 0 
+L 2278 1881 
+Q 2278 2203 2120 2350 
+Q 1963 2497 1644 2497 
+Q 1428 2497 1290 2355 
+Q 1153 2213 1092 2005 
+Q 1031 1797 1031 1588 
+L 1031 0 
+L 506 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w4t8-Cmss10-65" d="M 1594 -72 
+Q 1300 -72 1044 51 
+Q 788 175 602 390 
+Q 416 606 314 882 
+Q 213 1159 213 1441 
+Q 213 1806 373 2159 
+Q 534 2513 831 2731 
+Q 1128 2950 1503 2950 
+Q 2116 2950 2386 2500 
+Q 2656 2050 2656 1403 
+L 684 1403 
+Q 684 1150 801 904 
+Q 919 659 1130 503 
+Q 1341 347 1594 347 
+Q 2150 347 2584 691 
+L 2625 256 
+Q 2491 122 2162 25 
+Q 1834 -72 1594 -72 
+z
+M 722 1778 
+L 2259 1778 
+Q 2209 2103 2015 2318 
+Q 1822 2534 1503 2534 
+Q 1316 2534 1150 2426 
+Q 984 2319 876 2145 
+Q 769 1972 722 1778 
+z
+" transform="scale(0.015625)"/>
+     <path id="w4t8-Cmss10-73" d="M 178 213 
+L 263 672 
+Q 716 359 1259 359 
+Q 1494 359 1659 461 
+Q 1825 563 1825 781 
+Q 1825 947 1698 1053 
+Q 1572 1159 1403 1191 
+L 1013 1269 
+Q 688 1334 450 1559 
+Q 213 1784 213 2100 
+Q 213 2391 353 2583 
+Q 494 2775 731 2862 
+Q 969 2950 1259 2950 
+Q 1538 2950 1745 2904 
+Q 1953 2859 2194 2747 
+L 2119 2297 
+Q 1888 2434 1673 2490 
+Q 1459 2547 1191 2547 
+Q 981 2547 836 2455 
+Q 691 2363 691 2163 
+Q 691 2025 800 1926 
+Q 909 1828 1063 1791 
+L 1491 1709 
+Q 1709 1659 1895 1537 
+Q 2081 1416 2192 1233 
+Q 2303 1050 2303 831 
+Q 2303 525 2167 323 
+Q 2031 122 1798 25 
+Q 1566 -72 1259 -72 
+Q 684 -72 178 213 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w4t8-Cmb10-58" transform="translate(0 0.484375)"/>
+    <use xlink:href="#w4t8-Cmr10-3a" transform="translate(93.046875 0.484375)"/>
+    <use xlink:href="#w4t8-Cmss10-66" transform="translate(167.555046 0.484375)"/>
+    <use xlink:href="#w4t8-Cmss10-72" transform="translate(198.072624 0.484375)"/>
+    <use xlink:href="#w4t8-Cmss10-61" transform="translate(232.154655 0.484375)"/>
+    <use xlink:href="#w4t8-Cmss10-6d" transform="translate(280.152702 0.484375)"/>
+    <use xlink:href="#w4t8-Cmss10-65" transform="translate(359.547233 0.484375)"/>
+    <use xlink:href="#w4t8-Cmss10-73" transform="translate(403.931999 0.484375)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<line x1="203.5" y1="90.0" x2="203.5" y2="260.0" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="5 3"/>
+<text x="207.5" y="150.0" font-size="13" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="auto">now</text>
+<text x="207.5" y="168.0" font-size="11" font-weight="400" fill="#dc2626" text-anchor="start" dominant-baseline="auto">right of this line:</text>
+<text x="207.5" y="182.0" font-size="11" font-weight="400" fill="#dc2626" text-anchor="start" dominant-baseline="auto">not yet spoken</text>
+<rect x="60.0" y="200.0" width="110.0" height="44.0" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="115.0" y="222.0" font-size="15" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">encoder</text>
+<line x1="115.0" y1="126.0" x2="115.0" y2="188.0" stroke="#94a3b8" stroke-width="1.4"/>
+<polygon points="115.0,196.0 110.0,188.0 120.0,188.0" fill="#94a3b8"/>
+<svg x="91.72" y="262.2" width="46.56" height="16.8" viewBox="0 0 46.56 16.8"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w4t9-figure_1">
+  <g id="w4t9-patch_1">
+   <path d="M 0 16.8 
+L 46.56 16.8 
+L 46.56 0 
+L 0 0 
+L 0 16.8 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w4t9-text_1">
+   <!-- $\mathbf{f}_t \in \mathbb{R}^d$ -->
+   <g style="fill: #1f2328" transform="translate(0 13.4725) scale(0.16 -0.16)">
+    <defs>
+     <path id="w4t9-Cmb10-66" d="M 159 0 
+L 159 325 
+L 603 325 
+L 603 2516 
+L 244 2516 
+L 244 2841 
+L 603 2841 
+L 603 3525 
+Q 603 3853 801 4070 
+Q 1000 4288 1304 4384 
+Q 1609 4481 1931 4481 
+Q 2188 4481 2380 4318 
+Q 2572 4156 2572 3909 
+Q 2572 3738 2453 3619 
+Q 2334 3500 2169 3500 
+Q 2003 3500 1881 3622 
+Q 1759 3744 1759 3909 
+Q 1759 4106 1900 4225 
+L 1869 4225 
+Q 1581 4225 1431 4014 
+Q 1281 3803 1281 3506 
+L 1281 2841 
+L 1900 2841 
+L 1900 2516 
+L 1319 2516 
+L 1319 325 
+L 1875 325 
+L 1875 0 
+L 159 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w4t9-Cmmi10-74" d="M 397 519 
+Q 397 613 416 697 
+L 878 2534 
+L 206 2534 
+Q 141 2534 141 2619 
+Q 166 2759 225 2759 
+L 934 2759 
+L 1191 3803 
+Q 1216 3888 1291 3947 
+Q 1366 4006 1459 4006 
+Q 1541 4006 1595 3957 
+Q 1650 3909 1650 3828 
+Q 1650 3809 1648 3798 
+Q 1647 3788 1644 3775 
+L 1388 2759 
+L 2047 2759 
+Q 2113 2759 2113 2675 
+Q 2109 2659 2100 2621 
+Q 2091 2584 2075 2559 
+Q 2059 2534 2028 2534 
+L 1331 2534 
+L 872 684 
+Q 825 503 825 372 
+Q 825 97 1013 97 
+Q 1294 97 1511 361 
+Q 1728 625 1844 941 
+Q 1869 978 1894 978 
+L 1972 978 
+Q 1997 978 2012 961 
+Q 2028 944 2028 922 
+Q 2028 909 2022 903 
+Q 1881 516 1612 222 
+Q 1344 -72 997 -72 
+Q 744 -72 570 93 
+Q 397 259 397 519 
+z
+" transform="scale(0.015625)"/>
+     <path id="w4t9-Cmsy10-32" d="M 1356 403 
+Q 1838 0 2497 0 
+L 3616 0 
+Q 3666 0 3698 -37 
+Q 3731 -75 3731 -128 
+Q 3731 -175 3698 -215 
+Q 3666 -256 3616 -256 
+L 2478 -256 
+Q 1969 -256 1519 -12 
+Q 1069 231 800 657 
+Q 531 1084 531 1600 
+Q 531 2116 800 2542 
+Q 1069 2969 1519 3212 
+Q 1969 3456 2478 3456 
+L 3616 3456 
+Q 3666 3456 3698 3415 
+Q 3731 3375 3731 3328 
+Q 3731 3275 3698 3237 
+Q 3666 3200 3616 3200 
+L 2497 3200 
+Q 2184 3200 1889 3097 
+Q 1594 2994 1356 2797 
+Q 1122 2600 958 2304 
+Q 794 2009 794 1728 
+L 3616 1728 
+Q 3666 1728 3698 1687 
+Q 3731 1647 3731 1600 
+Q 3731 1553 3698 1512 
+Q 3666 1472 3616 1472 
+L 794 1472 
+Q 794 1194 958 897 
+Q 1122 600 1356 403 
+z
+" transform="scale(0.015625)"/>
+     <path id="w4t9-STIXGeneral-Italic-211d" d="M 1229 4179 
+L 3360 4179 
+Q 3827 4179 4108 3894 
+Q 4390 3610 4390 3142 
+Q 4390 2554 4060 2186 
+Q 3731 1818 3149 1715 
+L 4026 0 
+L 2925 0 
+L 2125 1690 
+L 1549 1690 
+L 1094 0 
+L 109 0 
+L 1229 4179 
+z
+M 3866 3821 
+L 3392 2022 
+Q 3770 2144 3962 2438 
+Q 4154 2733 4154 3136 
+Q 4154 3584 3866 3821 
+z
+M 3142 1978 
+L 3648 3872 
+Q 3450 3942 3296 3942 
+L 2150 3942 
+L 1613 1926 
+L 2630 1926 
+Q 2957 1926 3142 1978 
+z
+M 3629 237 
+L 2899 1696 
+Q 2829 1683 2682 1683 
+Q 2630 1683 2531 1686 
+Q 2432 1690 2387 1690 
+L 3072 237 
+L 3629 237 
+z
+M 1907 3942 
+L 1408 3942 
+L 416 237 
+L 915 237 
+L 1907 3942 
+z
+" transform="scale(0.015625)"/>
+     <path id="w4t9-Cmmi10-64" d="M 1113 -72 
+Q 709 -72 476 233 
+Q 244 538 244 953 
+Q 244 1363 456 1803 
+Q 669 2244 1030 2536 
+Q 1391 2828 1806 2828 
+Q 1994 2828 2145 2723 
+Q 2297 2619 2381 2444 
+L 2741 3872 
+Q 2766 3981 2772 4044 
+Q 2772 4147 2356 4147 
+Q 2291 4147 2291 4231 
+Q 2294 4247 2305 4287 
+Q 2316 4328 2333 4350 
+Q 2350 4372 2381 4372 
+L 3244 4441 
+Q 3322 4441 3322 4359 
+L 2400 678 
+Q 2356 572 2356 372 
+Q 2356 97 2541 97 
+Q 2741 97 2845 351 
+Q 2950 606 3022 941 
+Q 3034 978 3072 978 
+L 3150 978 
+Q 3175 978 3190 956 
+Q 3206 934 3206 916 
+Q 3094 469 2961 198 
+Q 2828 -72 2528 -72 
+Q 2313 -72 2147 54 
+Q 1981 181 1941 391 
+Q 1528 -72 1113 -72 
+z
+M 1119 97 
+Q 1350 97 1567 270 
+Q 1784 444 1941 678 
+Q 1947 684 1947 703 
+L 2297 2113 
+Q 2259 2338 2131 2500 
+Q 2003 2663 1791 2663 
+Q 1575 2663 1389 2486 
+Q 1203 2309 1075 2069 
+Q 950 1813 836 1366 
+Q 722 919 722 672 
+Q 722 450 817 273 
+Q 913 97 1119 97 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w4t9-Cmb10-66" transform="translate(0 0.1625)"/>
+    <use xlink:href="#w4t9-Cmmi10-74" transform="translate(34.981719 -16.84375) scale(0.7)"/>
+    <use xlink:href="#w4t9-Cmsy10-32" transform="translate(84.176445 0.1625)"/>
+    <use xlink:href="#w4t9-STIXGeneral-Italic-211d" transform="translate(168.336602 0.1625)"/>
+    <use xlink:href="#w4t9-Cmmi10-64" transform="translate(247.772833 38.426562) scale(0.7)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<line x1="115.0" y1="248.0" x2="115.0" y2="250.0" stroke="#94a3b8" stroke-width="1.4"/>
+<polygon points="115.0,258.0 110.0,250.0 120.0,250.0" fill="#94a3b8"/>
+<text x="155.0" y="310.0" font-size="13" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">how much of the future may</text>
+<text x="155.0" y="328.0" font-size="13" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">the encoder see before it answers?</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<rect x="330.0" y="60.0" width="640.0" height="96.0" rx="8" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.4"/>
+<line x1="286.0" y1="206.0" x2="322.6" y2="116.3" stroke="#0b5cad" stroke-width="1.8"/>
+<polygon points="326.0,108.0 327.2,118.2 318.0,114.4" fill="#0b5cad"/>
+<text x="346.0" y="84.0" font-size="17" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="auto">1 · the box itself</text>
+<rect x="346.0" y="94.0" width="284.0" height="38.0" rx="4" fill="#ffffff" stroke="#0b5cad" stroke-width="1.0"/>
+<text x="360.0" y="109.0" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">self-attention: every frame</text>
+<text x="360.0" y="125.0" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">sees the whole utterance</text>
+<rect x="646.0" y="94.0" width="284.0" height="38.0" rx="4" fill="#ffffff" stroke="#0b5cad" stroke-width="1.0"/>
+<text x="660.0" y="109.0" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">conv module: the local</text>
+<text x="660.0" y="125.0" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">bias attention lacks</text>
+<text x="956.0" y="149.0" font-size="13" font-weight="600" fill="#0b5cad" text-anchor="end" dominant-baseline="auto">Transformer / Conformer  ·  then: make it causal, four ways</text>
+</g>
+<g class="fragment" data-fragment-index="2">
+<rect x="330.0" y="164.0" width="640.0" height="96.0" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.4"/>
+<line x1="286.0" y1="206.0" x2="317.1" y2="210.7" stroke="#7c3aed" stroke-width="1.8"/>
+<polygon points="326.0,212.0 316.4,215.6 317.8,205.7" fill="#7c3aed"/>
+<text x="346.0" y="188.0" font-size="17" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="auto">2 · an output that remembers its past</text>
+<rect x="346.0" y="198.0" width="284.0" height="38.0" rx="4" fill="#ffffff" stroke="#7c3aed" stroke-width="1.0"/>
+<text x="360.0" y="213.0" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">a prediction network reads</text>
+<text x="360.0" y="229.0" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">the labels emitted so far</text>
+<rect x="646.0" y="198.0" width="284.0" height="38.0" rx="4" fill="#ffffff" stroke="#7c3aed" stroke-width="1.0"/>
+<text x="660.0" y="213.0" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">lattice gains an axis:</text>
+<svg x="660" y="223" width="62.4" height="13" viewBox="0 0 62.4 13"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w4t10-figure_1">
+  <g id="w4t10-patch_1">
+   <path d="M 0 13 
+L 62.4 13 
+L 62.4 0 
+L 0 0 
+L 0 13 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w4t10-text_1">
+   <!-- $T \times (U + 1)$ -->
+   <g style="fill: #1f2328" transform="translate(0 9.75) scale(0.13 -0.13)">
+    <defs>
+     <path id="w4t10-Cmmi10-54" d="M 294 84 
+Q 297 100 308 140 
+Q 319 181 336 203 
+Q 353 225 384 225 
+Q 934 225 1113 256 
+Q 1284 300 1319 441 
+L 2194 3956 
+Q 2222 4034 2222 4097 
+Q 2222 4147 1997 4147 
+L 1625 4147 
+Q 1197 4147 964 4015 
+Q 731 3884 622 3668 
+Q 513 3453 341 2963 
+Q 319 2906 275 2906 
+L 219 2906 
+Q 153 2906 153 2988 
+L 609 4313 
+Q 622 4372 672 4372 
+L 4453 4372 
+Q 4519 4372 4519 4288 
+L 4306 2963 
+Q 4306 2944 4284 2925 
+Q 4263 2906 4244 2906 
+L 4184 2906 
+Q 4122 2906 4122 2988 
+Q 4191 3441 4191 3628 
+Q 4191 3853 4097 3968 
+Q 4003 4084 3853 4115 
+Q 3703 4147 3463 4147 
+L 3084 4147 
+Q 2913 4147 2853 4115 
+Q 2794 4084 2753 3928 
+L 1875 416 
+Q 1872 403 1870 390 
+Q 1869 378 1863 359 
+Q 1863 278 1959 256 
+Q 2125 225 2669 225 
+Q 2731 225 2731 141 
+Q 2709 50 2696 25 
+Q 2684 0 2625 0 
+L 359 0 
+Q 294 0 294 84 
+z
+" transform="scale(0.015625)"/>
+     <path id="w4t10-Cmsy10-a3" d="M 941 184 
+Q 941 234 972 275 
+L 2303 1600 
+L 972 2931 
+Q 941 2963 941 3016 
+Q 941 3063 978 3103 
+Q 1016 3144 1069 3144 
+Q 1113 3144 1166 3103 
+L 2491 1778 
+L 3809 3103 
+Q 3863 3144 3903 3144 
+Q 3956 3144 3993 3106 
+Q 4031 3069 4031 3016 
+Q 4031 2963 4000 2931 
+L 2669 1600 
+L 4000 275 
+Q 4031 234 4031 184 
+Q 4031 131 3993 93 
+Q 3956 56 3903 56 
+Q 3856 56 3809 103 
+L 2491 1422 
+L 1166 103 
+Q 1119 56 1069 56 
+Q 1016 56 978 97 
+Q 941 138 941 184 
+z
+" transform="scale(0.015625)"/>
+     <path id="w4t10-Cmr10-28" d="M 1984 -1588 
+Q 1628 -1306 1370 -942 
+Q 1113 -578 948 -165 
+Q 784 247 703 697 
+Q 622 1147 622 1600 
+Q 622 2059 703 2509 
+Q 784 2959 951 3375 
+Q 1119 3791 1378 4153 
+Q 1638 4516 1984 4788 
+Q 1984 4800 2016 4800 
+L 2075 4800 
+Q 2094 4800 2109 4783 
+Q 2125 4766 2125 4744 
+Q 2125 4716 2113 4703 
+Q 1800 4397 1592 4047 
+Q 1384 3697 1257 3301 
+Q 1131 2906 1075 2482 
+Q 1019 2059 1019 1600 
+Q 1019 -434 2106 -1491 
+Q 2125 -1509 2125 -1544 
+Q 2125 -1559 2108 -1579 
+Q 2091 -1600 2075 -1600 
+L 2016 -1600 
+Q 1984 -1600 1984 -1588 
+z
+" transform="scale(0.015625)"/>
+     <path id="w4t10-Cmmi10-55" d="M 941 891 
+Q 941 656 1033 472 
+Q 1125 288 1300 186 
+Q 1475 84 1709 84 
+Q 1984 84 2245 196 
+Q 2506 309 2715 509 
+Q 2925 709 3073 965 
+Q 3222 1222 3284 1472 
+L 3859 3781 
+Q 3872 3850 3872 3878 
+Q 3872 4147 3378 4147 
+Q 3316 4147 3316 4231 
+Q 3338 4313 3350 4342 
+Q 3363 4372 3425 4372 
+L 4813 4372 
+Q 4841 4372 4859 4344 
+Q 4878 4316 4878 4288 
+Q 4878 4284 4865 4239 
+Q 4853 4194 4836 4170 
+Q 4819 4147 4794 4147 
+Q 4181 4147 4084 3756 
+L 3506 1447 
+Q 3434 1147 3264 864 
+Q 3094 581 2845 351 
+Q 2597 122 2298 -9 
+Q 2000 -141 1691 -141 
+Q 1338 -141 1045 14 
+Q 753 169 587 447 
+Q 422 725 422 1088 
+Q 422 1297 469 1472 
+L 1088 3956 
+Q 1100 4019 1100 4044 
+Q 1100 4113 1025 4122 
+Q 903 4147 563 4147 
+Q 500 4147 500 4231 
+Q 522 4313 534 4342 
+Q 547 4372 609 4372 
+L 2328 4372 
+Q 2394 4372 2394 4288 
+Q 2391 4272 2381 4234 
+Q 2372 4197 2356 4172 
+Q 2341 4147 2309 4147 
+Q 1919 4147 1766 4103 
+Q 1681 4072 1644 3928 
+L 1025 1447 
+Q 941 1109 941 891 
+z
+" transform="scale(0.015625)"/>
+     <path id="w4t10-Cmr10-2b" d="M 481 1472 
+Q 428 1472 393 1512 
+Q 359 1553 359 1600 
+Q 359 1647 393 1687 
+Q 428 1728 481 1728 
+L 2363 1728 
+L 2363 3616 
+Q 2363 3666 2400 3698 
+Q 2438 3731 2491 3731 
+Q 2538 3731 2578 3698 
+Q 2619 3666 2619 3616 
+L 2619 1728 
+L 4500 1728 
+Q 4547 1728 4581 1687 
+Q 4616 1647 4616 1600 
+Q 4616 1553 4581 1512 
+Q 4547 1472 4500 1472 
+L 2619 1472 
+L 2619 -416 
+Q 2619 -466 2578 -498 
+Q 2538 -531 2491 -531 
+Q 2438 -531 2400 -498 
+Q 2363 -466 2363 -416 
+L 2363 1472 
+L 481 1472 
+z
+" transform="scale(0.015625)"/>
+     <path id="w4t10-Cmr10-31" d="M 594 0 
+L 594 225 
+Q 1394 225 1394 428 
+L 1394 3788 
+Q 1063 3628 556 3628 
+L 556 3853 
+Q 1341 3853 1741 4263 
+L 1831 4263 
+Q 1853 4263 1873 4245 
+Q 1894 4228 1894 4206 
+L 1894 428 
+Q 1894 225 2694 225 
+L 2694 0 
+L 594 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w4t10-Cmr10-29" d="M 416 -1600 
+Q 359 -1600 359 -1544 
+Q 359 -1516 372 -1503 
+Q 1466 -434 1466 1600 
+Q 1466 3634 384 4691 
+Q 359 4706 359 4744 
+Q 359 4766 376 4783 
+Q 394 4800 416 4800 
+L 475 4800 
+Q 494 4800 506 4788 
+Q 966 4425 1272 3906 
+Q 1578 3388 1720 2800 
+Q 1863 2213 1863 1600 
+Q 1863 1147 1786 708 
+Q 1709 269 1542 -157 
+Q 1375 -584 1119 -945 
+Q 863 -1306 506 -1588 
+Q 494 -1600 475 -1600 
+L 416 -1600 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w4t10-Cmmi10-54"/>
+    <use xlink:href="#w4t10-Cmsy10-a3" transform="translate(75.957031 0)"/>
+    <use xlink:href="#w4t10-Cmr10-28" transform="translate(171.201172 0)"/>
+    <use xlink:href="#w4t10-Cmmi10-55" transform="translate(210.019531 0)"/>
+    <use xlink:href="#w4t10-Cmr10-2b" transform="translate(295.791016 0)"/>
+    <use xlink:href="#w4t10-Cmr10-31" transform="translate(391.035156 0)"/>
+    <use xlink:href="#w4t10-Cmr10-29" transform="translate(441.035156 0)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<text x="956.0" y="253.0" font-size="13" font-weight="600" fill="#7c3aed" text-anchor="end" dominant-baseline="auto">RNN-T  ·  monotonic, streamable, output dependency  ·  W3's debt</text>
+</g>
+<g class="fragment" data-fragment-index="3">
+<rect x="330.0" y="268.0" width="640.0" height="96.0" rx="8" fill="#fff7ed" stroke="#b45309" stroke-width="1.4"/>
+<line x1="286.0" y1="206.0" x2="322.9" y2="307.5" stroke="#b45309" stroke-width="1.8"/>
+<polygon points="326.0,316.0 318.2,309.3 327.6,305.8" fill="#b45309"/>
+<text x="346.0" y="292.0" font-size="17" font-weight="700" fill="#b45309" text-anchor="start" dominant-baseline="auto">3 · a third kind of alignment</text>
+<rect x="346.0" y="302.0" width="284.0" height="38.0" rx="4" fill="#ffffff" stroke="#b45309" stroke-width="1.0"/>
+<text x="360.0" y="317.0" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">the decoder attends over</text>
+<text x="360.0" y="333.0" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">encoder outputs: soft, non-monotonic</text>
+<rect x="646.0" y="302.0" width="284.0" height="38.0" rx="4" fill="#ffffff" stroke="#b45309" stroke-width="1.0"/>
+<text x="660.0" y="317.0" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">and the weights are not</text>
+<text x="660.0" y="333.0" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">the alignment</text>
+<text x="956.0" y="357.0" font-size="13" font-weight="600" fill="#b45309" text-anchor="end" dominant-baseline="auto">attention-based encoder–decoder  ·  the correction of the week</text>
+</g>
+</svg>
+```
