@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 210" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<text x="984.0" y="22.0" font-size="15" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">schematic — not a measurement</text>
+<g class="fragment" data-fragment-index="0">
+<text x="240.0" y="30.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">sentence A</text>
+<text x="240.0" y="48.0" font-size="13" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">one path, probability 0.30</text>
+<rect x="120.0" y="111.0" width="100.0" height="54.0" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="170.0" y="181.0" font-size="13" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">max over paths</text>
+<text x="170.0" y="103.0" font-size="15" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">0.3</text>
+<rect x="260.0" y="111.0" width="100.0" height="54.0" rx="2" fill="#0b5cad" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="310.0" y="181.0" font-size="13" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">sum over paths</text>
+<text x="310.0" y="103.0" font-size="15" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">0.3</text>
+<text x="560.0" y="30.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">sentence B</text>
+<text x="560.0" y="48.0" font-size="13" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">100 paths, each 0.005</text>
+<rect x="440.0" y="163.0" width="100.0" height="2.0" rx="2" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="490.0" y="181.0" font-size="13" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">max over paths</text>
+<text x="490.0" y="155.0" font-size="15" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">0.005</text>
+<rect x="580.0" y="75.0" width="100.0" height="90.0" rx="2" fill="#b45309" stroke="#b45309" stroke-width="1.2"/>
+<text x="630.0" y="181.0" font-size="13" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">sum over paths</text>
+<text x="630.0" y="67.0" font-size="15" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">0.5</text>
+<line x1="110.0" y1="165.0" x2="690.0" y2="165.0" stroke="#6b7280" stroke-width="1.0"/>
+</g>
+<g class="fragment" data-fragment-index="1">
+<text x="860.0" y="62.0" font-size="15" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">Viterbi ranks by max:</text>
+<text x="860.0" y="84.0" font-size="15" font-weight="600" fill="#0b5cad" text-anchor="middle" dominant-baseline="auto">picks A (0.30 > 0.005)</text>
+<text x="860.0" y="120.0" font-size="15" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">forward ranks by sum:</text>
+<text x="860.0" y="142.0" font-size="15" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="auto">picks B (0.50 > 0.30)</text>
+<text x="860.0" y="178.0" font-size="13" font-weight="400" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">many weak paths outvote one strong one</text>
+</g>
+</svg>

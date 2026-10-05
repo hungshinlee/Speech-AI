@@ -65,7 +65,7 @@ format:
 :::
 
 ::: {.footer}
-W3 p27 lattice · p33 gradient · p45 conditional independence · p57 what was deferred
+W3 p27 lattice · p33 gradient · p47 conditional independence · p59 what was deferred
 :::
 
 ## The problem this week handles, in one picture
@@ -336,7 +336,7 @@ Graves, arXiv:1211.3711 (2012) · $\mathbf{f}_t$ transcription, $\mathbf{g}_u$ p
 | repeated labels | need a blank between them ($\mathcal{B}$ collapses) | need nothing: emit and emit | — |
 
 ::: {.claim}
-Same glyph, three semantics. W3 p52 planted this; here it is paid: the RNN-T's blank is **time**, and that is exactly what lets labels pile up inside one frame.
+Same glyph, three semantics. W3 p54 planted this; here it is paid: the RNN-T's blank is **time**, and that is exactly what lets labels pile up inside one frame.
 :::
 
 ## The lattice: right is a frame, up is a label
@@ -629,7 +629,7 @@ Chorowski et al., NIPS 2015 — "10 times longer (repeated) utterances" is the a
 | where it breaks | needs a bootstrap | peaky; homophones | memory wall; emission delay | long inputs; attention mistaken for alignment |
 
 ::: {.footer}
-W3 p51 had three columns; this is the fourth, and the row W3 could not fill
+W3 p53 had three columns; this is the fourth, and the row W3 could not fill
 :::
 
 # The state that grows {.section-title}

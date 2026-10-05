@@ -210,10 +210,9 @@ $$\delta_t(j) = b_j(\mathbf{x}_t)\, \max_{i}\, \delta_{t-1}(i)\, a_{ij}, \qquad 
 
 ## Misconception 1 — "forward gives the probability of the best alignment"
 
-Forward is a **sum** over every alignment. Viterbi is a **max** over them. The two numbers answer different questions:
+Forward is a **sum** over every alignment, $\sum_q P(\mathbf{X}, q \mid W)$ — how likely is the audio under the *words*. Viterbi is a **max**, $\max_q P(\mathbf{X}, q \mid W)$ — how likely is the audio under the *single best state sequence*.
 
-- $\sum_q P(\mathbf{X}, q \mid W)$ — how likely is the audio under the *words*
-- $\max_q P(\mathbf{X}, q \mid W)$ — how likely is the audio under the *single best state sequence*
+{{< include assets/w03/strong-vs-weak.inline.qmd >}}
 
 ::: {.claim .warn}
 The best single alignment usually carries a **small fraction** of the total. And the argmax over paths need not agree with the argmax over label sequences — many weak paths can outvote one strong one.
@@ -370,6 +369,10 @@ $$T < U + r \;\Rightarrow\; \mathcal{B}^{-1}(\ell) = \varnothing \;\Rightarrow\;
 | 2 | a label symbol that is not in $\mathcal{V}$ (mapped to blank or to an unknown id) |
 | 3 | only then, numerics: are you summing in the log domain? |
 
+::: {.footer}
+characters per second: order of magnitude · one dev-clean sentence (Demo 3): 12.5 letters/s, 15.5 symbols/s incl. word boundaries
+:::
+
 ## Check the recursion against brute force
 
 With **every** $y^t_k = 1/3$ (vocabulary $\{a, b, \varnothing\}$), each path has probability $3^{-T}$, so $P(\ell \mid \mathbf{X})$ must equal $\lvert \mathcal{B}^{-1}(\ell) \rvert \cdot 3^{-T}$ — a number you can check by hand.
@@ -404,9 +407,11 @@ $\beta_t(s)$ covers frames $t+1 \dots T$, so it excludes $y^t$ · same $[\,\cdot
 
 $$\gamma_t(k) \;=\; \frac{1}{P(\ell \mid \mathbf{X})} \sum_{s:\, \ell'_s = k} \alpha_t(s)\, \beta_t(s) \;=\; P(\pi_t = k \mid \ell, \mathbf{X})$$
 
-::: {.fragment}
+::: {.fragment fragment-index=1}
 $$\frac{\partial \mathcal{L}_{\text{CTC}}}{\partial u^t_k} \;=\; y^t_k - \gamma_t(k)$$
 :::
+
+{{< include assets/w03/hard-soft-target.inline.qmd >}}
 
 ::: {.claim}
 The softmax output minus the alignment posterior. Ordinary cross-entropy against a one-hot target $\mathbf{e}$ gives $y_k - e_k$; this is the same line with the one-hot replaced by $\gamma_t(\cdot)$.
@@ -514,210 +519,14 @@ If you ever find yourself "explaining" a blank-dominated posterior by pauses, lo
 schematic — Demo 3 shows a real one · Zeyer, Schlüter & Ney, arXiv:2105.14849
 :::
 
-## Why peaky: the target chases the model
+## Peaky, measured: one word
 
-From the gradient, $\partial \mathcal{L}_{\text{CTC}} / \partial u^t_k = y^t_k - \gamma_t(k)$, with $\gamma$ recomputed **from the current model** at every step:
-
-1. A frame leans slightly towards label $k$ → its $\gamma_t(k)$ rises → the gradient pushes $y^t_k$ up further.
-2. Neighbouring frames now explain the label less well → their $\gamma$ shifts to $\varnothing$ → they are pushed towards blank.
-3. Nothing pushes back: there is **no transition probability** that rewards a label for lasting.
+{{< include assets/w03/real-posterior.inline.qmd >}}
 
 ::: {.claim}
-Zeyer, Schlüter & Ney (2021) give a formal analysis of this as a **convergence property of the CTC loss under gradient descent**; on a toy example they prove a feed-forward network from uniform initialisation converges to peaky behaviour, and show a related loss with a label prior does not.
+Six letters on eight frames, blanks in the gaps, the word boundary `|` emitted like any other symbol. **This is what Demo 3's heat-map looks like up close** — and why "4 in 10" inside speech is not a majority: every label still needs at least one frame.
 :::
 
 ::: {.footer}
-arXiv:2105.14849, abstract level · same localisation in full-sum HMM training (2017)
+Demo 3 · `runs/rehearsal/logits.npy`, softmax, frames 26–42 (20 ms each) · rows for the other 24 symbols omitted — none wins a frame here
 :::
-
-## Misconception 5 — "CTC's argmax gives you the boundaries"
-
-**Phone level: no.** The spike is where the model chose to *emit*, not where the sound starts or ends. Peaky outputs put spikes systematically off the segment edges. For phone boundaries use a hybrid forced alignment or a dedicated aligner.
-
-**Word level: yes, routinely.** A CTC forced alignment — Viterbi through $\ell'$ with the known transcript — gives word timestamps good enough for subtitles and for training data:
-
-- **MMS** ships a CTC forced aligner (the backbone of the `torchaudio` alignment tutorial)
-- **WhisperX** aligns Whisper's output with a wav2vec 2.0 CTC model to get word-level times
-
-::: {.claim .warn}
-"CTC cannot align" overshoots as badly as "CTC alignments are ground truth." The right statement is about **granularity**.
-:::
-
-::: {.footer}
-MMS: Pratap et al., arXiv:2305.13516 · WhisperX: Bain et al., Interspeech 2023
-:::
-
-## Forcing too much text: `inf`, and what `zero_infinity` hides
-
-::: {.ask}
-**Demo 3, second half.** Same logits, correct transcript → a finite loss. Now append text until $U + r > T$.
-:::
-
-| | loss | gradient | what you learn |
-|:--|:--|:--|:--|
-| correct transcript | finite | $y^t_k - \gamma_t(k)$ | the sentence trains normally |
-| too long, `zero_infinity=False` | `inf` | `nan` | the batch is poisoned — you notice |
-| too long, `zero_infinity=True` | `0` | `0` | the sentence silently contributes nothing |
-
-::: {.claim .warn}
-Row three is the dangerous one. A data pipeline that trims audio but not text, or an encoder with one stride too many, produces a training set that looks fine and trains on a fraction of itself.
-:::
-
-::: {.footer}
-Demo 3 · `torch.nn.functional.ctc_loss`, batch of one, `reduction="sum"` · torch 2.14.0: identical on CPU and MPS (forward + backward, measured 2026-09-26)
-:::
-
-## Conditional independence: what the encoder sees, what the outputs share
-
-| Statement | Verdict |
-|:--|:--|
-| "The encoder sees the whole utterance" | **true** — $\mathbf{y}^t$ is computed from all of $\mathbf{X}$, or $\mathbf{x}_{1:t+m}$ when streaming with $m$ frames of lookahead |
-| "The outputs are conditionally independent" | **true** — $P(\pi \mid \mathbf{X}) = \prod_t y^t_{\pi_t}$: no output is conditioned on another |
-| "CTC has no language model at all" | **overshoots** — acoustic context carries linguistic information, and the encoder uses it |
-| "CTC needs no language model" | **overshoots** — nothing at the output couples one symbol to the next; fusion gains are large |
-
-::: {.claim}
-The assumption is about **the output layer**, not about the network. Whatever the acoustics can support, the encoder can learn; whatever needs the *previous symbol*, it cannot.
-:::
-
-## Misconception 6 — "CTC needs no LM" / "CTC has no LM"
-
-Both overshoot; the previous slide has the precise version. Here is why it matters more for this room:
-
-- In Mandarin, the acoustic form of a syllable underdetermines the character far more often than in English: **homophones are dense**, and a **tone error is a different character**, not a mispronunciation.
-- With outputs conditionally independent, a greedy CTC decode picks each character on acoustics alone. The context that would disambiguate is *textual* — exactly what the output layer cannot see.
-
-::: {.claim}
-**My judgement, not consensus**: the conditional-independence cost bites harder in Mandarin than in English, so the gain from an external LM should be larger. W7 will test this with numbers.
-:::
-
-::: {.footer}
-Tone as lexical content: W2 · shallow fusion and internal-LM estimation: W7
-:::
-
-## The vocabulary is decided before the loss
-
-CTC needs a **fixed, finite** $\mathcal{V}$. Everything downstream follows from that choice:
-
-| Choice of $\mathcal{V}$ | $U$ for one second of speech | Subsampling you can afford |
-|:--|:--|:--|
-| characters | large | little |
-| phones | medium | some |
-| BPE / word pieces | small | more |
-
-**Taiwanese has no single orthography** — Hàn-jī, Tâi-lô and Pe̍h-ōe-jī coexist. "Which symbols are in $\mathcal{V}$" must be decided before the first line of training code, and it fixes $U$, hence the floor on $T$, hence the encoder's stride.
-
-::: {.claim}
-W1's orthography gap for local languages has its first engineering consequence here: **the label set is a modelling decision that precedes the loss**, not a preprocessing detail.
-:::
-
-# CTC is an HMM {.section-title}
-
-## CTC as an HMM with a special topology
-
-| | HMM (GMM or hybrid) | CTC |
-|:--|:--|:--|
-| states | phone states, $N$ of them, tied | the $S = 2U + 1$ positions of $\ell'$ |
-| allowed transitions | as the topology says, with $a_{ij}$ | stay · $+1$ · $+2$ under the condition, **all with weight 1** |
-| emission | generative $b_j(\mathbf{x}_t)$, or scaled posterior | discriminative $y^t_k$, shared across positions with the same symbol |
-| training | Viterbi (hybrid) or full-sum (Baum–Welch) | **full-sum** (forward), always |
-| alignment | hard (hybrid) or soft (full-sum) | soft, every step |
-| direction | $P(\mathbf{X} \mid W)$ | $P(\ell \mid \mathbf{X})$ |
-
-::: {.claim}
-Zeyer, Beck, Schlüter & Ney (2017) formulate generalised full-sum hybrid HMM training and **identify CTC as a special case**. Raissi et al. (SLT 2022) compare the two under one from-scratch full-sum setup.
-:::
-
-::: {.footer}
-Zeyer et al., Interspeech 2017 · Raissi et al., IEEE SLT 2022 · abstract level
-:::
-
-## Misconception 7 — "CTC is a loss, an HMM is a model; you cannot compare them"
-
-The previous table *is* the comparison. Put the two sums side by side once more:
-
-$$\sum_{q} \pi_{q_1} b_{q_1}(\mathbf{x}_1) \prod_{t=2}^{T} a_{q_{t-1}q_t}\, b_{q_t}(\mathbf{x}_t) \qquad\text{vs.}\qquad \sum_{\pi \in \mathcal{B}^{-1}(\ell)} \prod_{t=1}^{T} y^t_{\pi_t}$$
-
-::: {.claim}
-Drop the transition probabilities, replace the generative emission by a softmax, fix the topology to $\ell'$, and train full-sum: the left sum **becomes** the right one. A loss that sums over alignments *is* a model of alignments.
-:::
-
-- What CTC removed: the bootstrap, and the duration model.
-- What it kept: the lattice, the recursion, the semiring, the forward–backward gradient.
-
-## Three families of alignment, three inductive biases
-
-{{< include assets/w03/three-alignments.inline.qmd >}}
-
-| | frame-level (hybrid) | CTC | attention (W4) |
-|:--|:--|:--|:--|
-| alignment | hard, contiguous | monotonic, many-to-one, blank-padded | soft, learned, need not be monotonic |
-| duration model | yes ($a_{ij}$) | none | none, but no blank either |
-| streaming | yes | yes, encoder permitting | not without extra machinery |
-
-## Misconception 8 — "blank means the same thing in every loss"
-
-| | CTC (today) | RNN-T (W4) |
-|:--|:--|:--|
-| what $\varnothing$ means | *this frame emits no new label* | *consume one frame; advance time* |
-| labels per frame | exactly one symbol from $\mathcal{V}'$ | zero, one, or several labels, then a blank |
-| the lattice | $T \times S$, one axis is $\ell'$ | $T \times (U+1)$, two independent axes |
-| output dependency | none | yes — a prediction network sees the previous labels |
-
-::: {.claim}
-Same word, same glyph, different semantics. Next week the blank stops meaning "nothing" and starts meaning "next frame, please" — and that change is what buys back the output dependency CTC gave up.
-:::
-
-# Back to the three axes {.section-title}
-
-## Representation: $T \geq U + r$ is a floor on the frame rate
-
-{{< include assets/w03/frame-rate-bound.inline.qmd >}}
-
-::: {.claim}
-W2 asked *who decides the frame rate* and answered "the hop, times every stride." Today adds the other side: **the label unit sets how slow the clock is allowed to get.** Stride and vocabulary are one decision.
-:::
-
-::: {.footer}
-W2 p25 for the ladder · characters per second: order of magnitude, not measured
-:::
-
-## Latency and supervision: what CTC buys, what it costs
-
-| Axis | What CTC does | The price |
-|:--|:--|:--|
-| **Latency** | every frame emits on its own, so a causal encoder streams with no extra decoder state; algorithmic latency is W1's $D_{\text{alg}}$ of the encoder alone — no decoder adds to it | no output dependency — the symbol you just emitted cannot inform the next |
-| **Supervision** | $(\mathbf{X}, \ell)$ pairs are enough; the alignment is summed out and never annotated | no duration model; the target chases the model (peaky); the vocabulary must be fixed first |
-
-::: {.claim}
-CTC made streaming and alignment-free training almost free. **W4 pays for the output dependency (RNN-T); W7 pays for the language model (fusion).** Nothing today was free — it was deferred.
-:::
-
-## What this week put on the three axes
-
-::: {.prose}
-| Axis | What we now know |
-|:--|:--|
-| **Supervision** | Audio plus a transcript is enough: the alignment is summed out. The gradient is a per-frame cross-entropy against a soft alignment, recomputed every step. |
-| **Representation** | $T \geq U + r$: label unit and encoder stride are one decision, and the vocabulary is fixed before the loss exists. |
-| **Latency** | Per-frame emission makes CTC streamable for the encoder's lookahead alone. The output dependency it gives up returns next week. |
-:::
-
-::: {.claim}
-Every alignment method handles one hidden variable. HMM and CTC sum it out on the same lattice; they differ in what each refuses to model.
-:::
-
-## Reading, and next week
-
-**Read this week**
-
-- Graves, *Supervised Sequence Labelling with Recurrent Neural Networks*, Springer 2012, **Ch 7** — the derivation you saw, in the notation you saw
-- Jurafsky & Martin, *Speech and Language Processing*, 3rd ed. draft, **App A** (HMMs) and the CTC section of **Ch 16**
-
-**If one thing today was new to you, make it this one**
-
-- Hannun, *Sequence Modeling with CTC*, Distill 2017 — an interactive walkthrough of the path set and the collapsing map. Editorially reviewed, **not a peer-reviewed paper**; read it for the pictures
-
-**Next week — sequence models and streaming architectures**
-
-The blank changes meaning, the lattice gains a second axis, and the encoder learns to look ahead by exactly as much as the latency budget allows: Transformer, Conformer, RNN-T.
