@@ -143,7 +143,7 @@ $$\ln \prod_t y^t_{\pi_t} = \sum_t \ln y^t_{\pi_t}, \qquad \ln \sum_i e^{a_i} \;
 
 - A product of $T$ probabilities shrinks like $c^T$. In float64 it reaches **zero** long before $T$ reaches a sentence.
 - Subtracting $a^{*}$ first keeps every exponent $\leq 0$: no overflow, and the largest term is computed exactly.
-- **Example.** Two paths with $\ln p = -1000$ and $-1001$. Naively: $e^{-1000} = 0$ in float64, so $\ln(0 + 0) = -\infty$. With $a^{*} = -1000$: $-1000 + \ln(1 + e^{-1}) = -1000 + 0.313 = -999.687$.
+- **Example.** Two paths arrive at the same node with $\ln p_1 = -1000$, $\ln p_2 = -1001$; the node needs $\ln(p_1 + p_2)$. Going back to probabilities fails: $e^{-1000} = 0$ in float64, so $\ln(0 + 0) = -\infty$. Factor out $a^{*} = -1000$ instead: $-1000 + \ln(1 + e^{-1}) = -1000 + 0.313 = -999.687$.
 
 ::: {.claim}
 Two operations cover every algorithm today: **$(+, \times)$ in probability space is $(\operatorname{logsumexp}, +)$ in log space**, and $(\max, \times)$ is $(\max, +)$.
