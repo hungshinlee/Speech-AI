@@ -317,7 +317,7 @@ Both are **a sum over alignments of a product over frames**. CTC has no transiti
 $\ell' = (\varnothing, \ell_1, \varnothing, \ell_2, \dots, \ell_U, \varnothing)$, length $S = 2U + 1$. A path is a walk on this graph, one node per frame.
 
 ::: {.footer}
-Three moves per frame: stay · advance one · advance two, between *different* labels
+Three moves per frame: stay · advance one · advance two, between *different* labels · **every edge has weight 1** — no transition probabilities
 :::
 
 ## Forward on the CTC lattice
