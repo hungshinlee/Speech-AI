@@ -101,7 +101,7 @@ Logs are $\ln$ · no $L$ (W2's window): left context is $H$ · lookahead is $m$,
 
 1. **Attention's dimension flow and its $T \times T$ score** — and the Conformer block: convolution gives the local bias attention lacks; relative positions because chunks make absolute ones meaningless.
 2. **Two mechanical delays**: right context per layer *stacks* ($m = \sum_k r_k$); the chunk wait does *not* ($\alpha C$). Both are in encoder frames: $D_{\text{alg}} = (m + \alpha C)\,s\Delta$.
-3. **The RNN-T in full**: the $(t, u)$ lattice, $\alpha$, $\beta$, $P = \alpha(T,U)\,\varnothing(T,U)$, and a gradient that reads as *occupancy × softmax − edge posterior* — W3's $y - \gamma$ with one factor in front.
+3. **The RNN-T in full**: the $(t, u)$ lattice, $\alpha$, $\beta$, $P = \alpha(T,U)\,\varnothing(T,U)$, and a gradient that reads as *occupancy $\times$ softmax $-$ edge posterior* — W3's $y - \gamma$ with one factor in front.
 4. **A third delay the architecture does not show**: emission delay, which the loss can be told to fight (FastEmit).
 5. **Attention is not alignment**, and the state of a Transformer grows with $T$.
 
@@ -140,7 +140,7 @@ Chunk mask after Chen et al., ICASSP 2021 · $R$ = right context past the chunk 
 {{< include assets/w04/conformer-block.inline.qmd >}}
 
 ::: {.footer}
-Gulati et al., Interspeech 2020 · kernel 32, $s = 4$ (10 → 40 ms) · Macaron: half an FFN each side
+Gulati et al. 2020 · kernel 32 · $s = 4$ (10 → 40 ms) · Macaron: ½ FFN each side
 :::
 
 ## Misconception 1 — "the conv module just adds a bit of locality"
@@ -148,10 +148,10 @@ Gulati et al., Interspeech 2020 · kernel 32, $s = 4$ (10 → 40 ms) · Macaron:
 | Step (each removes one more thing — cumulative) | dev-other | test-other |
 |:--|--:|--:|
 | Conformer (M) | 4.4 | 4.3 |
-| − Swish, + ReLU | 4.4 | 4.5 |
-| − convolution module | 4.8 | 4.9 |
-| − Macaron FFN | 5.1 | 5.0 |
-| − relative positional encoding | 5.8 | 5.6 |
+| $-$ Swish, $+$ ReLU | 4.4 | 4.5 |
+| $-$ convolution module | 4.8 | 4.9 |
+| $-$ Macaron FFN | 5.1 | 5.0 |
+| $-$ relative positional encoding | 5.8 | 5.6 |
 
 ::: {.claim}
 The paper's own conclusion: *"the convolution sub-block is the most important feature."* Read the table as **one path from Conformer to Transformer**, not as five independent experiments — the last step's jump is also the step that lands on a vanilla Transformer.
@@ -198,9 +198,9 @@ Dai et al., ACL 2019, §3.3 · Conformer's MHSA reuses it · skeleton only, not 
 
 | Family | Mechanism | Delay term | Stacks? | Example |
 |:--|:--|:--|:--|:--|
-| **causal mask** | $M_{ij} = -\infty$ for $j > i$ | none: $m = 0$, $C = 1$ | — | cheapest, worst quality |
+| **causal mask** | $M_{ij} = -\infty$, $j > i$ | none ($m = 0$, $C = 1$) | — | cheapest, worst quality |
 | **chunk + lookahead** | read to the chunk end, $+R$ past it, $\leq H$ back | $\alpha C\,s\Delta$ (chunk) + $m\,s\Delta$ if $R$ is re-read per layer | chunk: **no** · $R$: **yes** | Transformer Transducer; Chen et al. 2021 |
-| **memory / state carry-over** | attend to a compressed summary of past segments instead of $H$ raw frames | none: bounds the *history* | — | Transformer-XL; Emformer |
+| **memory / state carry-over** | a compressed summary of past segments replaces $H$ raw frames | none: bounds the *history* | — | Transformer-XL; Emformer |
 | **latency-controlled BLSTM** | backward LSTM over a short future window only | the window: $m\,s\Delta$ | **yes** if re-opened per layer | Zhang et al. 2016 |
 
 ::: {.claim}
@@ -212,7 +212,7 @@ Only two quantities change: **how far right** a layer reads, and **whether that 
 {{< include assets/w04/masks.inline.qmd >}}
 
 ::: {.footer}
-$T = 12$, $C = 4$, $R = 1$, $H = 4$ · row $i$ reads the white columns · W1 p38: $H$ is not free either
+$T = 12$, $C = 4$, $R = 1$, $H = 4$ · row $i$ reads white columns · W1 p38: $H$ costs too
 :::
 
 ## Two delays, one picture: what stacks and what does not
@@ -231,7 +231,7 @@ $$t^{(k)} = t^{(k-1)} + r_k \quad\Longrightarrow\quad t^{(n_{\text{layer}})} = t
 
 **(b) The chunk wait does not.** *Claim:* if every layer reads only up to the end of the current chunk, then layer $n_{\text{layer}}$'s output anywhere in chunk $c$ depends on the input only up to the end of chunk $c$. *Induction:* true for layer 1 by the mask; if true for layer $k-1$, then layer $k$ reads layer $k-1$ only within chunk $c$, whose values depend on input only up to the end of chunk $c$. $\square$
 
-The last frame of the user's speech lands at position $j$ in its chunk and waits $(C - 1 - j)$ frames: mean $\tfrac{C-1}{2}$, worst $C - 1$ — W1's $\alpha \in [\tfrac12, 1]$.
+The last frame of the user's speech lands at position $j$ in its chunk and waits $(C - 1 - j)$ frames: mean $\tfrac{C-1}{2}$, worst $C - 1$ — W1's $\alpha \in [\tfrac12, 1]$, with $C - 1$ rounded to $C$.
 
 ::: {.claim}
 Two mechanisms, two shapes: a **sum over layers** and a **single shared boundary.**
@@ -271,9 +271,9 @@ Before adding one frame of right context, ask three questions: **which layer, ti
 
 | Setting | $m$ | $C$ | $D_{\text{alg}}$ | What you pay |
 |:--|--:|--:|:--|:--|
-| purely causal | 0 | 1 | $\approx 0$ | the largest quality loss of any setting; every frame answers with no future at all |
-| chunk only | 0 | $C$ | $\alpha C\,s\Delta$ | a bounded wait that does not grow with depth |
-| chunk + per-layer $R$ | $n_{\text{layer}} R$ | $C$ | $(n_{\text{layer}} R + \alpha C)\,s\Delta$ | quality back, latency summed over depth |
+| purely causal | 0 | 1 | $\approx 0$ | the largest quality loss; every frame answers with no future |
+| chunk only | 0 | $C$ | $\alpha C\,s\Delta$ | a bounded wait, flat in depth |
+| chunk + per-layer $R$ | $n_{\text{layer}} R$ | $C$ | $(n_{\text{layer}} R + \alpha C)\,s\Delta$ | quality back; latency summed over depth |
 | chunk + copied $R$ (Emformer) | $R$ | $C$ | $(R + \alpha C)\,s\Delta$ | right context once, not per layer |
 
 ::: {.claim}
@@ -296,7 +296,7 @@ W1's budget takes $D_{\text{alg}}$ with both terms · "nobody ships" is a field 
 **LC-BLSTM.** The backward LSTM runs only over a short future window per chunk: the historical form of the same idea.
 
 ::: {.footer}
-Dai et al. 2019 eq. 2 · Shi et al. 2021 §3 (read 2026-10-04) · Zhang et al. 2016, abstract
+Dai et al. 2019 eq. 2 · Shi et al. 2021 §3 (read 2026-10-04) · Zhang et al. 2016
 :::
 
 ## Refill W1's budget: the encoder row
@@ -309,7 +309,7 @@ Dai et al. 2019 eq. 2 · Shi et al. 2021 §3 (read 2026-10-04) · Zhang et al. 2
 | …and a term W1 did not have | + emission delay (next section) | measured, not computed |
 
 ::: {.footer}
-Same master as W1 p31 · the number is the p20 example, not a measurement · Demo 2 measures
+Master: W1 p31 · 1120 ms is the p20 example, not a measurement · Demo 2 measures
 :::
 
 # RNN-T: a second axis on the lattice {.section-title}
@@ -344,7 +344,7 @@ Same glyph, three semantics. W3 p54 planted this; here it is paid: the RNN-T's b
 {{< include assets/w04/rnnt-lattice.inline.qmd >}}
 
 ::: {.footer}
-$\ell = \text{ab}$, $T = 3$ · start at $(1, 0)$, reach $(T, U)$, then one last blank · counts: `w04-data.json`
+$\ell = \text{ab}$, $T = 3$ · start at $(1, 0)$, reach $(T, U)$, then one last blank · `w04-data.json`
 :::
 
 ## Paths: write them out before the program does
@@ -401,7 +401,9 @@ max_symbols_per_step = 5   # stop emitting, force a blank, move on
 
 {{< include assets/w04/rnnt-forward.inline.qmd >}}
 
-$$\alpha(t,u) \;=\; \alpha(t-1,u)\,\varnothing(t-1,u) \;+\; \alpha(t,u-1)\,y(t,u-1), \qquad \alpha(1,0) = 1, \qquad P(\ell \mid \mathbf{X}) = \alpha(T,U)\,\varnothing(T,U)$$
+$$\alpha(t,u) \;=\; \alpha(t-1,u)\,\varnothing(t-1,u) \;+\; \alpha(t,u-1)\,y(t,u-1), \qquad \alpha(1,0) = 1$$
+
+$$P(\ell \mid \mathbf{X}) \;=\; \alpha(T,U)\,\varnothing(T,U)$$
 
 ::: {.footer}
 Graves 2012 eq. 16–17 · $\alpha(t,u)$: emitted $\ell_{1:u}$ while consuming frames $1 \dots t{-}1$ · $O(TU)$
@@ -428,9 +430,11 @@ Same lesson as W3: the sum over exponentially many paths and the $O(TU)$ recursi
 
 {{< include assets/w04/rnnt-alpha-beta.inline.qmd >}}
 
-$$\beta(t,u) \;=\; \beta(t+1,u)\,\varnothing(t,u) \;+\; \beta(t,u+1)\,y(t,u), \qquad \beta(T,U) = \varnothing(T,U), \qquad \textstyle\sum_{t+u=n} \alpha(t,u)\,\beta(t,u) = P(\ell \mid \mathbf{X})\ \text{ for every } n$$
+$$\beta(t,u) \;=\; \beta(t+1,u)\,\varnothing(t,u) \;+\; \beta(t,u+1)\,y(t,u), \qquad \beta(T,U) = \varnothing(T,U)$$
 
-## The gradient: occupancy × softmax − edge posterior
+$$\textstyle\sum_{t+u=n} \alpha(t,u)\,\beta(t,u) \;=\; P(\ell \mid \mathbf{X}) \quad \text{for every } n$$
+
+## The gradient: occupancy $\times$ softmax $-$ edge posterior
 
 With $\mathcal{L} = -\ln P(\ell \mid \mathbf{X})$, at node $(t,u)$ — $\alpha$ and $\beta$ without arguments mean $\alpha(t,u)$, $\beta(t,u)$:
 
@@ -441,7 +445,7 @@ $$\frac{\partial \mathcal{L}}{\partial z^{t,u}_k} \;=\; \underbrace{\frac{\alpha
 | $\alpha\beta/P$ | posterior that a path passes through $(t,u)$ |
 | $\alpha\,y(t,u)\,\beta(t,u+1)/P$ | posterior that a path leaves $(t,u)$ by the **emit** edge |
 | $\alpha\,\varnothing(t,u)\,\beta(t+1,u)/P$ | posterior that it leaves by the **blank** edge |
-| everything else ($k$ not the next label, not blank) | occupancy × $y^{t,u}_k$ — pushed down, nothing pulls it up |
+| everything else ($k$ not the next label, not blank) | occupancy $\times$ $y^{t,u}_k$ — pushed down, nothing pulls it up |
 
 ## Where it comes from: two lines
 
@@ -493,7 +497,7 @@ W3 said the vocabulary is decided before the loss. Here is its bill: $|\mathcal{
 :::
 
 ::: {.footer}
-`w04-data.json` → `memory_wall` · Kuang et al., Interspeech 2022 · $T = 500$ at $s = 4$ ≈ 20 s
+`w04-data.json` → `memory_wall` · Kuang et al. 2022 · $T = 500$ at $s = 4$ ≈ 20 s
 :::
 
 ## Pruned RNN-T: a linear joiner finds the band
@@ -501,7 +505,7 @@ W3 said the vocabulary is decided before the loss. Here is its bill: $|\mathcal{
 {{< include assets/w04/pruned-band.inline.qmd >}}
 
 ::: {.footer}
-Kuang et al. 2022, abstract: pruning bounds from a joiner linear in the encoder and decoder embeddings
+Kuang et al., Interspeech 2022 (abstract) · the band from a joiner linear in $\mathbf{f}_t$, $\mathbf{g}_u$
 :::
 
 ## Emission delay: the loss prefers to wait
@@ -530,14 +534,14 @@ $D_{\text{alg}}$ is what the architecture *guarantees you cannot beat.* What you
 **Demo 2.** One LibriSpeech sentence, fed at real-time pace to a streaming transducer with three chunk settings. For each word: when does its acoustic evidence end, and when is it emitted? Predict the gap before the timeline appears.
 :::
 
-| chunk | $D_{\text{alg}}$ (mean, computed) | measured emit − acoustic end (median) | worst word |
+| chunk | $D_{\text{alg}}$ (mean, computed) | measured emit $-$ acoustic end (median) | worst word |
 |:--|--:|--:|--:|
 | large (e.g. 640 ms) | — | — | — |
 | medium (e.g. 320 ms) | — | — | — |
 | small (e.g. 160 ms) | — | — | — |
 
 ::: {.footer}
-Demo 2 · not built · candidates: sherpa-onnx streaming transducer, parakeet-mlx (TDT, not RNN-T)
+Demo 2 · not built · sherpa-onnx transducer or parakeet-mlx (TDT, not RNN-T)
 :::
 
 # Attention as the third alignment — and why it is not one {.section-title}
@@ -573,7 +577,7 @@ Chan et al. (LAS) · Chorowski et al. 2015 · Whisper is this family · $\mathbf
 | heads OpenAI's code actually uses for timestamps | — | — |
 
 ::: {.footer}
-Demo 3 · not built · `transformers` Whisper, `output_attentions=True` · `_ALIGNMENT_HEADS` overlay
+Demo 3 · not built · `transformers` Whisper, `output_attentions` · `_ALIGNMENT_HEADS`
 :::
 
 ## Misconception 7 — "attention weights are the alignment"
@@ -598,7 +602,7 @@ Even the authors treat attention as **raw material for an alignment**, not as on
 :::
 
 ::: {.footer}
-`openai/whisper`, `whisper/__init__.py` — a source-code comment, **not peer-reviewed literature**
+`openai/whisper` `__init__.py` — a code comment, **not peer-reviewed literature**
 :::
 
 ## Long inputs: attention forced to align, and failing
@@ -614,7 +618,7 @@ Attention has no notion of *having consumed* a frame — that is what the blank 
 :::
 
 ::: {.footer}
-Chorowski et al., NIPS 2015 — "10 times longer (repeated) utterances" is the abstract's wording
+Chorowski et al., NIPS 2015 — "10 times longer (repeated) utterances" (abstract)
 :::
 
 ## Three families, three inductive biases — the table completed
@@ -639,7 +643,7 @@ W3 p53 had three columns; this is the fourth, and the row W3 could not fill
 {{< include assets/w04/kv-cache.inline.qmd >}}
 
 ::: {.footer}
-`w04-data.json`: $n_{\text{layer}} = 12$, $d = 512$, $T = 1500$ (≈ 60 s) → $1.8 \times 10^7$ numbers, 37 MB fp16
+`w04-data.json`: $n_{\text{layer}} = 12$, $d = 512$, $T = 1500$ → $1.8 \times 10^7$ numbers, 37 MB fp16
 :::
 
 ## Misconception 8 — "the KV cache is a serving detail"
