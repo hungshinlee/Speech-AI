@@ -531,17 +531,17 @@ $D_{\text{alg}}$ is what the architecture *guarantees you cannot beat.* What you
 ## Demo 2 — three chunk sizes: when does each word appear?
 
 ::: {.ask}
-**Demo 2.** One LibriSpeech sentence, fed at real-time pace to a streaming transducer with three chunk settings. For each word: when does its acoustic evidence end, and when is it emitted? Predict the gap before the timeline appears.
+**Demo 2.** One LibriSpeech sentence, fed at real-time pace to one streaming transducer, with three feed-chunk sizes. For each word: when does its acoustic evidence end, when does the model *emit* it, and when does it *appear*? Predict the gaps before the timeline appears.
 :::
 
-| chunk | $D_{\text{alg}}$ (mean, computed) | measured emit $-$ acoustic end (median) | worst word |
-|:--|--:|--:|--:|
-| large (e.g. 640 ms) | — | — | — |
-| medium (e.g. 320 ms) | — | — | — |
-| small (e.g. 160 ms) | — | — | — |
+| feed chunk $C$ | $D_{\text{alg}}$ (mean, computed) | emitted $-$ acoustic end (median) | appeared $-$ acoustic end (median) | worst word |
+|:--|--:|--:|--:|--:|
+| 1280 ms | — | — | — | — |
+| 640 ms | — | — | — | — |
+| 320 ms ($=$ model chunk) | — | — | — | — |
 
 ::: {.footer}
-Demo 2 · not built · sherpa-onnx transducer or parakeet-mlx (TDT, not RNN-T)
+Demo 2 · one sherpa-onnx streaming zipformer, three feed chunks · built, not rehearsed
 :::
 
 # Attention as the third alignment — and why it is not one {.section-title}

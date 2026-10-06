@@ -1,0 +1,440 @@
+{
+ "_note": "量測數字（進版控的出處，speech_ai/CLAUDE.md 4.8）。w04-data.json 是 make_figs_w04.py 算出來的、每次重產；量測的放這裡。",
+ "demo2": {
+  "source": "demos/w04_d2_stream_chunks/runs/rehearsal/rehearsal.json",
+  "time": "2026-10-06T09:10:06",
+  "backend": {
+   "backend": "sherpa-onnx",
+   "version": "1.13.8",
+   "model": "sherpa-onnx-streaming-zipformer-en-2023-06-26",
+   "load_s": 0.821,
+   "meta": {
+    "model_type": "zipformer2",
+    "version": "1",
+    "model_author": "k2-fsa",
+    "comment": "streaming zipformer2",
+    "decode_chunk_len": "32",
+    "T": "45",
+    "num_encoder_layers": "2,2,3,4,3,2",
+    "encoder_dims": "192,256,384,512,384,256",
+    "cnn_module_kernels": "31,31,15,15,15,31",
+    "left_context_len": "128,64,32,16,32,64",
+    "query_head_dims": "32,32,32,32,32,32",
+    "value_head_dims": "12,12,12,12,12,12",
+    "num_heads": "4,4,4,8,4,4"
+   }
+  },
+  "sentence": "MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL",
+  "acoustic_end_source": "/Users/winston/Course-Hub/speech_ai/demos/w03_d3_blank_heatmap/runs/rehearsal/rehearsal.json",
+  "settings": {
+   "1": {
+    "feed_ms": 1280.0,
+    "d_alg_mean_ms": 770.0,
+    "d_alg_worst_ms": 1410.0,
+    "m_ms": 130.0,
+    "median_gap_emit_ms": null,
+    "median_gap_fed_ms": null,
+    "median_gap_wall_ms": null,
+    "worst_wall": null,
+    "median_fed_minus_emit_ms": 960.0,
+    "median_wall_minus_fed_ms": 54.0,
+    "n_matched": 0,
+    "n_ref": 17,
+    "hyp_text": " MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL",
+    "per_word": [
+     {
+      "word": "MISTER",
+      "end": 0.8,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "QUILTER",
+      "end": 1.2,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "IS",
+      "end": 1.38,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "THE",
+      "end": 1.52,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "APOSTLE",
+      "end": 2.06,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "OF",
+      "end": 2.22,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "THE",
+      "end": 2.36,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "MIDDLE",
+      "end": 2.62,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "CLASSES",
+      "end": 3.12,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "AND",
+      "end": 3.44,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "WE",
+      "end": 3.56,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "ARE",
+      "end": 3.7,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "GLAD",
+      "end": 4.0,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "TO",
+      "end": 4.18,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "WELCOME",
+      "end": 4.58,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "HIS",
+      "end": 4.8,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "GOSPEL",
+      "end": 5.42,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     }
+    ]
+   },
+   "2": {
+    "feed_ms": 640.0,
+    "d_alg_mean_ms": 450.0,
+    "d_alg_worst_ms": 770.0,
+    "m_ms": 130.0,
+    "median_gap_emit_ms": null,
+    "median_gap_fed_ms": null,
+    "median_gap_wall_ms": null,
+    "worst_wall": null,
+    "median_fed_minus_emit_ms": 640.0,
+    "median_wall_minus_fed_ms": 33.0,
+    "n_matched": 0,
+    "n_ref": 17,
+    "hyp_text": " MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL",
+    "per_word": [
+     {
+      "word": "MISTER",
+      "end": 0.8,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "QUILTER",
+      "end": 1.2,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "IS",
+      "end": 1.38,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "THE",
+      "end": 1.52,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "APOSTLE",
+      "end": 2.06,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "OF",
+      "end": 2.22,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "THE",
+      "end": 2.36,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "MIDDLE",
+      "end": 2.62,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "CLASSES",
+      "end": 3.12,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "AND",
+      "end": 3.44,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "WE",
+      "end": 3.56,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "ARE",
+      "end": 3.7,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "GLAD",
+      "end": 4.0,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "TO",
+      "end": 4.18,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "WELCOME",
+      "end": 4.58,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "HIS",
+      "end": 4.8,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "GOSPEL",
+      "end": 5.42,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     }
+    ]
+   },
+   "3": {
+    "feed_ms": 320.0,
+    "d_alg_mean_ms": 290.0,
+    "d_alg_worst_ms": 450.0,
+    "m_ms": 130.0,
+    "median_gap_emit_ms": null,
+    "median_gap_fed_ms": null,
+    "median_gap_wall_ms": null,
+    "worst_wall": null,
+    "median_fed_minus_emit_ms": 500.0,
+    "median_wall_minus_fed_ms": 21.0,
+    "n_matched": 0,
+    "n_ref": 17,
+    "hyp_text": " MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL",
+    "per_word": [
+     {
+      "word": "MISTER",
+      "end": 0.8,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "QUILTER",
+      "end": 1.2,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "IS",
+      "end": 1.38,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "THE",
+      "end": 1.52,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "APOSTLE",
+      "end": 2.06,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "OF",
+      "end": 2.22,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "THE",
+      "end": 2.36,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "MIDDLE",
+      "end": 2.62,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "CLASSES",
+      "end": 3.12,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "AND",
+      "end": 3.44,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "WE",
+      "end": 3.56,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "ARE",
+      "end": 3.7,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "GLAD",
+      "end": 4.0,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "TO",
+      "end": 4.18,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "WELCOME",
+      "end": 4.58,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "HIS",
+      "end": 4.8,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     },
+     {
+      "word": "GOSPEL",
+      "end": 5.42,
+      "gap_emit_ms": null,
+      "gap_fed_ms": null,
+      "gap_wall_ms": null
+     }
+    ]
+   }
+  }
+ }
+}
