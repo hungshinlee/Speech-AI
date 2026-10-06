@@ -577,7 +577,7 @@ Chan et al. (LAS) · Chorowski et al. 2015 · Whisper is this family · $\mathbf
 | heads OpenAI's code actually uses for timestamps | — | — |
 
 ::: {.footer}
-Demo 3 · not built · `transformers` Whisper, `output_attentions` · `_ALIGNMENT_HEADS`
+Demo 3 · built, not rehearsed · Whisper small, eager attention · 10 alignment heads
 :::
 
 ## Misconception 7 — "attention weights are the alignment"
@@ -593,7 +593,7 @@ Attention is the **weights of a weighted average**; an alignment is a **seating 
 | Step | What OpenAI's `whisper` does | Why it matters here |
 |:--|:--|:--|
 | 1 | pick a **fixed subset** of cross-attention heads per model size (`_ALIGNMENT_HEADS`, a base85-encoded boolean array) | chosen offline because they correlate with word timing — the rest do not |
-| 2 | average those heads' weights, smooth along time | attention from *selected* heads, not attention as a whole |
+| 2 | normalise and smooth each head, then average them | attention from *selected* heads, not attention as a whole |
 | 3 | run **dynamic time warping** over the $U \times T$ matrix | DTW *imposes* monotonicity that attention does not have |
 | 4 | read word boundaries off the DTW path | the timestamp is a post-processing artefact, not a model output |
 
