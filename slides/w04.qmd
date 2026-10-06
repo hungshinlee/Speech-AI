@@ -536,12 +536,12 @@ $D_{\text{alg}}$ is what the architecture *guarantees you cannot beat.* What you
 
 | feed chunk $C$ | $D_{\text{alg}}$ (mean, computed) | emitted $-$ acoustic end (median) | appeared $-$ acoustic end (median) | worst word |
 |:--|--:|--:|--:|--:|
-| 1280 ms | — | — | — | — |
-| 640 ms | — | — | — | — |
-| 320 ms ($=$ model chunk) | — | — | — | — |
+| 1280 ms | 960 ms | $+220$ ms | $+1413$ ms | WELCOME $+1874$ |
+| 640 ms | 640 ms | $+220$ ms | $+1012$ ms | MIDDLE $+1249$ |
+| 320 ms ($=$ model chunk) | 480 ms | $+220$ ms | $+742$ ms | MIDDLE $+922$ |
 
 ::: {.footer}
-Demo 2 · one sherpa-onnx streaming zipformer, three feed chunks · built, not rehearsed
+Demo 2 · sherpa-onnx streaming zipformer · measured 2026-10-06 on M5 Max · w04-metrics.json
 :::
 
 # Attention as the third alignment — and why it is not one {.section-title}
