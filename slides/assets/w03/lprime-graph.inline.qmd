@@ -1577,6 +1577,10 @@ z
 <polygon points="998.0,131.0 993.0,121.0 1003.0,123.0" fill="#6b7280"/>
 <text x="80.0" y="108.0" font-size="14" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">stay</text>
 <text x="80.0" y="154.0" font-size="14" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">+1</text>
+<circle cx="24.0" cy="30.0" r="8.0" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="38.0" y="30.0" font-size="14" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">label position</text>
+<circle cx="160.0" cy="30.0" r="8.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="174.0" y="30.0" font-size="14" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">blank</text>
 <g class="fragment" data-fragment-index="0">
 <path d="M 204.0 130.0 Q 286.0 78.0 359.6 124.6" fill="none" stroke="#15803d" stroke-width="2.0"/>
 <polygon points="368.0,130.0 356.9,128.9 362.2,120.4" fill="#15803d"/>
