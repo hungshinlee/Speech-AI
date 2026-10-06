@@ -363,7 +363,7 @@ $\ell = \text{ab}$, $T = 3$ · start at $(1, 0)$, reach $(T, U)$, then one last 
 | aa | 3 | 6 paths | 6 | 6 | 1 |
 
 ::: {.footer}
-Demo 1 · not built · counts from `w04-data.json` · "aa" at $T = 2$: CTC 0 paths, RNN-T 3
+Demo 1 · counts from `w04-data.json` · "aa" at $T = 2$: CTC 0 paths, RNN-T 3
 :::
 
 ## Counting paths: $\binom{T+U-1}{U}$, and no floor on $T$
@@ -420,7 +420,7 @@ Graves 2012 eq. 16–17 · $\alpha(t,u)$: emitted $\ell_{1:u}$ while consuming f
 | uniform $y^{t,u}_k = \tfrac13$: enumeration $= 3 \times 3^{-(T+U)}$ | $0.037037\ldots$ | `w04-data.json` |
 | uniform: $\alpha(T,U)\,\varnothing(T,U)$ | $0.037037\ldots$ — equal | `w04-data.json` |
 | random $\mathbf{y}^{t,u}$ (seed 20261004): enumeration vs. forward | $0.0081738\ldots$, difference $0.0$ | `w04-data.json` |
-| live, your random $\mathbf{y}^{t,u}$ | (read from the screen) | Demo 1 — not built |
+| live, your random $\mathbf{y}^{t,u}$ | (read from the screen) | Demo 1, keys `4` `5` |
 
 ::: {.claim}
 Same lesson as W3: the sum over exponentially many paths and the $O(TU)$ recursion are **the same number**. This time the lattice has two axes and the recursion has two terms.
