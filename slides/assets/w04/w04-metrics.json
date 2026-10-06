@@ -454,5 +454,244 @@
     ]
    }
   }
+ },
+ "demo3": {
+  "source": "demos/w04_d3_attention_heads/runs/rehearsal/rehearsal.json",
+  "time": "2026-10-06T11:05:43",
+  "backend": "whisper",
+  "model": "openai/whisper-small",
+  "model_commit": "973afd24965f72e36ca33b3055d56a652f456b4d",
+  "transformers": "5.17.0",
+  "torch": "2.14.0",
+  "sentence": "MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL",
+  "transcript": "Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+  "word_errors_raw": 1,
+  "word_errors_normalized": 0,
+  "U_text_tokens": 22,
+  "n_audio_frames": 292,
+  "heads_total": 144,
+  "heads": {
+   "band": 26,
+   "flat": 86,
+   "stare": 3,
+   "other": 29
+  },
+  "criteria": {
+   "window_frames": 10,
+   "rho_min": 0.9,
+   "conc_min": 0.5,
+   "conc_flat": 0.25,
+   "pad_max": 0.5,
+   "stare_distinct": 3,
+   "stare_frac": 0.2
+  },
+  "alignment_heads": [
+   [
+    5,
+    3
+   ],
+   [
+    5,
+    9
+   ],
+   [
+    8,
+    0
+   ],
+   [
+    8,
+    4
+   ],
+   [
+    8,
+    7
+   ],
+   [
+    8,
+    8
+   ],
+   [
+    9,
+    0
+   ],
+   [
+    9,
+    7
+   ],
+   [
+    9,
+    9
+   ],
+   [
+    10,
+    5
+   ]
+  ],
+  "alignment_heads_band": 7,
+  "alignment_heads_class": {
+   "5,3": "band",
+   "5,9": "band",
+   "8,0": "band",
+   "8,4": "band",
+   "8,7": "band",
+   "8,8": "band",
+   "9,0": "band",
+   "9,7": "other",
+   "9,9": "other",
+   "10,5": "other"
+  },
+  "band_not_in_alignment_heads": [
+   "3,10",
+   "4,0",
+   "6,6",
+   "7,4",
+   "7,8",
+   "7,9",
+   "8,9",
+   "8,11",
+   "9,2",
+   "9,3",
+   "9,4",
+   "9,8",
+   "9,10",
+   "9,11",
+   "10,0",
+   "10,1",
+   "10,3",
+   "10,9",
+   "10,11"
+  ],
+  "pad_heavy_heads": 114,
+  "pad_mass_median_all": 0.852,
+  "band_pad_heavy": 5,
+  "alignment_heads_pad_heavy": 3,
+  "word_timestamps": [
+   {
+    "i": 0,
+    "word": "Mr.",
+    "start": 0.0,
+    "end": 0.98
+   },
+   {
+    "i": 1,
+    "word": "Quilter",
+    "start": 0.98,
+    "end": 1.4
+   },
+   {
+    "i": 2,
+    "word": "is",
+    "start": 1.4,
+    "end": 1.52
+   },
+   {
+    "i": 3,
+    "word": "the",
+    "start": 1.52,
+    "end": 1.92
+   },
+   {
+    "i": 4,
+    "word": "apostle",
+    "start": 1.92,
+    "end": 2.26
+   },
+   {
+    "i": 5,
+    "word": "of",
+    "start": 2.26,
+    "end": 2.4
+   },
+   {
+    "i": 6,
+    "word": "the",
+    "start": 2.4,
+    "end": 2.56
+   },
+   {
+    "i": 7,
+    "word": "middle",
+    "start": 2.56,
+    "end": 3.0
+   },
+   {
+    "i": 8,
+    "word": "classes,",
+    "start": 3.0,
+    "end": 3.44
+   },
+   {
+    "i": 9,
+    "word": "and",
+    "start": 3.44,
+    "end": 3.6
+   },
+   {
+    "i": 10,
+    "word": "we",
+    "start": 3.6,
+    "end": 3.68
+   },
+   {
+    "i": 11,
+    "word": "are",
+    "start": 3.68,
+    "end": 3.92
+   },
+   {
+    "i": 12,
+    "word": "glad",
+    "start": 3.92,
+    "end": 4.2
+   },
+   {
+    "i": 13,
+    "word": "to",
+    "start": 4.2,
+    "end": 4.5
+   },
+   {
+    "i": 14,
+    "word": "welcome",
+    "start": 4.5,
+    "end": 4.78
+   },
+   {
+    "i": 15,
+    "word": "his",
+    "start": 4.78,
+    "end": 5.24
+   },
+   {
+    "i": 16,
+    "word": "gospel.",
+    "start": 5.24,
+    "end": 5.84
+   }
+  ],
+  "vs_w3_forced_alignment": {
+   "n_words": 17,
+   "start_minus_w3_first_spike_s": [
+    -0.573,
+    0.107,
+    0.067,
+    0.068,
+    0.307,
+    0.068,
+    0.088,
+    0.147,
+    0.328,
+    0.067,
+    0.107,
+    0.048,
+    0.168,
+    0.088,
+    0.247,
+    0.088,
+    0.328
+   ],
+   "median_abs_s": 0.107,
+   "max_abs_s": 0.573
+  }
  }
 }

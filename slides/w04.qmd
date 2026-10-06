@@ -571,13 +571,14 @@ Chan et al. (LAS) · Chorowski et al. 2015 · Whisper is this family · $\mathbf
 
 | | your guess | what the screen shows |
 |:--|--:|--:|
-| heads that look like a monotonic band | — | — |
-| heads that are flat, or stare at a few frames | — | — |
-| transcript word error count | — | — |
-| heads OpenAI's code actually uses for timestamps | — | — |
+| heads that look like a monotonic band | — | **26** of 144 |
+| heads that are flat, staring, or non-monotonic | — | **118** (86 flat · 3 stare · 29 non-monotonic) |
+| heads that put > half their mass on the 24 s of padding | — | **114** of 144 |
+| transcript word error count | — | **1** raw ("Mr." ≠ MISTER) · **0** normalised |
+| heads OpenAI's code actually uses for timestamps | — | **10**, of which 7 are bands |
 
 ::: {.footer}
-Demo 3 · built, not rehearsed · Whisper small, eager attention · 10 alignment heads
+Demo 3 · whisper-small, eager, CPU · dev-clean 1272-128104-0000 · measured 2026-10-06
 :::
 
 ## Misconception 7 — "attention weights are the alignment"
