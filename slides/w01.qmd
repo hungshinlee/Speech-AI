@@ -382,12 +382,12 @@ A streaming model is a function that may peek $\ell$ frames into the future:
 
 $$\hat{y}_{1:t} \;=\; f\!\left(x_{1:\,t+\ell}\right)$$
 
-$\Delta$ frame shift (s) · $\ell$ lookahead (frames) · $L$ layers · $r_k$ right context of layer $k$ · $C$ chunk size (frames)
+$\Delta$ frame shift (s) · $\ell$ lookahead (frames) · $n_{\text{layer}}$ layers · $r_k$ right context of layer $k$ · $C$ chunk size (frames)
 
 **Algorithmic delay** — still there on infinitely fast hardware:
 
 $$D_{\text{alg}} \;=\; \underbrace{\ell\,\Delta}_{\text{lookahead}} \;+\; \underbrace{\alpha\,C\,\Delta}_{\text{waiting for the chunk}},
-\qquad \ell \;=\; \sum_{k=1}^{L} r_k, \qquad \alpha \in [\tfrac{1}{2},\,1]$$
+\qquad \ell \;=\; \sum_{k=1}^{n_{\text{layer}}} r_k, \qquad \alpha \in [\tfrac{1}{2},\,1]$$
 
 **Computational delay** — the one you can buy your way out of:
 
@@ -399,9 +399,9 @@ Two claims hide in the first line: $\ell$ is a *sum*, and $\alpha$ is a *range*.
 
 {{< include assets/w01/lookahead-stack.inline.qmd >}}
 
-Layer $k$ at time $t$ needs layer $k-1$ up to $t + r_k$. Apply that $L$ times:
+Layer $k$ at time $t$ needs layer $k-1$ up to $t + r_k$. Apply that $n_{\text{layer}}$ times:
 
-$$t^{(k)} \;=\; t^{(k-1)} + r_k \qquad\Longrightarrow\qquad t^{(L)} \;=\; t + \sum_{k=1}^{L} r_k \;=\; t + \ell$$
+$$t^{(k)} \;=\; t^{(k-1)} + r_k \qquad\Longrightarrow\qquad t^{(n_{\text{layer}})} \;=\; t + \sum_{k=1}^{n_{\text{layer}}} r_k \;=\; t + \ell$$
 
 ## Why $\alpha \in [\tfrac12, 1]$: waiting for the chunk to fill
 
