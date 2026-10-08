@@ -1,0 +1,55 @@
+# 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
+# W3 demo 3：blank 後驗熱圖 + ctc_loss 的 inf／zero_infinity。換內容只改這裡。
+
+[model]
+# 字元級英文 CTC（符號表 32：<pad>=blank、<s>、</s>、<unk>、| 詞界、26 個字母、'）。
+# blank 是 <pad>（id 0）——這是 Hugging Face 的約定，程式從 config.pad_token_id 讀，不寫死。
+repo = "facebook/wav2vec2-base-960h"
+# 固定到哪個 commit：由 ./present.sh fetch 寫進 model.lock（進版控），這裡不填。
+# 推論放哪：cpu 是預設（確定性、與彩排同一組數字；94M 參數對一句話是秒級以下）。
+# mps 是加分：./present.sh check 會量 cpu 與 mps 的差與時間；要上課用 mps 就改這裡。
+device = "cpu"
+# 模型自己的 frame：conv 前端總 stride 5·2^6 = 320 sample = 20 ms、感受野 400 sample = 25 ms。
+# check 會拿實際的 T 對音長驗證這兩個數（T ≈ (L − 400) / 320 + 1）。
+frame_ms = 20.0
+receptive_ms = 25.0
+
+[audio]
+# LibriSpeech dev-clean 的一句（CC BY 4.0；出處與授權在 speech_ai/media-sources/w03-librispeech.md）。
+# ./present.sh fetch 下載 dev-clean.tar.gz（約 337 MB）到 ../_media/，只解出這一句的 flac 與 trans.txt，
+# 轉成 audio/utterance.wav（16 kHz、mono、16-bit）與 audio/utterance.txt。
+# 要換句子就改 utterance 再 fetch；要用自己錄的就 ./present.sh --wav path.wav ...（文字放同名 .txt）。
+utterance = "1272-128104-0000"
+librispeech_url = "https://www.openslr.org/resources/12/dev-clean.tar.gz"
+fs = 16000
+wav = "audio/utterance.wav"
+
+[speech]
+# 「有聲段」的定義（表格第四列「frames inside speech where ∅ is the argmax」）：
+# 每個 frame（與模型同一個 20 ms 格）的能量高於該句峰值以下 threshold_db 的算有聲——與 Demo 1 裁靜音同一種門檻。
+# 這是能量門檻，不是人工標註；停頓短於一個 frame 的抓不到。有聲段裡 blank 仍佔多數，門檻鬆緊不影響結論。
+threshold_db = 35
+win_ms = 25.0
+
+[too_long]
+# 第 5 鍵：把文字接長到 U + r > T。接長的方式：同一句重複接在後面（中間用詞界 | 隔開），
+# 逐字元加到剛好 U + r = T（loss 仍有限，只是很大）與 U + r = T + 1（inf）。兩個都印，讓學生看到條件是精確的。
+separator = " "
+
+[forced_align]
+# 加分段（第 7 鍵）：在 ℓ' 上跑 Viterbi（forward 的 Σ 換成 max——投影片〈Viterbi = 換半環〉），
+# 每個字元的尖峰 frame、每個詞從第一個尖峰到最後一個尖峰的時間。
+# 人工標的詞邊界（秒；從 Praat 或聽著標）填在這裡，程式會印尖峰對邊界偏了多少；空的就只印尖峰。
+# 例：
+# [[forced_align.manual]]
+# word = "QUILTER"
+# start = 0.55
+# end = 1.02
+manual = []
+
+[display]
+fig_w = 15.0
+fig_h = 8.2
+cmap = "magma"
+digits = 4                 # loss 印幾位小數
+max_label_text = 48        # 第 5 鍵印接長文字時，最多印幾個字元

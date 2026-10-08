@@ -1,0 +1,60 @@
+# 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
+# W1 demo 2：同一句話跑 cascade，把延遲預算當場填出來。換參數只改這裡。
+# 後端只能在 Apple silicon 上跑；任何機器都可以用 ./present.sh fake 演練流程。
+
+[audio]
+fs = 16000
+default = "audio/utterance.wav"     # ./present.sh record 錄到這裡；也可以自己放一個 WAV
+record_seconds = 7.0                # 句子約 4 s + 句中停頓 + 結尾至少 1.5 s 靜音（門檻要在句尾開得了火）
+suggested_sentence = "我想訂一張……（停 700 ms）……下週三去台南的票。"
+
+[vad]
+# 與 scripts/analyze_duplex_audio.py 同一套：25 ms 窗、10 ms hop、地板往上 30% 動態範圍且至少 +8 dB
+win_ms = 25.0
+hop_ms = 10.0
+dynamic_fraction = 0.30
+min_above_floor_db = 8.0
+min_segment_ms = 100
+
+[endpoint]
+threshold_ms = 1000                 # cascade 用的門檻。投影片 p29 寫 700 安全，但 2026-09-20 彩排的錄音句中停了 980 ms，
+                                    # 700 也切斷——真人思考時的停頓就是一秒量級，這是課堂上要講的
+thresholds_ms = [300, 700, 1000, 1500]  # endpoint 子命令列出的比較（Misconception 3 的實證）
+
+[measure]
+repeats = 10                        # 每格跑幾遍，報 p50 與 p95（大綱：每段跑 10 次）
+
+[playout]
+buffer_ms = 100                     # 設定值不是量測；投影片 p36 的 D_buf。改了要在課堂上說
+
+[asr]
+backend = "whispercpp"              # whispercpp | mlx_whisper | fake
+language = "zh"
+whispercpp_model = "small"          # base 對華語轉錯很多（2026-09-20 彩排）；small 是下一個候選，tail 會變大
+n_threads = 4
+mlx_whisper_repo = "mlx-community/whisper-base-mlx"
+
+[llm]
+backend = "mlx_lm"                  # mlx_lm | fake
+# 與 nlp_llm/demos 同一個模型（M5 Max 實測過：4-bit MLX、decode 約 136 tok/s）
+mlx_lm_repo = "mlx-community/gemma-4-26b-a4b-it-4bit"
+system_prompt = "你是一個訂票語音助理。用一句話簡短回答，不要條列。"
+max_tokens = 60
+
+[tts]
+backend = "mlx_audio"               # mlx_audio | fake
+mlx_audio_repo = "mlx-community/Kokoro-82M-bf16"
+lang_code = "z"                     # Kokoro 的 pipeline 語言：z = 中文（預設 a = 美式英語，會把中文當英文念）
+voice = "zf_xiaobei"                # Kokoro 的中文 voice 以 zf_（女）／zm_（男）開頭；候選 zf_xiaoxiao、zm_yunxi
+
+[moshi]
+version = "0.3.0"                   # 裝在 uv tool 的獨立環境（它釘 mlx<0.27，與共用 .venv 的 mlx 0.32.2 衝突）
+quantization = 4                    # -q 4；官方測過的機器是 M3。§6：-q 與 --hf-repo 要配對
+hf_repo = ""                        # 空字串 = moshi_mlx.local 的預設 repo
+
+[fake]
+asr_text = "我想訂一張 下週三去台南的票"
+asr_seconds = 0.45
+llm_reply = "好的，下週三去台南的票，請問要幾點出發？"
+llm_ttft_seconds = 0.35
+tts_first_packet_seconds = 0.25

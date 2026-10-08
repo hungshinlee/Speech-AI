@@ -1,0 +1,205 @@
+{
+ "timestamp": "2026-09-21T22:00:20",
+ "versions": {
+  "python": "3.12.14",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "numpy": "2.4.4",
+  "scipy": "1.17.1",
+  "matplotlib": "3.10.9",
+  "sounddevice": "0.5.6"
+ },
+ "backends": {
+  "asr": "whispercpp",
+  "llm": "mlx_lm",
+  "tts": "mlx_audio"
+ },
+ "endpoint_report": {
+  "hop_ms": 10.0,
+  "speech_segments_s": [
+   [
+    0.98,
+    2.29
+   ],
+   [
+    3.33,
+    4.57
+   ],
+   [
+    4.66,
+    4.85
+   ]
+  ],
+  "internal_pauses_ms": [
+   1040,
+   90
+  ],
+  "true_end_s": 4.85,
+  "rows": [
+   {
+    "threshold_ms": 300,
+    "false_endpoints_s": [
+     2.59
+    ],
+    "final_after_end_ms": 300
+   },
+   {
+    "threshold_ms": 700,
+    "false_endpoints_s": [
+     2.99
+    ],
+    "final_after_end_ms": 700
+   },
+   {
+    "threshold_ms": 1000,
+    "false_endpoints_s": [
+     3.29
+    ],
+    "final_after_end_ms": 1000
+   },
+   {
+    "threshold_ms": 1500,
+    "false_endpoints_s": [],
+    "final_after_end_ms": 1500
+   }
+  ]
+ },
+ "runs": [
+  {
+   "transcript": "我想訂一張下週三去台南的票",
+   "reply": "好的，請問您想預訂下週三去台南的哪一種交通工具票券呢？",
+   "reply_tokens": 23,
+   "asr_tail_ms": 70,
+   "llm_first_token_ms": 95,
+   "llm_total_ms": 254,
+   "tts_first_packet_ms": 125
+  },
+  {
+   "transcript": "我想訂一張下週三去台南的票",
+   "reply": "好的，請問您想預訂下週三去台南的哪一種交通工具票券呢？",
+   "reply_tokens": 23,
+   "asr_tail_ms": 70,
+   "llm_first_token_ms": 94,
+   "llm_total_ms": 253,
+   "tts_first_packet_ms": 124
+  },
+  {
+   "transcript": "我想訂一張下週三去台南的票",
+   "reply": "好的，請問您想預訂下週三去台南的哪一種交通工具票券呢？",
+   "reply_tokens": 23,
+   "asr_tail_ms": 71,
+   "llm_first_token_ms": 94,
+   "llm_total_ms": 253,
+   "tts_first_packet_ms": 123
+  },
+  {
+   "transcript": "我想訂一張下週三去台南的票",
+   "reply": "好的，請問您想預訂下週三去台南的哪一種交通工具票券呢？",
+   "reply_tokens": 23,
+   "asr_tail_ms": 70,
+   "llm_first_token_ms": 94,
+   "llm_total_ms": 252,
+   "tts_first_packet_ms": 124
+  },
+  {
+   "transcript": "我想訂一張下週三去台南的票",
+   "reply": "好的，請問您想預訂下週三去台南的哪一種交通工具票券呢？",
+   "reply_tokens": 23,
+   "asr_tail_ms": 70,
+   "llm_first_token_ms": 94,
+   "llm_total_ms": 253,
+   "tts_first_packet_ms": 124
+  },
+  {
+   "transcript": "我想訂一張下週三去台南的票",
+   "reply": "好的，請問您想預訂下週三去台南的哪一種交通工具票券呢？",
+   "reply_tokens": 23,
+   "asr_tail_ms": 71,
+   "llm_first_token_ms": 94,
+   "llm_total_ms": 253,
+   "tts_first_packet_ms": 125
+  },
+  {
+   "transcript": "我想訂一張下週三去台南的票",
+   "reply": "好的，請問您想預訂下週三去台南的哪一種交通工具票券呢？",
+   "reply_tokens": 23,
+   "asr_tail_ms": 70,
+   "llm_first_token_ms": 94,
+   "llm_total_ms": 253,
+   "tts_first_packet_ms": 124
+  },
+  {
+   "transcript": "我想訂一張下週三去台南的票",
+   "reply": "好的，請問您想預訂下週三去台南的哪一種交通工具票券呢？",
+   "reply_tokens": 23,
+   "asr_tail_ms": 71,
+   "llm_first_token_ms": 95,
+   "llm_total_ms": 253,
+   "tts_first_packet_ms": 124
+  },
+  {
+   "transcript": "我想訂一張下週三去台南的票",
+   "reply": "好的，請問您想預訂下週三去台南的哪一種交通工具票券呢？",
+   "reply_tokens": 23,
+   "asr_tail_ms": 70,
+   "llm_first_token_ms": 94,
+   "llm_total_ms": 253,
+   "tts_first_packet_ms": 124
+  },
+  {
+   "transcript": "我想訂一張下週三去台南的票",
+   "reply": "好的，請問您想預訂下週三去台南的哪一種交通工具票券呢？",
+   "reply_tokens": 23,
+   "asr_tail_ms": 70,
+   "llm_first_token_ms": 95,
+   "llm_total_ms": 255,
+   "tts_first_packet_ms": 124
+  }
+ ],
+ "cells": {
+  "endpoint": {
+   "ms": 1000,
+   "kind": "algorithmic (threshold)",
+   "false_endpoints_s": [
+    3.29
+   ]
+  },
+  "asr_tail": {
+   "p50": 70,
+   "p95": 71,
+   "min": 70,
+   "max": 71,
+   "n": 10,
+   "kind": "computational"
+  },
+  "llm_first_token": {
+   "p50": 94,
+   "p95": 95,
+   "min": 94,
+   "max": 95,
+   "n": 10,
+   "kind": "computational"
+  },
+  "tts_first_packet": {
+   "p50": 124,
+   "p95": 125,
+   "min": 123,
+   "max": 125,
+   "n": 10,
+   "kind": "computational"
+  },
+  "playout_buffer": {
+   "ms": 100,
+   "kind": "configured, not measured"
+  }
+ },
+ "total_ms": {
+  "p50": 1388,
+  "p95_sum": 1391,
+  "_note": "p95_sum 是各格 p95 直接相加，是上界不是整條鏈的 p95（p40：機率相乘）"
+ },
+ "e2e_reference": {
+  "response_latency_ms": 60,
+  "source": "assets/w01/w01-metrics.json → slides.response_latency_good_ms (Moshi + Fisher post-training, synthetic_user_interruption/1; pre-recorded, different utterance)"
+ },
+ "material": "utterance"
+}

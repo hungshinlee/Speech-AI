@@ -1,0 +1,47 @@
+# 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
+# W3 demo 1：同一句話、兩種語速。換參數只改這裡。
+
+[audio]
+fs = 16000
+device = ""            # 空字串 = 系統預設輸入。要指定就填 ./present.sh devices 列出的名稱或編號
+record_seconds = 4.0   # 每一段錄幾秒（含前後的靜音；之後會自動裁掉）。句子長就調大
+countdown_s = 2        # 按 r 之後倒數幾秒才開始錄
+
+[sentence]
+# 要念的句子。U = 去掉空白與標點後的字元數（華語一字一符號；換成英文就是字母數，換成 IPA 就是音素數——
+# 「符號表是先於 loss 的決定」，大綱 W3 最後一節）
+text = "今天天氣很好"
+
+[frames]
+# 與 ASR 前端相同的 frame 定義：25 ms 窗、10 ms hop → 每秒 100 個 frame。**hop 不要動**，
+# 畫面上「每一欄就是一個 frame」和投影片上的「one frame every 10 ms」都靠它。
+win_ms = 25.0
+hop_ms = 10.0
+n_fft = 512            # 只決定 bin 間距，不決定解析度（W2 誤解表第 4 列）
+
+[trim]
+# 起點對齊：把每一段錄音前後的靜音裁掉，兩段都從第一個有聲 frame 開始畫。
+# 門檻取兩者之高：峰值以下 threshold_db、底噪（frame 能量第 10 百分位）以上 floor_margin_db。
+# Mac 內建麥克風的底噪離峰值只有 30–38 dB，所以實際起作用的是 floor_margin_db（2026-09-29 的六次錄音：
+# 只用 35 dB 時 T 全是 400；底噪 +15 dB、連續 50 ms 時 normal ≈ 176–179、fast ≈ 90–129）。
+# 教室比辦公室吵就把 floor_margin_db 調大（例如 18–20）；兩段永遠用同一組門檻。
+threshold_db = 35
+floor_margin_db = 15
+min_run_ms = 50        # 起訖點要連續這麼久都在門檻之上，單一 frame 的呼吸聲／雜音不算
+pad_ms = 60            # 裁完前後各留一點，不要把第一個子音的爆發切掉
+min_speech_ms = 200    # 有聲段比這個短就當成沒錄到，整段保留並警告
+
+[pitch]
+# 只用來把 frame 粗分成有聲／無聲（估「母音縮得多、子音縮得少」），與 W2 Demo 1 同一套 autocorr。量級可信，逐 frame 不可信
+floor_hz = 75
+ceiling_hz = 400
+frame_ms = 40
+voicing = 0.45
+
+[display]
+narrow_ms = 30.0       # n 鍵：narrowband 窗長（hop 仍是 10 ms，欄數不變）
+dynamic_range_db = 55
+floor_db = -35
+fmax_hz = [5000, 8000] # z 鍵在兩個上限之間切
+fig_w = 15.0
+fig_h = 7.6

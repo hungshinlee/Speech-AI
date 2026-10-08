@@ -1,0 +1,53 @@
+
+────────────────────────────────────────────────────────────────────────
+1  轉錄 vs. 參考
+────────────────────────────────────────────────────────────────────────
+  參考      MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL
+  Whisper   Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.
+  正規化後  mister quilter is the apostle of the middle classes and we are glad to welcome his gospel
+  字錯數    原樣（大寫、去標點）1（S 1 D 0 I 0，參考 17 字）   正規化後 0（S 0 D 0 I 0）
+  token     U = 22 個文字 token：' Mr' | '.' | ' Qu' | 'il' | 'ter' | ' is' | ' the' | ' apostle' | ' of' | ' the' | ' middle' | ' classes' | ',' | ' and' | ' we' | ' are' | ' glad' | ' to' | ' welcome' | ' his' | ' gospel' | '.'
+  frame     音訊 5.855 s = 292 個 encoder frame（20 ms）；之後到 1500 是 padding
+層 0：H0 flat  H1 flat  H2 flat  H3 flat  H4 flat  H5 flat  H6 flat  H7 flat  H8 flat  H9 flat  H10 flat  H11 flat
+層 1：H0 flat  H1 flat  H2 flat  H3 flat  H4 flat  H5 flat  H6 flat  H7 flat  H8 flat  H9 flat  H10 flat  H11 other
+層 2：H0 flat  H1 flat  H2 flat  H3 flat  H4 flat  H5 flat  H6 flat  H7 flat  H8 flat  H9 flat  H10 flat  H11 flat
+層 3：H0 flat  H1 flat  H2 flat  H3 flat  H4 flat  H5 other  H6 flat  H7 flat  H8 flat  H9 flat  H10 band  H11 flat
+層 4：H0 band  H1 flat  H2 flat  H3 flat  H4 flat  H5 flat  H6 stare  H7 flat  H8 flat  H9 flat  H10 other  H11 other
+層 5：H0 flat  H1 flat  H2 other  H3 band  H4 other  H5 flat  H6 flat  H7 flat  H8 flat  H9 band  H10 flat  H11 flat
+層 6：H0 other  H1 flat  H2 flat  H3 flat  H4 other  H5 flat  H6 band  H7 flat  H8 other  H9 stare  H10 flat  H11 flat
+層 7：H0 other  H1 flat  H2 flat  H3 other  H4 band  H5 stare  H6 other  H7 flat  H8 band  H9 band  H10 other  H11 flat
+層 8：H0 band  H1 other  H2 other  H3 other  H4 band  H5 other  H6 flat  H7 band  H8 band  H9 band  H10 flat  H11 band
+層 9：H0 band  H1 other  H2 band  H3 band  H4 band  H5 flat  H6 flat  H7 other  H8 band  H9 other  H10 band  H11 band
+層 10：H0 band  H1 band  H2 other  H3 band  H4 other  H5 other  H6 other  H7 flat  H8 flat  H9 band  H10 flat  H11 band
+層 11：H0 flat  H1 other  H2 flat  H3 flat  H4 flat  H5 other  H6 other  H7 other  H8 flat  H9 other  H10 flat  H11 flat
+全部 144 個 head：band 26、flat 86、stare 3、other 29；OpenAI 的 10 個 alignment heads 裡 7 個是 band；band 但不在 OpenAI 名單的 19 個：3,10, 4,0, 6,6, 7,4, 7,8, 7,9, 8,9, 8,11, 9,2, 9,3, 9,4, 9,8, 9,10, 9,11, 10,0, 10,1, 10,3, 10,9, 10,11
+padding：114 / 144 個 head 把超過一半的權重放在音訊結尾之後的 padding（全部 head 的中位數 85%）；band 裡有 5 個、OpenAI 的 10 個裡有 3 個——音訊範圍內是帶、整列看是在看 padding
+OpenAI _ALIGNMENT_HEADS（small）= [[5, 3], [5, 9], [8, 0], [8, 4], [8, 7], [8, 8], [9, 0], [9, 7], [9, 9], [10, 5]]；各自的類別：L5H3 band  L5H9 band  L8H0 band  L8H4 band  L8H7 band  L8H8 band  L9H0 band  L9H7 other  L9H9 other  L10H5 other
+全部 144 個 head：band 26、flat 86、stare 3、other 29；OpenAI 的 10 個 alignment heads 裡 7 個是 band；band 但不在 OpenAI 名單的 19 個：3,10, 4,0, 6,6, 7,4, 7,8, 7,9, 8,9, 8,11, 9,2, 9,3, 9,4, 9,8, 9,10, 9,11, 10,0, 10,1, 10,3, 10,9, 10,11
+padding：114 / 144 個 head 把超過一半的權重放在音訊結尾之後的 padding（全部 head 的中位數 85%）；band 裡有 5 個、OpenAI 的 10 個裡有 3 個——音訊範圍內是帶、整列看是在看 padding
+
+────────────────────────────────────────────────────────────────────────
+5  alignment heads → timing.py 的做法 → DTW → 字的時間戳
+────────────────────────────────────────────────────────────────────────
+  用的 head：[[5, 3], [5, 9], [8, 0], [8, 4], [8, 7], [8, 8], [9, 0], [9, 7], [9, 9], [10, 5]]（OpenAI _ALIGNMENT_HEADS = HF alignment_heads）
+  標準化（token 軸）→ 中值濾波 7 → 10 個 head 平均 → 對 −matrix 做 DTW（22 × 292）
+  word           start     end  W3 1st spike   Δstart
+  Mr.            0.000   0.980         0.573   -0.573
+  Quilter        0.980   1.400         0.873   +0.107
+  is             1.400   1.520         1.333   +0.067
+  the            1.520   1.920         1.452   +0.068
+  apostle        1.920   2.260         1.613   +0.307
+  of             2.260   2.400         2.192   +0.068
+  the            2.400   2.560         2.312   +0.088
+  middle         2.560   3.000         2.413   +0.147
+  classes,       3.000   3.440         2.672   +0.328
+  and            3.440   3.600         3.373   +0.067
+  we             3.600   3.680         3.493   +0.107
+  are            3.680   3.920         3.632   +0.048
+  glad           3.920   4.200         3.752   +0.168
+  to             4.200   4.500         4.112   +0.088
+  welcome        4.500   4.780         4.253   +0.247
+  his            4.780   5.240         4.692   +0.088
+  gospel.        5.240   5.840         4.912   +0.328
+  字的起點對 W3 forced alignment 第一個尖峰：|Δ| 中位數 0.107 s、最大 0.573 s（W3 的是 CTC 尖峰不是音段邊界，Demo 2 的提醒同樣適用）
+  疊上 W3 的 forced alignment：灰條是座位表（每個字一段連續的 frame），底下是權重——兩個不同的物件。

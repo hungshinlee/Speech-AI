@@ -47,6 +47,7 @@ PUBLIC_SECTIONS = {
     "定位",
     "Learning objectives",
     "參考資料",
+    "Demos",          # 2026-10-09 加：學生版 demo 說明，連到公開 repo 的 demos/（程式由 bin/publish_demos.py 白名單複製）
 }
 
 # 含「未查證」標記的行是否整行不上站。
@@ -63,6 +64,7 @@ SECTION_EN = {
     "定位": "Where This Fits",
     "Learning objectives": "Learning Objectives",
     "參考資料": "References",
+    "Demos": "Demos",
 }
 
 # 寫檔前的保險絲：頁面含這些字串就中止建置。

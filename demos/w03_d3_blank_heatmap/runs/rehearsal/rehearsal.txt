@@ -1,0 +1,56 @@
+
+────────────────────────────────────────────────────────────────────────
+四個數字（填 p37 的表）
+────────────────────────────────────────────────────────────────────────
+  句子：「MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL」
+  greedy decode：「MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL 」   = 參考文字
+  frames T                             292    （5.86 s，每 20 ms 一格）
+  labels U（含詞界 |）, r, U + r         89    2    91    （只數字母是 73；T / U = 3.28）
+  frames where ∅ is the argmax         149    = 51.0 % of T
+  … inside speech (232 speech frames)     94    = 40.5 % of speech frames
+  有聲段裡 P(∅) 的中位數 0.0141、最小值 0.0
+
+────────────────────────────────────────────────────────────────────────
+4  正確文字的 ctc_loss（batch 一句、reduction='sum' → −ln P(ℓ|X)）
+────────────────────────────────────────────────────────────────────────
+  U + r = 91 ≤ T = 292
+  torch.nn.functional.ctc_loss        = 53.9503    （cpu，9.4 ms 含 backward）
+  numpy 在 ℓ' 上 log 域 forward 的 −ln P = 53.9504    差 9.57e-06   ← Demo 2 那條遞推，同一個數
+  每個 frame 平均 0.1848 nats（〈Read it as a cross-entropy〉那張的讀法）
+  梯度：有限，max |∂L/∂logit| = 1.0000
+
+────────────────────────────────────────────────────────────────────────
+5  文字接長到 U + r > T：zero_infinity=False
+────────────────────────────────────────────────────────────────────────
+  接長的文字（287 個字元）：「MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLAS…」
+  U + r = 292 = T = 292     loss = 4626.9834    梯度：有限，max |∂L/∂logit| = 1.0032    （還有合法路徑，還有限）
+  U + r = 293 > T = 292     loss = inf    梯度：nan    ← 沒有任何合法路徑：P = 0
+
+────────────────────────────────────────────────────────────────────────
+6  同一組、zero_infinity=True
+────────────────────────────────────────────────────────────────────────
+  U + r = 293 > T = 292     loss = 0.0000    梯度：0（全部）
+
+────────────────────────────────────────────────────────────────────────
+7  加分：ℓ' 上的 Viterbi（Σ → max）——每個字元的尖峰、每個詞的尖峰跨度
+────────────────────────────────────────────────────────────────────────
+  89 個標籤，尖峰平均寬 1.596 格，57 % 只有一格（peaky）
+  word         first spike  last spike    span   spikes (s)
+  MISTER             0.57s       0.79s   0.22s   M@0.57 I@0.63 S@0.65 T@0.71 E@0.75 R@0.79
+  QUILTER            0.87s       1.19s   0.32s   Q@0.87 U@0.91 I@0.97 L@0.99 T@1.07 E@1.15 R@1.17
+  IS                 1.33s       1.37s   0.04s   I@1.33 S@1.35
+  THE                1.45s       1.51s   0.06s   T@1.45 H@1.47 E@1.49
+  APOSTLE            1.61s       2.05s   0.44s   A@1.61 P@1.69 O@1.81 S@1.83 T@1.91 L@1.97 E@2.03
+  OF                 2.19s       2.21s   0.02s   O@2.19 F@2.21
+  THE                2.31s       2.35s   0.04s   T@2.31 H@2.33 E@2.35
+  MIDDLE             2.41s       2.61s   0.20s   M@2.41 I@2.45 D@2.47 D@2.53 L@2.55 E@2.59
+  CLASSES            2.67s       3.11s   0.44s   C@2.67 L@2.73 A@2.85 S@2.87 S@2.95 E@3.05 S@3.09
+  AND                3.37s       3.43s   0.06s   A@3.37 N@3.39 D@3.41
+  WE                 3.49s       3.55s   0.06s   W@3.49 E@3.55
+  ARE                3.63s       3.69s   0.06s   A@3.63 R@3.65 E@3.67
+  GLAD               3.75s       3.99s   0.24s   G@3.75 L@3.79 A@3.91 D@3.99
+  TO                 4.11s       4.17s   0.06s   T@4.11 O@4.15
+  WELCOME            4.25s       4.57s   0.32s   W@4.25 E@4.31 L@4.35 C@4.43 O@4.49 M@4.53 E@4.55
+  HIS                4.69s       4.79s   0.10s   H@4.69 I@4.75 S@4.77
+  GOSPEL             4.91s       5.41s   0.50s   G@4.91 O@5.03 S@5.07 P@5.17 E@5.25 L@5.31
+  torchaudio.functional.forced_align：還在（torchaudio 2.11.0），與 numpy Viterbi 逐格相同

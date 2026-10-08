@@ -22,6 +22,16 @@ Two items that belong to no single module close the week. The first is data: Tai
 4. Use the mismatch between human transition timing and the time it takes to plan an utterance to argue that turn-taking is a prediction problem rather than a detection problem — and therefore that making the VAD faster is not the same as solving it.
 5. Put four diagnostic questions to any paper in this field — is the input the same, how was the timing measured, what was normalised away, and what is the metric rewarding — and say which of the four that paper is weakest on.
 
+## Demos
+Of this week's two demos, one is a program; it is published so that you can read it, re-run it, and change it — **you are not required to run anything**, and the numbers on the slides are the rehearsal records checked in with the code. Each folder's `README.md` gives requirements, setup, commands, and what you should see; the index at [`demos/`](https://github.com/hungshinlee/Speech-AI/tree/main/demos) explains the shared environment.
+
+| | Slides | What it shows | Needs | Runs on |
+|---|---|---|---|---|
+| Demo 1 · cold open (pre-recorded) | p2–p5, p44 | Two recordings from Kyutai's `interactivity-alignment-samples` (CC BY 4.0): the same user track, the same model family, only the post-training differs — one talks over the user for 2.90 s, the other answers in 60 ms. No program to run: the audio is in [`slides/assets/w01/`](https://github.com/hungshinlee/Speech-AI/tree/main/slides/assets/w01) (`*-base` / `*-fisher`; left channel = user, right = model) and the two scripts that measured the overlap and drew the timelines are in [`slides/scripts/`](https://github.com/hungshinlee/Speech-AI/tree/main/slides/scripts) | — | any player |
+| [Demo 2 · one sentence through a cascade, budget filled in live](https://github.com/hungshinlee/Speech-AI/tree/main/demos/w01_d2_pipeline) | p41 | One recorded sentence with a pause in it → energy-VAD endpoint → whisper.cpp → Gemma 4 26B-A4B via `mlx-lm` → Kokoro via `mlx-audio`, every boundary time-stamped, ten runs, p50 / p95. Rehearsal: endpoint threshold 1000 ms, ASR tail 70, LLM first token 94, TTS first packet 124, total 1388 ms — **the largest cell is the silence threshold, not the biggest model**. The `endpoint` subcommand shows what 300 / 700 / 1000 / 1500 ms thresholds do to a 1 s pause inside the sentence | `pywhispercpp` + `mlx` + `mlx-lm` + `mlx-audio`, ≈ 15 GB of models; the recording is the lecturer's and is not published — record your own | **Apple silicon only**, 32 GB |
+
+Tested on one machine only — an Apple M5 Max (64 GB, no CUDA), macOS 26.6, Python 3.12 — with the versions pinned in `demos/versions.lock`. Terminal prompts are in Chinese; Enter advances, `q` quits.
+
 ## References
 - **JM3** Ch 26 *Conversation and its Structure* (the linguistic account of conversational structure and turn-taking); App K *Frame-based Dialogue Systems* (the classical pipeline, as a point of comparison)
 - Sacks, Schegloff & Jefferson, **A Simplest Systematics for the Organization of Turn-Taking for Conversation**, *Language* 50(4), 1974 — the paper JM3 Ch 26 is built on. At graduate level, read the original rather than the textbook summary

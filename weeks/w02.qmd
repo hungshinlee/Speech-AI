@@ -22,6 +22,17 @@ That last item matters more in this course than in most. Mandarin, Taiwanese Hok
 4. Split the distortion of "waveform from spectrogram" into its three sources — phase, mel compression, and over-smoothed predicted spectra — and use STFT consistency to explain why Griffin-Lim is possible and why it is not enough.
 5. List the three acoustic correlates of prosody, explain how lexical tone and intonation share F0, and predict what that implies for methods developed mainly on English: semantic tokens, prosody control, and prosodic turn-taking cues.
 
+## Demos
+Two of this week's three demos are programs; they are published so that you can read them, re-run them, and change them — **you are not required to run anything**. Each folder's `README.md` gives requirements, setup, commands, and what you should see; the index at [`demos/`](https://github.com/hungshinlee/Speech-AI/tree/main/demos) explains the shared environment.
+
+| | Slides | What it shows | Needs | Runs on |
+|---|---|---|---|---|
+| [Demo 1 · live spectrogram, pitch track, vowel chart](https://github.com/hungshinlee/Speech-AI/tree/main/demos/w02_d1_spectrogram) | p12, p23, p52 | A microphone, a 4 s scrolling spectrogram switchable between a 5 ms and a 30 ms window, an autocorrelation $F_0$ track, and an LPC $(F_1, F_2)$ dot on a vowel chart. Used three times: vowels /a/ /i/ /u/ and the glide between them; freeze and switch window length on the *same* sound (striations vs. harmonics); Mandarin tones and then a question. Set the pitch ceiling too low and watch the octave error. A Praat script for exact readings is included | `numpy` + `scipy` + `matplotlib` + `sounddevice`, a microphone; all DSP in `demos/dsp.py` | any laptop |
+| [Demo 2 · phase × magnitude: the 2 × 3 reconstruction grid](https://github.com/hungshinlee/Speech-AI/tree/main/demos/w02_d2_phase_mel) | p34, p40, p42 | One sentence re-synthesised with linear or mel-80 magnitude crossed with original, Griffin-Lim or random phase, plus mel-40/20/10 with the original phase, so each distortion can be heard alone. Rehearsal: Griffin-Lim brings the log-spectral distance from 8.47 dB (random phase) to 1.71 dB at 256 iterations while the waveform SNR stays between −1 and −4 dB; with mel-80 in the chain the LSD floors near 6 dB. The ISTFT is the least-squares one, Griffin-Lim is the 1984 original without momentum, `librosa` is deliberately not used | `numpy` + `scipy` + `matplotlib`; the lecturer's recording and its reconstructions are not published — record your own 5 s sentence | any laptop |
+| Demo 3 · front-end mismatch | p58 | Not built: same audio, same pretrained recogniser, only the mel recipe changed (HTK vs. Slaney, filterbank normalisation on or off), WER compared. The slide presents it as an experiment not yet run | — | — |
+
+Tested on one machine only — an Apple M5 Max (64 GB, no CUDA), macOS 26.6, Python 3.12 — with the versions pinned in `demos/versions.lock`. Menus and labels are in Chinese; the keys are listed in each README.
+
 ## References
 - **JM3** Ch 15 *Phonetics and Speech Feature Extraction* — the reference for both halves of the week, phonetics and feature extraction
 - **HAH** Ch 2 (Spoken Language Structure), Ch 5 (Digital Signal Processing), Ch 6 (Speech Signal Representations) — the full derivations of the cepstrum, LPC and the source–filter model are here

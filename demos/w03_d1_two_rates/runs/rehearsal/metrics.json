@@ -1,0 +1,78 @@
+{
+ "time": "2026-10-05T00:03:04",
+ "mode": "rehearse",
+ "sentence": "今天天氣很好",
+ "U": 6,
+ "frame_hop_ms": 10.0,
+ "config": {
+  "audio": {
+   "fs": 16000,
+   "device": "",
+   "record_seconds": 4.0,
+   "countdown_s": 2
+  },
+  "sentence": {
+   "text": "今天天氣很好"
+  },
+  "frames": {
+   "win_ms": 25.0,
+   "hop_ms": 10.0,
+   "n_fft": 512
+  },
+  "trim": {
+   "threshold_db": 35,
+   "floor_margin_db": 15,
+   "min_run_ms": 50,
+   "pad_ms": 60,
+   "min_speech_ms": 200
+  },
+  "pitch": {
+   "floor_hz": 75,
+   "ceiling_hz": 400,
+   "frame_ms": 40,
+   "voicing": 0.45
+  },
+  "display": {
+   "narrow_ms": 30.0,
+   "dynamic_range_db": 55,
+   "floor_db": -35,
+   "fmax_hz": [
+    5000,
+    8000
+   ],
+   "fig_w": 15.0,
+   "fig_h": 7.6
+  }
+ },
+ "versions": {
+  "python": "3.12.14",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "numpy": "2.4.4",
+  "scipy": "1.17.1",
+  "matplotlib": "3.10.9",
+  "sounddevice": "0.5.6"
+ },
+ "takes": {
+  "normal": {
+   "label": "normal rate",
+   "raw_seconds": 4.0,
+   "trimmed_seconds": 1.99,
+   "T_frames": 199,
+   "frames_per_symbol": 33.17,
+   "voiced_frames": 149,
+   "unvoiced_frames": 47
+  },
+  "fast": {
+   "label": "twice as fast",
+   "raw_seconds": 4.0,
+   "trimmed_seconds": 1.34,
+   "T_frames": 134,
+   "frames_per_symbol": 22.33,
+   "voiced_frames": 90,
+   "unvoiced_frames": 41
+  }
+ },
+ "ratio_T": 0.673,
+ "ratio_voiced": 0.604,
+ "ratio_unvoiced": 0.872
+}

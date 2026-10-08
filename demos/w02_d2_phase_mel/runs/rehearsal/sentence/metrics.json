@@ -1,0 +1,188 @@
+{
+ "tag": "sentence",
+ "time": "2026-09-22T10:08:03",
+ "seconds": 5.0,
+ "config": {
+  "audio": {
+   "fs": 16000,
+   "default": "audio/sentence.wav",
+   "record_seconds": 5.0
+  },
+  "stft": {
+   "win_ms": 25.0,
+   "hop_ms": 10.0,
+   "n_fft": 512
+  },
+  "griffin_lim": {
+   "iters": [
+    0,
+    1,
+    4,
+    16,
+    64,
+    256
+   ],
+   "start": 64,
+   "seed": 0
+  },
+  "mel": {
+   "scale": "slaney",
+   "area_norm": true,
+   "bins": [
+    80,
+    40,
+    20,
+    10
+   ],
+   "inverse": "pinv"
+  }
+ },
+ "versions": {
+  "python": "3.12.14",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "numpy": "2.4.4",
+  "scipy": "1.17.1",
+  "matplotlib": "3.10.9",
+  "sounddevice": "0.5.6"
+ },
+ "metrics": {
+  "lin_orig": {
+   "lsd_db": 0.0,
+   "snr_db": 225.4
+  },
+  "lin_gl000": {
+   "lsd_db": 8.47,
+   "snr_db": -1.2
+  },
+  "lin_gl001": {
+   "lsd_db": 4.71,
+   "snr_db": -2.7
+  },
+  "lin_gl004": {
+   "lsd_db": 3.46,
+   "snr_db": -3.0
+  },
+  "lin_gl016": {
+   "lsd_db": 2.64,
+   "snr_db": -3.1
+  },
+  "lin_gl064": {
+   "lsd_db": 2.06,
+   "snr_db": -3.4
+  },
+  "lin_gl256": {
+   "lsd_db": 1.71,
+   "snr_db": -3.7
+  },
+  "mel80_orig": {
+   "lsd_db": 4.15,
+   "snr_db": 24.9
+  },
+  "mel80_gl000": {
+   "lsd_db": 9.2,
+   "snr_db": -1.2
+  },
+  "mel80_gl001": {
+   "lsd_db": 6.47,
+   "snr_db": -2.7
+  },
+  "mel80_gl004": {
+   "lsd_db": 6.13,
+   "snr_db": -3.0
+  },
+  "mel80_gl016": {
+   "lsd_db": 6.08,
+   "snr_db": -3.1
+  },
+  "mel80_gl064": {
+   "lsd_db": 6.12,
+   "snr_db": -3.3
+  },
+  "mel80_gl256": {
+   "lsd_db": 6.2,
+   "snr_db": -3.7
+  },
+  "mel40_orig": {
+   "lsd_db": 5.34,
+   "snr_db": 16.2
+  },
+  "mel20_orig": {
+   "lsd_db": 7.02,
+   "snr_db": 7.9
+  },
+  "mel10_orig": {
+   "lsd_db": 9.89,
+   "snr_db": 6.2
+  }
+ },
+ "gl_monotone": {
+  "lin": true,
+  "mel80": true
+ },
+ "gl_log": {
+  "lin": [
+   {
+    "iter": 0,
+    "inconsistency": 0.724286211050674,
+    "spectral_convergence": 0.6362451577748797
+   },
+   {
+    "iter": 1,
+    "inconsistency": 0.17862926331952317,
+    "spectral_convergence": 0.35943878609990243
+   },
+   {
+    "iter": 4,
+    "inconsistency": 0.05981421277772867,
+    "spectral_convergence": 0.23621307710352915
+   },
+   {
+    "iter": 16,
+    "inconsistency": 0.025915647087629615,
+    "spectral_convergence": 0.159513805463172
+   },
+   {
+    "iter": 64,
+    "inconsistency": 0.009766172587947831,
+    "spectral_convergence": 0.09835071242430991
+   },
+   {
+    "iter": 256,
+    "inconsistency": 0.0019742253558612485,
+    "spectral_convergence": 0.04440621473361036
+   }
+  ],
+  "mel80": [
+   {
+    "iter": 0,
+    "inconsistency": 0.7241562954809957,
+    "spectral_convergence": 0.6382469332891206
+   },
+   {
+    "iter": 1,
+    "inconsistency": 0.18122282343551946,
+    "spectral_convergence": 0.3670033642636992
+   },
+   {
+    "iter": 4,
+    "inconsistency": 0.06322322249320961,
+    "spectral_convergence": 0.2431166645122322
+   },
+   {
+    "iter": 16,
+    "inconsistency": 0.03070760365941607,
+    "spectral_convergence": 0.17408225525747784
+   },
+   {
+    "iter": 64,
+    "inconsistency": 0.018081852398960877,
+    "spectral_convergence": 0.13422591702550418
+   },
+   {
+    "iter": 256,
+    "inconsistency": 0.008308699168594946,
+    "spectral_convergence": 0.09113485126099262
+   }
+  ]
+ }
+}

@@ -1,0 +1,62 @@
+# 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
+# W4 demo 1：RNN-T 格點——路徑窮舉 vs. forward，與 max_symbols_per_step。換內容只改這裡。
+#
+# 符號：blank 在終端機印成 ∅（與投影片的 \varnothing 一致）。路徑寫成動作串：E = emit（往上，u + 1，不花 frame）、
+# R = blank（往右，t + 1）。路徑的排列順序 = itertools.combinations（與 slides/scripts/make_figs_w04.py 的 rnnt_paths 相同，
+# 所以 w04-data.json → paths.<ℓ>.by_T.<T>.rnnt_paths 與這裡列出來的逐條同序）。
+# CTC 對照用 W3 同一支 enumerate（itertools.product 順序）；w03-data.json 有的 (ℓ, T) 直接讀，沒有的（T = 1）現場算。
+
+[paper]
+# 第一段「紙上先列、程式再列」。vocab 是不含 blank 的符號表；K = |V'| = len(vocab) + 1。
+vocab = "ab"
+# 按鍵 → (標籤, T)。順序照投影片 p29〈Paths: write them out before the program does〉的【操作】。
+[[paper.items]]
+key = "1"
+label = "ab"
+T = 2
+[[paper.items]]
+key = "2"
+label = "aa"
+T = 1
+[[paper.items]]
+key = "3"
+label = "ab"
+T = 3
+[[paper.items]]
+key = "0"
+label = "aa"
+T = 2
+
+[random]
+# 第二段：隨機一組 y^{t,u}（每個格點節點 (t, u) 一個 softmax(N(0, logit_std²)) over {a, b, ∅}），"ab"、T = 2 → 3 條路徑、6 個節點。
+# seed = 20261004 時照 make_figs_w04.py 的抽取順序重現（("ab", "aa") × T = 1, 2, 3，每節點抽 3 個 logits），
+# 所以與 w04-data.json → forward_check.ab.2.random_seed_20261004 及 p33 表格第三列逐位相同。課堂上按 r 換一組（seed 用時間）。
+vocab = "ab"
+label = "ab"
+T = 2
+seed = 20261004
+logit_std = 1.5
+
+[decode]
+# 第三段：greedy decode 與 max_symbols_per_step。**合成的 joint，不是訓練出來的模型**：
+#   z^{t,u} = f_t + g(上一個發射的符號)。
+#   f_t（encoder 側）：每個符號一個 N(0, logit_std²)；∅ 的 logit = 第二高的符號 + blank_margin，所以一個 frame 通常只發得出最高的那個符號。
+#   g(prev)（prediction network 側）：剛發過的符號減 repeat_penalty（「不喜歡重複」），其餘 0——發完最高的那個之後 ∅ 就贏了。
+#   第 blank_starved_frame 個 frame 例外：∅ 的 logit = 最低的符號 − blank_penalty，怎樣都贏不了——校準壞掉、不肯吐 blank 的 ∅(t,u)；
+#   g 又不准重複，所以它 a b a b 一直換。
+# 6：有上限（max_symbols_per_step），到了就強制 ∅ 前進；u：拿掉上限，程式在 safety_limit 次 emit 時自己停（否則是無限迴圈）。
+# 容器裡（seed 20261004）：有上限 hyp = "bababab"，每 frame 的 emit 數 [1, 1, 5, 0, 0, 0]；沒上限在 frame 3 碰到 safety_limit。
+vocab = "ab"
+T = 6
+seed = 20261004
+logit_std = 1.5
+blank_margin = 0.5
+repeat_penalty = 3.0
+max_symbols_per_step = 5
+blank_starved_frame = 3
+blank_penalty = 8.0
+safety_limit = 40
+
+[display]
+digits = 6          # 機率印幾位小數
+step_cells = true   # 按 5 時 forward 表一格一格揭露（任一鍵下一格；a 全部、q 中止）；false = 一次印完

@@ -1,0 +1,25 @@
+# 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
+# W2 demo 2：相位 × magnitude 的因子設計。換參數只改這裡。
+
+[audio]
+fs = 16000            # 全部重取樣到這裡（16 kHz 取樣 = 8 kHz 頻寬）
+default = "audio/sentence.wav"   # ./present.sh record 會錄到這個位置；也可以自己放一個 WAV
+record_seconds = 5.0
+
+[stft]
+# ASR 慣用的前端：25 ms Hann、10 ms hop。重疊率 60%，不滿足 Hann 的 COLA，
+# 但 ISTFT 用的是 Griffin & Lim 的最小平方版本（除以 Σw²），任何 hop 都能完美重建。
+win_ms = 25.0
+hop_ms = 10.0
+n_fft = 512
+
+[griffin_lim]
+iters = [0, 1, 4, 16, 64, 256]   # 0 = 隨機相位、完全不迭代。課堂上用 [ 與 ] 在這幾檔之間切
+start = 64                        # 進入播放畫面時停在哪一檔
+seed = 0
+
+[mel]
+scale = "slaney"      # "slaney" 或 "htk"
+area_norm = true
+bins = [80, 40, 20, 10]           # 第一個也是 2×3 表格第二列用的那一個
+inverse = "pinv"      # "pinv" 或 "nnls"（見 ../dsp.py 的說明）

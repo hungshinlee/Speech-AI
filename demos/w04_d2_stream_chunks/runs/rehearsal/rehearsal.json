@@ -1,0 +1,1843 @@
+{
+ "time": "2026-10-06T09:10:06",
+ "tag": "rehearsal",
+ "backend": {
+  "backend": "sherpa-onnx",
+  "version": "1.13.8",
+  "model": "sherpa-onnx-streaming-zipformer-en-2023-06-26",
+  "load_s": 0.821,
+  "meta": {
+   "model_type": "zipformer2",
+   "version": "1",
+   "model_author": "k2-fsa",
+   "comment": "streaming zipformer2",
+   "decode_chunk_len": "32",
+   "T": "45",
+   "num_encoder_layers": "2,2,3,4,3,2",
+   "encoder_dims": "192,256,384,512,384,256",
+   "cnn_module_kernels": "31,31,15,15,15,31",
+   "left_context_len": "128,64,32,16,32,64",
+   "query_head_dims": "32,32,32,32,32,32",
+   "value_head_dims": "12,12,12,12,12,12",
+   "num_heads": "4,4,4,8,4,4"
+  }
+ },
+ "config": {
+  "audio": {
+   "wav": "../w03_d3_blank_heatmap/runs/rehearsal/utterance.wav",
+   "alignment": "../w03_d3_blank_heatmap/runs/rehearsal/rehearsal.json",
+   "fs": 16000,
+   "tail_silence_s": 0.8
+  },
+  "model": {
+   "name": "sherpa-onnx-streaming-zipformer-en-2023-06-26",
+   "tarball": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-en-2023-06-26.tar.bz2",
+   "hf_repo": "csukuangfj/sherpa-onnx-streaming-zipformer-en-2023-06-26",
+   "cache_dir": "~/.cache/sherpa-onnx",
+   "encoder": "encoder-epoch-99-avg-1-chunk-16-left-128.onnx",
+   "decoder": "decoder-epoch-99-avg-1-chunk-16-left-128.onnx",
+   "joiner": "joiner-epoch-99-avg-1-chunk-16-left-128.onnx",
+   "tokens": "tokens.txt",
+   "num_threads": 4,
+   "decoding_method": "greedy_search",
+   "decode_chunk_len_default": 32,
+   "pad_length_default": 13,
+   "input_frame_ms": 10.0,
+   "output_frame_ms": 40.0
+  },
+  "settings": {
+   "items": [
+    {
+     "key": "1",
+     "name": "1280 ms",
+     "feed_ms": 1280
+    },
+    {
+     "key": "2",
+     "name": "640 ms",
+     "feed_ms": 640
+    },
+    {
+     "key": "3",
+     "name": "320 ms (= model chunk)",
+     "feed_ms": 320
+    }
+   ]
+  },
+  "fake": {
+   "emit_mean_s": 0.2,
+   "emit_std_s": 0.06,
+   "comp_s": 0.02,
+   "seed": 20261006
+  },
+  "display": {
+   "fig_w": 15.0,
+   "fig_h": 8.0,
+   "digits": 3
+  }
+ },
+ "versions": {
+  "python": "3.12.14",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "numpy": "2.4.4",
+  "scipy": "1.17.1",
+  "matplotlib": "3.10.9",
+  "sounddevice": "0.5.6",
+  "sherpa_onnx": "1.13.8",
+  "onnx": "1.23.1"
+ },
+ "alignment": {
+  "source": "../w03_d3_blank_heatmap/runs/rehearsal/rehearsal.json",
+  "source_time": "2026-09-26T23:39:26",
+  "T": 292,
+  "frame_ms": 20.0,
+  "words": [
+   {
+    "i": 0,
+    "word": "MISTER",
+    "start": 0.56,
+    "end": 0.8
+   },
+   {
+    "i": 1,
+    "word": "QUILTER",
+    "start": 0.86,
+    "end": 1.2
+   },
+   {
+    "i": 2,
+    "word": "IS",
+    "start": 1.32,
+    "end": 1.38
+   },
+   {
+    "i": 3,
+    "word": "THE",
+    "start": 1.44,
+    "end": 1.52
+   },
+   {
+    "i": 4,
+    "word": "APOSTLE",
+    "start": 1.6,
+    "end": 2.06
+   },
+   {
+    "i": 5,
+    "word": "OF",
+    "start": 2.18,
+    "end": 2.22
+   },
+   {
+    "i": 6,
+    "word": "THE",
+    "start": 2.3,
+    "end": 2.36
+   },
+   {
+    "i": 7,
+    "word": "MIDDLE",
+    "start": 2.4,
+    "end": 2.62
+   },
+   {
+    "i": 8,
+    "word": "CLASSES",
+    "start": 2.66,
+    "end": 3.12
+   },
+   {
+    "i": 9,
+    "word": "AND",
+    "start": 3.36,
+    "end": 3.44
+   },
+   {
+    "i": 10,
+    "word": "WE",
+    "start": 3.48,
+    "end": 3.56
+   },
+   {
+    "i": 11,
+    "word": "ARE",
+    "start": 3.62,
+    "end": 3.7
+   },
+   {
+    "i": 12,
+    "word": "GLAD",
+    "start": 3.74,
+    "end": 4.0
+   },
+   {
+    "i": 13,
+    "word": "TO",
+    "start": 4.1,
+    "end": 4.18
+   },
+   {
+    "i": 14,
+    "word": "WELCOME",
+    "start": 4.24,
+    "end": 4.58
+   },
+   {
+    "i": 15,
+    "word": "HIS",
+    "start": 4.68,
+    "end": 4.8
+   },
+   {
+    "i": 16,
+    "word": "GOSPEL",
+    "start": 4.9,
+    "end": 5.42
+   }
+  ]
+ },
+ "runs": {
+  "1": {
+   "setting": {
+    "key": "1",
+    "name": "1280 ms",
+    "feed_ms": 1280
+   },
+   "events": [
+    {
+     "tok": " MISTER",
+     "t_frame": 0.8,
+     "t_fed": 1.28,
+     "t_wall": 1.329,
+     "piece": 0
+    },
+    {
+     "tok": " ",
+     "t_frame": 1.08,
+     "t_fed": 2.56,
+     "t_wall": 2.613,
+     "piece": 1
+    },
+    {
+     "tok": "QUI",
+     "t_frame": 1.12,
+     "t_fed": 2.56,
+     "t_wall": 2.613,
+     "piece": 1
+    },
+    {
+     "tok": "L",
+     "t_frame": 1.24,
+     "t_fed": 2.56,
+     "t_wall": 2.613,
+     "piece": 1
+    },
+    {
+     "tok": "TER",
+     "t_frame": 1.36,
+     "t_fed": 2.56,
+     "t_wall": 2.613,
+     "piece": 1
+    },
+    {
+     "tok": " IS",
+     "t_frame": 1.6,
+     "t_fed": 2.56,
+     "t_wall": 2.613,
+     "piece": 1
+    },
+    {
+     "tok": " THE",
+     "t_frame": 1.76,
+     "t_fed": 2.56,
+     "t_wall": 2.614,
+     "piece": 1
+    },
+    {
+     "tok": " A",
+     "t_frame": 1.92,
+     "t_fed": 2.56,
+     "t_wall": 2.614,
+     "piece": 1
+    },
+    {
+     "tok": "P",
+     "t_frame": 2.0,
+     "t_fed": 2.56,
+     "t_wall": 2.614,
+     "piece": 1
+    },
+    {
+     "tok": "O",
+     "t_frame": 2.08,
+     "t_fed": 2.56,
+     "t_wall": 2.614,
+     "piece": 1
+    },
+    {
+     "tok": "ST",
+     "t_frame": 2.16,
+     "t_fed": 2.56,
+     "t_wall": 2.614,
+     "piece": 1
+    },
+    {
+     "tok": "LE",
+     "t_frame": 2.28,
+     "t_fed": 3.84,
+     "t_wall": 3.898,
+     "piece": 2
+    },
+    {
+     "tok": " OF",
+     "t_frame": 2.44,
+     "t_fed": 3.84,
+     "t_wall": 3.899,
+     "piece": 2
+    },
+    {
+     "tok": " THE",
+     "t_frame": 2.56,
+     "t_fed": 3.84,
+     "t_wall": 3.899,
+     "piece": 2
+    },
+    {
+     "tok": " MI",
+     "t_frame": 2.68,
+     "t_fed": 3.84,
+     "t_wall": 3.899,
+     "piece": 2
+    },
+    {
+     "tok": "D",
+     "t_frame": 2.76,
+     "t_fed": 3.84,
+     "t_wall": 3.899,
+     "piece": 2
+    },
+    {
+     "tok": "D",
+     "t_frame": 2.84,
+     "t_fed": 3.84,
+     "t_wall": 3.899,
+     "piece": 2
+    },
+    {
+     "tok": "LE",
+     "t_frame": 2.88,
+     "t_fed": 3.84,
+     "t_wall": 3.899,
+     "piece": 2
+    },
+    {
+     "tok": " C",
+     "t_frame": 3.0,
+     "t_fed": 3.84,
+     "t_wall": 3.9,
+     "piece": 2
+    },
+    {
+     "tok": "LA",
+     "t_frame": 3.04,
+     "t_fed": 3.84,
+     "t_wall": 3.9,
+     "piece": 2
+    },
+    {
+     "tok": "S",
+     "t_frame": 3.24,
+     "t_fed": 3.84,
+     "t_wall": 3.9,
+     "piece": 2
+    },
+    {
+     "tok": "SE",
+     "t_frame": 3.32,
+     "t_fed": 3.84,
+     "t_wall": 3.9,
+     "piece": 2
+    },
+    {
+     "tok": "S",
+     "t_frame": 3.44,
+     "t_fed": 3.84,
+     "t_wall": 3.9,
+     "piece": 2
+    },
+    {
+     "tok": " AND",
+     "t_frame": 3.6,
+     "t_fed": 5.12,
+     "t_wall": 5.173,
+     "piece": 3
+    },
+    {
+     "tok": " WE",
+     "t_frame": 3.72,
+     "t_fed": 5.12,
+     "t_wall": 5.173,
+     "piece": 3
+    },
+    {
+     "tok": " ARE",
+     "t_frame": 3.92,
+     "t_fed": 5.12,
+     "t_wall": 5.173,
+     "piece": 3
+    },
+    {
+     "tok": " G",
+     "t_frame": 4.12,
+     "t_fed": 5.12,
+     "t_wall": 5.173,
+     "piece": 3
+    },
+    {
+     "tok": "LA",
+     "t_frame": 4.16,
+     "t_fed": 5.12,
+     "t_wall": 5.173,
+     "piece": 3
+    },
+    {
+     "tok": "D",
+     "t_frame": 4.28,
+     "t_fed": 5.12,
+     "t_wall": 5.173,
+     "piece": 3
+    },
+    {
+     "tok": " TO",
+     "t_frame": 4.36,
+     "t_fed": 5.12,
+     "t_wall": 5.174,
+     "piece": 3
+    },
+    {
+     "tok": " WE",
+     "t_frame": 4.56,
+     "t_fed": 5.12,
+     "t_wall": 5.174,
+     "piece": 3
+    },
+    {
+     "tok": "L",
+     "t_frame": 4.68,
+     "t_fed": 5.12,
+     "t_wall": 5.174,
+     "piece": 3
+    },
+    {
+     "tok": "C",
+     "t_frame": 4.72,
+     "t_fed": 5.12,
+     "t_wall": 5.174,
+     "piece": 3
+    },
+    {
+     "tok": "OM",
+     "t_frame": 4.76,
+     "t_fed": 5.12,
+     "t_wall": 5.174,
+     "piece": 3
+    },
+    {
+     "tok": "E",
+     "t_frame": 4.92,
+     "t_fed": 6.4,
+     "t_wall": 6.454,
+     "piece": 4
+    },
+    {
+     "tok": " HIS",
+     "t_frame": 5.04,
+     "t_fed": 6.4,
+     "t_wall": 6.454,
+     "piece": 4
+    },
+    {
+     "tok": " GO",
+     "t_frame": 5.24,
+     "t_fed": 6.4,
+     "t_wall": 6.454,
+     "piece": 4
+    },
+    {
+     "tok": "S",
+     "t_frame": 5.36,
+     "t_fed": 6.4,
+     "t_wall": 6.455,
+     "piece": 4
+    },
+    {
+     "tok": "P",
+     "t_frame": 5.56,
+     "t_fed": 6.4,
+     "t_wall": 6.455,
+     "piece": 4
+    },
+    {
+     "tok": "EL",
+     "t_frame": 5.6,
+     "t_fed": 6.4,
+     "t_wall": 6.455,
+     "piece": 4
+    }
+   ],
+   "words": [
+    {
+     "ref": "MISTER",
+     "i": 0,
+     "start": 0.56,
+     "end": 0.8,
+     "hyp": "MISTER",
+     "gap_frame": 0.0,
+     "gap_fed": 0.48,
+     "gap_wall": 0.529,
+     "t_frame": 0.8,
+     "t_fed": 1.28,
+     "t_wall": 1.329
+    },
+    {
+     "ref": "QUILTER",
+     "i": 1,
+     "start": 0.86,
+     "end": 1.2,
+     "hyp": "QUILTER",
+     "gap_frame": 0.16,
+     "gap_fed": 1.36,
+     "gap_wall": 1.413,
+     "t_frame": 1.36,
+     "t_fed": 2.56,
+     "t_wall": 2.613
+    },
+    {
+     "ref": "IS",
+     "i": 2,
+     "start": 1.32,
+     "end": 1.38,
+     "hyp": "IS",
+     "gap_frame": 0.22,
+     "gap_fed": 1.18,
+     "gap_wall": 1.233,
+     "t_frame": 1.6,
+     "t_fed": 2.56,
+     "t_wall": 2.613
+    },
+    {
+     "ref": "THE",
+     "i": 3,
+     "start": 1.44,
+     "end": 1.52,
+     "hyp": "THE",
+     "gap_frame": 0.24,
+     "gap_fed": 1.04,
+     "gap_wall": 1.094,
+     "t_frame": 1.76,
+     "t_fed": 2.56,
+     "t_wall": 2.614
+    },
+    {
+     "ref": "APOSTLE",
+     "i": 4,
+     "start": 1.6,
+     "end": 2.06,
+     "hyp": "APOSTLE",
+     "gap_frame": 0.22,
+     "gap_fed": 1.78,
+     "gap_wall": 1.838,
+     "t_frame": 2.28,
+     "t_fed": 3.84,
+     "t_wall": 3.898
+    },
+    {
+     "ref": "OF",
+     "i": 5,
+     "start": 2.18,
+     "end": 2.22,
+     "hyp": "OF",
+     "gap_frame": 0.22,
+     "gap_fed": 1.62,
+     "gap_wall": 1.679,
+     "t_frame": 2.44,
+     "t_fed": 3.84,
+     "t_wall": 3.899
+    },
+    {
+     "ref": "THE",
+     "i": 6,
+     "start": 2.3,
+     "end": 2.36,
+     "hyp": "THE",
+     "gap_frame": 0.2,
+     "gap_fed": 1.48,
+     "gap_wall": 1.539,
+     "t_frame": 2.56,
+     "t_fed": 3.84,
+     "t_wall": 3.899
+    },
+    {
+     "ref": "MIDDLE",
+     "i": 7,
+     "start": 2.4,
+     "end": 2.62,
+     "hyp": "MIDDLE",
+     "gap_frame": 0.26,
+     "gap_fed": 1.22,
+     "gap_wall": 1.279,
+     "t_frame": 2.88,
+     "t_fed": 3.84,
+     "t_wall": 3.899
+    },
+    {
+     "ref": "CLASSES",
+     "i": 8,
+     "start": 2.66,
+     "end": 3.12,
+     "hyp": "CLASSES",
+     "gap_frame": 0.32,
+     "gap_fed": 0.72,
+     "gap_wall": 0.78,
+     "t_frame": 3.44,
+     "t_fed": 3.84,
+     "t_wall": 3.9
+    },
+    {
+     "ref": "AND",
+     "i": 9,
+     "start": 3.36,
+     "end": 3.44,
+     "hyp": "AND",
+     "gap_frame": 0.16,
+     "gap_fed": 1.68,
+     "gap_wall": 1.733,
+     "t_frame": 3.6,
+     "t_fed": 5.12,
+     "t_wall": 5.173
+    },
+    {
+     "ref": "WE",
+     "i": 10,
+     "start": 3.48,
+     "end": 3.56,
+     "hyp": "WE",
+     "gap_frame": 0.16,
+     "gap_fed": 1.56,
+     "gap_wall": 1.613,
+     "t_frame": 3.72,
+     "t_fed": 5.12,
+     "t_wall": 5.173
+    },
+    {
+     "ref": "ARE",
+     "i": 11,
+     "start": 3.62,
+     "end": 3.7,
+     "hyp": "ARE",
+     "gap_frame": 0.22,
+     "gap_fed": 1.42,
+     "gap_wall": 1.473,
+     "t_frame": 3.92,
+     "t_fed": 5.12,
+     "t_wall": 5.173
+    },
+    {
+     "ref": "GLAD",
+     "i": 12,
+     "start": 3.74,
+     "end": 4.0,
+     "hyp": "GLAD",
+     "gap_frame": 0.28,
+     "gap_fed": 1.12,
+     "gap_wall": 1.173,
+     "t_frame": 4.28,
+     "t_fed": 5.12,
+     "t_wall": 5.173
+    },
+    {
+     "ref": "TO",
+     "i": 13,
+     "start": 4.1,
+     "end": 4.18,
+     "hyp": "TO",
+     "gap_frame": 0.18,
+     "gap_fed": 0.94,
+     "gap_wall": 0.994,
+     "t_frame": 4.36,
+     "t_fed": 5.12,
+     "t_wall": 5.174
+    },
+    {
+     "ref": "WELCOME",
+     "i": 14,
+     "start": 4.24,
+     "end": 4.58,
+     "hyp": "WELCOME",
+     "gap_frame": 0.34,
+     "gap_fed": 1.82,
+     "gap_wall": 1.874,
+     "t_frame": 4.92,
+     "t_fed": 6.4,
+     "t_wall": 6.454
+    },
+    {
+     "ref": "HIS",
+     "i": 15,
+     "start": 4.68,
+     "end": 4.8,
+     "hyp": "HIS",
+     "gap_frame": 0.24,
+     "gap_fed": 1.6,
+     "gap_wall": 1.654,
+     "t_frame": 5.04,
+     "t_fed": 6.4,
+     "t_wall": 6.454
+    },
+    {
+     "ref": "GOSPEL",
+     "i": 16,
+     "start": 4.9,
+     "end": 5.42,
+     "hyp": "GOSPEL",
+     "gap_frame": 0.18,
+     "gap_fed": 0.98,
+     "gap_wall": 1.035,
+     "t_frame": 5.6,
+     "t_fed": 6.4,
+     "t_wall": 6.455
+    }
+   ],
+   "summary": {
+    "n_ref": 17,
+    "n_matched": 17,
+    "feed_ms": 1280.0,
+    "d_alg": {
+     "m_ms": 130.0,
+     "c_ms": 320.0,
+     "C_ms": 1280.0,
+     "mean_ms": 960.0,
+     "worst_ms": 1600.0,
+     "best_ms": 320.0,
+     "naive_mean_ms": 770.0,
+     "formula": "c + F/2 (pad waits for the next feed)"
+    },
+    "median_gap_frame_ms": 220.0,
+    "worst_frame": {
+     "word": "WELCOME",
+     "gap_ms": 340.0
+    },
+    "median_gap_fed_ms": 1360.0,
+    "worst_fed": {
+     "word": "WELCOME",
+     "gap_ms": 1820.0
+    },
+    "median_gap_wall_ms": 1413.0,
+    "worst_wall": {
+     "word": "WELCOME",
+     "gap_ms": 1874.0
+    },
+    "median_fed_minus_frame_ms": 960.0,
+    "median_wall_minus_fed_ms": 54.0,
+    "hyp_text": "MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL"
+   }
+  },
+  "2": {
+   "setting": {
+    "key": "2",
+    "name": "640 ms",
+    "feed_ms": 640
+   },
+   "events": [
+    {
+     "tok": " MISTER",
+     "t_frame": 0.8,
+     "t_fed": 1.28,
+     "t_wall": 1.314,
+     "piece": 1
+    },
+    {
+     "tok": " ",
+     "t_frame": 1.08,
+     "t_fed": 1.92,
+     "t_wall": 1.953,
+     "piece": 2
+    },
+    {
+     "tok": "QUI",
+     "t_frame": 1.12,
+     "t_fed": 1.92,
+     "t_wall": 1.954,
+     "piece": 2
+    },
+    {
+     "tok": "L",
+     "t_frame": 1.24,
+     "t_fed": 1.92,
+     "t_wall": 1.954,
+     "piece": 2
+    },
+    {
+     "tok": "TER",
+     "t_frame": 1.36,
+     "t_fed": 1.92,
+     "t_wall": 1.954,
+     "piece": 2
+    },
+    {
+     "tok": " IS",
+     "t_frame": 1.6,
+     "t_fed": 2.56,
+     "t_wall": 2.592,
+     "piece": 3
+    },
+    {
+     "tok": " THE",
+     "t_frame": 1.76,
+     "t_fed": 2.56,
+     "t_wall": 2.593,
+     "piece": 3
+    },
+    {
+     "tok": " A",
+     "t_frame": 1.92,
+     "t_fed": 2.56,
+     "t_wall": 2.593,
+     "piece": 3
+    },
+    {
+     "tok": "P",
+     "t_frame": 2.0,
+     "t_fed": 2.56,
+     "t_wall": 2.593,
+     "piece": 3
+    },
+    {
+     "tok": "O",
+     "t_frame": 2.08,
+     "t_fed": 2.56,
+     "t_wall": 2.593,
+     "piece": 3
+    },
+    {
+     "tok": "ST",
+     "t_frame": 2.16,
+     "t_fed": 2.56,
+     "t_wall": 2.593,
+     "piece": 3
+    },
+    {
+     "tok": "LE",
+     "t_frame": 2.28,
+     "t_fed": 3.2,
+     "t_wall": 3.231,
+     "piece": 4
+    },
+    {
+     "tok": " OF",
+     "t_frame": 2.44,
+     "t_fed": 3.2,
+     "t_wall": 3.232,
+     "piece": 4
+    },
+    {
+     "tok": " THE",
+     "t_frame": 2.56,
+     "t_fed": 3.2,
+     "t_wall": 3.232,
+     "piece": 4
+    },
+    {
+     "tok": " MI",
+     "t_frame": 2.68,
+     "t_fed": 3.2,
+     "t_wall": 3.232,
+     "piece": 4
+    },
+    {
+     "tok": "D",
+     "t_frame": 2.76,
+     "t_fed": 3.2,
+     "t_wall": 3.232,
+     "piece": 4
+    },
+    {
+     "tok": "D",
+     "t_frame": 2.84,
+     "t_fed": 3.2,
+     "t_wall": 3.232,
+     "piece": 4
+    },
+    {
+     "tok": "LE",
+     "t_frame": 2.88,
+     "t_fed": 3.84,
+     "t_wall": 3.869,
+     "piece": 5
+    },
+    {
+     "tok": " C",
+     "t_frame": 3.0,
+     "t_fed": 3.84,
+     "t_wall": 3.87,
+     "piece": 5
+    },
+    {
+     "tok": "LA",
+     "t_frame": 3.04,
+     "t_fed": 3.84,
+     "t_wall": 3.87,
+     "piece": 5
+    },
+    {
+     "tok": "S",
+     "t_frame": 3.24,
+     "t_fed": 3.84,
+     "t_wall": 3.87,
+     "piece": 5
+    },
+    {
+     "tok": "SE",
+     "t_frame": 3.32,
+     "t_fed": 3.84,
+     "t_wall": 3.87,
+     "piece": 5
+    },
+    {
+     "tok": "S",
+     "t_frame": 3.44,
+     "t_fed": 3.84,
+     "t_wall": 3.87,
+     "piece": 5
+    },
+    {
+     "tok": " AND",
+     "t_frame": 3.6,
+     "t_fed": 4.48,
+     "t_wall": 4.513,
+     "piece": 6
+    },
+    {
+     "tok": " WE",
+     "t_frame": 3.72,
+     "t_fed": 4.48,
+     "t_wall": 4.514,
+     "piece": 6
+    },
+    {
+     "tok": " ARE",
+     "t_frame": 3.92,
+     "t_fed": 4.48,
+     "t_wall": 4.514,
+     "piece": 6
+    },
+    {
+     "tok": " G",
+     "t_frame": 4.12,
+     "t_fed": 4.48,
+     "t_wall": 4.514,
+     "piece": 6
+    },
+    {
+     "tok": "LA",
+     "t_frame": 4.16,
+     "t_fed": 5.12,
+     "t_wall": 5.153,
+     "piece": 7
+    },
+    {
+     "tok": "D",
+     "t_frame": 4.28,
+     "t_fed": 5.12,
+     "t_wall": 5.154,
+     "piece": 7
+    },
+    {
+     "tok": " TO",
+     "t_frame": 4.36,
+     "t_fed": 5.12,
+     "t_wall": 5.154,
+     "piece": 7
+    },
+    {
+     "tok": " WE",
+     "t_frame": 4.56,
+     "t_fed": 5.12,
+     "t_wall": 5.154,
+     "piece": 7
+    },
+    {
+     "tok": "L",
+     "t_frame": 4.68,
+     "t_fed": 5.12,
+     "t_wall": 5.154,
+     "piece": 7
+    },
+    {
+     "tok": "C",
+     "t_frame": 4.72,
+     "t_fed": 5.12,
+     "t_wall": 5.154,
+     "piece": 7
+    },
+    {
+     "tok": "OM",
+     "t_frame": 4.76,
+     "t_fed": 5.12,
+     "t_wall": 5.154,
+     "piece": 7
+    },
+    {
+     "tok": "E",
+     "t_frame": 4.92,
+     "t_fed": 5.76,
+     "t_wall": 5.792,
+     "piece": 8
+    },
+    {
+     "tok": " HIS",
+     "t_frame": 5.04,
+     "t_fed": 5.76,
+     "t_wall": 5.792,
+     "piece": 8
+    },
+    {
+     "tok": " GO",
+     "t_frame": 5.24,
+     "t_fed": 5.76,
+     "t_wall": 5.793,
+     "piece": 8
+    },
+    {
+     "tok": "S",
+     "t_frame": 5.36,
+     "t_fed": 5.76,
+     "t_wall": 5.793,
+     "piece": 8
+    },
+    {
+     "tok": "P",
+     "t_frame": 5.56,
+     "t_fed": 6.4,
+     "t_wall": 6.433,
+     "piece": 9
+    },
+    {
+     "tok": "EL",
+     "t_frame": 5.6,
+     "t_fed": 6.4,
+     "t_wall": 6.433,
+     "piece": 9
+    }
+   ],
+   "words": [
+    {
+     "ref": "MISTER",
+     "i": 0,
+     "start": 0.56,
+     "end": 0.8,
+     "hyp": "MISTER",
+     "gap_frame": 0.0,
+     "gap_fed": 0.48,
+     "gap_wall": 0.514,
+     "t_frame": 0.8,
+     "t_fed": 1.28,
+     "t_wall": 1.314
+    },
+    {
+     "ref": "QUILTER",
+     "i": 1,
+     "start": 0.86,
+     "end": 1.2,
+     "hyp": "QUILTER",
+     "gap_frame": 0.16,
+     "gap_fed": 0.72,
+     "gap_wall": 0.754,
+     "t_frame": 1.36,
+     "t_fed": 1.92,
+     "t_wall": 1.954
+    },
+    {
+     "ref": "IS",
+     "i": 2,
+     "start": 1.32,
+     "end": 1.38,
+     "hyp": "IS",
+     "gap_frame": 0.22,
+     "gap_fed": 1.18,
+     "gap_wall": 1.212,
+     "t_frame": 1.6,
+     "t_fed": 2.56,
+     "t_wall": 2.592
+    },
+    {
+     "ref": "THE",
+     "i": 3,
+     "start": 1.44,
+     "end": 1.52,
+     "hyp": "THE",
+     "gap_frame": 0.24,
+     "gap_fed": 1.04,
+     "gap_wall": 1.073,
+     "t_frame": 1.76,
+     "t_fed": 2.56,
+     "t_wall": 2.593
+    },
+    {
+     "ref": "APOSTLE",
+     "i": 4,
+     "start": 1.6,
+     "end": 2.06,
+     "hyp": "APOSTLE",
+     "gap_frame": 0.22,
+     "gap_fed": 1.14,
+     "gap_wall": 1.171,
+     "t_frame": 2.28,
+     "t_fed": 3.2,
+     "t_wall": 3.231
+    },
+    {
+     "ref": "OF",
+     "i": 5,
+     "start": 2.18,
+     "end": 2.22,
+     "hyp": "OF",
+     "gap_frame": 0.22,
+     "gap_fed": 0.98,
+     "gap_wall": 1.012,
+     "t_frame": 2.44,
+     "t_fed": 3.2,
+     "t_wall": 3.232
+    },
+    {
+     "ref": "THE",
+     "i": 6,
+     "start": 2.3,
+     "end": 2.36,
+     "hyp": "THE",
+     "gap_frame": 0.2,
+     "gap_fed": 0.84,
+     "gap_wall": 0.872,
+     "t_frame": 2.56,
+     "t_fed": 3.2,
+     "t_wall": 3.232
+    },
+    {
+     "ref": "MIDDLE",
+     "i": 7,
+     "start": 2.4,
+     "end": 2.62,
+     "hyp": "MIDDLE",
+     "gap_frame": 0.26,
+     "gap_fed": 1.22,
+     "gap_wall": 1.249,
+     "t_frame": 2.88,
+     "t_fed": 3.84,
+     "t_wall": 3.869
+    },
+    {
+     "ref": "CLASSES",
+     "i": 8,
+     "start": 2.66,
+     "end": 3.12,
+     "hyp": "CLASSES",
+     "gap_frame": 0.32,
+     "gap_fed": 0.72,
+     "gap_wall": 0.75,
+     "t_frame": 3.44,
+     "t_fed": 3.84,
+     "t_wall": 3.87
+    },
+    {
+     "ref": "AND",
+     "i": 9,
+     "start": 3.36,
+     "end": 3.44,
+     "hyp": "AND",
+     "gap_frame": 0.16,
+     "gap_fed": 1.04,
+     "gap_wall": 1.073,
+     "t_frame": 3.6,
+     "t_fed": 4.48,
+     "t_wall": 4.513
+    },
+    {
+     "ref": "WE",
+     "i": 10,
+     "start": 3.48,
+     "end": 3.56,
+     "hyp": "WE",
+     "gap_frame": 0.16,
+     "gap_fed": 0.92,
+     "gap_wall": 0.954,
+     "t_frame": 3.72,
+     "t_fed": 4.48,
+     "t_wall": 4.514
+    },
+    {
+     "ref": "ARE",
+     "i": 11,
+     "start": 3.62,
+     "end": 3.7,
+     "hyp": "ARE",
+     "gap_frame": 0.22,
+     "gap_fed": 0.78,
+     "gap_wall": 0.814,
+     "t_frame": 3.92,
+     "t_fed": 4.48,
+     "t_wall": 4.514
+    },
+    {
+     "ref": "GLAD",
+     "i": 12,
+     "start": 3.74,
+     "end": 4.0,
+     "hyp": "GLAD",
+     "gap_frame": 0.28,
+     "gap_fed": 1.12,
+     "gap_wall": 1.154,
+     "t_frame": 4.28,
+     "t_fed": 5.12,
+     "t_wall": 5.154
+    },
+    {
+     "ref": "TO",
+     "i": 13,
+     "start": 4.1,
+     "end": 4.18,
+     "hyp": "TO",
+     "gap_frame": 0.18,
+     "gap_fed": 0.94,
+     "gap_wall": 0.974,
+     "t_frame": 4.36,
+     "t_fed": 5.12,
+     "t_wall": 5.154
+    },
+    {
+     "ref": "WELCOME",
+     "i": 14,
+     "start": 4.24,
+     "end": 4.58,
+     "hyp": "WELCOME",
+     "gap_frame": 0.34,
+     "gap_fed": 1.18,
+     "gap_wall": 1.212,
+     "t_frame": 4.92,
+     "t_fed": 5.76,
+     "t_wall": 5.792
+    },
+    {
+     "ref": "HIS",
+     "i": 15,
+     "start": 4.68,
+     "end": 4.8,
+     "hyp": "HIS",
+     "gap_frame": 0.24,
+     "gap_fed": 0.96,
+     "gap_wall": 0.992,
+     "t_frame": 5.04,
+     "t_fed": 5.76,
+     "t_wall": 5.792
+    },
+    {
+     "ref": "GOSPEL",
+     "i": 16,
+     "start": 4.9,
+     "end": 5.42,
+     "hyp": "GOSPEL",
+     "gap_frame": 0.18,
+     "gap_fed": 0.98,
+     "gap_wall": 1.013,
+     "t_frame": 5.6,
+     "t_fed": 6.4,
+     "t_wall": 6.433
+    }
+   ],
+   "summary": {
+    "n_ref": 17,
+    "n_matched": 17,
+    "feed_ms": 640.0,
+    "d_alg": {
+     "m_ms": 130.0,
+     "c_ms": 320.0,
+     "C_ms": 640.0,
+     "mean_ms": 640.0,
+     "worst_ms": 960.0,
+     "best_ms": 320.0,
+     "naive_mean_ms": 450.0,
+     "formula": "c + F/2 (pad waits for the next feed)"
+    },
+    "median_gap_frame_ms": 220.0,
+    "worst_frame": {
+     "word": "WELCOME",
+     "gap_ms": 340.0
+    },
+    "median_gap_fed_ms": 980.0,
+    "worst_fed": {
+     "word": "MIDDLE",
+     "gap_ms": 1220.0
+    },
+    "median_gap_wall_ms": 1012.0,
+    "worst_wall": {
+     "word": "MIDDLE",
+     "gap_ms": 1249.0
+    },
+    "median_fed_minus_frame_ms": 640.0,
+    "median_wall_minus_fed_ms": 33.0,
+    "hyp_text": "MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL"
+   }
+  },
+  "3": {
+   "setting": {
+    "key": "3",
+    "name": "320 ms (= model chunk)",
+    "feed_ms": 320
+   },
+   "events": [
+    {
+     "tok": " MISTER",
+     "t_frame": 0.8,
+     "t_fed": 1.28,
+     "t_wall": 1.3,
+     "piece": 3
+    },
+    {
+     "tok": " ",
+     "t_frame": 1.08,
+     "t_fed": 1.6,
+     "t_wall": 1.621,
+     "piece": 4
+    },
+    {
+     "tok": "QUI",
+     "t_frame": 1.12,
+     "t_fed": 1.6,
+     "t_wall": 1.621,
+     "piece": 4
+    },
+    {
+     "tok": "L",
+     "t_frame": 1.24,
+     "t_fed": 1.6,
+     "t_wall": 1.621,
+     "piece": 4
+    },
+    {
+     "tok": "TER",
+     "t_frame": 1.36,
+     "t_fed": 1.92,
+     "t_wall": 1.94,
+     "piece": 5
+    },
+    {
+     "tok": " IS",
+     "t_frame": 1.6,
+     "t_fed": 2.24,
+     "t_wall": 2.261,
+     "piece": 6
+    },
+    {
+     "tok": " THE",
+     "t_frame": 1.76,
+     "t_fed": 2.24,
+     "t_wall": 2.262,
+     "piece": 6
+    },
+    {
+     "tok": " A",
+     "t_frame": 1.92,
+     "t_fed": 2.56,
+     "t_wall": 2.582,
+     "piece": 7
+    },
+    {
+     "tok": "P",
+     "t_frame": 2.0,
+     "t_fed": 2.56,
+     "t_wall": 2.582,
+     "piece": 7
+    },
+    {
+     "tok": "O",
+     "t_frame": 2.08,
+     "t_fed": 2.56,
+     "t_wall": 2.583,
+     "piece": 7
+    },
+    {
+     "tok": "ST",
+     "t_frame": 2.16,
+     "t_fed": 2.56,
+     "t_wall": 2.583,
+     "piece": 7
+    },
+    {
+     "tok": "LE",
+     "t_frame": 2.28,
+     "t_fed": 2.88,
+     "t_wall": 2.902,
+     "piece": 8
+    },
+    {
+     "tok": " OF",
+     "t_frame": 2.44,
+     "t_fed": 2.88,
+     "t_wall": 2.903,
+     "piece": 8
+    },
+    {
+     "tok": " THE",
+     "t_frame": 2.56,
+     "t_fed": 3.2,
+     "t_wall": 3.22,
+     "piece": 9
+    },
+    {
+     "tok": " MI",
+     "t_frame": 2.68,
+     "t_fed": 3.2,
+     "t_wall": 3.22,
+     "piece": 9
+    },
+    {
+     "tok": "D",
+     "t_frame": 2.76,
+     "t_fed": 3.2,
+     "t_wall": 3.221,
+     "piece": 9
+    },
+    {
+     "tok": "D",
+     "t_frame": 2.84,
+     "t_fed": 3.2,
+     "t_wall": 3.221,
+     "piece": 9
+    },
+    {
+     "tok": "LE",
+     "t_frame": 2.88,
+     "t_fed": 3.52,
+     "t_wall": 3.542,
+     "piece": 10
+    },
+    {
+     "tok": " C",
+     "t_frame": 3.0,
+     "t_fed": 3.52,
+     "t_wall": 3.543,
+     "piece": 10
+    },
+    {
+     "tok": "LA",
+     "t_frame": 3.04,
+     "t_fed": 3.52,
+     "t_wall": 3.543,
+     "piece": 10
+    },
+    {
+     "tok": "S",
+     "t_frame": 3.24,
+     "t_fed": 3.84,
+     "t_wall": 3.862,
+     "piece": 11
+    },
+    {
+     "tok": "SE",
+     "t_frame": 3.32,
+     "t_fed": 3.84,
+     "t_wall": 3.862,
+     "piece": 11
+    },
+    {
+     "tok": "S",
+     "t_frame": 3.44,
+     "t_fed": 3.84,
+     "t_wall": 3.862,
+     "piece": 11
+    },
+    {
+     "tok": " AND",
+     "t_frame": 3.6,
+     "t_fed": 4.16,
+     "t_wall": 4.182,
+     "piece": 12
+    },
+    {
+     "tok": " WE",
+     "t_frame": 3.72,
+     "t_fed": 4.16,
+     "t_wall": 4.182,
+     "piece": 12
+    },
+    {
+     "tok": " ARE",
+     "t_frame": 3.92,
+     "t_fed": 4.48,
+     "t_wall": 4.499,
+     "piece": 13
+    },
+    {
+     "tok": " G",
+     "t_frame": 4.12,
+     "t_fed": 4.48,
+     "t_wall": 4.5,
+     "piece": 13
+    },
+    {
+     "tok": "LA",
+     "t_frame": 4.16,
+     "t_fed": 4.8,
+     "t_wall": 4.82,
+     "piece": 14
+    },
+    {
+     "tok": "D",
+     "t_frame": 4.28,
+     "t_fed": 4.8,
+     "t_wall": 4.821,
+     "piece": 14
+    },
+    {
+     "tok": " TO",
+     "t_frame": 4.36,
+     "t_fed": 4.8,
+     "t_wall": 4.821,
+     "piece": 14
+    },
+    {
+     "tok": " WE",
+     "t_frame": 4.56,
+     "t_fed": 5.12,
+     "t_wall": 5.14,
+     "piece": 15
+    },
+    {
+     "tok": "L",
+     "t_frame": 4.68,
+     "t_fed": 5.12,
+     "t_wall": 5.14,
+     "piece": 15
+    },
+    {
+     "tok": "C",
+     "t_frame": 4.72,
+     "t_fed": 5.12,
+     "t_wall": 5.14,
+     "piece": 15
+    },
+    {
+     "tok": "OM",
+     "t_frame": 4.76,
+     "t_fed": 5.12,
+     "t_wall": 5.14,
+     "piece": 15
+    },
+    {
+     "tok": "E",
+     "t_frame": 4.92,
+     "t_fed": 5.44,
+     "t_wall": 5.462,
+     "piece": 16
+    },
+    {
+     "tok": " HIS",
+     "t_frame": 5.04,
+     "t_fed": 5.44,
+     "t_wall": 5.462,
+     "piece": 16
+    },
+    {
+     "tok": " GO",
+     "t_frame": 5.24,
+     "t_fed": 5.76,
+     "t_wall": 5.78,
+     "piece": 17
+    },
+    {
+     "tok": "S",
+     "t_frame": 5.36,
+     "t_fed": 5.76,
+     "t_wall": 5.781,
+     "piece": 17
+    },
+    {
+     "tok": "P",
+     "t_frame": 5.56,
+     "t_fed": 6.08,
+     "t_wall": 6.104,
+     "piece": 18
+    },
+    {
+     "tok": "EL",
+     "t_frame": 5.6,
+     "t_fed": 6.08,
+     "t_wall": 6.104,
+     "piece": 18
+    }
+   ],
+   "words": [
+    {
+     "ref": "MISTER",
+     "i": 0,
+     "start": 0.56,
+     "end": 0.8,
+     "hyp": "MISTER",
+     "gap_frame": 0.0,
+     "gap_fed": 0.48,
+     "gap_wall": 0.5,
+     "t_frame": 0.8,
+     "t_fed": 1.28,
+     "t_wall": 1.3
+    },
+    {
+     "ref": "QUILTER",
+     "i": 1,
+     "start": 0.86,
+     "end": 1.2,
+     "hyp": "QUILTER",
+     "gap_frame": 0.16,
+     "gap_fed": 0.72,
+     "gap_wall": 0.74,
+     "t_frame": 1.36,
+     "t_fed": 1.92,
+     "t_wall": 1.94
+    },
+    {
+     "ref": "IS",
+     "i": 2,
+     "start": 1.32,
+     "end": 1.38,
+     "hyp": "IS",
+     "gap_frame": 0.22,
+     "gap_fed": 0.86,
+     "gap_wall": 0.881,
+     "t_frame": 1.6,
+     "t_fed": 2.24,
+     "t_wall": 2.261
+    },
+    {
+     "ref": "THE",
+     "i": 3,
+     "start": 1.44,
+     "end": 1.52,
+     "hyp": "THE",
+     "gap_frame": 0.24,
+     "gap_fed": 0.72,
+     "gap_wall": 0.742,
+     "t_frame": 1.76,
+     "t_fed": 2.24,
+     "t_wall": 2.262
+    },
+    {
+     "ref": "APOSTLE",
+     "i": 4,
+     "start": 1.6,
+     "end": 2.06,
+     "hyp": "APOSTLE",
+     "gap_frame": 0.22,
+     "gap_fed": 0.82,
+     "gap_wall": 0.842,
+     "t_frame": 2.28,
+     "t_fed": 2.88,
+     "t_wall": 2.902
+    },
+    {
+     "ref": "OF",
+     "i": 5,
+     "start": 2.18,
+     "end": 2.22,
+     "hyp": "OF",
+     "gap_frame": 0.22,
+     "gap_fed": 0.66,
+     "gap_wall": 0.683,
+     "t_frame": 2.44,
+     "t_fed": 2.88,
+     "t_wall": 2.903
+    },
+    {
+     "ref": "THE",
+     "i": 6,
+     "start": 2.3,
+     "end": 2.36,
+     "hyp": "THE",
+     "gap_frame": 0.2,
+     "gap_fed": 0.84,
+     "gap_wall": 0.86,
+     "t_frame": 2.56,
+     "t_fed": 3.2,
+     "t_wall": 3.22
+    },
+    {
+     "ref": "MIDDLE",
+     "i": 7,
+     "start": 2.4,
+     "end": 2.62,
+     "hyp": "MIDDLE",
+     "gap_frame": 0.26,
+     "gap_fed": 0.9,
+     "gap_wall": 0.922,
+     "t_frame": 2.88,
+     "t_fed": 3.52,
+     "t_wall": 3.542
+    },
+    {
+     "ref": "CLASSES",
+     "i": 8,
+     "start": 2.66,
+     "end": 3.12,
+     "hyp": "CLASSES",
+     "gap_frame": 0.32,
+     "gap_fed": 0.72,
+     "gap_wall": 0.742,
+     "t_frame": 3.44,
+     "t_fed": 3.84,
+     "t_wall": 3.862
+    },
+    {
+     "ref": "AND",
+     "i": 9,
+     "start": 3.36,
+     "end": 3.44,
+     "hyp": "AND",
+     "gap_frame": 0.16,
+     "gap_fed": 0.72,
+     "gap_wall": 0.742,
+     "t_frame": 3.6,
+     "t_fed": 4.16,
+     "t_wall": 4.182
+    },
+    {
+     "ref": "WE",
+     "i": 10,
+     "start": 3.48,
+     "end": 3.56,
+     "hyp": "WE",
+     "gap_frame": 0.16,
+     "gap_fed": 0.6,
+     "gap_wall": 0.622,
+     "t_frame": 3.72,
+     "t_fed": 4.16,
+     "t_wall": 4.182
+    },
+    {
+     "ref": "ARE",
+     "i": 11,
+     "start": 3.62,
+     "end": 3.7,
+     "hyp": "ARE",
+     "gap_frame": 0.22,
+     "gap_fed": 0.78,
+     "gap_wall": 0.799,
+     "t_frame": 3.92,
+     "t_fed": 4.48,
+     "t_wall": 4.499
+    },
+    {
+     "ref": "GLAD",
+     "i": 12,
+     "start": 3.74,
+     "end": 4.0,
+     "hyp": "GLAD",
+     "gap_frame": 0.28,
+     "gap_fed": 0.8,
+     "gap_wall": 0.821,
+     "t_frame": 4.28,
+     "t_fed": 4.8,
+     "t_wall": 4.821
+    },
+    {
+     "ref": "TO",
+     "i": 13,
+     "start": 4.1,
+     "end": 4.18,
+     "hyp": "TO",
+     "gap_frame": 0.18,
+     "gap_fed": 0.62,
+     "gap_wall": 0.641,
+     "t_frame": 4.36,
+     "t_fed": 4.8,
+     "t_wall": 4.821
+    },
+    {
+     "ref": "WELCOME",
+     "i": 14,
+     "start": 4.24,
+     "end": 4.58,
+     "hyp": "WELCOME",
+     "gap_frame": 0.34,
+     "gap_fed": 0.86,
+     "gap_wall": 0.882,
+     "t_frame": 4.92,
+     "t_fed": 5.44,
+     "t_wall": 5.462
+    },
+    {
+     "ref": "HIS",
+     "i": 15,
+     "start": 4.68,
+     "end": 4.8,
+     "hyp": "HIS",
+     "gap_frame": 0.24,
+     "gap_fed": 0.64,
+     "gap_wall": 0.662,
+     "t_frame": 5.04,
+     "t_fed": 5.44,
+     "t_wall": 5.462
+    },
+    {
+     "ref": "GOSPEL",
+     "i": 16,
+     "start": 4.9,
+     "end": 5.42,
+     "hyp": "GOSPEL",
+     "gap_frame": 0.18,
+     "gap_fed": 0.66,
+     "gap_wall": 0.684,
+     "t_frame": 5.6,
+     "t_fed": 6.08,
+     "t_wall": 6.104
+    }
+   ],
+   "summary": {
+    "n_ref": 17,
+    "n_matched": 17,
+    "feed_ms": 320.0,
+    "d_alg": {
+     "m_ms": 130.0,
+     "c_ms": 320.0,
+     "C_ms": 320.0,
+     "mean_ms": 480.0,
+     "worst_ms": 640.0,
+     "best_ms": 320.0,
+     "naive_mean_ms": 290.0,
+     "formula": "c + F/2 (pad waits for the next feed)"
+    },
+    "median_gap_frame_ms": 220.0,
+    "worst_frame": {
+     "word": "WELCOME",
+     "gap_ms": 340.0
+    },
+    "median_gap_fed_ms": 720.0,
+    "worst_fed": {
+     "word": "MIDDLE",
+     "gap_ms": 900.0
+    },
+    "median_gap_wall_ms": 742.0,
+    "worst_wall": {
+     "word": "MIDDLE",
+     "gap_ms": 922.0
+    },
+    "median_fed_minus_frame_ms": 500.0,
+    "median_wall_minus_fed_ms": 21.0,
+    "hyp_text": "MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL"
+   }
+  }
+ },
+ "recomputed": [
+  {
+   "time": "2026-10-06T09:17:19",
+   "note": "post-processing redone from saved events (grouping, matching, D_alg); clocks untouched"
+  }
+ ],
+ "_redacted": "keys ['alignment.source'] were replaced before publishing (bin/publish_demos.py); see this demo's README"
+}

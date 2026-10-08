@@ -1,0 +1,77 @@
+# 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
+# W4 demo 3：Whisper 的 cross-attention heads——attention ≠ alignment（本週的核心破解）。換內容只改這裡。
+#
+# 設計（2026-10-06；理由見 README）：
+#   transformers 載入 Whisper small（eager attention，否則 SDPA 不回傳權重），對 W3 Demo 3 那一句 LibriSpeech 轉錄，
+#   再用轉錄出來的 token 做一次 teacher-forced 前向，拿 decoder 全部 12 層 × 12 個 head 的 cross-attention（U × 1500）。
+#   每個 head 用一個寫死在這裡的判準分成 band／flat／stare／other；
+#   再把 OpenAI `_ALIGNMENT_HEADS`（= Hugging Face generation_config 的 alignment_heads）那 10 個框出來、照 openai/whisper
+#   `timing.py`（transformers 的 `_extract_token_timestamps` 是同一套）做 DTW，讀出字的時間戳，對 W3 的 forced alignment。
+
+[model]
+# 多語版 small（244 M 參數；12 層 decoder × 12 個 head = 144 個 cross-attention head）。
+# 選多語版不選 small.en：W7 的華語幻覺 demo 可以重用同一份權重；語言強制 en、任務 transcribe、不產時間戳 token。
+repo = "openai/whisper-small"
+# 固定到哪個 commit：由 ./present.sh fetch 寫進 model.lock（進版控），這裡不填。
+# 推論放哪：cpu 是預設（確定性、與彩排同一組數字；small 對 30 s 的 padded 輸入在 M5 Max 上是秒級）。
+# mps 是加分：./present.sh check 會量 cpu 與 mps 的差與時間。
+device = "cpu"
+language = "en"
+task = "transcribe"
+max_new_tokens = 120
+# attention 實作一定是 eager：transformers 5.17.0 的 sdpa_attention.py 遇到 output_attentions=True 只 warning、回傳 None
+# （2026-10-06 從 demos/.venv 裡的原始碼確認）。這一欄只是讓 check 印出來，程式不接受別的值。
+attn_implementation = "eager"
+# Whisper 的時間格：mel 10 ms、encoder 一格 20 ms（conv 前端 stride 2）；30 s 的 padded 輸入 = 1500 個 encoder frame。
+frame_ms = 20.0
+encoder_frames = 1500
+
+[audio]
+# 重用 W3 Demo 3 的那一句（LibriSpeech dev-clean 1272-128104-0000，CC BY 4.0，出處在 media-sources/w03-librispeech.md）
+# 與它的 forced alignment（CTC Viterbi 尖峰；2026-10-05 在 M5 Max 上定案，進版控）。W4 Demo 2 用的也是這兩份。
+wav = "../w03_d3_blank_heatmap/runs/rehearsal/utterance.wav"
+text = "../w03_d3_blank_heatmap/runs/rehearsal/utterance.txt"
+alignment = "../w03_d3_blank_heatmap/runs/rehearsal/rehearsal.json"   # → sections.align.words（每個字第一個與最後一個尖峰的時間）
+fs = 16000
+
+[classify]
+# 「這個 head 像不像一條單調的帶」的可重複判準（課堂上要念出來；README 有完整說明）。
+# 只看文字 token 的列（不含 <|startoftranscript|> 等前綴與 <|endoftext|>），frame 只看到音訊結尾（之後是 30 s padding）。
+# 每一列：t*(u) = 音訊範圍內權重最大的 frame；conc(u) = t*(u) ± window_frames 內的權重佔該列（音訊範圍內）的比例；
+#         pad(u) = 落在音訊結尾之後（padding）的權重比例。
+# 每個 head：rho = Spearman(u, t*(u))；conc = median_u conc(u)；pad = median_u pad(u)；distinct = t*(u) 取了幾個不同的 frame。
+# 形狀（只看音訊範圍內）：
+#   band  : rho ≥ rho_min 且 conc ≥ conc_min                 ——單調、集中
+#   flat  : conc < conc_flat                                 ——每列的權重攤平
+#   stare : distinct ≤ max(stare_distinct, stare_frac × U)   ——只盯著幾個 frame
+#   other : 其餘（集中但不單調、或單調但不夠集中）
+# 另外一個旗標，不混進形狀：pad_heavy = pad ≥ pad_max ——整列看，超過一半的權重落在音訊結尾之後的 24 s padding。
+# （2026-10-06 Mac 彩排後改：第一版把 pad ≥ 0.5 併進 stare，結果 L8H7／L9H7／L9H9 三個 OpenAI alignment head 在音訊範圍內是乾淨的帶、卻被標成 stare；
+#   實測 144 個 head 的 padding 比例中位數 0.85——「大部分權重根本不在語音上」本身就是一句要講的話，所以獨立成一個數字。）
+window_frames = 10       # ± 10 格 = ± 200 ms
+rho_min = 0.9
+conc_min = 0.5
+conc_flat = 0.25
+pad_max = 0.5
+stare_distinct = 3
+stare_frac = 0.2
+
+[timestamps]
+# 照 openai/whisper timing.py（transformers generation_whisper.py 的 _extract_token_timestamps 是同一套，2026-10-06 從原始碼對過）：
+#   取 alignment heads 的權重 → 只留音訊範圍內的 frame → 每個 frame 在 token 軸上標準化（減均值除標準差）
+#   → 沿時間做寬 7 的中值濾波 → 對 head 取平均 → 去掉前綴列與最後一列 → 對 −matrix 做 DTW → 路徑上 token 跳格的時間 = 該 token 的時間戳。
+# 這裡吃的是 softmax 之後的權重（transformers 給的）；OpenAI 原版 hook 的是 softmax 之前的 QK 再自己 softmax，數值等價。
+median_filter_width = 7
+# OpenAI `whisper/__init__.py` 裡 small 的 _ALIGNMENT_HEADS（base85 + gzip 的 12×12 布林陣列；程式碼註解，不是論文）。
+# 2026-10-06 從 GitHub 抄下來；./present.sh selftest 解碼後對 Hugging Face generation_config.json 的 alignment_heads（同日抄下，下面那行）。
+openai_alignment_heads_b85 = "ABzY8DmU6=0{>%Rpa?J`kvJ6qF(V^F86#Xh7JUGMK}P<N0000"
+hf_alignment_heads = [[5, 3], [5, 9], [8, 0], [8, 4], [8, 7], [8, 8], [9, 0], [9, 7], [9, 9], [10, 5]]
+# 對照用：small.en 的那串（19 個 head）。本 demo 不用 small.en，只在 README 提一句。
+openai_alignment_heads_b85_small_en = "ABzY8>?_)10{>%RpeA61k&I|OI3I$65C{;;pbCHh0B{qLQ;+}v00"
+
+[display]
+fig_w = 15.0
+fig_h = 8.4
+cmap = "magma"
+start_layer = 0          # 按 2 時先看哪一層（0 起算）；3 往上一層
+digits = 3

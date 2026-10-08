@@ -1,0 +1,52 @@
+# 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
+# W3 demo 2：路徑窮舉 vs. forward 表。換內容只改這裡。
+#
+# 符號：blank 在終端機印成 ∅（與投影片的 \varnothing 一致），程式內部用 "-"。
+# 路徑的排列順序 = itertools.product 的順序（與 slides/scripts/make_figs_w03.py 相同，
+# 所以 w03-data.json → paths 與這裡列出來的逐條同序）。
+
+[paper]
+# 第一段「紙上先列、程式再列」。vocab 是不含 blank 的符號表；K = |V'| = len(vocab) + 1。
+vocab = "ab"
+# 按鍵 → (標籤, T)。順序照投影片〈Paths: write them out before the program does〉的【操作】。
+[[paper.items]]
+key = "1"
+label = "aa"
+T = 3
+[[paper.items]]
+key = "2"
+label = "aba"
+T = 3
+[[paper.items]]
+key = "3"
+label = "aa"
+T = 4
+[[paper.items]]
+key = "0"
+label = "aa"
+T = 2
+
+[random]
+# 現場版：隨機一組 y^t（softmax(N(0, logit_std²))，每個 frame 一個分布），"ab"、T = 4 → 81 條候選、15 條合法。
+# seed 固定，rehearse 與 show 算出同一組數字；課堂上按 r 換一組（seed 用時間）證明不是預先湊好的。
+vocab = "ab"
+label = "ab"
+T = 4
+seed = 20260926
+logit_std = 1.5
+
+[long]
+# 第二段：T 拉到 500 看線性域 underflow。**符號表要夠大**：K = 3 時 3^-500 = 10^-238.6，還在 float64 範圍內
+# （最小次正規數是 5 × 10^-324），線性域不會歸零——這件事本身值得講。
+# 32 = wav2vec2-base-960h 的符號表大小（Demo 3 用的那個模型）；label 用 "hello"（r = 1，投影片的例子）。
+K = 32
+label = "hello"
+T = 500
+seed = 20260926
+logit_std = 1.5
+# 摘要表印哪幾個 t（線性域的 max_s α_t(s)、log 域的 max_s log α_t(s)）
+checkpoints = [1, 10, 50, 100, 150, 200, 250, 300, 350, 400, 500]
+
+[display]
+digits = 6          # 機率印幾位小數
+step_columns = true # 按 5 時 forward 表一欄一欄揭露（任一鍵下一欄；a 全部、q 中止）；false = 一次印完

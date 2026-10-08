@@ -1,0 +1,31 @@
+# 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
+# W2 demo 1：即時 spectrogram。換參數只改這裡。
+
+[audio]
+fs = 16000
+device = ""            # 空字串 = 系統預設輸入。要指定就填 ./present.sh devices 列出的名稱或編號
+
+[display]
+seconds = 4.0          # 畫面上保留幾秒
+tick_ms = 60           # 多久重畫一次
+wide_ms = 5.0          # wideband 的窗長（Praat 的預設也是 0.005 s）
+narrow_ms = 30.0       # narrowband 的窗長
+hop_ms = 4.0
+n_fft = 512            # 只決定 bin 的間距（31.25 Hz），不決定解析度——這正是大綱的誤解表第 4 列
+dynamic_range_db = 55
+floor_db = -35         # 整段都比這個安靜時，不把底噪拉到全亮
+fmax_hz = [5000, 8000] # z 鍵在這兩個上限之間切；共振峰看 5 kHz 就夠
+fig_w = 15.0
+fig_h = 6.2
+
+[pitch]
+# 設錯會現場出現 octave error。男聲大約 75–300，女聲大約 100–500（Praat 手冊的建議值，憑記憶，未核對）
+floor_hz = 75
+ceiling_hz = 400
+frame_ms = 40          # 至少要涵蓋兩個週期：floor 75 Hz → 27 ms
+hop_ms = 10
+voicing = 0.45
+
+[vowel_space]
+trail_frames = 60      # 灰點軌跡保留幾個 frame
+smooth_frames = 5      # 紅點 = 最近幾個 frame 的中位數

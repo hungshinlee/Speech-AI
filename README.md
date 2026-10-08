@@ -9,11 +9,17 @@
 
 ## 這個 repo 放什麼
 
-只放公開內容：Quarto 站台、投影片，以及由課程大綱**過濾後產生**的每週頁面。
+只放公開內容：Quarto 站台、投影片、由課程大綱**過濾後產生**的每週頁面，
+以及課堂 demo 的程式與彩排紀錄（`demos/`，2026-10-09 起，W1–W4）。
 
 課程大綱正本、題目與 rubric、教學設計筆記在另一個 private repo，不在這裡。
-每週頁面只公開「定位 / Learning objectives / 參考資料」三個區塊；
-課堂時間分配、常見誤解排除、demo 腳本屬於授課用，不上站。
+每週頁面只公開「定位 / Learning objectives / 參考資料」三個區塊，加上連到 `demos/` 的學生版「Demos」區塊；
+課堂時間分配、常見誤解排除、給授課者的 demo 腳本與彩排筆記屬於授課用，不上站。
+
+**關於 demo**：你不需要跑任何東西——本課全為 lectures，所有 demo 由授課者現場執行；投影片上的數字來自
+`demos/*/runs/rehearsal/` 裡進版控的彩排紀錄。程式公開是讓你能讀、能重跑、能改。全部只在一台機器上測過
+（MacBook Pro M5 Max，64 GB，無 CUDA）；`demos/README.md` 說明哪些 demo 可攜、哪些需要 Apple silicon，版本釘在
+`demos/versions.lock`。授課者自己的錄音（W2 demo 2、W3 demo 1 的素材）不公開，README 寫明怎麼自己錄。
 
 ## 課程設定
 
@@ -40,7 +46,7 @@ python3 scripts/build_weeks.py                          # 從大綱重建（已�
 quarto preview                                          # 本機預覽
 ```
 
-`weeks/`、`_includes/`、`slides.qmd`、`supplements/*.qmd` 由腳本自動產生，**請勿直接編輯**
+`weeks/`、`_includes/`、`slides.qmd`、`supplements/*.qmd`、`slides/*.qmd`、`demos/` 由腳本自動產生，**請勿直接編輯**
 （手改會在下次 build 被無聲覆蓋，而且可能把不該公開的內容帶上站）：
 
 - 課程內容改大綱正本，然後重跑 `build_weeks.py`
@@ -63,5 +69,5 @@ quarto preview                                          # 本機預覽
 
 ## 待辦
 
-- [ ] 各週投影片（`slides/`）
-- [ ] 課堂 demo notebooks（`demos/`）
+- [x] 各週投影片（`slides/`，W1–W4 已上）
+- [x] 課堂 demo 程式（`demos/`，W1–W4 已上，2026-10-09）

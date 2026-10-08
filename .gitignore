@@ -19,6 +19,8 @@ venv/
 *.mp3
 data/
 weights/
+# 例外：demos/ 裡由 bin/publish_demos.py 白名單複製過來的素材與彩排音檔（LibriSpeech 那一句，CC BY 4.0）要進版控
+!demos/**/*.wav
 
 # 投影片建置產物
 slides/*.pdf

@@ -1,0 +1,70 @@
+# 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
+# W4 demo 2：同一段音訊、三種 chunk——字何時出現。換內容只改這裡。
+#
+# 設計（2026-10-06；理由見 README「為什麼是一個模型、三種餵法」）：
+#   一個 streaming zipformer transducer（sherpa-onnx，LibriSpeech，匯出時 chunk 16 = 320 ms、left 128），
+#   以即時步調餵同一句，三種「餵入 chunk」（320／640／1280 ms）。每個符號記三個時鐘：
+#     t_frame  模型發射它的 encoder frame（sherpa-onnx 的 timestamps，40 ms 一格）→ 對聲學結尾的差 ≈ emission delay
+#     t_fed    符號出現時已餵進去的音訊秒數                                        → 多出來的是 chunk 等待（αC）
+#     t_wall   符號出現時的掛鐘時間（從音訊第 0 秒起算）                           → 再多出來的是計算
+#   投影片 p42 的 D ≥ (m + αC) sΔ + D_emit + D_comp 三項各對一個時鐘的差。
+
+[audio]
+# 重用 W3 Demo 3 的那一句（LibriSpeech dev-clean 1272-128104-0000）與它的 forced alignment（CTC Viterbi 尖峰）。
+# 兩樣都在 W3 Demo 3 的彩排紀錄裡（2026-10-05 在 M5 Max 上定案，進版控）。
+wav = "../w03_d3_blank_heatmap/runs/rehearsal/utterance.wav"
+alignment = "../w03_d3_blank_heatmap/runs/rehearsal/rehearsal.json"   # → sections.align.labels（每個字元的 first/last frame，20 ms 一格）
+fs = 16000
+# 尾端補的靜音（秒）：真實系統裡字後面本來就會有靜音；最後一個字要等它。sherpa-onnx 的範例用 0.66。
+tail_silence_s = 0.8
+
+[model]
+# sherpa-onnx 的 streaming zipformer transducer（k2-fsa 自己從 icefall 匯出；§6 查證過 sherpa-onnx 明講支援 Apple Silicon）。
+# 2026-10-06 從 Hugging Face 的檔案清單確認：這個 repo 只有 chunk-16 的匯出（left 64／128 各一組，fp32 與 int8）。
+# 其他 chunk 要自己用 icefall 的 export-onnx-streaming.py 重匯（要 k2，§6 卡在 arm64 wheel）——所以 chunk 不動、動餵法。
+name = "sherpa-onnx-streaming-zipformer-en-2023-06-26"
+tarball = "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-en-2023-06-26.tar.bz2"
+hf_repo = "csukuangfj/sherpa-onnx-streaming-zipformer-en-2023-06-26"   # 同一組檔案的另一個來源
+cache_dir = "~/.cache/sherpa-onnx"      # 模型放全域快取（demos/.gitignore 的約定），不放 repo 裡
+encoder = "encoder-epoch-99-avg-1-chunk-16-left-128.onnx"
+decoder = "decoder-epoch-99-avg-1-chunk-16-left-128.onnx"
+joiner = "joiner-epoch-99-avg-1-chunk-16-left-128.onnx"
+tokens = "tokens.txt"
+num_threads = 4
+decoding_method = "greedy_search"
+# encoder ONNX 的 metadata（icefall export-onnx-streaming.py 寫進去的）：decode_chunk_len = chunk_size × 2 = 32（100 Hz 輸入幀 = 320 ms）、
+# T = decode_chunk_len + pad_length，pad_length = 13（conv 前端的右側 padding = 130 ms 的 lookahead）。
+# ./present.sh check 會從檔案讀出來對照；這兩個數字只是沒讀到 metadata 時的預設值。
+decode_chunk_len_default = 32
+pad_length_default = 13
+input_frame_ms = 10.0      # fbank 的 hop
+output_frame_ms = 40.0     # sherpa-onnx 的 timestamps 用的格（zipformer2 的輸出是 25 Hz；文件範例的時間戳都是 0.04 的倍數）
+
+[settings]
+# 三種餵法。鍵照投影片 p42 表格由上到下（大 → 小）。feed_ms 必須是 decode_chunk_len × input_frame_ms 的整數倍，
+# 否則模型自己會等到湊滿一個 chunk 才解，量到的就不是 feed_ms。
+[[settings.items]]
+key = "1"
+name = "1280 ms"
+feed_ms = 1280
+[[settings.items]]
+key = "2"
+name = "640 ms"
+feed_ms = 640
+[[settings.items]]
+key = "3"
+name = "320 ms (= model chunk)"
+feed_ms = 320
+
+[fake]
+# 沒有模型時演練流程用（畫面標 FAKE）：t_frame = 聲學結尾 + N(mean, std)，取 40 ms 格；t_fed = 進位到下一個 feed 邊界再加 pad；
+# t_wall = t_fed + comp。不是量測，只是讓時間軸與統計有東西可畫。
+emit_mean_s = 0.20
+emit_std_s = 0.06
+comp_s = 0.02
+seed = 20261006
+
+[display]
+fig_w = 15.0
+fig_h = 8.0
+digits = 3
