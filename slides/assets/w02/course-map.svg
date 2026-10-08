@@ -4,18 +4,16 @@
 <text x="44" y="96.0" font-size="19" font-weight="700" fill="#1f2328" dominant-baseline="middle">W1</text>
 <text x="98" y="96.0" font-size="16" fill="#6b7280" dominant-baseline="middle">systems view</text>
 <text x="266" y="96.0" font-size="16" font-weight="700" fill="#15803d" text-anchor="end" dominant-baseline="middle">✓</text>
-<rect x="30" y="126" width="248" height="44" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<rect x="30" y="126" width="248" height="44" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
 <text x="44" y="148.0" font-size="19" font-weight="700" fill="#1f2328" dominant-baseline="middle">W2</text>
 <text x="98" y="148.0" font-size="16" fill="#6b7280" dominant-baseline="middle">signals &amp; front ends</text>
-<text x="266" y="148.0" font-size="16" font-weight="700" fill="#15803d" text-anchor="end" dominant-baseline="middle">✓</text>
+<text x="286" y="148.0" font-size="14" font-weight="600" fill="#6b7280" text-anchor="start" dominant-baseline="middle">today</text>
 <rect x="30" y="178" width="248" height="44" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
 <text x="44" y="200.0" font-size="19" font-weight="700" fill="#1f2328" dominant-baseline="middle">W3</text>
 <text x="98" y="200.0" font-size="16" fill="#6b7280" dominant-baseline="middle">alignment (CTC)</text>
-<text x="266" y="200.0" font-size="16" font-weight="700" fill="#15803d" text-anchor="end" dominant-baseline="middle">✓</text>
-<rect x="30" y="230" width="248" height="44" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+<rect x="30" y="230" width="248" height="44" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
 <text x="44" y="252.0" font-size="19" font-weight="700" fill="#1f2328" dominant-baseline="middle">W4</text>
 <text x="98" y="252.0" font-size="16" fill="#6b7280" dominant-baseline="middle">streaming &amp; RNN-T</text>
-<text x="286" y="252.0" font-size="14" font-weight="600" fill="#6b7280" text-anchor="start" dominant-baseline="middle">today</text>
 <rect x="30" y="282" width="248" height="44" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
 <text x="44" y="304.0" font-size="19" font-weight="700" fill="#1f2328" dominant-baseline="middle">W5</text>
 <text x="98" y="304.0" font-size="16" fill="#6b7280" dominant-baseline="middle">self-supervised</text>

@@ -54,17 +54,33 @@ format:
 
 # From air to numbers {.section-title}
 
-## Last week's $\Delta$ has to come from somewhere
+## Where we are: week 2 of 14
 
-Week 1 wrote algorithmic latency as $\ell \cdot \Delta$: a lookahead of $\ell$ frames, each $\Delta$ long. We never said who chooses $\Delta$.
+![](assets/w02/course-map.svg){width="100%"}
 
-Today we find out. Along the way we fix the vocabulary every later week depends on.
+## Last week, in one picture
 
-| Axis | This week's question |
-|:--|:--|
-| **Representation** | What do we keep when we turn a waveform into features — and what do we throw away? |
-| **Latency** | Where do the frame shift $\Delta$ and the first few milliseconds of lookahead come from? |
-| **Supervision** | None yet. Everything today is fixed signal processing. That changes in W5. |
+{{< include assets/w02/last-week.inline.qmd >}}
+
+::: {.claim}
+**Week 1 priced every delay in frames.** Nobody said how long a frame is, or who decides — that is the first question today answers.
+:::
+
+::: {.footer}
+Budget, formulas and the $\ell = 30$ example are all Week 1's — nothing here is measured
+:::
+
+## The problem this week handles, in one picture
+
+{{< include assets/w02/problem-map.inline.qmd >}}
+
+::: {.claim}
+**The front end decides what every later layer is allowed to know** — and how long it waits to know it. Today is the semester's only systematic pass through that pipeline.
+:::
+
+::: {.footer}
+Route: sampling → production → STFT & mel → what mel drops → prosody → mismatch
+:::
 
 ## Sampling: a waveform becomes a list of numbers
 
