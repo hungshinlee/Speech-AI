@@ -1,5 +1,5 @@
 ---
-title: "Speech Signals and the Physics of Representation"
+title: "Speech Signals, Auditory Front-Ends, and the Physics of Representation"
 subtitle: "Speech Processing & Human–Machine Interaction · Week 2"
 author: "Hung-Shin Lee"
 lang: en
@@ -323,7 +323,7 @@ ASR's standard window sits toward the narrowband side, and it gives up something
 
 | Too slow for | Too coarse for |
 |:--|:--|
-| the **burst** of a stop — a few ms | two adjacent **harmonics** of a low voice: 160 Hz main lobe vs. $F_0 \approx 100$ Hz |
+| the **burst** of a stop — a few ms | two adjacent **harmonics** of a low voice — only just: 160 Hz main lobe vs. $F_0 \approx 100$ Hz |
 | **VOT** — the cue separating ㄅ from ㄆ | two **speakers** whose $F_0$ are close |
 
 Remember the blue bar under the stop? That was this window.
@@ -350,7 +350,7 @@ Computed: tones at 1000 and 1060 Hz, Hann window · w02-data.json
 
 {{< include assets/w02/latency-window.inline.qmd >}}
 
-- The **hop** $H$ is the frame shift. Frame rate $= f_s / H$. **This is last week's $\Delta$**
+- The **hop** $H$ is the frame shift — $\Delta = H / f_s$ in seconds. Frame rate $= f_s / H$. **This is last week's $\Delta$**
 - A frame stamped at time $t$ needs samples up to $t + L/2$. That is **lookahead**, paid before any model runs
 
 | Knob | Decides |
@@ -387,7 +387,7 @@ $$\log|S| = \log|E| + \log|H|$$
 Subtract each dimension's mean over the utterance, and most of the channel is gone. That is why mean normalisation (CMVN) works at all — it would be meaningless on a linear scale.
 
 ::: {.ask}
-Third time today that a product turned into a sum. It will not be the last.
+A product has turned into a sum again — and it will not be the last time today.
 :::
 
 ## The ear is a filterbank, and mel is its engineering sketch
@@ -597,7 +597,7 @@ Nawab, Quatieri & Lim, IEEE Trans. ASSP 31(4):986–998, 1983
 
 $$\underbrace{\mathbf{y}_m}_{80} = \underbrace{\mathbf{M}}_{80 \times 257}\; \underbrace{|\mathbf{X}_m|^2}_{257}$$
 
-257 numbers in, 80 out: many spectra give the same $\mathbf{y}_m$. The pseudo-inverse returns the smoothest — at high frequencies **the harmonics are gone for good**.
+257 numbers in, 80 out: many spectra give the same $\mathbf{y}_m$. The pseudo-inverse returns the minimum-norm one — for triangular filters, the smoothest — and at high frequencies **the harmonics are gone for good**.
 
 ![](assets/w02/mel-sweep.svg){width="100%"}
 
@@ -841,7 +841,7 @@ None of these predicts word error rate, and you have already heard why: they com
 | Axis | What we now know |
 |:--|:--|
 | **Representation** | The spectrogram drops phase; mel drops fine detail. The first loss is algorithmic and recoverable. The second is informational and is not. |
-| **Latency** | The hop sets the clock, $\Delta = H$. The window adds $L/2$ of lookahead. Every later stride slows the clock further. |
+| **Latency** | The hop sets the clock, $\Delta = H / f_s$. The window adds $L/2$ of lookahead. Every later stride slows the clock further. |
 | **Supervision** | None. Every number today was chosen by a person — which is why "log-mel" is not one thing. |
 :::
 

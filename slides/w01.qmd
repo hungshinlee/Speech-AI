@@ -285,7 +285,7 @@ A VAD-gated cascade **decides once** — when the endpoint fires — and then pl
 Across 10 languages from 5 continents, informal conversation follows one norm: **minimal gap, minimal overlap.** Most turn transitions land near zero.
 
 - Cross-language means differ by at most **±250 ms**
-- Responses that do not answer the question, or that go against its bias, are delayed by **up to about 1 s** — and listeners read that delay as meaning
+- Responses that do not answer the question, or that go against its bias, come **measurably later** — and listeners read that delay as meaning
 
 ::: {.claim}
 Delay is a signal, not just a cost. A system that always answers instantly is not maximally natural — it is uniformly ignoring one of the channels people use.
@@ -440,7 +440,7 @@ With a chunk of $C = 32$ frames and $\alpha = \tfrac{1}{2}$:
 $$D_{\text{alg}} \;=\; 300\,\text{ms} \;+\; \tfrac{1}{2}\times 32 \times 10\,\text{ms} \;=\; 300 + 160 \;=\; \mathbf{460\ \text{ms}}$$
 
 ::: {.claim .warn}
-The whole budget was 300 ms. We are at 460 ms **before a single multiplication has happened** — and $D_{\text{comp}}$ has not been added yet.
+A human-scale budget is a few hundred ms — gaps cluster near zero. We are at 460 ms **before a single multiplication has happened** — and $D_{\text{comp}}$ has not been added yet.
 :::
 
 The obvious counter-move — *just shrink $C$* — is the next slide.
@@ -482,7 +482,7 @@ Report distributions. In W14 the goal becomes *matching* the human latency distr
 
 We run a cascade and an end-to-end model on the same utterance, record both, and fill in the budget from the recording.
 
-1. Record one utterance that ends with a **mid-utterance pause** ("I'd like a ticket to … Tainan, next Wednesday")
+1. Record one utterance with a **mid-utterance pause** in it ("I'd like a ticket to … Tainan, next Wednesday")
 2. Run it through the cascade; log timestamps at each module boundary
 3. Run it through the end-to-end model; log first-audio-out
 4. Plot both on one time axis and fill in the sheet
@@ -502,6 +502,10 @@ Prediction before we run it: which module will dominate?
 | **Barge-in** | speaking over the system's own audio | separate its own voice from the user's — AEC | W10 |
 | **Overlap continuation** | briefly overlapping, not taking the floor | continue rather than yield | W12 |
 | **Proactive turn** | silent | decide whether to open its mouth at all | open problem |
+
+::: {.small}
+Four of these five are out of reach for a half-duplex system. **Interruption** is the one it can fake — a VAD trigger that stops the TTS — which is exactly Misconception 1.
+:::
 
 ## A base model can be a competent talker and a useless listener
 
@@ -614,7 +618,7 @@ You will use these four every week — and they are also how you avoid writing a
 
 ## Next week, and what to read
 
-**W2 — Speech Signals, Auditory Front-Ends, and the Physics of Representation.** The only systematic DSP week. It opens with a short refresher — inner products and projections — and uses them three times.
+**W2 — Speech Signals, Auditory Front-Ends, and the Physics of Representation.** The only systematic DSP week. Before the STFT it stops for a short refresher — inner products and projections — and then uses them three times.
 
 If you read one thing this week:
 
