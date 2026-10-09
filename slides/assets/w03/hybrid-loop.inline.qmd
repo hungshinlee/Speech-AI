@@ -1,0 +1,403 @@
+<!-- 由 scripts/make_figs_w03.py 產生，勿手改；投影片用 {{< include assets/w03/hybrid-loop.inline.qmd >}} 貼入 -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 300" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<text x="984.0" y="22.0" font-size="15" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">schematic — not a measurement</text>
+<g class="fragment" data-fragment-index="0">
+<rect x="30.0" y="70.0" width="164.0" height="64.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="112.0" y="94.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">GMM–HMM</text>
+<text x="112.0" y="118.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">step 1: Baum–Welch on (X, W)</text>
+<rect x="262.0" y="70.0" width="164.0" height="64.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="344.0" y="94.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">forced alignment</text>
+<text x="344.0" y="118.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">step 2: Viterbi, words known</text>
+<line x1="196.0" y1="102.0" x2="250.0" y2="102.0" stroke="#6b7280" stroke-width="1.6"/>
+<polygon points="260.0,102.0 250.0,107.0 250.0,97.0" fill="#6b7280"/>
+<text x="228.0" y="124.0" font-size="11" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">already aligns</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<rect x="494.0" y="70.0" width="164.0" height="64.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.4"/>
+<text x="576.0" y="94.0" font-size="16" font-weight="600" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">one hard path</text>
+<text x="576.0" y="118.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">one state per frame, as “truth”</text>
+<line x1="428.0" y1="102.0" x2="482.0" y2="102.0" stroke="#6b7280" stroke-width="1.6"/>
+<polygon points="492.0,102.0 482.0,107.0 482.0,97.0" fill="#6b7280"/>
+<text x="460.0" y="124.0" font-size="11" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">argmax</text>
+<rect x="760.0" y="70.0" width="164.0" height="64.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="842.0" y="94.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">DNN</text>
+<text x="842.0" y="118.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">step 3: per-frame cross-entropy</text>
+<line x1="660.0" y1="102.0" x2="748.0" y2="102.0" stroke="#6b7280" stroke-width="1.6"/>
+<polygon points="758.0,102.0 748.0,107.0 748.0,97.0" fill="#6b7280"/>
+<text x="709.0" y="124.0" font-size="11" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">targets</text>
+<rect x="760.0" y="194.0" width="164.0" height="52.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<svg x="781.875" y="207.09" width="120.25" height="13.91" viewBox="0 0 120.25 13.91"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w3t152-figure_1">
+  <g id="w3t152-patch_1">
+   <path d="M 0 13.91 
+L 120.25 13.91 
+L 120.25 0 
+L 0 0 
+L 0 13.91 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w3t152-text_1">
+   <!-- $b_j(\mathbf{x}_t) \propto P(j \mid \mathbf{x}_t) / P(j)$ -->
+   <g style="fill: #1f2328" transform="translate(0 9.75) scale(0.13 -0.13)">
+    <defs>
+     <path id="w3t152-Cmmi10-62" d="M 1106 -72 
+Q 719 -72 503 231 
+Q 288 534 288 941 
+Q 288 1000 317 1173 
+Q 347 1347 347 1388 
+L 966 3872 
+Q 991 3981 997 4044 
+Q 997 4147 581 4147 
+Q 519 4147 519 4231 
+Q 522 4247 533 4287 
+Q 544 4328 561 4350 
+Q 578 4372 609 4372 
+L 1472 4441 
+Q 1550 4441 1550 4359 
+L 1075 2472 
+Q 1438 2828 1806 2828 
+Q 2078 2828 2273 2684 
+Q 2469 2541 2566 2306 
+Q 2663 2072 2663 1806 
+Q 2663 1497 2542 1167 
+Q 2422 838 2209 555 
+Q 1997 272 1712 100 
+Q 1428 -72 1106 -72 
+z
+M 1119 97 
+Q 1338 97 1528 280 
+Q 1719 463 1838 691 
+Q 1966 947 2077 1386 
+Q 2188 1825 2188 2088 
+Q 2188 2316 2092 2489 
+Q 1997 2663 1791 2663 
+Q 1559 2663 1348 2492 
+Q 1138 2322 978 2088 
+L 800 1363 
+Q 697 959 691 716 
+Q 691 475 795 286 
+Q 900 97 1119 97 
+z
+" transform="scale(0.015625)"/>
+     <path id="w3t152-Cmmi10-6a" d="M -84 -909 
+Q -84 -753 23 -639 
+Q 131 -525 288 -525 
+Q 391 -525 461 -589 
+Q 531 -653 531 -756 
+Q 531 -878 454 -976 
+Q 378 -1075 263 -1106 
+Q 375 -1147 488 -1147 
+Q 759 -1147 959 -895 
+Q 1159 -644 1241 -331 
+L 1844 2075 
+Q 1888 2259 1888 2388 
+Q 1888 2663 1697 2663 
+Q 1416 2663 1205 2408 
+Q 994 2153 863 1819 
+Q 850 1778 813 1778 
+L 738 1778 
+Q 684 1778 684 1838 
+L 684 1856 
+Q 828 2241 1093 2534 
+Q 1359 2828 1709 2828 
+Q 1975 2828 2145 2662 
+Q 2316 2497 2316 2241 
+Q 2316 2150 2297 2059 
+L 1691 -372 
+Q 1625 -631 1440 -847 
+Q 1256 -1063 1000 -1188 
+Q 744 -1313 475 -1313 
+Q 259 -1313 87 -1209 
+Q -84 -1106 -84 -909 
+z
+M 1941 3878 
+Q 1941 4019 2050 4125 
+Q 2159 4231 2297 4231 
+Q 2406 4231 2476 4164 
+Q 2547 4097 2547 3994 
+Q 2547 3850 2433 3742 
+Q 2319 3634 2181 3634 
+Q 2078 3634 2009 3706 
+Q 1941 3778 1941 3878 
+z
+" transform="scale(0.015625)"/>
+     <path id="w3t152-Cmr10-28" d="M 1984 -1588 
+Q 1628 -1306 1370 -942 
+Q 1113 -578 948 -165 
+Q 784 247 703 697 
+Q 622 1147 622 1600 
+Q 622 2059 703 2509 
+Q 784 2959 951 3375 
+Q 1119 3791 1378 4153 
+Q 1638 4516 1984 4788 
+Q 1984 4800 2016 4800 
+L 2075 4800 
+Q 2094 4800 2109 4783 
+Q 2125 4766 2125 4744 
+Q 2125 4716 2113 4703 
+Q 1800 4397 1592 4047 
+Q 1384 3697 1257 3301 
+Q 1131 2906 1075 2482 
+Q 1019 2059 1019 1600 
+Q 1019 -434 2106 -1491 
+Q 2125 -1509 2125 -1544 
+Q 2125 -1559 2108 -1579 
+Q 2091 -1600 2075 -1600 
+L 2016 -1600 
+Q 1984 -1600 1984 -1588 
+z
+" transform="scale(0.015625)"/>
+     <path id="w3t152-Cmb10-78" d="M 109 0 
+L 109 325 
+Q 628 325 678 384 
+L 1381 1350 
+L 588 2516 
+L 141 2516 
+L 141 2841 
+L 1606 2841 
+L 1606 2516 
+L 1331 2516 
+L 1766 1881 
+L 2181 2463 
+Q 2181 2491 2072 2503 
+Q 1963 2516 1888 2516 
+L 1888 2841 
+L 3156 2841 
+L 3156 2516 
+Q 2638 2516 2584 2456 
+L 1959 1594 
+L 2816 325 
+L 3272 325 
+L 3272 0 
+L 1797 0 
+L 1797 325 
+L 2075 325 
+L 1575 1063 
+L 1081 378 
+Q 1081 356 1193 340 
+Q 1306 325 1381 325 
+L 1381 0 
+L 109 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w3t152-Cmmi10-74" d="M 397 519 
+Q 397 613 416 697 
+L 878 2534 
+L 206 2534 
+Q 141 2534 141 2619 
+Q 166 2759 225 2759 
+L 934 2759 
+L 1191 3803 
+Q 1216 3888 1291 3947 
+Q 1366 4006 1459 4006 
+Q 1541 4006 1595 3957 
+Q 1650 3909 1650 3828 
+Q 1650 3809 1648 3798 
+Q 1647 3788 1644 3775 
+L 1388 2759 
+L 2047 2759 
+Q 2113 2759 2113 2675 
+Q 2109 2659 2100 2621 
+Q 2091 2584 2075 2559 
+Q 2059 2534 2028 2534 
+L 1331 2534 
+L 872 684 
+Q 825 503 825 372 
+Q 825 97 1013 97 
+Q 1294 97 1511 361 
+Q 1728 625 1844 941 
+Q 1869 978 1894 978 
+L 1972 978 
+Q 1997 978 2012 961 
+Q 2028 944 2028 922 
+Q 2028 909 2022 903 
+Q 1881 516 1612 222 
+Q 1344 -72 997 -72 
+Q 744 -72 570 93 
+Q 397 259 397 519 
+z
+" transform="scale(0.015625)"/>
+     <path id="w3t152-Cmr10-29" d="M 416 -1600 
+Q 359 -1600 359 -1544 
+Q 359 -1516 372 -1503 
+Q 1466 -434 1466 1600 
+Q 1466 3634 384 4691 
+Q 359 4706 359 4744 
+Q 359 4766 376 4783 
+Q 394 4800 416 4800 
+L 475 4800 
+Q 494 4800 506 4788 
+Q 966 4425 1272 3906 
+Q 1578 3388 1720 2800 
+Q 1863 2213 1863 1600 
+Q 1863 1147 1786 708 
+Q 1709 269 1542 -157 
+Q 1375 -584 1119 -945 
+Q 863 -1306 506 -1588 
+Q 494 -1600 475 -1600 
+L 416 -1600 
+z
+" transform="scale(0.015625)"/>
+     <path id="w3t152-Cmsy10-2f" d="M 1466 -72 
+Q 947 -72 653 379 
+Q 359 831 359 1381 
+Q 359 1725 487 2059 
+Q 616 2394 872 2611 
+Q 1128 2828 1484 2828 
+Q 1891 2828 2234 2587 
+Q 2578 2347 2822 1966 
+L 2963 1753 
+Q 3200 2222 3562 2525 
+Q 3925 2828 4397 2828 
+Q 4519 2828 4616 2803 
+L 4622 2606 
+Q 4534 2625 4453 2625 
+Q 4144 2625 3889 2465 
+Q 3634 2306 3440 2051 
+Q 3247 1797 3122 1503 
+L 3419 1050 
+Q 3563 822 3709 644 
+Q 3856 466 4048 342 
+Q 4241 219 4469 219 
+Q 4516 219 4622 231 
+L 4622 -38 
+Q 4469 -72 4378 -72 
+Q 3978 -72 3628 173 
+Q 3278 419 3041 794 
+L 2900 1006 
+Q 2747 706 2539 464 
+Q 2331 222 2057 75 
+Q 1784 -72 1466 -72 
+z
+M 1409 134 
+Q 1859 134 2196 457 
+Q 2534 781 2741 1253 
+L 2444 1709 
+Q 2219 2075 1967 2308 
+Q 1716 2541 1394 2541 
+Q 1113 2541 917 2364 
+Q 722 2188 623 1917 
+Q 525 1647 525 1375 
+Q 525 1097 620 808 
+Q 716 519 916 326 
+Q 1116 134 1409 134 
+z
+" transform="scale(0.015625)"/>
+     <path id="w3t152-Cmmi10-50" d="M 313 0 
+Q 250 0 250 84 
+Q 253 100 262 139 
+Q 272 178 289 201 
+Q 306 225 331 225 
+Q 722 225 878 269 
+Q 959 297 997 441 
+L 1875 3956 
+Q 1888 4019 1888 4044 
+Q 1888 4113 1813 4122 
+Q 1691 4147 1350 4147 
+Q 1288 4147 1288 4231 
+Q 1291 4247 1300 4286 
+Q 1309 4325 1326 4348 
+Q 1344 4372 1369 4372 
+L 3578 4372 
+Q 3881 4372 4165 4264 
+Q 4450 4156 4631 3934 
+Q 4813 3713 4813 3397 
+Q 4813 2991 4527 2672 
+Q 4241 2353 3814 2175 
+Q 3388 1997 2988 1997 
+L 1947 1997 
+L 1556 416 
+Q 1544 353 1544 325 
+Q 1544 300 1551 283 
+Q 1559 266 1573 261 
+Q 1588 256 1619 250 
+Q 1741 225 2081 225 
+Q 2144 225 2144 141 
+Q 2122 50 2109 25 
+Q 2097 0 2034 0 
+L 313 0 
+z
+M 1978 2188 
+L 2875 2188 
+Q 3497 2188 3822 2522 
+Q 3988 2688 4092 3000 
+Q 4197 3313 4197 3566 
+Q 4197 3881 3956 4014 
+Q 3716 4147 3359 4147 
+L 2747 4147 
+Q 2572 4147 2515 4117 
+Q 2459 4088 2413 3928 
+L 1978 2188 
+z
+" transform="scale(0.015625)"/>
+     <path id="w3t152-Cmsy10-6a" d="M 763 -1484 
+L 763 4684 
+Q 763 4734 800 4767 
+Q 838 4800 891 4800 
+Q 938 4800 978 4767 
+Q 1019 4734 1019 4684 
+L 1019 -1484 
+Q 1019 -1534 978 -1567 
+Q 938 -1600 891 -1600 
+Q 838 -1600 800 -1567 
+Q 763 -1534 763 -1484 
+z
+" transform="scale(0.015625)"/>
+     <path id="w3t152-Cmmi10-3d" d="M 359 -1472 
+Q 359 -1453 366 -1447 
+L 2591 4722 
+Q 2603 4759 2634 4779 
+Q 2666 4800 2706 4800 
+Q 2763 4800 2798 4765 
+Q 2834 4731 2834 4672 
+L 2834 4647 
+L 609 -1522 
+Q 572 -1600 488 -1600 
+Q 434 -1600 396 -1562 
+Q 359 -1525 359 -1472 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w3t152-Cmmi10-62"/>
+    <use xlink:href="#w3t152-Cmmi10-6a" transform="translate(42.919922 -17.00625) scale(0.7)"/>
+    <use xlink:href="#w3t152-Cmr10-28" transform="translate(78.076562 0)"/>
+    <use xlink:href="#w3t152-Cmb10-78" transform="translate(116.894922 0)"/>
+    <use xlink:href="#w3t152-Cmmi10-74" transform="translate(174.044609 -17.00625) scale(0.7)"/>
+    <use xlink:href="#w3t152-Cmr10-29" transform="translate(205.680742 0)"/>
+    <use xlink:href="#w3t152-Cmsy10-2f" transform="translate(262.057695 0)"/>
+    <use xlink:href="#w3t152-Cmmi10-50" transform="translate(357.301836 0)"/>
+    <use xlink:href="#w3t152-Cmr10-28" transform="translate(421.51082 0)"/>
+    <use xlink:href="#w3t152-Cmmi10-6a" transform="translate(460.32918 0)"/>
+    <use xlink:href="#w3t152-Cmsy10-6a" transform="translate(519.001055 0)"/>
+    <use xlink:href="#w3t152-Cmb10-78" transform="translate(564.245195 0)"/>
+    <use xlink:href="#w3t152-Cmmi10-74" transform="translate(621.394883 -17.00625) scale(0.7)"/>
+    <use xlink:href="#w3t152-Cmr10-29" transform="translate(653.031016 0)"/>
+    <use xlink:href="#w3t152-Cmmi10-3d" transform="translate(691.849375 0)"/>
+    <use xlink:href="#w3t152-Cmmi10-50" transform="translate(741.849375 0)"/>
+    <use xlink:href="#w3t152-Cmr10-28" transform="translate(806.058359 0)"/>
+    <use xlink:href="#w3t152-Cmmi10-6a" transform="translate(844.876719 0)"/>
+    <use xlink:href="#w3t152-Cmr10-29" transform="translate(885.99 0)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<text x="842.0" y="236.0" font-size="11" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">step 4: back into the HMM</text>
+<line x1="842.0" y1="136.0" x2="842.0" y2="182.0" stroke="#6b7280" stroke-width="1.6"/>
+<polygon points="842.0,192.0 837.0,182.0 847.0,182.0" fill="#6b7280"/>
+</g>
+<g class="fragment" data-fragment-index="2">
+<path d="M 760.0 238.0 L 730.0 238.0 L 730.0 246.0" fill="none" stroke="#7c3aed" stroke-width="1.6" stroke-dasharray="6 4"/>
+<path d="M 730.0 246.0 L 344.0 246.0 L 344.0 174.0" fill="none" stroke="#7c3aed" stroke-width="1.6" stroke-dasharray="6 4"/>
+<line x1="344.0" y1="174.0" x2="344.0" y2="146.0" stroke="#7c3aed" stroke-width="1.6"/>
+<polygon points="344.0,136.0 349.0,146.0 339.0,146.0" fill="#7c3aed"/>
+<text x="537.0" y="262.0" font-size="12" font-weight="600" fill="#7c3aed" text-anchor="middle" dominant-baseline="auto">step 5 (optional): realign with the DNN, repeat step 3</text>
+<text x="576.0" y="202.0" font-size="13" font-weight="600" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">what CTC removes: this box —</text>
+<text x="576.0" y="220.0" font-size="13" font-weight="600" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">and the model needed to produce it</text>
+</g>
+<text x="500.0" y="288.0" font-size="14" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">The targets are only as good as the model that produced them; CTC replaces this box by a posterior recomputed at every step.</text>
+</svg>
+```

@@ -237,13 +237,7 @@ Gales & Young, *FnT Signal Processing* 2008 · tying: Young, Odell & Woodland 19
 
 ## The hybrid recipe, and the bootstrap it needs
 
-| Step | What happens | Where the alignment comes from |
-|:--|:--|:--|
-| 1 | Train a GMM–HMM on $(\mathbf{X}, W)$ | summed out (Baum–Welch) |
-| 2 | Run **forced alignment**: Viterbi through the known words | one hard path per utterance |
-| 3 | Train a DNN with **per-frame cross-entropy** against those state labels | fixed, from step 2 |
-| 4 | Use DNN posteriors as scaled emissions $b_j(\mathbf{x}_t) \propto P(j \mid \mathbf{x}_t) / P(j)$ | — |
-| 5 | Optionally realign with the DNN and repeat step 3 | new hard path |
+{{< include assets/w03/hybrid-loop.inline.qmd >}}
 
 ::: {.claim .warn}
 You need a working recogniser before you can train the recogniser. The targets are **hard** — one state per frame — and they are only as good as the model that produced them.
@@ -471,6 +465,8 @@ Demo 2, second half · float64 floors, not a measurement · w03-data.json → un
 
 ## One $\beta$, two conventions — read the paper you cite
 
+{{< include assets/w03/beta-conventions.inline.qmd >}}
+
 | | Graves et al., ICML 2006 | Graves, *Supervised Sequence Labelling*, 2012 (this deck) |
 |:--|:--|:--|
 | $\beta_t(s)$ runs over frames | $t, \dots, T$ — **includes** $y^t$ | $t+1, \dots, T$ — excludes $y^t$ |
@@ -535,9 +531,7 @@ Demo 3 · `runs/rehearsal/logits.npy`, softmax, frames 26–42 (20 ms each) · r
 
 From the gradient, $\partial \mathcal{L}_{\text{CTC}} / \partial u^t_k = y^t_k - \gamma_t(k)$, with $\gamma$ recomputed **from the current model** at every step:
 
-1. A frame leans slightly towards label $k$ → its $\gamma_t(k)$ rises → the gradient pushes $y^t_k$ up further.
-2. Neighbouring frames now explain the label less well → their $\gamma$ shifts to $\varnothing$ → they are pushed towards blank.
-3. Nothing pushes back: there is **no transition probability** that rewards a label for lasting.
+{{< include assets/w03/target-chase.inline.qmd >}}
 
 ::: {.claim}
 Zeyer, Schlüter & Ney (2021) give a formal analysis of this as a **convergence property of the CTC loss under gradient descent**; on a toy example they prove a feed-forward network from uniform initialisation converges to peaky behaviour, and show a related loss with a label prior does not.
