@@ -1,73 +1,103 @@
-# Speech-AI
+# Speech-AI — Speech Processing and Human-Machine Interaction
 
-語音處理與人機互動（Speech Processing and Human-Machine Interaction）課程網站。
+**語音處理與人機互動** · 中文版說明：[README.zh-TW.md](README.zh-TW.md)
 
-**課程網站 → <https://hungshinlee.github.io/Speech-AI/>**
+A graduate course (Master's / PhD): 14 weeks × 3 hours, lectures throughout. Lectures are given in Mandarin; slides and the course site are in English.
 
-課程以**建構半雙工／全雙工語音對話 AI 系統**為最終目標，涵蓋訊號處理、表徵學習、
-生成模型與互動建模，內容對齊 2025–2026 的技術脈絡。
+**Course site: <https://hungshinlee.github.io/Speech-AI/>**
+Lecturer: [Hung-Shin Lee (李鴻欣)](https://web.ntnu.edu.tw/~hslee/)
 
-## 這個 repo 放什麼
+This repository holds the *public* side of the course — the website source, the slides, the classroom demo code and the supplementary guides. The teaching materials it is generated from (the full course outline, speaker notes, exam questions and rubrics) live in a private repository and are not here; see [What is deliberately not here](#what-is-deliberately-not-here).
 
-只放公開內容：Quarto 站台、投影片、由課程大綱**過濾後產生**的每週頁面，
-以及課堂 demo 的程式與彩排紀錄（`demos/`，2026-10-09 起，W1–W4）。
+## The course in one sentence
 
-課程大綱正本、題目與 rubric、教學設計筆記在另一個 private repo，不在這裡。
-每週頁面只公開「定位 / Learning objectives / 參考資料」三個區塊，加上連到 `demos/` 的學生版「Demos」區塊；
-課堂時間分配、常見誤解排除、給授課者的 demo 腳本與彩排筆記屬於授課用，不上站。
+The course is built backwards from a single question: **how do you build a spoken dialogue system that can listen while it speaks, be interrupted, and know when it is its turn to talk?** Starting from that end goal — a half- and full-duplex spoken dialogue AI system — it works out what has to be known about signal processing, representation learning, generative models and interaction modeling, and teaches exactly that, aligned with the state of the field in 2025–2026. The depth is graduate: derivation skeletons, the literature behind each idea, and open problems.
 
-**關於 demo**：你不需要跑任何東西——本課全為 lectures，所有 demo 由授課者現場執行；投影片上的數字來自
-`demos/*/runs/rehearsal/` 裡進版控的彩排紀錄。程式公開是讓你能讀、能重跑、能改。全部只在一台機器上測過
-（MacBook Pro M5 Max，64 GB，無 CUDA）；`demos/README.md` 說明哪些 demo 可攜、哪些需要 Apple silicon，版本釘在
-`demos/versions.lock`。授課者自己的錄音（W2 demo 2、W3 demo 1 的素材）不公開，README 寫明怎麼自己錄。
+Three threads run through all fourteen weeks and are asked of every layer: **Representation** (what does this layer operate on — waveform, spectrogram, continuous SSL feature, discrete token — and what decides the frame rate), **Latency** (how much of the latency budget does this module spend, and is it algorithmic latency from lookahead or compute latency), and **Supervision** (where does this capability come from — labeled data, self-supervision, synthetic data, or human preference).
 
-## 課程設定
+## Course map
 
-| 項目 | 設定 |
+| Part I — Foundations | Part II — Modules | Part III — Dialogue Systems |
+|---|---|---|
+| W1 A systems view of spoken dialogue and the latency budget | W7 Speech recognition: three paradigms, streaming, and the LLM turn | W11 Audio-native language models: building half-duplex spoken dialogue |
+| W2 Speech signals, auditory front-ends, and the physics of representation | W8 Speech synthesis I: generative paradigms and streaming TTS | W12 Full-duplex I: linguistic foundations and modeling of turn-taking |
+| W3 The alignment problem: from HMM to CTC | W9 Speech synthesis II: controllability, post-training alignment, evaluation, and misuse | W13 Full-duplex II: architectures, multi-stream modeling, and data |
+| W4 Sequence models and streaming architectures: Transformer, Conformer, RNN-T | W10 The physical layer of full-duplex: VAD, AEC, enhancement, separation, speaker | W14 Evaluation, alignment, deployment, and open problems |
+| W5 Self-supervised representation learning: where speech foundation models come from | | |
+| W6 Neural audio codecs and discretization: turning speech into a language | | |
+
+**W6 is the hinge of the course.** Everything in Part III rests on three things decided there — frame rate, token budget, and the separation of semantic from acoustic information — so that is the week not to miss. W3, W6 and W8 are the three mathematical peaks.
+
+## What is published so far
+
+Weeks are opened on the site as they are taught. As of October 2026, **W1–W4** are open: week pages, slides, and the demo code for every week. The remaining weeks appear on the course map as greyed-out placeholders; their pages are generated but not rendered, so there are no dead links.
+
+| | W1 | W2 | W3 | W4 | W5–W14 |
+|---|---|---|---|---|---|
+| Week page (positioning, learning objectives, references, demos) | ✓ | ✓ | ✓ | ✓ | generated, not yet published |
+| Slides (`slides/wNN.qmd`, reveal.js) | ✓ | ✓ | ✓ | ✓ | — |
+| Demo code (`demos/wNN_dK_*/`) | ✓ | ✓ | ✓ | ✓ | — |
+
+The **Syllabus** page carries the course setup, the three-part structure, and the **latency budget** — the shared coordinate system every week is measured against. The **Resources** page lists the core textbooks, one paper per week, the toolchain the demos run on, and what cannot be shown on the demo hardware. **Supplements** holds four guides (in Chinese): ten research topics for INTERSPEECH 2027 grounded in Taiwan's languages and sized for a single 16 GB GPU, the midterm proof-of-concept report, the final paper, and paper writing and narrative logic for speech venues.
+
+## For students
+
+- **You do not need to run anything.** The course is lectures only. Every demo is run live by the lecturer, and every number on the slides comes from a rehearsal record checked into `demos/*/runs/rehearsal/`. The code is published so you can read it, re-run it, and change it.
+- **The slides have no speaker notes.** Pressing `S` in a deck opens an empty notes panel. That is intentional, not a bug: the Chinese lecture script is part of the teaching materials and is not published.
+- **Demos were tested on one machine** — a MacBook Pro M5 Max (64 GB unified memory, no CUDA). `demos/README.md` says which demos are portable (standard library, or CPU-only numpy/scipy/PyTorch) and which need Apple silicon (`mlx`), and pins every package and model revision in `demos/versions.lock`. The lecturer's own recordings (the material behind W2 demo 2 and W3 demo 1) are not published; those READMEs say how to record your own input.
+- **References are filtered before they reach the site.** Entries the course outline marks as unverified are dropped from the site rather than shown with a caveat, and the references added in the W2–W4 revisions were checked title and first author against the arXiv abstract page, the ACL Anthology, the ISCA archive, PMLR, or Crossref. Where a source is a blog post, model card, or specification rather than a peer-reviewed paper, the sentence says so.
+- The site has a **presentation mode** (press `z`, or use the navbar button) that collapses the side panels for projection.
+
+## Repository layout
+
+Most of this repository is *generated*. Files marked ⚙︎ are overwritten on the next publish and must not be edited by hand.
+
+| Path | What it is |
 |---|---|
-| 授課教師 | [李鴻欣 Hung-Shin Lee](https://web.ntnu.edu.tw/~hslee/) |
-| 授課對象 | 碩士班 / 博士班 |
-| 時數 | 14 週 × 3 小時，全為 lectures |
-| 語言 | 中文授課、英文投影片 |
-| 網站語言 | 介面與框架英文（首頁、課程資訊、教材與資源、投影片索引、導覽列、每週標題）；每週內頁與投影片講稿中文 |
-| 學生算力 | Colab 免費版 |
-| 評量 | 期中報告 40%、期末論文 60% |
-| 修課要求 | 分組，參與 2 次線上討論 |
+| `index.qmd`, `syllabus.qmd`, `resources.qmd`, `supplements.qmd` | Hand-written site pages (English) |
+| `docs/site-en.md` | Source of the English prose blocks pulled into Syllabus and Resources (latency budget, textbooks, one-paper-per-week, toolchain) |
+| `docs/course-map-en.md` | The course map in English, kept for reference; the one on the home page is generated |
+| `weeks/w01.qmd` … `w14.qmd` | ⚙︎ Week pages, filtered from the private course outline by `scripts/build_weeks.py` |
+| `_includes/*.md` | ⚙︎ Generated fragments: course map, weekly schedule, reading table, latency budget, textbooks, toolchain |
+| `slides.qmd` | ⚙︎ Slide index |
+| `slides/wNN.qmd`, `slides/theme.scss`, `slides/assets/` | ⚙︎ Slides with speaker notes **stripped**, published from the private originals |
+| `slides/scripts/` | ⚙︎ Analysis scripts referenced on the slides (energy VAD and overlap / response / stop latency on a two-channel recording, two-track timeline figure) |
+| `demos/` | ⚙︎ Classroom demo code, rehearsal records, and student-facing READMEs, published by whitelist; `demos/README.md` is the entry point |
+| `supplements/*.md` | Hand-written supplementary guides (Chinese); the `.qmd` wrappers beside them are ⚙︎ generated |
+| `scripts/build_weeks.py`, `scripts/visibility.py` | The filter: which sections of the outline are public (deny by default, whitelist), how citation markers are handled, which weeks are published |
+| `styles.scss`, `_present-mode.html`, `_quarto.yml` | Site theme, presentation mode, Quarto configuration |
+| `.github/workflows/publish.yml` | CI: a leak guard plus `quarto render`, deployed to GitHub Pages |
+| `CLAUDE.md` | Maintainer notes: build procedure, rendering pitfalls, decisions |
 
-## 網站建置
+## What is deliberately not here
 
-Quarto 建置，push 到 `main` 後由 GitHub Actions 部署。CI 只做 `quarto render`，
-不重建每週頁面——大綱不在這個 repo 裡。
+The course outline (`course-outline.md`) is the single source of truth for the course and lives only in the private repository. Week pages on this site are produced from it by a **deny-by-default filter**: only three sections per week are public — *Positioning*, *Learning objectives*, and *References* — plus a student-facing *Demos* section that links to the published code. Lesson timing, the misconception list, demo scripts for the lecturer, and the private design notes stay private. The same goes for the Chinese speaker notes in the slides, the lecturer's demo READMEs (rehearsal notes and fallbacks), the lecturer's own recordings, and all assessment material (questions and rubrics).
+
+If `docs/course-outline.md` ever appears in this repository, that is a regression, not a feature.
+
+## How the site is built
+
+The normal entry point is `bin/publish.py` in the private repository. In one run it re-extracts the speaker notes from the slide originals, publishes the stripped slides, copies the whitelisted demos, runs the filtered build of the week pages, and finally checks that nothing teacher-only leaked — a single surviving `::: {.notes}` block aborts the publish. It does **not** commit or push; that is done by hand so the diff is always seen.
 
 ```bash
-brew install --cask quarto                              # 首次
-export COURSE_OUTLINE=~/Course-Hub/speech_ai/course-outline.md
-python3 scripts/build_weeks.py                          # 從大綱重建（已過濾）
-quarto preview                                          # 本機預覽
+cd ~/Course-Hub && python3 bin/publish.py speech_ai
 ```
 
-`weeks/`、`_includes/`、`slides.qmd`、`supplements/*.qmd`、`slides/*.qmd`、`demos/` 由腳本自動產生，**請勿直接編輯**
-（手改會在下次 build 被無聲覆蓋，而且可能把不該公開的內容帶上站）：
+To rebuild only the week pages from a checkout of the outline (this path does not update slides or demos):
 
-- 課程內容改大綱正本，然後重跑 `build_weeks.py`
-- 補充教材改 `supplements/*.md`（H1 下方需有 `en` / `order` / `summary` 三行註解），同樣重跑
-- 每週英文標題寫在大綱標題的下一行（`<!-- en: ... -->`），缺了腳本會報錯
-- 課程資訊與教材頁的英文片段是手寫的 `docs/site-en.md`，不會自動更新
-- 首頁課程地圖由 `build_weeks.py` 產生 HTML grid（短標籤在腳本的 `SHORT`）；
-  `docs/course-map-en.md` 保留備查，已不上站
-- 投影片講稿改 `slides/wNN.qmd` 的 `::: {.notes}`，然後 `python3 scripts/extract_notes.py`
+```bash
+export COURSE_OUTLINE=~/Course-Hub/speech_ai/course-outline.md
+python3 scripts/build_weeks.py   # after every outline change
+quarto preview                   # local preview (brew install --cask quarto)
+quarto render                    # produces _site/
+```
 
-哪些區塊會上站由 `scripts/visibility.py` 決定，規則寫在該檔的 docstring。
+Pushing to `main` triggers GitHub Actions, which **does not** rebuild the week pages (CI has no access to the outline). It only runs a leak check and `quarto render`. The cost of that design is that the site drifts if the local build step is forgotten.
 
-## 上課時看中文講稿
+Opening a new week requires two coordinated edits: add the week to `PUBLISHED_WEEKS` in `scripts/build_weeks.py` (controls the links on the home page, course map and resources) and add its page to the `render` list and sidebar in `_quarto.yml` (controls whether the page exists).
 
-| 情境 | 做法 |
-|---|---|
-| 單螢幕備課 | 投影片網址加 `?showNotes=true` |
-| 有第二螢幕 | 按 `S` 開 presenter view |
-| 上課（畫面給學生看） | 讀 `extract_notes.py` 產出的講稿檔，放平板或手機 |
+Supplementary guides go in `supplements/*.md` with three comment lines under the H1 (`en`, `order`, `summary`); the English title of each week is written in the outline on the line after the week heading (`<!-- en: ... -->`), and the build fails if one is missing.
 
-## 待辦
+## Language
 
-- [x] 各週投影片（`slides/`，W1–W4 已上）
-- [x] 課堂 demo 程式（`demos/`，W1–W4 已上，2026-10-09）
+The site skeleton and the body of every published week page are in English. The English for each week is written in the outline alongside the Chinese and extracted at build time; a week without an English block falls back to Chinese rather than breaking, and the build prints the list of weeks still to be translated. Two things stay Chinese on purpose: each week page's `subtitle` (the Chinese week title, kept for cross-reference) and the `supplements/` guides, which match the language of instruction.
