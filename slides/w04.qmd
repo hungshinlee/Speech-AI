@@ -201,7 +201,7 @@ Dai et al., ACL 2019, §3.3 · Conformer's MHSA reuses it · skeleton only, not 
 | **causal mask** | $M_{ij} = -\infty$, $j > i$ | none ($m = 0$, $C = 1$) | — | cheapest, worst quality |
 | **chunk + lookahead** | read to the chunk end, $+R$ past it, $\leq H$ back | $\alpha C\,s\Delta$ (chunk) + $m\,s\Delta$ if $R$ is re-read per layer | chunk: **no** · $R$: **yes** | Transformer Transducer; Chen et al. 2021 |
 | **memory / state carry-over** | a compressed summary of past segments replaces $H$ raw frames | none: bounds the *history* | — | Transformer-XL; Emformer |
-| **latency-controlled BLSTM** | backward LSTM over a short future window only | the window: $m\,s\Delta$ | **yes** if re-opened per layer | Zhang et al. 2016 |
+| **latency-controlled BLSTM** | backward LSTM over a short future window only | the window: $m\,s\Delta$ | **no** — window re-cut per chunk, every layer | Zhang et al. 2016 |
 
 ::: {.claim}
 Only two quantities change: **how far right** a layer reads, and **whether that compounds with depth.** The past costs memory, not time.
@@ -259,7 +259,7 @@ Raising $r_k$ from $2$ to $8$ at every layer, with $s = 4$:
 
 $$\text{per layer: } 2 \times 40 = 80 \text{ ms} \;\longrightarrow\; 8 \times 40 = 320 \text{ ms} \qquad\text{(not } 20 \to 80\text{: that forgot } s\text{)}$$
 
-- **One layer** at $r_k = 8$ already spends the whole 300 ms budget of W1.
+- **One layer** at $r_k = 8$ already spends a whole human-scale budget (a few hundred ms, W1).
 - Lookahead's benefit saturates quickly; its cost is linear, **per layer**, and in $s\Delta$ units.
 - The budget is spent at the *sum*, so the only cheap right context is the kind that does not stack: put it in the chunk, or copy it per segment (Emformer, p23).
 
@@ -540,6 +540,10 @@ $D_{\text{alg}}$ is what the architecture *guarantees you cannot beat.* What you
 | 640 ms | 640 ms | $+220$ ms | $+1012$ ms | MIDDLE $+1249$ |
 | 320 ms ($=$ model chunk) | 480 ms | $+220$ ms | $+742$ ms | MIDDLE $+922$ |
 
+::: {.small}
+$D_{\text{alg}}$ here is $c + F/2$, $c = 320$ ms the model's own chunk, $F$ the feed: the 130 ms lookahead past the chunk edge waits for the **next feed to arrive whole**, so it is paid in feed chunks, not in milliseconds (p19's $\alpha$, exact).
+:::
+
 ::: {.footer}
 Demo 2 · sherpa-onnx streaming zipformer · measured 2026-10-06 on M5 Max · w04-metrics.json
 :::
@@ -684,7 +688,7 @@ The frame rate stopped being a constant and became a knob; the label unit stoppe
 | **Supervision** | same data as CTC — audio and a transcript — and the alignment is still summed out | **latency can be written into the objective** (FastEmit): the first time in this course that *when to speak* is a training signal |
 
 ::: {.claim}
-W1 declared $D_{\text{alg}}$; today derived it, found a term it could not contain, and showed that term can be trained away. **W12 will do to turn-taking exactly what FastEmit did to emission.**
+W1 wrote $D_{\text{alg}}$ on the 10 ms grid; today put it inside the encoder, found the missing $s$ and a term it cannot contain, and showed that term can be trained away. **W12 will do to turn-taking exactly what FastEmit did to emission.**
 :::
 
 ## What this week put on the three axes

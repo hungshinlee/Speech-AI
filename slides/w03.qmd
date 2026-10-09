@@ -65,7 +65,7 @@ format:
 :::
 
 ::: {.footer}
-Settings from W2 · 16 kHz · 25 / 10 ms · 80 mel · phone rate is an order of magnitude
+W2 settings · 16 kHz · 25 / 10 ms · 80 mel · a dozen phones/s against 100 frames/s
 :::
 
 ## The same gap, in symbols — and on the three axes
@@ -141,7 +141,7 @@ $y^t_k$ is the network's softmax output for symbol $k$ at frame $t$. The network
 
 $$\ln \prod_t y^t_{\pi_t} = \sum_t \ln y^t_{\pi_t}, \qquad \ln \sum_i e^{a_i} \;=\; a^{*} + \ln \sum_i e^{a_i - a^{*}}, \quad a^{*} = \max_i a_i$$
 
-- A product of $T$ probabilities shrinks like $c^T$. In float64 it reaches **zero** long before $T$ reaches a sentence.
+- A product of $T$ probabilities shrinks like $c^T$. In float64 it can hit **zero** inside a single sentence.
 - Subtracting $a^{*}$ first keeps every exponent $\leq 0$: no overflow, and the largest term is computed exactly.
 - **Example.** Two paths arrive at the same node with $\ln p_1 = -1000$, $\ln p_2 = -1001$; the node needs $\ln(p_1 + p_2)$. Going back to probabilities fails: $e^{-1000} = 0$ in float64, so $\ln(0 + 0) = -\infty$. Factor out $a^{*} = -1000$ instead: $-1000 + \ln(1 + e^{-1}) = -1000 + 0.313 = -999.687$.
 
@@ -370,7 +370,7 @@ $$T < U + r \;\Rightarrow\; \mathcal{B}^{-1}(\ell) = \varnothing \;\Rightarrow\;
 | 3 | only then, numerics: are you summing in the log domain? |
 
 ::: {.footer}
-characters per second: order of magnitude · one dev-clean sentence (Demo 3): 12.5 letters/s, 15.5 symbols/s incl. word boundaries
+characters per second: order of magnitude · one dev-clean sentence (Demo 3): 12.5 letters/s, 15.2 symbols/s incl. word boundaries
 :::
 
 ## Check the recursion against brute force
@@ -549,7 +549,7 @@ arXiv:2105.14849, abstract level · same localisation in full-sum HMM training (
 
 ## Misconception 5 — "CTC's argmax gives you the boundaries"
 
-**Phone level: no.** The spike is where the model chose to *emit*, not where the sound starts or ends. Peaky outputs put spikes systematically off the segment edges. For phone boundaries use a hybrid forced alignment or a dedicated aligner.
+**Phone level: no.** The spike is where the model chose to *emit*, not where the sound starts or ends. A peaky output puts the spike somewhere inside the segment, and nothing in the loss says where. For phone boundaries use a hybrid forced alignment or a dedicated aligner.
 
 **Word level: yes, routinely.** A CTC forced alignment — Viterbi through $\ell'$ with the known transcript — gives word timestamps good enough for subtitles and for training data:
 
@@ -704,7 +704,7 @@ W2 asked *who decides the frame rate* and answered "the hop, times every stride.
 :::
 
 ::: {.footer}
-W2 p27 for the ladder · characters per second: order of magnitude · one dev-clean sentence (Demo 3): 12.5 letters/s, 15.5 symbols/s
+W2 p27 for the ladder · characters per second: order of magnitude · one dev-clean sentence (Demo 3): 12.5 letters/s, 15.2 symbols/s
 :::
 
 ## Latency and supervision: what CTC buys, what it costs

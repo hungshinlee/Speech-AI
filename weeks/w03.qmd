@@ -15,7 +15,7 @@ This is the first mathematically dense week of the course. The core difficulty o
 
 Where the three course-long axes sit this week. **Supervision:** historically CTC mattered because it removed the bootstrap "you need an alignment before you can train" — hybrid systems had to run forced alignment with a GMM-HMM before a DNN could be trained; with CTC, audio plus a transcript is enough. **Representation:** CTC requires $T \geq |\ell| + r$, so the choice of label unit (characters, phones, BPE) and the encoder's subsampling factor constrain each other; the W2 question "who decides the frame rate" gets its first lower bound here. **Latency:** every frame emits independently, so a causal encoder makes CTC streamable for free — but there is no dependency between outputs, and that price is only paid back by the RNN-T in W4. The RNN-T lattice (W4), prefix beam search (W7) and the streaming dialogue state machines of W13 all rest on this week's intuition.
 
-The first half of the week also carries remedial duty: marginalisation, conditional independence, the chain rule and log-domain arithmetic — the probability page of the week-one prerequisite sheet is cashed in here.
+The first half of the week also carries remedial duty: marginalisation, conditional independence, the chain rule and log-domain arithmetic are covered in four slides, before they are used.
 
 ## Learning Objectives
 1. Write down the forward recursion and the Viterbi recursion of an HMM, explain that they differ only in the semiring (sum-product vs. max-product), and state that forward computes the probability of the sequence while Viterbi computes the probability of a single best alignment — the two are not interchangeable.
