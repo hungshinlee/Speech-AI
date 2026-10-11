@@ -26,6 +26,17 @@ The local-language thread takes a concrete shape this week. The mainstream SSL m
 4. Describe the layer structure of SSL representations (speaker information low, phonetic information in the middle, and top layers of a pre-trained model that may turn back towards the input), measure it with CCA or linear probes, use it to choose a layer for a downstream task, and explain what SUPERB's learned layer weights $\mathbf{w}$ do and do not tell you.
 5. Read an SSL comparison critically: show how pre-training data size, data domain and model size confound architectural claims, say which kinds of models a frozen-upstream benchmark favours, and explain why HuBERT's discrete units are not phonemes (finer, context-dependent, redundant; speaker information reduced but not gone; F0 largely absent).
 
+## Demos
+Demo 3 is a program and is published so that you can read it, re-run it, and change it — **you are not required to run anything**. Demos 1 and 2 are not built yet (as of 2026-10-11); their rows will be filled in when they are. Each folder's `README.md` gives requirements, setup, commands, and what you should see; the index at [`demos/`](https://github.com/hungshinlee/Speech-AI/tree/main/demos) explains the shared environment.
+
+| | Slides | What it shows | Needs | Runs on |
+|---|---|---|---|---|
+| Demo 1 · layer-wise probing: three curves (not built yet) | p31 | Speaker and phone probes and CCA to layer 0 across all 13 layers of HuBERT-base, then the same for wav2vec 2.0-base | — | — |
+| Demo 2 · units ≠ phones: three teachers' purities, and one sentence aligned (not built yet) | p38, p39 | k-means on MFCC / layer 6 / layer 9 scored by phone purity, cluster purity and PNMI; the W3 sentence's unit string under its forced alignment | — | — |
+| [Demo 3 · the ceiling at $\ln N$](https://github.com/hungshinlee/Speech-AI/tree/main/demos/w05_d3_infonce_bound) | p12, p13 | Terminal plus one figure. Two 8-dimensional Gaussian vectors with per-dimension correlation 0.7, so the mutual information is known: 2.693 nats. An InfoNCE critic is trained at each $N = 2, 4, \dots, 1024$ and the estimate $\ln N - \mathcal{L}_N$ is plotted against the ceiling $\ln N$ and the truth. Pre-run: 0.56 at $N = 2$, 1.54 at $N = 8$ (ceiling 2.08 — it cannot reach 2.69), 2.34 at 64, 2.65 at 1024; every estimate stays below its $\ln N$ and below the truth; 64 → 1024 adds 0.31 nat while the std over 200 batches falls 0.20 → 0.06. A purely bilinear critic (no $\lVert\mathbf{y}\rVert^2$ term) is looser at every $N$ (1.87 against 2.48 at $N = 128$). The same code and seed reproduce the curve on the slide | `numpy`, `matplotlib` | any laptop; the full sweep took ≈ 70 s on a 2-core container |
+
+Tested so far on a 2-core Linux container only (Python 3.13, numpy 2.5.3); the instructor's Apple M5 Max run will replace the rehearsal record. Menus and labels are in Chinese; the keys are listed in the README.
+
 ## References
 - Oord, Li & Vinyals, **Representation Learning with Contrastive Predictive Coding**, arXiv:1807.03748 (2018) — CPC and InfoNCE; this week's derivation follows it, with the rigorous version in the next entry
 - Poole, Ozair, van den Oord, Alemi & Tucker, **On Variational Bounds of Mutual Information**, ICML 2019, PMLR 97:5171–5180 (arXiv:1905.06922) — a proof of the InfoNCE bound that needs neither of CPC's approximations, its ceiling at the log of the batch size, and its bias–variance trade-off against other variational bounds (InfoNCE: low variance, high bias; NWJ: unbiased, high variance)

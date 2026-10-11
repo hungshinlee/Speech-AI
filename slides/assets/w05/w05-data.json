@@ -196,8 +196,16 @@
       "mfcc_teacher_K100": {
         "cluster_purity": 0.099,
         "phone_purity": 0.335,
-        "PNMI": 0.255
+        "PNMI": 0.255,
+        "source": "arXiv 2106.07447v1 §V-C 'Clustering Quality Across Layers and Iterations' (confirmed 2026-10-11, second revise); Table IV/V give different MFCC PNMIs (0.251–0.253 / 0.243) from other setups"
       },
+      "mfcc_teacher_K500": {
+        "cluster_purity": 0.031,
+        "phone_purity": 0.356,
+        "PNMI": 0.287,
+        "source": "same passage, arXiv v1 §V-C"
+      },
+      "layerwise_cluster_quality_v1_fig2": "BASE-it1 best near layer 6, last few layers degrade ('mimic their bad label behavior'); BASE-it2 generally improves over layers (arXiv v1 §V-C, Fig. 2)",
       "compute": {
         "BASE": "32 GPUs, 250k + 400k steps",
         "LARGE": "128 GPUs",

@@ -73,11 +73,11 @@ W4 p5 the box · p20 $D_{\text{alg}}$ · p49 three alignments, three losses
 {{< include assets/w05/problem-map.inline.qmd >}}
 
 ::: {.claim}
-Four methods, one pipeline, one question: **what is the answer for the masked frame — and who wrote it down?**
+One pipeline, one question: **what is the answer for the masked frame — and who wrote it down?**
 :::
 
 ::: {.footer}
-Route: contrast → a teacher → layers → units ≠ phones → reading a comparison
+Route: contrast → a teacher → layers → units $\neq$ phones → reading a comparison
 :::
 
 ## Notation for today
@@ -111,6 +111,10 @@ Logs are $\ln$ · two temperatures: $\kappa$ divides a similarity, $\tau$ a Gumb
 
 {{< include assets/w05/ssl-pipeline.inline.qmd >}}
 
+::: {.claim .fragment fragment-index=1}
+**A learned filterbank on W2's clock — 25 ms window, 20 ms hop — fixed at pre-training, before any downstream task exists.**
+:::
+
 ::: {.footer}
 wav2vec 2.0 §2, §3.3 · same front end in HuBERT and data2vec · BEST-RQ eats log-mel
 :::
@@ -129,6 +133,10 @@ Oord, Li & Vinyals 2018, eq. 4 · Table 1: phone probe 64.6% vs MFCC 39.7%
 
 {{< include assets/w05/infonce-steps.inline.qmd >}}
 
+::: {.claim .fragment fragment-index=5}
+**Read it:** $\mathcal{L}_N \geq 0$, so the bound never exceeds $\ln N$ — 100 negatives cannot show more than $\ln 101 \approx 4.6$ nat.
+:::
+
 ::: {.footer}
 CPC App. A.1, eq. 6–11 · a proof without the $\approx$ and $\geq$: Poole et al. 2019
 :::
@@ -136,20 +144,20 @@ CPC App. A.1, eq. 6–11 · a proof without the $\approx$ and $\geq$: Poole et a
 ## Demo 3 — the ceiling at $\ln N$
 
 ::: {.ask}
-**Demo 3.** Two Gaussian vectors with a known mutual information. Train an InfoNCE critic for $N = 2, 4, \dots, 1024$. Before the curve appears: at $N = 8$, can the estimate reach the true value?
+**Demo 3.** Two Gaussian vectors with known mutual information; an InfoNCE critic trained at each $N = 2, 4, \dots, 1024$. Before the curve appears: at $N = 8$, can the estimate reach the true value?
 :::
 
 {{< include assets/w05/infonce-ceiling.inline.qmd >}}
 
 ::: {.footer}
-Demo 3 · not built (2026-10-11) · curve pre-computed by make_figs_w05.py → w05-data.json
+Demo 3 · `demos/w05_d3_infonce_bound` recomputes this curve live (seed 20261011) · numbers: w05-data.json
 :::
 
 ## Misconception 1 — "more negatives is always better"
 
 | | what the bound says | what happens in practice |
 |:--|:--|:--|
-| few negatives | the ceiling $\ln N$ sits **below** the truth: you cannot see the information you want | the estimate hugs the ceiling (Demo 3, $N \leq 8$) |
+| few negatives | the ceiling $\ln N$ sits **below** the truth: you cannot see the information you want | the estimate is pinned under the ceiling (Demo 3: $N = 8$ gives $1.54$ against a ceiling of $2.08$ and a truth of $2.69$) |
 | many negatives | the ceiling clears the truth; the bound can tighten | the ceiling rises only as $\ln N$: one more nat costs $e$ times the negatives; past the truth, more buys only a smaller variance (Demo 3) |
 | wav2vec 2.0 | $N - 1 = 100$ distractors — a ceiling of $\ln 101 \approx 4.6$ nat | sampled from the **same utterance**: same speaker, same channel — only content can separate them |
 
@@ -179,15 +187,31 @@ vq-wav2vec, ICLR 2020 (quantise, then BERT) · wav2vec 2.0, NeurIPS 2020 (one mo
 
 {{< include assets/w05/gumbel-vq.inline.qmd >}}
 
+::: {.fragment fragment-index=2}
+$$\text{forward (hard):}\quad v^{*} = \arg\max_v\,(l_{g,v} + n_{g,v}),\qquad P(v^{*} = v) = \mathrm{softmax}(l_g)_v\quad\text{(Gumbel-max)}$$
+:::
+
+::: {.fragment fragment-index=3}
+$$\text{backward (soft):}\quad \hat{p}_{g,v} = \frac{\exp\big((l_{g,v} + n_{g,v})/\tau\big)}{\sum_{v'} \exp\big((l_{g,v'} + n_{g,v'})/\tau\big)},\qquad \frac{\partial\,(\text{one hot})}{\partial l} := \frac{\partial \hat{p}}{\partial l},\qquad \tau\colon 2 \to 0.5$$
+:::
+
+::: {.claim .fragment fragment-index=3}
+**Straight-through is biased by construction** — it pretends the quantiser is the identity. W6's VQ-VAE reuses it.
+:::
+
 ::: {.footer}
-Jang, Gu & Poole, ICLR 2017 · Bengio et al. 2013 (straight-through) · wav2vec 2.0 §4.2
+Jang, Gu & Poole 2017 · Bengio et al. 2013 · wav2vec 2.0 §4.2: $G = 2$, $V = 320$, $102{,}400$ codes
 :::
 
 ## The diversity loss is an entropy
 
 {{< include assets/w05/codebook-usage.inline.qmd >}}
 
-$$\mathcal{L}_d = \frac{1}{GV}\sum_{g=1}^{G}\big(-H(\bar{p}_g)\big) = \frac{1}{GV}\sum_{g=1}^{G}\sum_{v=1}^{V}\bar{p}_{g,v}\ln\bar{p}_{g,v}, \qquad \bar{p}_{g,v} = \text{batch mean of } \hat{p}_{g,v}$$
+$$\mathcal{L}_d = \frac{1}{GV}\sum_{g=1}^{G}\big(-H(\bar{p}_g)\big) = \frac{1}{GV}\sum_{g=1}^{G}\sum_{v=1}^{V}\bar{p}_{g,v}\ln\bar{p}_{g,v}$$
+
+::: {.small}
+$\bar{p}_{g,v}$ is the batch mean of $\mathrm{softmax}(l_g)_v$ over the raw logits — no Gumbel noise, no temperature (wav2vec 2.0 §3.2).
+:::
 
 ::: {.footer}
 wav2vec 2.0 eq. 4 · $\mathcal{L} = \mathcal{L}_m + \alpha\mathcal{L}_d$, $\alpha = 0.1$ · W6: the same disease, no contrast to help
@@ -258,7 +282,7 @@ wav2vec 2.0 App. B · HuBERT §IV-C · no demo today is pre-training, by design
 $$\mathcal{L}_m = -\sum_{t \in M}\ln p(k_t \mid \tilde{\mathbf{X}}, t), \qquad p(k \mid \tilde{\mathbf{X}}, t) = \frac{\exp(\mathrm{sim}(\mathbf{A}\mathbf{c}_t, \mathbf{e}_k)/\kappa)}{\sum_{k'=1}^{K}\exp(\mathrm{sim}(\mathbf{A}\mathbf{c}_t, \mathbf{e}_{k'})/\kappa)}$$
 
 ::: {.footer}
-Hsu et al., TASLP 2021, eq. 3 ($\kappa = 0.1$, written $\tau$ there) · §IV-C: layer 6, then layer 9
+Hsu et al., TASLP 2021, eq. 3 ($\kappa = 0.1$; $\tau$ there) · §IV-C: layer 6, then 9 · arXiv v1 §V-C, Fig. 2: why 6
 :::
 
 ## How good is a teacher? Three purities
@@ -266,7 +290,7 @@ Hsu et al., TASLP 2021, eq. 3 ($\kappa = 0.1$, written $\tau$ there) · §IV-C: 
 {{< include assets/w05/purity.inline.qmd >}}
 
 ::: {.footer}
-HuBERT §IV-E · the first teacher (MFCC, $K = 100$): cluster 0.099 · phone 0.335 · PNMI 0.255
+HuBERT §IV-E · the MFCC teacher, $K = 100$: cluster 0.099 · phone 0.335 · PNMI 0.255 (arXiv v1 §V-C)
 :::
 
 ## Misconception 3 — "the k-means must be right to teach"
@@ -295,7 +319,7 @@ Hsu et al., TASLP 2021, abstract and Table V · the ICASSP 2021 "bad teacher" pa
 |:--|:--|:--|
 | target | k-means ids (it. 2, layer 6 / layer 9) | the **same** masked prediction of k-means ids |
 | input | clean utterance, masked | utterance **mixed with noise or another speaker**, masked — predict the clean target |
-| attention | relative position (sinusoid / bucket) | **gated relative position bias** |
+| position | a convolutional relative positional embedding (wav2vec 2.0's) | adds a **gated relative position bias** inside attention |
 | pre-training data (LARGE) | 60k h Libri-light | **94k h** Libri-light + GigaSpeech + VoxPopuli |
 | what it buys | content | content, plus a representation that already separates speakers and ignores noise |
 
@@ -311,8 +335,16 @@ Chen et al., IEEE JSTSP 2022 (abstract: denoising, gated position bias, 60k → 
 
 {{< include assets/w05/data2vec.inline.qmd >}}
 
+::: {.fragment fragment-index=1}
+$$\mathbf{y}_t = \frac{1}{K_{\ell}}\sum_{l = n_{\text{layer}} - K_{\ell} + 1}^{n_{\text{layer}}} \mathrm{IN}\big(\mathbf{h}^{(l),\,\text{teacher}}_t\big),\qquad K_{\ell} = 8\colon\ \text{continuous, contextualised, moving}$$
+:::
+
+::: {.fragment fragment-index=2}
+$$\boldsymbol{\theta}_{\text{teacher}} \leftarrow \tau_{\text{ema}}\,\boldsymbol{\theta}_{\text{teacher}} + (1 - \tau_{\text{ema}})\,\boldsymbol{\theta}_{\text{student}},\qquad \tau_{\text{ema}}\colon 0.999 \to 0.9999$$
+:::
+
 ::: {.footer}
-Baevski et al. 2022 §4.2 · BASE: $K_{\ell} = 8$, instance norm, L2, $\tau_{\text{ema}}\colon 0.999 \to 0.9999$
+Baevski et al. 2022 §4.2 · BASE: $K_{\ell} = 8$, instance norm, L2 at $t \in M$ · $\tau_{\text{ema}}$ rises over 30k updates, then fixed
 :::
 
 ## BEST-RQ: a teacher that knows nothing
@@ -367,8 +399,8 @@ wav2vec 2.0 Table 1 (10 min → 960 h) · "pseudo-labels" is our word; HuBERT sa
 
 | | speaker probe peaks at | phone probe peaks at | CCA with layer 0: min / top |
 |:--|--:|--:|--:|
-| HuBERT-base (`hubert-base-ls960`) | — | — | — / — |
-| wav2vec 2.0 base (`wav2vec2-base`) | — | — | — / — |
+| HuBERT-base | — | — | — / — |
+| wav2vec 2.0 base | — | — | — / — |
 
 ::: {.footer}
 Demo 1 · not built (2026-10-11) · curves are shapes, not data · → w05-metrics.json
@@ -453,7 +485,7 @@ Changing the benchmark changes **which** bias you are measuring under. Read the 
 :::
 
 ::: {.footer}
-Shi et al. 2023 (143 languages; multilingual ≠ always better) · Huang et al. 2024
+Shi et al. 2023 (143 languages; multilingual $\neq$ always better) · Huang et al. 2024
 :::
 
 # Units are not phones {.section-title}
@@ -526,6 +558,10 @@ Polyak et al., Interspeech 2021 (abstract: content, prosody, speaker extracted s
 
 {{< include assets/w05/confound.inline.qmd >}}
 
+::: {.claim .fragment fragment-index=4}
+**Match all three before reading the row** — and multilingual does not even guarantee a win (ML-SUPERB).
+:::
+
 ::: {.footer}
 wav2vec 2.0 Table 1 · Robust wav2vec 2.0, Interspeech 2021 · ML-SUPERB, Interspeech 2023
 :::
@@ -553,7 +589,7 @@ Baevski et al., NeurIPS 2020, Table 1 · HuBERT / WavLM LARGE: 60k h / 94k h
 
 | mismatch | what the paper varied | what it found (abstract) |
 |:--|:--|:--|
-| pre-train ≠ test | read audiobooks vs conversational / far-field / other corpora, in pre-training, fine-tuning and test | adding **unlabelled target-domain data to pre-training** "leads to large performance improvements" |
+| pre-train $\neq$ test | read audiobooks vs conversational / far-field / other corpora, in pre-training, fine-tuning and test | adding **unlabelled target-domain data to pre-training** "leads to large performance improvements" |
 | how much is recovered | — | the gap to in-domain pre-training closes by **66–73 %** |
 | what this course needs | Part III is conversational speech: overlap, laughter, fillers, far-field | the pre-training set of the encoder you pick is a design decision for W10 and W12 |
 
