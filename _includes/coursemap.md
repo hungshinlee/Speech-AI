@@ -11,7 +11,7 @@
 <a class="cm-wk" href="weeks/w02.html"><span class="cm-n">W2</span><span class="cm-t">Signals &amp; front-end</span></a>
 <a class="cm-wk" href="weeks/w03.html"><span class="cm-n">W3</span><span class="cm-t">Alignment: HMM → CTC</span></a>
 <a class="cm-wk" href="weeks/w04.html"><span class="cm-n">W4</span><span class="cm-t">Sequence models &amp; streaming</span></a>
-<div class="cm-wk cm-soon"><span class="cm-n">W5</span><span class="cm-t">SSL representations</span></div>
+<a class="cm-wk" href="weeks/w05.html"><span class="cm-n">W5</span><span class="cm-t">SSL representations</span></a>
 <div class="cm-wk cm-hinge cm-soon"><span class="cm-n">W6</span><span class="cm-t">Codecs &amp; discretization</span></div>
 </div>
 <div class="cm-col">

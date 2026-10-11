@@ -8,7 +8,7 @@
 | [W2](weeks/w02.qmd) | Signals and front end | **JM3** Ch 15 |
 | [W3](weeks/w03.qmd) | Alignment | Graves et al., *CTC*, ICML 2006 |
 | [W4](weeks/w04.qmd) | Sequence models and streaming | Graves, *Sequence Transduction with RNNs*, arXiv:1211.3711 |
-| W5 | SSL | Hsu et al., *HuBERT*, TASLP 2021 |
+| [W5](weeks/w05.qmd) | SSL | Hsu et al., *HuBERT*, TASLP 2021 |
 | W6 | Codec / tokenization | Défossez et al., *Moshi* (the Mimi codec section) |
 | W7 | ASR | Radford et al., *Whisper*, ICML 2023 |
 | W8 | TTS I | Lipman et al., *Flow Matching for Generative Modeling*, ICLR 2023 |

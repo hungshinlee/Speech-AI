@@ -30,13 +30,13 @@ Three threads run through all fourteen weeks and are asked of every layer: **Rep
 
 ## What is published so far
 
-Weeks are opened on the site as they are taught. As of October 2026, **W1–W4** are open: week pages, slides, and the demo code for every week. The remaining weeks appear on the course map as greyed-out placeholders; their pages are generated but not rendered, so there are no dead links.
+Weeks are opened on the site as they are taught. As of October 2026, **W1–W5** are open: week pages, slides, and the demo code for every week. The remaining weeks appear on the course map as greyed-out placeholders; their pages are generated but not rendered, so there are no dead links.
 
-| | W1 | W2 | W3 | W4 | W5–W14 |
-|---|---|---|---|---|---|
-| Week page (positioning, learning objectives, references, demos) | ✓ | ✓ | ✓ | ✓ | generated, not yet published |
-| Slides (`slides/wNN.qmd`, reveal.js) | ✓ | ✓ | ✓ | ✓ | — |
-| Demo code (`demos/wNN_dK_*/`) | ✓ | ✓ | ✓ | ✓ | — |
+| | W1 | W2 | W3 | W4 | W5 | W6–W14 |
+|---|---|---|---|---|---|---|
+| Week page (positioning, learning objectives, references, demos) | ✓ | ✓ | ✓ | ✓ | ✓ | generated, not yet published |
+| Slides (`slides/wNN.qmd`, reveal.js) | ✓ | ✓ | ✓ | ✓ | ✓ | — |
+| Demo code (`demos/wNN_dK_*/`) | ✓ | ✓ | ✓ | ✓ | ✓ | — |
 
 The **Syllabus** page carries the course setup, the three-part structure, and the **latency budget** — the shared coordinate system every week is measured against. The **Resources** page lists the core textbooks, one paper per week, the toolchain the demos run on, and what cannot be shown on the demo hardware. **Supplements** holds four guides (in Chinese): ten research topics for INTERSPEECH 2027 grounded in Taiwan's languages and sized for a single 16 GB GPU, the midterm proof-of-concept report, the final paper, and paper writing and narrative logic for speech venues.
 
@@ -45,7 +45,7 @@ The **Syllabus** page carries the course setup, the three-part structure, and th
 - **You do not need to run anything.** The course is lectures only. Every demo is run live by the lecturer, and every number on the slides comes from a rehearsal record checked into `demos/*/runs/rehearsal/`. The code is published so you can read it, re-run it, and change it.
 - **The slides have no speaker notes.** Pressing `S` in a deck opens an empty notes panel. That is intentional, not a bug: the Chinese lecture script is part of the teaching materials and is not published.
 - **Demos were tested on one machine** — a MacBook Pro M5 Max (64 GB unified memory, no CUDA). `demos/README.md` says which demos are portable (standard library, or CPU-only numpy/scipy/PyTorch) and which need Apple silicon (`mlx`), and pins every package and model revision in `demos/versions.lock`. The lecturer's own recordings (the material behind W2 demo 2 and W3 demo 1) are not published; those READMEs say how to record your own input.
-- **References are filtered before they reach the site.** Entries the course outline marks as unverified are dropped from the site rather than shown with a caveat, and the references added in the W2–W4 revisions were checked title and first author against the arXiv abstract page, the ACL Anthology, the ISCA archive, PMLR, or Crossref. Where a source is a blog post, model card, or specification rather than a peer-reviewed paper, the sentence says so.
+- **References are filtered before they reach the site.** Entries the course outline marks as unverified are dropped from the site rather than shown with a caveat, and the references added in the W2–W5 revisions were checked title and first author against the arXiv abstract page, the ACL Anthology, the ISCA archive, PMLR, or Crossref. Where a source is a blog post, model card, or specification rather than a peer-reviewed paper, the sentence says so.
 - The site has a **presentation mode** (press `z`, or use the navbar button) that collapses the side panels for projection.
 
 ## Repository layout
