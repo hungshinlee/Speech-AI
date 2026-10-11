@@ -31,10 +31,10 @@ Why $d = 8$, $\rho = 0.7$: the truth then falls between $\ln 8$ and $\ln 16$, so
 | | |
 |---|---|
 | Packages | `numpy`, `matplotlib` (the shared `.venv`; `../common.py` also imports scipy) |
-| Time | the full sweep in `2` took about 70 s on a 2-core Linux container, $N = 1024$ alone about 50 s; `rehearse` runs `1 2 3 b` in about 2 minutes. Timings on the instructor's machine are in `runs/rehearsal/rehearsal.json` once it has been rehearsed there |
+| Time | the full sweep in `2` takes 30 s on the instructor's Apple M5 Max ($N = 1024$ alone 22 s) and about 70 s on a 2-core Linux container; `rehearse` runs `1 2 3 b` in about one to two minutes |
 | Terminal | ≈ 90 columns for the rows of `2`; lower `display.digits` in `demo_config.toml` if it wraps. `./present.sh show --no-plot` runs without figure windows |
 | Cross-checks | `selftest` re-runs the whole sweep with the same seed and compares the estimate, $\mathcal{L}_N$ and std at every $N$ with `slides/assets/w05/w05-data.json` (tolerance $10^{-9}$; it also reports how many of the 30 numbers are bit-identical — 3000 Adam steps amplify BLAS summation-order differences of $10^{-16}$ between machines, so bit-identity is expected on one machine, not across machines), then checks the properties the inequality implies: every estimate $\leq \ln N$, every estimate $<$ truth, non-decreasing in $N$, std falling from $N = 2$ to 1024, the ceiling first clearing the truth at $N = 16$, and the bilinear critic looser than the full one at $N = 128$ |
-| Tested on | a 2-core Linux container, Python 3.13, numpy 2.5.3 (2026-10-11): `selftest` passes, 18 of 30 numbers bit-identical to the pre-computed curve, largest difference $8.9 \times 10^{-16}$. Not yet rehearsed on the instructor's Apple M5 Max |
+| Tested on | Apple M5 Max, macOS 27.0.1, Python 3.12.14, numpy 2.4.4 (2026-10-11): `selftest` passes and all ten estimates are bit-identical to the pre-computed curve (same machine, same numpy). On a 2-core Linux container (Python 3.13, numpy 2.5.3) `selftest` also passes, with 18 of 30 numbers bit-identical and a largest difference of $8.9 \times 10^{-16}$ |
 
 ## Run it
 
@@ -48,7 +48,7 @@ cd demos && ./setup.sh && cd w05_d3_infonce_bound
 
 ## What you should see
 
-From `runs/rehearsal/rehearsal.json` (2026-10-11, Linux container; truth 2.6934 nats):
+From `runs/rehearsal/rehearsal.json` (2026-10-11, Apple M5 Max; truth 2.6934 nats):
 
 - `2`: estimates $N$=2 **0.561**, 4 1.093, 8 **1.543** (ceiling 2.079), 16 1.846, 32 2.134, 64 2.339, 128 2.482, 256 2.563, 512 2.602, 1024 **2.652**. Every estimate is below its $\ln N$ and below the truth; 64 → 1024 adds 0.31 nat.
 - `3`: std over 200 batches 0.346 at $N = 2$, 0.237 at 32, 0.061 at 1024; at $N = 1024$ a quarter of the single batches land above the truth while their mean stays below it.
