@@ -1,0 +1,56 @@
+<!-- 由 scripts/make_figs_w05.py 產生，勿手改；投影片用 {{< include assets/w05/four-targets.inline.qmd >}} 貼入 -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 250" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<text x="984.0" y="22.0" font-size="15" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">schematic — not a measurement</text>
+<g class="fragment" data-fragment-index="0">
+<line x1="60.0" y1="72.0" x2="940.0" y2="72.0" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="60.0" y="52.0" font-size="14" font-weight="700" fill="#15803d" text-anchor="start" dominant-baseline="auto">target FIXED (built before training)</text>
+<text x="940.0" y="52.0" font-size="14" font-weight="700" fill="#dc2626" text-anchor="end" dominant-baseline="auto">target MOVES (built by the model, online)</text>
+<text x="500.0" y="52.0" font-size="13" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">←  who builds the answer, and does it change?  →</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<circle cx="160.0" cy="72.0" r="7.0" fill="#b45309" stroke="#b45309" stroke-width="1"/>
+<rect x="60.0" y="92.0" width="210.0" height="150.0" rx="8" fill="#fff7ed" stroke="#b45309" stroke-width="1.4"/>
+<text x="72.0" y="114.0" font-size="15" font-weight="700" fill="#b45309" text-anchor="start" dominant-baseline="auto">HuBERT (it. 2)</text>
+<text x="72.0" y="132.0" font-size="12" font-weight="600" fill="#b45309" text-anchor="start" dominant-baseline="auto">fixed · discrete · meaningful</text>
+<text x="72.0" y="154.0" font-size="11" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">k-means ids from a previous model</text>
+<text x="72.0" y="172.0" font-size="11" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">collapse: impossible</text>
+<text x="72.0" y="190.0" font-size="11" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">negatives: none</text>
+<text x="72.0" y="208.0" font-size="11" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">iterate: yes (teacher ← student)</text>
+<text x="72.0" y="226.0" font-size="11" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">fails: teacher's biases copied</text>
+</g>
+<g class="fragment" data-fragment-index="2">
+<circle cx="385.0" cy="72.0" r="7.0" fill="#15803d" stroke="#15803d" stroke-width="1"/>
+<rect x="285.0" y="92.0" width="210.0" height="150.0" rx="8" fill="#dcfce7" stroke="#15803d" stroke-width="1.4"/>
+<text x="297.0" y="114.0" font-size="15" font-weight="700" fill="#15803d" text-anchor="start" dominant-baseline="auto">BEST-RQ</text>
+<text x="297.0" y="132.0" font-size="12" font-weight="600" fill="#15803d" text-anchor="start" dominant-baseline="auto">fixed · discrete · random</text>
+<text x="297.0" y="154.0" font-size="11" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">random projection + codebook</text>
+<text x="297.0" y="172.0" font-size="11" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">collapse: impossible</text>
+<text x="297.0" y="190.0" font-size="11" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">negatives: none</text>
+<text x="297.0" y="208.0" font-size="11" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">iterate: nothing to iterate</text>
+<text x="297.0" y="226.0" font-size="11" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">fails: needs normalised input; no meaning</text>
+</g>
+<g class="fragment" data-fragment-index="3">
+<circle cx="610.0" cy="72.0" r="7.0" fill="#0b5cad" stroke="#0b5cad" stroke-width="1"/>
+<rect x="510.0" y="92.0" width="210.0" height="150.0" rx="8" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.4"/>
+<text x="522.0" y="114.0" font-size="15" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="auto">wav2vec 2.0</text>
+<text x="522.0" y="132.0" font-size="12" font-weight="600" fill="#0b5cad" text-anchor="start" dominant-baseline="auto">online · discrete</text>
+<text x="522.0" y="154.0" font-size="11" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">Gumbel-VQ of the model's own z</text>
+<text x="522.0" y="172.0" font-size="11" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">collapse: codebook (diversity loss)</text>
+<text x="522.0" y="190.0" font-size="11" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">negatives: 100, same utterance</text>
+<text x="522.0" y="208.0" font-size="11" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">iterate: no</text>
+<text x="522.0" y="226.0" font-size="11" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">fails: τ, codebook usage, local target</text>
+</g>
+<g class="fragment" data-fragment-index="4">
+<circle cx="835.0" cy="72.0" r="7.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<rect x="735.0" y="92.0" width="210.0" height="150.0" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.4"/>
+<text x="747.0" y="114.0" font-size="15" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="auto">data2vec</text>
+<text x="747.0" y="132.0" font-size="12" font-weight="600" fill="#7c3aed" text-anchor="start" dominant-baseline="auto">online · continuous</text>
+<text x="747.0" y="154.0" font-size="11" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">EMA teacher, top-K layers</text>
+<text x="747.0" y="172.0" font-size="11" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">collapse: representation (EMA, stop-grad)</text>
+<text x="747.0" y="190.0" font-size="11" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">negatives: none</text>
+<text x="747.0" y="208.0" font-size="11" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">iterate: continuous (EMA)</text>
+<text x="747.0" y="226.0" font-size="11" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">fails: no guarantee; recipe-sensitive</text>
+</g>
+</svg>
+```

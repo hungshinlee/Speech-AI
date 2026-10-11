@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 300" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<text x="984.0" y="22.0" font-size="15" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">schematic — not a measurement</text>
+<g class="fragment" data-fragment-index="0">
+<rect x="60.0" y="60.0" width="880.0" height="50.0" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="500.0" y="85.0" font-size="15" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">“model A gets a lower WER than model B — so A's objective / architecture is better”</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<rect x="60.0" y="130.0" width="880.0" height="40.0" rx="6" fill="#ffffff" stroke="#dc2626" stroke-width="1.2" stroke-dasharray="5 3"/>
+<text x="80.0" y="150.0" font-size="14" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="middle">pre-training hours</text>
+<text x="260.0" y="150.0" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">960 h vs 60k h vs 94k h — wav2vec 2.0 Table 1: same LARGE, LS-960 → LV-60k: 10.8 → 8.2 (10 min labels, test-other)</text>
+</g>
+<g class="fragment" data-fragment-index="2">
+<rect x="60.0" y="180.0" width="880.0" height="40.0" rx="6" fill="#ffffff" stroke="#b45309" stroke-width="1.2" stroke-dasharray="5 3"/>
+<text x="80.0" y="200.0" font-size="14" font-weight="700" fill="#b45309" text-anchor="start" dominant-baseline="middle">domain</text>
+<text x="260.0" y="200.0" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">read audiobooks vs conversation, far-field, 143 languages — Robust wav2vec 2.0, ML-SUPERB</text>
+</g>
+<g class="fragment" data-fragment-index="3">
+<rect x="60.0" y="230.0" width="880.0" height="40.0" rx="6" fill="#ffffff" stroke="#7c3aed" stroke-width="1.2" stroke-dasharray="5 3"/>
+<text x="80.0" y="250.0" font-size="14" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="middle">model size</text>
+<text x="260.0" y="250.0" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">BASE (12 layers, 768-d) vs LARGE (24 layers, 1024-d) — and HuBERT's LARGE is also a 60k-hour model</text>
+</g>
+<g class="fragment" data-fragment-index="3">
+<text x="500.0" y="290.0" font-size="13" font-weight="600" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">match all three before reading the row — and multilingual does not even guarantee a win (ML-SUPERB)</text>
+</g>
+</svg>

@@ -1,0 +1,273 @@
+{
+  "_note": "由 scripts/make_figs_w05.py 產生，勿手改。W5 沒有量測數字；Demo 1／Demo 2 的數字建好後進 w05-metrics.json。這裡只有 InfoNCE 天花板的算例：已知互資訊的高斯對、雙線性 critic、N 從 2 掃到 1024（Demo 3 的 demo.py 要重現同一條曲線）；以及投影片上引用的原文設定值（出處在 verification/2026-10-09-w5.md 末段，2026-10-11 對過原文）。",
+  "infonce_ceiling": {
+    "seed": 20261011,
+    "d": 8,
+    "rho": 0.7,
+    "I_true_nats": 2.6933782130550625,
+    "closed_form": "I = -(d/2) ln(1 - rho^2) per Gaussian pair, summed over d independent dims",
+    "critic": "f(x,y) = exp(x^T W y + a ||y||^2), W in R^{d x d}, Adam lr 0.01, 3000 steps, batch = N pairs (diag positives)",
+    "estimate_is": "ln N - L_N on 200 held-out batches",
+    "sweep": [
+      {
+        "N": 2,
+        "ln_N": 0.6931471805599453,
+        "L_N": 0.1322299344344389,
+        "estimate": 0.5609172461255064,
+        "estimate_std_over_batches": 0.3458849385890859,
+        "estimate_le_ln_N": true
+      },
+      {
+        "N": 4,
+        "ln_N": 1.3862943611198906,
+        "L_N": 0.293531032519019,
+        "estimate": 1.0927633286008716,
+        "estimate_std_over_batches": 0.34633676464127533,
+        "estimate_le_ln_N": true
+      },
+      {
+        "N": 8,
+        "ln_N": 2.0794415416798357,
+        "L_N": 0.5359582218549623,
+        "estimate": 1.5434833198248734,
+        "estimate_std_over_batches": 0.3007862576317233,
+        "estimate_le_ln_N": true
+      },
+      {
+        "N": 16,
+        "ln_N": 2.772588722239781,
+        "L_N": 0.9268750727109483,
+        "estimate": 1.8457136495288329,
+        "estimate_std_over_batches": 0.32876354193289004,
+        "estimate_le_ln_N": true
+      },
+      {
+        "N": 32,
+        "ln_N": 3.4657359027997265,
+        "L_N": 1.3318091836362749,
+        "estimate": 2.1339267191634517,
+        "estimate_std_over_batches": 0.23710938279515423,
+        "estimate_le_ln_N": true
+      },
+      {
+        "N": 64,
+        "ln_N": 4.1588830833596715,
+        "L_N": 1.8201476821757308,
+        "estimate": 2.338735401183941,
+        "estimate_std_over_batches": 0.19626767330553357,
+        "estimate_le_ln_N": true
+      },
+      {
+        "N": 128,
+        "ln_N": 4.852030263919617,
+        "L_N": 2.3702061309702405,
+        "estimate": 2.4818241329493764,
+        "estimate_std_over_batches": 0.14854436397024143,
+        "estimate_le_ln_N": true
+      },
+      {
+        "N": 256,
+        "ln_N": 5.545177444479562,
+        "L_N": 2.9822557180717473,
+        "estimate": 2.562921726407815,
+        "estimate_std_over_batches": 0.12155507691053306,
+        "estimate_le_ln_N": true
+      },
+      {
+        "N": 512,
+        "ln_N": 6.238324625039508,
+        "L_N": 3.63660067829844,
+        "estimate": 2.6017239467410676,
+        "estimate_std_over_batches": 0.08409174198867278,
+        "estimate_le_ln_N": true
+      },
+      {
+        "N": 1024,
+        "ln_N": 6.931471805599453,
+        "L_N": 4.279838519007578,
+        "estimate": 2.651633286591875,
+        "estimate_std_over_batches": 0.061296849935239005,
+        "estimate_le_ln_N": true
+      }
+    ]
+  },
+  "paper_settings": {
+    "wav2vec2": {
+      "K_distractors": 100,
+      "negatives_from": "other masked time steps of the same utterance (§4.2; App. F: whole batch hurts)",
+      "G": 2,
+      "V": 320,
+      "codewords": 102400,
+      "mask_M": 10,
+      "mask_p": 0.065,
+      "mask_mean_span_steps": 14.7,
+      "mask_mean_span_ms": 299,
+      "masked_fraction": 0.49,
+      "gumbel_tau": {
+        "start": 2.0,
+        "decay_per_update": 0.999995,
+        "floor_base": 0.5,
+        "floor_large": 0.1
+      },
+      "alpha_diversity": 0.1,
+      "kappa_contrastive": 0.1,
+      "cnn": {
+        "strides": [
+          5,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "kernels": [
+          10,
+          3,
+          3,
+          3,
+          3,
+          2,
+          2
+        ],
+        "total_stride": 320,
+        "receptive_field_samples": 400,
+        "receptive_field_ms": 25,
+        "frame_ms": 20
+      },
+      "table1_large_lm": {
+        "LS-960": {
+          "10min": [
+            6.8,
+            10.8
+          ],
+          "100h": [
+            2.3,
+            5.0
+          ]
+        },
+        "LV-60k": {
+          "10min": [
+            4.8,
+            8.2
+          ],
+          "100h": [
+            2.0,
+            4.0
+          ]
+        },
+        "_cols": "test-clean, test-other WER (%)"
+      },
+      "compute": {
+        "BASE": "64 V100, 1.6 days",
+        "LARGE_LS960": "128 V100, 2.3 days",
+        "LARGE_LV60k": "128 V100, 5.2 days"
+      }
+    },
+    "hubert": {
+      "it1_teacher": "k-means K=100 on 39-d MFCC",
+      "it2_teacher": "k-means K=500 on BASE it1 layer 6",
+      "large_teacher": "k-means on BASE it2 layer 9",
+      "tau": 0.1,
+      "mask_l": 10,
+      "mask_p": 0.08,
+      "alpha_ablation_table_V_dev_other_WER": {
+        "alpha": [
+          1.0,
+          0.5,
+          0.0
+        ],
+        "MFCC_K100": [
+          17.86,
+          29.57,
+          96.37
+        ],
+        "it1_L6_K500": [
+          11.91,
+          13.47,
+          23.29
+        ],
+        "chenone": [
+          10.38,
+          9.16,
+          9.79
+        ]
+      },
+      "mfcc_teacher_K100": {
+        "cluster_purity": 0.099,
+        "phone_purity": 0.335,
+        "PNMI": 0.255
+      },
+      "compute": {
+        "BASE": "32 GPUs, 250k + 400k steps",
+        "LARGE": "128 GPUs",
+        "X-LARGE": "256 GPUs"
+      }
+    },
+    "cpc": {
+      "cnn_strides": [
+        5,
+        4,
+        2,
+        2,
+        2
+      ],
+      "total_stride": 160,
+      "frame_ms": 10,
+      "predict_steps": 12,
+      "table1_linear_probe_LS100": {
+        "phone_acc": {
+          "random": 27.6,
+          "MFCC": 39.7,
+          "CPC": 64.6,
+          "supervised": 74.6
+        },
+        "speaker_acc": {
+          "random": 1.87,
+          "MFCC": 17.6,
+          "CPC": 97.4,
+          "supervised": 98.5
+        }
+      }
+    },
+    "data2vec_speech_base": {
+      "K_layers": 8,
+      "norm": "instance norm per layer, then average",
+      "ema_tau": [
+        0.999,
+        0.9999
+      ],
+      "ema_anneal_steps": 30000,
+      "loss": "L2",
+      "mask_p": 0.065,
+      "mask_span": 10
+    },
+    "bestrq": {
+      "input": "80-d log-mel, stacked 4 (non-streaming) / 2 (streaming), normalised to zero mean unit variance",
+      "codebook": [
+        8192,
+        16
+      ],
+      "init": "projection Xavier, codebook standard normal; neither updated",
+      "mask": "400 ms spans, p = 0.01 (non-streaming)"
+    },
+    "pasad2021": {
+      "model": "wav2vec 2.0 Base / Large",
+      "turn_back_measured_against": "layer 0 (CNN local features), Fig. 3",
+      "phone_peak_base": "layers 6–7 (MI-phone, CCA-AGWE)"
+    },
+    "pasad2023": {
+      "turn_back_to_cnn": [
+        "wav2vec 2.0",
+        "XLSR-53",
+        "FaST-VGS+"
+      ],
+      "turn_back_to_intermediate_layer": [
+        "HuBERT",
+        "WavLM",
+        "AV-HuBERT"
+      ],
+      "single_layer_vs_weighted_sum": "best single layer beats learned weighted sum by 4–9% relative on ASR"
+    }
+  }
+}
