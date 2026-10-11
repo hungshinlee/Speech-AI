@@ -32,8 +32,8 @@
 <svg x="209.29" y="270" width="301.42" height="14" viewBox="0 0 301.42 14"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w5t110-figure_1">
-  <g id="w5t110-patch_1">
+ <g id="w5t121-figure_1">
+  <g id="w5t121-patch_1">
    <path d="M 0 14 
 L 301.42 14 
 L 301.42 0 
@@ -42,18 +42,18 @@ L 0 14
 z
 " style="fill: none"/>
   </g>
-  <g id="w5t110-text_1">
+  <g id="w5t121-text_1">
    <!-- $\mathsf{layer\ } l\ \ (l = 0:\ \mathsf{CNN\ output};\ 1 \dots 12:\ \mathsf{Transformer})$ -->
    <g style="fill: #1f2328" transform="translate(0 10.5) scale(0.14 -0.14)">
     <defs>
-     <path id="w5t110-Cmss10-6c" d="M 506 0 
+     <path id="w5t121-Cmss10-6c" d="M 506 0 
 L 506 4441 
 L 1013 4441 
 L 1013 0 
 L 506 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w5t110-Cmss10-61" d="M 972 -72 
+     <path id="w5t121-Cmss10-61" d="M 972 -72 
 Q 766 -72 605 48 
 Q 444 169 356 359 
 Q 269 550 269 763 
@@ -87,7 +87,7 @@ Q 1641 1228 1198 1125
 Q 756 1022 756 763 
 z
 " transform="scale(0.015625)"/>
-     <path id="w5t110-Cmss10-79" d="M 275 -1259 
+     <path id="w5t121-Cmss10-79" d="M 275 -1259 
 L 238 -819 
 Q 484 -922 769 -922 
 Q 903 -922 989 -773 
@@ -110,7 +110,7 @@ Q 728 -1313 515 -1297
 Q 303 -1281 275 -1259 
 z
 " transform="scale(0.015625)"/>
-     <path id="w5t110-Cmss10-65" d="M 1594 -72 
+     <path id="w5t121-Cmss10-65" d="M 1594 -72 
 Q 1300 -72 1044 51 
 Q 788 175 602 390 
 Q 416 606 314 882 
@@ -138,7 +138,7 @@ Q 984 2319 876 2145
 Q 769 1972 722 1778 
 z
 " transform="scale(0.015625)"/>
-     <path id="w5t110-Cmss10-72" d="M 513 0 
+     <path id="w5t121-Cmss10-72" d="M 513 0 
 L 513 2881 
 L 984 2881 
 L 984 2328 
@@ -153,7 +153,7 @@ L 1019 0
 L 513 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w5t110-Cmmi10-6c" d="M 281 519 
+     <path id="w5t121-Cmmi10-6c" d="M 281 519 
 Q 281 538 286 575 
 Q 291 613 295 648 
 Q 300 684 300 703 
@@ -182,7 +182,7 @@ Q 628 -72 454 93
 Q 281 259 281 519 
 z
 " transform="scale(0.015625)"/>
-     <path id="w5t110-Cmr10-28" d="M 1984 -1588 
+     <path id="w5t121-Cmr10-28" d="M 1984 -1588 
 Q 1628 -1306 1370 -942 
 Q 1113 -578 948 -165 
 Q 784 247 703 697 
@@ -208,7 +208,7 @@ L 2016 -1600
 Q 1984 -1600 1984 -1588 
 z
 " transform="scale(0.015625)"/>
-     <path id="w5t110-Cmr10-3d" d="M 481 850 
+     <path id="w5t121-Cmr10-3d" d="M 481 850 
 Q 428 850 393 890 
 Q 359 931 359 978 
 Q 359 1031 393 1068 
@@ -233,7 +233,7 @@ Q 4547 2094 4500 2094
 L 481 2094 
 z
 " transform="scale(0.015625)"/>
-     <path id="w5t110-Cmr10-30" d="M 1600 -141 
+     <path id="w5t121-Cmr10-30" d="M 1600 -141 
 Q 816 -141 533 504 
 Q 250 1150 250 2041 
 Q 250 2597 351 3087 
@@ -263,7 +263,7 @@ Q 991 484 1158 254
 Q 1325 25 1600 25 
 z
 " transform="scale(0.015625)"/>
-     <path id="w5t110-Cmr10-3a" d="M 538 353 
+     <path id="w5t121-Cmr10-3a" d="M 538 353 
 Q 538 497 644 600 
 Q 750 703 891 703 
 Q 978 703 1062 656 
@@ -287,7 +287,7 @@ Q 747 2053 642 2158
 Q 538 2263 538 2406 
 z
 " transform="scale(0.015625)"/>
-     <path id="w5t110-Cmss10-43" d="M 2484 -141 
+     <path id="w5t121-Cmss10-43" d="M 2484 -141 
 Q 2028 -141 1643 59 
 Q 1259 259 986 600 
 Q 713 941 564 1359 
@@ -320,7 +320,7 @@ Q 3163 -81 2972 -111
 Q 2781 -141 2484 -141 
 z
 " transform="scale(0.015625)"/>
-     <path id="w5t110-Cmss10-4e" d="M 603 0 
+     <path id="w5t121-Cmss10-4e" d="M 603 0 
 L 603 4441 
 L 1434 4441 
 Q 1603 4106 1875 3564 
@@ -339,7 +339,7 @@ L 1125 0
 L 603 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w5t110-Cmss10-6f" d="M 1600 -72 
+     <path id="w5t121-Cmss10-6f" d="M 1600 -72 
 Q 1203 -72 878 133 
 Q 553 338 365 680 
 Q 178 1022 178 1403 
@@ -371,7 +371,7 @@ Q 1044 547 1214 456
 Q 1384 366 1600 366 
 z
 " transform="scale(0.015625)"/>
-     <path id="w5t110-Cmss10-75" d="M 1147 -72 
+     <path id="w5t121-Cmss10-75" d="M 1147 -72 
 Q 906 -72 765 26 
 Q 625 125 565 297 
 Q 506 469 506 703 
@@ -392,7 +392,7 @@ Q 2094 119 1786 23
 Q 1478 -72 1147 -72 
 z
 " transform="scale(0.015625)"/>
-     <path id="w5t110-Cmss10-74" d="M 1141 -72 
+     <path id="w5t121-Cmss10-74" d="M 1141 -72 
 Q 859 -72 753 211 
 Q 647 494 647 831 
 L 647 2444 
@@ -413,7 +413,7 @@ Q 1884 47 1646 -12
 Q 1409 -72 1141 -72 
 z
 " transform="scale(0.015625)"/>
-     <path id="w5t110-Cmss10-70" d="M 513 -1241 
+     <path id="w5t121-Cmss10-70" d="M 513 -1241 
 L 513 2841 
 L 1019 2841 
 L 1019 2541 
@@ -443,7 +443,7 @@ Q 1116 2238 1038 2125
 L 1038 744 
 z
 " transform="scale(0.015625)"/>
-     <path id="w5t110-Cmr10-3b" d="M 634 -1153 
+     <path id="w5t121-Cmr10-3b" d="M 634 -1153 
 Q 634 -1125 647 -1113 
 Q 1094 -628 1094 25 
 L 1094 56 
@@ -474,7 +474,7 @@ Q 747 2053 642 2158
 Q 538 2263 538 2406 
 z
 " transform="scale(0.015625)"/>
-     <path id="w5t110-Cmr10-31" d="M 594 0 
+     <path id="w5t121-Cmr10-31" d="M 594 0 
 L 594 225 
 Q 1394 225 1394 428 
 L 1394 3788 
@@ -490,7 +490,7 @@ L 2694 0
 L 594 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w5t110-STIXGeneral-Regular-2026" d="M 5683 275 
+     <path id="w5t121-STIXGeneral-Regular-2026" d="M 5683 275 
 Q 5683 134 5577 32 
 Q 5472 -70 5325 -70 
 Q 5178 -70 5075 32 
@@ -521,7 +521,7 @@ Q 1210 640 1315 531
 Q 1421 422 1421 275 
 z
 " transform="scale(0.015625)"/>
-     <path id="w5t110-Cmr10-32" d="M 319 0 
+     <path id="w5t121-Cmr10-32" d="M 319 0 
 L 319 172 
 Q 319 188 331 206 
 L 1325 1306 
@@ -562,7 +562,7 @@ L 2694 0
 L 319 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w5t110-Cmss10-54" d="M 1881 0 
+     <path id="w5t121-Cmss10-54" d="M 1881 0 
 L 1881 4006 
 L 231 4000 
 L 231 4441 
@@ -573,7 +573,7 @@ L 2478 0
 L 1881 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w5t110-Cmss10-6e" d="M 506 0 
+     <path id="w5t121-Cmss10-6e" d="M 506 0 
 L 506 2881 
 L 991 2881 
 L 991 2444 
@@ -593,7 +593,7 @@ L 1031 0
 L 506 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w5t110-Cmss10-73" d="M 178 213 
+     <path id="w5t121-Cmss10-73" d="M 178 213 
 L 263 672 
 Q 716 359 1259 359 
 Q 1494 359 1659 461 
@@ -625,7 +625,7 @@ Q 1566 -72 1259 -72
 Q 684 -72 178 213 
 z
 " transform="scale(0.015625)"/>
-     <path id="w5t110-Cmss10-66" d="M 634 0 
+     <path id="w5t121-Cmss10-66" d="M 634 0 
 L 634 2444 
 L 172 2444 
 L 172 2841 
@@ -649,7 +649,7 @@ L 1141 0
 L 634 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w5t110-Cmss10-6d" d="M 506 0 
+     <path id="w5t121-Cmss10-6d" d="M 506 0 
 L 506 2881 
 L 991 2881 
 L 991 2444 
@@ -679,7 +679,7 @@ L 1031 0
 L 506 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w5t110-Cmr10-29" d="M 416 -1600 
+     <path id="w5t121-Cmr10-29" d="M 416 -1600 
 Q 359 -1600 359 -1544 
 Q 359 -1516 372 -1503 
 Q 1466 -434 1466 1600 
@@ -701,50 +701,53 @@ L 416 -1600
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w5t110-Cmss10-6c"/>
-    <use xlink:href="#w5t110-Cmss10-61" transform="translate(23.779297 0)"/>
-    <use xlink:href="#w5t110-Cmss10-79" transform="translate(71.777344 0)"/>
-    <use xlink:href="#w5t110-Cmss10-65" transform="translate(117.871094 0)"/>
-    <use xlink:href="#w5t110-Cmss10-72" transform="translate(162.255859 0)"/>
-    <use xlink:href="#w5t110-Cmmi10-6c" transform="translate(225.601921 0)"/>
-    <use xlink:href="#w5t110-Cmr10-28" transform="translate(313.915138 0)"/>
-    <use xlink:href="#w5t110-Cmmi10-6c" transform="translate(352.733497 0)"/>
-    <use xlink:href="#w5t110-Cmr10-3d" transform="translate(400.077247 0)"/>
-    <use xlink:href="#w5t110-Cmr10-30" transform="translate(495.321388 0)"/>
-    <use xlink:href="#w5t110-Cmr10-3a" transform="translate(562.879981 0)"/>
-    <use xlink:href="#w5t110-Cmss10-43" transform="translate(637.388152 0)"/>
-    <use xlink:href="#w5t110-Cmss10-4e" transform="translate(701.206512 0)"/>
-    <use xlink:href="#w5t110-Cmss10-4e" transform="translate(772.007293 0)"/>
-    <use xlink:href="#w5t110-Cmss10-6f" transform="translate(872.072104 0)"/>
-    <use xlink:href="#w5t110-Cmss10-75" transform="translate(922.072104 0)"/>
-    <use xlink:href="#w5t110-Cmss10-74" transform="translate(973.683433 0)"/>
-    <use xlink:href="#w5t110-Cmss10-70" transform="translate(1009.767417 0)"/>
-    <use xlink:href="#w5t110-Cmss10-75" transform="translate(1061.378745 0)"/>
-    <use xlink:href="#w5t110-Cmss10-74" transform="translate(1112.990073 0)"/>
-    <use xlink:href="#w5t110-Cmr10-3b" transform="translate(1149.074058 0)"/>
-    <use xlink:href="#w5t110-Cmr10-31" transform="translate(1223.582229 0)"/>
-    <use xlink:href="#w5t110-STIXGeneral-Regular-2026" transform="translate(1291.140822 0)"/>
-    <use xlink:href="#w5t110-Cmr10-31" transform="translate(1408.699401 0)"/>
-    <use xlink:href="#w5t110-Cmr10-32" transform="translate(1458.699401 0)"/>
-    <use xlink:href="#w5t110-Cmr10-3a" transform="translate(1526.257995 0)"/>
-    <use xlink:href="#w5t110-Cmss10-54" transform="translate(1600.766165 0)"/>
-    <use xlink:href="#w5t110-Cmss10-72" transform="translate(1668.783744 0)"/>
-    <use xlink:href="#w5t110-Cmss10-61" transform="translate(1702.865775 0)"/>
-    <use xlink:href="#w5t110-Cmss10-6e" transform="translate(1750.863822 0)"/>
-    <use xlink:href="#w5t110-Cmss10-73" transform="translate(1802.47515 0)"/>
-    <use xlink:href="#w5t110-Cmss10-66" transform="translate(1840.7564 0)"/>
-    <use xlink:href="#w5t110-Cmss10-6f" transform="translate(1871.273978 0)"/>
-    <use xlink:href="#w5t110-Cmss10-72" transform="translate(1921.273978 0)"/>
-    <use xlink:href="#w5t110-Cmss10-6d" transform="translate(1955.356009 0)"/>
-    <use xlink:href="#w5t110-Cmss10-65" transform="translate(2034.75054 0)"/>
-    <use xlink:href="#w5t110-Cmss10-72" transform="translate(2079.135306 0)"/>
-    <use xlink:href="#w5t110-Cmr10-29" transform="translate(2113.217337 0)"/>
+    <use xlink:href="#w5t121-Cmss10-6c"/>
+    <use xlink:href="#w5t121-Cmss10-61" transform="translate(23.779297 0)"/>
+    <use xlink:href="#w5t121-Cmss10-79" transform="translate(71.777344 0)"/>
+    <use xlink:href="#w5t121-Cmss10-65" transform="translate(117.871094 0)"/>
+    <use xlink:href="#w5t121-Cmss10-72" transform="translate(162.255859 0)"/>
+    <use xlink:href="#w5t121-Cmmi10-6c" transform="translate(225.601921 0)"/>
+    <use xlink:href="#w5t121-Cmr10-28" transform="translate(313.915138 0)"/>
+    <use xlink:href="#w5t121-Cmmi10-6c" transform="translate(352.733497 0)"/>
+    <use xlink:href="#w5t121-Cmr10-3d" transform="translate(400.077247 0)"/>
+    <use xlink:href="#w5t121-Cmr10-30" transform="translate(495.321388 0)"/>
+    <use xlink:href="#w5t121-Cmr10-3a" transform="translate(562.879981 0)"/>
+    <use xlink:href="#w5t121-Cmss10-43" transform="translate(637.388152 0)"/>
+    <use xlink:href="#w5t121-Cmss10-4e" transform="translate(701.206512 0)"/>
+    <use xlink:href="#w5t121-Cmss10-4e" transform="translate(772.007293 0)"/>
+    <use xlink:href="#w5t121-Cmss10-6f" transform="translate(872.072104 0)"/>
+    <use xlink:href="#w5t121-Cmss10-75" transform="translate(922.072104 0)"/>
+    <use xlink:href="#w5t121-Cmss10-74" transform="translate(973.683433 0)"/>
+    <use xlink:href="#w5t121-Cmss10-70" transform="translate(1009.767417 0)"/>
+    <use xlink:href="#w5t121-Cmss10-75" transform="translate(1061.378745 0)"/>
+    <use xlink:href="#w5t121-Cmss10-74" transform="translate(1112.990073 0)"/>
+    <use xlink:href="#w5t121-Cmr10-3b" transform="translate(1149.074058 0)"/>
+    <use xlink:href="#w5t121-Cmr10-31" transform="translate(1223.582229 0)"/>
+    <use xlink:href="#w5t121-STIXGeneral-Regular-2026" transform="translate(1291.140822 0)"/>
+    <use xlink:href="#w5t121-Cmr10-31" transform="translate(1408.699401 0)"/>
+    <use xlink:href="#w5t121-Cmr10-32" transform="translate(1458.699401 0)"/>
+    <use xlink:href="#w5t121-Cmr10-3a" transform="translate(1526.257995 0)"/>
+    <use xlink:href="#w5t121-Cmss10-54" transform="translate(1600.766165 0)"/>
+    <use xlink:href="#w5t121-Cmss10-72" transform="translate(1668.783744 0)"/>
+    <use xlink:href="#w5t121-Cmss10-61" transform="translate(1702.865775 0)"/>
+    <use xlink:href="#w5t121-Cmss10-6e" transform="translate(1750.863822 0)"/>
+    <use xlink:href="#w5t121-Cmss10-73" transform="translate(1802.47515 0)"/>
+    <use xlink:href="#w5t121-Cmss10-66" transform="translate(1840.7564 0)"/>
+    <use xlink:href="#w5t121-Cmss10-6f" transform="translate(1871.273978 0)"/>
+    <use xlink:href="#w5t121-Cmss10-72" transform="translate(1921.273978 0)"/>
+    <use xlink:href="#w5t121-Cmss10-6d" transform="translate(1955.356009 0)"/>
+    <use xlink:href="#w5t121-Cmss10-65" transform="translate(2034.75054 0)"/>
+    <use xlink:href="#w5t121-Cmss10-72" transform="translate(2079.135306 0)"/>
+    <use xlink:href="#w5t121-Cmr10-29" transform="translate(2113.217337 0)"/>
    </g>
   </g>
  </g>
 </svg>
 <text x="70.0" y="74.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">score (each curve its own scale)</text>
 <text x="80.0" y="46.0" font-size="12" font-weight="600" fill="#dc2626" text-anchor="start" dominant-baseline="auto">shapes only — Demo 1 replaces this with HuBERT-base / wav2vec2-base measured on dev-clean</text>
+<text x="670.0" y="186.0" font-size="11" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">phone, CCA: wav2vec 2.0 Base, pre-trained (Pasad 2021)</text>
+<text x="670.0" y="202.0" font-size="11" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">HuBERT: phones peak higher, turns back less (Pasad 2023)</text>
+<text x="670.0" y="218.0" font-size="11" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">speaker: an expectation; Demo 1 measures it</text>
 </g>
 <g class="fragment" data-fragment-index="1">
 <polyline points="80.0,152.4 126.7,117.4 173.3,102.2 220.0,96.2 266.7,99.2 313.3,108.3 360.0,120.5 406.7,132.6 453.3,144.8 500.0,153.9 546.7,160.0 593.3,163.0 640.0,166.1" fill="none" stroke="#7c3aed" stroke-width="2.4" stroke-linejoin="round"/>
@@ -764,6 +767,4 @@ z
 <rect x="670.0" y="132.0" width="14.0" height="14.0" rx="2" fill="#0b5cad" stroke="#0b5cad" stroke-width="1"/>
 <text x="692.0" y="143.0" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">CCA with layer 0: back up at the top</text>
 </g>
-<text x="670.0" y="200.0" font-size="11" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">(wav2vec 2.0, pre-trained, not fine-tuned;</text>
-<text x="670.0" y="216.0" font-size="11" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">HuBERT turns back less — Pasad 2023)</text>
 </svg>

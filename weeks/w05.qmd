@@ -6,6 +6,10 @@ toc-depth: 2
 
 <!-- 此檔由 scripts/build_weeks.py 從課程大綱過濾產生，請勿直接編輯。大綱正本在 private repo（$COURSE_OUTLINE），改完請重跑腳本。 -->
 
+::: {.callout-note appearance="minimal"}
+[**▶ Slides for this week**](../slides/w05.qmd)
+:::
+
 ## Where This Fits
 W4 opened the encoder — the shape of a Transformer / Conformer and the price of streaming — but never said where its ability comes from. Every loss in W3 and W4 assumed a transcript sitting next to the audio. This week removes the transcript and asks **what an encoder can learn without labels, and how**. It is the hub of the course's representation axis: W6's semantic tokens are direct descendants of this week's k-means units (Mimi distils WavLM into its first codebook), W7's ASR encoders are mostly this week's models with a CTC layer fine-tuned on top, and the first audio-native language model in W11 (GSLM) was trained on exactly these discrete units.
 
@@ -24,7 +28,7 @@ The local-language thread takes a concrete shape this week. The mainstream SSL m
 
 ## References
 - Oord, Li & Vinyals, **Representation Learning with Contrastive Predictive Coding**, arXiv:1807.03748 (2018) — CPC and InfoNCE; this week's derivation follows it, with the rigorous version in the next entry
-- Poole, Ozair, van den Oord, Alemi & Tucker, **On Variational Bounds of Mutual Information**, ICML 2019, PMLR 97:5171–5180 (arXiv:1905.06922) — the bias–variance trade-off of the InfoNCE bound; the counter-evidence to "more negatives is always better"
+- Poole, Ozair, van den Oord, Alemi & Tucker, **On Variational Bounds of Mutual Information**, ICML 2019, PMLR 97:5171–5180 (arXiv:1905.06922) — a proof of the InfoNCE bound that needs neither of CPC's approximations, its ceiling at the log of the batch size, and its bias–variance trade-off against other variational bounds (InfoNCE: low variance, high bias; NWJ: unbiased, high variance)
 - Schneider, Baevski, Collobert & Auli, **wav2vec: Unsupervised Pre-Training for Speech Recognition**, Interspeech 2019, pp. 3465–3469 (DOI 10.21437/Interspeech.2019-1873; arXiv:1904.05862) — purely convolutional contrastive pre-training, the predecessor of wav2vec 2.0
 - Baevski, Schneider & Auli, **vq-wav2vec: Self-Supervised Learning of Discrete Speech Representations**, ICLR 2020 (arXiv:1910.05453) — the first use of Gumbel-softmax / k-means quantisation in speech SSL, followed by BERT on the discrete codes
 - Baevski, Zhou, Mohamed & Auli, **wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations**, NeurIPS 2020 (Advances in NeurIPS 33; arXiv:2006.11477) — contrastive target, Gumbel-VQ, diversity loss; **the two same-architecture, different-data rows come from this paper's results table**

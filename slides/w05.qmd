@@ -89,7 +89,7 @@ Route: contrast → a teacher → layers → units ≠ phones → reading a comp
 | $G$, $V$, $\mathbf{e}_{g,v}$; $\mathbf{e}_k$ | codebook groups, entries per group, codeword; HuBERT's unit embedding |
 | $k_t \in \{1, \dots, K\}$, $K$ | cluster id and cluster count (**not** W4's $u$, a lattice index) |
 | $M$, $\tilde{\mathbf{X}}$ | masked positions; the masked input |
-| $\mathcal{Z}$, $N = \lvert\mathcal{Z}\rvert$, $\mathrm{sim}$, $\kappa$, $\tau$ | InfoNCE sample set; cosine; **contrastive** temperature; **Gumbel** temperature |
+| $\mathcal{Z}$ ($\mathcal{Z}_t$), $N = \lvert\mathcal{Z}\rvert$, $\mathrm{sim}$, $\kappa$, $\tau$ | InfoNCE sample set (one per masked step); cosine; **contrastive** temperature; **Gumbel** temperature |
 | $l = 0, \dots, n_{\text{layer}}$, $\mathbf{h}^{(l)}_t$, $\mathbf{w} = \mathrm{softmax}(\boldsymbol{\theta})$ | layer index ($0$ = CNN output), its output, SUPERB's layer weights |
 | $I(\cdot\,;\cdot)$, $H(\cdot)$, $\mathcal{L}_m$, $\mathcal{L}_d$, $\mathcal{L}_N$ | mutual information, entropy; masked-prediction, diversity, $N$-sample InfoNCE losses |
 
@@ -130,7 +130,7 @@ Oord, Li & Vinyals 2018, eq. 4 · Table 1: phone probe 64.6% vs MFCC 39.7%
 {{< include assets/w05/infonce-steps.inline.qmd >}}
 
 ::: {.footer}
-CPC App. A.1, eq. 6–11 · the $\approx$ is the paper's · rigorous version: Poole et al., ICML 2019
+CPC App. A.1, eq. 6–11 · a proof without the $\approx$ and $\geq$: Poole et al. 2019
 :::
 
 ## Demo 3 — the ceiling at $\ln N$
@@ -150,15 +150,15 @@ Demo 3 · not built (2026-10-11) · curve pre-computed by make_figs_w05.py → w
 | | what the bound says | what happens in practice |
 |:--|:--|:--|
 | few negatives | the ceiling $\ln N$ sits **below** the truth: you cannot see the information you want | the estimate hugs the ceiling (Demo 3, $N \leq 8$) |
-| many negatives | the ceiling clears the truth; the bound can tighten | the bias–variance trade-off reverses (Poole et al. 2019); the softmax over $N$ gets hard to train |
-| wav2vec 2.0 | $K = 100$ distractors — a ceiling of $\ln 101 \approx 4.6$ nat | sampled from the **same utterance**: same speaker, same channel — only content can separate them |
+| many negatives | the ceiling clears the truth; the bound can tighten | the ceiling rises only as $\ln N$: one more nat costs $e$ times the negatives; past the truth, more buys only a smaller variance (Demo 3) |
+| wav2vec 2.0 | $N - 1 = 100$ distractors — a ceiling of $\ln 101 \approx 4.6$ nat | sampled from the **same utterance**: same speaker, same channel — only content can separate them |
 
 ::: {.claim}
 **Hard beats many.** The negatives decide what the critic is forced to attend to; their number only decides how high the ceiling is.
 :::
 
 ::: {.footer}
-wav2vec 2.0 §4.2 ($K = 100$), App. F (whole-batch negatives hurt) · Poole et al., ICML 2019
+wav2vec 2.0 §4.2, App. F (whole-batch negatives hurt) · Poole et al. 2019 §2.3
 :::
 
 ## From predicting the future to filling a hole
@@ -208,9 +208,9 @@ $$\mathcal{L} = \mathcal{L}_m + \alpha\,\mathcal{L}_d, \qquad \mathcal{L}_m = -\
 | piece | wav2vec 2.0 BASE | why |
 |:--|:--|:--|
 | target | $\mathbf{q}_t = \mathrm{VQ}(\mathbf{z}_t)$ at masked $t$; $G = 2$, $V = 320$ | discrete, finite freedom (p14) |
-| negatives $\mathcal{Z}_t \setminus \{\mathbf{q}_t\}$ | $K = 100$, **other masked steps of the same utterance** | same speaker, same channel: only content separates them |
-| temperatures | $\kappa = 0.1$ (contrast); $\tau$: 2 → 0.5 (Gumbel) | two knobs, two jobs |
-| masking | $M = 10$ steps, $p = 0.065$; ≈ 49% of steps masked | long enough that interpolation fails |
+| negatives $\mathcal{Z}_t \setminus \{\mathbf{q}_t\}$ | $N - 1 = 100$, **other masked steps of the same utterance** | same speaker, same channel: only content separates them |
+| temperatures | $\kappa = 0.1$ (contrast); $\tau\colon 2 \to 0.5$ (Gumbel) | two knobs, two jobs |
+| masking | spans of 10 steps, start prob. 0.065; $\approx 49\%$ of steps masked | long enough that interpolation fails |
 | regulariser | $\alpha = 0.1$ on $\mathcal{L}_d$ | keep the codebook in use |
 
 ::: {.ask}
@@ -225,10 +225,10 @@ wav2vec 2.0 §3.2–3.3, §4.2; App. F
 
 ::: {.metrics}
 ::: {.metric}
-[64 × V100]{.num} [wav2vec 2.0 BASE · 1.6 days · LS-960]{.lab}
+[64 $\times$ V100]{.num} [wav2vec 2.0 BASE · 1.6 days · LS-960]{.lab}
 :::
 ::: {.metric}
-[128 × V100]{.num} [LARGE · 2.3 days (LS-960) · 5.2 days (LV-60k)]{.lab}
+[128 $\times$ V100]{.num} [LARGE · 2.3 days (LS-960) · 5.2 days (LV-60k)]{.lab}
 :::
 ::: {.metric}
 [32 → 256 GPUs]{.num} [HuBERT BASE → X-LARGE · 250k–400k steps per iteration]{.lab}
@@ -246,7 +246,7 @@ Nothing today is training. Not a ten-minute toy either — it would show "it doe
 :::
 
 ::: {.footer}
-wav2vec 2.0 App. B · HuBERT §III-D, §IV-C · no demo today is pre-training, by design
+wav2vec 2.0 App. B · HuBERT §IV-C · no demo today is pre-training, by design
 :::
 
 # Targets, second kind: a teacher {.section-title}
@@ -258,7 +258,7 @@ wav2vec 2.0 App. B · HuBERT §III-D, §IV-C · no demo today is pre-training, b
 $$\mathcal{L}_m = -\sum_{t \in M}\ln p(k_t \mid \tilde{\mathbf{X}}, t), \qquad p(k \mid \tilde{\mathbf{X}}, t) = \frac{\exp(\mathrm{sim}(\mathbf{A}\mathbf{c}_t, \mathbf{e}_k)/\kappa)}{\sum_{k'=1}^{K}\exp(\mathrm{sim}(\mathbf{A}\mathbf{c}_t, \mathbf{e}_{k'})/\kappa)}$$
 
 ::: {.footer}
-Hsu et al., TASLP 2021, eq. 3 ($\kappa = 0.1$, written $\tau$ there) · §V-A: layer 6, then layer 9
+Hsu et al., TASLP 2021, eq. 3 ($\kappa = 0.1$, written $\tau$ there) · §IV-C: layer 6, then layer 9
 :::
 
 ## How good is a teacher? Three purities
@@ -312,7 +312,7 @@ Chen et al., IEEE JSTSP 2022 (abstract: denoising, gated position bias, 60k → 
 {{< include assets/w05/data2vec.inline.qmd >}}
 
 ::: {.footer}
-Baevski et al., ICML 2022 §4.2 · speech BASE: $K_{\ell} = 8$, instance norm, L2, EMA 0.999 → 0.9999
+Baevski et al. 2022 §4.2 · BASE: $K_{\ell} = 8$, instance norm, L2, $\tau_{\text{ema}}\colon 0.999 \to 0.9999$
 :::
 
 ## BEST-RQ: a teacher that knows nothing
@@ -324,7 +324,7 @@ Baevski et al., ICML 2022 §4.2 · speech BASE: $K_{\ell} = 8$, instance norm, L
 :::
 
 ::: {.footer}
-Chiu et al., ICML 2022 · codebook 8192 × 16 · a streaming variant is evaluated (§4)
+Chiu et al., ICML 2022 · codebook $8192 \times 16$ · a streaming variant is evaluated (§4)
 :::
 
 ## Four targets in one row
@@ -410,7 +410,11 @@ Pasad et al. 2023: the best single layer often matches or beats the weighted sum
 
 {{< include assets/w05/weighted-sum.inline.qmd >}}
 
-$$\mathbf{h}_t = \sum_{l=0}^{n_{\text{layer}}} w_l\,\mathbf{h}^{(l)}_t, \qquad \mathbf{w} = \mathrm{softmax}(\boldsymbol{\theta}),\quad \boldsymbol{\theta} \text{ learned with the downstream head; the upstream is frozen}$$
+$$\mathbf{h}_t = \sum_{l=0}^{n_{\text{layer}}} w_l\,\mathbf{h}^{(l)}_t, \qquad \mathbf{w} = \mathrm{softmax}(\boldsymbol{\theta})$$
+
+::: {.small}
+$\boldsymbol{\theta}$ is learned together with the downstream head; the upstream stays frozen.
+:::
 
 ::: {.footer}
 Yang et al., Interspeech 2021 · Pasad et al. 2023: best single layer beats the sum by 4–9% (ASR)
@@ -565,7 +569,7 @@ Hsu et al., Robust wav2vec 2.0, Interspeech 2021 — numbers from the abstract
 
 | | a standard SSL encoder | what streaming needs | the bill (W4's accounting) |
 |:--|:--|:--|:--|
-| attention | bidirectional, whole utterance | a causal or chunked mask ($C$, $m$, $H$) | retrain or fine-tune with the mask; a quality cost (W4 p21–p22) |
+| attention | bidirectional, whole utterance | a causal or chunked mask (W4's $C$, $m$, $H$) | retrain or fine-tune with the mask; a quality cost (W4 p21–p22) |
 | frame rate | $s\Delta = 20$ ms, fixed by the CNN | W4's Conformer ran at 40 ms | **twice the frames**: $T$ doubles, $T^2$ quadruples, KV cache doubles |
 | compute per frame | ~100M (BASE) to ~300M (LARGE) parameters every 20 ms | a term $D_{\text{comp}}$ did not have | measure it (W3 Demo 3's MPS number is one forward of one short utterance) |
 
@@ -617,7 +621,7 @@ The middle of the trio is not one vector but thirteen, and the choice among them
 
 | Axis | What today added | The price, or the lesson |
 |:--|:--|:--|
-| **Latency** | a bidirectional encoder as the default; a 20 ms clock set by the CNN; $10^8$–$10^8 \times 3$ parameters per frame | streaming is a retrain, not a switch; $T$ doubles against W4's 40 ms; a new term in $D_{\text{comp}}$ |
+| **Latency** | a bidirectional encoder as the default; a 20 ms clock set by the CNN; $10^8$–$3 \times 10^8$ parameters per frame | streaming is a retrain, not a switch; $T$ doubles against W4's 40 ms; a new term in $D_{\text{comp}}$ |
 | **Supervision** | pre-training with **no transcript**: the target is built by a quantiser, a teacher, an EMA copy, or a random matrix | labels moved to fine-tuning and evaluation; their marginal value changed; **domain moved into pre-training** (unlabelled target-domain hours) |
 
 ::: {.claim}
@@ -643,7 +647,7 @@ A bound that caps at $\ln N$; four ways to write the answer down; thirteen layer
 **Read this week**
 
 - Mohamed et al., *Self-Supervised Speech Representation Learning: A Review*, IEEE JSTSP 2022 — the survey; read the taxonomy section, then re-sort it by target as we did today
-- Hsu et al., *HuBERT*, IEEE/ACM TASLP 2021 — §II for the loss, §IV-E for the three purities, Table V for the α ablation you saw
+- Hsu et al., *HuBERT*, IEEE/ACM TASLP 2021 — §II for the loss, §IV-E for the three purities, Table V for the $\alpha$ ablation you saw
 - Baevski et al., *wav2vec 2.0*, NeurIPS 2020 — §2–3 and Appendix B; look at Table 1 with p44 in mind
 
 **If one thing today was new to you, make it this one**
