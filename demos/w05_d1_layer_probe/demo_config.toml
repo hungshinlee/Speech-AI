@@ -1,0 +1,78 @@
+# 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
+# W5 demo 1：layer-wise probing——HuBERT-base 與 wav2vec 2.0 base 全部 13 層的三條曲線。換內容只改這裡。
+
+[models]
+# 兩個預訓練（未微調）的 encoder，同一個架構（CNN 7 層 + Transformer 12 層、768 維）、同一份資料（LS-960）、不同的目標：
+#   hubert   facebook/hubert-base-ls960   目標 = 前一代模型中間層的 k-means id（第二輪）
+#   w2v2     facebook/wav2vec2-base       目標 = 同一格 CNN 輸出的量化向量（對比）
+# 兩個都從 HF 以 HubertModel／Wav2Vec2Model 載入（不含 CTC head、不含 quantizer），commit 由 ./present.sh fetch 鎖進 model.lock。
+# 課堂上先跑 hubert（按 w 換 w2v2，a 並排）。
+order = ["hubert", "w2v2"]
+
+[models.hubert]
+repo = "facebook/hubert-base-ls960"
+label = "HuBERT-base"
+
+[models.w2v2]
+repo = "facebook/wav2vec2-base"
+label = "wav2vec 2.0 base"
+
+[infer]
+# 抽表徵放哪：auto = 有 MPS 就 mps，否則 cpu。check 會量 mps 與 cpu 的差與時間（HuBERT 的 output_hidden_states 在 MPS 上跑不跑，這裡回答）。
+device = "auto"
+# 兩個模型的 conv 前端相同：總 stride 320 sample = 20 ms、感受野 400 sample = 25 ms。check 拿實際的 T 對 (L − 400)/320 + 1。
+frame_ms = 20.0
+receptive_ms = 25.0
+# 第 0 層 = CNN 前端直出（model.feature_extractor，512 維，feature projection 之前）；第 1–12 層 = hidden_states[1:13]（每個 Transformer block 的輸出，768 維）。
+# hidden_states[0]（feature projection + positional conv 之後、第一個 block 之前）不算一層——講稿的「13 層」是 CNN + 12。
+n_layers = 13
+
+[data]
+# LibriSpeech dev-clean（CC BY 4.0；出處與授權在 speech_ai/media-sources/w05-librispeech-alignments.md）。
+# tar 與 W3 Demo 3 共用（../_media/dev-clean.tar.gz，337 MB，不進版控）；fetch 只解子集的 flac → ../_media/w05_d1/wav/<utt>.wav（16 kHz），不進版控。
+librispeech_url = "https://www.openslr.org/resources/12/dev-clean.tar.gz"
+fs = 16000
+# 子集：dev-clean 全部 40 位說話人、每人取排序後的前 utts_per_speaker 句（長度在 min_s 與 max_s 之間的）。
+utts_per_speaker = 10
+min_s = 2.0
+max_s = 15.0
+# 每位說話人最後 test_per_speaker 句當測試（探針與 CCA 都在測試句上報數字，訓練句上擬合）。
+test_per_speaker = 3
+
+[phones]
+# 音素邊界：gilkeyio/librispeech-alignments（Hugging Face，CC BY 4.0；MFA 的 word／phoneme 對齊，ARPAbet 帶重音數字）。
+# fetch 只讀 dev_clean parquet 的 id 與 phonemes 兩欄（pyarrow），寫成 data/alignments.json（進版控，只含子集）。
+hf_dataset = "gilkeyio/librispeech-alignments"
+parquet = "data/dev_clean-00000-of-00001.parquet"
+# 重音數字去掉（AH0、AH1、AH2 → AH）→ 39 個 ARPAbet 音素。沒有區間的 frame = 靜音；spn = 未知詞的噪音——兩者都不進音素探針。
+strip_stress = true
+exclude = ["spn", "sil", "sp", ""]
+# frame t 的中心時間 = (20 t + 12.5) ms；落在哪個音素區間就是哪個標籤。
+
+[frames]
+# 音素探針與 CCA 用的 frame：每句從有音素標籤的 frame 裡隨機取 per_utt 個（同一組 frame 用在每一層與 log-mel），不夠就全取。
+# 400 句 × 60 = 24,000 個 frame；13 層 × 768 維 float16 ≈ 350 MB 一個模型（../_media/w05_d1/feats_<model>.npz，不進版控）。
+per_utt = 60
+seed = 20261011
+
+[logmel]
+# 與 W2 同一支 dsp.mel_filterbank：25 ms Hann、20 ms hop（與模型的 frame 對齊，中心差 12.5 ms）、512 點 FFT、80 個 Slaney mel、log(power + 1e-10)。
+n_mels = 80
+win_ms = 25.0
+hop_ms = 20.0
+n_fft = 512
+scale = "slaney"
+
+[probe]
+# 線性探針 = 多類 logistic regression（numpy、Adam、full batch），輸入先用訓練集的平均／標準差標準化；報測試集的 accuracy。
+# 說話人：frame 級 → 40 類（與音素探針同一組 frame；句級平均池化的另算另印——它在 40 人、276 句訓練下每層都接近 1.0，看不出形狀）。音素：frame 級 → 39 類（約 17k frame 訓、7k 測）。
+steps = 300
+lr = 0.01
+l2 = 1e-3
+# CCA：訓練 frame 上擬合（ridge = reg × 平均變異數），測試 frame 上算每對 canonical 方向的相關、取平均。
+cca_reg = 1e-2
+
+[display]
+digits = 3
+fig_w = 14.0
+fig_h = 5.2

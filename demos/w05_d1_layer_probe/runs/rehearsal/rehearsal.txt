@@ -1,0 +1,178 @@
+
+────────────────────────────────────────────────────────────────────────
+1  1272-128104-0000（5.86 s）— HuBERT-base
+────────────────────────────────────────────────────────────────────────
+  T = 292 frames（20 ms 一格；(L − 400)/320 + 1 = 292）
+  layer  0  (CNN output, before projection)      292 × 512
+  layer  1  (transformer block  1 output)        292 × 768
+  layer  2  (transformer block  2 output)        292 × 768
+  layer  3  (transformer block  3 output)        292 × 768
+  layer  4  (transformer block  4 output)        292 × 768
+  layer  5  (transformer block  5 output)        292 × 768
+  layer  6  (transformer block  6 output)        292 × 768
+  layer  7  (transformer block  7 output)        292 × 768
+  layer  8  (transformer block  8 output)        292 × 768
+  layer  9  (transformer block  9 output)        292 × 768
+  layer 10  (transformer block 10 output)        292 × 768
+  layer 11  (transformer block 11 output)        292 × 768
+  layer 12  (transformer block 12 output)        292 × 768
+  抽表徵：每句中位數 51.0 ms（mps）；子集 396 句、23726 個標了音素的 frame
+
+────────────────────────────────────────────────────────────────────────
+2  speaker probe — HuBERT-base
+────────────────────────────────────────────────────────────────────────
+  layer  0  frame test acc 0.569   (train 0.711;  utterance-level 1.000)    1.8 s
+  layer  1  frame test acc 0.894   (train 1.000;  utterance-level 0.983)    2.1 s
+  layer  2  frame test acc 0.938   (train 1.000;  utterance-level 1.000)    2.1 s
+  layer  3  frame test acc 0.876   (train 1.000;  utterance-level 1.000)    2.1 s
+  layer  4  frame test acc 0.822   (train 1.000;  utterance-level 1.000)    2.1 s
+  layer  5  frame test acc 0.682   (train 1.000;  utterance-level 1.000)    2.1 s
+  layer  6  frame test acc 0.563   (train 0.998;  utterance-level 1.000)    2.1 s
+  layer  7  frame test acc 0.433   (train 0.995;  utterance-level 0.992)    2.1 s
+  layer  8  frame test acc 0.386   (train 0.997;  utterance-level 0.992)    2.1 s
+  layer  9  frame test acc 0.417   (train 1.000;  utterance-level 0.958)    2.1 s
+  layer 10  frame test acc 0.463   (train 1.000;  utterance-level 0.983)    2.1 s
+  layer 11  frame test acc 0.509   (train 0.999;  utterance-level 0.983)    2.1 s
+  layer 12  frame test acc 0.779   (train 1.000;  utterance-level 0.983)    2.1 s
+  共 28 s
+  峰值在 layer 2（0.938）；layer 0 0.569 → layer 12 0.779
+
+────────────────────────────────────────────────────────────────────────
+3  phone probe — HuBERT-base
+────────────────────────────────────────────────────────────────────────
+  layer  0  test acc 0.391   (train 0.499)    1.8 s
+  layer  1  test acc 0.546   (train 0.855)    2.0 s
+  layer  2  test acc 0.566   (train 0.904)    2.0 s
+  layer  3  test acc 0.605   (train 0.929)    2.0 s
+  layer  4  test acc 0.652   (train 0.941)    2.0 s
+  layer  5  test acc 0.723   (train 0.968)    2.0 s
+  layer  6  test acc 0.757   (train 0.983)    2.0 s
+  layer  7  test acc 0.783   (train 0.989)    2.0 s
+  layer  8  test acc 0.777   (train 0.992)    2.0 s
+  layer  9  test acc 0.788   (train 0.991)    2.0 s
+  layer 10  test acc 0.804   (train 0.993)    2.0 s
+  layer 11  test acc 0.809   (train 0.990)    2.0 s
+  layer 12  test acc 0.802   (train 0.970)    2.0 s
+  共 27 s
+  峰值在 layer 11（0.809）；layer 12 0.802，比峰值低 0.008
+
+────────────────────────────────────────────────────────────────────────
+4  PWCCA with layer 0 (CNN output) — HuBERT-base
+────────────────────────────────────────────────────────────────────────
+  layer  0  PWCCA 1.000   (plain mean 1.000; PCA dims 133 × 133)    0.2 s
+  layer  1  PWCCA 0.777   (plain mean 0.712; PCA dims 449 × 133)    0.2 s
+  layer  2  PWCCA 0.663   (plain mean 0.598; PCA dims 468 × 133)    0.2 s
+  layer  3  PWCCA 0.569   (plain mean 0.509; PCA dims 480 × 133)    0.2 s
+  layer  4  PWCCA 0.497   (plain mean 0.436; PCA dims 500 × 133)    0.2 s
+  layer  5  PWCCA 0.424   (plain mean 0.362; PCA dims 538 × 133)    0.3 s
+  layer  6  PWCCA 0.370   (plain mean 0.308; PCA dims 580 × 133)    0.3 s
+  layer  7  PWCCA 0.332   (plain mean 0.274; PCA dims 622 × 133)    0.3 s
+  layer  8  PWCCA 0.307   (plain mean 0.251; PCA dims 664 × 133)    0.3 s
+  layer  9  PWCCA 0.304   (plain mean 0.245; PCA dims 680 × 133)    0.3 s
+  layer 10  PWCCA 0.348   (plain mean 0.272; PCA dims 671 × 133)    0.3 s
+  layer 11  PWCCA 0.397   (plain mean 0.319; PCA dims 660 × 133)    0.3 s
+  layer 12  PWCCA 0.355   (plain mean 0.299; PCA dims 373 × 133)    0.2 s
+  共 4 s
+  最低在 layer 9（0.304）；layer 12 0.355，回升 +0.052
+
+────────────────────────────────────────────────────────────────────────
+4  PWCCA with log-mel (80 bands) — HuBERT-base
+────────────────────────────────────────────────────────────────────────
+  layer  0  PWCCA 0.462   (plain mean 0.405; PCA dims 133 × 45)    0.1 s
+  layer  1  PWCCA 0.534   (plain mean 0.434; PCA dims 449 × 45)    0.2 s
+  layer  2  PWCCA 0.482   (plain mean 0.405; PCA dims 468 × 45)    0.2 s
+  layer  3  PWCCA 0.432   (plain mean 0.365; PCA dims 480 × 45)    0.2 s
+  layer  4  PWCCA 0.387   (plain mean 0.323; PCA dims 500 × 45)    0.2 s
+  layer  5  PWCCA 0.349   (plain mean 0.286; PCA dims 538 × 45)    0.2 s
+  layer  6  PWCCA 0.322   (plain mean 0.260; PCA dims 580 × 45)    0.2 s
+  layer  7  PWCCA 0.295   (plain mean 0.236; PCA dims 622 × 45)    0.2 s
+  layer  8  PWCCA 0.284   (plain mean 0.224; PCA dims 664 × 45)    0.2 s
+  layer  9  PWCCA 0.282   (plain mean 0.220; PCA dims 680 × 45)    0.2 s
+  layer 10  PWCCA 0.316   (plain mean 0.236; PCA dims 671 × 45)    0.2 s
+  layer 11  PWCCA 0.356   (plain mean 0.268; PCA dims 660 × 45)    0.2 s
+  layer 12  PWCCA 0.321   (plain mean 0.259; PCA dims 373 × 45)    0.2 s
+  共 4 s
+  最低在 layer 9（0.282）；layer 12 0.321，回升 +0.040
+
+────────────────────────────────────────────────────────────────────────
+2  speaker probe — wav2vec 2.0 base
+────────────────────────────────────────────────────────────────────────
+  layer  0  frame test acc 0.651   (train 0.901;  utterance-level 0.992)    1.8 s
+  layer  1  frame test acc 0.872   (train 1.000;  utterance-level 1.000)    2.1 s
+  layer  2  frame test acc 0.888   (train 1.000;  utterance-level 1.000)    2.1 s
+  layer  3  frame test acc 0.884   (train 1.000;  utterance-level 1.000)    2.1 s
+  layer  4  frame test acc 0.838   (train 1.000;  utterance-level 1.000)    2.1 s
+  layer  5  frame test acc 0.650   (train 0.999;  utterance-level 1.000)    2.1 s
+  layer  6  frame test acc 0.547   (train 0.999;  utterance-level 1.000)    2.1 s
+  layer  7  frame test acc 0.543   (train 0.999;  utterance-level 1.000)    2.1 s
+  layer  8  frame test acc 0.540   (train 0.996;  utterance-level 0.992)    2.1 s
+  layer  9  frame test acc 0.763   (train 0.998;  utterance-level 1.000)    2.1 s
+  layer 10  frame test acc 0.884   (train 0.999;  utterance-level 1.000)    2.1 s
+  layer 11  frame test acc 0.713   (train 0.958;  utterance-level 0.992)    2.1 s
+  layer 12  frame test acc 0.945   (train 1.000;  utterance-level 0.975)    2.1 s
+  共 28 s
+  峰值在 layer 12（0.945）；layer 0 0.651 → layer 12 0.945
+
+────────────────────────────────────────────────────────────────────────
+3  phone probe — wav2vec 2.0 base
+────────────────────────────────────────────────────────────────────────
+  layer  0  test acc 0.426   (train 0.637)    1.8 s
+  layer  1  test acc 0.560   (train 0.901)    2.0 s
+  layer  2  test acc 0.602   (train 0.940)    2.0 s
+  layer  3  test acc 0.645   (train 0.958)    2.0 s
+  layer  4  test acc 0.712   (train 0.973)    2.0 s
+  layer  5  test acc 0.746   (train 0.985)    2.0 s
+  layer  6  test acc 0.760   (train 0.986)    2.0 s
+  layer  7  test acc 0.762   (train 0.987)    2.0 s
+  layer  8  test acc 0.770   (train 0.988)    2.0 s
+  layer  9  test acc 0.795   (train 0.989)    2.0 s
+  layer 10  test acc 0.768   (train 0.979)    2.0 s
+  layer 11  test acc 0.607   (train 0.785)    2.0 s
+  layer 12  test acc 0.558   (train 0.844)    2.0 s
+  共 27 s
+  峰值在 layer 9（0.795）；layer 12 0.558，比峰值低 0.237
+
+────────────────────────────────────────────────────────────────────────
+4  PWCCA with layer 0 (CNN output) — wav2vec 2.0 base
+────────────────────────────────────────────────────────────────────────
+  layer  0  PWCCA 1.000   (plain mean 1.000; PCA dims 336 × 336)    0.2 s
+  layer  1  PWCCA 0.610   (plain mean 0.539; PCA dims 555 × 336)    0.3 s
+  layer  2  PWCCA 0.481   (plain mean 0.423; PCA dims 607 × 336)    0.3 s
+  layer  3  PWCCA 0.385   (plain mean 0.334; PCA dims 601 × 336)    0.3 s
+  layer  4  PWCCA 0.319   (plain mean 0.270; PCA dims 596 × 336)    0.3 s
+  layer  5  PWCCA 0.267   (plain mean 0.224; PCA dims 641 × 336)    0.3 s
+  layer  6  PWCCA 0.232   (plain mean 0.195; PCA dims 666 × 336)    0.3 s
+  layer  7  PWCCA 0.214   (plain mean 0.179; PCA dims 682 × 336)    0.3 s
+  layer  8  PWCCA 0.234   (plain mean 0.183; PCA dims 674 × 336)    0.3 s
+  layer  9  PWCCA 0.335   (plain mean 0.248; PCA dims 640 × 336)    0.3 s
+  layer 10  PWCCA 0.440   (plain mean 0.331; PCA dims 606 × 336)    0.3 s
+  layer 11  PWCCA 0.301   (plain mean 0.224; PCA dims 468 × 336)    0.3 s
+  layer 12  PWCCA 0.286   (plain mean 0.228; PCA dims 341 × 336)    0.3 s
+  共 5 s
+  最低在 layer 7（0.214）；layer 12 0.286，回升 +0.072
+
+────────────────────────────────────────────────────────────────────────
+4  PWCCA with log-mel (80 bands) — wav2vec 2.0 base
+────────────────────────────────────────────────────────────────────────
+  layer  0  PWCCA 0.527   (plain mean 0.405; PCA dims 336 × 45)    0.1 s
+  layer  1  PWCCA 0.512   (plain mean 0.408; PCA dims 555 × 45)    0.2 s
+  layer  2  PWCCA 0.448   (plain mean 0.371; PCA dims 607 × 45)    0.2 s
+  layer  3  PWCCA 0.390   (plain mean 0.326; PCA dims 601 × 45)    0.2 s
+  layer  4  PWCCA 0.346   (plain mean 0.284; PCA dims 596 × 45)    0.2 s
+  layer  5  PWCCA 0.312   (plain mean 0.254; PCA dims 641 × 45)    0.2 s
+  layer  6  PWCCA 0.287   (plain mean 0.234; PCA dims 666 × 45)    0.2 s
+  layer  7  PWCCA 0.277   (plain mean 0.225; PCA dims 682 × 45)    0.2 s
+  layer  8  PWCCA 0.300   (plain mean 0.229; PCA dims 674 × 45)    0.2 s
+  layer  9  PWCCA 0.365   (plain mean 0.266; PCA dims 640 × 45)    0.2 s
+  layer 10  PWCCA 0.426   (plain mean 0.308; PCA dims 606 × 45)    0.2 s
+  layer 11  PWCCA 0.319   (plain mean 0.210; PCA dims 468 × 45)    0.2 s
+  layer 12  PWCCA 0.362   (plain mean 0.267; PCA dims 341 × 45)    0.2 s
+  共 4 s
+  最低在 layer 7（0.277）；layer 12 0.362，回升 +0.085
+
+────────────────────────────────────────────────────────────────────────
+t  摘要（p31 的表格）
+────────────────────────────────────────────────────────────────────────
+                       speaker peak     phone peak     CCA0 min / top
+  HuBERT-base        layer 2 (0.94) layer 11 (0.81)   0.30 (l9) / 0.36
+  wav2vec 2.0 base   layer 12 (0.94) layer 9 (0.80)   0.21 (l7) / 0.29

@@ -35,7 +35,7 @@ demos/
 | standard library only | W4 demo 1 | anything with Python 3.11+ (`common.py` still imports numpy/scipy) |
 | `numpy` + `scipy` + `matplotlib`, CPU | W3 demo 2 (terminal only), W5 demo 3 (terminal + one figure) | any laptop |
 | the above + `sounddevice` + a microphone + a window | W2 demo 1, W3 demo 1 (live capture); W2 demo 2 (`record`) | any laptop with a working audio input; playback uses macOS `afplay` |
-| `torch 2.14.0` + `torchaudio` + `transformers 5.17.0` + a small Hugging Face model | W3 demo 3 (wav2vec2-base-960h, CPU), W4 demo 3 (whisper-small, CPU) | any laptop with a few GB free RAM and a network connection for the first download; `mps` is measured by `check` but not used in class |
+| `torch 2.14.0` + `torchaudio` + `transformers 5.17.0` + a small Hugging Face model | W3 demo 3 (wav2vec2-base-960h, CPU), W4 demo 3 (whisper-small, CPU), W5 demo 1 (hubert-base-ls960 and wav2vec2-base, `mps` when available; plus `pyarrow` for its `fetch`) | any laptop with a few GB free RAM and a network connection for the first download; for W3/W4 `mps` is measured by `check` but not used in class |
 | `sherpa-onnx` + an ONNX model | W4 demo 2 | any platform sherpa-onnx ships wheels for; tested on Apple silicon only |
 | `mlx` + `mlx-lm` + `mlx-audio` + `pywhispercpp`, ≈ 15 GB of models | W1 demo 2 | **Apple silicon only**, 32 GB or more |
 

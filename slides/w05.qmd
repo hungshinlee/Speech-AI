@@ -397,13 +397,13 @@ wav2vec 2.0 Table 1 (10 min → 960 h) · "pseudo-labels" is our word; HuBERT sa
 
 {{< include assets/w05/layer-curves.inline.qmd >}}
 
-| | speaker probe peaks at | phone probe peaks at | CCA with layer 0: min / top |
+| | speaker probe: low peak · min · top | phone probe: peak · top | CCA with layer 0: min / top |
 |:--|--:|--:|--:|
-| HuBERT-base | — | — | — / — |
-| wav2vec 2.0 base | — | — | — / — |
+| HuBERT-base | 2 (0.94) · 8 (0.39) · 0.78 | 11 (0.81) · 0.80 | 0.30 (l9) / 0.36 |
+| wav2vec 2.0 base | 2 (0.89) · 8 (0.54) · **0.94** | 9 (0.80) · 0.56 | 0.21 (l7) / 0.29 |
 
 ::: {.footer}
-Demo 1 · not built (2026-10-11) · curves are shapes, not data · → w05-metrics.json
+Demo 1 · demos/w05_d1_layer_probe · curves are schematic · table: M5 Max 2026-10-11, w05-metrics.json → demo1 (frame-level probes, held-out)
 :::
 
 ## Why the top layers turn back
@@ -426,7 +426,7 @@ Pasad, Chou & Livescu, ASRU 2021 (Fig. 3) · Pasad, Shi & Livescu, ICASSP 2023 (
 
 | if your task is… | read… | because… |
 |:--|:--|:--|
-| speaker verification, emotion | **low** layers | the information is acoustic and gets diluted upward |
+| speaker verification, emotion | **low** layers — or the turned-back top (Demo 1) | the information is acoustic and gets diluted upward, then partly comes back with the turn-back |
 | phone recognition, ASR with a frozen encoder | **middle** layers (wav2vec 2.0) · higher (HuBERT) | content needs context, then the top serves the pre-training target |
 | anything, with fine-tuning | the top — after fine-tuning reshapes it | the turn-back disappears once the target is yours |
 
@@ -507,7 +507,7 @@ Reference from the paper, LibriSpeech 960 h, $K = 100$ on MFCC: 0.335 / 0.099 / 
 :::
 
 ::: {.footer}
-Demo 2 · not built (2026-10-11) · phone labels: MFA or phoneme-CTC pseudo-labels (tbd) · → w05-metrics.json
+Demo 2 · not built (2026-10-11) · phone labels: the MFA alignments of Demo 1 · → w05-metrics.json
 :::
 
 ## A sentence, in phones and in units
