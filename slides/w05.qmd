@@ -498,16 +498,16 @@ Shi et al. 2023 (143 languages; multilingual $\neq$ always better) · Huang et a
 
 | teacher features | phone purity | cluster purity | PNMI |
 |:--|--:|--:|--:|
-| MFCC (39-d) — HuBERT it. 1's teacher | — | — | — |
-| HuBERT-base, layer 6 — it. 2's teacher | — | — | — |
-| HuBERT-base, layer 9 — LARGE's teacher | — | — | — |
+| MFCC (39-d) — HuBERT it. 1's teacher | 0.257 | 0.101 | 0.304 |
+| HuBERT-base, layer 6 — it. 2's teacher | 0.549 | 0.275 | 0.602 |
+| HuBERT-base, layer 9 — LARGE's teacher | 0.542 | 0.278 | 0.583 |
 
 ::: {.small}
-Reference from the paper, LibriSpeech 960 h, $K = 100$ on MFCC: 0.335 / 0.099 / 0.255. Our subset is smaller; the numbers will differ.
+Measured 2026-10-11 on held-out frames of the Demo 1 subset (7,200 test frames, k-means fitted on 16,526). Paper, LibriSpeech 960 h, $K = 100$ on MFCC: 0.335 / 0.099 / 0.255 — a different setting; compare the direction, not the digits.
 :::
 
 ::: {.footer}
-Demo 2 · not built (2026-10-11) · phone labels: the MFA alignments of Demo 1 · → w05-metrics.json
+Demo 2 · demos/w05_d2_units_vs_phones · $K = 100$, numpy k-means · phone labels: the MFA alignments of Demo 1 · → w05-metrics.json
 :::
 
 ## A sentence, in phones and in units
@@ -515,11 +515,11 @@ Demo 2 · not built (2026-10-11) · phone labels: the MFA alignments of Demo 1 �
 {{< include assets/w05/units-vs-phones.inline.qmd >}}
 
 ::: {.claim}
-**One phone, several units; one unit, several contexts; two speakers, almost one string.** Demo 2 redraws this with real ids — the shape is what to remember.
+**One phone, several units; one unit, several contexts; two speakers, about half the runs in common.** Demo 2 measures it: 2.6 units per phone, unit edges on phone edges at chance level, *mister* across four speakers sharing half its runs (MFCC: a quarter).
 :::
 
 ::: {.footer}
-Demo 2 key `2` draws this with real units · boundaries from W3 Demo 3 (p42: CTC spikes)
+schematic (hand-written ids) · Demo 2 key `2` draws it with real units · phone boundaries from the MFA alignment, not CTC spikes
 :::
 
 ## Misconception 7 — "a discrete unit is a phoneme"

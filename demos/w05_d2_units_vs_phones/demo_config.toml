@@ -1,0 +1,64 @@
+# 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
+# W5 demo 2：unit ≠ 音素——三個老師的純度，與一句話的對齊圖。換內容只改這裡。
+
+[d1]
+# 與 Demo 1 共用：子集（data/subset.json）、音素對齊（data/alignments.json）、frame 級標籤 frame_labels()、
+# 抽好的表徵快取（../_media/w05_d1/feats_hubert.npz：每句 60 個標了音素的 frame，13 層）與 Encoder（extract 用）。
+dir = "../w05_d1_layer_probe"
+model = "hubert"            # d1 demo_config.toml [models] 的鍵；三組特徵裡的兩組取它的第 6、9 層
+
+[features]
+# 三個「老師」。k-means 都在同一組 frame 上做（Demo 1 抽的那 23,726 個；MFCC 當場從 wav 算、用同一組 frame）。
+order = ["mfcc", "l6", "l9"]
+
+[features.mfcc]
+label = "MFCC (39-d)"
+role = "HuBERT it. 1's teacher"
+# 13 個倒頻譜（c0–c12，含 c0）= Demo 1 的 80 個 Slaney log-mel（25 ms／20 ms／512 點）做正交 DCT-II 截斷；加 Δ、ΔΔ（±delta_window frame 的回歸式）→ 39 維。
+# 不標準化：HuBERT 第一輪的老師就是對 MFCC 直接做 k-means（原文 §IV-C）；要看標準化後差多少就把 standardize 改 true。
+n_ceps = 13
+delta_window = 2
+standardize = false
+
+[features.l6]
+label = "HuBERT-base layer 6"
+role = "it. 2's teacher (it. 1's layer 6 in the paper)"
+layer = 6
+
+[features.l9]
+label = "HuBERT-base layer 9"
+role = "LARGE's teacher (it. 2's layer 9)"
+layer = 9
+
+[kmeans]
+# 純 numpy：k-means++ 起點（seed）、Lloyd 迭代到指派不變或 max_iter；n_init 次取 inertia 最小的。
+# 在訓練 frame（每人前 7 句）上擬合，純度報測試 frame（每人後 3 句）；全部 frame 一起算（論文的做法）也印。
+K = 100
+seed = 20261011
+n_init = 3
+max_iter = 100
+chunk = 4096                 # 距離矩陣分塊，省記憶體
+
+[sentence]
+# 鍵 2 畫的那句（W3 Demo 3 的句子；在 Demo 1 的子集裡）。上排音素段來自 MFA 對齊（與純度同一份標籤）、字來自同一份對齊的 words 欄（fetch）。
+utt = "1272-128104-0000"
+zoom_words = 2               # 一開始的放大窗：前幾個字（沒有 words.json 時用 zoom_s）
+zoom_s = 1.2
+# 哪個音素拿來看「同一個音素在不同上下文落不同 unit」：auto = 句子裡出現最多次的
+focus_phone = "auto"
+
+[word]
+# 鍵 3：同一個字、不同說話人。word = auto 時取句子裡其他說話人也念過、音素最多的字（2026-10-11 的子集：MISTER 有 6 位、APOSTLE 與 GLAD 各 1 位）。
+word = "MISTER"
+max_others = 3
+
+[extra]
+# 選配（鍵 4）：自己錄的 wav（16 kHz 單聲道），例如同一個華語音節的四個聲調。路徑相對於本資料夾；不上站（audio/ 在 .gitignore 與 sites.json 的 public_demos_exclude）。
+wavs = []
+labels = []
+
+[display]
+digits = 3
+fig_w = 15.0
+fig_h = 7.5
+unit_text_min_px = 14        # 一格窄於這個就不印 id

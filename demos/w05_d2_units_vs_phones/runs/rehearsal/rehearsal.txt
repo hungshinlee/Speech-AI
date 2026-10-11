@@ -1,0 +1,48 @@
+
+────────────────────────────────────────────────────────────────────────
+1  three teachers, K = 100, 16526 train / 7200 test frames (phone labels: MFA)
+────────────────────────────────────────────────────────────────────────
+  teacher features          phone purity  cluster purity     PNMI   (all frames: phone / cluster / PNMI)
+  MFCC (39-d)                      0.257           0.101    0.304          0.246 / 0.092 / 0.265   HuBERT it. 1's teacher
+  HuBERT-base layer 6              0.549           0.275    0.602          0.550 / 0.275 / 0.583   it. 2's teacher (it. 1's layer 6 in the paper)
+  HuBERT-base layer 9              0.542           0.278    0.583          0.544 / 0.275 / 0.569   LARGE's teacher (it. 2's layer 9)
+  paper, MFCC K=100, 960 h         0.335           0.099    0.255   (arXiv 2106.07447v1 §V-C)
+  k-means: 3 inits, seed 20261011; mfcc 100 iters / 1.2 s, l6 61 iters / 10.4 s, l9 55 iters / 10.5 s
+  H(phone) = 3.409 nat on the test frames; clusters used: mfcc 100/100, l6 100/100, l9 99/100
+
+────────────────────────────────────────────────────────────────────────
+2  1272-128104-0000  T = 292 frames (20 ms), 5.84 s — phones from the MFA alignment, units from k-means on mfcc, l6, l9
+────────────────────────────────────────────────────────────────────────
+  words: MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL
+  MFCC (39-d)            63 phone segments ↔ 176 unit runs inside them: 2.79 runs and 2.75 distinct units per phone; 13 % of phones get a single unit
+                         unit boundaries on a phone boundary: 49/171 = 29 % (chance 22 %); within ±1 frame: 132/171 = 77 % (chance 62 %)
+                         silence (44 frames outside any interval): unit 28 22/24 of its frames, unit 84 11/12 of its frames, unit 46 5/5 of its frames — the top 3 cover 86 % of the silent frames
+                         phone AH × 8: 99 81 70  |  2 43 96 24  |  12  |  96 79  |  79 9 72  |  96 79 74 64 13  |  86 93  |  32 98
+  HuBERT-base layer 6    63 phone segments ↔ 165 unit runs inside them: 2.62 runs and 2.62 distinct units per phone; 11 % of phones get a single unit
+                         unit boundaries on a phone boundary: 40/157 = 25 % (chance 22 %); within ±1 frame: 109/157 = 69 % (chance 62 %)
+                         silence (44 frames outside any interval): unit 90 19/19 of its frames, unit 43 12/14 of its frames, unit 83 6/8 of its frames — the top 3 cover 84 % of the silent frames
+                         phone AH × 8: 20 57 65  |  38 30 14  |  3  |  57  |  87 85 14  |  63 93 9 23  |  50 46  |  70 14
+  HuBERT-base layer 9    63 phone segments ↔ 157 unit runs inside them: 2.49 runs and 2.49 distinct units per phone; 19 % of phones get a single unit
+                         unit boundaries on a phone boundary: 38/152 = 25 % (chance 22 %); within ±1 frame: 100/152 = 66 % (chance 62 %)
+                         silence (44 frames outside any interval): unit 13 17/17 of its frames, unit 34 10/10 of its frames, unit 69 6/7 of its frames — the top 3 cover 75 % of the silent frames
+                         phone AH × 8: 4 82 66 77  |  38 61  |  25  |  53  |  87 59  |  17 73  |  3 8  |  61
+
+────────────────────────────────────────────────────────────────────────
+3  'MISTER' — speaker 1272 (the sentence) vs. 3 other speaker(s); collapsed unit runs, | = a run
+────────────────────────────────────────────────────────────────────────
+  MFCC (39-d):
+    spk 1272   15 frames  28 21 32 73 69 26 64 67 4 90 81 40                             (reference)
+    spk 2412   13 frames  27 76 73 69 38 44 65 4 84 62 87 15                             LCS 3/12 of the sentence's runs (25 %), Jaccard of unit sets 0.14
+    spk 3752   16 frames  28 8 73 61 26 9 64 67 14 65 98 49 79 47 81                     LCS 6/12 of the sentence's runs (50 %), Jaccard of unit sets 0.29
+    spk 5338   17 frames  70 6 69 75 38 13 0 4 96 49 47 38 30                            LCS 2/12 of the sentence's runs (17 %), Jaccard of unit sets 0.09
+  HuBERT-base layer 6:
+    spk 1272   15 frames  43 83 36 72 42 9 8 96 50 57 65                                 (reference)
+    spk 2412   13 frames  30 36 72 42 9 73 96 50 27 44                                   LCS 6/11 of the sentence's runs (55 %), Jaccard of unit sets 0.40
+    spk 3752   16 frames  43 83 36 42 9 73 38 96 7 1 27 44                               LCS 6/11 of the sentence's runs (55 %), Jaccard of unit sets 0.35
+    spk 5338   17 frames  36 42 9 8 56 96 7 27 44 77                                     LCS 5/11 of the sentence's runs (45 %), Jaccard of unit sets 0.31
+  HuBERT-base layer 9:
+    spk 1272   15 frames  67 69 2 15 68 71 50 39 57 66 90                                (reference)
+    spk 2412   13 frames  80 15 54 68 71 96 50 51 57 88                                  LCS 5/11 of the sentence's runs (45 %), Jaccard of unit sets 0.31
+    spk 3752   16 frames  13 69 15 68 12 96 38 50 1 57 88                                LCS 5/11 of the sentence's runs (45 %), Jaccard of unit sets 0.29
+    spk 5338   17 frames  15 68 71 96 11 50 39 57 88 90                                  LCS 7/11 of the sentence's runs (64 %), Jaccard of unit sets 0.50
+  沒有自錄的 wav（demo_config.toml [extra].wavs，再 ./present.sh extract）
