@@ -1,5 +1,5 @@
 <!-- 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。 -->
-# W3 · Demo 2 — CTC paths by brute force vs. the forward table (slides p24, p31, p36)
+# W3 · Demo 2 — CTC paths by brute force vs. the forward table (slides p24, p31, p37)
 
 Pure `numpy`, CPU, terminal only — no window, no audio, no microphone. One program with three parts, each a single key:
 
@@ -10,8 +10,8 @@ Pure `numpy`, CPU, terminal only — no window, no audio, no microphone. One pro
 | 2 | `4` | a random $\mathbf{y}^t$ (one softmax of $N(0, 1.5^2)$ logits per frame) for "ab", $T = 4$: prints the matrix, the 15 valid paths out of 81 candidates, each path's product, and the sum | p31 |
 | 2 | `5` | the same $\mathbf{y}^t$ through the forward recursion, **revealed one column at a time** (any key for the next column, `a` for all, `q` to stop); every cell shows which $\alpha_{t-1}$ it adds and marks the blocked third term `[×]`; at the end $\alpha_T(S) + \alpha_T(S-1)$ against the brute-force sum, and their difference | p31 |
 | 2 | `r` | draw a new random $\mathbf{y}^t$ (seed from the clock) and repeat `4` `5` — proof that nothing was arranged | |
-| 3 | `6` | $T = 500$, vocabulary $K = 32$, label "hello": the forward recursion **in the linear domain**. Lists $\max_s \alpha_t(s)$ at checkpoints, marks the first $t$ where it becomes subnormal and where the whole column is 0; ends with $P = 0.0$, loss $= \infty$ | p31, p36 |
-| 3 | `l` | the same in the **log domain** (`np.logaddexp`): $\ln P$ is finite, the loss is a few thousand nats; converting $\ln P$ back to linear still gives 0.0 | p36 |
+| 3 | `6` | $T = 500$, vocabulary $K = 32$, label "hello": the forward recursion **in the linear domain**. Lists $\max_s \alpha_t(s)$ at checkpoints, marks the first $t$ where it becomes subnormal and where the whole column is 0; ends with $P = 0.0$, loss $= \infty$ | p31, p37 |
+| 3 | `l` | the same in the **log domain** (`np.logaddexp`): $\ln P$ is finite, the loss is a few thousand nats; converting $\ln P$ back to linear still gives 0.0 | p37 |
 
 What the three parts add up to: $P(\ell \mid \mathbf{X})$ is one number, obtainable either by summing over every path in $\mathcal{B}^{-1}(\ell)$ (exponentially many) or by recursion on a $T \times S$ lattice ($O(TS)$), and the two agree to floating-point error; the zero-probability condition has a concrete shape; and linear-domain forward underflows at a few hundred frames while the log domain does not.
 

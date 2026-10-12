@@ -1,17 +1,17 @@
 <!-- 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。 -->
-# W3 · Demo 3 — a blank heat-map, and `ctc_loss` going to `inf` (slides p39, p42, p45)
+# W3 · Demo 3 — a blank heat-map, and `ctc_loss` going to `inf` (slides p40, p43, p46)
 
 One LibriSpeech sentence through a character-level CTC model (`facebook/wav2vec2-base-960h`, 94.4 M parameters, 32-symbol vocabulary), run on the CPU with `transformers`. Three parts, keys pressed in the plot window:
 
 | Part | Key | What it shows | Slide |
 |---|---|---|---|
-| 1 | `1` | plays the sentence | p39 |
-| 1 | `2` | the posterior heat-map: the 31 non-blank symbols on top (one column per 20 ms frame), the argmax row in the middle, and **the blank row enlarged** at the bottom, $P(\varnothing \mid t)$; non-speech frames shaded grey (energy threshold) | p39 |
-| 1 | `3` | four numbers, printed and written across the top of the window: $T$; $U$ (word boundaries included), $r$, $U + r$; frames where blank is the argmax; frames **inside speech** where blank is the argmax. Also the greedy decode against the reference | p39 |
-| 2 | `4` | `torch.nn.functional.ctc_loss` of the correct transcript against these logits (batch of one, `reduction="sum"`, so the value is $-\ln P(\ell \mid \mathbf{X})$), next to a numpy log-domain forward on $\ell'$ — Demo 2's recursion, the same number; finite gradient | p45 |
-| 2 | `5` | the transcript repeated after itself and lengthened character by character until $U + r = T$ (loss finite but huge) and then $U + r = T + 1$: loss `inf`, gradient `nan` (`zero_infinity=False`). The condition is exact | p45 |
-| 2 | `6` | the same with `zero_infinity=True`: loss `0`, gradient all zero — hidden, not fixed | p45 |
-| extra | `7` | Viterbi on $\ell'$ (the forward recursion with $\sum$ replaced by $\max$, written in numpy): the spike frame of every character, each word from its first to its last spike, how many frames wide a spike is; also calls `torchaudio.functional.forced_align` and compares frame by frame | p42, p43 |
+| 1 | `1` | plays the sentence | p40 |
+| 1 | `2` | the posterior heat-map: the 31 non-blank symbols on top (one column per 20 ms frame), the argmax row in the middle, and **the blank row enlarged** at the bottom, $P(\varnothing \mid t)$; non-speech frames shaded grey (energy threshold) | p40 |
+| 1 | `3` | four numbers, printed and written across the top of the window: $T$; $U$ (word boundaries included), $r$, $U + r$; frames where blank is the argmax; frames **inside speech** where blank is the argmax. Also the greedy decode against the reference | p40 |
+| 2 | `4` | `torch.nn.functional.ctc_loss` of the correct transcript against these logits (batch of one, `reduction="sum"`, so the value is $-\ln P(\ell \mid \mathbf{X})$), next to a numpy log-domain forward on $\ell'$ — Demo 2's recursion, the same number; finite gradient | p46 |
+| 2 | `5` | the transcript repeated after itself and lengthened character by character until $U + r = T$ (loss finite but huge) and then $U + r = T + 1$: loss `inf`, gradient `nan` (`zero_infinity=False`). The condition is exact | p46 |
+| 2 | `6` | the same with `zero_infinity=True`: loss `0`, gradient all zero — hidden, not fixed | p46 |
+| extra | `7` | Viterbi on $\ell'$ (the forward recursion with $\sum$ replaced by $\max$, written in numpy): the spike frame of every character, each word from its first to its last spike, how many frames wide a spike is; also calls `torchaudio.functional.forced_align` and compares frame by frame | p42, p45 |
 | extra | `a` | overlays the Viterbi path on the heat-map (green boxes) | |
 | | `h` `q` | menu, quit | |
 

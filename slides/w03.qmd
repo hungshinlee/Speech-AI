@@ -387,6 +387,22 @@ With **every** $y^t_k = 1/3$ (vocabulary $\{a, b, \varnothing\}$), each path has
 Uniform-$\mathbf{y}$ rows: w03-data.json → forward_uniform · random-$\mathbf{y}^t$ run: Demo 2, live
 :::
 
+## From the loss to its gradient: paths through one cell
+
+The forward table gives **one number**, $P = P(\ell \mid \mathbf{X})$. Training needs $\partial \mathcal{L}_{\text{CTC}} / \partial u^t_k$ at **every** $(t, k)$.
+
+$$P = \sum_{\pi \in \mathcal{B}^{-1}(\ell)} \prod_{t'=1}^{T} y^{t'}_{\pi_{t'}} \quad\Longrightarrow\quad \frac{\partial P}{\partial y^t_k} = \frac{1}{y^t_k} \sum_{\pi \in \mathcal{B}^{-1}(\ell),\; \pi_t = k} P(\pi \mid \mathbf{X})$$
+
+{{< include assets/w03/through-cell.inline.qmd >}}
+
+::: {.claim .fragment fragment-index=3}
+Paths through a cell: ways **in** $\times$ ways **out**. The ways in, $\alpha_t(s)$, are already in the forward table; the ways out need a second table, filled from the end.
+:::
+
+::: {.footer}
+"ab", $T = 4$, cell $(2, 2)$: $2 \times 4 = 8$ of the 15 paths · w03-data.json → through_cell
+:::
+
 ## Backward: the same recursion, run from the end
 
 {{< include assets/w03/alpha-beta.inline.qmd >}}
@@ -408,7 +424,7 @@ $$\frac{\partial \mathcal{L}_{\text{CTC}}}{\partial u^t_k} \;=\; y^t_k - \gamma_
 {{< include assets/w03/hard-soft-target.inline.qmd >}}
 
 ::: {.claim}
-The softmax output minus the alignment posterior. Ordinary cross-entropy against a one-hot target $\mathbf{e}$ gives $y_k - e_k$; this is the same line with the one-hot replaced by $\gamma_t(\cdot)$.
+Cross-entropy's $y_k - e_k$, with the one-hot $\mathbf{e}$ replaced by the posterior $\gamma_t(\cdot)$.
 :::
 
 ::: {.footer}
@@ -474,7 +490,7 @@ Demo 2, second half · float64 floors, not a measurement · w03-data.json → un
 | gradient on the logits | carries an extra $1/y^t_k$ inside the sum | $y^t_k - \gamma_t(k)$ |
 
 ::: {.claim .warn}
-Neither is wrong. Mixing them is. If your code's $\beta$ starts at $t$ and your gradient formula came from the book, you have a bug that only shows up as slow, strange training.
+Neither is wrong; mixing them is. A $\beta$ that starts at $t$ plus the book's gradient raises no error — it just trains slowly and strangely.
 :::
 
 # When CTC goes wrong {.section-title}
@@ -529,7 +545,7 @@ Demo 3 · `runs/rehearsal/logits.npy`, softmax, frames 26–42 (20 ms each) · r
 
 ## Why peaky: the target chases the model
 
-From the gradient, $\partial \mathcal{L}_{\text{CTC}} / \partial u^t_k = y^t_k - \gamma_t(k)$, with $\gamma$ recomputed **from the current model** at every step:
+From the gradient $y^t_k - \gamma_t(k)$, with $\gamma$ recomputed **from the current model** at every step:
 
 {{< include assets/w03/target-chase.inline.qmd >}}
 

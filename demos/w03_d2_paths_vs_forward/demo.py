@@ -531,7 +531,7 @@ def main() -> None:
         d = Demo(out, tag="rehearsal")
         d.run_all()
         save(d, rehearsal)
-        print("\n下一步：./present.sh 上課；把 rehearsal.json 的 enumeration_random.sum、forward_random.P、long_log.loss 填進 p29 講稿。")
+        print("\n下一步：./present.sh 上課；把 rehearsal.json 的 enumeration_random.sum、forward_random.P、long_log.loss 填進 p31 講稿。")
         return
 
     d = Demo(out)

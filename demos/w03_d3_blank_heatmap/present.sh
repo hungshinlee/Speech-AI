@@ -2,8 +2,8 @@
 # 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
 # W3 demo 3 課堂與課前的入口。一律離線（HF_HUB_OFFLINE=1），避免教室網路出狀況時卡在連線。
 #
-#   ./present.sh               上課用：載入 wav2vec2、算 logits、開視窗；鍵在視窗裡按：1 播音、2 熱圖、3 四個數字（p37），
-#                              4 正確文字 loss、5 接長 → inf、6 zero_infinity（p42），7 Viterbi 尖峰、a 疊圖，q 離開
+#   ./present.sh               上課用：載入 wav2vec2、算 logits、開視窗；鍵在視窗裡按：1 播音、2 熱圖、3 四個數字（p40），
+#                              4 正確文字 loss、5 接長 → inf、6 zero_infinity（p46），7 Viterbi 尖峰、a 疊圖，q 離開
 #   ./present.sh rehearse      課前彩排：不互動，全部跑一遍，存 runs/rehearsal/（進版控 = 現場的退路）
 #   ./present.sh replay        現場模型出狀況時：從 runs/rehearsal/ 讀回，同一個視窗、同樣的鍵，不碰 torch
 #   ./present.sh check         課前體檢：版本、模型在不在快取、MPS 上的 ctc_loss 對 CPU、forced_align 還在不在 → runs/check.json

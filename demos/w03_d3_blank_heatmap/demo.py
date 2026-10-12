@@ -9,9 +9,9 @@
   fetch      課前一週：下載模型（鎖 commit 進 model.lock）與那一句 LibriSpeech（要網路）
   fake       沒有模型也能演練流程：合成的 peaky 後驗（畫面標明 FAKE，不是給學生看的）
 
-畫面上的鍵（順序照投影片講稿的【操作】，p37 與 p42）：
+畫面上的鍵（順序照投影片講稿的【操作】，p40 與 p46）：
   1  播那句音訊                       2  熱圖：31 個非 blank 符號的後驗、argmax 一列、blank 一列放大
-  3  四個數字：T；U、r、U + r；blank 是 argmax 的 frame；有聲段裡 blank 是 argmax 的 frame（填投影片 p37 的表）
+  3  四個數字：T；U、r、U + r；blank 是 argmax 的 frame；有聲段裡 blank 是 argmax 的 frame（填投影片 p40 的表）
   4  正確文字配 logits 的 ctc_loss（有限；同時印 numpy 在 ℓ' 上做 log 域 forward 的值——Demo 2 那條遞推，同一個數）
   5  文字接長到 U + r = T（仍有限）與 U + r = T + 1：loss = inf、梯度 = nan（zero_infinity=False）
   6  同一組、zero_infinity=True：loss = 0、梯度 = 0
@@ -479,7 +479,7 @@ class Demo:
              "min_blank_prob_in_speech": round(float(self.prob[self.speech, b].min()), 4) if n_speech else None,
              "median_blank_prob_in_speech": round(float(np.median(self.prob[self.speech, b])), 4) if n_speech else None}
         o = self.out
-        o.banner("四個數字（填 p37 的表）", C.AMBER)
+        o.banner("四個數字（填 p40 的表）", C.AMBER)
         o(f"  句子：「{self.text}」")
         o(f"  greedy decode：「{greedy}」   {'= 參考文字' if m['greedy_matches_reference'] else '≠ 參考文字'}")
         o(f"  frames T                          {m['T']:>6d}    （{m['seconds']:.2f} s，每 {m['frame_ms']:g} ms 一格）")
@@ -696,7 +696,7 @@ class Demo:
     # -- 選單、鍵 --
     def menu(self) -> None:
         o = self.out
-        o(f"\n{C.BOLD}p37{C.RESET}  1 播音訊   2 熱圖   3 四個數字        {C.BOLD}p42{C.RESET}  4 正確文字 loss   5 接長 → inf   6 zero_infinity")
+        o(f"\n{C.BOLD}p40{C.RESET}  1 播音訊   2 熱圖   3 四個數字        {C.BOLD}p46{C.RESET}  4 正確文字 loss   5 接長 → inf   6 zero_infinity")
         o(f"{C.BOLD}加分{C.RESET}  7 Viterbi 尖峰   a 疊到熱圖上         h 選單   q 離開")
 
     def dispatch(self, k: str) -> bool:
@@ -962,8 +962,8 @@ def main() -> None:
         d.tag = "rehearsal"
         d.run_all()
         d.save(HERE / "runs" / "rehearsal")
-        print("\n下一步：./present.sh 自己按一遍 1 2 3 4 5 6 7；把 rehearsal.json → sections.numbers 的四個數字填進 p37 的表、"
-              "loss_correct／loss_too_long／loss_zero_infinity 填進 p42 講稿。")
+        print("\n下一步：./present.sh 自己按一遍 1 2 3 4 5 6 7；把 rehearsal.json → sections.numbers 的四個數字填進 p40 的表、"
+              "loss_correct／loss_too_long／loss_zero_infinity 填進 p46 講稿。")
         return
 
     out.banner(f"W3 Demo 3：blank heat-map" + (f"   [{d.tag}]" if d.tag else ""))
