@@ -8,7 +8,7 @@
   selftest   對 slides/assets/w05/w05-data.json → infonce_ceiling：同一個 seed 重跑整個掃描，十個 N 的估計值、L_N、標準差逐一比對
              （容忍 1e-9；順便報有幾個逐位相同）；再查不等式該有的性質：估計值 ≤ ln N、估計值 < 真值、隨 N 不減、變異隨 N 降
 
-畫面上的鍵（順序照投影片 p12 講稿的【操作】）：
+畫面上的鍵（順序照投影片 p13 講稿的【操作】）：
   1  真值與天花板：I = −(d/2) ln(1 − ρ²)，各 N 的 ln N；天花板在真值底下的 N 標出來；天花板過真值要多少 N
   2  掃 N：逐個 N 訓練 critic（Adam 固定步數），每訓完一個印 ln N − L_N、離天花板多遠、離真值多遠、耗時；圖上多一個點
   3  變異：固定幾個 N（預設 2、32、1024），200 個 held-out batch 上的估計值直方圖與標準差（用 2 訓好的 critic；沒按過 2 會先跑）
@@ -269,7 +269,7 @@ class Demo:
             o(f"{N:>6} {N - 1:>6} {lnN:>8.{DIG}f}   {mark}")
             rows.append({"N": N, "ln_N": lnN, "ceiling_below_truth": below})
         o()
-        o(f"{C.DIM}（p12 的問題：N = 8 時估計值碰得到真值嗎？ln 8 = {math.log(8):.3f} < {self.I_true:.3f}，答案是不可能——不是 critic 不夠好，是不等式不允許。）{C.RESET}")
+        o(f"{C.DIM}（p13 的問題：N = 8 時估計值碰得到真值嗎？ln 8 = {math.log(8):.3f} < {self.I_true:.3f}，答案是不可能——不是 critic 不夠好，是不等式不允許。）{C.RESET}")
         self.log["sections"]["truth"] = {"I_true_nats": self.I_true, "N_star": N_star, "rows": rows}
 
     # 2：掃 N ------------------------------------------------------------
@@ -528,7 +528,7 @@ def main() -> None:
         d = Demo(out, Plots(plot, headless=True, save_dir=rehearsal), tag="rehearsal")
         d.run_all()
         save(d, rehearsal)
-        print("\n下一步：./present.sh 上課；把 rehearsal.json 的 sweep.rows（estimate、std、秒數）、variance、bilinear 與日期填進 p12 講稿。")
+        print("\n下一步：./present.sh 上課；把 rehearsal.json 的 sweep.rows（estimate、std、秒數）、variance、bilinear 與日期填進 p13 講稿。")
         return
 
     d = Demo(out, Plots(plot, headless=not sys.stdin.isatty(), save_dir=None))

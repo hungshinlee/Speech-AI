@@ -141,10 +141,24 @@ Oord, Li & Vinyals 2018, eq. 4 · Table 1: phone probe 64.6% vs MFCC 39.7%
 CPC App. A.1, eq. 6–11 · a proof without the $\approx$ and $\geq$: Poole et al. 2019
 :::
 
+## Before Demo 3: InfoNCE on data with a known answer
+
+::: {.prose}
+| | |
+|:---|:-----------------|
+| **Why** | The last slide gave two inequalities: $I(\mathbf{z};\mathbf{c}) \geq \ln N - \mathcal{L}_N$ for any critic, and a ceiling at $\ln N$ because $\mathcal{L}_N \geq 0$. To see how a trained critic actually behaves under them, use data whose mutual information is known. |
+| **What runs** | Pure numpy, a terminal and one plot window. Two 8-dimensional Gaussian vectors with correlation 0.7 in every dimension, so the mutual information has a closed form: 2.69 nat. A critic is trained with InfoNCE at each $N = 2, 4, \dots, 1024$, and $\ln N - \mathcal{L}_N$ is averaged over 200 held-out batches. |
+| **Watch for** | The estimate against two lines, the truth and $\ln N$, as $N$ goes from 2 to 1024 — and what each doubling of $N$ buys. |
+:::
+
+::: {.footer}
+Demo 3 · code: `demos/w05_d3_infonce_bound` · numpy only, CPU
+:::
+
 ## Demo 3 — the ceiling at $\ln N$
 
 ::: {.ask}
-**Demo 3.** Two Gaussian vectors with known mutual information; an InfoNCE critic trained at each $N = 2, 4, \dots, 1024$. Before the curve appears: at $N = 8$, can the estimate reach the true value?
+**Demo 3.** Before the curve appears: at $N = 8$, can the estimate reach the true value?
 :::
 
 {{< include assets/w05/infonce-ceiling.inline.qmd >}}
@@ -231,7 +245,7 @@ $$\mathcal{L} = \mathcal{L}_m + \alpha\,\mathcal{L}_d, \qquad \mathcal{L}_m = -\
 
 | piece | wav2vec 2.0 BASE | why |
 |:--|:--|:--|
-| target | $\mathbf{q}_t = \mathrm{VQ}(\mathbf{z}_t)$ at masked $t$; $G = 2$, $V = 320$ | discrete, finite freedom (p14) |
+| target | $\mathbf{q}_t = \mathrm{VQ}(\mathbf{z}_t)$ at masked $t$; $G = 2$, $V = 320$ | discrete, finite freedom (p15) |
 | negatives $\mathcal{Z}_t \setminus \{\mathbf{q}_t\}$ | $N - 1 = 100$, **other masked steps of the same utterance** | same speaker, same channel: only content separates them |
 | temperatures | $\kappa = 0.1$ (contrast); $\tau\colon 2 \to 0.5$ (Gumbel) | two knobs, two jobs |
 | masking | spans of 10 steps, start prob. 0.065; $\approx 49\%$ of steps masked | long enough that interpolation fails |
@@ -324,7 +338,7 @@ Hsu et al., TASLP 2021, abstract and Table V · the ICASSP 2021 "bad teacher" pa
 | what it buys | content | content, plus a representation that already separates speakers and ignores noise |
 
 ::: {.claim}
-Two things changed at once — the auxiliary task **and** the data. When WavLM wins a benchmark, you cannot tell which one paid. Keep that for p44.
+Two things changed at once — the auxiliary task **and** the data. When WavLM wins a benchmark, you cannot tell which one paid. Keep that for p47.
 :::
 
 ::: {.footer}
@@ -389,18 +403,34 @@ wav2vec 2.0 Table 1 (10 min → 960 h) · "pseudo-labels" is our word; HuBERT sa
 
 # Layers {.section-title}
 
+## Before Demo 1: what does each layer know?
+
+::: {.prose}
+| | |
+|:---|:-----------------|
+| **Why** | An SSL encoder gives thirteen representations, not one: the CNN output and twelve blocks. Which layer holds the speaker, which holds the phones, and which still resembles the input decides which layer a downstream task should read. |
+| **What runs** | HuBERT-base, then wav2vec 2.0 base, pre-trained and not fine-tuned, on 400 dev-clean utterances from 40 speakers. For every layer, three numbers: a linear speaker probe, a linear phone probe (labels from MFA forced alignment), and PWCCA with layer 0. Probes and PWCCA are plain numpy; the curves appear point by point. |
+| **Watch for** | If the last layer were the best for everything, all three curves would climb to the top. Watch where each one peaks, and whether any of them peaks at the top. |
+:::
+
+::: {.footer}
+Demo 1 · code: `demos/w05_d1_layer_probe` · torch 2.14.0, transformers 5.17.0
+:::
+
 ## Demo 1 — three curves across thirteen layers
 
 ::: {.ask}
-**Demo 1.** HuBERT-base, all 13 layers ($l = 0$ is the CNN), 40 dev-clean speakers. Per layer: a speaker probe, a phone probe, CCA with layer 0. Before the curves appear: which layer wins each?
+**Demo 1.** Thirteen layers ($l = 0$ is the CNN), three numbers each. Before the curves appear: which layer wins each?
 :::
 
 {{< include assets/w05/layer-curves.inline.qmd >}}
 
+::: {.fragment}
 | | speaker probe: low peak · min · top | phone probe: peak · top | CCA with layer 0: min / top |
 |:--|--:|--:|--:|
 | HuBERT-base | 2 (0.94) · 8 (0.39) · 0.78 | 11 (0.81) · 0.80 | 0.30 (l9) / 0.36 |
 | wav2vec 2.0 base | 2 (0.89) · 8 (0.54) · **0.94** | 9 (0.80) · 0.56 | 0.21 (l7) / 0.29 |
+:::
 
 ::: {.footer}
 Demo 1 · demos/w05_d1_layer_probe · curves are schematic · table: M5 Max 2026-10-11, w05-metrics.json → demo1 (frame-level probes, held-out)
@@ -490,12 +520,27 @@ Shi et al. 2023 (143 languages; multilingual $\neq$ always better) · Huang et a
 
 # Units are not phones {.section-title}
 
+## Before Demo 2: how phone-like are the units?
+
+::: {.prose}
+| | |
+|:---|:-----------------|
+| **Why** | HuBERT's targets are k-means clusters, often called "phone-like units". Two questions: how well does each teacher's clustering line up with phones, and what do the units of one real sentence look like under its phone segments? |
+| **What runs** | k-means with $K = 100$ (numpy) on the frames of Demo 1's subset, three times: on MFCC (HuBERT's first teacher), on HuBERT-base layer 6, on layer 9. Each is scored against the MFA phone labels with the paper's three measures. Then W3's sentence: words, phone segments, and its units, one 20 ms cell per frame. |
+| **Watch for** | If units were phones, each phone segment would be one unit and unit edges would sit on phone edges. Watch how the three PNMIs order, how many units one phone takes, and whether *mister* said by four speakers gets the same units. |
+:::
+
+::: {.footer}
+Demo 2 · code: `demos/w05_d2_units_vs_phones` · shares Demo 1's subset, alignments and caches
+:::
+
 ## Demo 2 — three teachers, three purities, one sentence
 
 ::: {.ask}
-**Demo 2.** k-means with $K = 100$ on three feature sets from the same dev-clean subset: MFCC (HuBERT's first teacher), HuBERT-base layer 6, layer 9. Score each against phone labels. Then draw the units of W3's sentence under its forced alignment. Predict the three PNMIs first.
+**Demo 2.** Three teachers: MFCC, HuBERT-base layer 6, layer 9. Before the numbers appear: how do the three PNMIs order — and is layer 9 better than layer 6?
 :::
 
+:::: {.fragment}
 | teacher features | phone purity | cluster purity | PNMI |
 |:--|--:|--:|--:|
 | MFCC (39-d) — HuBERT it. 1's teacher | 0.257 | 0.101 | 0.304 |
@@ -505,6 +550,7 @@ Shi et al. 2023 (143 languages; multilingual $\neq$ always better) · Huang et a
 ::: {.small}
 Measured 2026-10-11 on held-out frames of the Demo 1 subset (7,200 test frames, k-means fitted on 16,526). Paper, LibriSpeech 960 h, $K = 100$ on MFCC: 0.335 / 0.099 / 0.255 — a different setting; compare the direction, not the digits.
 :::
+::::
 
 ::: {.footer}
 Demo 2 · demos/w05_d2_units_vs_phones · $K = 100$, numpy k-means · phone labels: the MFA alignments of Demo 1 · → w05-metrics.json
@@ -684,7 +730,7 @@ A bound that caps at $\ln N$; four ways to write the answer down; thirteen layer
 
 - Mohamed et al., *Self-Supervised Speech Representation Learning: A Review*, IEEE JSTSP 2022 — the survey; read the taxonomy section, then re-sort it by target as we did today
 - Hsu et al., *HuBERT*, IEEE/ACM TASLP 2021 — §II for the loss, §IV-E for the three purities, Table V for the $\alpha$ ablation you saw
-- Baevski et al., *wav2vec 2.0*, NeurIPS 2020 — §2–3 and Appendix B; look at Table 1 with p44 in mind
+- Baevski et al., *wav2vec 2.0*, NeurIPS 2020 — §2–3 and Appendix B; look at Table 1 with p47 in mind
 
 **If one thing today was new to you, make it this one**
 

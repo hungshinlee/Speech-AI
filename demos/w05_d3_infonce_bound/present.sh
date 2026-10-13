@@ -9,7 +9,7 @@
 #   ./present.sh selftest      同一個 seed 重跑掃描，對 slides/assets/w05/w05-data.json → infonce_ceiling 逐一比對，再查不等式的性質
 #   ./present.sh show --no-plot   只在終端機，不開圖
 #
-# 課堂上的講法與按鍵順序寫在投影片 p12 講稿的【操作】。
+# 課堂上的講法與按鍵順序寫在投影片 p13 講稿的【操作】。
 set -euo pipefail
 cd "$(dirname "$0")"
 PY="../.venv/bin/python"   # 所有 demo 共用 speech_ai/demos/.venv（numpy、matplotlib；common.py 要 scipy）
