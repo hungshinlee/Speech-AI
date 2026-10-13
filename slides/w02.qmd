@@ -152,6 +152,20 @@ $$s(n) = e(n) * h(n) \quad\Longleftrightarrow\quad S(\omega) = E(\omega)\,H(\ome
 Computed: synthetic /a/, $F_0 = 120$ Hz, idealised source tilt · w02-data.json → source_filter
 :::
 
+## Before Demo 1: a spectrogram you can talk into
+
+::: {.prose}
+| | |
+|:---|:-----------------|
+| **Why** | The source–filter model puts the vowel in the filter — the formants — and the pitch in the source, $F_0$. This demo shows both live from a microphone, so you can move one and watch which numbers follow. |
+| **What runs** | A microphone into a 4 s scrolling spectrogram (5 ms or 30 ms window), an autocorrelation $F_0$ track, and an LPC $(F_1, F_2)$ dot on a vowel chart; all the signal processing is plain numpy and scipy. Used three times today: vowels now, then the same sound under two window lengths, then Mandarin tones. |
+| **Watch for** | Now: where the dot goes for /a/, /i/, /u/, and the path it takes from /i/ to /a/. Later: what the window length changes on the same sound, and whether a tone keeps its shape when the sentence becomes a question. |
+:::
+
+::: {.footer}
+Demo 1 · code: `demos/w02_d1_spectrogram` · microphone, numpy, scipy, matplotlib
+:::
+
 ## Two formants are enough to tell vowels apart
 
 ::: {.columns}
@@ -452,6 +466,20 @@ Translation invariance holds along time and **fails** along frequency. An archit
 :::
 
 # What the spectrogram throws away {.section-title}
+
+## Before Demo 2: what does the spectrogram throw away?
+
+::: {.prose}
+| | |
+|:---|:-----------------|
+| **Why** | Every number in the STFT is complex. The spectrogram keeps the magnitude and drops the phase, and a mel filterbank then drops more. Before any theory, hear what each loss costs. |
+| **What runs** | One 5 s sentence, rebuilt from its magnitude by an inverse STFT. First three versions, played back to back. Later in this section the full grid — linear or mel-80 magnitude, crossed with the original, a Griffin–Lim or a random phase — with the number of Griffin–Lim iterations as a knob. Plain numpy and scipy; `librosa` is deliberately not used. |
+| **Watch for** | Nothing in particular yet. On the next slide, write down one word for each version, no explanations; the explanation comes after you have written them down. |
+:::
+
+::: {.footer}
+Demo 2 · code: `demos/w02_d2_phase_mel` · numpy and scipy, no librosa
+:::
 
 ## Listen first
 

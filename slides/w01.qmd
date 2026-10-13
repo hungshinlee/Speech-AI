@@ -478,17 +478,30 @@ Each of those is a **modelling** decision forced by a timing requirement. Latenc
 Report distributions. In W14 the goal becomes *matching* the human latency distribution with a distributional distance — not minimising a mean.
 :::
 
+## Before Demo 2: where does the time go after the user stops?
+
+::: {.prose}
+| | |
+|:---|:-----------------|
+| **Why** | The last ten slides built the budget on paper: every cell is time left after the user stops speaking, and some cells are a setting while others are compute. This demo fills the budget in from a real pipeline on this laptop. |
+| **What runs** | One recorded Mandarin sentence with a pause in the middle ("I'd like a ticket to … Tainan, next Wednesday") through a cascade: an energy-VAD endpoint, whisper.cpp, a local LLM (`mlx-lm`), a local TTS (`mlx-audio`). Every module boundary is time-stamped; ten runs, p50 and p95. Then, on headphones, a full-duplex model on the same laptop — listened to, not measured. |
+| **Watch for** | Which cell is largest, how much each cell varies across the ten runs, and which of the two kinds of delay on p33 the largest one is. For the full-duplex model: *when* it talks, not what it says. |
+:::
+
+::: {.footer}
+Demo 2 · code: `demos/w01_d2_pipeline` · Apple silicon only (mlx) · rehearsed on the M5 Max
+:::
+
 ## Live: measure your own pipeline
 
-We run a cascade and an end-to-end model on the same utterance, record both, and fill in the budget from the recording.
-
-1. Record one utterance with a **mid-utterance pause** in it ("I'd like a ticket to … Tainan, next Wednesday")
-2. Run it through the cascade; log timestamps at each module boundary
-3. Run it through the end-to-end model; log first-audio-out
-4. Plot both on one time axis and fill in the sheet
-
 ::: {.ask}
-Prediction before we run it: which module will dominate?
+**Demo 2.** Prediction before we run it: which module will dominate?
+:::
+
+The terminal fills in the budget sheet from p31 and draws the timeline; the end-to-end point on it is Recording 2 of the cold open, not this sentence.
+
+::: {.footer}
+Demo 2 · code: `demos/w01_d2_pipeline` · whisper.cpp → Gemma 4 → Kokoro, all on this laptop
 :::
 
 # Four behaviours a half-duplex system cannot have {.section-title}
