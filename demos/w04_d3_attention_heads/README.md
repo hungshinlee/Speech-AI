@@ -1,5 +1,5 @@
 <!-- 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。 -->
-# W4 · Demo 3 — Whisper's cross-attention heads: attention ≠ alignment (slides p45–p47)
+# W4 · Demo 3 — Whisper's cross-attention heads: attention ≠ alignment (slides p47–p50)
 
 Whisper small (the multilingual model: 244 M parameters, 12 decoder layers × 12 heads = **144 cross-attention heads**) transcribes the same LibriSpeech sentence as W3 demo 3 — correctly — and then every one of the 144 heads' attention matrices ($U$ text tokens × 1500 encoder frames) is laid out to look at. Two things come out of it:
 
@@ -8,13 +8,13 @@ Whisper small (the multilingual model: 244 M parameters, 12 decoder layers × 12
 
 | Key (in the plot window) | Screen | Slide |
 |---|---|---|
-| `1` | plays the audio; the terminal prints the reference, Whisper's transcript, word errors (raw and after `tokenizer.normalize`), the number of text tokens $U$, and how many encoder frames the audio occupies | p45 |
-| `2` | the current layer's 12 heads as heat-maps ($U$ rows × the frames within the audio, each row scaled to its maximum); titles give class, $\rho$, conc and pad | p45 |
+| `1` | plays the audio; the terminal prints the reference, Whisper's transcript, word errors (raw and after `tokenizer.normalize`), the number of text tokens $U$, and how many encoder frames the audio occupies | p48 |
+| `2` | the current layer's 12 heads as heat-maps ($U$ rows × the frames within the audio, each row scaled to its maximum); titles give class, $\rho$, conc and pad | p48 |
 | `3` | next layer (cycles) | |
-| `0` | all 144 heads as thumbnails, border colour = class, title = the four class counts | p45 |
-| `4` | boxes the ten OpenAI alignment heads (★) and says how many of them are bands | p45 |
-| `5` | the ten heads → normalise → median filter → average → DTW: the cost matrix and path; word timestamps printed, with the difference to W3's first spike per word | p45, p47 |
-| `a` | overlays W3 demo 3's forced alignment on `5` (grey bars: each word from its first to its last spike) — the seating chart vs. the weights | p46 |
+| `0` | all 144 heads as thumbnails, border colour = class, title = the four class counts | p48 |
+| `4` | boxes the ten OpenAI alignment heads (★) and says how many of them are bands | p48 |
+| `5` | the ten heads → normalise → median filter → average → DTW: the cost matrix and path; word timestamps printed, with the difference to W3's first spike per word | p48, p50 |
+| `a` | overlays W3 demo 3's forced alignment on `5` (grey bars: each word from its first to its last spike) — the seating chart vs. the weights | p49 |
 | `h` `q` | menu, quit | |
 
 ## The band criterion (it is read out in class)

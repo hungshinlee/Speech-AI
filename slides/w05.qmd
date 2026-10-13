@@ -65,7 +65,7 @@ format:
 :::
 
 ::: {.footer}
-W4 p5 the box · p20 $D_{\text{alg}}$ · p49 three alignments, three losses
+W4 p5 the box · p20 $D_{\text{alg}}$ · p52 three alignments, three losses
 :::
 
 ## The problem this week handles, in one picture
@@ -618,7 +618,7 @@ Only BEST-RQ among today's papers evaluates a streaming variant — pre-trained 
 :::
 
 ::: {.footer}
-BEST-RQ §4 · W4 p13 ($s$), p20 ($D_{\text{alg}}$), p51 (KV cache) · W1 p31 budget
+BEST-RQ §4 · W4 p13 ($s$), p20 ($D_{\text{alg}}$), p54 (KV cache) · W1 p31 budget
 :::
 
 ## Misconception 10 — "Whisper is self-supervised too"
@@ -635,7 +635,7 @@ Two roads to a speech foundation model: **no transcripts and a built target** (t
 :::
 
 ::: {.footer}
-W4 p45 (Whisper cross-attention heads) · W7 compares the two roads
+W4 p48 (Whisper cross-attention heads) · W7 compares the two roads
 :::
 
 # Back to the three axes {.section-title}

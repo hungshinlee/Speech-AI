@@ -345,12 +345,27 @@ Same glyph, three semantics. W3 p58 planted this; here it is paid: the RNN-T's b
 $\ell = \text{ab}$, $T = 3$ · start at $(1, 0)$, reach $(T, U)$, then one last blank · `w04-data.json`
 :::
 
+## Before Demo 1: the RNN-T lattice, by hand and by program
+
+::: {.prose}
+| | |
+|:---|:-----------------|
+| **Why** | The CTC lattice had one way to move; this one has two, and emitting does not cost a frame. Count the paths by hand to feel the difference, then check the RNN-T forward recursion against brute force, as in W3. |
+| **What runs** | A terminal program in the style of W3's Demo 2 (standard library, fixed seed), used three times: next slide, the paths for "ab" and "aa", on paper first; at Misconception 5, greedy decoding on a *synthetic* joint with and without a cap of 5 symbols per frame; after the forward recursion, one random $\mathbf{y}^{t,u}$ through enumeration and through the table. |
+| **Expect** | Enumeration and forward agree to the last digit; if they do not, the recursion is wrong. Watch the CTC count beside the RNN-T one: can RNN-T have a path where CTC has none? And what does the decoder do once the cap is gone? |
+:::
+
+::: {.footer}
+Demo 1 · code: `demos/w04_d1_rnnt_lattice` · standard library, terminal only
+:::
+
 ## Paths: write them out before the program does
 
 ::: {.ask}
 **Demo 1, part 1.** On paper: $\ell = \text{ab}$, $T = 2$. List every RNN-T path as a sequence of *right* / *up* moves. How many? Then $\ell = \text{aa}$, $T = 1$.
 :::
 
+::: {.fragment}
 | $\ell$ | $T$ | RNN-T paths (E = emit, R = blank) | RNN-T count | $\binom{T+U-1}{U}$ | CTC count (W3) |
 |:--|--:|:--|--:|--:|--:|
 | ab | 1 | E E R | 1 | 1 | 0 |
@@ -359,6 +374,7 @@ $\ell = \text{ab}$, $T = 3$ · start at $(1, 0)$, reach $(T, U)$, then one last 
 | aa | 1 | E E R | 1 | 1 | 0 |
 | aa | 2 | 3 paths | 3 | 3 | **0** |
 | aa | 3 | 6 paths | 6 | 6 | 1 |
+:::
 
 ::: {.footer}
 Demo 1 · counts from `w04-data.json` · "aa" at $T = 2$: CTC 0 paths, RNN-T 3
@@ -524,12 +540,27 @@ $$D_{\text{what you measure}} \;\geq\; \underbrace{(m + \alpha C)\,s\Delta}_{\te
 $D_{\text{alg}}$ is what the architecture *guarantees you cannot beat.* What you actually get is a property of the trained model.
 :::
 
+## Before Demo 2: when does a streamed word appear?
+
+::: {.prose}
+| | |
+|:---|:-----------------|
+| **Why** | Misconception 6 drew the measured delay as three stacked parts: the model's emission delay, the architecture's $m + \alpha C$, and compute. This demo produces those parts live, word by word, and checks the middle one against the formula. |
+| **What runs** | `sherpa-onnx`'s streaming zipformer transducer on the CPU, fed W3's sentence at real-time pace in 1280, 640 and 320 ms pieces; the model's own chunk stays 320 ms. Every word gets three clocks against the end of its acoustic evidence (W3's forced alignment): the frame that emitted it, the audio fed when it appeared, and the wall clock. |
+| **Expect** | The emitting frame does not move when the feed changes — that part belongs to the model; only the middle part follows the feed. Watch which word waits longest, and whether it is the last word of the sentence. |
+:::
+
+::: {.footer}
+Demo 2 · code: `demos/w04_d2_stream_chunks` · sherpa-onnx 1.13.8, CPU · rehearsed 2026-10-06
+:::
+
 ## Demo 2 — three chunk sizes: when does each word appear?
 
 ::: {.ask}
-**Demo 2.** One LibriSpeech sentence, fed at real-time pace to one streaming transducer, with three feed-chunk sizes. For each word: when does its acoustic evidence end, when does the model *emit* it, and when does it *appear*? Predict the gaps before the timeline appears.
+**Demo 2.** For each word: when does its acoustic evidence end, when does the model *emit* it, and when does it *appear*? Predict the gaps before the timeline appears.
 :::
 
+:::: {.fragment}
 | feed chunk $C$ | $D_{\text{alg}}$ (mean, computed) | emitted $-$ acoustic end (median) | appeared $-$ acoustic end (median) | worst word |
 |:--|--:|--:|--:|--:|
 | 1280 ms | 960 ms | $+220$ ms | $+1413$ ms | WELCOME $+1874$ |
@@ -539,6 +570,7 @@ $D_{\text{alg}}$ is what the architecture *guarantees you cannot beat.* What you
 ::: {.small}
 $D_{\text{alg}}$ here is $c + F/2$, $c = 320$ ms the model's own chunk, $F$ the feed: the 130 ms lookahead past the chunk edge waits for the **next feed to arrive whole**, so it is paid in feed chunks, not in milliseconds (p19's $\alpha$, exact).
 :::
+::::
 
 ::: {.footer}
 Demo 2 · sherpa-onnx streaming zipformer · measured 2026-10-06 on M5 Max · w04-metrics.json
@@ -563,12 +595,27 @@ The third column of W3's table — **no lattice, no blank**: one label per step,
 Chan et al. (LAS) · Chorowski et al. 2015 · Whisper is this family · $\mathbf{s}_u$ state, $\mathbf{c}_u$ context
 :::
 
+## Before Demo 3: does attention look like an alignment?
+
+::: {.prose}
+| | |
+|:---|:-----------------|
+| **Why** | The encoder–decoder has no alignment variable; its cross-attention weights look like one and are often read as one. Whisper, on a sentence it gets right, tests that reading. |
+| **What runs** | `openai/whisper-small` on the CPU transcribes W3's sentence. All 144 decoder cross-attention heads (12 layers of 12) are drawn as heat-maps — one row per text token, one column per 20 ms encoder frame — and sorted into band, flat, stare or other by a fixed rule. Then the ten heads OpenAI's code uses for word timestamps, and the times DTW makes from them. |
+| **Watch for** | The transcript will be right. If attention were the alignment, most heads would be monotonic bands: count them. And look at where the weight goes — the input is always padded to 30 s. |
+:::
+
+::: {.footer}
+Demo 3 · code: `demos/w04_d3_attention_heads` · `openai/whisper-small`, eager attention, CPU
+:::
+
 ## Demo 3 — Whisper's cross-attention heads
 
 ::: {.ask}
-**Demo 3.** Whisper transcribes the same LibriSpeech sentence — correctly. Before the heat-maps appear: of the decoder's cross-attention heads, what fraction will look like a monotonic band?
+**Demo 3.** The transcript will be right. Before the heat-maps appear: of the decoder's 144 cross-attention heads, what fraction will look like a monotonic band?
 :::
 
+::: {.fragment}
 | | your guess | what the screen shows |
 |:--|--:|--:|
 | heads that look like a monotonic band | — | **26** of 144 |
@@ -576,6 +623,7 @@ Chan et al. (LAS) · Chorowski et al. 2015 · Whisper is this family · $\mathbf
 | heads that put > half their mass on the 24 s of padding | — | **114** of 144 |
 | transcript word error count | — | **1** raw ("Mr." ≠ MISTER) · **0** normalised |
 | heads OpenAI's code actually uses for timestamps | — | **10**, of which 7 are bands |
+:::
 
 ::: {.footer}
 Demo 3 · whisper-small, eager, CPU · dev-clean 1272-128104-0000 · measured 2026-10-06

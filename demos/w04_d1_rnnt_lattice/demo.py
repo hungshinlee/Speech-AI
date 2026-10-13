@@ -8,7 +8,7 @@
   selftest   對 slides/assets/w04/w04-data.json：路徑清單逐條、C(T+U−1, U)、CTC 對照、forward 均勻與隨機（seed 20261004）逐位；
              隨機 y 的窮舉 vs. forward vs. log 域；對角線和 = P；greedy decode 有上限／沒上限的行為
 
-畫面上的鍵（順序照投影片講稿的【操作】，p29／p33／p31）：
+畫面上的鍵（順序照投影片講稿的【操作】，p30／p34／p32）：
   1  "ab" T = 2 的全部 RNN-T 路徑（3 條）     2  "aa" T = 1（1 條；CTC 無解）
   3  "ab" T = 3（6 條；CTC 5 條）              0  "aa" T = 2（3 條；CTC 0 條）
   4  隨機一組 y^{t,u}："ab"、T = 2，每個節點一個 softmax；三條路徑各自的乘積與總和（窮舉）
@@ -19,7 +19,7 @@
   h  重印選單      q  離開
 
 純標準庫（numpy 只在 common.py 裡被 import），跑 CPU。數字的定義：路徑 = 從 (1, 0) 到 (T, U) 的 T−1 次 R 與 U 次 E 的交錯再補一個 R；
-α(t, u) = α(t−1, u) ∅(t−1, u) + α(t, u−1) y(t, u−1)，α(1, 0) = 1，P = α(T, U) ∅(T, U)——與投影片 p32 及大綱〈關鍵數學 4〉逐字相同
+α(t, u) = α(t−1, u) ∅(t−1, u) + α(t, u−1) y(t, u−1)，α(1, 0) = 1，P = α(T, U) ∅(T, U)——與投影片 p33 及大綱〈關鍵數學 4〉逐字相同
 （Graves 2012 eq. 16–17）；β 照 eq. 18、對角線照 eq. 19。
 """
 from __future__ import annotations
@@ -135,7 +135,7 @@ def ctc_paths(label: str, T: int, vocab: str) -> list[str]:
 
 
 def ctc_from_w3(label: str, T: int) -> list[str] | None:
-    """w03-data.json 有這一格就讀它（p29 講稿說「從 W3 讀」），沒有回 None 由呼叫端現場算。"""
+    """w03-data.json 有這一格就讀它（p30 講稿說「從 W3 讀」），沒有回 None 由呼叫端現場算。"""
     if not W3_JSON.exists():
         return None
     d = json.loads(W3_JSON.read_text(encoding="utf-8"))
@@ -455,7 +455,7 @@ class Demo:
         o(f"  |差|            = {diff:.2e}   " + (f"{C.GREEN}（逐位相同：格點這麼小，兩邊做的是同一組乘法）{C.RESET}" if diff == 0.0 else
                                            f"{C.GREEN}（浮點誤差）{C.RESET}" if diff < 1e-12 else f"{C.RED}（不是浮點誤差，程式有錯）{C.RESET}"))
         o(f"  格數 T·(U+1) = {T * (U + 1)}，兩項遞推；路徑 C({T + U - 1},{U}) = {math.comb(T + U - 1, U)} 條，每條 {T + U} 個因子")
-        # 對角線（p34 用）
+        # 對角線（p35 用）
         diag = {}
         for n in range(1, T + U + 1):
             diag[n] = sum(a[t][u] * b[t][u] for t in range(1, T + 1) for u in range(0, U + 1) if t + u == n)
@@ -674,7 +674,7 @@ def main() -> None:
         d.run_all()
         save(d, rehearsal)
         print("\n下一步：./present.sh 上課；把 rehearsal.json 的 enumeration_random.sum、forward_random.P、abs_diff、"
-              "decode_capped.hyp 與日期填進 p33／p31 講稿。")
+              "decode_capped.hyp 與日期填進 p34／p32 講稿。")
         return
 
     d = Demo(out)

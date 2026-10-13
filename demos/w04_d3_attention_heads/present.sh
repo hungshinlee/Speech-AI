@@ -4,7 +4,7 @@
 #
 #   ./present.sh               上課用：載入 Whisper small（eager）、轉錄、teacher-forced 拿 144 個 head 的 cross-attention，開視窗；
 #                              鍵在視窗裡按：1 播音＋轉錄、2 這一層 12 個 head、3 下一層、0 全部 144 個、4 框出 OpenAI 的 alignment heads、
-#                              5 DTW 與字的時間戳（p45），a 疊 W3 的 forced alignment（p46），h 選單，q 離開（存 runs/live/<時間>/，不進版控）
+#                              5 DTW 與字的時間戳（p48），a 疊 W3 的 forced alignment（p49），h 選單，q 離開（存 runs/live/<時間>/，不進版控）
 #   ./present.sh rehearse      課前彩排：不互動，全部跑一遍，存 runs/rehearsal/（進版控 = 現場的退路）
 #   ./present.sh replay        現場模型出狀況時：從 runs/rehearsal/ 讀回，同一個視窗、同樣的鍵，不碰 torch
 #   ./present.sh check         課前體檢：版本、模型在不在快取、eager 回傳權重／sdpa 不回傳、base85 對 HF 的 alignment_heads、
