@@ -78,12 +78,26 @@ Week 2 left us with **100 feature vectors per second**, $\mathbf{X} = (\mathbf{x
 | **Representation** | The label unit and the frame rate now constrain each other. Who gives way? |
 | **Latency** | If every frame emits on its own, streaming is free — what did we pay for it? |
 
+## Before Demo 1: what does speaking faster change?
+
+::: {.prose}
+| | |
+|:---|:-----------------|
+| **Why** | The last slide put the gap in symbols: $T$ frames in, $U$ symbols out, nothing in between. This demo shows that gap on a real voice, before any equation touches it. |
+| **What runs** | A volunteer says 今天天氣很好 twice: at normal speed, then about twice as fast. Each take is trimmed of silence; the two spectrograms are drawn one above the other, aligned at the start, one column per 10 ms frame. |
+| **Watch for** | The frame count $T$, the symbol count $U$, and anything on the screen that says which frames belong to which character. And: does $T$ halve when the speed doubles? |
+:::
+
+::: {.footer}
+Demo 1 · code: `demos/w03_d1_two_rates` · rehearsed on the M5 Max, 2026-10-05
+:::
+
 ## Demo 1 — the same sentence, twice as fast
 
 {{< include assets/w03/alignment-gap.inline.qmd >}}
 
 ::: {.ask}
-**Demo 1.** One volunteer, one sentence, normal speed and then double speed. Before the plots appear: which numbers change, and which stay the same?
+**Demo 1.** Before the plots appear: which numbers change between the two takes, and which stay the same?
 :::
 
 ::: {.footer}
@@ -268,6 +282,20 @@ $\mathcal{B}$ maps a path of length $T$ to a label sequence: **merge adjacent re
 
 ::: {.footer}
 Graves et al., ICML 2006 · the blank is bookkeeping: "no new label at this frame"
+:::
+
+## Before Demo 2: list the paths, check the sum
+
+::: {.prose}
+| | |
+|:---|:-----------------|
+| **Why** | $P(\ell \mid \mathbf{X})$ is a sum over every path that $\mathcal{B}$ collapses to $\ell$. Before deriving a recursion for that sum, look at what it sums over; once the recursion is derived, check it against the brute-force sum. |
+| **What runs** | One terminal program, pure numpy, used twice. Next slide: list the paths for "aa" and "aba" on paper, then let the program list them. After the forward recursion: a random $\mathbf{y}^t$, every path's probability summed, next to the forward table filled column by column — then $T = 500$. |
+| **Expect** | The two sums agree to floating-point error; if they do not, the recursion is wrong. Watch how fast the number of paths grows with $T$, whether every pair $(\ell, T)$ has a path at all, and what the linear-domain table does at $T = 500$. |
+:::
+
+::: {.footer}
+Demo 2 · code: `demos/w03_d2_paths_vs_forward` · pure numpy, terminal only
 :::
 
 ## Paths: write them out before the program does
@@ -495,18 +523,34 @@ Neither is wrong; mixing them is. A $\beta$ that starts at $t$ plus the book's g
 
 # When CTC goes wrong {.section-title}
 
+## Before Demo 3: a trained CTC model, one sentence
+
+::: {.prose}
+| | |
+|:---|:-----------------|
+| **Why** | Every posterior so far was made up: uniform, random, or drawn. Now a real character-level CTC model on one LibriSpeech sentence, with two questions: what does the blank do in real speech, and what happens to the loss when the text is too long for the audio? |
+| **What runs** | `wav2vec2-base-960h` on the CPU. First a heat-map: one column per 20 ms frame, one row per symbol, the blank row enlarged at the bottom, non-speech frames shaded grey. Later, `ctc_loss` on the same logits, with the text lengthened one character at a time past $U + r = T$. |
+| **Watch for** | The blank row where there is **no** grey: if blank meant silence, it would be low there. For the loss, the zero-probability condition already says where it breaks; watch what the loss looks like there, and what `zero_infinity` turns it into. |
+:::
+
+::: {.footer}
+Demo 3 · code: `demos/w03_d3_blank_heatmap` · LibriSpeech dev-clean, CC BY 4.0
+:::
+
 ## Demo 3 — a blank heat-map
 
 ::: {.ask}
-**Demo 3.** One LibriSpeech sentence through a character-level CTC model. Before the plot: in a sentence with no pauses, what fraction of frames will the **blank** win? Write down a number.
+**Demo 3.** Before the plot: in a sentence with no pauses, what fraction of frames will the **blank** win? Write down a number.
 :::
 
+::: {.fragment}
 | Measured on the sentence | value |
 |:--|:--|
 | frames $T$ (after the model's own subsampling) | 292 (5.86 s, one frame per 20 ms) |
-| characters $U$, repeats $r$, $U + r$ | 89 (73 letters + 16 `\|`), 2, 91 |
+| characters $U$, repeats $r$, $U + r$ | 89 (73 letters + 16 <code>&#124;</code>), 2, 91 |
 | frames where $\varnothing$ is the argmax | 149 / 292 = 51 % |
 | frames inside speech where $\varnothing$ is the argmax | 94 / 232 = 41 % |
+:::
 
 ::: {.footer}
 Demo 3 · `facebook/wav2vec2-base-960h` (94.4 M params) via transformers 5.17, CPU · LibriSpeech dev-clean 1272-128104-0000 · measured 2026-09-26

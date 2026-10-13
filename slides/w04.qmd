@@ -65,7 +65,7 @@ format:
 :::
 
 ::: {.footer}
-W3 p27 lattice · p34 gradient · p48 conditional independence · p60 what was deferred
+W3 p29 lattice · p36 gradient · p51 conditional independence · p63 what was deferred
 :::
 
 ## The problem this week handles, in one picture
@@ -334,7 +334,7 @@ Graves, arXiv:1211.3711 (2012) · $\mathbf{f}_t$ transcription, $\mathbf{g}_u$ p
 | repeated labels | need a blank between them ($\mathcal{B}$ collapses) | need nothing: emit and emit | — |
 
 ::: {.claim}
-Same glyph, three semantics. W3 p55 planted this; here it is paid: the RNN-T's blank is **time**, and that is exactly what lets labels pile up inside one frame.
+Same glyph, three semantics. W3 p58 planted this; here it is paid: the RNN-T's blank is **time**, and that is exactly what lets labels pile up inside one frame.
 :::
 
 ## The lattice: right is a frame, up is a label
@@ -463,7 +463,7 @@ $$\frac{\partial \mathcal{L}}{\partial z^{t,u}_k} = \sum_j \frac{\partial \mathc
 
 ## Read it next to W3: $y - \gamma$, with an occupancy in front
 
-| | CTC (W3 p34) | RNN-T (today) |
+| | CTC (W3 p36) | RNN-T (today) |
 |:--|:--|:--|
 | gradient at the softmax input | $y^t_k - \gamma_t(k)$ | $\frac{\alpha\beta}{P}\,y^{t,u}_k - (\text{edge posterior})_k$ |
 | "node occupancy" | $1$ — every path crosses every column | $\alpha(t,u)\beta(t,u)/P$ — a path may miss $(t,u)$ |
@@ -634,7 +634,7 @@ Chorowski et al., NIPS 2015 — "10 times longer (repeated) utterances" (abstrac
 | where it breaks | needs a bootstrap | peaky; homophones | memory wall; emission delay | long inputs; attention mistaken for alignment |
 
 ::: {.footer}
-W3 p54 had three columns; this is the fourth, and the row W3 could not fill
+W3 p57 had three columns; this is the fourth, and the row W3 could not fill
 :::
 
 # The state that grows {.section-title}

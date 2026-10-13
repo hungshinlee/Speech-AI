@@ -1,5 +1,5 @@
 <!-- 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。 -->
-# W3 · Demo 1 — the same sentence, twice as fast (slide p6)
+# W3 · Demo 1 — the same sentence, twice as fast (slides p6–p7)
 
 A volunteer says one sentence (default: 今天天氣很好, six characters) at normal speed, then again about twice as fast. Both takes are trimmed of leading and trailing silence, aligned at their first voiced frame, and drawn as two spectrograms one above the other with **one column per 10 ms frame**. The terminal prints, for each take, the frame count $T$, the symbol count $U$, $T/U$, and the voiced / unvoiced frame counts.
 
