@@ -4,7 +4,7 @@
 <!-- summary: The route through the midterm: from a problem card to evidence, a contribution type, verified related work, an evaluation plan and at least one proof of concept, written in the Interspeech long-paper template; with the rules for using AI and a hand-in checklist. -->
 <!-- 此檔由 bin/publish_supplements.py 從 private repo 的 <course>/supplements/ 過濾產生，請勿在公開 repo 直接編輯。 -->
 
-期中報告是一份**研究提案加上概念驗證（proof of concept, PoC）**，用 INTERSPEECH long paper 的格式，寫在〈[報告範本](report-template.qmd)〉裡：下載 zip、匯入 Prism 成為一個專案，改名為 `[Speech-AI] <題目>`，再以可編輯權限分享給組員與授課老師（見範本頁的 Getting started）。**分享就是交件**：老師會公告最後版本的期限，不用另交 PDF。標準和投稿一樣：證據、引用、數字都要經得起審稿人檢查，只是實驗還沒做完。
+期中報告是一份**研究提案加上概念驗證（proof of concept, PoC）**，用 INTERSPEECH long paper 的格式，寫在〈[報告範本](report-template.qmd)〉裡：下載 zip、匯入 Prism 成為一個專案，改名為 `[Speech-AI] <題目>`（`<題目>` 用報告的英文標題），再以可編輯權限分享給組員與授課老師（見範本頁的 Getting started）。**分享就是交件，不用另交 PDF**：老師公告期限，期限當下把 `midterm/main.tex` 編譯成 PDF 打分數，所以期限前要確認它編譯得過。標準和投稿一樣：證據、引用、數字都要經得起審稿人檢查，只是實驗還沒做完。
 
 這一頁是路線圖：期中要回答什麼、按什麼順序做、每一步寫進範本的哪裡。**寫作與研究的細節都在範本的藍色導引框裡**，這裡不重複；兩者若有出入，以範本為準，並告訴授課老師。選題的起點見〈[選題問題卡](topics-for-interspeech27.qmd)〉。
 
@@ -21,13 +21,13 @@
 | 別人做過什麼？這份工作新在哪裡？ | §3 Related Work |
 | 怎麼知道成功了沒？（一個也可能證明你錯了的評估設計） | §4 Proposed Approach、§5 Evaluation Plan |
 | 現在有東西跑得起來嗎？ | §6 Proof of Concept |
-| 做得完嗎？門檻在哪裡？（風險、單張 16 GB GPU、目標會議的水準） | §7 Plan Toward the Final Paper |
+| 做得完嗎？門檻在哪裡？（你們的 GPU、風險、目標會議的水準） | §5 的 Compute Budget and Statistics、§7 Plan Toward the Final Paper |
 
 ## 路線：七步
 
 ### 1. 選題：先寫下十個候選
 
-從問題卡、自己的生活與專業背景、課程每週講到「方法在哪裡壞掉」的地方、論文的 Limitations、挑戰賽、語音工具在 GitHub 上的 issue 找起。**至少寫下十個候選再開始篩**，第一個想法很少是最好的。篩的時候問五件事：痛點有沒有證據、解決了對誰有價值、和前人差在哪裡、資料拿不拿得到且單張 16 GB GPU 一學期做得完、你和這個領域的人想不想知道答案。找了一週還看不到痛點的證據、資料拿不到、或答案不用做實驗就猜得到，就換。
+從問題卡、自己的生活與專業背景、課程每週講到「方法在哪裡壞掉」的地方、論文的 Limitations、挑戰賽、語音工具在 GitHub 上的 issue 找起。**至少寫下十個候選再開始篩**，第一個想法很少是最好的。篩的時候問五件事：痛點有沒有證據、解決了對誰有價值、和前人差在哪裡、資料拿不拿得到、你們的 GPU 一學期做不做得完、你和這個領域的人想不想知道答案。找了一週還看不到痛點的證據、資料拿不到、或答案不用做實驗就猜得到，就換。
 
 **讀範本**：`sections/00-finding-a-problem.tex` 的六個導引框。這個檔只有導引；在框外打的字會印在摘要與 §1 之間，所以不要在這裡寫。候選清單、搜尋紀錄與 AI 輔助的過程，可以放進補充材料的 Problem Discovery Log（選做）。
 
@@ -88,7 +88,7 @@
 
 ## 篇幅與格式
 
-- **長度**：期中報告**篇幅不限**，沒有上限也沒有下限，版面照範本。頁數限制只用在期末論文（依 INTERSPEECH 2026 的 paper kit；2027 年的規定以它的 call for papers 為準）：long paper 最多 10 頁，正文、圖表、Limitations 與任何附錄都要放在前 8 頁，第 9–10 頁只能放致謝、生成式 AI 使用聲明與參考文獻。把導引框關掉（`\showguidesfalse`）才看得到真正的長度。
+- **長度**：期中報告**篇幅不限**，沒有上限也沒有下限，版面照範本。頁數限制只用在期末論文，期末一律是 long paper（依 INTERSPEECH 2026 的 paper kit；2027 年的規定以它的 call for papers 為準）：最多 10 頁，正文、圖表、Limitations 與任何附錄都要放在前 8 頁，第 9–10 頁只能放致謝、生成式 AI 使用聲明與參考文獻。把導引框關掉（`\showguidesfalse`）才看得到真正的長度。
 - **補充材料**：`supplementary.tex` 是另一份文件，要單獨編譯。裡面三節（Problem Discovery Log、Closest Prior Work、Reproducibility Details）全部選做，不想放進報告本體的細節也可以放這裡；審稿人可以讀但不一定讀，報告本身要能獨立讀懂。它如果沒有引用任何文獻，刪掉檔尾那兩行 bibliography，否則 BibTeX 會報錯。
 - **摘要**：最多 1000 字元、只用 ASCII 字元、不能有引用。
 - **語言**：全文英文。範本用 pdfLaTeX，排不了中文字（`%` 開頭的註解可以寫中文）。
@@ -129,6 +129,8 @@
 - **從錯誤分析切入**：聽失敗的音檔，分辨問題出在清濁音轉換、高頻摩擦音、殘響、重疊語音，還是文字正規化。
 - **你的背景是優勢**：語言學、音樂、醫療、教育、廣播的專業知識，常是找到好問題、選對評估方式的關鍵。
 
+專題的算力由各組自備（多數有實驗室的機器）。問題卡與範本以單張 16 GB GPU 為**規劃的基準，不是上限**：組裡的卡更大可以用，在 §5 的 Compute Budget and Statistics 寫明用的硬體。問題卡的〈算力〉一節教你算記憶體帳。
+
 ## 交件前檢查
 
 - `main.tex` 設為 `\showguidesfalse`，編譯出來的 PDF 裡沒有紅色標記（§5 預定結果表的 `\pending` 除外）。
@@ -138,8 +140,9 @@
 - 有用補充材料的話，它單獨編譯得過。
 - Generative AI Use Disclosure 寫好了。
 - §7 的紅旗清單逐條看過，自我審稿做過一次。
-- Prism 專案已改名為 `[Speech-AI] <題目>`，並以可編輯權限分享給授課老師。分享就是交件，不用另交 PDF；期限以老師的公告為準。
+- `midterm/main.tex` 在 Prism 上編譯得過：期限當下，老師就是把它編譯成 PDF 來打分數。
+- Prism 專案已改名為 `[Speech-AI] <題目>`（報告的英文標題），並以可編輯權限分享給授課老師。分享就是交件，不用另交 PDF；期限以老師的公告為準。
 
 ## 版本
 
-- 2026-10-16：改寫成路線圖，對齊 INTERSPEECH long paper 的 Prism 範本與〈選題問題卡〉。前一版寫的 3–4 頁、4 頁正文、套 ICASSP 或 INTERSPEECH 雙欄模板已不適用，各章節的寫作規範改由範本的導引框負責。交件改為分享 Prism 專案（不另交 PDF）；期中篇幅不限。
+- 2026-10-16：改寫成路線圖，對齊 INTERSPEECH long paper 的 Prism 範本與〈選題問題卡〉。前一版寫的 3–4 頁、4 頁正文、套 ICASSP 或 INTERSPEECH 雙欄模板已不適用，各章節的寫作規範改由範本的導引框負責。交件改為分享 Prism 專案（不另交 PDF）；期中篇幅不限。2026-10-16 晚：期限當下老師編譯 `midterm/` 打分數、`<題目>` 用英文標題；期末一律是 long paper；16 GB 是規劃基準、不是上限。

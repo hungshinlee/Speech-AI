@@ -4,7 +4,7 @@
 <!-- summary: The LaTeX project for both reports, in the INTERSPEECH long-paper format of the official 2026 paper kit, with guidance boxes on writing and research. Download the ZIP and import it into Prism. -->
 <!-- 此檔由 bin/publish_report_template.py 從 private repo 的 speech_ai/report-template/README.md 產生，請勿在公開 repo 直接編輯；zip 也是同一支腳本的產物。 -->
 
-**Download: [speech-ai-report-template.zip](speech-ai-report-template.zip)** (42 files, 484 KB; version `c113a5b`). Import the ZIP into Prism as a new project; the file layout and the instructions below are the template's own `README.md`.
+**Download: [speech-ai-report-template.zip](speech-ai-report-template.zip)** (42 files, 484 KB; version `a9f4d75`). Import the ZIP into Prism as a new project; the file layout and the instructions below are the template's own `README.md`.
 
 This is the Prism project template for the midterm report and the final paper.
 Both use the format of an **Interspeech long paper**, built on the official Interspeech 2026
@@ -42,12 +42,13 @@ red brackets mark the places you still have to write.
 ## Getting started
 
 1. Import the template (the zip file) into Prism as a new project.
-2. Rename the project to `[Speech-AI] <title>`, where `<title>` is the title of your topic
-   (for example, `[Speech-AI] Tone Sandhi Errors in Taiwanese ASR`). Then share it with the
-   instructor (hungshinlee@gmail.com) with edit access. One group member imports the template
-   and shares the project with the other members too; a working title is fine until the topic
-   is settled. Sharing the project is how you hand in: there is no separate PDF to submit,
-   and the instructor will announce the deadline for the final version of each report.
+2. Rename the project to `[Speech-AI] <title>`, where `<title>` is the English title of your
+   report (for example, `[Speech-AI] Tone Sandhi Errors in Taiwanese ASR`). Then share it with
+   the instructor (hungshinlee@gmail.com) with edit access. One group member imports the
+   template and shares the project with the other members too; a working title is fine until
+   the topic is settled. Sharing the project is how you hand in: there is no separate PDF to
+   submit. The instructor announces each deadline; at the midterm deadline, the instructor
+   compiles `midterm/main.tex` as it stands and grades that PDF, so make sure it compiles.
 3. Compile `midterm/main.tex` for the midterm report and `final/main.tex` for the final paper,
    with pdfLaTeX (the default) and BibTeX. `supplementary.tex` in the same folder is a separate
    document; compile it on its own if you use it.
@@ -97,6 +98,7 @@ red brackets mark the places you still have to write.
 - These limits apply to the final paper. The midterm report has no length limit, in either
   direction; it keeps the same layout.
 - For comparison, an Interspeech regular paper has at most 6 pages: 4 of content and 2 reserved.
+  The final paper of this course is a long paper.
 
 ## References
 

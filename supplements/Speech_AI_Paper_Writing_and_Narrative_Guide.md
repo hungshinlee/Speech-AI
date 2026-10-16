@@ -123,11 +123,11 @@ AI 在寫作裡的角色是**結構審計與英文編修**，不是代筆。ISCA
 ### 課程交件
 
 - [ ] 期限前在 `main.tex` 設 `\showguidesfalse` 並編譯，**PDF 裡沒有紅色標記**（期中 §5 預定結果表的 `\pending` 除外）。
-- [ ] 期末論文：正文、圖表、Limitations、Ethical considerations 與任何附錄都在前 8 頁；第 9–10 頁只有致謝、生成式 AI 使用聲明與參考文獻（依 INTERSPEECH 2026 的 paper kit）。期中報告篇幅不限。
+- [ ] 期末論文（一律是 long paper）：正文、圖表、Limitations、Ethical considerations 與任何附錄都在前 8 頁；第 9–10 頁只有致謝、生成式 AI 使用聲明與參考文獻（依 INTERSPEECH 2026 的 paper kit）。期中報告篇幅不限。
 - [ ] 摘要不超過 1000 字元、只用 ASCII、沒有引用。
 - [ ] 每個歸給論文的主張都有 `\src{}`，每一筆 BibTeX 都從官方來源匯出；有同儕審查版本的，不引 arXiv 版。
 - [ ] Generative AI Use Disclosure 寫好了。
-- [ ] Prism 專案已改名為 `[Speech-AI] <題目>`，並以可編輯權限分享給授課老師。分享就是交件，不用另交 PDF；期限以老師的公告為準。
+- [ ] Prism 專案已改名為 `[Speech-AI] <題目>`（報告的英文標題），並以可編輯權限分享給授課老師。分享就是交件，不用另交 PDF；期限以老師的公告為準。期中的期限當下，老師把 `midterm/main.tex` 編譯成 PDF 打分數，所以要編譯得過。
 
 ### 內容
 
