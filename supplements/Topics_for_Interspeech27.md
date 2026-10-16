@@ -14,7 +14,7 @@
 
 卡片上每一個資料集、模型、工具與論文，都在 **2026-10-16** 對照官方來源查過：model card、官方 GitHub、出版者頁面、arXiv、ISCA Archive、ACL Anthology、LDC 目錄、政府或機構的官方網頁；寫好之後，再由另一批沒參與撰寫的查核者逐句複核一次。少數只能從次要來源確認、或官方頁面讀不到的地方，卡上會直接寫明。卡上寫「沒有找到」的，意思是我們查了但沒找到，不代表不存在。
 
-授權條款、版本與取得方式會變。**動手之前再查一次**；查到的與卡片不一致時，以官方頁面為準，並告訴授課老師。卡片引用的 arXiv 預印本，若之後出了同儕審查版本，引用時改用正式版本（ISCA 的引用政策見文末〈投稿格式備忘〉）。
+授權條款、版本與取得方式會變。**動手之前再查一次**；查到的與卡片不一致時，以官方頁面為準，並告訴授課老師。需要申請或付費的語料，要用的話私下聯繫授課老師。卡片引用的 arXiv 預印本，若之後出了同儕審查版本，引用時改用正式版本（ISCA 的引用政策見文末〈投稿格式備忘〉）。
 
 卡片上**沒有**顯存用量、訓練時數或預期的錯誤率改善。那些數字取決於你的資料、設定與程式，別人表格裡的數字不能直接搬來規劃，更不能寫進報告。下面〈算力〉一節教你自己算帳、自己量。
 
@@ -41,7 +41,7 @@
 
 ## 算力：16 GB 的記憶體帳
 
-課程設定的專題硬體上限是單張 16 GB CUDA GPU。與其相信別人表格裡的顯存數字，不如自己算一次帳，再實際量測：
+課程設定的專題硬體上限是單張 16 GB CUDA GPU，由你自己準備（多數同學用的是實驗室的機器）。與其相信別人表格裡的顯存數字，不如自己算一次帳，再實際量測：
 
 - **權重**：參數數 × 每個參數的 bytes。bf16 與 fp16 是 2 bytes，fp32 是 4 bytes。
 - **全參數訓練**：用 Adam 做混合精度訓練時，每個參數除了 bf16 權重（2 bytes），還要存梯度（2）、fp32 的主權重（4）、Adam 的一階與二階動差（4 + 4），合計約 16 bytes，**還不含 activation**。activation 隨 batch size 與序列長度成長，長音訊尤其吃記憶體。
@@ -83,14 +83,14 @@
 
 ## A. 臺灣的語言
 
-先講清楚資料的取得方式。**最常用的台語語音語料 TAT 由授課老師提供**，要用的組直接向老師索取；需要 TAT-TTS 的組也先問老師。TAT 由中華民國計算語言學學會（ACLCLP）發行，授權限學術、教育及公益研究，不得營利、不得轉給第三方（條款見 [ACLCLP 的中文語料頁](https://www.aclclp.org.tw/use_mat_c.php)）：拿到的資料只能用在課程與研究裡，不要放上 GitHub、雲端硬碟或任何公開的地方。其他免費可用的台語資源有：Common Voice 的台語資料（CC0，以單詞為主）、教育部《臺灣台語常用詞辭典》的詞目與例句音檔（CC BY-ND 3.0 TW）、TaigiSpeech（CC BY 4.0，只有意圖標籤），以及幾個開放權重的模型。另有新聞報導，國家教育研究院的「台灣台語語料庫應用檢索系統」開放各界申請語料與音檔（[聯合新聞網，2024-08-27](https://udn.com/news/story/6885/8187918)）；其中有哪些語音、授權條件為何，我們沒能確認，有興趣的人自己查。
+先講清楚資料的取得方式。**本組用到的 TAT、TAT-TTS（台語）、HAT（客語）、族語E樂園與 ILRDF 線上辭典（原住民族語），要用的組私下聯繫授課老師。** 拿到的資料只能用在課程與研究裡，不要轉給別人，也不要放上 GitHub、雲端硬碟或任何公開的地方。其他免費可用的台語資源有：Common Voice 的台語資料（CC0，以單詞為主）、教育部《臺灣台語常用詞辭典》的詞目與例句音檔（CC BY-ND 3.0 TW）、TaigiSpeech（CC BY 4.0，只有意圖標籤），以及幾個開放權重的模型。另有新聞報導，國家教育研究院的「台灣台語語料庫應用檢索系統」開放各界申請語料與音檔（[聯合新聞網，2024-08-27](https://udn.com/news/story/6885/8187918)）；其中有哪些語音、授權條件為何，我們沒能確認，有興趣的人自己查。
 
 ### A1　台語的連續變調：模型錯在變調上的有多少？ {#a1}
 
 - **痛點**：台語的音節在詞組裡大多要變調，只有詞組末的音節保持本調，而變調詞組的範圍由句法決定（Chen 1987 以廈門話分析）。教育部辭典的台羅「聲調皆標注本調，不標變調」。所以辨識時，模型聽到的是變調後的調，要寫出的卻是本調；合成時正好反過來，輸入是本調或漢字，模型要自己決定哪裡變調，錯了聽起來就像一個字一個字唸。更麻煩的是，變調後的調在聲學上是否與對應的本調完全相同，文獻還有爭議：實驗室語音的研究沒有發現聲學差異，自然口語的研究則發現有差異，而後續研究針對表層為高降調的單音節詞，控制詞彙層次的變異之後，差異就不再可見（作者對這是否代表完全中和持保留態度）。問題是：現有系統的錯誤裡，有多少真的出在變調上？
 - **先蒐集的證據**：(1) 用能讀羅馬字的台語合成模型，合成一批多音節的詞與短句，請兩三位台語母語者逐音節標出變調錯誤；(2) 用 TAT 的一小份測試語句跑輸出台羅的辨識模型，統計聲調錯誤占全部錯誤的比例，以及其中發生在變調位置的比例。
 - **已查證的資源**：
-  - [TAT](https://www.aclclp.org.tw/use_mat_c.php)（Taiwanese Across Taiwan）：朗讀語音，6 支麥克風同步錄音、16 kHz；第一、二冊合計約 100 小時、200 位說話人；轉寫有漢羅台文與台羅兩層。由授課老師提供（見本組開頭）。另有 TAT-TTS，四位說話人、各約 10 小時的錄音室語音。
+  - [TAT](https://www.aclclp.org.tw/use_mat_c.php)（Taiwanese Across Taiwan）：朗讀語音，6 支麥克風同步錄音、16 kHz；第一、二冊合計約 100 小時、200 位說話人；轉寫有漢羅台文與台羅兩層。要用的組私下聯繫授課老師（見本組開頭）。另有 TAT-TTS，四位說話人、各約 10 小時的錄音室語音。
   - [教育部《臺灣台語常用詞辭典》](https://sutian.moe.edu.tw/)：可下載辭典文字（ODS）與詞目、例句的音檔（WAV、MP3）；文字與音檔為 [CC BY-ND 3.0 TW](https://sutian.moe.edu.tw/zh-hant/piantsip/pankhuan-singbing/)（禁止改作）。台羅[只標本調](https://sutian.moe.edu.tw/zh-hant/piantsip/tailo-phiautsu-suatbing/)；音檔則有些依實際口語錄出變調，可以拿來對照。
   - [MMS](https://huggingface.co/facebook/mms-1b-all)：`mms-1b-all` 的辨識支援閩南語（`nan`）；[`mms-tts-nan`](https://huggingface.co/facebook/mms-tts-nan) 是閩南語合成模型，詞表只有帶聲調符號的拉丁字母（白話字式拼寫），沒有漢字。兩者都是 CC-BY-NC 4.0。輸入只標本調的羅馬字時，它會不會自己變調？這本身就是一個證據。
   - [Fun-CosyVoice3-0.5B-2512](https://huggingface.co/FunAudioLLM/Fun-CosyVoice3-0.5B-2512)：Apache-2.0，model card 把「閩南」列在支援的方言裡，但沒有提供評估數字，也沒有提到台灣台語。
@@ -105,7 +105,7 @@
   - 模型內部有沒有表徵詞組邊界？變調判斷需要多少句法資訊，聲學上下文夠不夠？
   - 能不能定義一個只看變調位置的評估指標，讓不同系統的變調能力可以比較？
   - 不完全中和的爭議，能不能用大量自然語音與模型表徵提供新的證據？
-- **風險**：變調規則不只一條（輕聲、隨前變調、特定詞尾前的變調），標註前要先定規範；需要台語母語評測者；TAT 不得再散布；辭典音檔禁止改作，用來訓練或發佈衍生資料前先確認是否符合條款。
+- **風險**：變調規則不只一條（輕聲、隨前變調、特定詞尾前的變調），標註前要先定規範；需要台語母語評測者；辭典音檔禁止改作，用來訓練或發佈衍生資料前先確認是否符合條款。
 - **貢獻類型**：分析為主，可延伸為方法。
 - **課程週次**：W2（F0 與 pitch）、W7（辨識）、W8–W9（合成）。
 
@@ -115,7 +115,7 @@
 - **先蒐集的證據**：整理 5–10 篇台語辨識的論文與 model card，列出各自的輸出書寫系統、參考答案的來源與正規化方式；再拿一個模型、一小份測試資料，算出它在不同參考答案與正規化下的分數差距。
 - **已查證的資源**：
   - [Breeze-ASR-26](https://huggingface.co/MediaTek-Research/Breeze-ASR-26)：Apache-2.0，由 Whisper large-v2 微調（權重約 1.54B 參數；頁面顯示的「2B」是四捨五入），訓練資料是約一萬小時的合成台語語音（未公開），**輸出華語漢字，不是台語正字**。它的評測集是 30 組行政院政令宣導的華台對照音檔，參考答案是華語。
-  - [TAT](https://www.aclclp.org.tw/use_mat_c.php)：轉寫有漢羅台文與台羅兩層（由授課老師提供，見本組開頭）。
+  - [TAT](https://www.aclclp.org.tw/use_mat_c.php)：轉寫有漢羅台文與台羅兩層（私下聯繫授課老師，見本組開頭）。
   - [Common Voice 台語（nan-tw）](https://mozilladatacollective.com/datasets/cmu5vcwh800aknq07gjqn07ao)：CC0，經 Mozilla Data Collective 下載。27.0 版（2026-09-17）有 303 位錄音者，頁面沒寫時數；[25.0 版](https://prod.datacollective.mozillafoundation.org/datasets/cmn2cyd8901jemm0738nubysq)標示 21.78 小時已驗證語音。提示文字以單詞為主，漢字後面括號附台羅或白話字，官方建議使用時去掉括號內的羅馬字。不可重新散布。
   - [ChhoeTaigi 資料庫](https://github.com/ChhoeTaigi/ChhoeTaigiDatabase)：多部辭典的 CSV，含白話字、台羅、漢羅與華語對照；**授權各部不同**，從 CC0（iTaigi 華台對照典）、CC BY-SA 4.0、CC BY-NC-SA 3.0 TW 到 CC BY-ND 3.0 TW（教育部辭典）都有。
   - [教育部辭典](https://sutian.moe.edu.tw/)：見 A1。
@@ -137,7 +137,7 @@
 - **先蒐集的證據**：在取得同意的前提下錄 50–100 句自然的夾雜語句，用兩三個現成模型辨識，標出每個轉換點，比較轉換點前後一個詞的錯誤率與其他位置的錯誤率。
 - **已查證的資源**：
   - 2026-10-16 查證時，**沒有找到公開的華台夾雜語音語料**。Breeze-ASR-26 的合成訓練資料含華台夾雜，但沒有公開。
-  - [SEAME](https://catalog.ldc.upenn.edu/LDC2015S04)（LDC2015S04）：約 192 小時華英夾雜的對話與訪談，156 位新加坡與馬來西亞說話人；LDC 授權，需付費。
+  - [SEAME](https://catalog.ldc.upenn.edu/LDC2015S04)（LDC2015S04）：約 192 小時華英夾雜的對話與訪談，156 位新加坡與馬來西亞說話人；經 LDC 發行，要用的話私下聯繫授課老師。
   - [ASCEND](https://huggingface.co/datasets/CAiRE/ASCEND)：10.62 小時香港華英夾雜的自然對話，23 位說話人；CC BY-SA 4.0。
   - TALCS：587.5 小時華英夾雜（線上英語課的老師語音）；論文說「以寬鬆授權免費提供」，但沒有寫明是哪一種授權。
 - **起點文獻**：
@@ -160,7 +160,7 @@
   - [Fun-CosyVoice3-0.5B-2512](https://huggingface.co/FunAudioLLM/Fun-CosyVoice3-0.5B-2512)：見 A1。
   - [`mms-tts-nan`](https://huggingface.co/facebook/mms-tts-nan)：見 A1；單一聲音，不能複製音色，但可以當作「只看發音」的對照。
   - [BreezyVoice](https://huggingface.co/MediaTek-Research/BreezyVoice)：Apache-2.0，**台灣華語**的合成模型，不是台語。聯發科 2026 年發表的台語版（論文稱 BreezyVoice-Taigi），2026-10-16 查證時**沒有找到公開版本**；聯發科的發表文說開源的是 Breeze ASR 26 與 Breeze Guard 26。
-  - [TAT-TTS](https://www.aclclp.org.tw/use_mat_c.php) 與[教育部辭典音檔](https://sutian.moe.edu.tw/)：母語者的參考語音（條件見 A1）。
+  - [TAT-TTS](https://www.aclclp.org.tw/use_mat_c.php)（私下聯繫授課老師）與[教育部辭典音檔](https://sutian.moe.edu.tw/)（授權見 A1）：母語者的參考語音。
 - **起點文獻**：
   - Hsu et al., “基於深度學習之中文文字轉台語語音合成系統初步探討,” *IJCLCLP* 25(2), pp. 69–84, 2020. [ACL Anthology](https://aclanthology.org/2020.ijclclp-2.5/)　中文文字 → 台羅 → Tacotron2 的管線。
   - Lan et al., Breeze Taigi（見 A2）：把變調列為台語合成的難點，人評的發音項目檢查聲調與變調。
@@ -187,7 +187,7 @@
   - 一份小而乾淨、有授權的自然口語測試集，需要多少小時，錯誤率的信賴區間才夠窄？
   - 合音、吞音、語氣詞的標註規範該怎麼定？
   - 朗讀與自然口語的差距，主要來自聲學、詞彙還是語法？
-- **風險**：廣播與網路影音有著作權，不能直接拿來發佈；錄音涉及個資，需要同意書，若學校要求需送倫理審查；標註一致性要量（inter-annotator agreement）。
+- **風險**：廣播與網路影音有著作權，不能直接拿來發佈；錄音涉及個資，需要同意書；標註一致性要量（inter-annotator agreement）。
 - **貢獻類型**：資源，搭配分析。
 - **課程週次**：W7、W14。
 
@@ -214,7 +214,7 @@
 - **痛點**：臺灣客語有四縣、海陸、大埔、饒平、詔安、南四縣等腔調。依教育部的客家語拼音方案，海陸有 7 個聲調，其餘各腔 6 個（大埔另有超陰平、饒平另有超陰入）；教育部辭典網站上的一篇海陸腔簡介，形容海陸與四縣「你高我低，你升我降」。同一個調值在不同腔調可能代表不同的調類。資料也不平均：四縣的語料最多，饒平還沒有釋出。分開訓練，小腔調資料太少；混在一起訓練，大腔調可能把小腔調吞掉。
 - **先蒐集的證據**：用一個混合訓練的基線，分腔調報告錯誤率，畫出各腔資料量與錯誤率的關係；再看錯誤是聲調、韻母還是詞彙，以及有沒有被「改寫成」另一個腔調。
 - **已查證的資源**：
-  - [HAT](https://aclclp.org.tw/use_mat_c.php)（臺灣客語語音資料庫）：客家委員會建置、無償授權 ACLCLP 發行。朗讀語音，8 支麥克風同步錄音。ACLCLP 目前發行的是四縣（含南四縣）約 396 小時、海陸 300 小時，另有四縣與海陸各 60 小時的合成用語音、280 小時四縣廣播語音；大埔（約 204 小時）與詔安（約 214 小時）見下面的 Liao et al. 2025（FSR-2025 的參賽隊伍在報名後取得訓練集），目前還不在 ACLCLP 的發行清單上。轉寫有客語漢字、帶調值數字的客語拼音、華語翻譯三層。**授權允許研究與商業用途，但禁止轉授權、散布與分享**；向 ACLCLP 申請，每個子集收工本費新臺幣 1,000 元。
+  - [HAT](https://aclclp.org.tw/use_mat_c.php)（臺灣客語語音資料庫）：客家委員會建置、ACLCLP 發行。朗讀語音，8 支麥克風同步錄音。ACLCLP 目前發行的是四縣（含南四縣）約 396 小時、海陸 300 小時，另有四縣與海陸各 60 小時的合成用語音、280 小時四縣廣播語音；大埔（約 204 小時）與詔安（約 214 小時）見下面的 Liao et al. 2025（FSR-2025 的參賽隊伍在報名後取得訓練集），目前還不在 ACLCLP 的發行清單上。轉寫有客語漢字、帶調值數字的客語拼音、華語翻譯三層。要用的組私下聯繫授課老師（見本組開頭）。
   - [教育部臺灣客語辭典](https://hakkadict.moe.edu.tw/)：六個腔調的詞目文字可下載（ODS），CC BY-ND 3.0 TW；詞目有音檔可在線上聽，但不提供音檔下載。
   - [MMS](https://huggingface.co/facebook/mms-1b-all)：辨識與合成都有 `hak`（CC-BY-NC 4.0），但 model card 沒有說是哪一個腔調。
 - **起點文獻**：
@@ -226,7 +226,7 @@
   - 小腔調需要多少資料才不會被吞掉？腔調標籤該不該給模型？
   - 多腔調模型的評估，該用各腔平均，還是最差腔調的表現？
   - 朗讀與即席語音的落差（1.82% 對 15.03%）在各腔調都一樣大嗎？
-- **風險**：HAT 不可再散布，衍生資料能否發佈要先看條款；饒平尚無資料；HAT 的客語拼音用調值數字標調；教育部方案允許調型符號或調值數字兩種寫法，辭典用的是調型符號，轉換要小心。
+- **風險**：用 HAT 做出的衍生資料能否發佈，先問授課老師；饒平尚無資料；HAT 的客語拼音用調值數字標調；教育部方案允許調型符號或調值數字兩種寫法，辭典用的是調型符號，轉換要小心。
 - **貢獻類型**：方法或分析。
 - **課程週次**：W7。
 
@@ -235,7 +235,7 @@
 - **痛點**：臺灣有 16 個法定原住民族；原住民族委員會委託的調查把族語分為 42 個方言。大型多語模型宣稱涵蓋上千種語言，但 MMS 的辨識模型在這些族語裡只涵蓋阿美語（`ami`）與雅美語（`tao`）。FormosanBench 的結果是：零樣本時 MMS 最好，微調 Whisper 後 WER 約 0.30–0.37，作者仍認為不夠用。
 - **先蒐集的證據**：在公開的族語資料上跑現成的多語辨識模型，按語言報告錯誤率與資料量；檢查各語言的書寫與正字法是否一致；確認你要用的每一份資料的授權。
 - **已查證的資源**：
-  - [FormosanBank](https://github.com/FormosanBank/FormosanBank)：17 種臺灣南島語的文字與音訊集合（「語料庫的語料庫」）。**限非商業用途，未經書面許可不得用於商業 AI**，再散布要看各來源的授權。Hugging Face 上 ePark（族語E樂園）的子集為 CC BY-NC-SA 4.0、ILRDF 線上辭典的子集為 CC BY-NC 4.0（約 149 小時）。**族語E樂園與 ILRDF 線上辭典的資料由授課老師提供**，要用的組直接向老師索取。總音訊時數在它自己的頁面上說法不一（首頁 703 小時，各語言表格加總約 1,422 小時），引用時寫明出處頁面。
+  - [FormosanBank](https://github.com/FormosanBank/FormosanBank)：17 種臺灣南島語的文字與音訊集合（「語料庫的語料庫」）。**限非商業用途，未經書面許可不得用於商業 AI**，再散布要看各來源的授權。其中族語E樂園（ePark）與 ILRDF 線上辭典（約 149 小時）的資料，**要用的組私下聯繫授課老師**。總音訊時數在它自己的頁面上說法不一（首頁 703 小時，各語言表格加總約 1,422 小時），引用時寫明出處頁面。
   - [MMS](https://huggingface.co/facebook/mms-1b-all)：辨識涵蓋 `ami`、`tao`；合成只有 `mms-tts-ami`、`mms-tts-tao`；皆 CC-BY-NC 4.0。
   - Common Voice：泰雅（`tay`）、排灣（`pwn`）、布農（`bnn`）、魯凱（`dru`）、賽德克（`trv`）、撒奇萊雅（`szy`）可以貢獻錄音；已釋出的時數請自己到 Mozilla Data Collective 查。
   - [`formosan-asr-amis`](https://huggingface.co/FormosanBank/formosan-asr-amis)：FormosanBank 釋出的阿美語辨識模型（XLS-R-53 微調），CC BY 4.0。
@@ -248,7 +248,7 @@
   - 親緣相近的語言之間，資料共享的幫助有多大？分群上的距離能預測遷移效果嗎？
   - 每個語言至少需要多少分鐘的標註語音，錯誤率才降到可用的範圍？
   - 書寫與正字法不一致，對評估數字的影響有多大？
-- **風險**：幾乎所有資料都限非商業用途；族語資料涉及族群權益，發佈模型或衍生資料前應與資料提供者確認範圍；同一份 ePark 資料，兩篇論文分別稱為自然敘事與朗讀，使用前自己聽一下。
+- **風險**：幾乎所有資料都限非商業用途；族語資料涉及族群權益，發佈模型或衍生資料前先問授課老師；同一份 ePark 資料，兩篇論文分別稱為自然敘事與朗讀，使用前自己聽一下。
 - **貢獻類型**：方法、分析或資源。
 - **課程週次**：W5、W7。
 
@@ -257,7 +257,7 @@
 - **痛點**：學族語或客語的人，身邊不一定有母語者可以隨時糾正發音。發音錯誤偵測（mispronunciation detection）通常需要專家逐音標註學習者的錯誤，少數語言幾乎沒有這種資料。有些族語的音在華語與英語裡不存在，例如阿美語的會厭與咽部輔音、賽德克語（太魯閣方言）與泰雅語的小舌塞音 /q/、鄒語與布農語的內爆音，正是學習者最需要回饋的地方。
 - **先蒐集的證據**：盤點有示範音檔的教材資源與其使用條款；錄少量學習者語音（取得同意），請母語者標出錯誤，看錯誤集中在哪些音。
 - **已查證的資源**：
-  - 族語E樂園與 ILRDF 線上辭典的音檔：由授課老師提供（見 A8），限非商業的學術用途。
+  - 族語E樂園與 ILRDF 線上辭典的音檔：私下聯繫授課老師（見 A8）。
   - [教育部臺灣客語辭典](https://hakkadict.moe.edu.tw/)、[教育部臺灣台語常用詞辭典](https://sutian.moe.edu.tw/)：母語者的詞目發音（授權見 A1、A7）。
   - [XLS-R 300M](https://huggingface.co/facebook/wav2vec2-xls-r-300m)：多語 SSL 表徵，Apache-2.0。
 - **起點文獻**：
@@ -284,7 +284,7 @@
   - [VoiceActivityProjection](https://github.com/ErikEkstedt/VoiceActivityProjection)：VAP 的官方程式，MIT。附一個範例 checkpoint；要自己訓練需另備資料，README 提到 Switchboard、Fisher、CANDOR。
   - [MaAI](https://github.com/maai-kyoto/maai)：VAP 系列的即時實作，程式 MIT，README 寫目前支援英語、中文、日語。各模型的授權依它自己的 README 或 Hugging Face 頁面；前身 [VAP-Realtime](https://github.com/inokoj/VAP-Realtime) 的模型限學術用途。
   - [MagicData-RAMC](https://openslr.org/123/)（OpenSLR 123）：180 小時華語對話，手機錄音、16 kHz，663 位來自中國各地口音區的說話人，附人工轉寫與語音活動時間戳。授權說法不一：OpenSLR 頁面寫 CC BY-NC-ND 4.0，資料內附的說明只寫學術用途免費；使用前確認。
-  - [Switchboard-1 Release 2](https://catalog.ldc.upenn.edu/LDC97S62)（LDC97S62）：約 260 小時英語電話對話、543 位說話人；LDC 授權，需付費。
+  - [Switchboard-1 Release 2](https://catalog.ldc.upenn.edu/LDC97S62)（LDC97S62）：約 260 小時英語電話對話、543 位說話人；經 LDC 發行，要用的話私下聯繫授課老師。
 - **起點文獻**：
   - Ekstedt & Skantze, “Voice Activity Projection: Self-supervised Learning of Turn-taking Events,” *Interspeech 2022*, pp. 5190–5194. [ISCA Archive](https://www.isca-archive.org/interspeech_2022/ekstedt22_interspeech.html)
   - Inoue et al., “Multilingual Turn-taking Prediction Using Voice Activity Projection,” *LREC-COLING 2024*, pp. 11873–11883. [ACL Anthology](https://aclanthology.org/2024.lrec-main.1036)　涵蓋英語、華語、日語；華語資料是 LDC 授權的 HKUST 電話語音（LDC2005S15），不是開放資料。
@@ -392,7 +392,7 @@
   - 錄製協定怎麼設計：話題、說話人關係、聲道分離、同意書、去識別化？
   - 多少小時的資料足以評估一個換手預測模型？
   - 標註要包含什麼：換手、附和、重疊、語碼轉換？
-- **風險**：錄音涉及個資，需要同意書，若學校要求需送倫理審查；聲道之間的串音；授權要在錄製前就決定好。
+- **風險**：錄音涉及個資，需要同意書；聲道之間的串音；授權要在錄製前就決定好。
 - **貢獻類型**：資源。
 - **課程週次**：W12、W13。
 
@@ -520,7 +520,7 @@
   - [VoiceBank-DEMAND](https://datashare.ed.ac.uk/handle/10283/2791)：成對的乾淨與帶噪英語語音，48 kHz，28 或 56 位說話人；CC BY 4.0。
   - [DNS Challenge](https://github.com/microsoft/DNS-Challenge)：最新一屆是 ICASSP 2023（DNS5）。程式 MIT，資料依各來源授權；解壓後約 1 TB，只下載需要的部分。
   - [MUSAN](https://www.openslr.org/17/)：音樂、語音、噪音，CC BY 4.0，11 GB。自己混噪時常用。
-  - CHiME-4：音檔只透過 LDC 發行（CHiME-3 套件 [LDC2017S24](https://catalog.ldc.upenn.edu/LDC2017S24)），需付費。
+  - CHiME-4：音檔只透過 LDC 發行（CHiME-3 套件 [LDC2017S24](https://catalog.ldc.upenn.edu/LDC2017S24)），要用的話私下聯繫授課老師。
 - **起點文獻**：
   - Iwamoto et al., “How bad are artifacts?: Analyzing the impact of speech enhancement errors on ASR,” *Interspeech 2022*, pp. 5418–5422. [ISCA Archive](https://www.isca-archive.org/interspeech_2022/iwamoto22_interspeech.html)
   - Dissen et al., “Enhanced ASR Robustness to Packet Loss with a Front-End Adaptation Network,” *Interspeech 2024*, pp. 5008–5012. [DOI](https://doi.org/10.21437/Interspeech.2024-306)　針對封包遺失，在凍結的 Whisper 前面接一個以辨識損失加增強損失訓練的前端。
@@ -650,7 +650,7 @@
 ## 投稿格式備忘
 
 - **INTERSPEECH 2027**：在巴西聖保羅舉行，2027 年 8 月 29 日至 9 月 2 日；[官網](https://interspeech2027.org/)公布的論文截稿日是 **2027 年 2 月 9 日**。日期以官網的最新公告為準。
-- **頁數**（2026 年的官方 paper kit）：regular paper 最多 6 頁，long paper 最多 10 頁。regular 的第 5–6 頁、long 的第 9–10 頁只能放致謝、生成式 AI 使用聲明與參考文獻；附錄必須放在前 4 頁或前 8 頁之內。課程的〈[報告範本](report-template.qmd)〉採 long paper 格式。2027 年的規定可能改變，以 2027 年的 call for papers 為準。
+- **頁數**（2026 年的官方 paper kit）：regular paper 最多 6 頁，long paper 最多 10 頁。regular 的第 5–6 頁、long 的第 9–10 頁只能放致謝、生成式 AI 使用聲明與參考文獻；附錄必須放在前 4 頁或前 8 頁之內。課程的〈[報告範本](report-template.qmd)〉採 long paper 格式；期中報告篇幅不限，頁數限制只用在期末論文。2027 年的規定可能改變，以 2027 年的 call for papers 為準。
 - **引用**：2026 年的 paper kit 要求，非同儕審查的來源（包括 arXiv、軟體、私人通訊）只在沒有同儕審查版本時才引用，而且要盡量少。卡片上標為「只有 arXiv 版」的文獻，寫論文時先查有沒有正式發表的版本。
 - **生成式 AI**：paper kit 要求以「Generative AI Use Disclosure」一節說明使用程度；生成式 AI 不能列為作者，可以用來編修文字，但不應用來產生論文的相當一部分。
 

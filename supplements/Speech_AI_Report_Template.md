@@ -4,7 +4,7 @@
 <!-- summary: The LaTeX project for both reports, in the INTERSPEECH long-paper format of the official 2026 paper kit, with guidance boxes on writing and research. Download the ZIP and import it into Prism. -->
 <!-- 此檔由 bin/publish_report_template.py 從 private repo 的 speech_ai/report-template/README.md 產生，請勿在公開 repo 直接編輯；zip 也是同一支腳本的產物。 -->
 
-**Download: [speech-ai-report-template.zip](speech-ai-report-template.zip)** (42 files, 483 KB; version `905bfb9`). Import the ZIP into Prism as a new project; the file layout and the instructions below are the template's own `README.md`.
+**Download: [speech-ai-report-template.zip](speech-ai-report-template.zip)** (42 files, 484 KB; version `c113a5b`). Import the ZIP into Prism as a new project; the file layout and the instructions below are the template's own `README.md`.
 
 This is the Prism project template for the midterm report and the final paper.
 Both use the format of an **Interspeech long paper**, built on the official Interspeech 2026
@@ -46,7 +46,8 @@ red brackets mark the places you still have to write.
    (for example, `[Speech-AI] Tone Sandhi Errors in Taiwanese ASR`). Then share it with the
    instructor (hungshinlee@gmail.com) with edit access. One group member imports the template
    and shares the project with the other members too; a working title is fine until the topic
-   is settled.
+   is settled. Sharing the project is how you hand in: there is no separate PDF to submit,
+   and the instructor will announce the deadline for the final version of each report.
 3. Compile `midterm/main.tex` for the midterm report and `final/main.tex` for the final paper,
    with pdfLaTeX (the default) and BibTeX. `supplementary.tex` in the same folder is a separate
    document; compile it on its own if you use it.
@@ -70,8 +71,8 @@ red brackets mark the places you still have to write.
 
 - Change `\showguidestrue` to `\showguidesfalse` in `main.tex` and all blue boxes disappear,
   so you can see the real length of your report.
-- The red markers do **not** disappear. **Before you hand in, compile with `\showguidesfalse`
-  and look through the PDF: no red marker may remain.** One exception: in the midterm report,
+- The red markers do **not** disappear. **Before the deadline, set `\showguidesfalse` in `main.tex`,
+  compile, and look through the PDF: no red marker may remain.** One exception: in the midterm report,
   the cells of the planned-results table (Evaluation Plan) stay `\pending` until the final
   paper. (Searching the source also finds the markers that the guidance boxes mention; the PDF
   is what counts.)
@@ -93,7 +94,8 @@ red brackets mark the places you still have to write.
   and Ethical considerations sections, and any appendix.
 - What does not fit goes into the supplementary material (`supplementary.tex`), which
   reviewers may read but are not required to. The paper must be understandable without it.
-- The midterm report does not need to fill all 8 pages.
+- These limits apply to the final paper. The midterm report has no length limit, in either
+  direction; it keeps the same layout.
 - For comparison, an Interspeech regular paper has at most 6 pages: 4 of content and 2 reserved.
 
 ## References

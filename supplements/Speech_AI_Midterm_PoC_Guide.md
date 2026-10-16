@@ -4,7 +4,7 @@
 <!-- summary: The route through the midterm: from a problem card to evidence, a contribution type, verified related work, an evaluation plan and at least one proof of concept, written in the Interspeech long-paper template; with the rules for using AI and a hand-in checklist. -->
 <!-- 此檔由 bin/publish_supplements.py 從 private repo 的 <course>/supplements/ 過濾產生，請勿在公開 repo 直接編輯。 -->
 
-期中報告是一份**研究提案加上概念驗證（proof of concept, PoC）**，用 INTERSPEECH long paper 的格式，寫在〈[報告範本](report-template.qmd)〉裡：下載 zip、匯入 Prism 成為一個專案，改名為 `[Speech-AI] <題目>`，再以可編輯權限分享給組員與授課老師（見範本頁的 Getting started）。標準和投稿一樣：證據、引用、數字都要經得起審稿人檢查，只是實驗還沒做完。
+期中報告是一份**研究提案加上概念驗證（proof of concept, PoC）**，用 INTERSPEECH long paper 的格式，寫在〈[報告範本](report-template.qmd)〉裡：下載 zip、匯入 Prism 成為一個專案，改名為 `[Speech-AI] <題目>`，再以可編輯權限分享給組員與授課老師（見範本頁的 Getting started）。**分享就是交件**：老師會公告最後版本的期限，不用另交 PDF。標準和投稿一樣：證據、引用、數字都要經得起審稿人檢查，只是實驗還沒做完。
 
 這一頁是路線圖：期中要回答什麼、按什麼順序做、每一步寫進範本的哪裡。**寫作與研究的細節都在範本的藍色導引框裡**，這裡不重複；兩者若有出入，以範本為準，並告訴授課老師。選題的起點見〈[選題問題卡](topics-for-interspeech27.qmd)〉。
 
@@ -88,12 +88,12 @@
 
 ## 篇幅與格式
 
-- **長度**（依 INTERSPEECH 2026 的 paper kit；2027 年的規定以它的 call for papers 為準）：long paper 最多 10 頁。正文、圖表、Limitations 與任何附錄都要放在前 8 頁；第 9–10 頁只能放致謝、生成式 AI 使用聲明與參考文獻。期中不必寫滿 8 頁。把導引框關掉（`\showguidesfalse`）才看得到真正的長度。
-- **補充材料**：`supplementary.tex` 是另一份文件，要單獨編譯。裡面三節（Problem Discovery Log、Closest Prior Work、Reproducibility Details）全部選做，報告放不下的內容也放這裡；審稿人可以讀但不一定讀，報告本身要能獨立讀懂。它如果沒有引用任何文獻，刪掉檔尾那兩行 bibliography，否則 BibTeX 會報錯。
+- **長度**：期中報告**篇幅不限**，沒有上限也沒有下限，版面照範本。頁數限制只用在期末論文（依 INTERSPEECH 2026 的 paper kit；2027 年的規定以它的 call for papers 為準）：long paper 最多 10 頁，正文、圖表、Limitations 與任何附錄都要放在前 8 頁，第 9–10 頁只能放致謝、生成式 AI 使用聲明與參考文獻。把導引框關掉（`\showguidesfalse`）才看得到真正的長度。
+- **補充材料**：`supplementary.tex` 是另一份文件，要單獨編譯。裡面三節（Problem Discovery Log、Closest Prior Work、Reproducibility Details）全部選做，不想放進報告本體的細節也可以放這裡；審稿人可以讀但不一定讀，報告本身要能獨立讀懂。它如果沒有引用任何文獻，刪掉檔尾那兩行 bibliography，否則 BibTeX 會報錯。
 - **摘要**：最多 1000 字元、只用 ASCII 字元、不能有引用。
 - **語言**：全文英文。範本用 pdfLaTeX，排不了中文字（`%` 開頭的註解可以寫中文）。
 - **作者**：在 `metadata.tex` 寫每位組員護照上的英文姓名（名在前，例如 Hung-Shin Lee）、學號與 email。
-- **三種標記**：紅色的 `\fillin{...}` 是還沒寫的文字，紅色的 `\pending` 是還沒量的數字，灰色的 `\src{...}` 是引用主張在原文中的位置。`\src` 在本課一律保留。交件前把導引框關掉編譯一次，**PDF 裡不能有任何紅色標記**；唯一的例外是 §5 預定結果表的格子，它們要到期末才填，保留 `\pending`。直接搜尋原始檔也會搜到導引框裡提到的標記，以 PDF 為準。
+- **三種標記**：紅色的 `\fillin{...}` 是還沒寫的文字，紅色的 `\pending` 是還沒量的數字，灰色的 `\src{...}` 是引用主張在原文中的位置。`\src` 在本課一律保留。期限前在 `main.tex` 設 `\showguidesfalse` 並編譯，**PDF 裡不能有任何紅色標記**；唯一的例外是 §5 預定結果表的格子，它們要到期末才填，保留 `\pending`。直接搜尋原始檔也會搜到導引框裡提到的標記，以 PDF 為準。
 
 ## 用 AI 的規則
 
@@ -131,16 +131,15 @@
 
 ## 交件前檢查
 
-- 關掉導引框編譯，PDF 裡沒有紅色標記（§5 預定結果表的 `\pending` 除外）。
+- `main.tex` 設為 `\showguidesfalse`，編譯出來的 PDF 裡沒有紅色標記（§5 預定結果表的 `\pending` 除外）。
 - 每個歸給某篇論文的主張都有 `\src{}`；每一筆 BibTeX 都從官方來源匯出。
 - 每個數字都來自你自己的程式；PoC 的設定（資料量、步數或筆數、硬體、時間）寫清楚。
-- 關掉導引框後，正文、圖表、Limitations 都在前 8 頁之內。
 - 摘要不超過 1000 字元、只用 ASCII 字元、沒有引用。
 - 有用補充材料的話，它單獨編譯得過。
 - Generative AI Use Disclosure 寫好了。
 - §7 的紅旗清單逐條看過，自我審稿做過一次。
-- Prism 專案已改名為 `[Speech-AI] <題目>`，並以可編輯權限分享給授課老師。
+- Prism 專案已改名為 `[Speech-AI] <題目>`，並以可編輯權限分享給授課老師。分享就是交件，不用另交 PDF；期限以老師的公告為準。
 
 ## 版本
 
-- 2026-10-16：改寫成路線圖，對齊 INTERSPEECH long paper 的 Prism 範本與〈選題問題卡〉。前一版寫的 3–4 頁、4 頁正文、套 ICASSP 或 INTERSPEECH 雙欄模板已不適用，各章節的寫作規範改由範本的導引框負責。
+- 2026-10-16：改寫成路線圖，對齊 INTERSPEECH long paper 的 Prism 範本與〈選題問題卡〉。前一版寫的 3–4 頁、4 頁正文、套 ICASSP 或 INTERSPEECH 雙欄模板已不適用，各章節的寫作規範改由範本的導引框負責。交件改為分享 Prism 專案（不另交 PDF）；期中篇幅不限。
