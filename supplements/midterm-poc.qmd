@@ -1,125 +1,147 @@
 ---
-title: "Midterm Report: From Problem Statement to Proof of Concept"
-subtitle: "Speech AI 專案期中報告教戰守策：從問題定義到 Proof of Concept (PoC)"
+title: "Midterm Report: From a Problem to a Proof of Concept"
+subtitle: "期中報告：從一個問題走到一份研究提案"
 toc-depth: 2
 ---
 
 <!-- 此檔由 scripts/build_weeks.py 自動產生，請勿直接編輯；請改 supplements/*.md 後重跑腳本。 -->
 
-這份期中報告不是單純的課堂修課作業，而是投稿至 ICASSP、INTERSPEECH、ASRU 或 SLT 的**研究提案（Research Proposal）與概念驗證（Proof of Concept, PoC）**。
+<!-- 此檔由 bin/publish_supplements.py 從 private repo 的 <course>/supplements/ 過濾產生，請勿在公開 repo 直接編輯。 -->
 
-頂會審稿人（Reviewer）在評閱短文（4 頁正文）時，最看重的並非模型規模或堆疊複雜度，而是：**問題是否真實存在、動機是否清晰、對比基準（Baseline）是否公平、方法論是否有合理的聲學/訊號假設支撐、實驗設計是否能精準驗證該假設。**
+期中報告是一份**研究提案加上概念驗證（proof of concept, PoC）**，用 INTERSPEECH long paper 的格式，寫在授課老師提供的 Prism 範本裡。標準和投稿一樣：證據、引用、數字都要經得起審稿人檢查，只是實驗還沒做完。
 
----
+這一頁是路線圖：期中要回答什麼、按什麼順序做、每一步寫進範本的哪裡。**寫作與研究的細節都在範本的藍色導引框裡**，這裡不重複；兩者若有出入，以範本為準，並告訴授課老師。選題的起點見〈[選題問題卡](topics-for-interspeech27.qmd)〉。
 
-## 一、 期中報告結構與撰寫規範
+## 期中要回答的六個問題
 
-報告建議長度為 3–4 頁（強烈建議直接套用 IEEE ICASSP 或 ISCA INTERSPEECH 雙欄 LaTeX 模板）。各章節應涵蓋的具體內容與標準如下：
+審稿人看兩件事：主張有沒有證據支持，以及這個問題值不值得回答。實驗做得仔細，期末還能補強前者；問題本身無聊，再好的實驗也救不回來。所以期中把大部分篇幅花在問題上。讀完你的報告，讀者應該能回答：
 
-### 1. 題目與摘要（Title & Abstract）
-* **題目**：精確反映核心貢獻與技術邊界。避免空泛的「基於深度學習之語音增強研究」，改用具體描述：「*Dual-Path Flow-Matching with Spatial Priors for Multi-Channel Speech Separation*」。
-* **摘要**（150–200 字）：必須涵蓋四項要素：
-  1. 任務背景與既有 SOTA 模型的結構性瓶頸（Pain Point）。
-  2. 本研究提出之核心機制與歸納偏置（Proposed Method & Inductive Bias）。
-  3. 驗證之資料集與核心指標（Dataset & Key Metrics）。
-  4. 預期解決的具體問題與關鍵增益。
+| 讀者的問題 | 寫在範本的哪裡 |
+|:---|:---|
+| 問題是什麼？真的存在嗎？（具體的條件、看得到的症狀、證據） | §1 Introduction、§2 Problem Analysis and Significance |
+| 誰在乎？解決了會改變什麼、為誰改變？ | §2 |
+| 別人做過什麼？這份工作新在哪裡？ | §3 Related Work |
+| 怎麼知道成功了沒？（一個也可能證明你錯了的評估設計） | §4 Proposed Approach、§5 Evaluation Plan |
+| 現在有東西跑得起來嗎？ | §6 Proof of Concept |
+| 做得完嗎？門檻在哪裡？（風險、單張 16 GB GPU、目標會議的水準） | §7 Plan Toward the Final Paper |
 
-### 2. 痛點分析與研究動機（Motivation & Problem Statement）
-* **拒絕無效動機**：嚴禁出現「因為語音辨識很重要，所以我們要改進它」這類非技術性贅言。
-* **鎖定具體 Failure Mode**：明確指出當前 SOTA 模型在何種具體邊界條件下崩潰。
-  * *範例 1*：離散音訊編碼器（Discrete Audio Codec）在極低位元率（Low-bitrate, 如 $\le 1.5$ kbps）下對非平穩背景雜訊（Non-stationary Noise）重構時產生的金屬相位偽影（Phase Artifacts）。
-  * *範例 2*：自監督學習表徵（SSL Representations）在跨語種/方言（如台灣台語、客語）語境下，因音素體系差異與聲調特徵缺失導致的聲學表徵退化（Representation Collapse）。
-* **確立研究假設（Research Hypothesis）**：你的解法為何在學理上能解決該痛點？必須給出訊號層面、特徵幾何或架構特異性上的因果推論。
+## 路線：七步
 
-### 3. 文獻探討與定位（Related Work & Delta）
-* **以解決方案範式分類，切忌流水帳**：依「技術哲學」分類（如：Time-domain vs. Time-frequency approaches、Autoregressive vs. Non-autoregressive generation），而非按年代列舉論文。
-* **明確界定「Delta」（技術邊界與貢獻差異）**：
-  > 「方法 A 解決了 X 但引入了二次複雜度 $O(T^2)$；方法 B 採用局部視窗降低了延遲，但破壞了全域語義。我們的設計介於兩者之間，透過 Z 機制在維持因果性（Causality）的前提下補償長程相依性。」
+### 1. 選題：先寫下十個候選
 
-### 4. 解決方案（Proposed Methodology）
-* **系統架構圖先行**：繪製清晰的張量流向圖（Tensor Flow Diagram），明確標註輸入張量維度（Tensor Shapes，如 $[B, C, T]$）、採樣率（Sampling Rate）、特徵降採樣因子與各模組輸出。
-* **數學與演算法定義**：
-  * 嚴格定義符號。例如時域訊號 $x[n]$、STFT 複數頻譜 $X(t, f)$、隱藏表徵 $H \in \mathbb{R}^{T \times D}$。
-  * 明確寫出損失函數（Loss Function）的加權組成：
-    $$\mathcal{L}_{\text{total}} = \lambda_{\text{rec}} \mathcal{L}_{\text{rec}} + \lambda_{\text{adv}} \mathcal{L}_{\text{adv}} + \lambda_{\text{aux}} \mathcal{L}_{\text{aux}}$$
-    解釋每個 Loss Term 所約束的聲學物理意義（如 Spectral Convergence 抑制高頻能量誤差、CTC Loss 約束單調對齊）。
+從問題卡、自己的生活與專業背景、課程每週講到「方法在哪裡壞掉」的地方、論文的 Limitations、挑戰賽、語音工具在 GitHub 上的 issue 找起。**至少寫下十個候選再開始篩**，第一個想法很少是最好的。篩的時候問五件事：痛點有沒有證據、解決了對誰有價值、和前人差在哪裡、資料拿不拿得到且單張 16 GB GPU 一學期做得完、你和這個領域的人想不想知道答案。找了一週還看不到痛點的證據、資料拿不到、或答案不用做實驗就猜得到，就換。
 
-### 5. 資料集與評估指標（Data & Metrics）
+**讀範本**：`sections/00-finding-a-problem.tex` 的六個導引框。這個檔只有導引；在框外打的字會印在摘要與 §1 之間，所以不要在這裡寫。候選清單、搜尋紀錄與 AI 輔助的過程，可以放進補充材料的 Problem Discovery Log（選做）。
 
-| 研究領域 | 建議主流公開基準資料集 | 核心評估指標 |
-| :--- | :--- | :--- |
-| **ASR** | LibriSpeech, Common Voice, AISHELL, Formosa Speech | WER, CER, RTF (Real-Time Factor) |
-| **TTS / Voice Cloning** | LJSpeech, VCTK, LibriTTS | UTMOS, NISQA, SECS (Speaker Similarity), CER |
-| **Speech Enhancement / Separation** | VoiceBank-DEMAND, WSJ0-2mix, DNS Challenge | PESQ, STOI, SI-SDR (dB) |
-| **Audio Codec / Tokenizer** | LibriTTS, AudioCaps | ViSQOL, Mel-Spectral Reconstruction Loss, Bitrate (kbps) |
-| **Speaker Verification / Diarization** | VoxCeleb 1 & 2, AMI | EER (Equal Error Rate), minDCF, DER |
+### 2. 蒐集證據：讓痛點看得見
 
-* **主客觀指標對齊**：若聲稱改進「自然度」或「聽覺品質」，必須在實驗規劃中納入主觀聽感測試設計（MUSHRA 或 MOS 規範，包含信賴區間計算方式）。
+動手做方法之前，先證明問題存在，而且有規模：把現成系統跑在一小份資料上、逐句分類錯誤、把失敗的音檔拿出來聽，並放一個問題**不該**出現的對照條件，證明你看到的不是到處都有的現象。問題卡上的「先蒐集的證據」就是這一步。證據不支持痛點時，修正問題或換題；這是研究的正常過程，不是失敗。
 
-### 6. 實驗規劃與消融設計（Experimental Setup & Ablation Plan）
-* **對比基準（Baselines）**：必須包含：
-  1. 領域內經典的 Vanilla Baseline。
-  2. 近兩年內代碼開源、具有高度代表性的 SOTA 模型。
-* **消融實驗表格骨架（Ablation Skeleton）**：在報告中預先畫出期末將填入數值的表格欄位，確保每一個提出的模組、Loss 或超參數調整均有對應的控制組（Control Group）。
-* **資源配置**：註明硬體規格（GPU 型號與顯存）、Batch Size、Optimizer、Learning Rate Scheduler 與預計訓練 steps/epochs。
+**寫進範本**：§2 Problem Analysis and Significance（證據表要有對照條件那一列），期中最長的一節：痛點、成因、為什麼到現在還沒解決、價值、成功長什麼樣子。
 
-### 7. 初步概念驗證（PoC / Sanity Check）
-期中報告必須提供初步可行性證明（以下至少完成一項）：
-* **Toy Dataset 驗證**：在小規模子集（如 LibriSpeech-100 或 LJSpeech 1 小時子集）上跑通訓練 Pipeline，證明 Loss 穩定收斂且梯度無爆炸/下溢（NaN）。
-* **Pipeline 暢通性**：輸入音訊 $\to$ 聲學特徵提取 $\to$ Backbone $\to$ Loss 計算 $\to$ 反向傳播更新，整條流程打通並產出第一組可聆聽音檔或初步指標。
-* **Baseline 重現**：成功重現開源基準模型的 Inference 結果，確認自己編寫的 Evaluation Script 計算出的指標與原論文公開數值量級一致。
+### 3. 決定貢獻類型
 
----
+方法、資源、分析三種（見下一節的表）。可以有主有從，但只能有一個主要類型：一半方法、一半資料集的論文，通常兩邊都做不好。在 §1 寫明主要類型，以及一個**可能被推翻**的假設：如果任何結果都不會讓你改變想法，你的實驗就沒有在檢驗什麼。貢獻類型決定 §4 到 §6 寫什麼。
 
-## 二、 非資工背景同學的執行策略
+**寫進範本**：§1 Introduction；`00-finding-a-problem.tex` 的第 6 框說明三種類型。
 
-在 Speech AI 領域，許多突破來自對**語音物理特性（時頻局部性、諧波結構、發音機制）的敏銳洞察**，而非單純的底層系統工程。
+### 4. Related work：系統化搜尋，逐條查證
 
-* **站在開源巨人的肩膀上**：
-  * ASR / TTS / Separation：優先採用 **ESPnet**、**SpeechBrain** 或 **NVIDIA NeMo** 的既有 Recipe，不從零寫訓練迴圈。
-  * Foundation Models / SSL 微調：善用 **Hugging Face (`transformers` / `torchaudio`)**。
-* **模組化介入（Modular Intervention）**：
-  將心力集中於「模組替換」或「表徵轉移」。例如：凍結（Freeze）預訓練好的 Whisper 或 WavLM Encoder，僅針對 Downstream Adapter、Cross-Attention 融合層或輕量化 Head 進行創新。
-* **從錯誤分析（Error Analysis）切入**：
-  仔細聆聽模型失敗的音檔。分析問題是在清濁音轉換（Voiced/Unvoiced transition）、高頻摩擦音、殘留混響（Reverberation）、抑或重疊語音（Overlapped speech）發生崩潰，以此作為演算法修改的物理支點。
+跨社群搜尋（語音、NLP、訊號處理對同一件事常用不同的詞），交件前再掃一次最近六個月的 arXiv（`eess.AS`、`cs.SD`、`cs.CL`）與當年的會議論文集。最接近的三到五篇讀全文，點名「可能讓這篇發表不了的那一篇」。依概念組織，不要依年代列流水帳。
 
----
+**每一條引用都要查證三層**：它在官方紀錄裡存在；標題、作者、出處、年份與官方紀錄一致；你寫的主張真的在那篇論文裡，用 `\src{}` 標出位置（例如 `\src{Sec.~4.2}`）。BibTeX 一律從官方來源匯出（ISCA Archive、IEEE Xplore、ACL Anthology、PMLR、OpenReview、DBLP、DOI 頁面；只有 arXiv 版的論文用 `arxiv.org/abs/<id>`），不要憑記憶打，也不要讓 AI 產生。有同儕審查的版本就引用正式版本：ISCA 的政策是，非同儕審查的來源（包括 arXiv）只在沒有正式版本時才引用，而且要盡量少。
 
-## 三、 AI 工具（以 Gemini 為例）協作指引
+**寫進範本**：§3 的七個導引框；補充材料的 Closest Prior Work（選做，每篇一張閱讀卡）。
 
-將 LLM 定位為「研究助理與結構審計員」，嚴守學術誠信底線。
+### 5. 設計與評估計畫：先把結果表畫出來
 
-```
-                    【推薦的 AI 協作模式】
-  
-  文獻發想 ───> 獲取關鍵詞與領域概念 ───> 人工手動下載論文確認
-  架構設計 ───> 討論優缺點與潛在漏洞 ───> 人工評估訊號物理意義
-  程式除錯 ───> 產生 Boilerplate / 查修 ───> 人工跑過 Sanity check
-  報告寫作 ───> 潤色語氣與雙欄排版 ───> 逐字確認技術內容無誤
-```
+先定義研究對象，再依貢獻類型寫設計，說明為什麼應該有效、在哪些條件下不該有效。評估計畫在跑實驗之前定好：資料與切分、**每個研究問題一個**和主張綁在一起的主要指標、比較對象與控制組、算力預算、種子數與統計方法。用到預訓練模型時，說明它的訓練資料可能包含什麼；如果它可能看過你的測試集，加一份它不可能看過的測試資料（例如模型釋出之後才錄的音），兩份都報告。把期末要填的結果表現在就畫出來，每一格先寫 `\pending`，每一列只改一件事。
 
-### 1. 建議使用情境
-* **關鍵字擴展與範疇收斂**：
-  * *Prompt 範例*：「*我想在低延遲（Low-latency）條件下改進 Conformer ASR 的串流表現，目前已知機制有 chunk-based attention。請提供近兩年 ICASSP/INTERSPEECH 探討此問題時常用的 5 個關鍵技術概念與其限制。*」
-* **PyTorch 樣板代碼生成**：
-  * 產生音訊 `Dataset`、動態長度對齊（Collate function with padding）或 STFT/Mel-filterbank 處理樣板。
-* **架構缺陷壓力測試**：
-  * 輸入架構文字描述，要求 AI 以審稿人視角找出 3 個致命破綻（如因果性洩漏、運算複雜度不符流式標準等）。
+**寫進範本**：§4 Proposed Approach、§5 Evaluation Plan。
 
-### 2. 嚴格禁止的錯誤行為
-* **絕對不可採信 AI 生成的論文引用**：
-  LLM 極易捏造作者、標題或出處。**報告中出現的每一篇文獻，都必須親自透過 Google Scholar、arXiv 或 IEEE Xplore 下載 PDF 確認。**
-* **嚴禁 AI 捏造實驗數據**：
-  未經實驗實測的數字填入表格視同偽造數據。尚未完成的數據一律標記為 `[Pending]` 或 `[To be verified]`。
+### 6. PoC：三種之中至少完成一項
 
----
+下面三種至少完成一項，拿出你自己工作的真實輸出，並說明為什麼這一項最能支持你的貢獻類型（各類型的完整例子見下一節的表）：
 
-## 四、 審稿人（Reviewer）即退紅線（Red Flags）
+1. **小規模試行**：在一小份資料上得到穩定、說得通的結果（方法：訓練收斂；資源：依第一版規範試標一批並量一致性；分析：試測一小份資料）。
+2. **管線端到端打通**：從輸入到最後的輸出（分數、音檔或匯出的資料），在少量資料上走完一次。
+3. **重現或對照一個已知結果**：方法型用自己的評估程式，得到與已發表結果同一量級的數字；資源型把現有系統跑在你的試行資料與既有語料上，比較兩者；分析型先重現一個已發表的發現，驗證你的測量工具。
 
-在繳交期中報告前，請逐條自我核對：
+報告要寫清楚設定（資料量、步數或筆數、硬體、實際花的時間），說你聽到了什麼，也寫出最早遇到的失敗，那是期末錯誤分析的起點。重現的數字對不上時，查出原因（文字正規化？切分？checkpoint？取樣率？）並寫出來；這是發現，不是失敗。
 
-* [ ] **無動機的模組拼接（A + B without insight）**：單純將 Transformer 替換為 Mamba，或任意在 TTS 後端接上 Diffusion，卻無法解釋「該任務的何種語音物理特性需要該架構改進」。
-* [ ] **不公平的基準對比（Unfair Comparison）**：拿預訓練巨量資料微調後的模型，去對比未微調的傳統 Baseline；或在不同資料分割（Split）上比對指標。
-* [ ] **指標與目標脫節（Metric Misalignment）**：聲稱提升了語音自然度，卻只提供 Mel-spectral L1 Loss 作為唯一佐證。
-* [ ] **預先看見未來資訊（Lookahead Violation）**：研究題目宣告為即時串流（Streaming），模組中卻包含雙向注意力（Bidirectional Attention）或全域標準化（Global LayerNorm）。
-* [ ] **範疇過大、無法落地**：計畫在學期內從零預訓練 Speech LLM。算力需求明顯超出個人或實驗室負荷者，期中將直接判定為不可行。
+**寫進範本**：§6 Proof of Concept。
+
+### 7. 計畫、限制與 AI 使用聲明，然後自我審稿
+
+§7 寫目標會議，以及那裡最近被接受、和你最接近的三篇論文，當作你的標準；剩下的工作依風險排序，最能消除風險的先做（通常是資料與評估，而不是自己的模型），每個決策點寫成「如果……就……」。Limitations 寫具體、會限制你主張的地方。Generative AI Use Disclosure 寫用了什麼工具、做了什麼。
+
+交件前自我審稿：INTERSPEECH 投稿表單有一份 scientific reporting checklist，分七組；逐組找出報告中回答它的句子（計畫書裡很多項還是計畫，就寫計畫）。再寫一份審稿人會寫的意見：三句話摘要、三個優點、三個缺點，以及對「主張有沒有證據支持」（Soundness）與「問題值不值得回答」（Excitement）各一個判斷與理由。也可以請另一個 AI 獨立寫一份，它找到而你漏掉的缺點，再看一次。能修的修掉，修不了的寫進 Limitations。
+
+**寫進範本**：§7 的四個導引框（含紅旗清單）、Limitations、Generative AI Use Disclosure。
+
+## 三種貢獻，期中各要拿出什麼
+
+| | 方法 | 資源 | 分析 |
+|:---|:---|:---|:---|
+| **主張** | 在某個條件下比既有做法好，而且說得出為什麼 | 補上一個缺口：有了這份資料，才做得了原本做不了的研究 | 一個現象的成因與範圍，結論會改變別人做研究的方式 |
+| **§4 設計** | 前端參數（取樣率、窗長、hop）、架構圖與模組間的張量形狀、訓練目標的每一項；宣稱串流就要每個模組都是因果的 | 來源與錄製方式、同意書與授權、標註規範、品質控制（雙重標註與一致性）、說話人不重疊的切分、data statement | 測量工具與它的效度、可能的混淆因素與控制方法、每個假設預測的結果型態 |
+| **§5 比較** | 標準基線與近期開源的強系統，同樣的資料與評分程式；參數量相當的對照組 | 既有系統在你的資料**與**既有語料上的表現，證明你的資料揭露了舊資料看不到的東西 | 排除每個混淆因素的控制條件，以及現象應該不出現的參照條件 |
+| **§6 PoC 的例子** | 小資料上收斂、聽起來合理；音訊到 loss 的管線打通；用自己的評估程式重現 baseline | 一小批資料依第一版規範收集與標註，量雙重標註的一致性；收集到匯出的管線打通；現有系統在你的試行資料與既有語料上的差異 | 一小份資料上得到穩定、可解讀的測量；刺激到統計的管線打通；先重現一個已發表的發現，驗證你的測量工具 |
+
+## 篇幅與格式
+
+- **長度**（依 INTERSPEECH 2026 的 paper kit；2027 年的規定以它的 call for papers 為準）：long paper 最多 10 頁。正文、圖表、Limitations 與任何附錄都要放在前 8 頁；第 9–10 頁只能放致謝、生成式 AI 使用聲明與參考文獻。期中不必寫滿 8 頁。把導引框關掉（`\showguidesfalse`）才看得到真正的長度。
+- **補充材料**：`supplementary.tex` 是另一份文件，要單獨編譯。裡面三節（Problem Discovery Log、Closest Prior Work、Reproducibility Details）全部選做，報告放不下的內容也放這裡；審稿人可以讀但不一定讀，報告本身要能獨立讀懂。它如果沒有引用任何文獻，刪掉檔尾那兩行 bibliography，否則 BibTeX 會報錯。
+- **摘要**：最多 1000 字元、只用 ASCII 字元、不能有引用。
+- **語言**：全文英文。範本用 pdfLaTeX，排不了中文字（`%` 開頭的註解可以寫中文）。
+- **作者**：在 `metadata.tex` 寫每位組員護照上的英文姓名（名在前，例如 Hung-Shin Lee）、學號與 email。
+- **三種標記**：紅色的 `\fillin{...}` 是還沒寫的文字，紅色的 `\pending` 是還沒量的數字，灰色的 `\src{...}` 是引用主張在原文中的位置。`\src` 在本課一律保留。交件前把導引框關掉編譯一次，**PDF 裡不能有任何紅色標記**；唯一的例外是 §5 預定結果表的格子，它們要到期末才填，保留 `\pending`。直接搜尋原始檔也會搜到導引框裡提到的標記，以 PDF 為準。
+
+## 用 AI 的規則
+
+**可以用來**：
+
+- 繪製領域地圖：方法家族、標準資料與指標、已知的失敗模式、搜尋關鍵字，包括不同社群對同一件事的不同說法。
+- 從一個種子想法產生很多候選，再由你自己篩。
+- 唱反調：「請扮演懷疑的 INTERSPEECH 審稿人，列出這個問題不值得一篇論文的三個最強理由，以及能回答每個理由的證據。」
+- 診斷：列出一個症狀在訊號、資料、模型、評估四個層次上可能的成因，以及能區分它們的小實驗。
+- 輔助閱讀你已經打開的論文；之後一定要問「論文哪裡這樣寫？」並自己核對。
+- 寫 PoC 的程式：資料載入、跑 baseline、畫圖。
+- 潤飾英文。
+
+**不可以**：
+
+- 產生參考文獻或 BibTeX。每一筆都從官方來源匯出。
+- 產生、補齊或解讀數字。每個數字都來自你自己的程式。
+- 描述音檔聽起來怎樣。那要你自己聽。
+- 宣稱「沒有人做過」。只有你自己的搜尋紀錄能支持這種話。
+- 產生報告的相當一部分。ISCA 的政策允許用生成式 AI 編修文字，但不允許用它產生論文的相當一部分。
+- 在檔案裡藏給 AI 讀者看的文字或指令。
+
+**Prism 內建的 AI 功能也是生成式 AI**，適用同樣的規則：不能用它插入參考文獻或數字，用過就寫進 Disclosure。
+
+**查證可以借助另一個 AI**：用不同於找到那篇論文的 AI，依論文 PDF 與官方紀錄交叉比對書目和 `\src`；兩者不一致的地方，自己讀原文。從第一天起就記錄每一個 AI 輔助的步驟，包括它弄錯的地方。最後在 Generative AI Use Disclosure 寫明用了什麼工具、做了什麼、碰了報告或程式的哪些部分。
+
+## 不熟寫訓練程式的組
+
+語音研究的突破，常來自對語音本身的觀察，而不只是系統工程。
+
+- **考慮分析型或資源型**：分析型多半只需要推論與測量，工程量小，問題卡的 B2、C1、C2、D1、D3、E4、E6 都是；資源型不太需要寫訓練程式，但同意書、標註規範、雙重標註與切分的人工不少，例如 B6。問題選得好，兩者一樣是頂會論文。
+- **用現成的工具鏈**：ESPnet、SpeechBrain、NeMo、Hugging Face 上的 recipe 與預訓練模型。不要從零寫訓練迴圈。
+- **從錯誤分析切入**：聽失敗的音檔，分辨問題出在清濁音轉換、高頻摩擦音、殘響、重疊語音，還是文字正規化。
+- **你的背景是優勢**：語言學、音樂、醫療、教育、廣播的專業知識，常是找到好問題、選對評估方式的關鍵。
+
+## 交件前檢查
+
+- 關掉導引框編譯，PDF 裡沒有紅色標記（§5 預定結果表的 `\pending` 除外）。
+- 每個歸給某篇論文的主張都有 `\src{}`；每一筆 BibTeX 都從官方來源匯出。
+- 每個數字都來自你自己的程式；PoC 的設定（資料量、步數或筆數、硬體、時間）寫清楚。
+- 關掉導引框後，正文、圖表、Limitations 都在前 8 頁之內。
+- 摘要不超過 1000 字元、只用 ASCII 字元、沒有引用。
+- 有用補充材料的話，它單獨編譯得過。
+- Generative AI Use Disclosure 寫好了。
+- §7 的紅旗清單逐條看過，自我審稿做過一次。
+
+## 版本
+
+- 2026-10-16：改寫成路線圖，對齊 INTERSPEECH long paper 的 Prism 範本與〈選題問題卡〉。前一版寫的 3–4 頁、4 頁正文、套 ICASSP 或 INTERSPEECH 雙欄模板已不適用，各章節的寫作規範改由範本的導引框負責。
