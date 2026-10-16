@@ -8,7 +8,7 @@ toc-depth: 2
 
 <!-- 此檔由 bin/publish_report_template.py 從 private repo 的 speech_ai/report-template/README.md 產生，請勿在公開 repo 直接編輯；zip 也是同一支腳本的產物。 -->
 
-**Download: [speech-ai-report-template.zip](speech-ai-report-template.zip)** (42 files, 482 KB; version `5a1ba41`). Import the ZIP into Prism as a new project; the file layout and the instructions below are the template's own `README.md`.
+**Download: [speech-ai-report-template.zip](speech-ai-report-template.zip)** (42 files, 483 KB; version `ec9d8e3`). Import the ZIP into Prism as a new project; the file layout and the instructions below are the template's own `README.md`.
 
 This is the Prism project template for the midterm report and the final paper.
 Both use the format of an **Interspeech long paper**, built on the official Interspeech 2026
@@ -46,15 +46,18 @@ red brackets mark the places you still have to write.
 ## Getting started
 
 1. Import the template (the zip file) into Prism as a new project.
-2. Compile `midterm/main.tex` for the midterm report and `final/main.tex` for the final paper,
+2. Rename the project to `[Speech-AI] <title>`, where `<title>` is the title of your topic
+   (for example, `[Speech-AI] Tone Sandhi Errors in Taiwanese ASR`). Then share it with the
+   instructor (hungshinlee@gmail.com) with edit access.
+3. Compile `midterm/main.tex` for the midterm report and `final/main.tex` for the final paper,
    with pdfLaTeX (the default) and BibTeX. `supplementary.tex` in the same folder is a separate
    document; compile it on its own if you use it.
-3. Compile once and read every blue box in the PDF before you start writing.
+4. Compile once and read every blue box in the PDF before you start writing.
    For the midterm, start with the six "Before you write" boxes after the abstract: they cover
    how to find, investigate and choose a problem. Keep a record of your candidates, searches
    and AI-assisted steps from the first day; the supplementary material has an optional section
    (Problem Discovery Log) where you can include it.
-4. Fill in `metadata.tex`. For each group member: the English name exactly as it appears on
+5. Fill in `metadata.tex`. For each group member: the English name exactly as it appears on
    the passport, given name first (e.g. `\author[affiliation={1}]{Hung-Shin}{Lee}`), the
    student ID, and an email address.
 
