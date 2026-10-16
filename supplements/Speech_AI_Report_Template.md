@@ -1,0 +1,154 @@
+# 期中報告與期末論文的 LaTeX 範本（INTERSPEECH long paper）
+<!-- en: Report Template: Midterm Report and Final Paper -->
+<!-- order: 5 -->
+<!-- summary: The LaTeX project for both reports, in the INTERSPEECH long-paper format of the official 2026 paper kit, with guidance boxes on writing and research. Download the ZIP and import it into Prism. -->
+<!-- 此檔由 bin/publish_report_template.py 從 private repo 的 speech_ai/report-template/README.md 產生，請勿在公開 repo 直接編輯；zip 也是同一支腳本的產物。 -->
+
+**Download: [speech-ai-report-template.zip](speech-ai-report-template.zip)** (42 files, 482 KB; version `5a1ba41`). Import the ZIP into Prism as a new project; the file layout and the instructions below are the template's own `README.md`.
+
+This is the Prism project template for the midterm report and the final paper.
+Both use the format of an **Interspeech long paper**, built on the official Interspeech 2026
+paper kit. The blue boxes in the `.tex` files contain guidance on writing and research;
+red brackets mark the places you still have to write.
+
+## Layout
+
+```
+(project root)
+├── README.md               this file
+├── Interspeech.cls         official Interspeech class (do not edit)
+├── IEEEtran.bst            official bibliography style (do not edit)
+├── report-guide.sty        macros for the guidance boxes and markers (do not edit)
+├── midterm/                midterm report: research proposal + proof of concept
+│   ├── main.tex            <- compile this file: the report
+│   ├── supplementary.tex   <- and this one, if you use it: the supplementary material
+│   ├── metadata.tex        title, authors, student IDs, emails, keywords
+│   ├── references.bib      bibliography of the midterm report
+│   ├── Interspeech.cls     identical to the copy in the root (see FAQ)
+│   ├── IEEEtran.bst        identical to the copy in the root (see FAQ)
+│   ├── figures/
+│   └── sections/           one .tex file per section
+└── final/                  final paper: a complete Interspeech long paper
+    ├── main.tex
+    ├── supplementary.tex
+    ├── metadata.tex
+    ├── references.bib
+    ├── Interspeech.cls
+    ├── IEEEtran.bst
+    ├── figures/
+    └── sections/
+```
+
+## Getting started
+
+1. Import the template (the zip file) into Prism as a new project.
+2. Compile `midterm/main.tex` for the midterm report and `final/main.tex` for the final paper,
+   with pdfLaTeX (the default) and BibTeX. `supplementary.tex` in the same folder is a separate
+   document; compile it on its own if you use it.
+3. Compile once and read every blue box in the PDF before you start writing.
+   For the midterm, start with the six "Before you write" boxes after the abstract: they cover
+   how to find, investigate and choose a problem. Keep a record of your candidates, searches
+   and AI-assisted steps from the first day; the supplementary material has an optional section
+   (Problem Discovery Log) where you can include it.
+4. Fill in `metadata.tex`. For each group member: the English name exactly as it appears on
+   the passport, given name first (e.g. `\author[affiliation={1}]{Hung-Shin}{Lee}`), the
+   student ID, and an email address.
+
+## Four markers
+
+| Marker | Looks like | Meaning |
+|---|---|---|
+| `\begin{guide}...\end{guide}` | blue box | Guidance on writing and research. Delete it when you are done, or keep it in the source and hide it with `\showguidesfalse`. |
+| `\fillin{...}` | red brackets | Text you still have to write. |
+| `\pending` | red *pending* | A number you have not measured yet. |
+| `\src{Sec.~4.2}` | small grey *[Sec. 4.2]* | Where, in the paper you just cited, the claim you attribute to it appears. |
+
+- Change `\showguidestrue` to `\showguidesfalse` in `main.tex` and all blue boxes disappear,
+  so you can see the real length of your report.
+- The red markers do **not** disappear. **Before you hand in, compile with `\showguidesfalse`
+  and look through the PDF: no red marker may remain.** One exception: in the midterm report,
+  the cells of the planned-results table (Evaluation Plan) stay `\pending` until the final
+  paper. (Searching the source also finds the markers that the guidance boxes mention; the PDF
+  is what counts.)
+- **Every result in every table must come from your own code.** If you have not run it yet,
+  write `\pending`. Never write a number you expect to get into a result cell; published or
+  predicted values go only where a column or row is labelled that way (e.g. the "Expected"
+  column of the proof-of-concept table).
+- **Every claim you attribute to a paper carries `\src{...}`**, placed right after the citation:
+  `Smith et al.~\cite{smith2024}\src{Sec.~4.2, Tab.~3} show that ...`. Open the PDF, find the
+  passage, write where it is. Citations that only point to a work ("we use the toolkit
+  of [X]") do not need one. The grey notes stay in the PDF for this course
+  (`\showsourcestrue` in `main.tex`).
+
+## Length (Interspeech long paper)
+
+- At most **10 pages**. Pages 9 and 10 are reserved for three sections only: Acknowledgments,
+  Generative AI Use Disclosure, and References (they may start earlier if there is space).
+- Everything else must fit in the **first 8 pages**: text, figures, tables, the Limitations
+  and Ethical considerations sections, and any appendix.
+- What does not fit goes into the supplementary material (`supplementary.tex`), which
+  reviewers may read but are not required to. The paper must be understandable without it.
+- The midterm report does not need to fill all 8 pages.
+- For comparison, an Interspeech regular paper has at most 6 pages: 4 of content and 2 reserved.
+
+## References
+
+- Interspeech uses numbered references in the IEEEtran style. Write `\cite{key}`, and name the
+  authors in the sentence when they are its subject: `Kirkland et al.~\cite{kirkland2023mos}`.
+- Each report has its own `references.bib` in its folder. When you start the final paper,
+  copy the entries you still cite from `midterm/references.bib`.
+- **Export every entry from an official source**: ISCA Archive, IEEE Xplore, ACL Anthology,
+  PMLR, OpenReview, DBLP, or the paper's DOI page; for a paper that exists only on arXiv,
+  `arxiv.org/abs/<id>`. Do not type entries from memory, and do not let an AI assistant
+  produce them: AI assistants invent plausible-looking papers that do not exist.
+- ISCA's policy: cite peer-reviewed publications. Cite non-peer-reviewed sources (arXiv,
+  software, personal communications) only when no peer-reviewed version exists, and keep them
+  to a minimum.
+- **Verify every citation** at three levels: it exists in an official record; the title,
+  authors, venue and year match that record; and the claim you attribute is in the paper
+  (that is what `\src` records). Cross-checking levels 2 and 3 with a second AI assistant is
+  allowed, if it is a different assistant from the one that found the paper and it works
+  from the PDF and the official record. Wherever it disagrees with you, read the paper yourself.
+- The entries already in `references.bib` are examples used by the guidance boxes; they were
+  checked against their official pages on 2026-10-16. Delete them once your paper no longer
+  cites them.
+
+## Page layout
+
+The template uses the Interspeech **camera-ready** layout, which shows the author names, and
+adds **line numbers**, so that feedback can refer to lines.
+For a real Interspeech submission, change `\documentclass[cameraready]{Interspeech}` to
+`\documentclass{Interspeech}` (the anonymous review layout, which has line numbers of its own),
+delete the `\AtBeginDocument{\linenumbers}` line, and remove the Acknowledgments: Interspeech
+allows them only in the camera-ready version.
+
+## FAQ
+
+**Why are there three copies of `Interspeech.cls` and `IEEEtran.bst`?**
+LaTeX and BibTeX look for these files only in a few fixed places. Prism may run them in the
+project root or inside `midterm/` or `final/`; with a copy in each place, they are found
+either way. The copies are identical to the official kit. Do not edit or delete any of them.
+
+**What is the `Path setup` block at the top of `main.tex`?**
+It lets LaTeX find `report-guide.sty`, `metadata.tex` and the sections whether it runs in the
+project root or inside the folder. Do not edit it.
+
+**BibTeX says `I found no \citation commands`.**
+The document cites nothing yet: in the untouched template, all citations are inside the blue
+boxes, so hiding the boxes leaves no `\cite` at all. The message goes away once you cite
+something. If your `supplementary.tex` cites nothing, delete its two bibliography lines.
+
+**What happens if I type Chinese characters in the paper?**
+The template uses pdfLaTeX, which cannot typeset Chinese characters. Interspeech papers are
+written in English. (Comments starting with `%` never reach the PDF, so Chinese is fine there.)
+
+**Can I use `\paragraph`?**
+No: the Interspeech class does not support it, and allows at most three levels of headings
+(`\section`, `\subsection`, `\subsubsection`). Start the paragraph with bold text instead:
+`\noindent\textbf{Closest work.}`.
+
+---
+
+`Interspeech.cls`, `IEEEtran.bst` and the page and formatting rules quoted in the guidance come
+from the official Interspeech 2026 paper kit (`Interspeech.cls` version 2025-09-02).
+The Interspeech 2027 rules may differ; check its call for papers when it is published.

@@ -21,6 +21,8 @@ project:
   resources:
     - slides/assets/**
     - slides/scripts/**    # bin/publish.py 白名單發佈的分析腳本；不列在這裡 Quarto 不會複製進 _site
+    # 報告範本的 zip：由 bin/publish_report_template.py 從 private repo 的 speech_ai/report-template/ 打包的產物，勿手改
+    - supplements/*.zip
 
 # 用 zh-TW 而非 zh-Hant：Quarto 只有 _language-zh-TW.yml，給 zh-Hant 會退回簡體的 _language-zh.yml
 lang: zh-TW
@@ -112,6 +114,7 @@ website:
           - href: supplements/midterm-poc.qmd
           - href: supplements/final-paper-mvp.qmd
           - href: supplements/paper-writing-and-narrative.qmd
+          - href: supplements/report-template.qmd
   page-footer:
     left: "語音處理與人機互動 · Speech Processing and Human-Machine Interaction · 14 weeks"
     right: "Built with [Quarto](https://quarto.org)"

@@ -4,7 +4,7 @@
 <!-- summary: The route through the midterm: from a problem card to evidence, a contribution type, verified related work, an evaluation plan and one proof of concept, written in the Interspeech long-paper template; with the rules for using AI and a hand-in checklist. -->
 <!-- 此檔由 bin/publish_supplements.py 從 private repo 的 <course>/supplements/ 過濾產生，請勿在公開 repo 直接編輯。 -->
 
-期中報告是一份**研究提案加上概念驗證（proof of concept, PoC）**，用 INTERSPEECH long paper 的格式，寫在授課老師提供的 Prism 範本裡。標準和投稿一樣：證據、引用、數字都要經得起審稿人檢查，只是實驗還沒做完。
+期中報告是一份**研究提案加上概念驗證（proof of concept, PoC）**，用 INTERSPEECH long paper 的格式，寫在〈[報告範本](report-template.qmd)〉裡：下載 zip、匯入 Prism 成為一個專案。標準和投稿一樣：證據、引用、數字都要經得起審稿人檢查，只是實驗還沒做完。
 
 這一頁是路線圖：期中要回答什麼、按什麼順序做、每一步寫進範本的哪裡。**寫作與研究的細節都在範本的藍色導引框裡**，這裡不重複；兩者若有出入，以範本為準，並告訴授課老師。選題的起點見〈[選題問題卡](topics-for-interspeech27.qmd)〉。
 

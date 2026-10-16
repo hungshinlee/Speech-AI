@@ -254,10 +254,12 @@ def build_supplements():
         "",
         "These guides back the two assessed deliverables — the midterm report (40%) "
         "and the final paper (60%) — from picking a topic through to the write-up. "
-        "They treat both as submissions to ICASSP / INTERSPEECH / ASRU / SLT rather "
-        "than as coursework, which is the standard the course is aiming at.",
+        "Both are written in the INTERSPEECH long-paper format of the report template "
+        "below, and held to the standard of a conference submission rather than of "
+        "coursework.",
         "",
-        "**The guides themselves are in Chinese**, matching how the course is taught.",
+        "**The guides themselves are in Chinese**, matching how the course is taught; "
+        "the report template is in English, like the papers you will write.",
         "",
     ] + rows + [""])))
     return written
