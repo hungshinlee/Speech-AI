@@ -33,7 +33,7 @@
 | **痛點** | 誰、在什麼情境下、遇到什麼問題；技術上是哪一個環節出錯 |
 | **先蒐集的證據** | 動手做方法之前，一到兩週內能完成、能證明痛點存在而且有規模的觀察 |
 | **已查證的資源** | 資料、模型、工具；附官方連結，與 2026-10-16 查到的關鍵事實和授權 |
-| **起點文獻** | 一到三篇最接近的已發表工作。只是起點，不是 related work 的全部 |
+| **起點文獻** | 幾篇最接近的已發表工作。只是起點，不是 related work 的全部 |
 | **開放方向** | 還沒被做完的問題，寫成問句，不指定方法 |
 | **風險** | 資料授權、評估陷阱、被搶先的可能、算力 |
 | **貢獻類型** | 方法／資源／分析 |
@@ -414,11 +414,12 @@
   - Osakuade & King, “Lexical Tone is Hard to Quantize: Probing Discrete Speech Units in Mandarin and Yorùbá,” *Speech Prosody 2026*, pp. 38–42. [DOI](https://doi.org/10.21437/SpeechProsody.2026-8)　SSL 的連續表徵編碼了聲調，但量化成離散單元後，聲調比音段資訊更容易流失。
   - Wu et al., “Codec-SUPERB: An In-Depth Analysis of Sound Codec Models,” *Findings of ACL 2024*, pp. 10330–10348. [ACL Anthology](https://aclanthology.org/2024.findings-acl.616/)
   - Shi et al., “ESPnet-Codec: Comprehensive Training and Evaluation of Neural Codecs for Audio, Music, and Speech,” *SLT 2024*, pp. 562–569. [DOI](https://doi.org/10.1109/SLT61566.2024.10832289)
+  - Saloev, Ballier & Pacquetet, “Probing the phon\* representations of the Mimi codebooks,” *ICNLSP 2026*, pp. 322–331. [ACL Anthology](https://aclanthology.org/2026.icnlsp-1.30/)　探測 Mimi 第一個 codebook 編碼了哪些音素資訊（英語 TIMIT）；方法可以直接搬到聲調。
 - **開放方向**：
   - 從哪個 bitrate 開始，聲調對比明顯消失？哪些聲調最先受影響？
   - 從 SSL 蒸餾出來的「語意」codebook，比純聲學的 codebook 更保留聲調，還是更不保留？
   - 聲調的流失，會不會反映在下游語音語言模型的表現上？
-- **風險**：F0 是物理量，pitch 是知覺量，F0 誤差小不代表聽起來對，需要人評佐證；各 codec 的訓練資料與取樣率不同，比較時要說明。起點文獻裡的聲調研究針對的是 SSL 離散單元，不是 EnCodec、DAC 這類聲學 codec；聲學 codec 的 related work 要自己查。
+- **風險**：F0 是物理量，pitch 是知覺量，F0 誤差小不代表聽起來對，需要人評佐證；各 codec 的訓練資料與取樣率不同，比較時要說明。2026-10-16 查證時，我們沒有找到研究聲學 codec 是否保留聲調的同儕審查論文：找到的聲調研究針對的是 SSL 離散單元（Osakuade & King），探測 Mimi codebook 的研究只看英語的音段（Saloev et al.）。
 - **貢獻類型**：分析。
 - **課程週次**：W2（F0 與 pitch）、W6（codec 與離散化）。
 
@@ -649,7 +650,7 @@
 ## 投稿格式備忘
 
 - **INTERSPEECH 2027**：在巴西聖保羅舉行，2027 年 8 月 29 日至 9 月 2 日；[官網](https://interspeech2027.org/)公布的論文截稿日是 **2027 年 2 月 9 日**。日期以官網的最新公告為準。
-- **頁數**（2026 年的官方 paper kit）：regular paper 最多 6 頁，long paper 最多 10 頁。regular 的第 5–6 頁、long 的第 9–10 頁只能放致謝、生成式 AI 使用聲明與參考文獻；附錄必須放在前 4 頁或前 8 頁之內。課程的報告範本採 long paper 格式，細節見範本的 README。2027 年的規定可能改變，以 2027 年的 call for papers 為準。
+- **頁數**（2026 年的官方 paper kit）：regular paper 最多 6 頁，long paper 最多 10 頁。regular 的第 5–6 頁、long 的第 9–10 頁只能放致謝、生成式 AI 使用聲明與參考文獻；附錄必須放在前 4 頁或前 8 頁之內。課程的〈[報告範本](report-template.qmd)〉採 long paper 格式。2027 年的規定可能改變，以 2027 年的 call for papers 為準。
 - **引用**：2026 年的 paper kit 要求，非同儕審查的來源（包括 arXiv、軟體、私人通訊）只在沒有同儕審查版本時才引用，而且要盡量少。卡片上標為「只有 arXiv 版」的文獻，寫論文時先查有沒有正式發表的版本。
 - **生成式 AI**：paper kit 要求以「Generative AI Use Disclosure」一節說明使用程度；生成式 AI 不能列為作者，可以用來編修文字，但不應用來產生論文的相當一部分。
 

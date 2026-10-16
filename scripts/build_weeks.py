@@ -256,7 +256,8 @@ def build_supplements():
         "and the final paper (60%) — from picking a topic through to the write-up. "
         "Both are written in the INTERSPEECH long-paper format of the report template "
         "below, and held to the standard of a conference submission rather than of "
-        "coursework.",
+        "coursework. The final-paper guide predates the template and will be revised; "
+        "where the two differ, the template governs.",
         "",
         "**The guides themselves are in Chinese**, matching how the course is taught; "
         "the report template is in English, like the papers you will write.",

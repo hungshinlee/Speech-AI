@@ -8,7 +8,7 @@ toc-depth: 2
 
 <!-- 此檔由 bin/publish_report_template.py 從 private repo 的 speech_ai/report-template/README.md 產生，請勿在公開 repo 直接編輯；zip 也是同一支腳本的產物。 -->
 
-**Download: [speech-ai-report-template.zip](speech-ai-report-template.zip)** (42 files, 483 KB; version `ec9d8e3`). Import the ZIP into Prism as a new project; the file layout and the instructions below are the template's own `README.md`.
+**Download: [speech-ai-report-template.zip](speech-ai-report-template.zip)** (42 files, 483 KB; version `905bfb9`). Import the ZIP into Prism as a new project; the file layout and the instructions below are the template's own `README.md`.
 
 This is the Prism project template for the midterm report and the final paper.
 Both use the format of an **Interspeech long paper**, built on the official Interspeech 2026
@@ -48,7 +48,9 @@ red brackets mark the places you still have to write.
 1. Import the template (the zip file) into Prism as a new project.
 2. Rename the project to `[Speech-AI] <title>`, where `<title>` is the title of your topic
    (for example, `[Speech-AI] Tone Sandhi Errors in Taiwanese ASR`). Then share it with the
-   instructor (hungshinlee@gmail.com) with edit access.
+   instructor (hungshinlee@gmail.com) with edit access. One group member imports the template
+   and shares the project with the other members too; a working title is fine until the topic
+   is settled.
 3. Compile `midterm/main.tex` for the midterm report and `final/main.tex` for the final paper,
    with pdfLaTeX (the default) and BibTeX. `supplementary.tex` in the same folder is a separate
    document; compile it on its own if you use it.
@@ -126,8 +128,9 @@ The template uses the Interspeech **camera-ready** layout, which shows the autho
 adds **line numbers**, so that feedback can refer to lines.
 For a real Interspeech submission, change `\documentclass[cameraready]{Interspeech}` to
 `\documentclass{Interspeech}` (the anonymous review layout, which has line numbers of its own),
-delete the `\AtBeginDocument{\linenumbers}` line, and remove the Acknowledgments: Interspeech
-allows them only in the camera-ready version.
+delete the `\AtBeginDocument{\linenumbers}` line, change `\showsourcestrue` to
+`\showsourcesfalse` so that the grey `\src` notes disappear, and remove the Acknowledgments:
+Interspeech allows them only in the camera-ready version.
 
 ## FAQ
 
@@ -148,6 +151,11 @@ something. If your `supplementary.tex` cites nothing, delete its two bibliograph
 **What happens if I type Chinese characters in the paper?**
 The template uses pdfLaTeX, which cannot typeset Chinese characters. Interspeech papers are
 written in English. (Comments starting with `%` never reach the PDF, so Chinese is fine there.)
+
+**Can I use Prism's built-in AI?**
+Yes, under the same rules as any other AI assistant (see the Generative AI Use Disclosure
+section): use it for editing and for checking, never to produce references, BibTeX entries or
+numbers, and say in the disclosure what you used it for.
 
 **Can I use `\paragraph`?**
 No: the Interspeech class does not support it, and allows at most three levels of headings
