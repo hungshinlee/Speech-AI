@@ -4,7 +4,7 @@
 <!-- summary: The LaTeX project for both reports, in the INTERSPEECH long-paper format of the official 2026 paper kit, with guidance boxes on writing and research. Download the ZIP and import it into Prism. -->
 <!-- 此檔由 bin/publish_report_template.py 從 private repo 的 speech_ai/report-template/README.md 產生，請勿在公開 repo 直接編輯；zip 也是同一支腳本的產物。 -->
 
-**Download: [speech-ai-report-template.zip](speech-ai-report-template.zip)** (42 files, 484 KB; version `a9f4d75`). Import the ZIP into Prism as a new project; the file layout and the instructions below are the template's own `README.md`.
+**Download: [speech-ai-report-template.zip](speech-ai-report-template.zip)** (43 files, 505 KB; version `d408345`). Import the ZIP into Prism as a new project; the file layout and the instructions below are the template's own `README.md`.
 
 This is the Prism project template for the midterm report and the final paper.
 Both use the format of an **Interspeech long paper**, built on the official Interspeech 2026
@@ -18,7 +18,7 @@ red brackets mark the places you still have to write.
 ├── README.md               this file
 ├── Interspeech.cls         official Interspeech class (do not edit)
 ├── IEEEtran.bst            official bibliography style (do not edit)
-├── report-guide.sty        macros for the guidance boxes and markers (do not edit)
+├── report-guide.sty        macros for the guidance boxes, markers and fonts (do not edit)
 ├── midterm/                midterm report: research proposal + proof of concept
 │   ├── main.tex            <- compile this file: the report
 │   ├── supplementary.tex   <- and this one, if you use it: the supplementary material
@@ -41,6 +41,9 @@ red brackets mark the places you still have to write.
 
 ## Getting started
 
+The topic is yours to choose, as long as it is a problem about speech: recognizing,
+understanding, generating or evaluating it, or interacting with machines through it.
+
 1. Import the template (the zip file) into Prism as a new project.
 2. Rename the project to `[Speech-AI] <title>`, where `<title>` is the English title of your
    report (for example, `[Speech-AI] Tone Sandhi Errors in Taiwanese ASR`). Then share it with
@@ -51,7 +54,8 @@ red brackets mark the places you still have to write.
    compiles `midterm/main.tex` as it stands and grades that PDF, so make sure it compiles.
 3. Compile `midterm/main.tex` for the midterm report and `final/main.tex` for the final paper,
    with pdfLaTeX (the default) and BibTeX. `supplementary.tex` in the same folder is a separate
-   document; compile it on its own if you use it.
+   document; compile it on its own if you use it. If your paper must show Chinese, Taiwanese
+   Hokkien or Hakka text, read "Chinese or Taiwanese text in the PDF" below first.
 4. Compile once and read every blue box in the PDF before you start writing.
    For the midterm, start with the six "Before you write" boxes after the abstract: they cover
    how to find, investigate and choose a problem. Keep a record of your candidates, searches
@@ -75,14 +79,19 @@ red brackets mark the places you still have to write.
 - The red markers do **not** disappear. **Before the deadline, set `\showguidesfalse` in `main.tex`,
   compile, and look through the PDF: no red marker may remain.** One exception: in the midterm report,
   the cells of the planned-results table (Evaluation Plan) stay `\pending` until the final
-  paper. (Searching the source also finds the markers that the guidance boxes mention; the PDF
-  is what counts.)
-- **Every result in every table must come from your own code.** If you have not run it yet,
-  write `\pending`. Never write a number you expect to get into a result cell; published or
-  predicted values go only where a column or row is labelled that way (e.g. the "Expected"
-  column of the proof-of-concept table).
+  paper. In the proof-of-concept table, delete a row you did not run, and write `--` where
+  there is no published or predicted value to expect. (Searching the source also finds the
+  markers that the guidance boxes mention; the PDF is what counts.)
+- **Every measured number in every table must come from your own code.** If you have not run
+  it yet, write `\pending`; never fill a cell with the value you hope to get. The only other
+  numbers allowed are ones labeled as such: rows marked as reported by other papers; the
+  "Expected" column of the midterm's proof-of-concept table (the published or predicted value
+  you compare against); and planned quantities labeled as plans, such as the target size of a
+  corpus you will record or an estimate of GPU hours (`50 (target)`, `about 20 GPU-hours
+  (estimate)`).
 - **Every claim you attribute to a paper carries `\src{...}`**, placed right after the citation:
-  `Smith et al.~\cite{smith2024}\src{Sec.~4.2, Tab.~3} show that ...`. Open the PDF, find the
+  `Smith et al.~\cite{smith2024}\src{Sec.~4.2, Tab.~3} show that ...`. When one sentence
+  attributes two claims to the same paper, give each claim its own note. Open the PDF, find the
   passage, write where it is. Citations that only point to a work ("we use the toolkit
   of [X]") do not need one. The grey notes stay in the PDF for this course
   (`\showsourcestrue` in `main.tex`).
@@ -110,9 +119,16 @@ red brackets mark the places you still have to write.
   PMLR, OpenReview, DBLP, or the paper's DOI page; for a paper that exists only on arXiv,
   `arxiv.org/abs/<id>`. Do not type entries from memory, and do not let an AI assistant
   produce them: AI assistants invent plausible-looking papers that do not exist.
+- **Every entry has a `doi` or a `url` field** that points to its official record, so that
+  anyone can check it with one click (a course rule; the official exports include one).
 - ISCA's policy: cite peer-reviewed publications. Cite non-peer-reviewed sources (arXiv,
   software, personal communications) only when no peer-reviewed version exists, and keep them
-  to a minimum.
+  to a minimum. arXiv's "Comments" line is often not updated after acceptance, so search the
+  ISCA Archive and IEEE Xplore by title too.
+- Technical reports, model cards, blog posts and leaderboards are cited under the same policy,
+  but say what they are in the sentence itself ("the X technical report, which is not
+  peer-reviewed, states ..."), and give the date you read a number from a model card or a
+  leaderboard.
 - **Verify every citation** at three levels: it exists in an official record; the title,
   authors, venue and year match that record; and the claim you attribute is in the paper
   (that is what `\src` records). Cross-checking levels 2 and 3 with a second AI assistant is
@@ -132,6 +148,35 @@ delete the `\AtBeginDocument{\linenumbers}` line, change `\showsourcestrue` to
 `\showsourcesfalse` so that the grey `\src` notes disappear, and remove the Acknowledgments:
 Interspeech allows them only in the camera-ready version.
 
+## Chinese or Taiwanese text in the PDF
+
+Interspeech papers are written in English, but examples often need Han characters (error
+cases, transcripts, a table of outputs). pdfLaTeX cannot typeset Chinese characters. If your
+paper must show Chinese, Taiwanese Hokkien or Hakka text in Han characters:
+
+1. Switch the compiler of the project to **XeLaTeX**. Nothing else in `main.tex` has to change:
+   under XeLaTeX the template uses TeX Gyre Termes, Heros and Cursor (similar to the Times,
+   Helvetica and Courier of `Interspeech.cls`) for Latin text, and looks for an installed
+   Traditional Chinese font. Compile `supplementary.tex` the same way if it shows Chinese too.
+2. Wrap every piece of Chinese in `\zh{...}`, e.g. `\zh{台語}`, also inside tables and
+   captions. Lines break between Chinese characters inside `\zh`. Never in the abstract:
+   Interspeech requires it to be ASCII only.
+3. Compile and **search the log for `Missing character`**. A character the font does not have
+   is left out of the PDF without an error. Two cases are common:
+   - Tâi-lô and POJ tone marks such as the vertical line in *a̍* (U+030D) or the dot in *o͘*
+     (U+0358) are missing from TeX Gyre Termes. Name a Latin font that has them in `main.tex`,
+     e.g. `\def\reportmainfont{Liberation Serif}` or `\def\reportmainfont{FreeSerif}` if your
+     installation has them, and look at the result.
+   - Some Han characters used to write Taiwanese Hokkien lie outside the common Chinese fonts
+     (*𪜶*, U+2A736, is missing from the version of Noto Serif CJK TC we tested, for instance). Name a font that has
+     them with `\def\reportzhfont{...}`, or give the word in romanization.
+4. If you use `\zh` and compile with pdfLaTeX, the compilation stops with a message telling
+   you to switch to XeLaTeX.
+
+The XeLaTeX setup was tested with TeX Live 2023; it has **not** yet been tested in Prism,
+whose installed fonts may differ. If the log says that no Traditional Chinese font was found,
+ask the instructor.
+
 ## FAQ
 
 **Why are there three copies of `Interspeech.cls` and `IEEEtran.bst`?**
@@ -148,9 +193,9 @@ The document cites nothing yet: in the untouched template, all citations are ins
 boxes, so hiding the boxes leaves no `\cite` at all. The message goes away once you cite
 something. If your `supplementary.tex` cites nothing, delete its two bibliography lines.
 
-**What happens if I type Chinese characters in the paper?**
-The template uses pdfLaTeX, which cannot typeset Chinese characters. Interspeech papers are
-written in English. (Comments starting with `%` never reach the PDF, so Chinese is fine there.)
+**Can I write Chinese in comments?**
+Yes. Comments starting with `%` never reach the PDF, so Chinese is fine there under any
+compiler.
 
 **Can I use Prism's built-in AI?**
 Yes, under the same rules as any other AI assistant (see the Generative AI Use Disclosure

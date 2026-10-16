@@ -18,7 +18,7 @@ toc-depth: 2
 
 卡片上每一個資料集、模型、工具與論文，都在 **2026-10-16** 對照官方來源查過：model card、官方 GitHub、出版者頁面、arXiv、ISCA Archive、ACL Anthology、LDC 目錄、政府或機構的官方網頁；寫好之後，再由另一批沒參與撰寫的查核者逐句複核一次。少數只能從次要來源確認、或官方頁面讀不到的地方，卡上會直接寫明。卡上寫「沒有找到」的，意思是我們查了但沒找到，不代表不存在。
 
-授權條款、版本與取得方式會變。**動手之前再查一次**；查到的與卡片不一致時，以官方頁面為準，並告訴授課老師。需要申請或付費的語料，要用的話私下聯繫授課老師。卡片引用的 arXiv 預印本，若之後出了同儕審查版本，引用時改用正式版本（ISCA 的引用政策見文末〈投稿格式備忘〉）。
+授權條款、版本與取得方式會變。**動手之前再查一次**；查到的與卡片不一致時，以官方頁面為準，並告訴授課老師。需要申請或付費的語料（包括經 LDC 發行的語料），一律先問授課老師有沒有。卡片引用的 arXiv 預印本，若之後出了同儕審查版本，引用時改用正式版本（ISCA 的引用政策見文末〈投稿格式備忘〉）。technical report、model card 與 blog 不是同儕審查的文獻；你的論文引用它們時，要在句子裡寫明它是什麼，數字附上讀取的日期。
 
 卡片上**沒有**顯存用量、訓練時數或預期的錯誤率改善。那些數字取決於你的資料、設定與程式，別人表格裡的數字不能直接搬來規劃，更不能寫進報告。下面〈算力〉一節教你自己算帳、自己量。
 
@@ -27,7 +27,7 @@ toc-depth: 2
 1. **讀兩三張，不要只讀一張。** 比較之後才知道哪個問題讓你在意、哪份資料你真的拿得到。
 2. **先做「先蒐集的證據」。** 每張卡都列了一到兩週內可以完成的觀察，例如把現成模型跑在一小份測試資料上、逐句分類錯誤。這一步的結果直接進期中報告的 Problem Analysis：它證明問題確實存在、而且規模值得一篇論文。證據不支持痛點時，換卡或修正問題；這是研究的正常過程，不是失敗。
 3. **決定貢獻類型。** 方法、資源、分析三種，可以有主有從，但只能有一個主要類型。每一種的審稿標準，〈[報告範本](report-template.qmd)〉期中部分的導引框有詳細說明；走完期中的路線見〈[期中報告](midterm-poc.qmd)〉。
-4. **從起點文獻往外擴。** 卡片的起點文獻只是入口。沿著它們的引用與被引用往外找，related work 要以你的問題為中心組織，而不是以方法名稱。每一條引用都照範本的規定查證，並加上 `\src{}`。
+4. **從起點文獻往外擴。** 卡片的起點文獻只是入口。沿著它們的引用與被引用往外找，related work 要以你的問題為中心組織，而不是以方法名稱。每一條引用都照範本的規定查證，加上 `\src{}`，BibTeX 要有 `doi` 或 `url`。
 5. **選定 PoC 的形式。** 期中報告的 PoC 從三種形式中至少完成一項：小規模試行、端到端管線打通、重現或對照一個已知結果。分析型與資源型的卡，PoC 往往就是「先蒐集的證據」的擴大版。
 
 ## 卡片的欄位
@@ -45,14 +45,14 @@ toc-depth: 2
 
 ## 算力：16 GB 的記憶體帳
 
-課程以單張 16 GB CUDA GPU 為專題的規劃基準，由你自己準備（多數同學用的是實驗室的機器）。這是基準，不是上限：卡更大可以用，卡片上的記憶體帳則都以 16 GB 計算。與其相信別人表格裡的顯存數字，不如自己算一次帳，再實際量測：
+課程以單張 16 GB CUDA GPU 為專題的規劃基準，由各組自備（多數有實驗室的機器）。這是基準，不是上限：卡更大可以用，卡片上的記憶體帳則都以 16 GB 計算。與其相信別人表格裡的顯存數字，不如自己算一次帳，再實際量測：
 
 - **權重**：參數數 × 每個參數的 bytes。bf16 與 fp16 是 2 bytes，fp32 是 4 bytes。
 - **全參數訓練**：用 Adam 做混合精度訓練時，每個參數除了 bf16 權重（2 bytes），還要存梯度（2）、fp32 的主權重（4）、Adam 的一階與二階動差（4 + 4），合計約 16 bytes，**還不含 activation**。activation 隨 batch size 與序列長度成長，長音訊尤其吃記憶體。
 - **例子**：Whisper large-v3 的 [model card](https://huggingface.co/openai/whisper-large-v3) 寫 1550M 參數。全參數微調光是上面 16 bytes 的帳就約 25 GB，16 GB 放不下；凍結主幹、只訓練 LoRA 之類的少量參數時，凍結的權重以 bf16 存約 3.1 GB，梯度與 optimizer 狀態只跟著可訓練的參數走。[large-v3-turbo](https://huggingface.co/openai/whisper-large-v3-turbo) 約 809M 參數（decoder 從 32 層減到 4 層）。8B、9B 的對話模型（B3）光是 bf16 權重就約 16–18 GB，要量化才放得進去。
 - **分析與資源類的題目**多半只需要推論或抽特徵，記憶體壓力小得多；這是它們在單卡條件下的優勢，不是退而求其次。
 
-記憶體的實際用量用 `torch.cuda.max_memory_allocated()` 量，連同 GPU 型號、batch size 與音訊長度寫進報告的 efficiency 表。**寫量到的數字，不寫估計值。**
+記憶體的實際用量用 `torch.cuda.max_memory_allocated()` 量，（它不含 CUDA context 與 allocator 預留的空間，`nvidia-smi` 看到的會更多），連同 GPU 型號、batch size 與音訊長度寫進報告的 efficiency 表。**表裡寫量到的數字；還沒量的估計值要標明是估計，不能當成量到的。**
 
 ## 卡片總覽
 
@@ -177,7 +177,7 @@ toc-depth: 2
 - **貢獻類型**：分析，可延伸為評估方法或資源（附錯誤標註的聽測資料）。
 - **課程週次**：W8–W9。
 
-### A5　朗讀與自然口語之間的落差（資源型） {#a5}
+### A5　朗讀與自然口語之間的落差 {#a5}
 
 - **痛點**：公開或可申請的台語語音大多是朗讀：TAT 是照稿朗讀，Common Voice 以單詞為主。實際使用的場合卻是對話、廣播、長輩聊天：合音、吞音、語氣詞、語速忽快忽慢。2026-10-16 查證時，沒有找到授權開放、規模足以評估辨識的台語自然對話語料。沒有它，就沒人知道朗讀資料上的數字高估了多少。
 - **先蒐集的證據**：盤點現有台語語音資料的說話型態、規模、授權與取得方式，整理成表；在取得同意的前提下錄一小段自然對話，比較同一個模型在朗讀與自然語音上的錯誤率與錯誤類型。
@@ -382,7 +382,7 @@ toc-depth: 2
 - **貢獻類型**：分析或方法。
 - **課程週次**：W10。
 
-### B6　華語與台語的雙聲道對話資料（資源型） {#b6}
+### B6　華語與台語的雙聲道對話資料 {#b6}
 
 - **痛點**：換手、附和、全雙工模型都需要自然對話，而且最好每位說話人一軌，才知道誰在什麼時候說話。英語有 LDC 的 Switchboard 與 Fisher，華語的開放資料很少，台灣華語與台語幾乎沒有。
 - **先蒐集的證據**：盤點現有的華語與台語對話資料：語言與口音、聲道配置、對話型態（兩人對話或多人會議）、時數、授權，整理成表；再標出 B1–B5 哪一張卡會因為沒有資料而做不下去。
@@ -390,7 +390,7 @@ toc-depth: 2
   - [MagicData-RAMC](https://openslr.org/123/)：見 B1。聲道配置請自己確認。
   - [AliMeeting](https://openslr.org/119/)（OpenSLR 119）：118.75 小時華語**會議**，每場 2–4 人，8 聲道遠場陣列加近講耳麥；CC BY-SA 4.0。是多人會議，不是兩人對話。
   - [NCCU Corpus of Spoken Taiwan Mandarin](https://spokentaiwanmandarin.nccu.edu.tw/about-the-corpus.html)：見 B4。TalkBank 上有一個 29 位參與者的子集（[CABank Mandarin Taiwan](https://talkbank.org/ca/access/TaiwanMandarin.html)）。
-  - [CANDOR](https://talkbank.org/ca/access/CANDOR.html)：英語，1,656 段對話、約 850 小時；需向 BetterUp 申請並經 TalkBank 取得，不是開放下載。
+  - [CANDOR](https://talkbank.org/ca/access/CANDOR.html)：英語，1,656 段對話、約 850 小時；需向 BetterUp 申請並經 TalkBank 取得，不是開放下載；要用的話先問授課老師有沒有。
   - 2026-10-16 查證時，沒有找到授權開放、標明規模的台語對話語料。
 - **開放方向**：
   - 錄製協定怎麼設計：話題、說話人關係、聲道分離、同意書、去識別化？
@@ -620,7 +620,7 @@ toc-depth: 2
 - **已查證的資源**：
   - [pyannote.audio](https://github.com/pyannote/pyannote-audio)：程式 MIT。預訓練管線 [`speaker-diarization-community-1`](https://huggingface.co/pyannote/speaker-diarization-community-1) 為 CC BY 4.0，下載前要在 Hugging Face 同意分享聯絡資訊。
   - [AliMeeting](https://openslr.org/119/)：見 B6。
-  - DIHARD III：英語與華語，只透過 LDC 發行（[開發集](https://catalog.ldc.upenn.edu/LDC2022S12)、[評估集](https://catalog.ldc.upenn.edu/LDC2022S14)）。
+  - DIHARD III：英語與華語，只透過 LDC 發行（[開發集](https://catalog.ldc.upenn.edu/LDC2022S12)、[評估集](https://catalog.ldc.upenn.edu/LDC2022S14)），要用的話私下聯繫授課老師。
   - 計分工具：[pyannote.metrics](https://pyannote.github.io/pyannote-metrics/reference.html) 的 `collar` 是參考段落邊界周圍不計分的秒數，`skip_overlap` 預設為 False（計入重疊）；[dscore](https://github.com/nryant/dscore) 預設 collar 為 0 ms、計入重疊。
 - **起點文獻**：
   - Bredin, “pyannote.audio 2.1 speaker diarization pipeline: principle, benchmark, and recipe,” *Interspeech 2023*, pp. 1983–1987. [ISCA Archive](https://www.isca-archive.org/interspeech_2023/bredin23_interspeech.html)
@@ -636,7 +636,7 @@ toc-depth: 2
 
 ## 寫你自己的卡
 
-選題不限於上面這些卡。用同樣的欄位寫下你自己的問題，期中報告的 Problem Analysis 與 Related Work 就有了骨架：
+選題不限於上面這些卡，但**必須是與語音有關的問題**：辨識、理解、生成或評估語音，或透過語音與機器互動。用同樣的欄位寫下你自己的問題，期中報告的 Problem Analysis 與 Related Work 就有了骨架：
 
 ```text
 問題：（一句話，寫成問句）
@@ -661,4 +661,5 @@ toc-depth: 2
 ## 版本
 
 - 2026-10-16：由前一版的十個預設方法的題目，改寫為問題卡；新增資源型、分析型，以及對話、codec、評估、穩健性方向的卡片；移除未經查證的顯存與訓練時數表；所有資源重新對照官方來源查證，並經第二輪獨立查核。
-- 2026-10-16 晚：專題算力由各組自備，16 GB 是規劃基準、不是上限（〈算力〉一節）。
+- 2026-10-16 晚：專題算力由各組自備，16 GB 是規劃基準、不是上限（〈算力〉一節）；受限語料（TAT、TAT-TTS、HAT、族語E樂園、ILRDF 線上辭典、經 LDC 發行的語料）改為私下聯繫授課老師，授權與費用不寫進公開版；貢獻類型與 PoC 的說法改為與〈期中報告〉頁一致（只能有一個主要類型、PoC 至少完成一項）。
+- 2026-10-16 晚，與 NLP-LLM 對齊：需要申請或付費的語料一律先問授課老師有沒有；寫明題目必須與語音有關；efficiency 表的估計值要標明是估計；BibTeX 要有 `doi` 或 `url`；非同儕審查的來源要在句子裡寫明性質與讀取日期。

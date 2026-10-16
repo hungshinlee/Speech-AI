@@ -99,7 +99,7 @@
 
 ## 三、寫作時怎麼用 AI
 
-AI 在寫作裡的角色是**結構審計與英文編修**，不是代筆。ISCA 的政策允許用生成式 AI 編修文字，但不允許用它產生論文的相當一部分；整段交給 AI 寫，常得到空泛、套版的文字，審稿人讀得出來。課程報告用的 Prism（OpenAI 的 LaTeX 寫作環境）內建 AI，那也是生成式 AI，規則相同。
+AI 在寫作裡的角色是**結構審計與英文編修**，不是代筆。本課的界線是：AI 可以潤飾你寫的句子，但不從你的要點生成段落；ISCA 的政策也是，生成式 AI 可以用來編修文字，但不能用來產生論文的相當一部分。整段交給 AI 寫，常得到空泛、套版的文字，審稿人讀得出來。課程報告用的 Prism（OpenAI 的 LaTeX 寫作環境）內建 AI，那也是生成式 AI，規則相同。
 
 **適合交給 AI 的事**（例句可以直接改用）：
 
@@ -110,22 +110,24 @@ AI 在寫作裡的角色是**結構審計與英文編修**，不是代筆。ISCA
 
 **不可以交給 AI 的事**：
 
-- **產生參考文獻或 BibTeX**：每一筆都從官方來源匯出（ISCA Archive、IEEE Xplore、ACL Anthology、PMLR、OpenReview、DBLP、DOI 頁面；只有 arXiv 版的論文用 `arxiv.org/abs/<id>`），並用 `\src{}` 標出主張在原文的位置。**查證**可以借助另一個 AI：用不同於找到那篇論文的 AI，依 PDF 與官方紀錄交叉比對；兩者不一致的地方，自己讀原文。
+- **產生參考文獻或 BibTeX**：每一筆都從官方來源匯出（ISCA Archive、IEEE Xplore、ACL Anthology、PMLR、OpenReview、DBLP、DOI 頁面；只有 arXiv 版的論文用 `arxiv.org/abs/<id>`），都要有 `doi` 或 `url`，並用 `\src{}` 標出主張在原文的位置。**查證**可以借助另一個 AI：用不同於找到那篇論文的 AI，依 PDF 與官方紀錄交叉比對；兩者不一致的地方，自己讀原文。
 - **數字**：不產生、不補齊、不解讀。每個數字都來自你自己的程式。
 - **聲音的描述**：AI 聽不到金屬聲、相位撕裂或被截斷的音素。質性分析的文字，來自你自己聽過失敗的例子之後寫下的觀察；AI 只能幫忙潤飾英文。
 - **宣稱「沒有人做過」**：只有你自己的搜尋紀錄能支持這種話。
 - **藏給 AI 讀者看的文字或指令**：檔案裡不能有。
 
-每次使用都記錄下來，最後寫進 Generative AI Use Disclosure。
+這些限制針對寫作過程中的 AI 助手。模型若本身是研究的一部分（被研究的系統、ASR 偽轉寫或合成語音這類資料產生器、自動 MOS 預測器這類評審），寫在正文的方法與實驗裡，並驗證它。每次使用 AI 助手都記錄下來，最後寫進 Generative AI Use Disclosure。
 
 ## 四、交出去之前
 
 ### 課程交件
 
-- [ ] 期限前在 `main.tex` 設 `\showguidesfalse` 並編譯，**PDF 裡沒有紅色標記**（期中 §5 預定結果表的 `\pending` 除外）。
+- [ ] 期限前在 `main.tex` 設 `\showguidesfalse` 並編譯，**PDF 裡沒有紅色標記**（期中 §5 預定結果表的 `\pending` 除外）；期中 PoC 表裡沒有跑的列已刪掉。
 - [ ] 期末論文（一律是 long paper）：正文、圖表、Limitations、Ethical considerations 與任何附錄都在前 8 頁；第 9–10 頁只有致謝、生成式 AI 使用聲明與參考文獻（依 INTERSPEECH 2026 的 paper kit）。期中報告篇幅不限。
 - [ ] 摘要不超過 1000 字元、只用 ASCII、沒有引用。
-- [ ] 每個歸給論文的主張都有 `\src{}`，每一筆 BibTeX 都從官方來源匯出；有同儕審查版本的，不引 arXiv 版。
+- [ ] 每個歸給論文的主張都有 `\src{}`，每一筆 BibTeX 都從官方來源匯出、有 `doi` 或 `url`；有同儕審查版本的，不引 arXiv 版。
+- [ ] Limitations 一節寫了；需要時，Ethical considerations 也寫了。
+- [ ] PDF 裡有中文、台語或客語的話，用 XeLaTeX 編譯、每段都包在 `\zh{...}` 裡，編譯紀錄裡沒有 `Missing character`（範本 README）。
 - [ ] Generative AI Use Disclosure 寫好了。
 - [ ] Prism 專案已改名為 `[Speech-AI] <題目>`（報告的英文標題），並以可編輯權限分享給授課老師。分享就是交件，不用另交 PDF；期限以老師的公告為準。期中的期限當下，老師把 `midterm/main.tex` 編譯成 PDF 打分數，所以要編譯得過。
 
@@ -147,3 +149,4 @@ AI 在寫作裡的角色是**結構審計與英文編修**，不是代筆。ISCA
 ## 版本
 
 - 2026-10-16：對齊 INTERSPEECH long paper 的報告範本與〈期中報告〉頁；故事線加上資源型與分析型；拿掉 4 頁正文的寫法、沒有來源的數字，以及對工具功能的描述；交件檢查分成課程交件與真正投稿兩組；交件是分享 Prism 專案，期中篇幅不限。
+- 2026-10-16 晚：與〈期中報告〉頁一起和 NLP-LLM 對齊：AI 的界線改為「潤飾句子、不生成段落」，並寫明模型本身是研究一部分時的例外；BibTeX 要有 `doi` 或 `url`；交件清單加上 PoC 表、Limitations 與 Ethical considerations、`\zh`／XeLaTeX 三項。
