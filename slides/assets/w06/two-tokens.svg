@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 300" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<text x="984.0" y="22.0" font-size="15" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">schematic — not a measurement</text>
+<g class="fragment" data-fragment-index="0">
+<rect x="20.0" y="40.0" width="470.0" height="150.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+<text x="36.0" y="64.0" font-size="17" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="middle">acoustic token</text>
+<text x="474.0" y="64.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="middle">SoundStream · EnCodec · DAC</text>
+<text x="36.0" y="88.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="middle">target: the waveform — reconstruction</text>
+<text x="36.0" y="114.0" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">· content + timbre + room + microphone</text>
+<text x="36.0" y="136.0" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">· speaker changes → the distribution moves</text>
+<text x="36.0" y="158.0" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">· rebuilds speech on its own</text>
+<rect x="510.0" y="40.0" width="470.0" height="150.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="526.0" y="64.0" font-size="17" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="middle">semantic token</text>
+<text x="964.0" y="64.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="middle">W5's k-means unit · w2v-BERT, HuBERT</text>
+<text x="526.0" y="88.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="middle">target: the masked frame — prediction</text>
+<text x="526.0" y="114.0" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">· content; speaker reduced, F0 largely absent (W5 p44)</text>
+<text x="526.0" y="136.0" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">· stable across speakers</text>
+<text x="526.0" y="158.0" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">· cannot rebuild speech alone: AudioLM §IV-D</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<rect x="20.0" y="206.0" width="960.0" height="76.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="36.0" y="228.0" font-size="15" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="middle">AudioLM (2023): stack them</text>
+<rect x="290.0" y="214.0" width="200.0" height="60.0" rx="5" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.0"/>
+<text x="390.0" y="236.0" font-size="14" font-weight="700" fill="#7c3aed" text-anchor="middle" dominant-baseline="middle">semantic</text>
+<text x="390.0" y="258.0" font-size="12" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">w2v-BERT units, K = 1024</text>
+<line x1="494.0" y1="244.0" x2="508.0" y2="244.0" stroke="#94a3b8" stroke-width="1.4"/>
+<polygon points="516.0,244.0 508.0,249.0 508.0,239.0" fill="#94a3b8"/>
+<rect x="520.0" y="214.0" width="200.0" height="60.0" rx="5" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
+<text x="620.0" y="236.0" font-size="14" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">coarse acoustic</text>
+<text x="620.0" y="258.0" font-size="12" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">SoundStream stages 1–4</text>
+<line x1="724.0" y1="244.0" x2="738.0" y2="244.0" stroke="#94a3b8" stroke-width="1.4"/>
+<polygon points="746.0,244.0 738.0,249.0 738.0,239.0" fill="#94a3b8"/>
+<rect x="750.0" y="214.0" width="200.0" height="60.0" rx="5" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
+<text x="850.0" y="236.0" font-size="14" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">fine acoustic</text>
+<text x="850.0" y="258.0" font-size="12" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">stages 5–12</text>
+<text x="36.0" y="250.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">three LMs, one after</text>
+<text x="36.0" y="266.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">the other</text>
+</g>
+</svg>

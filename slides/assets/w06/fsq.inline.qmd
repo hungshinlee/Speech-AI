@@ -1,0 +1,197 @@
+<!-- 由 scripts/make_figs_w06.py 產生，勿手改；投影片用 {{< include assets/w06/fsq.inline.qmd >}} 貼入 -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 296" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<text x="984.0" y="22.0" font-size="15" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">schematic — not a measurement</text>
+<g class="fragment" data-fragment-index="0">
+<text x="20.0" y="40.0" font-size="15" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">one dimension, Λ = 5</text>
+<line x1="40.0" y1="110.0" x2="440.0" y2="110.0" stroke="#94a3b8" stroke-width="1.2"/>
+<svg x="448" y="105.483" width="12.3" height="14.5172" viewBox="0 0 12.3 14.517187"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w6t24-figure_1">
+  <g id="w6t24-patch_1">
+   <path d="M 0 14.517187 
+L 12.3 14.517187 
+L 12.3 0 
+L 0 0 
+L 0 14.517187 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w6t24-text_1">
+   <!-- $z_j$ -->
+   <g style="fill: #6b7280" transform="translate(0 9.717187) scale(0.15 -0.15)">
+    <defs>
+     <path id="w6t24-Cmmi10-7a" d="M 313 -72 
+Q 263 -72 263 -13 
+Q 263 19 275 31 
+Q 447 328 689 598 
+Q 931 869 1239 1145 
+Q 1547 1422 1858 1700 
+Q 2169 1978 2363 2194 
+L 2338 2194 
+Q 2197 2194 1925 2284 
+Q 1653 2375 1497 2375 
+Q 1328 2375 1168 2301 
+Q 1009 2228 966 2075 
+Q 956 2028 916 2028 
+L 838 2028 
+Q 788 2028 788 2094 
+L 788 2113 
+Q 838 2300 952 2462 
+Q 1066 2625 1233 2726 
+Q 1400 2828 1581 2828 
+Q 1709 2828 1793 2770 
+Q 1878 2713 1990 2591 
+Q 2103 2469 2173 2416 
+Q 2244 2363 2350 2363 
+Q 2491 2363 2602 2491 
+Q 2713 2619 2822 2809 
+Q 2841 2828 2869 2828 
+L 2944 2828 
+Q 2966 2828 2980 2812 
+Q 2994 2797 2994 2772 
+Q 2994 2750 2981 2731 
+Q 2809 2434 2579 2176 
+Q 2350 1919 1979 1586 
+Q 1609 1253 1354 1023 
+Q 1100 794 878 550 
+Q 928 563 1013 563 
+Q 1169 563 1439 473 
+Q 1709 384 1856 384 
+Q 2016 384 2178 453 
+Q 2341 522 2459 647 
+Q 2578 772 2619 934 
+Q 2634 978 2669 978 
+L 2747 978 
+Q 2772 978 2787 958 
+Q 2803 938 2803 916 
+Q 2803 909 2797 897 
+Q 2738 653 2591 433 
+Q 2444 213 2230 70 
+Q 2016 -72 1772 -72 
+Q 1650 -72 1565 -15 
+Q 1481 41 1367 164 
+Q 1253 288 1181 342 
+Q 1109 397 1006 397 
+Q 688 397 434 -50 
+Q 413 -72 391 -72 
+L 313 -72 
+z
+" transform="scale(0.015625)"/>
+     <path id="w6t24-Cmmi10-6a" d="M -84 -909 
+Q -84 -753 23 -639 
+Q 131 -525 288 -525 
+Q 391 -525 461 -589 
+Q 531 -653 531 -756 
+Q 531 -878 454 -976 
+Q 378 -1075 263 -1106 
+Q 375 -1147 488 -1147 
+Q 759 -1147 959 -895 
+Q 1159 -644 1241 -331 
+L 1844 2075 
+Q 1888 2259 1888 2388 
+Q 1888 2663 1697 2663 
+Q 1416 2663 1205 2408 
+Q 994 2153 863 1819 
+Q 850 1778 813 1778 
+L 738 1778 
+Q 684 1778 684 1838 
+L 684 1856 
+Q 828 2241 1093 2534 
+Q 1359 2828 1709 2828 
+Q 1975 2828 2145 2662 
+Q 2316 2497 2316 2241 
+Q 2316 2150 2297 2059 
+L 1691 -372 
+Q 1625 -631 1440 -847 
+Q 1256 -1063 1000 -1188 
+Q 744 -1313 475 -1313 
+Q 259 -1313 87 -1209 
+Q -84 -1106 -84 -909 
+z
+M 1941 3878 
+Q 1941 4019 2050 4125 
+Q 2159 4231 2297 4231 
+Q 2406 4231 2476 4164 
+Q 2547 4097 2547 3994 
+Q 2547 3850 2433 3742 
+Q 2319 3634 2181 3634 
+Q 2078 3634 2009 3706 
+Q 1941 3778 1941 3878 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w6t24-Cmmi10-7a" transform="translate(0 0.8125)"/>
+    <use xlink:href="#w6t24-Cmmi10-6a" transform="translate(46.484375 -16.19375) scale(0.7)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<polyline points="40.0,154.0 45.0,154.0 50.0,154.0 55.0,153.9 60.0,153.9 65.0,153.9 70.0,153.9 75.0,153.9 80.0,153.9 85.0,153.8 90.0,153.8 95.0,153.7 100.0,153.7 105.0,153.6 110.0,153.5 115.0,153.4 120.0,153.3 125.0,153.1 130.0,152.9 135.0,152.7 140.0,152.4 145.0,152.1 150.0,151.7 155.0,151.2 160.0,150.6 165.0,149.8 170.0,149.0 175.0,147.9 180.0,146.7 185.0,145.2 190.0,143.5 195.0,141.5 200.0,139.2 205.0,136.6 210.0,133.6 215.0,130.3 220.0,126.7 225.0,122.8 230.0,118.7 235.0,114.4 240.0,110.0 245.0,105.6 250.0,101.3 255.0,97.2 260.0,93.3 265.0,89.7 270.0,86.4 275.0,83.4 280.0,80.8 285.0,78.5 290.0,76.5 295.0,74.8 300.0,73.3 305.0,72.1 310.0,71.0 315.0,70.2 320.0,69.4 325.0,68.8 330.0,68.3 335.0,67.9 340.0,67.6 345.0,67.3 350.0,67.1 355.0,66.9 360.0,66.7 365.0,66.6 370.0,66.5 375.0,66.4 380.0,66.3 385.0,66.3 390.0,66.2 395.0,66.2 400.0,66.1 405.0,66.1 410.0,66.1 415.0,66.1 420.0,66.1 425.0,66.1 430.0,66.0 435.0,66.0 440.0,66.0" fill="none" stroke="#0b5cad" stroke-width="2.0" stroke-linejoin="round"/>
+<line x1="40.0" y1="154.0" x2="440.0" y2="154.0" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="3 3"/>
+<text x="28.0" y="158.0" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">-2</text>
+<line x1="40.0" y1="132.0" x2="440.0" y2="132.0" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="3 3"/>
+<text x="28.0" y="136.0" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">-1</text>
+<line x1="40.0" y1="110.0" x2="440.0" y2="110.0" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="3 3"/>
+<text x="28.0" y="114.0" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">0</text>
+<line x1="40.0" y1="88.0" x2="440.0" y2="88.0" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="3 3"/>
+<text x="28.0" y="92.0" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">1</text>
+<line x1="40.0" y1="66.0" x2="440.0" y2="66.0" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="3 3"/>
+<text x="28.0" y="70.0" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">2</text>
+<text x="240.0" y="182.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">tanh bounds it, the half-count scales it, round snaps it to a level</text>
+<text x="240.0" y="200.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">backward pass: straight-through, as before</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<text x="520.0" y="40.0" font-size="15" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">two dimensions, Λ = (8, 5): 40 implicit codes</text>
+<circle cx="540.0" cy="70.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="540.0" cy="102.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="540.0" cy="134.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="540.0" cy="166.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="540.0" cy="198.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="588.0" cy="70.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="588.0" cy="102.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="588.0" cy="134.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="588.0" cy="166.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="588.0" cy="198.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="636.0" cy="70.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="636.0" cy="102.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="636.0" cy="134.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="636.0" cy="166.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="636.0" cy="198.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="684.0" cy="70.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="684.0" cy="102.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="684.0" cy="134.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="684.0" cy="166.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="684.0" cy="198.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="732.0" cy="70.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="732.0" cy="102.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="732.0" cy="134.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="732.0" cy="166.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="732.0" cy="198.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="780.0" cy="70.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="780.0" cy="102.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="780.0" cy="134.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="780.0" cy="166.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="780.0" cy="198.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="828.0" cy="70.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="828.0" cy="102.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="828.0" cy="134.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="828.0" cy="166.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="828.0" cy="198.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="876.0" cy="70.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="876.0" cy="102.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="876.0" cy="134.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="876.0" cy="166.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="876.0" cy="198.0" r="4.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<rect x="524.0" y="56.0" width="380.0" height="158.0" rx="4" fill="none" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="714.0" y="232.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">the paper: (8, 5, 5, 5) → 1000 codes; (8, 8, 8, 5, 5, 5) → 65,536</text>
+</g>
+<g class="fragment" data-fragment-index="2">
+<rect x="20.0" y="244.0" width="960.0" height="24.0" rx="4" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="36.0" y="256.0" font-size="12" font-weight="700" fill="#15803d" text-anchor="start" dominant-baseline="middle">no parameters, no codebook loss; any bounded output lands next to a level — no code can be “too far from the data”: no dead codes by construction</text>
+<rect x="20.0" y="272.0" width="960.0" height="24.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+<text x="36.0" y="284.0" font-size="12" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="middle">cost: a fixed, evenly spaced grid that cannot follow the data's shape, and a tiny d — a low-dimensional bottleneck</text>
+</g>
+</svg>
+```

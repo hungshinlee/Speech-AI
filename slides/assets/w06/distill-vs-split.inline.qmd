@@ -1,0 +1,430 @@
+<!-- 由 scripts/make_figs_w06.py 產生，勿手改；投影片用 {{< include assets/w06/distill-vs-split.inline.qmd >}} 貼入 -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 330" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<text x="984.0" y="22.0" font-size="15" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">schematic — not a measurement</text>
+<g class="fragment" data-fragment-index="0">
+<text x="20.0" y="36.0" font-size="15" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">SpeechTokenizer (ICLR 2024): distil into stage 1 of the RVQ</text>
+<rect x="20.0" y="60.0" width="80.0" height="50.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<svg x="52.71" y="77.5794" width="14.58" height="17.4206" viewBox="0 0 14.58 17.420625"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w6t53-figure_1">
+  <g id="w6t53-patch_1">
+   <path d="M 0 17.420625 
+L 14.58 17.420625 
+L 14.58 0 
+L 0 0 
+L 0 17.420625 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w6t53-text_1">
+   <!-- $\mathbf{z}_t$ -->
+   <g style="fill: #1f2328" transform="translate(0 13.677187) scale(0.18 -0.18)">
+    <defs>
+     <path id="w6t53-Cmb10-7a" d="M 294 0 
+Q 247 0 212 31 
+Q 178 63 178 116 
+L 178 184 
+Q 178 222 197 250 
+L 1684 2584 
+L 1409 2584 
+Q 947 2584 770 2376 
+Q 594 2169 594 1697 
+L 269 1697 
+L 347 2841 
+L 2438 2841 
+Q 2491 2841 2522 2809 
+Q 2553 2778 2553 2725 
+L 2553 2669 
+Q 2553 2634 2534 2606 
+L 1056 281 
+L 1363 281 
+Q 1806 281 2009 488 
+Q 2122 603 2169 814 
+Q 2216 1025 2241 1319 
+L 2566 1319 
+L 2450 0 
+L 294 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w6t53-Cmmi10-74" d="M 397 519 
+Q 397 613 416 697 
+L 878 2534 
+L 206 2534 
+Q 141 2534 141 2619 
+Q 166 2759 225 2759 
+L 934 2759 
+L 1191 3803 
+Q 1216 3888 1291 3947 
+Q 1366 4006 1459 4006 
+Q 1541 4006 1595 3957 
+Q 1650 3909 1650 3828 
+Q 1650 3809 1648 3798 
+Q 1647 3788 1644 3775 
+L 1388 2759 
+L 2047 2759 
+Q 2113 2759 2113 2675 
+Q 2109 2659 2100 2621 
+Q 2091 2584 2075 2559 
+Q 2059 2534 2028 2534 
+L 1331 2534 
+L 872 684 
+Q 825 503 825 372 
+Q 825 97 1013 97 
+Q 1294 97 1511 361 
+Q 1728 625 1844 941 
+Q 1869 978 1894 978 
+L 1972 978 
+Q 1997 978 2012 961 
+Q 2028 944 2028 922 
+Q 2028 909 2022 903 
+Q 1881 516 1612 222 
+Q 1344 -72 997 -72 
+Q 744 -72 570 93 
+Q 397 259 397 519 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w6t53-Cmb10-7a" transform="translate(0 0.609375)"/>
+    <use xlink:href="#w6t53-Cmmi10-74" transform="translate(48.848906 -16.396875) scale(0.7)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<rect x="120.0" y="62.0" width="40.0" height="46.0" rx="4" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.0"/>
+<text x="140.0" y="85.0" font-size="13" font-weight="700" fill="#7c3aed" text-anchor="middle" dominant-baseline="middle">1</text>
+<rect x="164.0" y="62.0" width="40.0" height="46.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
+<text x="184.0" y="85.0" font-size="13" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">2</text>
+<rect x="208.0" y="62.0" width="40.0" height="46.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
+<text x="228.0" y="85.0" font-size="13" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">3</text>
+<rect x="252.0" y="62.0" width="40.0" height="46.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
+<text x="272.0" y="85.0" font-size="13" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">4</text>
+<rect x="296.0" y="62.0" width="40.0" height="46.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
+<text x="316.0" y="85.0" font-size="13" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">5</text>
+<rect x="340.0" y="62.0" width="40.0" height="46.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
+<text x="360.0" y="85.0" font-size="13" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">6</text>
+<rect x="384.0" y="62.0" width="40.0" height="46.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
+<text x="404.0" y="85.0" font-size="13" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">7</text>
+<rect x="428.0" y="62.0" width="40.0" height="46.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
+<text x="448.0" y="85.0" font-size="13" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">8</text>
+<line x1="104.0" y1="85.0" x2="112.0" y2="85.0" stroke="#94a3b8" stroke-width="1.4"/>
+<polygon points="118.0,85.0 112.0,90.0 112.0,80.0" fill="#94a3b8"/>
+<rect x="110.0" y="126.0" width="110.0" height="40.0" rx="5" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.0"/>
+<svg x="151.125" y="138.483" width="27.75" height="14.5172" viewBox="0 0 27.75 14.517187"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w6t54-figure_1">
+  <g id="w6t54-patch_1">
+   <path d="M 0 14.517187 
+L 27.75 14.517187 
+L 27.75 -0 
+L 0 -0 
+L 0 14.517187 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w6t54-text_1">
+   <!-- $\mathcal{L}_{\mathsf{dist}}$ -->
+   <g style="fill: #7c3aed" transform="translate(0 11.397656) scale(0.15 -0.15)">
+    <defs>
+     <path id="w6t54-Cmsy10-4c" d="M 238 -141 
+Q 197 -141 197 -97 
+Q 197 -72 219 -38 
+Q 266 38 359 130 
+Q 453 222 494 275 
+Q 656 509 750 691 
+Q 913 1028 1031 1466 
+Q 1206 2163 1348 2597 
+Q 1491 3031 1722 3419 
+Q 1903 3719 2168 3967 
+Q 2434 4216 2757 4364 
+Q 3081 4513 3419 4513 
+L 3456 4513 
+Q 3622 4513 3734 4430 
+Q 3847 4347 3905 4208 
+Q 3963 4069 3963 3909 
+Q 3963 3666 3884 3572 
+Q 3663 3331 3359 3291 
+L 3322 3291 
+Q 3284 3291 3284 3334 
+Q 3284 3341 3300 3431 
+Q 3316 3522 3316 3584 
+Q 3316 3791 3212 3944 
+Q 3109 4097 2906 4097 
+Q 2669 4097 2669 4056 
+Q 2494 3934 2333 3651 
+Q 2172 3369 2051 3039 
+Q 1931 2709 1837 2376 
+Q 1744 2044 1672 1753 
+Q 1594 1438 1470 1148 
+Q 1347 859 1178 603 
+Q 1253 628 1363 628 
+L 1403 628 
+Q 1625 628 1847 583 
+Q 2069 538 2378 450 
+Q 2688 363 2894 320 
+Q 3100 278 3328 275 
+Q 3397 275 3440 337 
+Q 3484 400 3526 511 
+Q 3569 622 3597 659 
+Q 3694 766 3834 844 
+Q 3975 922 4116 941 
+L 4153 941 
+Q 4172 941 4184 928 
+Q 4197 916 4197 897 
+Q 4197 897 4191 878 
+Q 4128 628 3897 386 
+Q 3666 144 3370 1 
+Q 3075 -141 2828 -141 
+L 2791 -141 
+Q 2569 -141 2356 -100 
+Q 2144 -59 1834 28 
+Q 1525 116 1304 162 
+Q 1084 209 863 213 
+Q 578 -100 275 -141 
+L 238 -141 
+z
+" transform="scale(0.015625)"/>
+     <path id="w6t54-Cmss10-64" d="M 1300 -72 
+Q 959 -72 712 161 
+Q 466 394 342 741 
+Q 219 1088 219 1422 
+Q 219 1675 291 1933 
+Q 363 2191 500 2414 
+Q 638 2638 847 2775 
+Q 1056 2913 1319 2913 
+Q 1591 2913 1842 2822 
+Q 2094 2731 2284 2572 
+L 2284 4441 
+L 2791 4441 
+L 2791 0 
+L 2266 0 
+L 2266 319 
+Q 2059 128 1818 28 
+Q 1578 -72 1300 -72 
+z
+M 1594 347 
+Q 1806 347 1984 465 
+Q 2163 584 2266 781 
+L 2266 2163 
+Q 2166 2316 2006 2406 
+Q 1847 2497 1672 2497 
+Q 1372 2497 1161 2350 
+Q 950 2203 847 1958 
+Q 744 1713 744 1422 
+Q 744 981 959 664 
+Q 1175 347 1594 347 
+z
+" transform="scale(0.015625)"/>
+     <path id="w6t54-Cmss10-69" d="M 506 0 
+L 506 2841 
+L 1013 2841 
+L 1013 0 
+L 506 0 
+z
+M 459 3756 
+L 459 4353 
+L 1056 4353 
+L 1056 3756 
+L 459 3756 
+z
+" transform="scale(0.015625)"/>
+     <path id="w6t54-Cmss10-73" d="M 178 213 
+L 263 672 
+Q 716 359 1259 359 
+Q 1494 359 1659 461 
+Q 1825 563 1825 781 
+Q 1825 947 1698 1053 
+Q 1572 1159 1403 1191 
+L 1013 1269 
+Q 688 1334 450 1559 
+Q 213 1784 213 2100 
+Q 213 2391 353 2583 
+Q 494 2775 731 2862 
+Q 969 2950 1259 2950 
+Q 1538 2950 1745 2904 
+Q 1953 2859 2194 2747 
+L 2119 2297 
+Q 1888 2434 1673 2490 
+Q 1459 2547 1191 2547 
+Q 981 2547 836 2455 
+Q 691 2363 691 2163 
+Q 691 2025 800 1926 
+Q 909 1828 1063 1791 
+L 1491 1709 
+Q 1709 1659 1895 1537 
+Q 2081 1416 2192 1233 
+Q 2303 1050 2303 831 
+Q 2303 525 2167 323 
+Q 2031 122 1798 25 
+Q 1566 -72 1259 -72 
+Q 684 -72 178 213 
+z
+" transform="scale(0.015625)"/>
+     <path id="w6t54-Cmss10-74" d="M 1141 -72 
+Q 859 -72 753 211 
+Q 647 494 647 831 
+L 647 2444 
+L 122 2444 
+L 122 2841 
+L 666 2841 
+L 666 3653 
+L 1131 3653 
+L 1131 2841 
+L 2022 2841 
+L 2022 2444 
+L 1131 2444 
+L 1131 916 
+Q 1131 366 1428 366 
+Q 1756 366 2016 569 
+L 2125 166 
+Q 1884 47 1646 -12 
+Q 1409 -72 1141 -72 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w6t54-Cmsy10-4c" transform="translate(0 0.484375)"/>
+    <use xlink:href="#w6t54-Cmss10-64" transform="translate(73.360625 -16.521875) scale(0.7)"/>
+    <use xlink:href="#w6t54-Cmss10-69" transform="translate(109.488555 -16.521875) scale(0.7)"/>
+    <use xlink:href="#w6t54-Cmss10-73" transform="translate(126.134062 -16.521875) scale(0.7)"/>
+    <use xlink:href="#w6t54-Cmss10-74" transform="translate(152.930937 -16.521875) scale(0.7)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<line x1="165.0" y1="124.0" x2="155.1" y2="114.8" stroke="#7c3aed" stroke-width="1.4"/>
+<polygon points="150.0,110.0 158.5,111.1 151.7,118.4" fill="#7c3aed"/>
+<text x="232.0" y="140.0" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">teacher: HuBERT (layer 9, or the mean of all layers); cosine, first quantizer only</text>
+<text x="232.0" y="158.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">stages 2–8 get no such term: “the remaining seven quantizers produce acoustic tokens” (App. E)</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<text x="20.0" y="200.0" font-size="15" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">Mimi (Moshi, 2024): split the RVQ</text>
+<rect x="20.0" y="224.0" width="80.0" height="50.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<svg x="52.71" y="241.579" width="14.58" height="17.4206" viewBox="0 0 14.58 17.420625"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w6t55-figure_1">
+  <g id="w6t55-patch_1">
+   <path d="M 0 17.420625 
+L 14.58 17.420625 
+L 14.58 0 
+L 0 0 
+L 0 17.420625 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w6t55-text_1">
+   <!-- $\mathbf{z}_t$ -->
+   <g style="fill: #1f2328" transform="translate(0 13.677187) scale(0.18 -0.18)">
+    <defs>
+     <path id="w6t55-Cmb10-7a" d="M 294 0 
+Q 247 0 212 31 
+Q 178 63 178 116 
+L 178 184 
+Q 178 222 197 250 
+L 1684 2584 
+L 1409 2584 
+Q 947 2584 770 2376 
+Q 594 2169 594 1697 
+L 269 1697 
+L 347 2841 
+L 2438 2841 
+Q 2491 2841 2522 2809 
+Q 2553 2778 2553 2725 
+L 2553 2669 
+Q 2553 2634 2534 2606 
+L 1056 281 
+L 1363 281 
+Q 1806 281 2009 488 
+Q 2122 603 2169 814 
+Q 2216 1025 2241 1319 
+L 2566 1319 
+L 2450 0 
+L 294 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w6t55-Cmmi10-74" d="M 397 519 
+Q 397 613 416 697 
+L 878 2534 
+L 206 2534 
+Q 141 2534 141 2619 
+Q 166 2759 225 2759 
+L 934 2759 
+L 1191 3803 
+Q 1216 3888 1291 3947 
+Q 1366 4006 1459 4006 
+Q 1541 4006 1595 3957 
+Q 1650 3909 1650 3828 
+Q 1650 3809 1648 3798 
+Q 1647 3788 1644 3775 
+L 1388 2759 
+L 2047 2759 
+Q 2113 2759 2113 2675 
+Q 2109 2659 2100 2621 
+Q 2091 2584 2075 2559 
+Q 2059 2534 2028 2534 
+L 1331 2534 
+L 872 684 
+Q 825 503 825 372 
+Q 825 97 1013 97 
+Q 1294 97 1511 361 
+Q 1728 625 1844 941 
+Q 1869 978 1894 978 
+L 1972 978 
+Q 1997 978 2012 961 
+Q 2028 944 2028 922 
+Q 2028 909 2022 903 
+Q 1881 516 1612 222 
+Q 1344 -72 997 -72 
+Q 744 -72 570 93 
+Q 397 259 397 519 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w6t55-Cmb10-7a" transform="translate(0 0.609375)"/>
+    <use xlink:href="#w6t55-Cmmi10-74" transform="translate(48.848906 -16.396875) scale(0.7)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<line x1="104.0" y1="236.0" x2="112.2" y2="233.6" stroke="#94a3b8" stroke-width="1.4"/>
+<polygon points="118.0,232.0 113.6,238.5 110.9,228.8" fill="#94a3b8"/>
+<line x1="104.0" y1="262.0" x2="112.8" y2="267.0" stroke="#94a3b8" stroke-width="1.4"/>
+<polygon points="118.0,270.0 110.3,271.4 115.3,262.7" fill="#94a3b8"/>
+<rect x="120.0" y="214.0" width="40.0" height="36.0" rx="4" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.0"/>
+<text x="140.0" y="232.0" font-size="12" font-weight="700" fill="#7c3aed" text-anchor="middle" dominant-baseline="middle">VQ</text>
+<text x="170.0" y="232.0" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">semantic: WavLM-large, 1024-d, 50 Hz → pooled to 12.5 Hz, cosine</text>
+<rect x="120.0" y="254.0" width="40.0" height="36.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
+<text x="140.0" y="272.0" font-size="12" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">1</text>
+<rect x="164.0" y="254.0" width="40.0" height="36.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
+<text x="184.0" y="272.0" font-size="12" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">2</text>
+<rect x="208.0" y="254.0" width="40.0" height="36.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
+<text x="228.0" y="272.0" font-size="12" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">3</text>
+<rect x="252.0" y="254.0" width="40.0" height="36.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
+<text x="272.0" y="272.0" font-size="12" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">4</text>
+<rect x="296.0" y="254.0" width="40.0" height="36.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
+<text x="316.0" y="272.0" font-size="12" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">5</text>
+<rect x="340.0" y="254.0" width="40.0" height="36.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
+<text x="360.0" y="272.0" font-size="12" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">6</text>
+<rect x="384.0" y="254.0" width="40.0" height="36.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
+<text x="404.0" y="272.0" font-size="12" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">7</text>
+<text x="440.0" y="272.0" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">acoustic: a 7-level RVQ, in parallel</text>
+<rect x="740.0" y="222.0" width="60.0" height="50.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="770.0" y="247.0" font-size="22" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">+</text>
+<line x1="630.0" y1="232.0" x2="729.0" y2="241.3" stroke="#7c3aed" stroke-width="1.4"/>
+<polygon points="736.0,242.0 728.6,246.3 729.5,236.4" fill="#7c3aed"/>
+<line x1="660.0" y1="272.0" x2="729.2" y2="257.4" stroke="#dc2626" stroke-width="1.4"/>
+<polygon points="736.0,256.0 730.2,262.3 728.1,252.5" fill="#dc2626"/>
+<line x1="804.0" y1="247.0" x2="833.0" y2="247.0" stroke="#94a3b8" stroke-width="1.4"/>
+<polygon points="840.0,247.0 833.0,252.0 833.0,242.0" fill="#94a3b8"/>
+<rect x="844.0" y="222.0" width="136.0" height="50.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="912.0" y="241.0" font-size="14" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">decoder</text>
+<text x="912.0" y="261.0" font-size="13" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">8 tokens / step</text>
+</g>
+<g class="fragment" data-fragment-index="2">
+<rect x="20.0" y="296.0" width="960.0" height="28.0" rx="4" fill="#fff7ed" stroke="#b45309" stroke-width="1.0"/>
+<text x="500.0" y="310.0" font-size="12" font-weight="700" fill="#b45309" text-anchor="middle" dominant-baseline="middle">the price of splitting: the acoustic path is no longer the residual of the semantic one — nothing guarantees the two do not overlap</text>
+</g>
+</svg>
+```
