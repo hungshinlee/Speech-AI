@@ -584,7 +584,7 @@ z
   </g>
  </g>
 </svg>
-<text x="520.0" y="94.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">almost everywhere: move z a little, k stays, q stays — nothing reaches the encoder</text>
+<text x="520.0" y="94.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">almost everywhere: a small move changes no index — nothing reaches the encoder</text>
 <line x1="228.0" y1="180.0" x2="250.4" y2="172.5" stroke="#e5e7eb" stroke-width="2.0"/>
 <polygon points="258.0,170.0 252.0,177.3 248.8,167.8" fill="#e5e7eb"/>
 </g>
@@ -929,7 +929,7 @@ z
   </g>
  </g>
 </svg>
-<text x="520.0" y="170.0" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">a gradient computed at q, used at z — pretends q = z</text>
+<text x="520.0" y="170.0" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">computed at the codeword, used at the latent: as if quantising did nothing</text>
 <text x="520.0" y="192.0" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">the error grows with the gap</text>
 <svg x="720" y="187.25" width="61.5" height="15.75" viewBox="0 0 61.5 15.75"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
@@ -1634,7 +1634,7 @@ z
   </g>
  </g>
 </svg>
-<text x="520.0" y="272.0" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">shrinks the gap, so “pretend q = z” gets closer to true; without it z grows arbitrarily</text>
+<text x="520.0" y="272.0" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">narrows the gap so the pretence nearly holds; else the latent grows arbitrarily</text>
 <line x1="228.0" y1="180.0" x2="245.5" y2="196.8" stroke="#b45309" stroke-width="2.4"/>
 <polygon points="252.0,203.0 242.0,200.4 249.0,193.2" fill="#b45309"/>
 </g>

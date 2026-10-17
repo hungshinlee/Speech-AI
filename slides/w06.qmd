@@ -89,7 +89,7 @@ Route: VQ-VAE → residual VQ → listen → two kinds of token → the arithmet
 | $\mathbf{z}_t \in \mathbb{R}^d$, $\mathbf{q}_t$, $\hat{\mathbf{z}}_t$ | latent; quantised latent; the sum of $n_q$ stages (W5's $\mathbf{z}_t$, $\mathbf{q}_t$) |
 | $V$, $\mathbf{e}_v$, $\mathbf{e}^{(i)}_v$, $k_{t,i}$ | codebook size and codeword (W5); stage-$i$ codeword; chosen index at stage $i$ |
 | $N_q$, $n_q \leq N_q$, $\mathbf{r}_{t,i}$ | RVQ stages (**not** W5's $N$, a sample count; **not** W4's $\mathbf{Q}$); stages used; residual after stage $i$ |
-| $\mathrm{sg}[\cdot]$, $\beta$, $\mu$, $c_v$, $\mathbf{m}_v$ | stop-gradient; commitment weight (VQ-VAE); EMA decay (the paper's $\gamma$); EMA count and sum |
+| $\mathrm{sg}[\cdot]$, $\beta$, $\mu$, $c_v$, $\mathbf{m}_v$, $n_v$ | stop-gradient; commitment weight (VQ-VAE); EMA decay (the paper's $\gamma$); EMA count and sum; hits of code $v$ in one step |
 | $\Lambda_j$ | FSQ levels per dimension (the paper's $L$; our $L$ is W2's window) |
 | $B$, $R_{\text{tok}}$, $\mathcal{L}_{\cdot}$, $\lambda_{\cdot}$, $\Phi_j$ | bitrate; token rate; losses and weights; discriminator $j$ (**not** $D$ — W1's delays) |
 
@@ -170,14 +170,14 @@ VQ-VAE App. A.1, eqs. 6–8 · VQ-VAE-2 §2.1 · "online k-means" is our reading
 | **init** | $V = 1024$, $d = 1024$, random | most codewords start **far from the data** and are never the nearest neighbour |
 | **update** | the codebook loss, or EMA | moves **only the codeword that was chosen** — an unchosen code never moves |
 | **size** | a bigger $V$ | more codes that are never chosen; the *effective* alphabet is the number of codes in use |
-| **W5's fix** | the diversity loss | needs a soft, contrastive setting to push against; codecs essentially do not use it |
+| **W5's fix** | the diversity loss | needs a soft, contrastive setting to push against; we know of no codec that uses it |
 
 ::: {.claim}
 **Codebook collapse has two causes**: an initialisation outside the data's support, and an update rule that only touches winners. Capacity is the alphabet you *use*, not $V$.
 :::
 
 ::: {.footer}
-DAC §3.2: 8-dim ℓ2 lookups "significantly improve codebook usage" · W5 p19
+DAC §3.2: 8-dim $\ell_2$ lookups "significantly improve codebook usage" · W5 p19
 :::
 
 ## Before Demo 3: dead codes you can see
@@ -213,7 +213,7 @@ Demo 3 · demos/w06_d3_dead_codes · seed 20261017 · numbers: w06-data.json
 | **EMA update** | gradient noise on the codebook — *not* collapse (Demo 3, panel 2) | VQ-VAE App. A.1; VQ-VAE-2 |
 | **k-means initialisation** | the first cause: start every code inside the data (first batch) | SoundStream §III-C; Łańcucki et al. 2020 |
 | **dead-code reset** | the second cause: a code unassigned for several batches is replaced by a random input frame of the current batch | Jukebox; SoundStream §III-C |
-| **low-dim, ℓ2-normalised lookup** | far-away codes: in 8 dimensions with unit norm the nearest neighbour is a cosine, and no code is "too far" | ViT-VQGAN §3.2 (32 / 8-d); DAC §3.2 |
+| **low-dim, $\ell_2$-normalised lookup** | far-away codes: in 8 dimensions with unit norm the nearest neighbour is a cosine, and no code is "too far" | ViT-VQGAN §3.2 (32 / 8-d); DAC §3.2 |
 | **FSQ** | removes the codebook, hence the problem — at a price (next slide) | Mentzer et al., ICLR 2024 |
 
 ::: {.footer}
@@ -254,6 +254,10 @@ Juang & Gray, ICASSP 1982 · SoundStream §III-C · $V^{N_q}$ codewords, $N_q V 
 
 {{< include assets/w06/residual-decay.inline.qmd >}}
 
+::: {.fragment fragment-index=2}
+$$R(\mathcal{D}) = \tfrac{1}{2}\log_2\!\big(\sigma^2 / \mathcal{D}\big)\qquad\text{— one more bit per dimension halves the distortion}$$
+:::
+
 ::: {.footer}
 schematic until Demo 2 measures it · Cover & Thomas, Ch. 10, for the Gaussian line
 :::
@@ -292,7 +296,7 @@ AudioLM §IV-B, §IV-D Table III · this outline's own old version got this wron
 | $f_s$, strides, $f_r$ | 24 kHz, $(2,4,5,8)$, 75 Hz | 24 kHz, $(2,4,5,8)$, 75 Hz (48 kHz: 150) | 44.1 kHz, stride 512, 86 Hz |
 | $N_q$, $V$ | RVQ, $V = 1024$ | up to 32 codebooks, $V = 1024$ | 9 codebooks, 10 bit ($V = 1024$) |
 | bitrate | 3 kbps and up | 1.5 / 3 / 6 / 12 / 24 kbps | 8 kbps |
-| codebook care | k-means init, dead-code reset | k-means init (SoundStream's) | **8-dim ℓ2 lookup**, dropout $p = 0.5$ |
+| codebook care | k-means init, dead-code reset | EMA (0.99) + dead-code reset, "the same training procedure" as Jukebox / SoundStream | **8-dim $\ell_2$ lookup**, dropout $p = 0.5$ |
 | discriminators | multi-res. waveform + STFT | **multi-scale STFT** (MS-STFT) | multi-period + **multi-band** |
 | what it added | the recipe | the loss balancer; streamable / non-streamable | codebook usage; multi-scale mel loss |
 
@@ -310,6 +314,10 @@ $$\mathcal{L}_{\text{spec}} = \sum_{\text{scale}} \lVert \log\mathrm{mel}(\mathb
 
 ::: {.fragment fragment-index=1}
 $$\mathcal{L}_{\text{adv}} = \sum_j \mathbb{E}\max\big(0,\, 1 - \Phi_j(\hat{\mathbf{x}})\big),\qquad \mathcal{L}_{\text{feat}} = \sum_j \sum_{\ell} \lVert \Phi_j^{(\ell)}(\mathbf{x}) - \Phi_j^{(\ell)}(\hat{\mathbf{x}}) \rVert_1$$
+:::
+
+::: {.fragment fragment-index=2}
+$$\mathcal{L} = \lambda_{\text{spec}}\mathcal{L}_{\text{spec}} + \lambda_{\text{adv}}\mathcal{L}_{\text{adv}} + \lambda_{\text{feat}}\mathcal{L}_{\text{feat}} + \mathcal{L}_{\text{VQ}}\ (+\ \mathcal{L}_{\text{dist}})$$
 :::
 
 ::: {.footer}
@@ -591,8 +599,12 @@ Moshi §3.3.1 · Gichamba & Busogi 2026 on the 6.25 Hz cliff · the course's mis
 
 {{< include assets/w06/frame-rate.inline.qmd >}}
 
+::: {.fragment fragment-index=2}
+$$D_{\text{codec}} \geq 1/f_r + \text{lookahead}$$
+:::
+
 ::: {.claim .fragment fragment-index=2}
-**Frame rate is a first-order design choice** — it sets the context, the step count, the latency floor and the reaction granularity at once. In Mimi it was chosen *for the LM*, not for the signal.
+**Frame rate is a first-order design choice** — context, step count, latency floor and reaction granularity, all at once. Mimi chose it *for the LM*, not for the signal.
 :::
 
 ::: {.footer}
