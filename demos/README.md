@@ -35,7 +35,7 @@ demos/
 | standard library only | W4 demo 1 | anything with Python 3.11+ (`common.py` still imports numpy/scipy) |
 | `numpy` + `scipy` + `matplotlib`, CPU | W3 demo 2 (terminal only), W5 demo 3 (terminal + one figure) | any laptop |
 | the above + `sounddevice` + a microphone + a window | W2 demo 1, W3 demo 1 (live capture); W2 demo 2 (`record`) | any laptop with a working audio input; playback uses macOS `afplay` |
-| `torch 2.14.0` + `torchaudio` + `transformers 5.17.0` + a small Hugging Face model | W3 demo 3 (wav2vec2-base-960h, CPU), W4 demo 3 (whisper-small, CPU), W5 demo 1 (hubert-base-ls960 and wav2vec2-base, `mps` when available; plus `pyarrow` for its `fetch`), W5 demo 2 (reuses demo 1's caches and model; numpy k-means) | any laptop with a few GB free RAM and a network connection for the first download; for W3/W4 `mps` is measured by `check` but not used in class |
+| `torch 2.14.0` + `torchaudio` + `transformers 5.17.0` + a small Hugging Face model | W3 demo 3 (wav2vec2-base-960h, CPU), W4 demo 3 (whisper-small, CPU), W5 demo 1 (hubert-base-ls960 and wav2vec2-base, `mps` when available; plus `pyarrow` for its `fetch`), W5 demo 2 (reuses demo 1's caches and model; numpy k-means), W6 demo 1 (`kyutai/mimi`, `facebook/encodec_24khz`, `descript/dac_24khz`, `mps` when available) | any laptop with a few GB free RAM and a network connection for the first download; for W3/W4 `mps` is measured by `check` but not used in class |
 | `sherpa-onnx` + an ONNX model | W4 demo 2 | any platform sherpa-onnx ships wheels for; tested on Apple silicon only |
 | `mlx` + `mlx-lm` + `mlx-audio` + `pywhispercpp`, ≈ 15 GB of models | W1 demo 2 | **Apple silicon only**, 32 GB or more |
 
@@ -74,7 +74,7 @@ The versions are the ones in `versions.lock`; the code was not tested with any o
 
 Models are **not** in this repository. They are downloaded by each demo's `fetch` command (or `setup.sh`) into the Hugging Face cache (`~/.cache/huggingface/hub`, or wherever `HF_HOME` points), the whisper.cpp cache, or `~/.cache/sherpa-onnx`, and the exact revision is pinned in that demo's `model.lock` or in `versions.lock`. `present.sh` runs everything with `HF_HUB_OFFLINE=1`, so after the first `fetch` nothing touches the network.
 
-Audio: the one LibriSpeech sentence the W3 and W4 model demos use (dev-clean `1272-128104-0000`, CC BY 4.0) is checked in under `w03_d3_blank_heatmap/`. **The instructor's own recordings are not published** — the five-second sentence behind W2 demo 2 and the two takes behind W3 demo 1. Those two demos keep their rehearsal *numbers* and figures here; to hear them you record your own input with `./present.sh record` (W2 demo 2) or `./present.sh rehearse` (W3 demo 1) — each README says how.
+Audio: the one LibriSpeech sentence the W3 and W4 model demos use (dev-clean `1272-128104-0000`, CC BY 4.0) is checked in under `w03_d3_blank_heatmap/`. **The instructor's own recordings are not published** — the five-second sentence behind W2 demo 2, the two takes behind W3 demo 1, and the Mandarin sentence behind W6 demo 1 (nor its codec reconstructions). Those demos keep their rehearsal *numbers* and figures here; to hear them you record your own input with `./present.sh record` (W2 demo 2, W6 demo 1) or `./present.sh rehearse` (W3 demo 1) — each README says how.
 
 ## Two things to know about the output
 

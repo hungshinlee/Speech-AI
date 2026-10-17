@@ -1,0 +1,59 @@
+# 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
+# W6 demo 2：語音的字母長什麼樣——token 矩陣、codebook 使用率、殘差能量曲線、算帳。換內容只改這裡。
+
+[d1]
+# 與 Demo 1 共用：三個 codec 的載入（Codec 類別、model.lock、demo_config.toml 的 repo 與 stages）、24 kHz 重取樣、W3 那句。
+dir = "../w06_d1_layer_listen"
+
+[subset]
+# W5 Demo 1 的 dev-clean 子集（40 位說話人 × 10 句，CC BY 4.0）：名單在它的 data/subset.json，16 kHz 的 wav 快取在 ../_media/w05_d1/wav/。
+# 統計用全部 396 句（train／test 的切分是 W5 探針用的，這裡不需要）。
+list = "../w05_d1_layer_probe/data/subset.json"
+wav_dir = "../_media/w05_d1/wav"
+# 這個 demo 自己的快取（token 矩陣與各層殘差能量，extract 一次）：
+cache_dir = "../_media/w06_d2"
+
+[sentence]
+# 鍵 1 印的那句：W3 那句（1272-128104-0000），Demo 1 的 audio/utterance.wav（24 kHz）
+utt = "1272-128104-0000"
+path = "../w06_d1_layer_listen/audio/utterance.wav"
+# 終端機一次印幾個 frame；[ ] 移窗
+window = 24
+# 從第幾秒開始印（跳過句首靜音；W3 d3 的 forced alignment：MISTER 約從 0.4 s 開始）
+start_s = 0.4
+# 殘差曲線與矩陣最多畫到第幾層（EnCodec／DAC 有 32 層，投影片 p20 的軸畫到 8）
+max_stage_plot = 8
+
+[stats]
+# bigram 條件熵的 shuffle 基線：同一句內把 token 順序打亂、算同一個 H2，取幾次平均（plug-in 估計在樣本少時偏低，基線顯示偏多少）
+shuffle_repeats = 3
+shuffle_seed = 20261018
+
+[budget]
+# 算帳（投影片 p42）：codec 三列從 slides/assets/w06/w06-data.json → paper_settings → budget 讀（算的，不是量的）
+minutes = 30
+# 文字那一列：同一段 30 分鐘的對話用文字 tokenizer 算 token 數。語速從兩句實測的語音量：
+#   華語——W1 Demo 2 那句（runs/rehearsal/utterance/result.json 的 transcript 與 speech_segments_s：第一段開始到最後一段結束）
+#   英語——W3 那句（Demo 1 的 audio/utterance.txt 與 utterance.wav 的長度）
+# tokens/s = 該句的 token 數 ÷ 該句的秒數，再乘 1800 s。這是用一句話的語速外推，不是對話語料的統計——投影片上要說。
+tokenizer_repo = "mlx-community/gemma-4-26b-a4b-it-4bit"     # W1 Demo 2 用的 mlx-lm 模型，tokenizer 檔已在 HF cache；只載 tokenizer
+mandarin_result = "../w01_d2_pipeline/runs/rehearsal/utterance/result.json"
+english_text = "../w06_d1_layer_listen/audio/utterance.txt"
+english_wav = "../w06_d1_layer_listen/audio/utterance.wav"
+# LibriSpeech 的文字是全大寫；tokenizer 算之前改成一般大小寫（句首大寫、句尾句點），否則 token 數會偏多
+english_normalize_case = true
+
+[infer]
+# auto = 有 MPS 就 mps，否則 cpu（Demo 1 的 check 量過 mps 對 cpu 的 code 矩陣；不同就改 cpu）
+device = "auto"
+
+[display]
+fig_w = 13.0
+fig_h = 8.0
+# 鍵 1 的矩陣圖：每個 codec 一條帶子，前幾層
+matrix_stages = 8
+
+[fake]
+# 沒有 torch／模型時的演練：合成的 Markov token 序列（第一層黏、後面幾層接近均勻）與一條遞減的殘差曲線；畫面標明 FAKE
+seed = 20261018
+stickiness = [0.75, 0.45, 0.3, 0.2, 0.15, 0.1, 0.08, 0.05]

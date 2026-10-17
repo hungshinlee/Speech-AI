@@ -1,0 +1,97 @@
+# 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
+# W6 demo 1：逐層重建聆聽——同一句話經三個 neural codec，一層一層加回去。換內容只改這裡。
+
+[codecs]
+# 三個 codec 都從 transformers 載（EnCodec、DAC 的官方套件分別停在 2022、2023，不另裝）。
+# 層數的參數名三個類別各不同（bandwidth／n_quantizers／num_quantizers），所以這支程式不用它們：
+# 每個 codec 對每段輸入只 encode 一次（全部的層），之後「只留前 n_q 層」是把 code 矩陣切掉後面幾列再 decode——
+# 這正是 residual VQ 的定義（重建 = 前 n_q 層 codeword 的和），也是 quantizer dropout 訓練出來的那個性質。
+# check 會確認切列 decode 與用該類別自己的層數參數 encode 得到同一組 code。
+order = ["mimi", "encodec", "dac"]
+
+[codecs.mimi]
+repo = "kyutai/mimi"
+label = "Mimi"
+# 投影片 p30 的四個設定（Moshi §3.3.1：12.5 Hz、Q = 8、N_A = 2048；第一層是蒸餾 WavLM 的 semantic 層）
+stages = [1, 2, 4, 8]
+# 權重實際有幾個 codebook、frame rate、codebook 大小：全部從載入的 config 與 encode 出來的矩陣讀，不寫死（文件頁、論文、MimiConfig 預設三個數不一致）。
+
+[codecs.encodec]
+repo = "facebook/encodec_24khz"
+label = "EnCodec 24 kHz"
+# 1.5／3／6／12／24 kbps 對應 2／4／8／16／32 層（原文 §3.4 的五個 bitrate；層數是 75 Hz × 10 bit 推算的，check 用 bandwidth= 參數對一次）
+stages = [2, 4, 8, 16, 32]
+# 鍵 e 的循環順序就是 stages；另外鍵 1 在 EnCodec 上也允許（1 層 = 750 bps，大綱沒列，給「與 Mimi 一層同層數」的對照用）
+
+[codecs.dac]
+repo = "descript/dac_24khz"
+label = "DAC 24 kHz"
+stages = [1, 2, 4, 8]
+# DAC 24 kHz 的 N_q、V、frame rate 大綱沒定（只定了 44.1 kHz 版的 Table 1）：check 印出來之後填進 p30 的表格
+
+[inputs]
+# 兩段輸入。鍵 m 在兩者之間切換。
+order = ["libri", "mandarin"]
+
+[inputs.libri]
+# W3 那句（LibriSpeech dev-clean 1272-128104-0000，CC BY 4.0），fetch 從 W3 Demo 3 的 audio/ 複製過來（16 kHz）
+label = "LibriSpeech 1272-128104-0000"
+path = "audio/utterance.wav"
+source = "../w03_d3_blank_heatmap/audio/utterance.wav"
+
+[inputs.mandarin]
+# 授課者自錄的一句華語（含四聲對比，例如「媽麻馬罵」加一句自然的話）。
+# 存在 ../_media/（不進版控）。
+label = "Mandarin (my recording)"
+path = "../_media/w06_d1/mandarin.wav"
+# private = true：這段輸入的重建與圖也放 ../_media/w06_d1/rehearsal/mandarin/（不進版控）——publish_demos.py 會把 runs/rehearsal/ 底下
+# 的所有檔案帶上站，我的聲音不放那裡。代價：彩排的華語重建不在 private repo 裡，要重現就再 rehearse 一次。
+private = true
+record_seconds = 6.0
+# 錄音後裁掉前後的靜音：門檻 = max(峰值 − 35 dB, 底噪 + 15 dB)，連續 50 ms（W3 Demo 1 的規則）
+trim_db_below_peak = 35.0
+trim_db_above_floor = 15.0
+trim_min_ms = 50.0
+
+[audio]
+# 三個 codec 都吃 24 kHz；輸入先重取樣到 24 kHz（scipy polyphase，dsp.resample），重建也都是 24 kHz。
+fs = 24000
+# 播放用的檔：所有版本用同一個增益（原句的峰值），不各自正規化——否則響度差會蓋過音質差（common.save_wav 的 peak 參數）
+peak_target = 0.89
+
+[infer]
+# auto = 有 MPS 就 mps，否則 cpu。check 量 mps 對 cpu 的 code 矩陣是否相同、各自花多少時間。
+device = "auto"
+
+[display]
+# 視窗：上 = 原句 log-mel，中 = 目前設定的重建 log-mel，下 = F0 曲線（鍵 f 之後才畫）
+fig_w = 13.0
+fig_h = 7.6
+n_mels = 80
+win_ms = 25.0
+hop_ms = 10.0
+n_fft = 1024
+scale = "slaney"
+db_floor = -80.0
+
+[f0]
+# W2 dsp.f0_autocorr：40 ms frame、10 ms hop；華語男聲 floor 60、ceiling 400（女聲 ceiling 可以到 500，這裡夠用）
+frame_ms = 40.0
+hop_ms = 10.0
+floor_hz = 60.0
+ceiling_hz = 400.0
+voicing = 0.45
+
+[metrics]
+# 客觀參考（不是判準——判準是耳朵，投影片 p31 的 claim）：
+#   lsd   log-spectral distance（dB，dsp.log_spectral_distance，25 ms／10 ms／1024 點）
+#   snr   波形 SNR（dB）——GAN 訓練的 codec 不保相位，SNR 接近 0 dB 也正常，印出來就是為了讓學生看到它不預測可懂度
+#   f0    有聲 frame 上的 F0 RMSE（Hz）與 voicing 一致率（原句 vs. 重建，同一個 F0 估計器）
+lsd_win_ms = 25.0
+lsd_hop_ms = 10.0
+lsd_n_fft = 1024
+
+[fake]
+# 沒有 torch／模型時的演練：用「低通 + 雜訊」模擬層數越少越糊（畫面標明 FAKE，不是給學生看的）
+cutoff_hz_per_stage = [1200, 2000, 3200, 5000, 7000, 9000, 10000, 10800]
+noise_db = -30.0
