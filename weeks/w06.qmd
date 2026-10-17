@@ -6,34 +6,74 @@ toc-depth: 2
 
 <!-- 此檔由 scripts/build_weeks.py 從課程大綱過濾產生，請勿直接編輯。大綱正本在 private repo（$COURSE_OUTLINE），改完請重跑腳本。 -->
 
-## 定位
-**全課的樞紐週。** 這一週決定了學生能不能理解 W11–W13 的 audio-native LM。核心命題：把語音變成離散 token，語音才能被丟進 LLM；但每一種離散化都在「重建品質 / bitrate / frame rate / 語意可分性」四個軸上做取捨，而這些取捨會直接決定對話系統的延遲與品質上限。
+## Where This Fits
+**The hinge of the course.** W5's units were *predicted* — the target was "what is the masked frame"; this week's tokens are *reconstructed* — the target is the waveform itself. Three things change once the target is the waveform. The quantiser has to carry timbre and phase, not just content, so one codebook is not enough and codebooks are stacked into a residual VQ. There is no contrastive task to help, so codebook collapse returns in a harsher form and with more remedies (EMA, k-means initialisation, dead-code reset, low-dimensional codebooks, FSQ). And the *rate* of tokens becomes a number somebody has to design for the first time — it sets the context an LM consumes, the number of decoding steps per second, and the latency floor at once. This week decides whether you can read W11–W13: every audio-native language model there is a language model over this week's tokens, and their architectural differences (multi-stream, RQ-Transformer, delay patterns) are mostly different answers to the fact that one time step carries $N_q$ tokens.
 
-## Learning objectives
-1. 能推導 VQ-VAE 的三項損失（重建、codebook、commitment）與 straight-through 梯度，並解釋 EMA 更新的動機。
-2. 能說明 residual VQ 的階層結構與 bitrate 計算，並從 rate-distortion 觀點解釋為何 RVQ 的第一層承載最多語意。
-3. 能比較 acoustic token（重建導向）、semantic token（SSL 導向）、以及 semantic-acoustic 解耦／單 codebook 三種設計，並針對「餵給 LLM」這個用途評估各自代價。
-4. 能計算一個 codec 設定下的 token rate，並推算它對 LM context 長度、每秒解碼步數與延遲的影響。
+The main thread is that **a codec has three design freedoms that constrain each other**: (1) the **quantiser** — VQ / RVQ / FSQ, how many codebooks, how large; (2) the **training objective** — a reconstruction loss alone gives over-smoothed output (W2 listed this among the three reasons vocoders exist), so discriminators and feature matching are added, and *what* is reconstructed decides what the tokens contain: purely reconstruction-driven tokens entangle content, timbre and environment, which is why SpeechTokenizer and Mimi distil an SSL representation into the first codebook — W5's units brought back inside the codec; (3) the **frame rate** — 75 Hz and 12.5 Hz differ by a factor of six, and a low frame rate is kind to the LM but not to quality or to the granularity of latency. The second thread is **two kinds of token**: acoustic tokens (SoundStream / EnCodec / DAC, reconstruction-driven) and semantic tokens (W5's k-means units, prediction-driven); AudioLM was the first model to stack the two, and most speech tokenisers since 2023 ask whether one tokeniser can do both. The third thread is **arithmetic**: bitrate, token rate, context length, decoding steps, latency floor — each a function of the three freedoms, and each worked out in class.
 
-## 參考資料
-**基礎**
-- van den Oord, Vinyals & Kavukcuoglu, **Neural Discrete Representation Learning**（VQ-VAE）, NeurIPS 2017
-- Razavi, van den Oord & Vinyals, **Generating Diverse High-Fidelity Images with VQ-VAE-2**, NeurIPS 2019 — 階層量化的先例
-- Mentzer et al., **Finite Scalar Quantization: VQ-VAE Made Simple**, ICLR 2024
-- **BB**（Bishop & Bishop, 2024）關於 VAE / 離散潛變數的章節
+Where the three course-long axes sit this week. **Representation:** the rightmost of W2's trio (log-mel / SSL feature / discrete token) is filled in, and for the first time "who decides the frame rate" is answered by *a deliberate choice*: in W2 it was the hop, in W4 / W5 the stride of a CNN; this week Mimi fixes its frame rate at 12.5 Hz (80 ms per frame, Moshi §3.3.1) for the sake of the LM's sequence length rather than the signal. **Latency:** a codec's algorithmic delay is at least one frame (80 ms at 12.5 Hz) plus the encoder's lookahead; a causal codec drives the lookahead to zero at a price in quality; and since W13's full-duplex models make one decision per frame, the frame rate is also the *granularity of reaction* — this is the cell of W1's latency budget filled in this week. **Supervision:** a codec needs no labels, but the target changes from "built by the model itself" (W5) to "the waveform plus an adversary"; semantic distillation then uses W5's trained SSL model as a teacher — the second time the answer to "where does the supervision come from" changes.
 
-**語音 codec**
-- Zeghidour et al., **SoundStream: An End-to-End Neural Audio Codec**, IEEE/ACM TASLP, 2021
-- Défossez, Copet, Synnaeve & Adi, **High Fidelity Neural Audio Compression**（EnCodec）, TMLR 2023
-- Kumar et al., **High-Fidelity Audio Compression with Improved RVQGAN**（DAC）, NeurIPS 2023
-- Zhang et al., **SpeechTokenizer: Unified Speech Tokenizer for Speech Language Models**, ICLR 2024
-- Ji et al., **WavTokenizer: an Efficient Acoustic Discrete Codec Tokenizer for Audio Language Modeling**, ICLR 2025（arXiv:2408.16532，v1 2024-08-29）
-- Défossez et al., **Moshi: A Speech-Text Foundation Model for Real-Time Dialogue**, 2024 — 其中 **Mimi** codec 的設計（split-RVQ、semantic 蒸餾、12.5 Hz）是本週最重要的實例
+The local-language thread takes, for the first time, a shape with **peer-reviewed evidence**: what W2 forecast and W5 inferred — "semantic tokens flatten tone" — Osakuade & King (Speech Prosody 2026) measured on Mandarin and Yorùbá: the continuous SSL representations encode tone, but once quantised into discrete units tone is lost more readily than segmental information. That is evidence at the level of **SSL units**; whether **acoustic codecs** keep tone had, as of 2026-10-16, no peer-reviewed study we could find (the probe of Mimi's first codebook looks at English segments only — and finds that segmental information is not confined to the first codebook, whose tokens correspond to allophones rather than phonemes). So this week's position is: Mimi and SpeechTokenizer distil WavLM / HuBERT into the first codebook, which distils "tone is not in the units" along with it, leaving tone to the acoustic layers — a prediction from the design, to be listened to in Demo 1 on a Mandarin sentence; the search pointer stays.
 
-**2025–2026 前沿（適合當延伸閱讀或課堂討論）**
-- Chen et al., **SAC: Neural Speech Codec with Semantic-Acoustic Dual-Stream Quantization**, arXiv:2510.16841（2025）
-- Li et al., **FlexiCodec: A Dynamic Neural Audio Codec for Low Frame Rates**, ICLR 2026（arXiv:2510.00981）
-- Wang et al., **CodecSlime: Temporal Redundancy Compression of Neural Speech Codec via Dynamic Frame Rate**, arXiv:2506.21074（2025）
-- Della Libera, Subakan & Ravanelli, **Beyond Fixed Frames: Dynamic Character-Aligned Speech Tokenization**, arXiv:2601.23174（2026）
-- Gichamba & Busogi, **Probing Low Frame Rate Degradation in Neural Audio Codecs**, Interspeech 2026（arXiv:2606.16969）
-- Park et al., **Analysing the Language of Neural Audio Codecs**, ASRU 2025（arXiv:2509.01390）與其擴充版 **Language-Statistical Analysis of Neural Audio Codec Tokens Across Architectures, Corpora, and Noise Conditions**（arXiv:2608.31037, 投稿 TASLP） — 「codec token 的語言統計性質」這條線，非常適合當研究所級的討論題
+## Learning Objectives
+1. Derive the three terms of the VQ-VAE loss (reconstruction, codebook, commitment) and the straight-through gradient, say where straight-through is biased and why the commitment loss bounds that bias, and write down the EMA codebook update and show that it is online k-means.
+2. Write the residual-VQ recursion and the bitrate formula $B = f_r N_q \log_2 V$, explain from the decay of residual energy across stages why the first stages have the largest marginal gain and why quantizer dropout lets one model serve several bitrates, and distinguish "the first codebook carries most of the **energy**" from "the first codebook carries the **semantics**" — the latter holds only through distillation.
+3. Tell apart the causes of codebook collapse (a codebook initialised away from the data; straight-through updating only the selected code) and five remedies (EMA, k-means initialisation, dead-code reset, low-dimensional normalised lookups, FSQ), and explain why FSQ has no collapse by construction and what it costs.
+4. Compare acoustic tokens, semantic tokens, and the three designs that try to unify them (SpeechTokenizer's distillation, Mimi's split RVQ, single-codebook tokenisers) against two goals — feeding an LM and reconstruction quality — and explain why AudioLM had to stack the two kinds of token.
+5. For a given codec configuration, compute the token rate, the context consumed by a 30-minute conversation, the decoding steps per second (flattened vs. RQ-Transformer), and the latency floor, and fill in the corresponding cell of W1's latency budget.
+
+## References
+**Foundations (VQ and quantisation)**
+- van den Oord, Vinyals & Kavukcuoglu, **Neural Discrete Representation Learning** (VQ-VAE), NeurIPS 2017 (arXiv:1711.00937) — the three-term loss, straight-through ("copy gradients"), and the EMA update in the appendix; this week's first two derivations follow it
+- Razavi, van den Oord & Vinyals, **Generating Diverse High-Fidelity Images with VQ-VAE-2**, NeurIPS 2019 (arXiv:1906.00446) — the precedent for hierarchical quantisation and EMA codebooks
+- Bengio, Léonard & Courville, **Estimating or Propagating Gradients Through Stochastic Neurons for Conditional Computation**, arXiv:1308.3432 (2013) — where the straight-through estimator is named (also cited in W5)
+- Mentzer, Minnen, Agustsson & Tschannen, **Finite Scalar Quantization: VQ-VAE Made Simple**, ICLR 2024 (arXiv:2309.15505)
+- Yu et al., **Vector-quantized Image Modeling with Improved VQGAN**, ICLR 2022 (arXiv:2110.04627) — low-dimensional factorised codes and ℓ2-normalised lookups improve codebook usage; the source of DAC's codebook design
+- Dhariwal et al., **Jukebox: A Generative Model for Music**, arXiv:2005.00341 (2020) — random restarts for unused codes (codebook reset), adopted by SoundStream
+- Łańcucki et al., **Robust Training of Vector Quantized Bottleneck Models**, IJCNN 2020, pp. 1–7 (DOI 10.1109/IJCNN48605.2020.9207145; arXiv:2005.08520) — data-dependent (k-means) codebook initialisation and periodic re-estimation early in training
+- Huh, Cheung, Agrawal & Isola, **Straightening Out the Straight-Through Estimator: Overcoming Optimization Challenges in Vector Quantized Networks**, ICML 2023, PMLR 202:14096–14113 (arXiv:2305.08842) — "internal codebook covariate shift", affine reparameterisation and alternating optimisation
+- Juang & Gray, **Multiple Stage Vector Quantization for Speech Coding**, ICASSP 1982, vol. 7, pp. 597–600 (DOI 10.1109/ICASSP.1982.1171604) — the origin of multistage (residual) VQ: RVQ was not invented in 2021
+- Gray & Neuhoff, **Quantization**, IEEE Transactions on Information Theory 44(6):2325–2383 (1998; DOI 10.1109/18.720541) — the survey of quantisation theory behind this week's rate–distortion remark
+- **Cover & Thomas**, *Elements of Information Theory*, 2nd ed., Wiley 2006, Ch. 10 *Rate Distortion Theory*, Theorem 10.3.2 — $R(\mathcal{D}) = \tfrac12\log_2(\sigma^2/\mathcal{D})$ for a Gaussian source
+- **BB** (Bishop & Bishop, 2024), the chapters on VAEs and discrete latent variables
+
+**Discriminators from adversarial vocoders (where the codec training recipe comes from)**
+- Kumar et al., **MelGAN: Generative Adversarial Networks for Conditional Waveform Synthesis**, NeurIPS 2019 (arXiv:1910.06711) — multi-scale waveform discriminator, feature-matching loss
+- Kong, Kim & Bae, **HiFi-GAN: Generative Adversarial Networks for Efficient and High Fidelity Speech Synthesis**, NeurIPS 2020 (arXiv:2010.05646) — the multi-period discriminator; W8 returns to it
+
+**Speech codecs**
+- Zeghidour, Luebs, Omran, Skoglund & Tagliasacchi, **SoundStream: An End-to-End Neural Audio Codec**, IEEE/ACM TASLP 30:495–507 (2022; arXiv:2107.03312) — residual VQ, quantizer dropout, k-means initialisation and dead-code reset, the adversarial + feature-matching + multi-scale spectral recipe; the source of "3 kbps against Opus at 12 kbps"
+- Défossez, Copet, Synnaeve & Adi, **High Fidelity Neural Audio Compression** (EnCodec), TMLR 2023 (arXiv:2210.13438) — 75 Hz, codebooks of 1024, 1.5–24 kbps, multi-scale STFT discriminator, loss balancer; the acoustic codec in Demo 1
+- Kumar, Seetharaman, Luebs, Kumar & Kumar, **High-Fidelity Audio Compression with Improved RVQGAN** (DAC), NeurIPS 2023 (arXiv:2306.06546) — 8-dimensional ℓ2-normalised codebooks for codebook usage, multi-scale mel loss, multi-period and multi-band discriminators, the quantizer-dropout trade-off
+- Borsos et al. (11 authors), **AudioLM: A Language Modeling Approach to Audio Generation**, IEEE/ACM TASLP 31:2523–2533 (2023; DOI 10.1109/TASLP.2023.3288409; arXiv:2209.03143) — semantic tokens (k-means on w2v-BERT) stacked on acoustic tokens (SoundStream) in three stages; the experiments showing semantic tokens alone are not enough
+- Zhang, Zhang, Li, Zhou & Qiu, **SpeechTokenizer: Unified Speech Tokenizer for Speech Large Language Models**, ICLR 2024 (arXiv:2308.16692) — HuBERT (layer 9 or the average of all layers) distilled into the first RVQ layer, with a continuous and a pseudo-label variant
+- Ye et al. (12 authors), **Codec Does Matter: Exploring the Semantic Shortcoming of Codec for Audio Language Model** (X-Codec), AAAI 2025, 39(24):25697–25705 (DOI 10.1609/aaai.v39i24.34761; arXiv:2408.17175) — SSL semantic features injected before the RVQ, with a semantic reconstruction loss; the representative paper treating "acoustic codecs lack semantics" as a defect to fix
+- Ji et al. (17 authors), **WavTokenizer: an Efficient Acoustic Discrete Codec Tokenizer for Audio Language Modeling**, ICLR 2025 (arXiv:2408.16532) — a single codebook ($V = 4096$), 40 or 75 tokens per second of 24 kHz audio (0.9 kbps at 75 Hz), k-means initialisation, an iSTFT decoder with attention
+- Xin, Tan, Takamichi & Saruwatari, **BigCodec: Pushing the Limits of Low-Bitrate Neural Speech Codec**, arXiv:2409.05377 (2024) — a single codebook of 8192 codes at 1.04 kbps; another case of a low-dimensional VQ improving codebook usage
+- Parker et al., **Scaling Transformers for Low-Bitrate High-Quality Speech Coding** (TAAE), ICLR 2025 (arXiv:2411.19842) — FSQ in a speech codec, 400 / 700 bps
+- Siuzdak, **Vocos: Closing the Gap Between Time-Domain and Fourier-Based Neural Vocoders for High-Quality Audio Synthesis**, ICLR 2024 (arXiv:2306.00814) — a decoder that predicts STFT coefficients and inverts them; the decoder behind WavTokenizer
+- Défossez et al. (Kyutai, 8 authors), **Moshi: A Speech-Text Foundation Model for Real-Time Dialogue**, arXiv:2410.00037 (2024) — **Mimi** (split RVQ, WavLM distillation, 12.5 Hz, 1.1 kbps, 80 ms) is the most important example this week; the RQ-Transformer and the acoustic delay are left to W13. **A technical report, cited as a preprint**
+- Kyutai, the `kyutai/mimi` model card (Hugging Face; **not a paper**) — weight licence CC-BY 4.0, 12.5 Hz, 1.1 kbps (the card states neither the sampling rate nor the number of codebooks); the weights Demos 1 and 2 load
+- Lee, Kim, Kim, Cho & Han, **Autoregressive Image Generation using Residual Quantization**, CVPR 2022, pp. 11513–11522 (DOI 10.1109/CVPR52688.2022.01123; arXiv:2203.01941) — the RQ-Transformer: autoregression over the $N_q$ codes within one time step; the architecture Moshi builds on (W13)
+- Copet et al. (8 authors), **Simple and Controllable Music Generation** (MusicGen), NeurIPS 2023 (Advances in NeurIPS 36, pp. 47704–47720; arXiv:2306.05284) — the delay pattern over codebooks; another answer to "one time step carries $N_q$ tokens" (W13)
+
+**Evaluation and analysis**
+- Wu et al., **Codec-SUPERB: An In-Depth Analysis of Sound Codec Models**, Findings of ACL 2024, pp. 10330–10348 (DOI 10.18653/v1/2024.findings-acl.616) — a benchmark that measures reconstruction and downstream tasks separately
+- Shi et al., **ESPnet-Codec: Comprehensive Training and Evaluation of Neural Codecs for Audio, Music, and Speech**, SLT 2024, pp. 562–569 (DOI 10.1109/SLT61566.2024.10832289)
+- Mousavi et al. (8 authors), **DASB — Discrete Audio and Speech Benchmark**, TMLR 2026 (arXiv:2406.14294, first version 2024) — semantic versus acoustic (compression) tokens across discriminative and generative tasks; from the abstract, "semantic tokens generally outperform acoustic tokens, but a gap remains between discrete tokens and continuous features"
+- Park, Takamichi, Chan, Kando, Saito & Saruwatari, **Analysing the Language of Neural Audio Codecs**, ASRU 2025 (arXiv:2509.01390) — Zipf, Heaps and entropy / redundancy statistics of codec tokens and their correlation with WER / UTMOS; its extension **Language-Statistical Analysis of Neural Audio Codec Tokens Across Architectures, Corpora, and Noise Conditions** (arXiv:2608.31037, submitted to TASLP) adds codebook occupancy and JSD across 13 codecs, three corpora and three noise conditions; a graduate-level discussion topic
+- Saloev, Ballier & Pacquetet, **Probing the phon\* Representations of the Mimi Codebooks**, ICNLSP 2026, pp. 322–331 — what segmental information Mimi's first codebook encodes (English, TIMIT); the method transfers directly to tone
+- Osakuade & King, **Lexical Tone is Hard to Quantize: Probing Discrete Speech Units in Mandarin and Yorùbá**, Speech Prosody 2026, pp. 38–42 (DOI 10.21437/SpeechProsody.2026-8) — continuous SSL representations encode tone, discrete units lose it faster than segmental information; the first peer-reviewed evidence on this course's tone thread
+
+**2025–2026 frontier (further reading or class discussion)**
+- Chen et al. (12 authors), **SAC: Neural Speech Codec with Semantic-Acoustic Dual-Stream Quantization**, arXiv:2510.16841 (2025, preprint) — a frozen 12.5 Hz semantic stream plus a 25 / 50 Hz acoustic stream, 525 / 875 bps
+- Li et al. (10 authors), **FlexiCodec: A Dynamic Neural Audio Codec for Low Frame Rates**, ICLR 2026 (arXiv:2510.00981) — merges semantically similar frames; 3–12.5 Hz controllable at inference
+- Wang, Guo, Shao, Li & Yu, **CodecSlime: Temporal Redundancy Compression of Neural Speech Codec via Dynamic Frame Rate**, ICASSP 2026 (arXiv:2506.21074) — an architecture-agnostic dynamic-frame-rate plug-in; an 80 Hz backbone run at 40 Hz
+- Della Libera, Subakan & Ravanelli, **Beyond Fixed Frames: Dynamic Character-Aligned Speech Tokenization** (DyCAST), arXiv:2601.23174 (2026, preprint) — tokens roughly aligned to characters at 6–18 Hz; a direct answer to the "letters do not align" failure of the alphabet metaphor
+- Gichamba & Busogi, **Probing Low Frame Rate Degradation in Neural Audio Codecs**, Interspeech 2026 (arXiv:2606.16969) — the quality cliff at 6.25 Hz is traced to the training configuration (too few tokens per fixed-length clip) rather than to the frame rate itself
+
+**Standards and textbooks**
+- Valin, Vos & Terriberry, **RFC 6716: Definition of the Opus Audio Codec**, IETF Proposed Standard, 2012 (updated by RFC 8251) — **a standard, not a paper**; frames of 2.5–60 ms and algorithmic delays of 5–65.2 ms (§2); the reference point for "neural codecs versus Opus"
+- **JM3** Ch 16 *Automatic Speech Recognition* (2026-08-19 release) — background on the ASR side; the main readings this week are SoundStream and §3 of the Moshi report
+- Whether acoustic codecs preserve lexical tone (further searching; no peer-reviewed study found as of 2026-10-16): *neural audio codec lexical tone Mandarin*, *Mimi codebook tone probing*, *low bitrate codec tone preservation*
+- New directions in 2026 (further searching): *dynamic frame rate speech tokenizer*, *syllable-aligned speech tokens*, *single-codebook speech codec LLM*
