@@ -1,0 +1,654 @@
+{
+ "date": "2026-10-18T01:50:24",
+ "tag": "rehearsal",
+ "versions": {
+  "python": "3.12.14",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "numpy": "2.4.4",
+  "scipy": "1.17.1",
+  "matplotlib": "3.10.9",
+  "sounddevice": "0.5.6"
+ },
+ "config": {
+  "toy": {
+   "seed": 20261017,
+   "V": 16,
+   "n_points": 2000,
+   "steps": 200,
+   "batch": 128,
+   "lr": 0.2,
+   "mu": 0.99,
+   "reset_after": 5,
+   "centers": [
+    [
+     3.6,
+     3.6
+    ],
+    [
+     5.4,
+     3.6
+    ],
+    [
+     3.6,
+     5.4
+    ],
+    [
+     5.4,
+     5.4
+    ]
+   ],
+   "std": 0.3,
+   "fsq_levels": 4,
+   "fsq_k_aff": 0.9
+  },
+  "inside": {
+   "low": 3.0,
+   "high": 6.0
+  },
+  "selftest": {
+   "tolerance": 1e-09,
+   "inside_min_used": 12
+  },
+  "display": {
+   "digits": 3,
+   "plot": true,
+   "frame_every": 4,
+   "frame_pause": 0.04,
+   "trace_steps": [
+    1,
+    5,
+    10,
+    25,
+    50,
+    100,
+    200
+   ]
+  }
+ },
+ "seed": 20261017,
+ "sections": {
+  "vs_w06_data_json": {
+   "random_grad": {
+    "codes_used_equal": true,
+    "mse_abs_diff": 0.0,
+    "assign_equal": true
+   },
+   "random_ema": {
+    "codes_used_equal": true,
+    "mse_abs_diff": 0.0,
+    "assign_equal": true
+   },
+   "kmeans_ema": {
+    "codes_used_equal": true,
+    "mse_abs_diff": 0.0,
+    "assign_equal": true
+   },
+   "random_ema_reset": {
+    "codes_used_equal": true,
+    "mse_abs_diff": 0.0,
+    "assign_equal": true
+   },
+   "fsq_4x4": {
+    "codes_used_equal": true,
+    "mse_abs_diff": 0.0,
+    "assign_equal": true
+   }
+  },
+  "random_grad": {
+   "codes_used_full_data": 2,
+   "codes_used_last_batch": 2,
+   "mse_full_data": 0.9968521098000263,
+   "mse_last20_mean": 0.9734164103741098,
+   "trace": [
+    {
+     "step": 1,
+     "used_this_batch": 2,
+     "ever_used": 2,
+     "mse_batch": 32.88955957488607
+    },
+    {
+     "step": 5,
+     "used_this_batch": 2,
+     "ever_used": 2,
+     "mse_batch": 6.50517554506871
+    },
+    {
+     "step": 10,
+     "used_this_batch": 2,
+     "ever_used": 2,
+     "mse_batch": 2.0758096415863614
+    },
+    {
+     "step": 25,
+     "used_this_batch": 2,
+     "ever_used": 2,
+     "mse_batch": 1.0740622179050074
+    },
+    {
+     "step": 50,
+     "used_this_batch": 2,
+     "ever_used": 2,
+     "mse_batch": 0.9618664441559741
+    },
+    {
+     "step": 100,
+     "used_this_batch": 2,
+     "ever_used": 2,
+     "mse_batch": 0.9817345781158144
+    },
+    {
+     "step": 200,
+     "used_this_batch": 2,
+     "ever_used": 2,
+     "mse_batch": 0.9639542269977432
+    }
+   ],
+   "codebook_final": [
+    [
+     -1.3632,
+     -1.0522
+    ],
+    [
+     -1.5695,
+     -0.6584
+    ],
+    [
+     0.2113,
+     -0.3437
+    ],
+    [
+     -1.7939,
+     0.9191
+    ],
+    [
+     -1.7642,
+     0.353
+    ],
+    [
+     5.4111,
+     4.4338
+    ],
+    [
+     -0.7025,
+     -0.7424
+    ],
+    [
+     0.801,
+     -0.4414
+    ],
+    [
+     -0.3187,
+     0.5599
+    ],
+    [
+     -0.9343,
+     -0.2122
+    ],
+    [
+     -0.388,
+     0.5908
+    ],
+    [
+     0.0882,
+     -1.9075
+    ],
+    [
+     -0.141,
+     -0.6599
+    ],
+    [
+     -1.7535,
+     -1.8207
+    ],
+    [
+     3.596,
+     4.4941
+    ],
+    [
+     0.1454,
+     -0.1277
+    ]
+   ],
+   "resets": []
+  },
+  "random_ema": {
+   "codes_used_full_data": 2,
+   "codes_used_last_batch": 2,
+   "mse_full_data": 0.9934091502302674,
+   "mse_last20_mean": 0.9829135837806611,
+   "trace": [
+    {
+     "step": 1,
+     "used_this_batch": 2,
+     "ever_used": 2,
+     "mse_batch": 32.351492008994796
+    },
+    {
+     "step": 5,
+     "used_this_batch": 2,
+     "ever_used": 2,
+     "mse_batch": 1.2826303294861388
+    },
+    {
+     "step": 10,
+     "used_this_batch": 2,
+     "ever_used": 2,
+     "mse_batch": 1.2864635258194315
+    },
+    {
+     "step": 25,
+     "used_this_batch": 2,
+     "ever_used": 2,
+     "mse_batch": 1.2650659217559577
+    },
+    {
+     "step": 50,
+     "used_this_batch": 2,
+     "ever_used": 2,
+     "mse_batch": 1.1985989306911984
+    },
+    {
+     "step": 100,
+     "used_this_batch": 2,
+     "ever_used": 2,
+     "mse_batch": 1.0049709246210348
+    },
+    {
+     "step": 200,
+     "used_this_batch": 2,
+     "ever_used": 2,
+     "mse_batch": 1.0295972968427503
+    }
+   ],
+   "codebook_final": [
+    [
+     -1.3632,
+     -1.0522
+    ],
+    [
+     -1.5695,
+     -0.6584
+    ],
+    [
+     0.2113,
+     -0.3437
+    ],
+    [
+     -1.7939,
+     0.9191
+    ],
+    [
+     -1.7642,
+     0.353
+    ],
+    [
+     4.5392,
+     3.6523
+    ],
+    [
+     -0.7025,
+     -0.7424
+    ],
+    [
+     0.801,
+     -0.4414
+    ],
+    [
+     -0.3187,
+     0.5599
+    ],
+    [
+     -0.9343,
+     -0.2122
+    ],
+    [
+     -0.388,
+     0.5908
+    ],
+    [
+     0.0882,
+     -1.9075
+    ],
+    [
+     -0.141,
+     -0.6599
+    ],
+    [
+     -1.7535,
+     -1.8207
+    ],
+    [
+     4.4345,
+     5.4048
+    ],
+    [
+     0.1454,
+     -0.1277
+    ]
+   ],
+   "resets": []
+  },
+  "kmeans_ema": {
+   "codes_used_full_data": 16,
+   "codes_used_last_batch": 15,
+   "mse_full_data": 0.0653288051241798,
+   "mse_last20_mean": 0.06726448865542575,
+   "trace": [
+    {
+     "step": 1,
+     "used_this_batch": 16,
+     "ever_used": 16,
+     "mse_batch": 0.07666973340718244
+    },
+    {
+     "step": 5,
+     "used_this_batch": 16,
+     "ever_used": 16,
+     "mse_batch": 0.07281602281620166
+    },
+    {
+     "step": 10,
+     "used_this_batch": 16,
+     "ever_used": 16,
+     "mse_batch": 0.06314351549449916
+    },
+    {
+     "step": 25,
+     "used_this_batch": 16,
+     "ever_used": 16,
+     "mse_batch": 0.06631478313803918
+    },
+    {
+     "step": 50,
+     "used_this_batch": 16,
+     "ever_used": 16,
+     "mse_batch": 0.06639717724133293
+    },
+    {
+     "step": 100,
+     "used_this_batch": 16,
+     "ever_used": 16,
+     "mse_batch": 0.0644818501661269
+    },
+    {
+     "step": 200,
+     "used_this_batch": 15,
+     "ever_used": 16,
+     "mse_batch": 0.06964356862614615
+    }
+   ],
+   "codebook_final": [
+    [
+     3.6998,
+     5.1206
+    ],
+    [
+     3.9939,
+     5.4938
+    ],
+    [
+     5.728,
+     5.4429
+    ],
+    [
+     5.1315,
+     3.38
+    ],
+    [
+     5.2168,
+     5.6169
+    ],
+    [
+     5.5264,
+     3.6117
+    ],
+    [
+     5.7384,
+     3.2719
+    ],
+    [
+     3.8658,
+     3.664
+    ],
+    [
+     3.4781,
+     5.7534
+    ],
+    [
+     3.3374,
+     3.6672
+    ],
+    [
+     3.3066,
+     5.307
+    ],
+    [
+     5.6821,
+     3.992
+    ],
+    [
+     3.5894,
+     3.2207
+    ],
+    [
+     5.3329,
+     5.0981
+    ],
+    [
+     3.5747,
+     4.1321
+    ],
+    [
+     5.1286,
+     3.9173
+    ]
+   ],
+   "resets": []
+  },
+  "random_ema_reset": {
+   "codes_used_full_data": 16,
+   "codes_used_last_batch": 16,
+   "mse_full_data": 0.06921710789072645,
+   "mse_last20_mean": 0.06951477282088062,
+   "trace": [
+    {
+     "step": 1,
+     "used_this_batch": 2,
+     "ever_used": 2,
+     "mse_batch": 31.7354106964248
+    },
+    {
+     "step": 5,
+     "used_this_batch": 2,
+     "ever_used": 2,
+     "mse_batch": 1.1582432152141644
+    },
+    {
+     "step": 10,
+     "used_this_batch": 15,
+     "ever_used": 16,
+     "mse_batch": 0.10600006611621812
+    },
+    {
+     "step": 25,
+     "used_this_batch": 15,
+     "ever_used": 16,
+     "mse_batch": 0.0729078491090829
+    },
+    {
+     "step": 50,
+     "used_this_batch": 15,
+     "ever_used": 16,
+     "mse_batch": 0.07780021075177783
+    },
+    {
+     "step": 100,
+     "used_this_batch": 15,
+     "ever_used": 16,
+     "mse_batch": 0.06320773145198741
+    },
+    {
+     "step": 200,
+     "used_this_batch": 16,
+     "ever_used": 16,
+     "mse_batch": 0.07373944591404864
+    }
+   ],
+   "codebook_final": [
+    [
+     5.7678,
+     3.4919
+    ],
+    [
+     5.1754,
+     5.5934
+    ],
+    [
+     5.319,
+     3.3793
+    ],
+    [
+     3.6603,
+     5.591
+    ],
+    [
+     3.8579,
+     5.8943
+    ],
+    [
+     4.9163,
+     4.1333
+    ],
+    [
+     3.3471,
+     3.7015
+    ],
+    [
+     4.9722,
+     3.6344
+    ],
+    [
+     5.3449,
+     5.1081
+    ],
+    [
+     3.2483,
+     5.4451
+    ],
+    [
+     3.8119,
+     3.8536
+    ],
+    [
+     3.6728,
+     3.2928
+    ],
+    [
+     4.0169,
+     5.25
+    ],
+    [
+     5.6938,
+     5.4869
+    ],
+    [
+     3.5652,
+     5.1127
+    ],
+    [
+     5.4163,
+     3.9419
+    ]
+   ],
+   "resets": [
+    {
+     "step": 5,
+     "codes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      15
+     ]
+    }
+   ]
+  },
+  "fsq_4x4": {
+   "codes_used_full_data": 16,
+   "mse_full_data_in_data_plane": 0.12316862725224624,
+   "grid_counts": [
+    353,
+    67,
+    67,
+    352,
+    58,
+    15,
+    14,
+    81,
+    74,
+    16,
+    12,
+    60,
+    354,
+    65,
+    66,
+    346
+   ]
+  },
+  "inside_init": {
+   "low": 3.0,
+   "high": 6.0,
+   "grad": {
+    "codes_used_full_data": 16,
+    "mse_full_data": 0.06501953064126793,
+    "codes_used_last_batch": 16
+   },
+   "ema": {
+    "codes_used_full_data": 16,
+    "mse_full_data": 0.06581039550363973,
+    "codes_used_last_batch": 16
+   }
+  },
+  "table": [
+   {
+    "key": "1",
+    "name": "random_grad",
+    "codes_used": 2,
+    "mse": 0.9968521098000263
+   },
+   {
+    "key": "2",
+    "name": "random_ema",
+    "codes_used": 2,
+    "mse": 0.9934091502302674
+   },
+   {
+    "key": "3",
+    "name": "kmeans_ema",
+    "codes_used": 16,
+    "mse": 0.0653288051241798
+   },
+   {
+    "key": "4",
+    "name": "random_ema_reset",
+    "codes_used": 16,
+    "mse": 0.06921710789072645
+   },
+   {
+    "key": "5",
+    "name": "fsq_4x4",
+    "codes_used": 16,
+    "mse": 0.12316862725224624
+   }
+  ]
+ }
+}

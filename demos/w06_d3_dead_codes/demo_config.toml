@@ -1,0 +1,38 @@
+# 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
+# W6 demo 3：2-D VQ 的 dead code 與三種修法。換內容只改這裡。
+#
+# [toy] 的每一個值與 slides/scripts/make_figs_w06.py 的 dead_code_toy() 預設值相同，
+# 改了任何一個，五個面板就不再是投影片 p15 那五個，selftest 也會對不上 w06-data.json → dead_codes。
+# 要換就連 make_figs_w06.py 一起換、重產圖、重跑 publish.py。
+
+[toy]
+seed = 20261017
+V = 16                # codebook 大小
+n_points = 2000       # 資料點數：四團高斯各約 500
+steps = 200           # 每種設定跑幾步
+batch = 128           # 每步抽幾個點（不放回）
+lr = 0.2              # 設定 1（gradient）的步長
+mu = 0.99             # 設定 2–4（EMA）的衰減 γ
+reset_after = 5       # 設定 4：連續幾步沒被選到就重置
+centers = [[3.6, 3.6], [5.4, 3.6], [3.6, 5.4], [5.4, 5.4]]
+std = 0.3
+# 設定 5（FSQ）：Λ = (4, 4)，encoder 是固定仿射 (z − 4.5)·k_aff → tanh → 格點 {±0.25, ±0.75}
+fsq_levels = 4
+fsq_k_aff = 0.9
+
+[inside]
+# 鍵 i：同一組設定、但 codebook 從 [3, 6]² 裡均勻抽（初始化移進資料裡）。另一條 rng（seed + 1），不影響鍵 1–5 與 json 的對應。
+# 兩種更新都跑（gradient 與 EMA），印用了幾個 code——預期大多數都活：collapse 不是調出來的。
+low = 3.0
+high = 6.0
+
+[selftest]
+tolerance = 1e-9      # 與 w06-data.json 的容忍差（json 存到小數第 4 位的 codebook 用 5e-5）
+inside_min_used = 12  # 鍵 i 至少要活幾個 code 才算「大多數都活」
+
+[display]
+digits = 3            # 終端機印幾位小數
+plot = true           # false = 只在終端機，不開 matplotlib 視窗（等同 --no-plot）
+frame_every = 4       # 動畫每幾步畫一格（200 步 → 50 格）
+frame_pause = 0.04    # 每格停幾秒（50 格 ≈ 2 秒加重繪時間）
+trace_steps = [1, 5, 10, 25, 50, 100, 200]   # 終端機印軌跡的步數
