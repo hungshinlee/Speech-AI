@@ -60,4 +60,18 @@ cd speech_ai/demos/w06_d2_token_matrix
 - **$H_2 / H_1$ (`4`).** The lower the ratio, the more temporal structure. Read it together with the shuffled baseline.
 - **The bill (`5`).** Speech tokens outnumber text tokens by one to two orders of magnitude; the floor $1/f_r$ rises exactly as the token rate falls.
 
-The numbers from the lecturer's rehearsal go into the slide tables and `slides/assets/w06/w06-metrics.json`; whatever disagrees with the predictions above is reported as measured.
+## What was measured (rehearsal of 2026-10-18, `runs/rehearsal/`)
+
+All three published weights have **32 stages** (Mimi: one semantic VQ plus 31 acoustic stages; the paper's $Q = 8$ is what Moshi uses, not what the weights hold). `check`: summing the codewords reproduces each quantizer's own decode to $< 4 \times 10^{-7}$ relative, and every code is re-derived from the residuals exactly.
+
+| prediction | measured |
+|---|---|
+| stage 1 has the longest runs | yes: repeat rate EnCodec 0.19 at stage 1 vs. 0.04 at stage 8, DAC 0.07 vs. 0.00; Mimi 0.06 vs. 0.02 (at 80 ms per frame, tokens rarely repeat at all) |
+| stage 1 is the most skewed, later stages near uniform | yes for EnCodec ($H_1/\log_2 V$ 0.78 then 0.85–0.86) and DAC (0.78 then 0.99–1.00, every one of its 1024 codes in use from stage 2 on); **not for Mimi's semantic VQ** (0.90 vs. 0.89 for its first acoustic stage) — cosine distillation does not ask for a skewed code distribution |
+| (not predicted) | EnCodec's late stages have dead codes: 507 of 1024 used at stage 32 — the stages that quantizer dropout rarely trains |
+| the residual decreases monotonically | yes for Mimi's acoustic path (0.17 → 0.009) and EnCodec (0.034 after stage 1 — the first codeword takes 97% of the energy — down to 0.001); **no for DAC**: 0.67 → 0.40 at stage 9 → 0.72 at stage 32. DAC's nearest-neighbour search runs in each stage's 8-d projection, not in the 1024-d space of the residual, so the "nearest neighbour, hence no increase" argument does not apply (our reading of the code) |
+| the distilled stage is not the energy-heavy one | yes: Mimi's semantic VQ alone leaves 0.36 of the energy, its acoustic stage 1 leaves 0.17 |
+| stage 1 has the most temporal structure | $H_2/H_1$: Mimi semantic 0.36 (acoustic 0.46), EnCodec stage 1 0.67 (later 0.77), DAC 0.80; DAC's stages 2–32 equal their shuffled baseline — no temporal structure at all |
+| speech tokens outnumber text tokens | 30 minutes ≈ 5.1 k Gemma 4 tokens from the Mandarin sentence's rate (6.1 k from the English one) against Mimi's 180 k (×35) and EnCodec 6 kbps's 1.08 M (×211) |
+
+The numbers are in `slides/assets/w06/w06-metrics.json`; whatever disagrees with the predictions is reported as measured.
