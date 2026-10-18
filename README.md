@@ -4,8 +4,9 @@
 
 A graduate course (Master's / PhD): 14 weeks × 3 hours, lectures throughout, in Mandarin; slides and the course site are in English. Assessment is a midterm report (40%) and a final paper (60%), both written in the INTERSPEECH long-paper format and done in teams of 2–4.
 
-**Course site: <https://hungshinlee.github.io/Speech-AI/>**
-Lecturer: [Hung-Shin Lee (李鴻欣)](https://web.ntnu.edu.tw/~hslee/)
+**Course site:** <https://hungshinlee.github.io/Speech-AI/>
+
+**Lecturer:** [Hung-Shin Lee (李鴻欣)](https://web.ntnu.edu.tw/~hslee/)
 
 This repository holds the *public* side of the course — the website source, the slides, the classroom demo code, the supplementary guides and the report template. The teaching materials it is generated from (the full course outline, speaker notes, exam questions and rubrics) live in a private repository and are not here; see [What is deliberately not here](#what-is-deliberately-not-here).
 

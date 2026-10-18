@@ -4,8 +4,9 @@
 
 碩士班／博士班課程：14 週 × 3 小時，全為 lectures，中文授課；投影片與課程網站為英文。評量是期中報告（40%）與期末論文（60%），兩份都用 INTERSPEECH long paper 的格式寫，2–4 人一組。
 
-**課程網站：<https://hungshinlee.github.io/Speech-AI/>**
-授課教師：[李鴻欣 Hung-Shin Lee](https://web.ntnu.edu.tw/~hslee/)
+**課程網站：**<https://hungshinlee.github.io/Speech-AI/>
+
+**授課教師：**[李鴻欣 Hung-Shin Lee](https://web.ntnu.edu.tw/~hslee/)
 
 這個 repo 放的是課程**對外公開**的部分——網站原始碼、投影片、課堂 demo 程式、補充教材與報告範本。產生這些內容的教學材料（完整課程大綱、講稿、題目與 rubric）在另一個 private repo，不在這裡；見〈[刻意不放在這裡的東西](#刻意不放在這裡的東西)〉。
 
