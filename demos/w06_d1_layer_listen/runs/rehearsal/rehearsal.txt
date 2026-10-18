@@ -1,0 +1,77 @@
+
+────────────────────────────────────────────────────────────────────────
+W6 Demo 1：adding the stages back, one at a time
+────────────────────────────────────────────────────────────────────────
+  載入 Mimi               79.3 M 參數   mps    2008 ms   f_r 12.5 Hz · V 2048 · N_q 32
+  載入 EnCodec 24 kHz     14.9 M 參數   mps     211 ms   f_r 75 Hz · V 1024 · N_q 32
+  載入 DAC 24 kHz         74.7 M 參數   mps     193 ms   f_r 75 Hz · V 1024 · N_q 32
+
+LibriSpeech 1272-128104-0000  5.855 s
+  Mimi             libri     encode    266 ms   codes 32 × 74   f_r cfg 12.5 Hz · 量到 12.64 Hz   V = 2048
+    n_q =  1   B =    138 bps   LSD 28.54 dB   SNR  -2.22 dB   F0 RMSE   63.3 Hz   voicing agree 0.55   decode    91 ms
+    n_q =  2   B =    275 bps   LSD 16.97 dB   SNR  -1.47 dB   F0 RMSE   24.4 Hz   voicing agree 0.91   decode    37 ms
+    n_q =  4   B =    550 bps   LSD 14.04 dB   SNR   0.45 dB   F0 RMSE   26.4 Hz   voicing agree 0.92   decode    34 ms
+    n_q =  8   B =  1.10 kbps   LSD 13.11 dB   SNR   2.99 dB   F0 RMSE   17.6 Hz   voicing agree 0.93   decode    34 ms
+  EnCodec 24 kHz   libri     encode    170 ms   codes 32 × 440   f_r cfg 75 Hz · 量到 75.15 Hz   V = 1024
+    n_q =  2   B =  1.50 kbps   LSD 16.66 dB   SNR   1.86 dB   F0 RMSE   25.2 Hz   voicing agree 0.92   decode    91 ms
+    n_q =  4   B =  3.00 kbps   LSD 15.61 dB   SNR   3.39 dB   F0 RMSE   18.1 Hz   voicing agree 0.94   decode    40 ms
+    n_q =  8   B =  6.00 kbps   LSD 15.17 dB   SNR   5.05 dB   F0 RMSE    2.0 Hz   voicing agree 0.96   decode    39 ms
+    n_q = 16   B = 12.00 kbps   LSD 14.92 dB   SNR   6.28 dB   F0 RMSE    1.8 Hz   voicing agree 0.96   decode    38 ms
+    n_q = 32   B = 24.00 kbps   LSD 14.75 dB   SNR   6.78 dB   F0 RMSE    1.4 Hz   voicing agree 0.97   decode    38 ms
+  DAC 24 kHz       libri     encode    114 ms   codes 32 × 440   f_r cfg 75 Hz · 量到 75.15 Hz   V = 1024
+    n_q =  1   B =    750 bps   LSD 14.13 dB   SNR  -1.26 dB   F0 RMSE   30.0 Hz   voicing agree 0.90   decode   158 ms
+    n_q =  2   B =  1.50 kbps   LSD 12.12 dB   SNR  -0.06 dB   F0 RMSE   33.5 Hz   voicing agree 0.91   decode   114 ms
+    n_q =  4   B =  3.00 kbps   LSD 10.63 dB   SNR   0.25 dB   F0 RMSE   27.4 Hz   voicing agree 0.93   decode   113 ms
+    n_q =  8   B =  6.00 kbps   LSD 10.08 dB   SNR   0.43 dB   F0 RMSE   12.1 Hz   voicing agree 0.96   decode   114 ms
+
+Mandarin (my recording)  4.14 s
+  Mimi             mandarin  encode     86 ms   codes 32 × 52   f_r cfg 12.5 Hz · 量到 12.56 Hz   V = 2048
+    n_q =  1   B =    138 bps   LSD 17.09 dB   SNR  -1.03 dB   F0 RMSE   57.0 Hz   voicing agree 0.49   decode    77 ms
+    n_q =  2   B =    275 bps   LSD 15.48 dB   SNR  -1.46 dB   F0 RMSE   28.4 Hz   voicing agree 0.80   decode    29 ms
+    n_q =  4   B =    550 bps   LSD 12.68 dB   SNR   1.35 dB   F0 RMSE   13.6 Hz   voicing agree 0.82   decode    29 ms
+    n_q =  8   B =  1.10 kbps   LSD 11.83 dB   SNR   5.20 dB   F0 RMSE    5.4 Hz   voicing agree 0.86   decode    29 ms
+  EnCodec 24 kHz   mandarin  encode    108 ms   codes 32 × 311   f_r cfg 75 Hz · 量到 75.12 Hz   V = 1024
+    n_q =  2   B =  1.50 kbps   LSD 11.84 dB   SNR   3.18 dB   F0 RMSE   22.9 Hz   voicing agree 0.86   decode    80 ms
+    n_q =  4   B =  3.00 kbps   LSD 11.13 dB   SNR   5.42 dB   F0 RMSE   17.5 Hz   voicing agree 0.87   decode    35 ms
+    n_q =  8   B =  6.00 kbps   LSD 10.80 dB   SNR   8.70 dB   F0 RMSE    7.1 Hz   voicing agree 0.91   decode    35 ms
+    n_q = 16   B = 12.00 kbps   LSD 10.59 dB   SNR  12.29 dB   F0 RMSE   10.7 Hz   voicing agree 0.94   decode    34 ms
+    n_q = 32   B = 24.00 kbps   LSD 10.38 dB   SNR  15.23 dB   F0 RMSE    5.5 Hz   voicing agree 0.97   decode    36 ms
+  DAC 24 kHz       mandarin  encode    194 ms   codes 32 × 311   f_r cfg 75 Hz · 量到 75.12 Hz   V = 1024
+    n_q =  1   B =    750 bps   LSD 12.49 dB   SNR  -0.51 dB   F0 RMSE   48.0 Hz   voicing agree 0.83   decode   115 ms
+    n_q =  2   B =  1.50 kbps   LSD 11.57 dB   SNR  -0.59 dB   F0 RMSE   26.9 Hz   voicing agree 0.84   decode    84 ms
+    n_q =  4   B =  3.00 kbps   LSD 10.77 dB   SNR  -0.84 dB   F0 RMSE   10.0 Hz   voicing agree 0.88   decode    84 ms
+    n_q =  8   B =  6.00 kbps   LSD 10.26 dB   SNR  -1.06 dB   F0 RMSE    4.4 Hz   voicing agree 0.92   decode    84 ms
+
+LibriSpeech 1272-128104-0000  — objective references (the ear is the judge)
+  codec             n_q      f_r     V           B   LSD dB   SNR dB  F0 RMSE   cents  voicing  used
+  Mimi                1     12.5  2048     138 bps    28.54    -2.22     63.3     716     0.55    62
+  Mimi                2     12.5  2048     275 bps    16.97    -1.47     24.4     196     0.91   125
+  Mimi                4     12.5  2048     550 bps    14.04     0.45     26.4     133     0.92   253
+  Mimi                8     12.5  2048   1.10 kbps    13.11     2.99     17.6      64     0.93   480
+  EnCodec 24 kHz      2       75  1024   1.50 kbps    16.66     1.86     25.2     108     0.92   341
+  EnCodec 24 kHz      4       75  1024   3.00 kbps    15.61     3.39     18.1      63     0.94   605
+  EnCodec 24 kHz      8       75  1024   6.00 kbps    15.17     5.05      2.0      17     0.96   889
+  EnCodec 24 kHz     16       75  1024  12.00 kbps    14.92     6.28      1.8      12     0.96   995
+  EnCodec 24 kHz     32       75  1024  24.00 kbps    14.75     6.78      1.4       9     0.97  1013
+  DAC 24 kHz          1       75  1024     750 bps    14.13    -1.26     30.0     162     0.90   174
+  DAC 24 kHz          2       75  1024   1.50 kbps    12.12    -0.06     33.5     138     0.91   402
+  DAC 24 kHz          4       75  1024   3.00 kbps    10.63     0.25     27.4      69     0.93   730
+  DAC 24 kHz          8       75  1024   6.00 kbps    10.08     0.43     12.1      23     0.96   974
+  B = f_r · n_q · log2 V（f_r、V 從 config 讀）；F0 RMSE 在兩邊都有聲的 frame 上；used = 前 n_q 層一共用到幾個不同的 code index
+
+Mandarin (my recording)  — objective references (the ear is the judge)
+  codec             n_q      f_r     V           B   LSD dB   SNR dB  F0 RMSE   cents  voicing  used
+  Mimi                1     12.5  2048     138 bps    17.09    -1.03     57.0     757     0.49    36
+  Mimi                2     12.5  2048     275 bps    15.48    -1.46     28.4     207     0.80    71
+  Mimi                4     12.5  2048     550 bps    12.68     1.35     13.6      76     0.82   164
+  Mimi                8     12.5  2048   1.10 kbps    11.83     5.20      5.4      31     0.86   336
+  EnCodec 24 kHz      2       75  1024   1.50 kbps    11.84     3.18     22.9      86     0.86   286
+  EnCodec 24 kHz      4       75  1024   3.00 kbps    11.13     5.42     17.5      54     0.87   506
+  EnCodec 24 kHz      8       75  1024   6.00 kbps    10.80     8.70      7.1      26     0.91   796
+  EnCodec 24 kHz     16       75  1024  12.00 kbps    10.59    12.29     10.7      33     0.94   978
+  EnCodec 24 kHz     32       75  1024  24.00 kbps    10.38    15.23      5.5      12     0.97  1005
+  DAC 24 kHz          1       75  1024     750 bps    12.49    -0.51     48.0     216     0.83   160
+  DAC 24 kHz          2       75  1024   1.50 kbps    11.57    -0.59     26.9      82     0.84   354
+  DAC 24 kHz          4       75  1024   3.00 kbps    10.77    -0.84     10.0      31     0.88   645
+  DAC 24 kHz          8       75  1024   6.00 kbps    10.26    -1.06      4.4      16     0.92   913
+  B = f_r · n_q · log2 V（f_r、V 從 config 讀）；F0 RMSE 在兩邊都有聲的 frame 上；used = 前 n_q 層一共用到幾個不同的 code index

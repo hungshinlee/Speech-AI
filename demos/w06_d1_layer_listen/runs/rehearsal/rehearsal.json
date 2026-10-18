@@ -1,0 +1,711 @@
+{
+ "time": "2026-10-19T01:26:20",
+ "versions": {
+  "python": "3.12.14",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "numpy": "2.4.4",
+  "scipy": "1.17.1",
+  "matplotlib": "3.10.9",
+  "sounddevice": "0.5.6",
+  "torch": "2.14.0",
+  "transformers": "5.17.0",
+  "huggingface_hub": "1.32.0",
+  "soundfile": "0.14.0"
+ },
+ "tag": "rehearsal",
+ "fs": 24000,
+ "codecs": {
+  "mimi": {
+   "repo": "kyutai/mimi",
+   "commit": "89091b3e466eb6a9d11e537bf26b144f194978f7",
+   "device": "mps",
+   "n_params": 79308609,
+   "sampling_rate": 24000,
+   "frame_rate_cfg": 12.5,
+   "codebook_size": 2048,
+   "n_q_cfg": 32,
+   "n_semantic_quantizers": 1
+  },
+  "encodec": {
+   "repo": "facebook/encodec_24khz",
+   "commit": "c1dbe2ae3f1de713481a3b3e7c47f357092ee040",
+   "device": "mps",
+   "n_params": 14851810,
+   "sampling_rate": 24000,
+   "frame_rate_cfg": 75.0,
+   "codebook_size": 1024,
+   "n_q_cfg": 32,
+   "n_semantic_quantizers": 0
+  },
+  "dac": {
+   "repo": "descript/dac_24khz",
+   "commit": "6ba020b5ba7d9d8076fb90db7e67f27e31980f6e",
+   "device": "mps",
+   "n_params": 74653857,
+   "sampling_rate": 24000,
+   "frame_rate_cfg": 75.0,
+   "codebook_size": 1024,
+   "n_q_cfg": 32,
+   "n_semantic_quantizers": 0
+  }
+ },
+ "inputs": {
+  "libri": {
+   "label": "LibriSpeech 1272-128104-0000",
+   "path": "audio/utterance.wav",
+   "seconds": 5.855,
+   "peak": 0.38815592126352927,
+   "gain": 1.1989
+  },
+  "mandarin": {
+   "label": "Mandarin (my recording)",
+   "path": "../_media/w06_d1/mandarin.wav",
+   "seconds": 4.14,
+   "peak": 0.6354258857997376,
+   "gain": 0.891
+  }
+ },
+ "recon": {
+  "libri": {
+   "mimi_nq01": {
+    "codec": "mimi",
+    "n_q": 1,
+    "N_q": 32,
+    "T": 74,
+    "frame_rate_cfg": 12.5,
+    "frame_rate_measured": 12.639,
+    "codebook_size": 2048,
+    "bitrate_bps": 137.5,
+    "decode_ms": 90.9,
+    "encode_ms": 266.5,
+    "wav": "runs/rehearsal/libri/mimi_nq01.wav",
+    "metrics": {
+     "lsd_db": 28.53505831275979,
+     "snr_db": -2.2229008095525513,
+     "voicing_agree": 0.5498281786941581,
+     "voiced_ref": 332,
+     "voiced_both": 175,
+     "f0_rmse_hz": 63.319931663463656,
+     "f0_mean_abs_cents": 715.8155096481305
+    },
+    "codes_used": 62
+   },
+   "mimi_nq02": {
+    "codec": "mimi",
+    "n_q": 2,
+    "N_q": 32,
+    "T": 74,
+    "frame_rate_cfg": 12.5,
+    "frame_rate_measured": 12.639,
+    "codebook_size": 2048,
+    "bitrate_bps": 275.0,
+    "decode_ms": 36.7,
+    "encode_ms": 266.5,
+    "wav": "runs/rehearsal/libri/mimi_nq02.wav",
+    "metrics": {
+     "lsd_db": 16.970802109900692,
+     "snr_db": -1.4746633890665428,
+     "voicing_agree": 0.9054982817869416,
+     "voiced_ref": 332,
+     "voiced_both": 312,
+     "f0_rmse_hz": 24.42581384312773,
+     "f0_mean_abs_cents": 195.5909317531703
+    },
+    "codes_used": 125
+   },
+   "mimi_nq04": {
+    "codec": "mimi",
+    "n_q": 4,
+    "N_q": 32,
+    "T": 74,
+    "frame_rate_cfg": 12.5,
+    "frame_rate_measured": 12.639,
+    "codebook_size": 2048,
+    "bitrate_bps": 550.0,
+    "decode_ms": 34.4,
+    "encode_ms": 266.5,
+    "wav": "runs/rehearsal/libri/mimi_nq04.wav",
+    "metrics": {
+     "lsd_db": 14.039928648768033,
+     "snr_db": 0.45015071294725617,
+     "voicing_agree": 0.9226804123711341,
+     "voiced_ref": 332,
+     "voiced_both": 313,
+     "f0_rmse_hz": 26.382641133898346,
+     "f0_mean_abs_cents": 133.48832013651545
+    },
+    "codes_used": 253
+   },
+   "mimi_nq08": {
+    "codec": "mimi",
+    "n_q": 8,
+    "N_q": 32,
+    "T": 74,
+    "frame_rate_cfg": 12.5,
+    "frame_rate_measured": 12.639,
+    "codebook_size": 2048,
+    "bitrate_bps": 1100.0,
+    "decode_ms": 33.7,
+    "encode_ms": 266.5,
+    "wav": "runs/rehearsal/libri/mimi_nq08.wav",
+    "metrics": {
+     "lsd_db": 13.112055898660433,
+     "snr_db": 2.9919028422247114,
+     "voicing_agree": 0.9347079037800687,
+     "voiced_ref": 332,
+     "voiced_both": 315,
+     "f0_rmse_hz": 17.582640822412454,
+     "f0_mean_abs_cents": 64.36203476270106
+    },
+    "codes_used": 480
+   },
+   "_codes_mimi": {
+    "N_q": 32,
+    "T": 74,
+    "frame_rate_measured": 12.639,
+    "encode_ms": 266.5
+   },
+   "encodec_nq02": {
+    "codec": "encodec",
+    "n_q": 2,
+    "N_q": 32,
+    "T": 440,
+    "frame_rate_cfg": 75.0,
+    "frame_rate_measured": 75.149,
+    "codebook_size": 1024,
+    "bitrate_bps": 1500.0,
+    "decode_ms": 91.0,
+    "encode_ms": 169.6,
+    "wav": "runs/rehearsal/libri/encodec_nq02.wav",
+    "metrics": {
+     "lsd_db": 16.663345937142893,
+     "snr_db": 1.858426403049149,
+     "voicing_agree": 0.9192439862542955,
+     "voiced_ref": 332,
+     "voiced_both": 303,
+     "f0_rmse_hz": 25.22180362021757,
+     "f0_mean_abs_cents": 107.63014548386023
+    },
+    "codes_used": 341
+   },
+   "encodec_nq04": {
+    "codec": "encodec",
+    "n_q": 4,
+    "N_q": 32,
+    "T": 440,
+    "frame_rate_cfg": 75.0,
+    "frame_rate_measured": 75.149,
+    "codebook_size": 1024,
+    "bitrate_bps": 3000.0,
+    "decode_ms": 39.8,
+    "encode_ms": 169.6,
+    "wav": "runs/rehearsal/libri/encodec_nq04.wav",
+    "metrics": {
+     "lsd_db": 15.612806038641153,
+     "snr_db": 3.3916666698243776,
+     "voicing_agree": 0.936426116838488,
+     "voiced_ref": 332,
+     "voiced_both": 318,
+     "f0_rmse_hz": 18.059029786379124,
+     "f0_mean_abs_cents": 62.721130488032344
+    },
+    "codes_used": 605
+   },
+   "encodec_nq08": {
+    "codec": "encodec",
+    "n_q": 8,
+    "N_q": 32,
+    "T": 440,
+    "frame_rate_cfg": 75.0,
+    "frame_rate_measured": 75.149,
+    "codebook_size": 1024,
+    "bitrate_bps": 6000.0,
+    "decode_ms": 39.3,
+    "encode_ms": 169.6,
+    "wav": "runs/rehearsal/libri/encodec_nq08.wav",
+    "metrics": {
+     "lsd_db": 15.170929050049132,
+     "snr_db": 5.046723867418842,
+     "voicing_agree": 0.9570446735395189,
+     "voiced_ref": 332,
+     "voiced_both": 322,
+     "f0_rmse_hz": 2.0355776840168534,
+     "f0_mean_abs_cents": 16.83108831765125
+    },
+    "codes_used": 889
+   },
+   "encodec_nq16": {
+    "codec": "encodec",
+    "n_q": 16,
+    "N_q": 32,
+    "T": 440,
+    "frame_rate_cfg": 75.0,
+    "frame_rate_measured": 75.149,
+    "codebook_size": 1024,
+    "bitrate_bps": 12000.0,
+    "decode_ms": 37.9,
+    "encode_ms": 169.6,
+    "wav": "runs/rehearsal/libri/encodec_nq16.wav",
+    "metrics": {
+     "lsd_db": 14.923291865524707,
+     "snr_db": 6.281579138670804,
+     "voicing_agree": 0.9553264604810997,
+     "voiced_ref": 332,
+     "voiced_both": 324,
+     "f0_rmse_hz": 1.7779783607224442,
+     "f0_mean_abs_cents": 12.01491960437899
+    },
+    "codes_used": 995
+   },
+   "encodec_nq32": {
+    "codec": "encodec",
+    "n_q": 32,
+    "N_q": 32,
+    "T": 440,
+    "frame_rate_cfg": 75.0,
+    "frame_rate_measured": 75.149,
+    "codebook_size": 1024,
+    "bitrate_bps": 24000.0,
+    "decode_ms": 38.2,
+    "encode_ms": 169.6,
+    "wav": "runs/rehearsal/libri/encodec_nq32.wav",
+    "metrics": {
+     "lsd_db": 14.752830514030489,
+     "snr_db": 6.77534245846299,
+     "voicing_agree": 0.9656357388316151,
+     "voiced_ref": 332,
+     "voiced_both": 327,
+     "f0_rmse_hz": 1.4469033168582952,
+     "f0_mean_abs_cents": 9.188306907766805
+    },
+    "codes_used": 1013
+   },
+   "_codes_encodec": {
+    "N_q": 32,
+    "T": 440,
+    "frame_rate_measured": 75.149,
+    "encode_ms": 169.6
+   },
+   "dac_nq01": {
+    "codec": "dac",
+    "n_q": 1,
+    "N_q": 32,
+    "T": 440,
+    "frame_rate_cfg": 75.0,
+    "frame_rate_measured": 75.149,
+    "codebook_size": 1024,
+    "bitrate_bps": 750.0,
+    "decode_ms": 158.0,
+    "encode_ms": 113.9,
+    "wav": "runs/rehearsal/libri/dac_nq01.wav",
+    "metrics": {
+     "lsd_db": 14.128669050045707,
+     "snr_db": -1.2638552497276543,
+     "voicing_agree": 0.8951890034364262,
+     "voiced_ref": 332,
+     "voiced_both": 302,
+     "f0_rmse_hz": 30.04282022417669,
+     "f0_mean_abs_cents": 161.60945081532708
+    },
+    "codes_used": 174
+   },
+   "dac_nq02": {
+    "codec": "dac",
+    "n_q": 2,
+    "N_q": 32,
+    "T": 440,
+    "frame_rate_cfg": 75.0,
+    "frame_rate_measured": 75.149,
+    "codebook_size": 1024,
+    "bitrate_bps": 1500.0,
+    "decode_ms": 113.7,
+    "encode_ms": 113.9,
+    "wav": "runs/rehearsal/libri/dac_nq02.wav",
+    "metrics": {
+     "lsd_db": 12.123263716940718,
+     "snr_db": -0.06097899007818367,
+     "voicing_agree": 0.9106529209621993,
+     "voiced_ref": 332,
+     "voiced_both": 304,
+     "f0_rmse_hz": 33.51360067589998,
+     "f0_mean_abs_cents": 138.05380659182813
+    },
+    "codes_used": 402
+   },
+   "dac_nq04": {
+    "codec": "dac",
+    "n_q": 4,
+    "N_q": 32,
+    "T": 440,
+    "frame_rate_cfg": 75.0,
+    "frame_rate_measured": 75.149,
+    "codebook_size": 1024,
+    "bitrate_bps": 3000.0,
+    "decode_ms": 113.0,
+    "encode_ms": 113.9,
+    "wav": "runs/rehearsal/libri/dac_nq04.wav",
+    "metrics": {
+     "lsd_db": 10.633662944451984,
+     "snr_db": 0.25330520036187715,
+     "voicing_agree": 0.9329896907216495,
+     "voiced_ref": 332,
+     "voiced_both": 320,
+     "f0_rmse_hz": 27.356161171607596,
+     "f0_mean_abs_cents": 69.30597631935477
+    },
+    "codes_used": 730
+   },
+   "dac_nq08": {
+    "codec": "dac",
+    "n_q": 8,
+    "N_q": 32,
+    "T": 440,
+    "frame_rate_cfg": 75.0,
+    "frame_rate_measured": 75.149,
+    "codebook_size": 1024,
+    "bitrate_bps": 6000.0,
+    "decode_ms": 114.4,
+    "encode_ms": 113.9,
+    "wav": "runs/rehearsal/libri/dac_nq08.wav",
+    "metrics": {
+     "lsd_db": 10.077970443851752,
+     "snr_db": 0.4285471483621732,
+     "voicing_agree": 0.9587628865979382,
+     "voiced_ref": 332,
+     "voiced_both": 326,
+     "f0_rmse_hz": 12.071904633652224,
+     "f0_mean_abs_cents": 22.665296011956
+    },
+    "codes_used": 974
+   },
+   "_codes_dac": {
+    "N_q": 32,
+    "T": 440,
+    "frame_rate_measured": 75.149,
+    "encode_ms": 113.9
+   }
+  },
+  "mandarin": {
+   "mimi_nq01": {
+    "codec": "mimi",
+    "n_q": 1,
+    "N_q": 32,
+    "T": 52,
+    "frame_rate_cfg": 12.5,
+    "frame_rate_measured": 12.56,
+    "codebook_size": 2048,
+    "bitrate_bps": 137.5,
+    "decode_ms": 76.9,
+    "encode_ms": 86.3,
+    "wav": "../_media/w06_d1/rehearsal/mandarin/mimi_nq01.wav",
+    "metrics": {
+     "lsd_db": 17.089564898879612,
+     "snr_db": -1.0299882508621716,
+     "voicing_agree": 0.4853658536585366,
+     "voiced_ref": 355,
+     "voiced_both": 178,
+     "f0_rmse_hz": 57.02703901896366,
+     "f0_mean_abs_cents": 757.3802002708476
+    },
+    "codes_used": 36
+   },
+   "mimi_nq02": {
+    "codec": "mimi",
+    "n_q": 2,
+    "N_q": 32,
+    "T": 52,
+    "frame_rate_cfg": 12.5,
+    "frame_rate_measured": 12.56,
+    "codebook_size": 2048,
+    "bitrate_bps": 275.0,
+    "decode_ms": 29.3,
+    "encode_ms": 86.3,
+    "wav": "../_media/w06_d1/rehearsal/mandarin/mimi_nq02.wav",
+    "metrics": {
+     "lsd_db": 15.484145076972332,
+     "snr_db": -1.4615187190887966,
+     "voicing_agree": 0.802439024390244,
+     "voiced_ref": 355,
+     "voiced_both": 291,
+     "f0_rmse_hz": 28.381441942252266,
+     "f0_mean_abs_cents": 206.6175519969459
+    },
+    "codes_used": 71
+   },
+   "mimi_nq04": {
+    "codec": "mimi",
+    "n_q": 4,
+    "N_q": 32,
+    "T": 52,
+    "frame_rate_cfg": 12.5,
+    "frame_rate_measured": 12.56,
+    "codebook_size": 2048,
+    "bitrate_bps": 550.0,
+    "decode_ms": 29.1,
+    "encode_ms": 86.3,
+    "wav": "../_media/w06_d1/rehearsal/mandarin/mimi_nq04.wav",
+    "metrics": {
+     "lsd_db": 12.68368443805039,
+     "snr_db": 1.3502243769484568,
+     "voicing_agree": 0.824390243902439,
+     "voiced_ref": 355,
+     "voiced_both": 301,
+     "f0_rmse_hz": 13.61033580070949,
+     "f0_mean_abs_cents": 76.49607865543953
+    },
+    "codes_used": 164
+   },
+   "mimi_nq08": {
+    "codec": "mimi",
+    "n_q": 8,
+    "N_q": 32,
+    "T": 52,
+    "frame_rate_cfg": 12.5,
+    "frame_rate_measured": 12.56,
+    "codebook_size": 2048,
+    "bitrate_bps": 1100.0,
+    "decode_ms": 28.7,
+    "encode_ms": 86.3,
+    "wav": "../_media/w06_d1/rehearsal/mandarin/mimi_nq08.wav",
+    "metrics": {
+     "lsd_db": 11.832125519900032,
+     "snr_db": 5.199154198993927,
+     "voicing_agree": 0.8585365853658536,
+     "voiced_ref": 355,
+     "voiced_both": 331,
+     "f0_rmse_hz": 5.372486240743366,
+     "f0_mean_abs_cents": 30.751935310615583
+    },
+    "codes_used": 336
+   },
+   "_codes_mimi": {
+    "N_q": 32,
+    "T": 52,
+    "frame_rate_measured": 12.56,
+    "encode_ms": 86.3
+   },
+   "encodec_nq02": {
+    "codec": "encodec",
+    "n_q": 2,
+    "N_q": 32,
+    "T": 311,
+    "frame_rate_cfg": 75.0,
+    "frame_rate_measured": 75.121,
+    "codebook_size": 1024,
+    "bitrate_bps": 1500.0,
+    "decode_ms": 79.6,
+    "encode_ms": 108.2,
+    "wav": "../_media/w06_d1/rehearsal/mandarin/encodec_nq02.wav",
+    "metrics": {
+     "lsd_db": 11.843508168787313,
+     "snr_db": 3.1751686743692087,
+     "voicing_agree": 0.8585365853658536,
+     "voiced_ref": 355,
+     "voiced_both": 324,
+     "f0_rmse_hz": 22.886603769414492,
+     "f0_mean_abs_cents": 85.81426590585313
+    },
+    "codes_used": 286
+   },
+   "encodec_nq04": {
+    "codec": "encodec",
+    "n_q": 4,
+    "N_q": 32,
+    "T": 311,
+    "frame_rate_cfg": 75.0,
+    "frame_rate_measured": 75.121,
+    "codebook_size": 1024,
+    "bitrate_bps": 3000.0,
+    "decode_ms": 34.8,
+    "encode_ms": 108.2,
+    "wav": "../_media/w06_d1/rehearsal/mandarin/encodec_nq04.wav",
+    "metrics": {
+     "lsd_db": 11.133826576603862,
+     "snr_db": 5.415901494518616,
+     "voicing_agree": 0.8707317073170732,
+     "voiced_ref": 355,
+     "voiced_both": 325,
+     "f0_rmse_hz": 17.48766319763161,
+     "f0_mean_abs_cents": 54.41917691802604
+    },
+    "codes_used": 506
+   },
+   "encodec_nq08": {
+    "codec": "encodec",
+    "n_q": 8,
+    "N_q": 32,
+    "T": 311,
+    "frame_rate_cfg": 75.0,
+    "frame_rate_measured": 75.121,
+    "codebook_size": 1024,
+    "bitrate_bps": 6000.0,
+    "decode_ms": 34.9,
+    "encode_ms": 108.2,
+    "wav": "../_media/w06_d1/rehearsal/mandarin/encodec_nq08.wav",
+    "metrics": {
+     "lsd_db": 10.801451731142523,
+     "snr_db": 8.704309001801544,
+     "voicing_agree": 0.9146341463414634,
+     "voiced_ref": 355,
+     "voiced_both": 334,
+     "f0_rmse_hz": 7.128710117039559,
+     "f0_mean_abs_cents": 26.428790330277213
+    },
+    "codes_used": 796
+   },
+   "encodec_nq16": {
+    "codec": "encodec",
+    "n_q": 16,
+    "N_q": 32,
+    "T": 311,
+    "frame_rate_cfg": 75.0,
+    "frame_rate_measured": 75.121,
+    "codebook_size": 1024,
+    "bitrate_bps": 12000.0,
+    "decode_ms": 34.3,
+    "encode_ms": 108.2,
+    "wav": "../_media/w06_d1/rehearsal/mandarin/encodec_nq16.wav",
+    "metrics": {
+     "lsd_db": 10.587413245676805,
+     "snr_db": 12.288701346015378,
+     "voicing_agree": 0.9414634146341463,
+     "voiced_ref": 355,
+     "voiced_both": 343,
+     "f0_rmse_hz": 10.724500305849677,
+     "f0_mean_abs_cents": 32.55705958375384
+    },
+    "codes_used": 978
+   },
+   "encodec_nq32": {
+    "codec": "encodec",
+    "n_q": 32,
+    "N_q": 32,
+    "T": 311,
+    "frame_rate_cfg": 75.0,
+    "frame_rate_measured": 75.121,
+    "codebook_size": 1024,
+    "bitrate_bps": 24000.0,
+    "decode_ms": 36.1,
+    "encode_ms": 108.2,
+    "wav": "../_media/w06_d1/rehearsal/mandarin/encodec_nq32.wav",
+    "metrics": {
+     "lsd_db": 10.382756885980918,
+     "snr_db": 15.23172164957555,
+     "voicing_agree": 0.9658536585365853,
+     "voiced_ref": 355,
+     "voiced_both": 351,
+     "f0_rmse_hz": 5.465658546984667,
+     "f0_mean_abs_cents": 12.275118065999761
+    },
+    "codes_used": 1005
+   },
+   "_codes_encodec": {
+    "N_q": 32,
+    "T": 311,
+    "frame_rate_measured": 75.121,
+    "encode_ms": 108.2
+   },
+   "dac_nq01": {
+    "codec": "dac",
+    "n_q": 1,
+    "N_q": 32,
+    "T": 311,
+    "frame_rate_cfg": 75.0,
+    "frame_rate_measured": 75.121,
+    "codebook_size": 1024,
+    "bitrate_bps": 750.0,
+    "decode_ms": 115.4,
+    "encode_ms": 193.6,
+    "wav": "../_media/w06_d1/rehearsal/mandarin/dac_nq01.wav",
+    "metrics": {
+     "lsd_db": 12.487562712196002,
+     "snr_db": -0.5125129417384313,
+     "voicing_agree": 0.8268292682926829,
+     "voiced_ref": 355,
+     "voiced_both": 301,
+     "f0_rmse_hz": 48.04413648255323,
+     "f0_mean_abs_cents": 215.94450967321308
+    },
+    "codes_used": 160
+   },
+   "dac_nq02": {
+    "codec": "dac",
+    "n_q": 2,
+    "N_q": 32,
+    "T": 311,
+    "frame_rate_cfg": 75.0,
+    "frame_rate_measured": 75.121,
+    "codebook_size": 1024,
+    "bitrate_bps": 1500.0,
+    "decode_ms": 84.4,
+    "encode_ms": 193.6,
+    "wav": "../_media/w06_d1/rehearsal/mandarin/dac_nq02.wav",
+    "metrics": {
+     "lsd_db": 11.569751762394883,
+     "snr_db": -0.5877191726406952,
+     "voicing_agree": 0.8365853658536585,
+     "voiced_ref": 355,
+     "voiced_both": 310,
+     "f0_rmse_hz": 26.856042016319716,
+     "f0_mean_abs_cents": 81.83548024747351
+    },
+    "codes_used": 354
+   },
+   "dac_nq04": {
+    "codec": "dac",
+    "n_q": 4,
+    "N_q": 32,
+    "T": 311,
+    "frame_rate_cfg": 75.0,
+    "frame_rate_measured": 75.121,
+    "codebook_size": 1024,
+    "bitrate_bps": 3000.0,
+    "decode_ms": 83.9,
+    "encode_ms": 193.6,
+    "wav": "../_media/w06_d1/rehearsal/mandarin/dac_nq04.wav",
+    "metrics": {
+     "lsd_db": 10.773647580582999,
+     "snr_db": -0.8360882841863942,
+     "voicing_agree": 0.8780487804878049,
+     "voiced_ref": 355,
+     "voiced_both": 321,
+     "f0_rmse_hz": 10.016903867613102,
+     "f0_mean_abs_cents": 31.061670368622554
+    },
+    "codes_used": 645
+   },
+   "dac_nq08": {
+    "codec": "dac",
+    "n_q": 8,
+    "N_q": 32,
+    "T": 311,
+    "frame_rate_cfg": 75.0,
+    "frame_rate_measured": 75.121,
+    "codebook_size": 1024,
+    "bitrate_bps": 6000.0,
+    "decode_ms": 84.4,
+    "encode_ms": 193.6,
+    "wav": "../_media/w06_d1/rehearsal/mandarin/dac_nq08.wav",
+    "metrics": {
+     "lsd_db": 10.258617307228624,
+     "snr_db": -1.0579484718965344,
+     "voicing_agree": 0.9170731707317074,
+     "voiced_ref": 355,
+     "voiced_both": 334,
+     "f0_rmse_hz": 4.409404166107176,
+     "f0_mean_abs_cents": 15.900747692490441
+    },
+    "codes_used": 913
+   },
+   "_codes_dac": {
+    "N_q": 32,
+    "T": 311,
+    "frame_rate_measured": 75.121,
+    "encode_ms": 193.6
+   }
+  }
+ },
+ "sections": {
+  "table": "mandarin"
+ }
+}

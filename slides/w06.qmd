@@ -399,13 +399,13 @@ Demo 1 · code: `demos/w06_d1_layer_listen` · inference only · my recording is
 ::: {.fragment}
 | setting | $f_r$ | $n_q$ | $B$ | what we heard (rehearsal) |
 |:--------|----:|------:|---------:|:-------------|
-| Mimi, 1 / 2 / 4 / 8 | 12.5 Hz | 1 / 2 / 4 / 8 | 0.14 / 0.28 / 0.55 / 1.1 kbps | |
-| EnCodec 24 kHz | 75 Hz | 2 / 4 / 8 / 16 / 32 | 1.5 / 3 / 6 / 12 / 24 kbps | |
-| DAC 24 kHz, 1 / 2 / 4 / 8 | — | 1 / 2 / 4 / 8 | — | |
+| Mimi, 1 / 2 / 4 / 8 | 12.5 Hz | 1 / 2 / 4 / 8 | 0.14 / 0.28 / 0.55 / 1.1 kbps | stage 1: **neither words nor voice** (prediction failed); back by stage 8 |
+| EnCodec 24 kHz | 75 Hz | 2 / 4 / 8 / 16 / 32 | 1.5 / 3 / 6 / 12 / 24 kbps | 1.5 kbps: words **and** voice clearer than Mimi stage 1 — tenfold bitrate wins |
+| DAC 24 kHz, 1 / 2 / 4 / 8 | 75 Hz | 1 / 2 / 4 / 8 | 0.75 / 1.5 / 3 / 6 kbps | 750 bps: also clearer than Mimi stage 1 |
 :::
 
 ::: {.footer}
-Demo 1 · demos/w06_d1_layer_listen · $B = f_r n_q \log_2 V$ · last column: after rehearsal
+Demo 1 · demos/w06_d1_layer_listen · $B = f_r n_q \log_2 V$ · last column: rehearsal 2026-10-19, one listener
 :::
 
 ## Demo 1 — stage 1 only, in Mandarin: is the tone still there?
@@ -417,9 +417,9 @@ Demo 1 · demos/w06_d1_layer_listen · $B = f_r n_q \log_2 V$ · last column: af
 ::: {.fragment}
 | | prediction from the design | what we heard (rehearsal) | $F_0$ track |
 |:------|:--------------|:--------------|:------|
-| Mimi, $n_q = 1$ | tone **flattened**: W5's units carry little $F_0$, and distillation carries that over | | |
-| Mimi, $n_q = 8$ | tone back, carried by stages 2–8 | | |
-| EnCodec, 1.5 kbps | tone **kept**: pitch is where the energy is | | |
+| Mimi, $n_q = 1$ | tone **flattened**: W5's units carry little $F_0$, and distillation carries that over | **flattened** — the four tones could not be told apart, and the words went with them | RMSE 57 Hz, voicing agreement 0.49 |
+| Mimi, $n_q = 8$ | tone back, carried by stages 2–8 | tones **back** | RMSE 5.4 Hz, 0.86 |
+| EnCodec, 1.5 kbps | tone **kept**: pitch is where the energy is | tones **kept** | RMSE 23 Hz, 0.86 |
 :::
 
 ::: {.claim .fragment}
@@ -427,7 +427,7 @@ $F_0$ is a physical quantity, pitch is a percept (W2 p51): the plot is a referen
 :::
 
 ::: {.footer}
-a prediction, not a measurement · W2 p51, p57 · W5 p44 · unit-level evidence: p40
+prediction from the design · heard: rehearsal 2026-10-19, one sentence, one listener · W2 p51, p57 · W5 p44 · unit-level evidence: p40
 :::
 
 ## Before Demo 2: what the letters look like
@@ -496,7 +496,7 @@ SpeechTokenizer §3.2, App. E · Moshi §3.3.2 · $\mathcal{L}_{\text{dist}}$: a
 | **the probe** | purity was measured, not assumed (Demo 2) | on TIMIT, segmental information is **not confined to codebook 1**, and its tokens correspond to **allophones**, not phonemes |
 
 ::: {.claim}
-Demo 1 is the demonstration that matters: stage 1 alone keeps the words and loses the voice — **content-like, not phonemic**. And whether it keeps the tone is the question p31 left open.
+Demo 1 did **not** go as predicted: stage 1 alone kept neither the words nor the voice. "Semantic" names what the codebook was trained *towards*, not what the ear gets back from it alone — and the tone answer is on p31.
 :::
 
 ::: {.footer}
