@@ -7,7 +7,7 @@
 | **W3** | [The Alignment Problem: From HMM to CTC](weeks/w03.qmd)<br>[對齊問題：從 HMM 到 CTC]{.wk-zh} | Foundations | [▶ Open](slides/w03.qmd) |
 | **W4** | [Sequence Models and Streaming Architectures: Transformer, Conformer, RNN-T](weeks/w04.qmd)<br>[序列模型與 streaming 架構：Transformer、Conformer、RNN-T]{.wk-zh} | Foundations | [▶ Open](slides/w04.qmd) |
 | **W5** | [Self-Supervised Representation Learning: Where Speech Foundation Models Come From](weeks/w05.qmd)<br>[自監督表徵學習（SSL）：語音基礎模型的來源]{.wk-zh} | Foundations | [▶ Open](slides/w05.qmd) |
-| **W6** | Neural Audio Codecs and Discretization: Turning Speech into a Language<br>[Neural Audio Codec 與離散化：語音成為「語言」的關鍵一步]{.wk-zh} | Foundations | — |
+| **W6** | [Neural Audio Codecs and Discretization: Turning Speech into a Language](weeks/w06.qmd)<br>[Neural Audio Codec 與離散化：語音成為「語言」的關鍵一步]{.wk-zh} | Foundations | [▶ Open](slides/w06.qmd) |
 | **W7** | Speech Recognition: Three Paradigms, Streaming, and the LLM Turn<br>[語音辨識：三種範式、streaming 與 LLM 化]{.wk-zh} | Modules | — |
 | **W8** | Speech Synthesis I: Generative Paradigms and Streaming TTS<br>[語音合成 I：生成範式與 streaming 合成]{.wk-zh} | Modules | — |
 | **W9** | Speech Synthesis II: Controllability, Post-Training Alignment, Evaluation, and Misuse<br>[語音合成 II：可控性、後訓練對齊、評估與濫用防範]{.wk-zh} | Modules | — |

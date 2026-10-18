@@ -30,18 +30,18 @@
 
 ## 目前已公開的內容
 
-週次隨授課進度逐週開放。截至 2026 年 10 月中，**W1–W5** 已開放：每週頁面、投影片，以及每一週的 demo 程式。**W6 的材料已在 repo 裡**——每週頁面、投影片與三個 demo 都齊了——授課那一週才在站上給連結。其餘週次在課程地圖上以灰色占位顯示；頁面已產生但不 render，所以沒有死連結。
+週次隨授課進度逐週開放。截至 2026-10-19，**W1–W6** 已開放：每週頁面、投影片，以及每一週的 demo 程式——Part I 全部上站。其餘週次在課程地圖上以灰色占位顯示；頁面已產生但不 render，所以沒有死連結。
 
 | | W1 | W2 | W3 | W4 | W5 | W6 | W7–W14 |
 |---|---|---|---|---|---|---|---|
-| 每週頁面（定位、learning objectives、參考資料、demos） | ✓ | ✓ | ✓ | ✓ | ✓ | 在 repo 裡，站上尚未連結 | 已產生，尚未公開 |
-| 投影片（`slides/wNN.qmd`，reveal.js） | ✓ | ✓ | ✓ | ✓ | ✓ | 在 repo 裡，站上尚未連結 | — |
-| Demo 程式（`demos/wNN_dK_*/`） | ✓ | ✓ | ✓ | ✓ | ✓ | ✓（demo 1 的彩排紀錄待補） | — |
+| 每週頁面（定位、learning objectives、參考資料、demos） | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 已產生，尚未公開 |
+| 投影片（`slides/wNN.qmd`，reveal.js） | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | — |
+| Demo 程式（`demos/wNN_dK_*/`） | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | — |
 
 每週頁面之外：
 
 - **Syllabus** 有課程設定、三段式結構，以及**延遲預算**——全課共用的座標系，每一週都拿它來量。
-- **Slides** 是投影片索引；每份 deck 在每個現場 demo 之前有一張說明頁，之後用 fragment 揭露實測結果。
+- **Slides** 是投影片索引；每份 deck 在每個現場 demo 之前有一張說明頁，之後用 fragment 揭露實測結果。彩排結果與課堂預測相反時（W6 demo 1：Mimi 只留第一個 codebook，字與聲音都不在），投影片照實寫，不留預測。
 - **Resources** 列核心教科書、每週一篇論文、demo 跑在上面的工具鏈，以及示範硬體上做不到的事。
 - **Supplements** 支撐兩份評量，共五項：**26 張選題問題卡**（臺灣本土語言、語音對話、codec 與 SSL、評估、強健性；資源於 2026-10-16 逐一對官方頁面查過；方法留給你決定）、**期中報告**指南（從一張問題卡走到一個 proof of concept）、**期末論文**指南（從 MVP 到 conference-ready paper）、**語音論文的寫作與敘事邏輯**，以及兩份報告共用的 **LaTeX 報告範本**（INTERSPEECH 2026 long-paper kit 加上寫作與研究的提示框；下載 ZIP 匯入 Prism）。四份指南是中文，範本是英文。
 
@@ -110,7 +110,7 @@ quarto render                    # 產出 _site/
 
 Push 到 `main` 觸發 GitHub Actions，但 CI **不重建**每週頁面（它讀不到大綱），只做洩漏檢查與 `quarto render`。這個設計的代價是：忘記在本機重跑建置，網站就會漂移。
 
-開放新的一週要同時改兩處：`scripts/build_weeks.py` 的 `PUBLISHED_WEEKS` 加上該週（控制首頁、課程地圖與 resources 是否給連結），以及 `_quarto.yml` 的 `render` 清單與 sidebar 加上該頁（控制頁面是否存在）。投影片索引只要 `slides/wNN.qmd` 存在就會給連結，所以 deck 可以先進 repo、該週之後再開放。
+開放新的一週要同時改兩處：`scripts/build_weeks.py` 的 `PUBLISHED_WEEKS` 加上該週（控制首頁、課程地圖與 resources 是否給連結），以及 `_quarto.yml` 的 `render` 清單與 sidebar 加上該頁（控制頁面是否存在）。投影片索引只要 `slides/wNN.qmd` 存在就會連到 deck **和該週頁面**，所以 deck 比該週先上站會在 Slides 頁留下死連結，直到該週開放——兩者一起發佈。
 
 補充教材寫在 private repo、登錄在 `sites.json`；每份 H1 下方有 `en`／`order`／`summary` 三行註解，用來產生 Supplements 索引。每週的英文標題寫在大綱週次標題的下一行（`<!-- en: ... -->`），缺了建置會報錯。
 

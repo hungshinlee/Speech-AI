@@ -30,18 +30,18 @@ Three threads run through all fourteen weeks and are asked of every layer: **Rep
 
 ## What is published so far
 
-Weeks are opened on the site as they are taught. As of mid-October 2026, **W1–W5** are open: week pages, slides, and the demo code for every week. **W6 is complete in the repository** — its week page, its slides and its three demos are already here — and is linked from the site the week it is taught. The remaining weeks appear on the course map as greyed-out placeholders; their pages are generated but not rendered, so there are no dead links.
+Weeks are opened on the site as they are taught. As of 2026-10-19, **W1–W6** are open: week pages, slides, and the demo code for every week — so all of Part I is published. The remaining weeks appear on the course map as greyed-out placeholders; their pages are generated but not rendered, so there are no dead links.
 
 | | W1 | W2 | W3 | W4 | W5 | W6 | W7–W14 |
 |---|---|---|---|---|---|---|---|
-| Week page (positioning, learning objectives, references, demos) | ✓ | ✓ | ✓ | ✓ | ✓ | in the repo, not yet linked | generated, not yet published |
-| Slides (`slides/wNN.qmd`, reveal.js) | ✓ | ✓ | ✓ | ✓ | ✓ | in the repo, not yet linked | — |
-| Demo code (`demos/wNN_dK_*/`) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ (demo 1's rehearsal record still to come) | — |
+| Week page (positioning, learning objectives, references, demos) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | generated, not yet published |
+| Slides (`slides/wNN.qmd`, reveal.js) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | — |
+| Demo code (`demos/wNN_dK_*/`) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | — |
 
 Beyond the week pages:
 
 - **Syllabus** carries the course setup, the three-part structure, and the **latency budget** — the shared coordinate system every week is measured against.
-- **Slides** indexes the decks; each deck has a briefing slide before every live demo and the measured result as a fragment after it.
+- **Slides** indexes the decks; each deck has a briefing slide before every live demo and the measured result as a fragment after it. Where a rehearsal contradicted the lecture's prediction (W6 demo 1: Mimi's first codebook alone keeps neither the words nor the voice), the slide says so rather than keeping the prediction.
 - **Resources** lists the core textbooks, one paper per week, the toolchain the demos run on, and what cannot be shown on the demo hardware.
 - **Supplements** backs the two assessed deliverables with five items: **26 problem cards** for an INTERSPEECH 2027 paper (Taiwan's languages, spoken dialogue, codecs and SSL, evaluation, robustness; resources checked against their official pages on 2026-10-16; the method is left to you), the **midterm report** guide (from a problem card to a proof of concept), the **final paper** guide (from MVP to a conference-ready paper), **writing and narrative logic** for speech papers, and the **LaTeX report template** used by both reports (INTERSPEECH 2026 long-paper kit with guidance boxes; download the ZIP and import it into Prism). The four guides are in Chinese; the template is in English.
 
@@ -110,7 +110,7 @@ quarto render                    # produces _site/
 
 Pushing to `main` triggers GitHub Actions, which **does not** rebuild the week pages (CI has no access to the outline). It only runs a leak check and `quarto render`. The cost of that design is that the site drifts if the local build step is forgotten.
 
-Opening a new week requires two coordinated edits: add the week to `PUBLISHED_WEEKS` in `scripts/build_weeks.py` (controls the links on the home page, course map and resources) and add its page to the `render` list and sidebar in `_quarto.yml` (controls whether the page exists). The slide index links a deck as soon as `slides/wNN.qmd` exists, so a deck can be in the repository before its week is open.
+Opening a new week requires two coordinated edits: add the week to `PUBLISHED_WEEKS` in `scripts/build_weeks.py` (controls the links on the home page, course map and resources) and add its page to the `render` list and sidebar in `_quarto.yml` (controls whether the page exists). The slide index links a deck — and its week page — as soon as `slides/wNN.qmd` exists, so a deck published before its week is open leaves a dead link on the Slides page until the week opens; publish the two together.
 
 Supplementary guides are written in the private repository and listed in `sites.json`; each one carries three comment lines under its H1 (`en`, `order`, `summary`) that drive the Supplements index. The English title of each week is written in the outline on the line after the week heading (`<!-- en: ... -->`), and the build fails if one is missing.
 

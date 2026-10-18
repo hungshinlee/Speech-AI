@@ -12,7 +12,7 @@
 <a class="cm-wk" href="weeks/w03.html"><span class="cm-n">W3</span><span class="cm-t">Alignment: HMM → CTC</span></a>
 <a class="cm-wk" href="weeks/w04.html"><span class="cm-n">W4</span><span class="cm-t">Sequence models &amp; streaming</span></a>
 <a class="cm-wk" href="weeks/w05.html"><span class="cm-n">W5</span><span class="cm-t">SSL representations</span></a>
-<div class="cm-wk cm-hinge cm-soon"><span class="cm-n">W6</span><span class="cm-t">Codecs &amp; discretization</span></div>
+<a class="cm-wk cm-hinge" href="weeks/w06.html"><span class="cm-n">W6</span><span class="cm-t">Codecs &amp; discretization</span></a>
 </div>
 <div class="cm-col">
 <div class="cm-part">Part II — Modules</div>
