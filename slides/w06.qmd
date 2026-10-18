@@ -259,7 +259,7 @@ $$R(\mathcal{D}) = \tfrac{1}{2}\log_2\!\big(\sigma^2 / \mathcal{D}\big)\qquad\te
 :::
 
 ::: {.footer}
-schematic until Demo 2 measures it · Cover & Thomas, Ch. 10, for the Gaussian line
+measured by Demo 2 (2026-10-18) · Cover & Thomas, Ch. 10, for the Gaussian line
 :::
 
 ## Quantizer dropout: one model, one knob, five bitrates
@@ -451,15 +451,15 @@ Demo 2 · code: `demos/w06_d2_token_matrix` · the arithmetic half comes at p42
 :::
 
 ::: {.fragment}
-| | codes used / $V$ (stage 1 … $N_q$) | $H_1 / \log_2 V$ (stage 1 … $N_q$) | residual energy after stage 1 / 2 / 4 / $N_q$ | $H_2 / H_1$, stage 1 |
+| | codes used / $V$, stage 1 / 2 / 4 / 8 / 32 | $H_1 / \log_2 V$, stage 1 / 2 / 4 / 8 / 32 | residual energy after stage 1 / 2 / 4 / $N_q$ | $H_2 / H_1$, stage 1 |
 |:--|:--|:--|:--|:--|
-| Mimi (semantic VQ + 7 RVQ) | | | | |
-| EnCodec 24 kHz, 8 stages | | | | |
-| DAC 24 kHz | | | | |
+| Mimi (S + 31 RVQ in the weights) | 0.71 · 0.82 · 0.96 · 0.98 · 0.92 | 0.90 · 0.89 · 0.91 · 0.92 · 0.94 | S 0.36 · A 0.17 / 0.13 / 0.09 / 0.01 | 0.36 (S), 0.46 (A1) |
+| EnCodec 24 kHz, 32 stages | 0.78 · 0.95 · 0.98 · 0.90 · **0.50** | 0.78 · 0.85 · 0.86 · 0.86 · 0.85 | 0.03 / 0.03 / 0.02 / 0.001 | 0.67 |
+| DAC 24 kHz, 32 stages | 0.94 · 1.00 · 1.00 · 1.00 · 1.00 | 0.78 · 0.92 · 0.98 · 0.99 · 1.00 | 0.67 / 0.60 / 0.49 / **0.72** (min 0.40 at 9) | 0.80 |
 :::
 
 ::: {.footer}
-Demo 2 · demos/w06_d2_token_matrix · dev-clean 40 × 10 · table: after rehearsal
+Demo 2 · demos/w06_d2_token_matrix · dev-clean 40 × 10 · measured 2026-10-18
 :::
 
 # Two kinds of token {.section-title}
@@ -564,7 +564,7 @@ Osakuade & King, Speech Prosody 2026 · Saloev et al. 2026 · W2 p57 · W5 p44
 | EnCodec 24 kHz, 6 kbps | 75 Hz | 8 | 600 /s | 1.08 M | 600 | 75 | 13 ms |
 | SpeechTokenizer | 50 Hz | 8 | 400 /s | 720 k | 400 | 50 | 20 ms |
 | Mimi | 12.5 Hz | 8 | 100 /s | 180 k | 100 | 12.5 | 80 ms |
-| text (Gemma 4 tokenizer) | — | — | | | | | |
+| text (Gemma 4 tokenizer) | — | — | 2.8 /s | 5.1 k | 2.8 | — | — |
 :::
 
 ::: {.claim .fragment}
@@ -572,7 +572,7 @@ Every column is a function of the three freedoms. **Speech tokens outnumber text
 :::
 
 ::: {.footer}
-Demo 2 · codec rows: arithmetic (w06-data.json → budget) · text row: after rehearsal
+Demo 2 · codec rows: arithmetic · text row: one sentence's rate × 30 min, 2026-10-18
 :::
 
 ## Misconception 7 — "lower bitrate is always better"

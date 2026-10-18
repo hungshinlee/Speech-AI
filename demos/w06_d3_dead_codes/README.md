@@ -40,7 +40,7 @@ Why the fourteen dead codes revive together in `4`: all of them have been unchos
 | Time | all five settings compute in well under a second; each animation plays in two to four seconds (`frame_every`, `frame_pause` in `demo_config.toml`, no effect on the numbers) |
 | Terminal | ≈ 70 columns for `t`; `./present.sh show --no-plot` runs without the figure window |
 | Cross-checks | `selftest` recomputes the five settings with the slide's seed and compares the 2000 data points, $\mathbf{E}_0$, and for every setting the number of codes used, the MSE (tolerance $10^{-9}$), the final codebook and the assignment of all 2000 points with `w06-data.json`; then checks the properties the slide relies on: `1` and `2` use the same few codes and their unchosen codes never moved; `3` and `4` use all sixteen and at least one reset happened; FSQ uses all sixteen grid points with a higher MSE than $k$-means; `1`/`2` are an order of magnitude worse than `3`/`4`; and codes initialised inside the data stay alive under both update rules |
-| Tested on | a 2-core Linux container, Python 3.13, numpy 2.5.3 (2026-10-18): `selftest` passes, all five settings bit-identical to the pre-computed panels. Not yet run on the instructor's Mac |
+| Tested on | Apple M5 Max, macOS 27.0.1, Python 3.12.14, numpy 2.4.4 (2026-10-18): `selftest` passes and all five settings are bit-identical to the pre-computed panels; `runs/rehearsal/` is this run. On a 2-core Linux container (Python 3.13, numpy 2.5.3) `selftest` also passes, likewise bit-identical — 200 steps without Adam do not amplify BLAS differences |
 
 ## Run it
 
@@ -54,7 +54,7 @@ cd demos && ./setup.sh && cd w06_d3_dead_codes
 
 ## What you should see
 
-From `runs/rehearsal/rehearsal.json` (2026-10-18, Linux container; identical to the slide):
+From `runs/rehearsal/rehearsal.json` (2026-10-18, Apple M5 Max; identical to the slide's panels):
 
 - `1` random init + gradient: **2 / 16** codes used, MSE 0.997. `2` the same with EMA: **2 / 16**, MSE 0.993 — the fourteen unchosen codes stay exactly where they started.
 - `3` $k$-means init + EMA: **16 / 16**, MSE 0.065. `4` random init + EMA + reset: **16 / 16**, MSE 0.069; one reset event at step 5 moving all fourteen dead codes at once.
