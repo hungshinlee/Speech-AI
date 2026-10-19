@@ -8,7 +8,7 @@
 #   ./present.sh replay        現場 Python 出狀況時：印出彩排的純文字輸出
 #   ./present.sh selftest      對 slides/assets/w04/w04-data.json 逐條、逐位比對；隨機 y 窮舉 vs. forward vs. log 域；decode 有／沒上限
 #
-# 課堂上的講法與按鍵順序寫在投影片講稿的【操作】（p30 Paths、p34 Check the recursion、p32 Misconception 5）。
+# 課堂上的講法與按鍵順序寫在投影片講稿的【操作】（p32 Paths、p36 Check the recursion、p34 Misconception 5）。
 set -euo pipefail
 cd "$(dirname "$0")"
 PY="../.venv/bin/python"   # 所有 demo 共用 speech_ai/demos/.venv（common.py 要 numpy／scipy）

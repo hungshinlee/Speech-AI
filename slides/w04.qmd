@@ -324,6 +324,37 @@ The prediction network sees **only the labels emitted so far**. That is where th
 Graves, arXiv:1211.3711 (2012) · $\mathbf{f}_t$ transcription, $\mathbf{g}_u$ prediction, $\psi$ joint
 :::
 
+## Who sees what, and how often each one runs
+
+| | encoder | prediction network | joint network |
+|:-----------|:-------------------------|:-------------------------------|:--------------------------------|
+| its job | acoustic evidence | the text so far: an output-side LM | the decision at one node |
+| in → out | $\mathbf{X} \to \mathbf{f}_t$, one per frame | $\ell_{1:u} \to \mathbf{g}_u$, one per prefix | $(\mathbf{f}_t, \mathbf{g}_u) \to \mathbf{y}^{t,u}$ |
+| never sees | the labels | the audio | any other node |
+| training | all $T$ frames at once | the gold $\ell$: $\mathbf{g}_0, \dots, \mathbf{g}_U$ at once | every node: $T(U+1)$ softmaxes |
+| greedy decoding | once per frame | once per emitted label | once per step: $T + \hat{U}$ |
+| in CTC (W3) | the whole model | absent: outputs independent | a softmax per frame |
+
+::: {.claim}
+Audio and text meet **only in the joint**, one node at a time — so the joint alone decides each step: emit a label, or say $\varnothing$ and take the next frame.
+:::
+
+::: {.footer}
+$\hat{U}$: labels the decoder emits · training: teacher forcing on the gold $\ell$ · Graves, arXiv:1211.3711
+:::
+
+## One greedy decode, step by step
+
+{{< include assets/w04/decode-steps.inline.qmd >}}
+
+::: {.claim .fragment fragment-index=5}
+Right: one joint evaluation and a new frame. Up: one joint evaluation **plus a prediction-network step** — a cost per label, not per second.
+:::
+
+::: {.footer}
+greedy: argmax at each step · $\ell = \text{ab}$, $T = 3$ · argmax results staged, not a model's output
+:::
+
 ## Misconception 4 — "the RNN-T blank is the CTC blank"
 
 | | CTC (W3) | RNN-T (today) | W1's $\varnothing$ |

@@ -9,7 +9,7 @@
 [paper]
 # 第一段「紙上先列、程式再列」。vocab 是不含 blank 的符號表；K = |V'| = len(vocab) + 1。
 vocab = "ab"
-# 按鍵 → (標籤, T)。順序照投影片 p30〈Paths: write them out before the program does〉的【操作】。
+# 按鍵 → (標籤, T)。順序照投影片 p32〈Paths: write them out before the program does〉的【操作】。
 [[paper.items]]
 key = "1"
 label = "ab"
@@ -30,7 +30,7 @@ T = 2
 [random]
 # 第二段：隨機一組 y^{t,u}（每個格點節點 (t, u) 一個 softmax(N(0, logit_std²)) over {a, b, ∅}），"ab"、T = 2 → 3 條路徑、6 個節點。
 # seed = 20261004 時照 make_figs_w04.py 的抽取順序重現（("ab", "aa") × T = 1, 2, 3，每節點抽 3 個 logits），
-# 所以與 w04-data.json → forward_check.ab.2.random_seed_20261004 及 p34 表格第三列逐位相同。課堂上按 r 換一組（seed 用時間）。
+# 所以與 w04-data.json → forward_check.ab.2.random_seed_20261004 及 p36 表格第三列逐位相同。課堂上按 r 換一組（seed 用時間）。
 vocab = "ab"
 label = "ab"
 T = 2
