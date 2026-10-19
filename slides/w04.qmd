@@ -387,7 +387,7 @@ $$\#\,\text{paths} \;=\; \binom{T + U - 1}{U} \qquad\text{vs. CTC: } \lvert \mat
 {{< include assets/w04/path-slots.inline.qmd >}}
 
 | | CTC | RNN-T |
-|:--|:--|:--|
+|:-----------------|:---------------------------------|:-----------------------------------------------|
 | labels per frame | exactly one symbol of $\mathcal{V}'$ | any number, then a blank |
 | repeated labels | a blank must separate them | nothing needed: emit, emit |
 | minimum $T$ | $U + r$ | **1** |
