@@ -129,11 +129,19 @@ $$\mathcal{L}_N = -\mathbb{E}\!\left[\ln \frac{\exp(\mathrm{sim}(\mathbf{c}_t, \
 Oord, Li & Vinyals 2018, eq. 4 · Table 1: phone probe 64.6% vs MFCC 39.7%
 :::
 
-## InfoNCE bounds mutual information — in two steps
+## InfoNCE, step 1: the best critic is a density ratio
 
 {{< include assets/w05/infonce-steps.inline.qmd >}}
 
-::: {.claim .fragment fragment-index=5}
+::: {.footer}
+CPC §2.3, eq. 4 (the loss) and eq. 5 (its optimum)
+:::
+
+## InfoNCE, step 2: substitute back, get $\ln N - I$
+
+{{< include assets/w05/infonce-bound.inline.qmd >}}
+
+::: {.claim .fragment fragment-index=3}
 **Read it:** $\mathcal{L}_N \geq 0$, so the bound never exceeds $\ln N$ — 100 negatives cannot show more than $\ln 101 \approx 4.6$ nat.
 :::
 
@@ -245,7 +253,7 @@ $$\mathcal{L} = \mathcal{L}_m + \alpha\,\mathcal{L}_d, \qquad \mathcal{L}_m = -\
 
 | piece | wav2vec 2.0 BASE | why |
 |:--|:--|:--|
-| target | $\mathbf{q}_t = \mathrm{VQ}(\mathbf{z}_t)$ at masked $t$; $G = 2$, $V = 320$ | discrete, finite freedom (p15) |
+| target | $\mathbf{q}_t = \mathrm{VQ}(\mathbf{z}_t)$ at masked $t$; $G = 2$, $V = 320$ | discrete, finite freedom (p16) |
 | negatives $\mathcal{Z}_t \setminus \{\mathbf{q}_t\}$ | $N - 1 = 100$, **other masked steps of the same utterance** | same speaker, same channel: only content separates them |
 | temperatures | $\kappa = 0.1$ (contrast); $\tau\colon 2 \to 0.5$ (Gumbel) | two knobs, two jobs |
 | masking | spans of 10 steps, start prob. 0.065; $\approx 49\%$ of steps masked | long enough that interpolation fails |
@@ -338,7 +346,7 @@ Hsu et al., TASLP 2021, abstract and Table V · the ICASSP 2021 "bad teacher" pa
 | what it buys | content | content, plus a representation that already separates speakers and ignores noise |
 
 ::: {.claim}
-Two things changed at once — the auxiliary task **and** the data. When WavLM wins a benchmark, you cannot tell which one paid. Keep that for p47.
+Two things changed at once — the auxiliary task **and** the data. When WavLM wins a benchmark, you cannot tell which one paid. Keep that for p48.
 :::
 
 ::: {.footer}
@@ -730,7 +738,7 @@ A bound that caps at $\ln N$; four ways to write the answer down; thirteen layer
 
 - Mohamed et al., *Self-Supervised Speech Representation Learning: A Review*, IEEE JSTSP 2022 — the survey; read the taxonomy section, then re-sort it by target as we did today
 - Hsu et al., *HuBERT*, IEEE/ACM TASLP 2021 — §II for the loss, §IV-E for the three purities, Table V for the $\alpha$ ablation you saw
-- Baevski et al., *wav2vec 2.0*, NeurIPS 2020 — §2–3 and Appendix B; look at Table 1 with p47 in mind
+- Baevski et al., *wav2vec 2.0*, NeurIPS 2020 — §2–3 and Appendix B; look at Table 1 with p48 in mind
 
 **If one thing today was new to you, make it this one**
 

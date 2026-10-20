@@ -65,7 +65,7 @@ format:
 :::
 
 ::: {.footer}
-W5 p29 four targets in one row · W5 p55's last sentence
+W5 p30 four targets in one row · W5 p56's last sentence
 :::
 
 ## The problem this week handles, in one picture
@@ -141,7 +141,7 @@ van den Oord et al. 2017 §3.2 · $\beta = 0.25$, insensitive from 0.1 to 2.0
 :::
 
 ::: {.footer}
-VQ-VAE §3.2: without it the encoder output "can grow arbitrarily" · W5 p17
+VQ-VAE §3.2: without it the encoder output "can grow arbitrarily" · W5 p18
 :::
 
 ## The EMA codebook update is online k-means
@@ -177,7 +177,7 @@ VQ-VAE App. A.1, eqs. 6–8 · VQ-VAE-2 §2.1 · "online k-means" is our reading
 :::
 
 ::: {.footer}
-DAC §3.2: 8-dim $\ell_2$ lookups "significantly improve codebook usage" · W5 p19
+DAC §3.2: 8-dim $\ell_2$ lookups "significantly improve codebook usage" · W5 p20
 :::
 
 ## Before Demo 3: dead codes you can see
@@ -427,7 +427,7 @@ $F_0$ is a physical quantity, pitch is a percept (W2 p51): the plot is a referen
 :::
 
 ::: {.footer}
-prediction from the design · heard: rehearsal 2026-10-19, one sentence, one listener · W2 p51, p57 · W5 p44 · unit-level evidence: p40
+prediction from the design · heard: rehearsal 2026-10-19, one sentence, one listener · W2 p51, p57 · W5 p45 · unit-level evidence: p40
 :::
 
 ## Before Demo 2: what the letters look like
@@ -473,7 +473,7 @@ Acoustic tokens can rebuild the voice but entangle **who, where and what**; sema
 :::
 
 ::: {.footer}
-W5 p44 · AudioLM, TASLP 2023 · the alphabet's second failure: letters hold only content
+W5 p45 · AudioLM, TASLP 2023 · the alphabet's second failure: letters hold only content
 :::
 
 ## SpeechTokenizer and Mimi: W5's unit, back inside the codec
@@ -500,7 +500,7 @@ Demo 1 did **not** go as predicted: stage 1 alone kept neither the words nor the
 :::
 
 ::: {.footer}
-Saloev et al., ICNLSP 2026 (TIMIT) · W5 p41–p43 · "semantic" names a target, not a claim
+Saloev et al., ICNLSP 2026 (TIMIT) · W5 p42–p44 · "semantic" names a target, not a claim
 :::
 
 ## One codebook, no residual: WavTokenizer, BigCodec, TAAE
@@ -547,7 +547,7 @@ At the unit level this is **measured**; at the codec level it is a **prediction*
 :::
 
 ::: {.footer}
-Osakuade & King, Speech Prosody 2026 · Saloev et al. 2026 · W2 p57 · W5 p44
+Osakuade & King, Speech Prosody 2026 · Saloev et al. 2026 · W2 p57 · W5 p45
 :::
 
 # The arithmetic {.section-title}
@@ -658,7 +658,7 @@ The rightmost slot is filled — and for the first time the clock was **chosen**
 :::
 
 ::: {.footer}
-W2 p62 · W5 p52 · Mimi: 12.5 Hz for the LM's sequence length, Moshi §3.3.1
+W2 p62 · W5 p53 · Mimi: 12.5 Hz for the LM's sequence length, Moshi §3.3.1
 :::
 
 ## Latency: the cell in W1's budget, filled in
