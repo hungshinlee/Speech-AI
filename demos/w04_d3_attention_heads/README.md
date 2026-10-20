@@ -14,7 +14,7 @@ Whisper small (the multilingual model: 244 M parameters, 12 decoder layers × 12
 | `0` | all 144 heads as thumbnails, border colour = class, title = the four class counts | p52 |
 | `4` | boxes the ten OpenAI alignment heads (★) and says how many of them are bands | p52 |
 | `5` | the ten heads → normalise → median filter → average → DTW: the cost matrix and path; word timestamps printed, with the difference to W3's first spike per word | p52, p54 |
-| `a` | overlays W3 demo 3's forced alignment on `5` (grey bars: each word from its first to its last spike) — the seating chart vs. the weights | p53 |
+| `a` | overlays W3 demo 3's forced alignment on `5` (grey bars: each word from its first to its last CTC spike — a span, not a segment; the blanks inside it are on p53's seating chart) — spans vs. the weights | p53 |
 | `h` `q` | menu, quit | |
 
 ## The band criterion (it is read out in class)

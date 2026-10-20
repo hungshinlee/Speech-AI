@@ -20,7 +20,7 @@
   3  下一層（12 層循環）           0  全部 144 個 head 的縮圖，一格一個 head，邊框顏色 = 類別；標題是四類的數目（填 p52 的表）
   4  把 OpenAI _ALIGNMENT_HEADS（= HF alignment_heads）的 10 個框出來（在 2／0 的畫面上）
   5  那 10 個 head 照 timing.py 的做法（標準化 → 中值濾波 → 平均 → DTW）得到的矩陣與路徑；字的時間戳印在終端機
-  a  在 5 的畫面上疊 W3 Demo 3 的 forced alignment（每個字的尖峰跨度）——座位表 vs. 權重（p53 那張圖的真實版）
+  a  在 5 的畫面上疊 W3 Demo 3 的 forced alignment（每個字第一到最後一個 CTC 尖峰的跨度，不是音段）——p53 座位表的前導
   h  重印選單        q  離開
 
 數字的定義：U = 轉錄出來的文字 token 數（不含 <|startoftranscript|><|en|><|transcribe|><|notimestamps|> 前綴與 <|endoftext|>）；
@@ -218,7 +218,7 @@ def classify_head(w_text: np.ndarray, pad_mass: np.ndarray) -> dict:
             "pad_heavy": bool(med_pad >= c["pad_max"]), "distinct": distinct, "tstar": tstar.tolist()}
 
 
-# ── W3 Demo 3 的 forced alignment（座位表）─────────────────────────────────
+# ── W3 Demo 3 的 forced alignment（每個字的尖峰跨度；不是座位表，座位表見 p53）──────
 def load_alignment(path: Path) -> list[dict] | None:
     if not path.exists():
         return None
@@ -700,7 +700,7 @@ class Demo:
         self.ax_seat.set_ylim(0, 1)
         for sp in self.ax_seat.spines.values():
             sp.set_visible(False)
-        self.ax_seat.text(0.0, 0.5, "a → W3 forced alignment (seating chart)", fontsize=9, color="0.5", va="center", transform=self.ax_seat.transAxes)
+        self.ax_seat.text(0.0, 0.5, "a → W3 forced alignment (CTC spike spans)", fontsize=9, color="0.5", va="center", transform=self.ax_seat.transAxes)
         self.foot.set_text("timestamps are a post-processing artefact: hand-picked heads + smoothing + a monotonic DP — not a model output")
         if self.seating:
             self.overlay_seating(redraw=False)
@@ -708,7 +708,7 @@ class Demo:
 
     def overlay_seating(self, redraw: bool = True) -> None:
         if not self.align:
-            self.out(f"{C.AMBER}沒有 W3 Demo 3 的 forced alignment（{CFG['audio']['alignment']}），沒有座位表可疊。{C.RESET}")
+            self.out(f"{C.AMBER}沒有 W3 Demo 3 的 forced alignment（{CFG['audio']['alignment']}），沒有尖峰跨度可疊。{C.RESET}")
             return
         self.seating = True
         if self.fig is None:
@@ -723,18 +723,18 @@ class Demo:
             ax.axvspan(a["start"], a["end"], ymin=0.15, ymax=0.85, color="0.55", alpha=0.75)
             ax.text((a["start"] + a["end"]) / 2, 0.5, a["word"], ha="center", va="center", fontsize=6.5, color="white", fontweight="bold")
             self.ax_dtw.axvspan(a["start"], a["end"], color="white", alpha=0.08, lw=0)
-        ax.text(0.0, 1.05, "seating chart: W3 Demo 3 CTC forced alignment (first → last spike of each word)", fontsize=8.5, color="0.4",
+        ax.text(0.0, 1.05, "W3 Demo 3 CTC forced alignment: first → last spike of each word (a span, not a segment: blanks sit inside)", fontsize=8.5, color="0.4",
                 transform=ax.transAxes, va="bottom")
-        self.foot.set_text("grey bars: the alignment (each word owns a contiguous span) — below: the weights (soft, and not the same object)")
+        self.foot.set_text("grey bars: CTC spike spans, not word segments (p53 shows the blanks inside) — below: the weights (soft, a different object)")
         if redraw:
             self.fig.canvas.draw_idle()
-        self.out("  疊上 W3 的 forced alignment：灰條是座位表（每個字一段連續的 frame），底下是權重——兩個不同的物件。")
+        self.out("  疊上 W3 的 forced alignment：灰條是每個字第一到最後一個 CTC 尖峰的跨度（中間夾著 blank，不是音段；p53 拆開看），底下是權重——兩個不同的物件。")
 
     # -- 選單、鍵、流程 --
     def menu(self) -> None:
         o = self.out
         o(f"\n{C.BOLD}p52{C.RESET}  1 播音＋轉錄   2 這一層的 12 個 head   3 下一層   0 全部 144 個   4 框出 OpenAI 的 alignment heads   5 DTW 與時間戳")
-        o(f"{C.BOLD}p53{C.RESET}  a 疊 W3 的座位表        h 選單   q 離開")
+        o(f"{C.BOLD}p53{C.RESET}  a 疊 W3 的尖峰跨度      h 選單   q 離開")
 
     def dispatch(self, k: str) -> bool:
         if k == "1":
