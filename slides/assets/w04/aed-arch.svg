@@ -3414,7 +3414,7 @@ z
   </g>
  </g>
 </svg>
-<text x="810.0" y="236.0" font-size="11" font-weight="600" fill="#dc2626" text-anchor="end" dominant-baseline="auto">no lattice, no blank: one label per step, any t</text>
+<text x="810.0" y="236.0" font-size="11" font-weight="600" fill="#dc2626" text-anchor="end" dominant-baseline="auto">no lattice, no blank: one label per step</text>
 </g>
-<text x="500.0" y="257.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">The weights are a soft weighting over all T frames; nothing forces their peak to move right with u.</text>
+<text x="500.0" y="257.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">The weights spread over every frame; nothing forces their peak to move right from one step to the next.</text>
 </svg>

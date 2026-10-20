@@ -650,12 +650,9 @@ The third column of W3's table — **no lattice, no blank**: one label per step,
 
 {{< include assets/w04/aed-arch.inline.qmd >}}
 
-| | CTC | RNN-T | AED (LAS and after) |
-|:--|:--|:--|:--|
-| alignment | monotonic, summed out | monotonic, summed out | **soft, inside the network, need not be monotonic** |
-| output dependency | none | prediction network | full decoder state $\mathbf{s}_u$ |
-| streaming | encoder permitting | encoder permitting | not without extra machinery (MoChA, triggered attention) |
-| what it learns about *where* | nothing explicit | nothing explicit | a weighting $a_{u,t}$ — **which is not the same thing** |
+::: {.claim .fragment fragment-index=3}
+What AED learns about *where* is a weighting $a_{u,t}$: soft, never forced to move right — and **not the same thing as an alignment**.
+:::
 
 ::: {.footer}
 Chan et al. (LAS) · Chorowski et al. 2015 · Whisper is this family · $\mathbf{s}_u$ state, $\mathbf{c}_u$ context
