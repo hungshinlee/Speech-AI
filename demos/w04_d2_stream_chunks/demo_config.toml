@@ -7,7 +7,7 @@
 #     t_frame  模型發射它的 encoder frame（sherpa-onnx 的 timestamps，40 ms 一格）→ 對聲學結尾的差 ≈ emission delay
 #     t_fed    符號出現時已餵進去的音訊秒數                                        → 多出來的是 chunk 等待（αC）
 #     t_wall   符號出現時的掛鐘時間（從音訊第 0 秒起算）                           → 再多出來的是計算
-#   投影片 p46 的 D ≥ (m + αC) sΔ + D_emit + D_comp 三項各對一個時鐘的差。
+#   投影片 p48 的 D ≥ (m + αC) sΔ + D_emit + D_comp 三項各對一個時鐘的差。
 
 [audio]
 # 重用 W3 Demo 3 的那一句（LibriSpeech dev-clean 1272-128104-0000）與它的 forced alignment（CTC Viterbi 尖峰）。
@@ -41,7 +41,7 @@ input_frame_ms = 10.0      # fbank 的 hop
 output_frame_ms = 40.0     # sherpa-onnx 的 timestamps 用的格（zipformer2 的輸出是 25 Hz；文件範例的時間戳都是 0.04 的倍數）
 
 [settings]
-# 三種餵法。鍵照投影片 p46 表格由上到下（大 → 小）。feed_ms 必須是 decode_chunk_len × input_frame_ms 的整數倍，
+# 三種餵法。鍵照投影片 p48 表格由上到下（大 → 小）。feed_ms 必須是 decode_chunk_len × input_frame_ms 的整數倍，
 # 否則模型自己會等到湊滿一個 chunk 才解，量到的就不是 feed_ms。
 [[settings.items]]
 key = "1"

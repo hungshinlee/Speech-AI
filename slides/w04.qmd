@@ -324,6 +324,41 @@ The prediction network sees **only the labels emitted so far**. That is where th
 Graves, arXiv:1211.3711 (2012) · $\mathbf{f}_t$ transcription, $\mathbf{g}_u$ prediction, $\psi$ joint
 :::
 
+## Not aligned: the joint runs on every pair $(t, u)$
+
+{{< include assets/w04/pair-grid.inline.qmd >}}
+
+::: {.claim .fragment fragment-index=2}
+The joint needs no alignment: it scores **every** pair. An alignment is a path through the pairs — W3's $\pi$, now on a grid — and the loss sums over all of them.
+:::
+
+::: {.footer}
+$\ell = \text{ab}$ and $T = 3$ give $T(U+1) = 9$ pairs and 6 paths · $\pi_1$, $\pi_2$ as on the lattice slide
+:::
+
+## Inside the joint: project, then add
+
+| | $\mathbf{z}^{t,u}$ | how the sizes meet |
+|:----|:----------------|:------------------------|
+| Graves 2012 | $\mathbf{W}_f\mathbf{f}_t + \mathbf{W}_g\mathbf{g}_u$ | each network ends in its own output layer of width $\lvert\mathcal{V}'\rvert$; the joint only adds |
+| Graves et al. 2013 | $\mathbf{W}_z \tanh(\mathbf{W}_f\mathbf{f}_t + \mathbf{W}_g\mathbf{g}_u)$ | both are projected to one hidden width, added, passed through $\tanh$, then mapped to $\lvert\mathcal{V}'\rvert$ |
+
+::: {.fragment .small}
+**Concat is the same function.** $\mathbf{W}[\mathbf{f}_t;\,\mathbf{g}_u] = \mathbf{W}_f\mathbf{f}_t + \mathbf{W}_g\mathbf{g}_u$ for $\mathbf{W} = [\mathbf{W}_f\ \ \mathbf{W}_g]$. Concatenated pair by pair, that is $T(U+1)$ projections; projected first, $T + U + 1$.
+:::
+
+::: {.fragment .small}
+**Adding logits multiplies distributions.** $\operatorname{softmax}(\mathbf{a} + \mathbf{b}) \propto \operatorname{softmax}(\mathbf{a}) \odot \operatorname{softmax}(\mathbf{b})$: the 2012 joint is an acoustic distribution times a linguistic one, renormalised.
+:::
+
+::: {.claim .fragment}
+Project once per frame and once per prefix; only the add, the $\tanh$ and $\mathbf{W}_z$ run at all $T(U+1)$ nodes — and $\mathbf{W}_z$'s output is the tensor behind the memory wall.
+:::
+
+::: {.footer}
+Graves, arXiv:1211.3711 (2012), eq. 12–13 · Graves, Mohamed & Hinton, ICASSP 2013 (arXiv:1303.5778), eq. 16–17 · biases omitted
+:::
+
 ## Who sees what, and how often each one runs
 
 | | encoder | prediction network | joint network |

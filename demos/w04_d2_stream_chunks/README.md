@@ -1,5 +1,5 @@
 <!-- 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。 -->
-# W4 · Demo 2 — one streaming transducer, three chunk sizes: when does each word appear? (slides p45–p46; p43–p44 lead into it)
+# W4 · Demo 2 — one streaming transducer, three chunk sizes: when does each word appear? (slides p47–p48; p45–p46 lead into it)
 
 The same LibriSpeech sentence as W3 demo 3 is fed **at real-time pace** to a streaming zipformer transducer (`sherpa-onnx`), in chunks of 1280, 640 and 320 ms. Every time a symbol comes out, three clocks are recorded, and each word's clocks are compared with the acoustic end of that word (from W3 demo 3's CTC forced alignment):
 
