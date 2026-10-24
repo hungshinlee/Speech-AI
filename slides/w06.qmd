@@ -353,7 +353,7 @@ $$\mathcal{L} = \lambda_{\text{spec}}\mathcal{L}_{\text{spec}} + \lambda_{\text{
 :::
 
 ::: {.footer}
-SoundStream §III-E · MelGAN · HiFi-GAN · W2 p47: the three reasons a vocoder exists
+SoundStream §III-E · MelGAN · HiFi-GAN · W2 p52: the three reasons a vocoder exists
 :::
 
 ## MC 3 — "the discriminator is just for sound quality"
@@ -371,7 +371,7 @@ SoundStream §III-E · MelGAN · HiFi-GAN · W2 p47: the three reasons a vocoder
 :::
 
 ::: {.footer}
-Moshi §3.3.1, Table 4 · whether the released Mimi is that variant: not stated · W2 p47
+Moshi §3.3.1, Table 4 · whether the released Mimi is that variant: not stated · W2 p52
 :::
 
 ## Training and use: the losses leave, both halves stay — apart
@@ -472,11 +472,11 @@ Demo 1 · demos/w06_d1_layer_listen · $B = f_r n_q \log_2 V$ · last column: re
 :::
 
 ::: {.claim .fragment}
-$F_0$ is a physical quantity, pitch is a percept (W2 p51): the plot is a reference, **the ear is the judge** — and whatever we hear, we say it out loud.
+$F_0$ is a physical quantity, pitch is a percept (W2 p56): the plot is a reference, **the ear is the judge** — and whatever we hear, we say it out loud.
 :::
 
 ::: {.footer}
-prediction from the design · heard: rehearsal 2026-10-19, one sentence, one listener · W2 p51, p57 · W5 p49 · unit-level evidence: p42
+prediction from the design · heard: rehearsal 2026-10-19, one sentence, one listener · W2 p56, p62 · W5 p49 · unit-level evidence: p42
 :::
 
 ## Before Demo 2: what the letters look like
@@ -583,7 +583,7 @@ At the unit level this is **measured**; at the codec level it is a **prediction*
 :::
 
 ::: {.footer}
-Osakuade & King, Speech Prosody 2026 · Saloev et al. 2026 · W2 p57 · W5 p49
+Osakuade & King, Speech Prosody 2026 · Saloev et al. 2026 · W2 p62 · W5 p49
 :::
 
 # How many letters per second, and who pays {.section-title}
@@ -711,7 +711,7 @@ The rightmost slot is filled — and for the first time the clock was **chosen**
 :::
 
 ::: {.footer}
-W2 p62 · W5 p59 · Mimi: 12.5 Hz for the LM's sequence length, Moshi §3.3.1
+W2 p67 · W5 p59 · Mimi: 12.5 Hz for the LM's sequence length, Moshi §3.3.1
 :::
 
 ## Latency: the cell in W1's budget, filled in

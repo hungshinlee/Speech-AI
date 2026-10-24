@@ -793,7 +793,7 @@ W4 p52 (Whisper cross-attention heads) · W7 compares the two roads
 
 | | W2 / W4 | today |
 |:--|:--|:--|
-| the three representations (W2 p62) | log-mel · *SSL feature* · *discrete token* — two of them placeholders | the middle one is $\mathbf{c}_t$ or $\mathbf{h}^{(l)}_t$; the third has a prototype: the k-means unit $k_t$ |
+| the three representations (W2 p67) | log-mel · *SSL feature* · *discrete token* — two of them placeholders | the middle one is $\mathbf{c}_t$ or $\mathbf{h}^{(l)}_t$; the third has a prototype: the k-means unit $k_t$ |
 | who decides the frame rate | the hop, then $s$ (W4: a design choice) | **the CNN's stride, chosen at pre-training**: 20 ms, before any task exists |
 | what the representation carries | whatever the loss asked for | content, strongly; speaker, reduced; F0, largely not — and that is a *decision* (three streams) |
 | which layer | — | **a representation decision**: speaker low, phones middle, top shaped by the target |

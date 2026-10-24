@@ -1,35 +1,35 @@
 <!-- 由 scripts/make_figs_w02.py 產生，勿手改；投影片用 {{< include assets/w02/frame-rate-ladder.inline.qmd >}} 貼入 -->
 ```{=html}
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" id="fig-frame-rate-ladder" width="100%" style="display:block;height:auto" viewBox="0 0 835.2 252" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" id="fig-frame-rate-ladder" width="100%" style="display:block;height:auto" viewBox="0 0 835.2 230.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
  <defs>
   <style type="text/css">#fig-frame-rate-ladder *{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="frame-rate-ladder-figure_1">
   <g id="frame-rate-ladder-patch_1">
-   <path d="M 0 252 
-L 835.2 252 
+   <path d="M 0 230.4 
+L 835.2 230.4 
 L 835.2 0 
 L 0 0 
-L 0 252 
+L 0 230.4 
 z
 " style="fill: none"/>
   </g>
   <g id="frame-rate-ladder-axes_1">
    <g id="frame-rate-ladder-patch_2">
-    <path d="M 189.326432 196 
-L 819 196 
+    <path d="M 189.326432 174.4 
+L 819 174.4 
 L 819 16.2 
 L 189.326432 16.2 
-L 189.326432 196 
+L 189.326432 174.4 
 z
 " style="fill: none"/>
    </g>
    <g id="frame-rate-ladder-matplotlib.axis_1">
     <g id="frame-rate-ladder-xtick_1">
      <g id="frame-rate-ladder-line2d_1">
-      <path d="M 274.417455 196 
+      <path d="M 274.417455 174.4 
 L 274.417455 16.2 
-" clip-path="url(#frame-rate-ladder-p87d5fe9aa0)" style="fill: none; stroke: #e5e7eb; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#frame-rate-ladder-p9cdd1b67af)" style="fill: none; stroke: #e5e7eb; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="frame-rate-ladder-line2d_2">
       <defs>
@@ -38,12 +38,12 @@ L 0 3.5
 " style="stroke: #1f2328; stroke-width: 0.8"/>
       </defs>
       <g>
-       <use xlink:href="#frame-rate-ladder-m7ff25acc16" x="274.417455" y="196" style="fill: #1f2328; stroke: #1f2328; stroke-width: 0.8"/>
+       <use xlink:href="#frame-rate-ladder-m7ff25acc16" x="274.417455" y="174.4" style="fill: #1f2328; stroke: #1f2328; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="frame-rate-ladder-text_1">
       <!-- 10 -->
-      <g style="fill: #1f2328" transform="translate(264.873705 214.397656) scale(0.15 -0.15)">
+      <g style="fill: #1f2328" transform="translate(264.873705 192.797656) scale(0.15 -0.15)">
        <defs>
         <path id="frame-rate-ladder-DejaVuSans-31" d="M 794 531 
 L 1825 531 
@@ -88,18 +88,18 @@ z
     </g>
     <g id="frame-rate-ladder-xtick_2">
      <g id="frame-rate-ladder-line2d_3">
-      <path d="M 359.508478 196 
+      <path d="M 359.508478 174.4 
 L 359.508478 16.2 
-" clip-path="url(#frame-rate-ladder-p87d5fe9aa0)" style="fill: none; stroke: #e5e7eb; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#frame-rate-ladder-p9cdd1b67af)" style="fill: none; stroke: #e5e7eb; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="frame-rate-ladder-line2d_4">
       <g>
-       <use xlink:href="#frame-rate-ladder-m7ff25acc16" x="359.508478" y="196" style="fill: #1f2328; stroke: #1f2328; stroke-width: 0.8"/>
+       <use xlink:href="#frame-rate-ladder-m7ff25acc16" x="359.508478" y="174.4" style="fill: #1f2328; stroke: #1f2328; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="frame-rate-ladder-text_2">
       <!-- 100 -->
-      <g style="fill: #1f2328" transform="translate(345.192853 214.397656) scale(0.15 -0.15)">
+      <g style="fill: #1f2328" transform="translate(345.192853 192.797656) scale(0.15 -0.15)">
        <use xlink:href="#frame-rate-ladder-DejaVuSans-31"/>
        <use xlink:href="#frame-rate-ladder-DejaVuSans-30" transform="translate(63.623047 0)"/>
        <use xlink:href="#frame-rate-ladder-DejaVuSans-30" transform="translate(127.246094 0)"/>
@@ -108,18 +108,18 @@ L 359.508478 16.2
     </g>
     <g id="frame-rate-ladder-xtick_3">
      <g id="frame-rate-ladder-line2d_5">
-      <path d="M 444.5995 196 
+      <path d="M 444.5995 174.4 
 L 444.5995 16.2 
-" clip-path="url(#frame-rate-ladder-p87d5fe9aa0)" style="fill: none; stroke: #e5e7eb; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#frame-rate-ladder-p9cdd1b67af)" style="fill: none; stroke: #e5e7eb; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="frame-rate-ladder-line2d_6">
       <g>
-       <use xlink:href="#frame-rate-ladder-m7ff25acc16" x="444.5995" y="196" style="fill: #1f2328; stroke: #1f2328; stroke-width: 0.8"/>
+       <use xlink:href="#frame-rate-ladder-m7ff25acc16" x="444.5995" y="174.4" style="fill: #1f2328; stroke: #1f2328; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="frame-rate-ladder-text_3">
       <!-- 1 k -->
-      <g style="fill: #1f2328" transform="translate(433.101063 214.397656) scale(0.15 -0.15)">
+      <g style="fill: #1f2328" transform="translate(433.101063 192.797656) scale(0.15 -0.15)">
        <defs>
         <path id="frame-rate-ladder-DejaVuSans-20" transform="scale(0.015625)"/>
         <path id="frame-rate-ladder-DejaVuSans-6b" d="M 581 4863 
@@ -145,18 +145,18 @@ z
     </g>
     <g id="frame-rate-ladder-xtick_4">
      <g id="frame-rate-ladder-line2d_7">
-      <path d="M 529.690523 196 
+      <path d="M 529.690523 174.4 
 L 529.690523 16.2 
-" clip-path="url(#frame-rate-ladder-p87d5fe9aa0)" style="fill: none; stroke: #e5e7eb; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#frame-rate-ladder-p9cdd1b67af)" style="fill: none; stroke: #e5e7eb; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="frame-rate-ladder-line2d_8">
       <g>
-       <use xlink:href="#frame-rate-ladder-m7ff25acc16" x="529.690523" y="196" style="fill: #1f2328; stroke: #1f2328; stroke-width: 0.8"/>
+       <use xlink:href="#frame-rate-ladder-m7ff25acc16" x="529.690523" y="174.4" style="fill: #1f2328; stroke: #1f2328; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="frame-rate-ladder-text_4">
       <!-- 10 k -->
-      <g style="fill: #1f2328" transform="translate(513.420211 214.397656) scale(0.15 -0.15)">
+      <g style="fill: #1f2328" transform="translate(513.420211 192.797656) scale(0.15 -0.15)">
        <use xlink:href="#frame-rate-ladder-DejaVuSans-31"/>
        <use xlink:href="#frame-rate-ladder-DejaVuSans-30" transform="translate(63.623047 0)"/>
        <use xlink:href="#frame-rate-ladder-DejaVuSans-20" transform="translate(127.246094 0)"/>
@@ -166,7 +166,7 @@ L 529.690523 16.2
     </g>
     <g id="frame-rate-ladder-text_5">
      <!-- values per second (log scale) -->
-     <g style="fill: #1f2328" transform="translate(394.414779 232.914844) scale(0.15 -0.15)">
+     <g style="fill: #1f2328" transform="translate(394.414779 211.314844) scale(0.15 -0.15)">
       <defs>
        <path id="frame-rate-ladder-DejaVuSans-76" d="M 191 3500 
 L 800 3500 
@@ -521,50 +521,50 @@ z
    </g>
    <g id="frame-rate-ladder-matplotlib.axis_2"/>
    <g id="frame-rate-ladder-patch_3">
-    <path d="M 189.326432 52.367705 
-L 547.059301 52.367705 
-L 547.059301 24.372727 
-L 189.326432 24.372727 
+    <path d="M 189.326432 48.022752 
+L 547.059301 48.022752 
+L 547.059301 23.390909 
+L 189.326432 23.390909 
 z
-" clip-path="url(#frame-rate-ladder-p87d5fe9aa0)" style="fill: #6b7280; opacity: 0.85"/>
+" clip-path="url(#frame-rate-ladder-p9cdd1b67af)" style="fill: #6b7280; opacity: 0.85"/>
    </g>
    <g id="frame-rate-ladder-frag1-35" class="fragment" data-fragment-index="1">
-    <path d="M 189.326432 97.520894 
-L 359.508478 97.520894 
-L 359.508478 69.525917 
-L 189.326432 69.525917 
+    <path d="M 189.326432 87.751532 
+L 359.508478 87.751532 
+L 359.508478 63.119689 
+L 189.326432 63.119689 
 z
-" clip-path="url(#frame-rate-ladder-p87d5fe9aa0)" style="fill: #0b5cad; opacity: 0.85"/>
+" clip-path="url(#frame-rate-ladder-p9cdd1b67af)" style="fill: #0b5cad; opacity: 0.85"/>
    </g>
    <g id="frame-rate-ladder-frag2-38" class="fragment" data-fragment-index="2">
-    <path d="M 189.326432 142.674083 
-L 308.278577 142.674083 
-L 308.278577 114.679106 
-L 189.326432 114.679106 
+    <path d="M 189.326432 127.480311 
+L 308.278577 127.480311 
+L 308.278577 102.848468 
+L 189.326432 102.848468 
 z
-" clip-path="url(#frame-rate-ladder-p87d5fe9aa0)" style="fill: #7c3aed; opacity: 0.85"/>
+" clip-path="url(#frame-rate-ladder-p9cdd1b67af)" style="fill: #7c3aed; opacity: 0.85"/>
    </g>
    <g id="frame-rate-ladder-frag3-41" class="fragment" data-fragment-index="3">
-    <path d="M 189.326432 187.827273 
-L 282.663627 187.827273 
-L 282.663627 159.832295 
-L 189.326432 159.832295 
+    <path d="M 189.326432 167.209091 
+L 282.663627 167.209091 
+L 282.663627 142.577248 
+L 189.326432 142.577248 
 z
-" clip-path="url(#frame-rate-ladder-p87d5fe9aa0)" style="fill: #b45309; opacity: 0.85"/>
+" clip-path="url(#frame-rate-ladder-p9cdd1b67af)" style="fill: #b45309; opacity: 0.85"/>
    </g>
    <g id="frame-rate-ladder-patch_4">
-    <path d="M 189.326432 196 
+    <path d="M 189.326432 174.4 
 L 189.326432 16.2 
 " style="fill: none; stroke: #6b7280; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
    <g id="frame-rate-ladder-patch_5">
-    <path d="M 189.326432 196 
-L 819 196 
+    <path d="M 189.326432 174.4 
+L 819 174.4 
 " style="fill: none; stroke: #6b7280; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
    <g id="frame-rate-ladder-text_6">
     <!-- 16000 Hz   ·   16 kHz samples -->
-    <g style="fill: #1f2328" transform="translate(552.164762 42.509278) scale(0.15 -0.15)">
+    <g style="fill: #1f2328" transform="translate(552.164762 39.845893) scale(0.15 -0.15)">
      <defs>
       <path id="frame-rate-ladder-DejaVuSans-36" d="M 2113 2584 
 Q 1688 2584 1439 2293 
@@ -695,7 +695,7 @@ z
    </g>
    <g id="frame-rate-ladder-text_7">
     <!-- waveform -->
-    <g style="fill: #1f2328" transform="translate(104.574885 42.509278) scale(0.15 -0.15)">
+    <g style="fill: #1f2328" transform="translate(104.574885 39.845893) scale(0.15 -0.15)">
      <defs>
       <path id="frame-rate-ladder-DejaVuSans-77" d="M 269 3500 
 L 844 3500 
@@ -747,7 +747,7 @@ z
    </g>
    <g id="frame-rate-ladder-frag1-36" class="fragment" data-fragment-index="1">
     <!-- 100 Hz   ·   hop 10 ms -->
-    <g style="fill: #1f2328" transform="translate(364.613939 87.662468) scale(0.15 -0.15)">
+    <g style="fill: #1f2328" transform="translate(364.613939 79.574673) scale(0.15 -0.15)">
      <defs>
       <path id="frame-rate-ladder-DejaVuSans-68" d="M 3513 2113 
 L 3513 0 
@@ -795,7 +795,7 @@ z
    </g>
    <g id="frame-rate-ladder-frag1-37" class="fragment" data-fragment-index="1">
     <!-- STFT / log-mel -->
-    <g style="fill: #1f2328" transform="translate(72.029572 87.662468) scale(0.15 -0.15)">
+    <g style="fill: #1f2328" transform="translate(72.029572 79.574673) scale(0.15 -0.15)">
      <defs>
       <path id="frame-rate-ladder-DejaVuSans-53" d="M 3425 4513 
 L 3425 3897 
@@ -885,7 +885,7 @@ z
    </g>
    <g id="frame-rate-ladder-frag2-39" class="fragment" data-fragment-index="2">
     <!-- 25 Hz   ·   40 ms per frame -->
-    <g style="fill: #1f2328" transform="translate(313.384039 132.815657) scale(0.15 -0.15)">
+    <g style="fill: #1f2328" transform="translate(313.384039 119.303452) scale(0.15 -0.15)">
      <defs>
       <path id="frame-rate-ladder-DejaVuSans-32" d="M 1228 531 
 L 3431 531 
@@ -987,7 +987,7 @@ z
    </g>
    <g id="frame-rate-ladder-frag2-40" class="fragment" data-fragment-index="2">
     <!-- after 4× subsampling -->
-    <g style="fill: #1f2328" transform="translate(16.635041 132.815657) scale(0.15 -0.15)">
+    <g style="fill: #1f2328" transform="translate(16.635041 119.303452) scale(0.15 -0.15)">
      <defs>
       <path id="frame-rate-ladder-DejaVuSans-74" d="M 1172 4494 
 L 1172 3500 
@@ -1089,7 +1089,7 @@ z
    </g>
    <g id="frame-rate-ladder-frag3-42" class="fragment" data-fragment-index="3">
     <!-- 12.5 Hz   ·   80 ms per frame -->
-    <g style="fill: #1f2328" transform="translate(287.769089 177.968847) scale(0.15 -0.15)">
+    <g style="fill: #1f2328" transform="translate(287.769089 159.032232) scale(0.15 -0.15)">
      <defs>
       <path id="frame-rate-ladder-DejaVuSans-2e" d="M 684 794 
 L 1344 794 
@@ -1171,7 +1171,7 @@ z
    </g>
    <g id="frame-rate-ladder-frag3-43" class="fragment" data-fragment-index="3">
     <!-- low-rate codec -->
-    <g style="fill: #1f2328" transform="translate(68.429572 177.968847) scale(0.15 -0.15)">
+    <g style="fill: #1f2328" transform="translate(68.429572 159.032232) scale(0.15 -0.15)">
      <use xlink:href="#frame-rate-ladder-DejaVuSans-6c"/>
      <use xlink:href="#frame-rate-ladder-DejaVuSans-6f" transform="translate(27.783203 0)"/>
      <use xlink:href="#frame-rate-ladder-DejaVuSans-77" transform="translate(88.964844 0)"/>
@@ -1191,8 +1191,8 @@ z
   </g>
  </g>
  <defs>
-  <clipPath id="frame-rate-ladder-p87d5fe9aa0">
-   <rect x="189.326432" y="16.2" width="629.673568" height="179.8"/>
+  <clipPath id="frame-rate-ladder-p9cdd1b67af">
+   <rect x="189.326432" y="16.2" width="629.673568" height="158.2"/>
   </clipPath>
  </defs>
 </svg>

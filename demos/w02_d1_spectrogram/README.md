@@ -1,13 +1,13 @@
 <!-- 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。 -->
-# W2 · Demo 1 — live spectrogram, pitch track and vowel chart (slides p12–p13, p24, p54)
+# W2 · Demo 1 — live spectrogram, pitch track and vowel chart (slides p12–p13, p25, p59)
 
 A microphone demo with no model in it. The window shows the last four seconds of audio as a spectrogram (wideband or narrowband, switchable), a pitch track, and a vowel chart that places the current $(F_1, F_2)$ as a moving dot. It is used three times in the lecture:
 
 | Slide | What is done | What to watch |
 |---|---|---|
 | p13 — two formants tell vowels apart | say /a/, /i/, /u/, then glide slowly from /i/ to /a/ | the red dot on the vowel chart; the two bright bands ($F_1$, $F_2$) on the wideband spectrogram moving apart and together |
-| p24 — the time–frequency trade-off | hold a long vowel, **freeze with space**, then switch `n` / `w` | the *same* two seconds of sound: `w` (5 ms window) shows vertical striations — glottal pulses — and formants; `n` (30 ms) shows horizontal harmonics. Freezing is the point: otherwise it looks like a different recording |
-| p54 — tone and intonation | one syllable on the four Mandarin tones; one sentence as a statement and as a question | the blue pitch track; in `n`, the harmonic spacing changes with $F_0$ |
+| p25 — the time–frequency trade-off | hold a long vowel, **freeze with space**, then switch `n` / `w` | the *same* two seconds of sound: `w` (5 ms window) shows vertical striations — glottal pulses — and formants; `n` (30 ms) shows horizontal harmonics. Freezing is the point: otherwise it looks like a different recording |
+| p59 — tone and intonation | one syllable on the four Mandarin tones; one sentence as a statement and as a question | the blue pitch track; in `n`, the harmonic spacing changes with $F_0$ |
 
 A failure case worth trying: set `pitch.ceiling_hz = 150` in `demo_config.toml` and have a high voice speak — the pitch track drops to half the frequency. That is an octave error, the classic failure of autocorrelation pitch tracking.
 

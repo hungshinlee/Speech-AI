@@ -128,6 +128,10 @@
    }
   ]
  },
+ "frontend_pipeline": {
+  "kind": "schematic",
+  "note": "settings are the deck's: 16 kHz, 25/10 ms, N = 512 (257 bins), 80 mel bands, 13 MFCC; the 'drops' and 'differs by toolkit' rows restate the outline's 什麼情況下會壞掉 / 前端定義不一致"
+ },
  "hann_lobes": {
   "kind": "computed",
   "note": "D(f) drawn in its large-L limit sin(πu)/(πu), u = fL/fs; the zero positions k·fs/L are exact for any L. Hann centred at n = 0 is ½ + ½cos(2πn/L), so its spectrum is ½D(f) + ¼D(f − fs/L) + ¼D(f + fs/L): at ±fs/L the sum is +¼ (D's zero is filled in), so the first zero moves from fs/L to 2fs/L. The causal form ½ − ½cos carries the same magnitude; its minus signs are absorbed by the shifted kernels' linear phase."
