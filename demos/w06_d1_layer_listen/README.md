@@ -1,5 +1,5 @@
 <!-- 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。 -->
-# W6 · Demo 1 — adding the stages back, one at a time: Mimi, EnCodec, DAC (slides p32–p34)
+# W6 · Demo 1 — adding the stages back, one at a time: Mimi, EnCodec, DAC (slides p33–p35)
 
 The same sentence goes through three neural audio codecs, and you listen to the reconstruction with more and more residual-VQ stages — and with **stage 1 alone**.
 Every claim in the lecture about what the stages carry (energy first, detail later, content only through distillation) can be heard here.

@@ -1,5 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 262" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
-<text x="984.0" y="22.0" font-size="15" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">schematic — not a measurement</text>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 304" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
 <g class="fragment" data-fragment-index="0">
 <rect x="30.0" y="44.0" width="80.0" height="46.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
 <svg x="64.7" y="53.6437" width="10.6" height="19.3562" viewBox="0 0 10.6 19.35625"><defs>
@@ -58,8 +57,8 @@ z
   </g>
  </g>
 </svg>
-<rect x="30.0" y="110.0" width="80.0" height="46.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<svg x="64.7" y="119.644" width="10.6" height="19.3562" viewBox="0 0 10.6 19.35625"><defs>
+<rect x="30.0" y="116.0" width="80.0" height="46.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<svg x="64.7" y="125.644" width="10.6" height="19.3562" viewBox="0 0 10.6 19.35625"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t50-figure_1">
@@ -127,26 +126,26 @@ z
 </svg>
 <line x1="114.0" y1="67.0" x2="188.0" y2="71.5" stroke="#94a3b8" stroke-width="1.4"/>
 <polygon points="196.0,72.0 187.7,76.5 188.3,66.5" fill="#94a3b8"/>
-<line x1="114.0" y1="133.0" x2="188.8" y2="95.6" stroke="#94a3b8" stroke-width="1.4"/>
-<polygon points="196.0,92.0 191.1,100.0 186.6,91.1" fill="#94a3b8"/>
-<rect x="200.0" y="44.0" width="250.0" height="56.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="325.0" y="72.0" font-size="15" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">multi-scale log-mel, L1</text>
-<svg x="308.6" y="78.68" width="32.8" height="16.32" viewBox="0 0 32.8 16.32"><defs>
+<line x1="114.0" y1="139.0" x2="189.1" y2="96.0" stroke="#94a3b8" stroke-width="1.4"/>
+<polygon points="196.0,92.0 191.5,100.3 186.6,91.6" fill="#94a3b8"/>
+<rect x="200.0" y="44.0" width="260.0" height="56.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="330.0" y="72.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">multi-scale log-mel, L1</text>
+<svg x="312.575" y="80.66" width="34.85" height="17.34" viewBox="0 0 34.85 17.34"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t51-figure_1">
   <g id="w6t51-patch_1">
-   <path d="M 0 16.32 
-L 32.8 16.32 
-L 32.8 0 
+   <path d="M 0 17.34 
+L 34.85 17.34 
+L 34.85 0 
 L 0 0 
-L 0 16.32 
+L 0 17.34 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t51-text_1">
    <!-- $\mathcal{L}_{\mathsf{spec}}$ -->
-   <g style="fill: #1f2328" transform="translate(0 11.36) scale(0.16 -0.16)">
+   <g style="fill: #1f2328" transform="translate(0 12.07) scale(0.17 -0.17)">
     <defs>
      <path id="w6t51-Cmsy10-4c" d="M 238 -141 
 Q 197 -141 197 -97 
@@ -333,32 +332,32 @@ z
   </g>
  </g>
 </svg>
-<rect x="200.0" y="110.0" width="250.0" height="46.0" rx="5" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
-<text x="325.0" y="126.0" font-size="12" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">constrains the envelope only</text>
-<text x="325.0" y="144.0" font-size="12" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">its minimiser is over-smoothed (W2)</text>
+<rect x="200.0" y="110.0" width="260.0" height="52.0" rx="5" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
+<text x="330.0" y="127.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">constrains the envelope only</text>
+<text x="330.0" y="147.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">minimiser: over-smoothed (W2)</text>
 </g>
 <g class="fragment" data-fragment-index="1">
-<line x1="114.0" y1="67.0" x2="508.0" y2="60.1" stroke="#94a3b8" stroke-width="1.2"/>
-<polygon points="516.0,60.0 508.1,65.1 507.9,55.1" fill="#94a3b8"/>
-<line x1="114.0" y1="133.0" x2="508.0" y2="130.1" stroke="#94a3b8" stroke-width="1.2"/>
-<polygon points="516.0,130.0 508.0,135.1 508.0,125.1" fill="#94a3b8"/>
-<rect x="520.0" y="44.0" width="250.0" height="30.0" rx="5" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.0"/>
-<svg x="532" y="54.4506" width="16.66" height="13.5494" viewBox="0 0 16.66 13.549375"><defs>
+<line x1="114.0" y1="67.0" x2="488.0" y2="60.1" stroke="#94a3b8" stroke-width="1.2"/>
+<polygon points="496.0,60.0 488.1,65.1 487.9,55.1" fill="#94a3b8"/>
+<line x1="114.0" y1="139.0" x2="488.0" y2="140.0" stroke="#94a3b8" stroke-width="1.2"/>
+<polygon points="496.0,140.0 488.0,145.0 488.0,135.0" fill="#94a3b8"/>
+<rect x="500.0" y="44.0" width="290.0" height="32.0" rx="5" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.0"/>
+<svg x="512" y="53.515" width="19.04" height="15.485" viewBox="0 0 19.04 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t52-figure_1">
   <g id="w6t52-patch_1">
-   <path d="M 0 13.549375 
-L 16.66 13.549375 
-L 16.66 -0 
-L 0 -0 
-L 0 13.549375 
+   <path d="M 0 15.485 
+L 19.04 15.485 
+L 19.04 0 
+L 0 0 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t52-text_1">
    <!-- $\Phi_{1}$ -->
-   <g style="fill: #7c3aed" transform="translate(0 10.637812) scale(0.14 -0.14)">
+   <g style="fill: #7c3aed" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w6t52-Cmr10-a9" d="M 1191 0 
 L 1191 225 
@@ -427,24 +426,24 @@ z
   </g>
  </g>
 </svg>
-<text x="566.0" y="59.0" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">multi-scale waveform (MelGAN)</text>
-<rect x="520.0" y="82.0" width="250.0" height="30.0" rx="5" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.0"/>
-<svg x="532" y="92.4506" width="16.66" height="13.5494" viewBox="0 0 16.66 13.549375"><defs>
+<text x="546.0" y="60.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">multi-scale waveform (MelGAN)</text>
+<rect x="500.0" y="84.0" width="290.0" height="32.0" rx="5" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.0"/>
+<svg x="512" y="93.515" width="19.04" height="15.485" viewBox="0 0 19.04 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t53-figure_1">
   <g id="w6t53-patch_1">
-   <path d="M 0 13.549375 
-L 16.66 13.549375 
-L 16.66 -0 
-L 0 -0 
-L 0 13.549375 
+   <path d="M 0 15.485 
+L 19.04 15.485 
+L 19.04 0 
+L 0 0 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t53-text_1">
    <!-- $\Phi_{2}$ -->
-   <g style="fill: #7c3aed" transform="translate(0 10.637812) scale(0.14 -0.14)">
+   <g style="fill: #7c3aed" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w6t53-Cmr10-a9" d="M 1191 0 
 L 1191 225 
@@ -538,24 +537,24 @@ z
   </g>
  </g>
 </svg>
-<text x="566.0" y="97.0" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">multi-period (HiFi-GAN)</text>
-<rect x="520.0" y="120.0" width="250.0" height="30.0" rx="5" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.0"/>
-<svg x="532" y="130.451" width="16.66" height="13.5494" viewBox="0 0 16.66 13.549375"><defs>
+<text x="546.0" y="100.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">multi-period (HiFi-GAN)</text>
+<rect x="500.0" y="124.0" width="290.0" height="32.0" rx="5" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.0"/>
+<svg x="512" y="133.515" width="19.04" height="15.485" viewBox="0 0 19.04 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t54-figure_1">
   <g id="w6t54-patch_1">
-   <path d="M 0 13.549375 
-L 16.66 13.549375 
-L 16.66 -0 
-L 0 -0 
-L 0 13.549375 
+   <path d="M 0 15.485 
+L 19.04 15.485 
+L 19.04 0 
+L 0 0 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t54-text_1">
    <!-- $\Phi_{3}$ -->
-   <g style="fill: #7c3aed" transform="translate(0 10.637812) scale(0.14 -0.14)">
+   <g style="fill: #7c3aed" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w6t54-Cmr10-a9" d="M 1191 0 
 L 1191 225 
@@ -666,26 +665,26 @@ z
   </g>
  </g>
 </svg>
-<text x="566.0" y="135.0" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">multi-resolution STFT (EnCodec)</text>
-<line x1="774.0" y1="82.0" x2="789.0" y2="73.8" stroke="#7c3aed" stroke-width="1.4"/>
-<polygon points="796.0,70.0 791.4,78.2 786.6,69.4" fill="#7c3aed"/>
-<rect x="800.0" y="44.0" width="190.0" height="50.0" rx="5" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.0"/>
-<svg x="810" y="53.515" width="29.12" height="15.485" viewBox="0 0 29.12 15.485"><defs>
+<text x="546.0" y="140.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">multi-res. STFT (EnCodec)</text>
+<line x1="794.0" y1="90.0" x2="809.5" y2="78.7" stroke="#7c3aed" stroke-width="1.4"/>
+<polygon points="816.0,74.0 812.5,82.7 806.6,74.7" fill="#7c3aed"/>
+<rect x="820.0" y="44.0" width="170.0" height="60.0" rx="5" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.0"/>
+<svg x="832" y="57.5472" width="30.94" height="16.4528" viewBox="0 0 30.94 16.452813"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t55-figure_1">
   <g id="w6t55-patch_1">
-   <path d="M 0 15.485 
-L 29.12 15.485 
-L 29.12 0 
+   <path d="M 0 16.452813 
+L 30.94 16.452813 
+L 30.94 0 
 L 0 0 
-L 0 15.485 
+L 0 16.452813 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t55-text_1">
    <!-- $\mathcal{L}_{\mathsf{adv}}$ -->
-   <g style="fill: #7c3aed" transform="translate(0 12.1575) scale(0.16 -0.16)">
+   <g style="fill: #7c3aed" transform="translate(0 12.917344) scale(0.17 -0.17)">
     <defs>
      <path id="w6t55-Cmsy10-4c" d="M 238 -141 
 Q 197 -141 197 -97 
@@ -832,27 +831,27 @@ z
   </g>
  </g>
 </svg>
-<text x="856.0" y="60.0" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">hinge: “sounds real?”</text>
-<text x="856.0" y="80.0" font-size="11" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">the adversary's verdict</text>
+<text x="884.0" y="64.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">hinge</text>
+<text x="832.0" y="90.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">“sounds real?”</text>
 </g>
 <g class="fragment" data-fragment-index="2">
-<rect x="800.0" y="106.0" width="190.0" height="50.0" rx="5" fill="#fff7ed" stroke="#b45309" stroke-width="1.0"/>
-<svg x="810" y="115.515" width="30.72" height="15.485" viewBox="0 0 30.72 15.485"><defs>
+<rect x="820.0" y="112.0" width="170.0" height="72.0" rx="5" fill="#fff7ed" stroke="#b45309" stroke-width="1.0"/>
+<svg x="832" y="125.547" width="32.64" height="16.4528" viewBox="0 0 32.64 16.452813"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t56-figure_1">
   <g id="w6t56-patch_1">
-   <path d="M 0 15.485 
-L 30.72 15.485 
-L 30.72 0 
+   <path d="M 0 16.452813 
+L 32.64 16.452813 
+L 32.64 0 
 L 0 0 
-L 0 15.485 
+L 0 16.452813 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t56-text_1">
    <!-- $\mathcal{L}_{\mathsf{feat}}$ -->
-   <g style="fill: #b45309" transform="translate(0 12.1575) scale(0.16 -0.16)">
+   <g style="fill: #b45309" transform="translate(0 12.917344) scale(0.17 -0.17)">
     <defs>
      <path id="w6t56-Cmsy10-4c" d="M 238 -141 
 Q 197 -141 197 -97 
@@ -1029,15 +1028,15 @@ z
   </g>
  </g>
 </svg>
-<text x="856.0" y="122.0" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">feature matching</text>
-<text x="856.0" y="142.0" font-size="11" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">a perceptual distance</text>
-<line x1="774.0" y1="120.0" x2="788.7" y2="126.7" stroke="#b45309" stroke-width="1.4"/>
-<polygon points="796.0,130.0 786.6,131.2 790.8,122.1" fill="#b45309"/>
+<text x="832.0" y="158.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">feature matching</text>
+<text x="832.0" y="176.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">perceptual distance</text>
+<line x1="794.0" y1="130.0" x2="809.5" y2="141.3" stroke="#b45309" stroke-width="1.4"/>
+<polygon points="816.0,146.0 806.6,145.3 812.5,137.3" fill="#b45309"/>
 </g>
 <g class="fragment" data-fragment-index="3">
-<rect x="30.0" y="178.0" width="950.0" height="70.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
-<text x="46.0" y="198.0" font-size="14" font-weight="700" fill="#15803d" text-anchor="start" dominant-baseline="middle">what the adversary changes is not only the sound</text>
-<text x="46.0" y="218.0" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">the decoder may invent phase and fine structure on its own; the token only has to condition them</text>
-<text x="46.0" y="236.0" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">the codec's decoder is a vocoder whose conditioning moved from mel to tokens (this course's reading, not a paper's sentence)</text>
+<rect x="30.0" y="198.0" width="950.0" height="94.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="46.0" y="220.0" font-size="17" font-weight="700" fill="#15803d" text-anchor="start" dominant-baseline="middle">what the adversary changes is not only the sound</text>
+<text x="46.0" y="246.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">it also changes what a token has to carry — and that is the next slide's question, so guess first:</text>
+<text x="46.0" y="270.0" font-size="16" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="middle">take the discriminators away, same bitrate: do the tokens carry more information, or less?</text>
 </g>
 </svg>

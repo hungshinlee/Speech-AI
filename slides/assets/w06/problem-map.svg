@@ -1,63 +1,66 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 384" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
-<text x="984.0" y="22.0" font-size="15" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">schematic — not a measurement</text>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 400" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
 <g class="fragment" data-fragment-index="0">
-<rect x="20.0" y="40.0" width="150.0" height="56.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="95.0" y="62.0" font-size="15" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">text</text>
-<text x="95.0" y="82.0" font-size="13" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">“the cat sat”</text>
-<line x1="174.0" y1="68.0" x2="218.0" y2="68.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="226.0,68.0 218.0,73.0 218.0,63.0" fill="#94a3b8"/>
-<rect x="230.0" y="40.0" width="170.0" height="56.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="315.0" y="62.0" font-size="15" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">tokenizer</text>
-<text x="315.0" y="82.0" font-size="13" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">BPE</text>
-<line x1="404.0" y1="68.0" x2="448.0" y2="68.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="456.0,68.0 448.0,73.0 448.0,63.0" fill="#94a3b8"/>
-<rect x="460.0" y="40.0" width="230.0" height="56.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
-<text x="575.0" y="62.0" font-size="15" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">integers</text>
-<text x="575.0" y="82.0" font-size="13" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">[1996, 2452, 3094]</text>
-<line x1="694.0" y1="68.0" x2="738.0" y2="68.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="746.0,68.0 738.0,73.0 738.0,63.0" fill="#94a3b8"/>
-<rect x="750.0" y="40.0" width="230.0" height="56.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="865.0" y="62.0" font-size="15" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">language model</text>
-<text x="865.0" y="82.0" font-size="13" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">next index</text>
-<rect x="20.0" y="116.0" width="150.0" height="56.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="95.0" y="138.0" font-size="15" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">speech</text>
-<text x="95.0" y="158.0" font-size="13" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">a waveform</text>
-<line x1="174.0" y1="144.0" x2="218.0" y2="144.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="226.0,144.0 218.0,149.0 218.0,139.0" fill="#94a3b8"/>
-<rect x="230.0" y="116.0" width="170.0" height="56.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
-<text x="315.0" y="138.0" font-size="20" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">?</text>
-<text x="315.0" y="158.0" font-size="13" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">this week</text>
-<line x1="404.0" y1="144.0" x2="448.0" y2="144.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="456.0,144.0 448.0,149.0 448.0,139.0" fill="#94a3b8"/>
-<rect x="460.0" y="116.0" width="230.0" height="56.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
-<text x="575.0" y="138.0" font-size="15" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">integers</text>
-<text x="575.0" y="158.0" font-size="13" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">how many per second?</text>
-<line x1="694.0" y1="144.0" x2="738.0" y2="144.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="746.0,144.0 738.0,149.0 738.0,139.0" fill="#94a3b8"/>
-<rect x="750.0" y="116.0" width="230.0" height="56.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="865.0" y="138.0" font-size="15" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">language model</text>
-<text x="865.0" y="158.0" font-size="13" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">W11–W13</text>
-<text x="20.0" y="206.0" font-size="15" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">An LM consumes an index, not a vector. Text has letters; speech does not. A codec invents them — and has three freedoms:</text>
+<rect x="20.0" y="40.0" width="150.0" height="64.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="95.0" y="64.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">text</text>
+<text x="95.0" y="88.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">“the cat sat”</text>
+<line x1="174.0" y1="72.0" x2="218.0" y2="72.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="226.0,72.0 218.0,77.0 218.0,67.0" fill="#94a3b8"/>
+<rect x="230.0" y="40.0" width="170.0" height="64.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="315.0" y="64.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">tokenizer</text>
+<text x="315.0" y="88.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">BPE</text>
+<line x1="404.0" y1="72.0" x2="448.0" y2="72.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="456.0,72.0 448.0,77.0 448.0,67.0" fill="#94a3b8"/>
+<rect x="460.0" y="40.0" width="230.0" height="64.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="575.0" y="64.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">integers</text>
+<text x="575.0" y="88.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">[1996, 2452, 3094]</text>
+<line x1="694.0" y1="72.0" x2="738.0" y2="72.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="746.0,72.0 738.0,77.0 738.0,67.0" fill="#94a3b8"/>
+<rect x="750.0" y="40.0" width="230.0" height="64.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="865.0" y="64.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">language model</text>
+<text x="865.0" y="88.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">next index</text>
+<rect x="20.0" y="118.0" width="150.0" height="64.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="95.0" y="142.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">speech</text>
+<text x="95.0" y="166.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">a waveform</text>
+<line x1="174.0" y1="150.0" x2="218.0" y2="150.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="226.0,150.0 218.0,155.0 218.0,145.0" fill="#94a3b8"/>
+<rect x="230.0" y="118.0" width="170.0" height="64.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+<text x="315.0" y="142.0" font-size="22" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">?</text>
+<text x="315.0" y="166.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">this week</text>
+<line x1="404.0" y1="150.0" x2="448.0" y2="150.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="456.0,150.0 448.0,155.0 448.0,145.0" fill="#94a3b8"/>
+<rect x="460.0" y="118.0" width="230.0" height="64.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="575.0" y="142.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">integers</text>
+<text x="575.0" y="166.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">how many per second?</text>
+<line x1="694.0" y1="150.0" x2="738.0" y2="150.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="746.0,150.0 738.0,155.0 738.0,145.0" fill="#94a3b8"/>
+<rect x="750.0" y="118.0" width="230.0" height="64.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="865.0" y="142.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">language model</text>
+<text x="865.0" y="166.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">W11–W13</text>
 </g>
 <g class="fragment" data-fragment-index="1">
-<rect x="20.0" y="222.0" width="960.0" height="36.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<text x="36.0" y="240.0" font-size="15" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="middle">1  quantiser</text>
-<text x="170.0" y="240.0" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">VQ / RVQ / FSQ — how many codebooks, how large</text>
-<text x="964.0" y="240.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="middle">collapse lives here</text>
+<rect x="20.0" y="198.0" width="960.0" height="44.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="36.0" y="220.0" font-size="17" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="middle">1  quantiser</text>
+<text x="170.0" y="220.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">VQ / RVQ / FSQ — how many codebooks, and how large</text>
+<text x="964.0" y="220.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="middle">collapse lives here</text>
 </g>
 <g class="fragment" data-fragment-index="2">
-<rect x="20.0" y="264.0" width="960.0" height="36.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
-<text x="36.0" y="282.0" font-size="15" font-weight="700" fill="#b45309" text-anchor="start" dominant-baseline="middle">2  objective</text>
-<text x="170.0" y="282.0" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">reconstruction is not enough → discriminators; what is rebuilt decides what a token contains → distillation</text>
-<text x="964.0" y="282.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="middle">semantics lives here</text>
+<rect x="20.0" y="248.0" width="960.0" height="44.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="36.0" y="270.0" font-size="17" font-weight="700" fill="#b45309" text-anchor="start" dominant-baseline="middle">2  objective</text>
+<text x="170.0" y="262.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">reconstruction alone is not enough → discriminators;</text>
+<text x="170.0" y="280.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">what is rebuilt decides what a token holds → distillation</text>
+<text x="964.0" y="270.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="middle">semantics lives here</text>
 </g>
 <g class="fragment" data-fragment-index="3">
-<rect x="20.0" y="306.0" width="960.0" height="36.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
-<text x="36.0" y="324.0" font-size="15" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="middle">3  frame rate</text>
-<text x="170.0" y="324.0" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">75 Hz … 12.5 Hz: kind to the LM, unkind to quality and to the granularity of reaction</text>
-<text x="964.0" y="324.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="middle">latency lives here</text>
+<rect x="20.0" y="298.0" width="960.0" height="44.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+<text x="36.0" y="320.0" font-size="17" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="middle">3  frame rate</text>
+<text x="170.0" y="312.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">75 Hz … 12.5 Hz: kind to the LM,</text>
+<text x="170.0" y="330.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">unkind to quality and to the granularity of reaction</text>
+<text x="964.0" y="320.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="middle">latency lives here</text>
 </g>
 <g class="fragment" data-fragment-index="4">
-<text x="20.0" y="368.0" font-size="14" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="auto">and one piece of arithmetic every design must pass: bitrate · token rate · context for 30 min · decoding steps per second · latency floor</text>
+<rect x="20.0" y="348.0" width="960.0" height="44.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="36.0" y="370.0" font-size="17" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="middle">the bill</text>
+<text x="170.0" y="370.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">bitrate · token rate · 30-min context · steps per second · latency floor</text>
+<text x="964.0" y="370.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="middle">every design must pass it</text>
 </g>
 </svg>

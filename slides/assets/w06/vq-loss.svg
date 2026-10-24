@@ -1,24 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 282" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
-<text x="984.0" y="22.0" font-size="15" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">schematic — not a measurement</text>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 300" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
 <g class="fragment" data-fragment-index="0">
-<rect x="40.0" y="40.0" width="200.0" height="64.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="140.0" y="66.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">encoder</text>
-<svg x="109.45" y="82.4184" width="61.1" height="12.5816" viewBox="0 0 61.1 12.581563"><defs>
+<rect x="40.0" y="36.0" width="210.0" height="68.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="145.0" y="62.0" font-size="18" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">encoder</text>
+<svg x="107.4" y="79.515" width="75.2" height="15.485" viewBox="0 0 75.2 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t13-figure_1">
   <g id="w6t13-patch_1">
-   <path d="M 0 12.581563 
-L 61.1 12.581563 
-L 61.1 0 
+   <path d="M 0 15.485 
+L 75.2 15.485 
+L 75.2 0 
 L 0 0 
-L 0 12.581563 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t13-text_1">
    <!-- $\theta_{\mathsf{enc}}\colon\ \mathbf{x} \mapsto \mathbf{z}_t$ -->
-   <g style="fill: #1f2328" transform="translate(0 9.877969) scale(0.13 -0.13)">
+   <g style="fill: #1f2328" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w6t13-Cmmi10-b5" d="M 1031 -72 
 Q 741 -72 566 140 
@@ -293,24 +292,24 @@ z
   </g>
  </g>
 </svg>
-<rect x="400.0" y="40.0" width="200.0" height="64.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<text x="500.0" y="66.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">codebook</text>
-<svg x="476.145" y="79.75" width="47.71" height="16.25" viewBox="0 0 47.71 16.25"><defs>
+<rect x="395.0" y="36.0" width="210.0" height="68.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="500.0" y="62.0" font-size="18" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">codebook</text>
+<svg x="470.64" y="77" width="58.72" height="20" viewBox="0 0 58.72 20"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t14-figure_1">
   <g id="w6t14-patch_1">
-   <path d="M 0 16.25 
-L 47.71 16.25 
-L 47.71 0 
+   <path d="M 0 20 
+L 58.72 20 
+L 58.72 0 
 L 0 0 
-L 0 16.25 
+L 0 20 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t14-text_1">
    <!-- $\{\mathbf{e}_v\}_{v=1}^{V}$ -->
-   <g style="fill: #7c3aed" transform="translate(0 12.74) scale(0.13 -0.13)">
+   <g style="fill: #7c3aed" transform="translate(0 15.68) scale(0.16 -0.16)">
     <defs>
      <path id="w6t14-Cmex10-a9" d="M 1631 -6425 
 L 1631 -4556 
@@ -546,24 +545,24 @@ z
   </g>
  </g>
 </svg>
-<rect x="760.0" y="40.0" width="200.0" height="64.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="860.0" y="66.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">decoder</text>
-<svg x="828.93" y="82.4184" width="62.14" height="12.5816" viewBox="0 0 62.14 12.581563"><defs>
+<rect x="750.0" y="36.0" width="210.0" height="68.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="855.0" y="62.0" font-size="18" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">decoder</text>
+<svg x="816.76" y="80.515" width="76.48" height="15.485" viewBox="0 0 76.48 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t15-figure_1">
   <g id="w6t15-patch_1">
-   <path d="M 0 12.581563 
-L 62.14 12.581563 
-L 62.14 0 
+   <path d="M 0 15.485 
+L 76.48 15.485 
+L 76.48 0 
 L 0 0 
-L 0 12.581563 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t15-text_1">
    <!-- $\theta_{\mathsf{dec}}\colon\ \mathbf{q}_t \mapsto \hat{\mathbf{x}}$ -->
-   <g style="fill: #1f2328" transform="translate(0 9.877969) scale(0.13 -0.13)">
+   <g style="fill: #1f2328" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w6t15-Cmmi10-b5" d="M 1031 -72 
 Q 741 -72 566 140 
@@ -866,24 +865,24 @@ z
   </g>
  </g>
 </svg>
-<line x1="244.0" y1="72.0" x2="388.0" y2="72.0" stroke="#94a3b8" stroke-width="1.4"/>
-<polygon points="396.0,72.0 388.0,77.0 388.0,67.0" fill="#94a3b8"/>
-<svg x="313.925" y="52.4828" width="12.15" height="14.5172" viewBox="0 0 12.15 14.517187"><defs>
+<line x1="254.0" y1="70.0" x2="383.0" y2="70.0" stroke="#94a3b8" stroke-width="1.4"/>
+<polygon points="391.0,70.0 383.0,75.0 383.0,65.0" fill="#94a3b8"/>
+<svg x="315.52" y="49.515" width="12.96" height="15.485" viewBox="0 0 12.96 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t16-figure_1">
   <g id="w6t16-patch_1">
-   <path d="M 0 14.517187 
-L 12.15 14.517187 
-L 12.15 -0 
-L 0 -0 
-L 0 14.517187 
+   <path d="M 0 15.485 
+L 12.96 15.485 
+L 12.96 0 
+L 0 0 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t16-text_1">
    <!-- $\mathbf{z}_t$ -->
-   <g style="fill: #6b7280" transform="translate(0 11.397656) scale(0.15 -0.15)">
+   <g style="fill: #6b7280" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w6t16-Cmb10-7a" d="M 294 0 
 Q 247 0 212 31 
@@ -955,24 +954,24 @@ z
   </g>
  </g>
 </svg>
-<line x1="604.0" y1="72.0" x2="748.0" y2="72.0" stroke="#94a3b8" stroke-width="1.4"/>
-<polygon points="756.0,72.0 748.0,77.0 748.0,67.0" fill="#94a3b8"/>
-<svg x="656.15" y="54.4828" width="47.7" height="14.5172" viewBox="0 0 47.7 14.517187"><defs>
+<line x1="609.0" y1="70.0" x2="738.0" y2="70.0" stroke="#94a3b8" stroke-width="1.4"/>
+<polygon points="746.0,70.0 738.0,75.0 738.0,65.0" fill="#94a3b8"/>
+<svg x="652.56" y="51.515" width="50.88" height="15.485" viewBox="0 0 50.88 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t17-figure_1">
   <g id="w6t17-patch_1">
-   <path d="M 0 14.517187 
-L 47.7 14.517187 
-L 47.7 0 
+   <path d="M 0 15.485 
+L 50.88 15.485 
+L 50.88 0 
 L 0 0 
-L 0 14.517187 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t17-text_1">
    <!-- $\mathbf{q}_t = \mathbf{e}_{k_t}$ -->
-   <g style="fill: #6b7280" transform="translate(0 10.017187) scale(0.15 -0.15)">
+   <g style="fill: #6b7280" transform="translate(0 10.685) scale(0.16 -0.16)">
     <defs>
      <path id="w6t17-Cmb10-71" d="M 1825 -1241 
 L 1825 -916 
@@ -1176,29 +1175,29 @@ z
 </svg>
 </g>
 <g class="fragment" data-fragment-index="1">
-<rect x="40.0" y="128.0" width="920.0" height="36.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="56.0" y="146.0" font-size="15" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="middle">term 1  reconstruction</text>
-<text x="300.0" y="146.0" font-size="14" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">moves the decoder; and the encoder, through the copied gradient</text>
-<path d="M 940.0 128.0 Q 900.0 108.0 870.0 108.0" fill="none" stroke="#0b5cad" stroke-width="1.5"/>
-<polygon points="860.0,108.0 870.0,103.0 870.0,113.0" fill="#0b5cad"/>
-<path d="M 250.0 128.0 Q 195.0 108.0 150.0 108.0" fill="none" stroke="#0b5cad" stroke-width="1.5"/>
-<polygon points="140.0,108.0 150.0,103.0 150.0,113.0" fill="#0b5cad"/>
+<rect x="40.0" y="126.0" width="920.0" height="40.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="56.0" y="146.0" font-size="17" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="middle">term 1  reconstruction</text>
+<text x="300.0" y="146.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">moves the decoder; and the encoder, through the copied gradient</text>
+<path d="M 940.0 126.0 Q 897.5 107.0 865.0 107.8" fill="none" stroke="#0b5cad" stroke-width="1.5"/>
+<polygon points="855.0,108.0 864.9,102.8 865.1,112.8" fill="#0b5cad"/>
+<path d="M 250.0 126.0 Q 197.5 107.0 155.0 107.8" fill="none" stroke="#0b5cad" stroke-width="1.5"/>
+<polygon points="145.0,108.0 154.9,102.8 155.1,112.8" fill="#0b5cad"/>
 </g>
 <g class="fragment" data-fragment-index="2">
-<rect x="40.0" y="172.0" width="920.0" height="36.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<text x="56.0" y="190.0" font-size="15" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="middle">term 2  codebook</text>
-<text x="300.0" y="190.0" font-size="14" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">moves the codebook only: pulls the chosen codeword toward the latent</text>
-<path d="M 590.0 172.0 Q 545.0 122.0 509.5 111.0" fill="none" stroke="#7c3aed" stroke-width="1.5"/>
-<polygon points="500.0,108.0 511.0,106.2 508.1,115.7" fill="#7c3aed"/>
+<rect x="40.0" y="174.0" width="920.0" height="40.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="56.0" y="194.0" font-size="17" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="middle">term 2  codebook</text>
+<text x="300.0" y="194.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">moves the codebook only: pulls the chosen codeword toward the latent</text>
+<path d="M 590.0 174.0 Q 545.0 123.0 509.5 111.2" fill="none" stroke="#7c3aed" stroke-width="1.5"/>
+<polygon points="500.0,108.0 511.1,106.4 507.9,115.9" fill="#7c3aed"/>
 </g>
 <g class="fragment" data-fragment-index="3">
-<rect x="40.0" y="216.0" width="920.0" height="36.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
-<text x="56.0" y="234.0" font-size="15" font-weight="700" fill="#b45309" text-anchor="start" dominant-baseline="middle">term 3  commitment</text>
-<text x="300.0" y="234.0" font-size="14" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">moves the encoder only: pulls the latent toward the chosen codeword</text>
-<path d="M 250.0 216.0 Q 195.0 136.0 148.9 112.5" fill="none" stroke="#b45309" stroke-width="1.5"/>
-<polygon points="140.0,108.0 151.2,108.1 146.6,117.0" fill="#b45309"/>
+<rect x="40.0" y="222.0" width="920.0" height="40.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="56.0" y="242.0" font-size="17" font-weight="700" fill="#b45309" text-anchor="start" dominant-baseline="middle">term 3  commitment</text>
+<text x="300.0" y="242.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">moves the encoder only: pulls the latent toward the chosen codeword</text>
+<path d="M 250.0 222.0 Q 197.5 139.0 153.6 113.1" fill="none" stroke="#b45309" stroke-width="1.5"/>
+<polygon points="145.0,108.0 156.2,108.8 151.1,117.4" fill="#b45309"/>
 </g>
 <g class="fragment" data-fragment-index="3">
-<text x="500.0" y="272.0" font-size="13" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">each term moves one group; sg[·] is what keeps them apart</text>
+<text x="500.0" y="290.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">each term moves one group; sg[·] is what keeps them apart</text>
 </g>
 </svg>

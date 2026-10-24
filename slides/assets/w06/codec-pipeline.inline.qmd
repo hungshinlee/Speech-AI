@@ -1,10 +1,9 @@
 <!-- 由 scripts/make_figs_w06.py 產生，勿手改；投影片用 {{< include assets/w06/codec-pipeline.inline.qmd >}} 貼入 -->
 ```{=html}
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 318" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
-<text x="984.0" y="22.0" font-size="15" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">schematic — not a measurement</text>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 332" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
 <g class="fragment" data-fragment-index="0">
-<rect x="20.0" y="60.0" width="120.0" height="64.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<svg x="74.7" y="70.6437" width="10.6" height="19.3562" viewBox="0 0 10.6 19.35625"><defs>
+<rect x="20.0" y="56.0" width="120.0" height="68.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<svg x="74.7" y="66.6437" width="10.6" height="19.3562" viewBox="0 0 10.6 19.35625"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t1-figure_1">
@@ -60,22 +59,22 @@ z
   </g>
  </g>
 </svg>
-<svg x="74.28" y="102.418" width="11.44" height="12.5816" viewBox="0 0 11.44 12.581563"><defs>
+<svg x="72.96" y="100.515" width="14.08" height="15.485" viewBox="0 0 14.08 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t2-figure_1">
   <g id="w6t2-patch_1">
-   <path d="M 0 12.581563 
-L 11.44 12.581563 
-L 11.44 0 
+   <path d="M 0 15.485 
+L 14.08 15.485 
+L 14.08 0 
 L 0 0 
-L 0 12.581563 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t2-text_1">
    <!-- $f_s$ -->
-   <g style="fill: #0b5cad" transform="translate(0 9.851562) scale(0.13 -0.13)">
+   <g style="fill: #0b5cad" transform="translate(0 12.125) scale(0.16 -0.16)">
     <defs>
      <path id="w6t2-Cmmi10-66" d="M 622 -1056 
 Q 741 -1147 909 -1147 
@@ -181,26 +180,26 @@ z
   </g>
  </g>
 </svg>
-<line x1="144.0" y1="92.0" x2="178.0" y2="92.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="186.0,92.0 178.0,97.0 178.0,87.0" fill="#94a3b8"/>
-<rect x="190.0" y="60.0" width="170.0" height="64.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="275.0" y="92.0" font-size="15" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">conv encoder</text>
-<svg x="207.725" y="137" width="134.55" height="15" viewBox="0 0 134.55 15"><defs>
+<line x1="144.0" y1="90.0" x2="178.0" y2="90.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="186.0,90.0 178.0,95.0 178.0,85.0" fill="#94a3b8"/>
+<rect x="190.0" y="56.0" width="170.0" height="68.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="275.0" y="90.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">conv encoder</text>
+<svg x="203.24" y="138" width="143.52" height="16" viewBox="0 0 143.52 16"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t3-figure_1">
   <g id="w6t3-patch_1">
-   <path d="M 0 15 
-L 134.55 15 
-L 134.55 0 
+   <path d="M 0 16 
+L 143.52 16 
+L 143.52 0 
 L 0 0 
-L 0 15 
+L 0 16 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t3-text_1">
    <!-- $\mathsf{stride}\ s_{\mathsf{c}},\quad f_r = f_s / s_{\mathsf{c}}$ -->
-   <g style="fill: #6b7280" transform="translate(0 11.25) scale(0.15 -0.15)">
+   <g style="fill: #6b7280" transform="translate(0 12) scale(0.16 -0.16)">
     <defs>
      <path id="w6t3-Cmss10-73" d="M 178 213 
 L 263 672 
@@ -583,10 +582,10 @@ z
   </g>
  </g>
 </svg>
-<line x1="364.0" y1="92.0" x2="398.0" y2="92.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="406.0,92.0 398.0,97.0 398.0,87.0" fill="#94a3b8"/>
-<rect x="400.0" y="60.0" width="110.0" height="64.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
-<svg x="427.55" y="83.1" width="54.9" height="18.9" viewBox="0 0 54.9 18.9"><defs>
+<line x1="364.0" y1="90.0" x2="398.0" y2="90.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="406.0,90.0 398.0,95.0 398.0,85.0" fill="#94a3b8"/>
+<rect x="400.0" y="56.0" width="110.0" height="68.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<svg x="427.55" y="81.1" width="54.9" height="18.9" viewBox="0 0 54.9 18.9"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t4-figure_1">
@@ -800,12 +799,12 @@ z
   </g>
  </g>
 </svg>
-<line x1="514.0" y1="92.0" x2="538.0" y2="92.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="546.0,92.0 538.0,97.0 538.0,87.0" fill="#94a3b8"/>
-<line x1="664.0" y1="92.0" x2="688.0" y2="92.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="696.0,92.0 688.0,97.0 688.0,87.0" fill="#94a3b8"/>
-<rect x="700.0" y="60.0" width="110.0" height="64.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
-<svg x="747.71" y="84.5794" width="14.58" height="17.4206" viewBox="0 0 14.58 17.420625"><defs>
+<line x1="514.0" y1="90.0" x2="538.0" y2="90.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="546.0,90.0 538.0,95.0 538.0,85.0" fill="#94a3b8"/>
+<line x1="664.0" y1="90.0" x2="688.0" y2="90.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="696.0,90.0 688.0,95.0 688.0,85.0" fill="#94a3b8"/>
+<rect x="700.0" y="56.0" width="110.0" height="68.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<svg x="747.71" y="82.5794" width="14.58" height="17.4206" viewBox="0 0 14.58 17.420625"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t5-figure_1">
@@ -902,26 +901,26 @@ z
   </g>
  </g>
 </svg>
-<line x1="814.0" y1="92.0" x2="838.0" y2="92.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="846.0,92.0 838.0,97.0 838.0,87.0" fill="#94a3b8"/>
-<rect x="850.0" y="60.0" width="130.0" height="64.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="915.0" y="86.0" font-size="15" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">conv decoder</text>
-<svg x="911.555" y="99.4184" width="6.89" height="12.5816" viewBox="0 0 6.89 12.581563"><defs>
+<line x1="814.0" y1="90.0" x2="838.0" y2="90.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="846.0,90.0 838.0,95.0 838.0,85.0" fill="#94a3b8"/>
+<rect x="850.0" y="56.0" width="130.0" height="68.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="915.0" y="82.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">conv decoder</text>
+<svg x="910.76" y="96.515" width="8.48" height="15.485" viewBox="0 0 8.48 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t6-figure_1">
   <g id="w6t6-patch_1">
-   <path d="M 0 12.581563 
-L 6.89 12.581563 
-L 6.89 0 
+   <path d="M 0 15.485 
+L 8.48 15.485 
+L 8.48 0 
 L 0 0 
-L 0 12.581563 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t6-text_1">
    <!-- $\hat{\mathbf{x}}$ -->
-   <g style="fill: #0b5cad" transform="translate(0 9.877969) scale(0.13 -0.13)">
+   <g style="fill: #0b5cad" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w6t6-Cmr10-5e" d="M 863 3444 
 L 738 3578 
@@ -972,23 +971,23 @@ z
   </g>
  </g>
 </svg>
-<text x="500.0" y="36.0" font-size="13" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">one frame every</text>
-<svg x="506" y="26" width="26.18" height="14" viewBox="0 0 26.18 14"><defs>
+<text x="498.0" y="34.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">one frame every</text>
+<svg x="506" y="22" width="29.92" height="16" viewBox="0 0 29.92 16"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t7-figure_1">
   <g id="w6t7-patch_1">
-   <path d="M 0 14 
-L 26.18 14 
-L 26.18 0 
+   <path d="M 0 16 
+L 29.92 16 
+L 29.92 0 
 L 0 0 
-L 0 14 
+L 0 16 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t7-text_1">
    <!-- $1/f_r$ -->
-   <g style="fill: #6b7280" transform="translate(0 10.5) scale(0.14 -0.14)">
+   <g style="fill: #6b7280" transform="translate(0 12) scale(0.16 -0.16)">
     <defs>
      <path id="w6t7-Cmr10-31" d="M 594 0 
 L 594 225 
@@ -1118,24 +1117,24 @@ z
 </svg>
 </g>
 <g class="fragment" data-fragment-index="1">
-<rect x="550.0" y="60.0" width="110.0" height="64.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<text x="605.0" y="92.0" font-size="15" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">quantiser</text>
-<svg x="547.475" y="137.65" width="115.05" height="16.35" viewBox="0 0 115.05 16.35"><defs>
+<rect x="550.0" y="56.0" width="110.0" height="68.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="605.0" y="90.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">quantiser</text>
+<svg x="543.64" y="139.56" width="122.72" height="17.44" viewBox="0 0 122.72 17.44"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t8-figure_1">
   <g id="w6t8-patch_1">
-   <path d="M 0 16.35 
-L 115.05 16.35 
-L 115.05 -0 
+   <path d="M 0 17.44 
+L 122.72 17.44 
+L 122.72 -0 
 L 0 -0 
-L 0 16.35 
+L 0 17.44 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t8-text_1">
    <!-- $\mathbf{q}_t,\ \ k_{t,1},\dots,k_{t,N_q}$ -->
-   <g style="fill: #7c3aed" transform="translate(0 10.5) scale(0.15 -0.15)">
+   <g style="fill: #7c3aed" transform="translate(0 11.2) scale(0.16 -0.16)">
     <defs>
      <path id="w6t8-Cmb10-71" d="M 1825 -1241 
 L 1825 -916 
@@ -1437,90 +1436,90 @@ z
   </g>
  </g>
 </svg>
-<text x="605.0" y="170.0" font-size="12" font-weight="400" fill="#7c3aed" text-anchor="middle" dominant-baseline="auto">integers — the only thing an LM sees</text>
+<text x="605.0" y="174.0" font-size="16" font-weight="400" fill="#7c3aed" text-anchor="middle" dominant-baseline="auto">integers — the only thing an LM sees</text>
 </g>
 <g class="fragment" data-fragment-index="2">
-<rect x="190.0" y="196.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="218.0" y="196.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="246.0" y="196.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="274.0" y="196.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="302.0" y="196.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="330.0" y="196.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="358.0" y="196.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="386.0" y="196.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="414.0" y="196.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="442.0" y="196.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="470.0" y="196.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="498.0" y="196.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="526.0" y="196.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="554.0" y="196.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="582.0" y="196.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="610.0" y="196.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="638.0" y="196.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="666.0" y="196.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="694.0" y="196.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="722.0" y="196.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="190.0" y="218.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="218.0" y="218.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="246.0" y="218.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="274.0" y="218.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="302.0" y="218.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="330.0" y="218.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="358.0" y="218.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="386.0" y="218.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="414.0" y="218.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="442.0" y="218.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="470.0" y="218.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="498.0" y="218.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="526.0" y="218.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="554.0" y="218.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="582.0" y="218.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="610.0" y="218.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="638.0" y="218.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="666.0" y="218.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="694.0" y="218.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="722.0" y="218.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="190.0" y="240.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="218.0" y="240.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="246.0" y="240.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="274.0" y="240.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="302.0" y="240.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="330.0" y="240.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="358.0" y="240.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="386.0" y="240.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="414.0" y="240.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="442.0" y="240.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="470.0" y="240.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="498.0" y="240.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="526.0" y="240.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="554.0" y="240.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="582.0" y="240.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="610.0" y="240.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="638.0" y="240.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="666.0" y="240.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="694.0" y="240.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="722.0" y="240.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="190.0" y="262.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="218.0" y="262.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="246.0" y="262.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="274.0" y="262.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="302.0" y="262.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="330.0" y="262.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="358.0" y="262.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="386.0" y="262.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="414.0" y="262.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="442.0" y="262.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="470.0" y="262.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="498.0" y="262.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="526.0" y="262.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="554.0" y="262.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="582.0" y="262.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="610.0" y="262.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="638.0" y="262.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="666.0" y="262.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="694.0" y="262.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
-<rect x="722.0" y="262.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
-<svg x="157.12" y="231" width="18.88" height="16" viewBox="0 0 18.88 16"><defs>
+<rect x="190.0" y="200.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="218.0" y="200.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="246.0" y="200.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="274.0" y="200.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="302.0" y="200.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="330.0" y="200.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="358.0" y="200.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="386.0" y="200.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="414.0" y="200.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="442.0" y="200.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="470.0" y="200.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="498.0" y="200.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="526.0" y="200.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="554.0" y="200.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="582.0" y="200.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="610.0" y="200.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="638.0" y="200.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="666.0" y="200.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="694.0" y="200.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="722.0" y="200.0" width="26.0" height="20.0" rx="2" fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="190.0" y="222.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="218.0" y="222.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="246.0" y="222.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="274.0" y="222.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="302.0" y="222.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="330.0" y="222.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="358.0" y="222.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="386.0" y="222.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="414.0" y="222.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="442.0" y="222.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="470.0" y="222.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="498.0" y="222.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="526.0" y="222.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="554.0" y="222.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="582.0" y="222.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="610.0" y="222.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="638.0" y="222.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="666.0" y="222.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="694.0" y="222.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="722.0" y="222.0" width="26.0" height="20.0" rx="2" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="190.0" y="244.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="218.0" y="244.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="246.0" y="244.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="274.0" y="244.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="302.0" y="244.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="330.0" y="244.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="358.0" y="244.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="386.0" y="244.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="414.0" y="244.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="442.0" y="244.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="470.0" y="244.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="498.0" y="244.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="526.0" y="244.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="554.0" y="244.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="582.0" y="244.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="610.0" y="244.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="638.0" y="244.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="666.0" y="244.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="694.0" y="244.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="722.0" y="244.0" width="26.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="190.0" y="266.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="218.0" y="266.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="246.0" y="266.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="274.0" y="266.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="302.0" y="266.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="330.0" y="266.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="358.0" y="266.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="386.0" y="266.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="414.0" y="266.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="442.0" y="266.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="470.0" y="266.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="498.0" y="266.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="526.0" y="266.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="554.0" y="266.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="582.0" y="266.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="610.0" y="266.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="638.0" y="266.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="666.0" y="266.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="694.0" y="266.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="722.0" y="266.0" width="26.0" height="20.0" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.8"/>
+<svg x="157.12" y="235" width="18.88" height="16" viewBox="0 0 18.88 16"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t9-figure_1">
@@ -1629,7 +1628,7 @@ z
   </g>
  </g>
 </svg>
-<svg x="418.8" y="294.515" width="102.4" height="15.485" viewBox="0 0 102.4 15.485"><defs>
+<svg x="418.8" y="300.515" width="102.4" height="15.485" viewBox="0 0 102.4 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t10-figure_1">
@@ -2002,23 +2001,23 @@ z
   </g>
  </g>
 </svg>
-<text x="760.0" y="214.0" font-size="15" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">an integer matrix</text>
-<svg x="760" y="228" width="52.2" height="18" viewBox="0 0 52.2 18"><defs>
+<text x="770.0" y="214.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">an integer matrix</text>
+<svg x="770" y="231" width="58" height="20" viewBox="0 0 58 20"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t11-figure_1">
   <g id="w6t11-patch_1">
-   <path d="M 0 18 
-L 52.2 18 
-L 52.2 -0 
-L 0 -0 
-L 0 18 
+   <path d="M 0 20 
+L 58 20 
+L 58 0 
+L 0 0 
+L 0 20 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t11-text_1">
    <!-- $N_q \times T$ -->
-   <g style="fill: #1f2328" transform="translate(0 12.42) scale(0.18 -0.18)">
+   <g style="fill: #1f2328" transform="translate(0 13.8) scale(0.2 -0.2)">
     <defs>
      <path id="w6t11-Cmmi10-4e" d="M 300 0 
 Q 238 0 238 84 
@@ -2185,23 +2184,23 @@ z
   </g>
  </g>
 </svg>
-<text x="760.0" y="262.0" font-size="13" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">one time step carries</text>
-<svg x="760" y="272.86" width="112.7" height="14.14" viewBox="0 0 112.7 14.14"><defs>
+<text x="770.0" y="270.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">one time step carries</text>
+<svg x="770" y="282.84" width="128.8" height="16.16" viewBox="0 0 128.8 16.16"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t12-figure_1">
   <g id="w6t12-patch_1">
-   <path d="M 0 14.14 
-L 112.7 14.14 
-L 112.7 0 
+   <path d="M 0 16.16 
+L 128.8 16.16 
+L 128.8 0 
 L 0 0 
-L 0 14.14 
+L 0 16.16 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t12-text_1">
    <!-- $N_q\ \mathsf{tokens}\ \to\ \mathsf{W13}$ -->
-   <g style="fill: #6b7280" transform="translate(0 9.8) scale(0.14 -0.14)">
+   <g style="fill: #6b7280" transform="translate(0 11.2) scale(0.16 -0.16)">
     <defs>
      <path id="w6t12-Cmmi10-4e" d="M 300 0 
 Q 238 0 238 84 

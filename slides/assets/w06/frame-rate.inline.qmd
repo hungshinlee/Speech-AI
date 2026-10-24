@@ -1,27 +1,27 @@
 <!-- 由 scripts/make_figs_w06.py 產生，勿手改；投影片用 {{< include assets/w06/frame-rate.inline.qmd >}} 貼入 -->
 ```{=html}
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 320" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
-<text x="984.0" y="22.0" font-size="15" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">arithmetic from w06-data.json → budget — not measured</text>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 356" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<text x="984.0" y="22.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">arithmetic from w06-data.json → budget — not measured</text>
 <g class="fragment" data-fragment-index="0">
-<line x1="120.0" y1="170.0" x2="900.0" y2="170.0" stroke="#94a3b8" stroke-width="2.0"/>
-<line x1="900.0" y1="170.0" x2="920.0" y2="170.0" stroke="#94a3b8" stroke-width="2.0"/>
-<polygon points="930.0,170.0 920.0,175.0 920.0,165.0" fill="#94a3b8"/>
-<svg x="940" y="164.515" width="13.92" height="15.485" viewBox="0 0 13.92 15.485"><defs>
+<line x1="120.0" y1="200.0" x2="900.0" y2="200.0" stroke="#94a3b8" stroke-width="2.0"/>
+<line x1="900.0" y1="200.0" x2="920.0" y2="200.0" stroke="#94a3b8" stroke-width="2.0"/>
+<polygon points="930.0,200.0 920.0,205.0 920.0,195.0" fill="#94a3b8"/>
+<svg x="940" y="193.547" width="14.79" height="16.4528" viewBox="0 0 14.79 16.452813"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t60-figure_1">
   <g id="w6t60-patch_1">
-   <path d="M 0 15.485 
-L 13.92 15.485 
-L 13.92 0 
+   <path d="M 0 16.452813 
+L 14.79 16.452813 
+L 14.79 0 
 L 0 0 
-L 0 15.485 
+L 0 16.452813 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t60-text_1">
    <!-- $f_r$ -->
-   <g style="fill: #1f2328" transform="translate(0 12.125) scale(0.16 -0.16)">
+   <g style="fill: #1f2328" transform="translate(0 12.882812) scale(0.17 -0.17)">
     <defs>
      <path id="w6t60-Cmmi10-66" d="M 622 -1056 
 Q 741 -1147 909 -1147 
@@ -117,40 +117,44 @@ z
   </g>
  </g>
 </svg>
-<circle cx="840.0" cy="170.0" r="7.0" fill="#dc2626" stroke="#dc2626" stroke-width="1"/>
-<text x="840.0" y="154.0" font-size="13" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">EnCodec 24 kHz</text>
-<text x="840.0" y="194.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">75 Hz · 8 stages (6 kbps)</text>
-<circle cx="690.6" cy="170.0" r="7.0" fill="#b45309" stroke="#b45309" stroke-width="1"/>
-<text x="690.6" y="154.0" font-size="13" font-weight="700" fill="#b45309" text-anchor="middle" dominant-baseline="auto">SpeechTokenizer</text>
-<text x="690.6" y="194.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">50 Hz · 8 stages</text>
-<circle cx="180.0" cy="170.0" r="7.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
-<text x="180.0" y="154.0" font-size="13" font-weight="700" fill="#7c3aed" text-anchor="middle" dominant-baseline="auto">Mimi</text>
-<text x="180.0" y="194.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">12.5 Hz · 8 (1 + 7)</text>
-<text x="120.0" y="218.0" font-size="13" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="auto">← kind to the LM</text>
-<text x="900.0" y="218.0" font-size="13" font-weight="700" fill="#dc2626" text-anchor="end" dominant-baseline="auto">kind to quality and reaction →</text>
+<circle cx="840.0" cy="200.0" r="7.0" fill="#dc2626" stroke="#dc2626" stroke-width="1"/>
+<text x="840.0" y="182.0" font-size="17" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">EnCodec 24 kHz</text>
+<text x="840.0" y="228.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">75 Hz · 8 stages (6 kbps)</text>
+<circle cx="690.6" cy="200.0" r="7.0" fill="#b45309" stroke="#b45309" stroke-width="1"/>
+<text x="690.6" y="158.0" font-size="17" font-weight="700" fill="#b45309" text-anchor="middle" dominant-baseline="auto">SpeechTokenizer</text>
+<text x="690.6" y="180.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">50 Hz · 8 stages</text>
+<circle cx="180.0" cy="200.0" r="7.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<text x="180.0" y="182.0" font-size="17" font-weight="700" fill="#7c3aed" text-anchor="middle" dominant-baseline="auto">Mimi</text>
+<text x="180.0" y="228.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">12.5 Hz · 8 (1 + 7)</text>
+<text x="120.0" y="254.0" font-size="16" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="auto">← kind to the LM</text>
+<text x="900.0" y="254.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="end" dominant-baseline="auto">kind to quality and reaction →</text>
 </g>
 <g class="fragment" data-fragment-index="1">
-<rect x="20.0" y="36.0" width="960.0" height="76.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.0"/>
-<text x="36.0" y="56.0" font-size="14" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="middle">the LM side</text>
-<text x="160.0" y="56.0" font-size="12" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="middle">tokens / s</text>
-<text x="160.0" y="78.0" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">EnCodec 600 · ST 400</text>
-<text x="160.0" y="98.0" font-size="12" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="middle">Mimi 100</text>
-<text x="365.0" y="56.0" font-size="12" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="middle">context, 30 min</text>
-<text x="365.0" y="78.0" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">EnCodec 1.08 M · ST 720 k</text>
-<text x="365.0" y="98.0" font-size="12" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="middle">Mimi 180 k</text>
-<text x="570.0" y="56.0" font-size="12" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="middle">steps / s, flatten</text>
-<text x="570.0" y="78.0" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">EnCodec 600 · ST 400</text>
-<text x="570.0" y="98.0" font-size="12" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="middle">Mimi 100</text>
-<text x="775.0" y="56.0" font-size="12" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="middle">steps / s, RQ-Transformer</text>
-<text x="775.0" y="78.0" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">EnCodec 75 · ST 50</text>
-<text x="775.0" y="98.0" font-size="12" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="middle">Mimi 12.5</text>
+<rect x="20.0" y="36.0" width="960.0" height="110.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.0"/>
+<text x="36.0" y="58.0" font-size="17" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="middle">the LM side</text>
+<text x="140.0" y="58.0" font-size="16" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="middle">tokens / s</text>
+<text x="140.0" y="80.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">EnCodec 600</text>
+<text x="140.0" y="102.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">SpeechTokenizer 400</text>
+<text x="140.0" y="124.0" font-size="16" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="middle">Mimi 100</text>
+<text x="346.0" y="58.0" font-size="16" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="middle">context, 30 min</text>
+<text x="346.0" y="80.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">EnCodec 1.08 M</text>
+<text x="346.0" y="102.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">SpeechTokenizer 720 k</text>
+<text x="346.0" y="124.0" font-size="16" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="middle">Mimi 180 k</text>
+<text x="552.0" y="58.0" font-size="16" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="middle">steps / s, flatten</text>
+<text x="552.0" y="80.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">EnCodec 600</text>
+<text x="552.0" y="102.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">SpeechTokenizer 400</text>
+<text x="552.0" y="124.0" font-size="16" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="middle">Mimi 100</text>
+<text x="758.0" y="58.0" font-size="16" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="middle">steps / s, RQ-Transformer</text>
+<text x="758.0" y="80.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">EnCodec 75</text>
+<text x="758.0" y="102.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">SpeechTokenizer 50</text>
+<text x="758.0" y="124.0" font-size="16" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="middle">Mimi 12.5</text>
 </g>
 <g class="fragment" data-fragment-index="2">
-<rect x="20.0" y="226.0" width="960.0" height="80.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
-<text x="36.0" y="246.0" font-size="14" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="middle">the latency side</text>
-<text x="200.0" y="246.0" font-size="13" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="middle">the floor is one frame plus any lookahead — the line below</text>
-<text x="36.0" y="272.0" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">floor: EnCodec 13 ms · SpeechTokenizer 20 ms · Mimi 80 ms — a 12.5 Hz system cannot react to anything within 80 ms</text>
-<text x="36.0" y="292.0" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">and W13's full-duplex model decides once per frame: the frame rate is also the granularity of reaction</text>
+<rect x="20.0" y="262.0" width="960.0" height="86.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
+<text x="36.0" y="284.0" font-size="17" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="middle">the latency side</text>
+<text x="190.0" y="284.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="middle">the floor is one frame plus any lookahead — the line below</text>
+<text x="36.0" y="310.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">floor: EnCodec 13 ms · SpeechTokenizer 20 ms · Mimi 80 ms — a 12.5 Hz system cannot react within 80 ms</text>
+<text x="36.0" y="332.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">and W13's full-duplex model decides once per frame: the frame rate is also the granularity of reaction</text>
 </g>
 </svg>
 ```

@@ -241,7 +241,7 @@ all five act on the quantiser freedom · the objective and the frame rate come n
 {{< include assets/w06/fsq.inline.qmd >}}
 
 ::: {.fragment fragment-index=0}
-$$\hat{z}_j = \mathrm{round}\!\big(\lfloor \Lambda_j / 2 \rfloor \tanh z_j\big),\qquad j = 1, \dots, d,\qquad \text{implicit codebook size } \prod_j \Lambda_j$$
+$$\hat{z}_j = \mathrm{round}\!\big(\lfloor \Lambda_j / 2 \rfloor \tanh z_j\big),\qquad j = 1, \dots, d,\qquad \text{implicit codebook size } {\textstyle \prod_j \Lambda_j}$$
 :::
 
 ::: {.claim .fragment fragment-index=2}
@@ -314,7 +314,7 @@ SoundStream §III-C · EnCodec §3.2: codebooks a multiple of 4 · DAC: $p = 0.5
 | **later stages** | carry less, and the late ones look like noise | that they are "detail" in any linguistic sense |
 
 ::: {.claim}
-**Most energy $\neq$ the semantics.** AudioLM had to put w2v-BERT's semantic tokens *on top of* SoundStream's 12 acoustic stages because the first acoustic stage was not semantic enough; and from semantic tokens alone the speaker was gone — speaker classification 3.2%. "Stage 1 = semantics" becomes true only through **distillation** (p39).
+**Most energy $\neq$ the semantics.** AudioLM had to put w2v-BERT's semantic tokens *on top of* SoundStream's 12 acoustic stages because the first acoustic stage was not semantic enough; and from semantic tokens alone the speaker was gone — speaker classification 3.2%. "Stage 1 = semantics" becomes true only through **distillation** (p40).
 :::
 
 ::: {.footer}
@@ -374,6 +374,18 @@ SoundStream §III-E · MelGAN · HiFi-GAN · W2 p47: the three reasons a vocoder
 Moshi §3.3.1, Table 4 · whether the released Mimi is that variant: not stated · W2 p47
 :::
 
+## Training and use: the losses leave, both halves stay — apart
+
+{{< include assets/w06/train-vs-use.inline.qmd >}}
+
+::: {.claim .fragment fragment-index=2}
+**Unlike W5, nothing is thrown away** — but the two halves never run together again, and what the objective put into the matrix is all the LM ever gets.
+:::
+
+::: {.footer}
+SoundStream Fig. 2: transmitter / receiver · W5 p37 · W8, W11
+:::
+
 ## MC 4 — "neural codecs beat Opus"
 
 | | the sentence | what it actually claims |
@@ -421,11 +433,11 @@ Codec-SUPERB, Findings of ACL 2024 · ESPnet-Codec, SLT 2024 · DASB, TMLR 2026
 | **The question** | Can one tokenizer give an LM few tokens a second, hold the words, rebuild the voice — and stream? |
 | **The idea** | 24 kHz in, 12.5 Hz out; every convolution causal, a Transformer on each side of the bottleneck. Each 80 ms frame gets a plain VQ distilled toward WavLM (W5 p31), beside a 7-stage acoustic RVQ: 8 tokens, $V = 2048$. |
 | **What it added** | A frame rate six times below EnCodec's — 1.1 kbps, 100 tokens a second — with a *semantic* and an *acoustic* stream from one model. Moshi is trained on these tokens. |
-| **What it leaves open** | Does the distilled codebook alone hold the words? Demo 1, next. Why split, instead of distilling into stage 1 of one RVQ? p39. |
+| **What it leaves open** | Does the distilled codebook alone hold the words? Demo 1, next. Why split, instead of distilling into stage 1 of one RVQ? p40. |
 :::
 
 ::: {.footer}
-Moshi §3.3.1–3.3.2: $D = 512$, $N_q = 8$, $V = 2048$, causal · the bill at 12.5 Hz: p45
+Moshi §3.3.1–3.3.2: $D = 512$, $N_q = 8$, $V = 2048$, causal · the bill at 12.5 Hz: p46
 :::
 
 ## Before Demo 1: adding the letters back, one stage at a time
@@ -479,7 +491,7 @@ $F_0$ is a physical quantity, pitch is a percept (W2 p51): the plot is a referen
 :::
 
 ::: {.footer}
-prediction from the design · heard: rehearsal 2026-10-19, one sentence, one listener · W2 p51, p57 · W5 p49 · unit-level evidence: p43
+prediction from the design · heard: rehearsal 2026-10-19, one sentence, one listener · W2 p51, p57 · W5 p49 · unit-level evidence: p44
 :::
 
 ## Before Demo 2: what the letters look like
@@ -487,13 +499,13 @@ prediction from the design · heard: rehearsal 2026-10-19, one sentence, one lis
 ::: {.prose}
 | | |
 |:---|:-----------------|
-| **Why** | We have heard what the stages carry; now look at the tokens themselves. Three things on the slides so far were schematic — the residual curve (p22), "stage 1 is the most language-like", and how many codes are actually used — and all three can be measured on real codecs. |
+| **Why** | We have heard what the stages carry; now look at the tokens themselves. Three claims so far rest on a picture or a sentence — the residual curve (p22), "stage 1 is the most language-like", and how many codes are actually used — and all three are measured on real codecs here: the curve on p22 already came from this demo. |
 | **What runs** | The same sentence through Mimi, EnCodec and DAC: the $N_q \times T$ matrix printed in the terminal. Then, on the W5 dev-clean subset (40 speakers × 10 sentences, cached): per stage, the number of codes used and the unigram entropy over $\log_2 V$; the residual-energy curve $\mathbb{E}\lVert \mathbf{r}_{t,i} \rVert^2 / \mathbb{E}\lVert \mathbf{z}_t \rVert^2$; and, for stage 1, the bigram conditional entropy against the unigram one. |
 | **Watch for** | Which stage has the longest runs of repeated tokens. Whether the usage and entropy ratios fall with the stage — and what that says about the late residual. Where Mimi's semantic path sits relative to its acoustic path. |
 :::
 
 ::: {.footer}
-Demo 2 · code: `demos/w06_d2_token_matrix` · the arithmetic half comes at p45
+Demo 2 · code: `demos/w06_d2_token_matrix` · the arithmetic half comes at p46
 :::
 
 ## Demo 2 — token matrix, codebook usage, residual curve
@@ -548,11 +560,11 @@ SpeechTokenizer §3.2, App. E · Moshi §3.3.2 · $\mathcal{L}_{\text{dist}}$: a
 | **the probe** | purity was measured, not assumed (Demo 2) | on TIMIT, segmental information is **not confined to codebook 1**, and its tokens correspond to **allophones**, not phonemes |
 
 ::: {.claim}
-Demo 1 did **not** go as predicted: stage 1 alone kept neither the words nor the voice. "Semantic" names what the codebook was trained *towards*, not what the ear gets back from it alone — and the tone answer is on p34.
+Demo 1 did **not** go as predicted: stage 1 alone kept neither the words nor the voice. "Semantic" names what the codebook was trained *towards*, not what the ear gets back from it alone — and the tone answer is on p35.
 :::
 
 ::: {.footer}
-Saloev et al., ICNLSP 2026 (TIMIT) · W5 p45–p47 · "semantic" names a target, not a claim
+Saloev et al., ICNLSP 2026 (TIMIT) · W5 p45–p48 · "semantic" names a target, not a claim
 :::
 
 ## One codebook, no residual: WavTokenizer, BigCodec, TAAE
@@ -595,7 +607,7 @@ Li et al. · Wang et al. · Della Libera et al. · Gichamba & Busogi · all 2026
 {{< include assets/w06/tone-layers.inline.qmd >}}
 
 ::: {.claim .fragment fragment-index=2}
-At the unit level this is **measured**; at the codec level it is a **prediction** — and p34 is where we listened. For Mandarin, Taiwanese and Hakka, a token that drops tone drops the word.
+At the unit level this is **measured**; at the codec level it is a **prediction** — and p35 is where we listened. For Mandarin, Taiwanese and Hakka, a token that drops tone drops the word.
 :::
 
 ::: {.footer}
@@ -747,7 +759,7 @@ W1 p31 · W4 p20 $D_{\text{alg}}$ · EnCodec streamable vs not · Mimi: causal, 
 
 **Read this week**
 
-- Zeghidour et al., *SoundStream*, IEEE/ACM TASLP 2022 — §III for the recipe (RVQ, quantizer dropout, k-means init and dead-code reset, the three losses); the abstract's sentence about Opus, read with p28 in mind
+- Zeghidour et al., *SoundStream*, IEEE/ACM TASLP 2022 — §III for the recipe (RVQ, quantizer dropout, k-means init and dead-code reset, the three losses); the abstract's sentence about Opus, read with p29 in mind
 - Défossez et al., *Moshi*, 2024 (a technical report) — **§3.3 only**: Mimi — the split RVQ, the WavLM distillation, 12.5 Hz; keep §3.4 and §5 for W13
 - van den Oord et al., *Neural Discrete Representation Learning*, NeurIPS 2017 — §3.2 and Appendix A.1: the three terms and the EMA update you derived today
 
@@ -768,9 +780,9 @@ Back to a world with transcripts. The encoder is W5's; the input may be W2's log
 | BPE | byte-pair encoding: a text tokenizer (W3) |
 | CNN | convolutional neural network (W5) |
 | DAC | Descript Audio Codec: the release name of "Improved RVQGAN" (p14) |
-| DASB | Discrete Audio and Speech Benchmark (p29) |
+| DASB | Discrete Audio and Speech Benchmark (p30) |
 | EMA | exponential moving average (W5) |
-| EVS | Enhanced Voice Services: 3GPP's speech codec for LTE (p28) |
+| EVS | Enhanced Voice Services: 3GPP's speech codec for LTE (p29) |
 | FSQ | finite scalar quantization (p17) |
 | HuBERT | Hidden-Unit BERT (W5) |
 
@@ -783,10 +795,10 @@ Back to a world with transcripts. The encoder is W5's; the input may be W2's log
 | MOS | mean opinion score (W1) |
 | MS-STFT | multi-scale STFT: EnCodec's discriminator (p25) |
 | MSE, RMSE | mean squared error; its square root |
-| MUSHRA | Multi Stimulus test with Hidden Reference and Anchor (p29) |
-| PESQ | Perceptual Evaluation of Speech Quality (p48) |
+| MUSHRA | Multi Stimulus test with Hidden Reference and Anchor (p30) |
+| PESQ | Perceptual Evaluation of Speech Quality (p49) |
 | RFC | Request for Comments: the Internet's standards documents; RFC 6716 is Opus |
-| RQ-Transformer | residual-quantized Transformer (p45) |
+| RQ-Transformer | residual-quantized Transformer (p46) |
 | RVQ | residual vector quantisation (p20) |
 
 ## Acronyms in this deck, S–W
@@ -794,11 +806,11 @@ Back to a world with transcripts. The encoder is W5's; the input may be W2's log
 | | |
 |:----|:----------------|
 | SSL | self-supervised learning |
-| ST | SpeechTokenizer, in the p47 figure |
+| ST | SpeechTokenizer, in the p28 and p48 figures |
 | STFT, iSTFT | short-time Fourier transform (W2); its inverse |
 | TAAE | Transformer Audio AutoEncoder (p18) |
 | TTS | text-to-speech (W1) |
-| UTMOS | a learned MOS predictor, from UTokyo-SaruLab (p48) |
-| ViSQOL | Virtual Speech Quality Objective Listener (p48) |
+| UTMOS | a learned MOS predictor, from UTokyo-SaruLab (p49) |
+| ViSQOL | Virtual Speech Quality Objective Listener (p49) |
 | VQ, VQ-VAE | vector quantisation (W5); Vector Quantised-Variational AutoEncoder (p10) |
 | WER | word error rate (W5) |

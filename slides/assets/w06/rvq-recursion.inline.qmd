@@ -1,10 +1,9 @@
 <!-- 由 scripts/make_figs_w06.py 產生，勿手改；投影片用 {{< include assets/w06/rvq-recursion.inline.qmd >}} 貼入 -->
 ```{=html}
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 300" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
-<text x="984.0" y="22.0" font-size="15" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">schematic — not a measurement</text>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 312" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
 <g class="fragment" data-fragment-index="0">
-<rect x="20.0" y="90.0" width="100.0" height="56.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<svg x="62.71" y="102.579" width="14.58" height="17.4206" viewBox="0 0 14.58 17.420625"><defs>
+<rect x="14.0" y="86.0" width="106.0" height="64.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<svg x="59.71" y="100.579" width="14.58" height="17.4206" viewBox="0 0 14.58 17.420625"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t31-figure_1">
@@ -91,22 +90,22 @@ z
   </g>
  </g>
 </svg>
-<svg x="53.165" y="129.418" width="33.67" height="12.5816" viewBox="0 0 33.67 12.581562"><defs>
+<svg x="46.28" y="129.515" width="41.44" height="15.485" viewBox="0 0 41.44 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t32-figure_1">
   <g id="w6t32-patch_1">
-   <path d="M 0 12.581562 
-L 33.67 12.581562 
-L 33.67 0 
+   <path d="M 0 15.485 
+L 41.44 15.485 
+L 41.44 0 
 L 0 0 
-L 0 12.581562 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t32-text_1">
    <!-- $= \mathbf{r}_{t,0}$ -->
-   <g style="fill: #0b5cad" transform="translate(0 8.551562) scale(0.13 -0.13)">
+   <g style="fill: #0b5cad" transform="translate(0 10.525) scale(0.16 -0.16)">
     <defs>
      <path id="w6t32-Cmr10-3d" d="M 481 850 
 Q 428 850 393 890 
@@ -390,7 +389,7 @@ z
 </svg>
 <line x1="205.0" y1="146.0" x2="205.0" y2="172.0" stroke="#7c3aed" stroke-width="1.6"/>
 <polygon points="205.0,180.0 200.0,172.0 210.0,172.0" fill="#7c3aed"/>
-<svg x="190.96" y="194.579" width="28.08" height="17.4206" viewBox="0 0 28.08 17.420625"><defs>
+<svg x="190.96" y="196.579" width="28.08" height="17.4206" viewBox="0 0 28.08 17.420625"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t34-figure_1">
@@ -521,23 +520,23 @@ z
   </g>
  </g>
 </svg>
-<text x="205.0" y="228.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">big letters</text>
-<svg x="287.96" y="67.4506" width="94.08" height="13.5494" viewBox="0 0 94.08 13.549375"><defs>
+<text x="205.0" y="234.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">big letters</text>
+<svg x="281.24" y="63.515" width="107.52" height="15.485" viewBox="0 0 107.52 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t35-figure_1">
   <g id="w6t35-patch_1">
-   <path d="M 0 13.549375 
-L 94.08 13.549375 
-L 94.08 -0 
-L 0 -0 
-L 0 13.549375 
+   <path d="M 0 15.485 
+L 107.52 15.485 
+L 107.52 0 
+L 0 0 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t35-text_1">
    <!-- $\mathbf{r}_{t,1} = \mathbf{r}_{t,0} - \mathbf{q}_{t,1}$ -->
-   <g style="fill: #1f2328" transform="translate(0 9.209375) scale(0.14 -0.14)">
+   <g style="fill: #1f2328" transform="translate(0 10.525) scale(0.16 -0.16)">
     <defs>
      <path id="w6t35-Cmb10-72" d="M 91 0 
 L 91 325 
@@ -920,7 +919,7 @@ z
 </svg>
 <line x1="455.0" y1="146.0" x2="455.0" y2="172.0" stroke="#7c3aed" stroke-width="1.6"/>
 <polygon points="455.0,180.0 450.0,172.0 460.0,172.0" fill="#7c3aed"/>
-<svg x="440.96" y="194.579" width="28.08" height="17.4206" viewBox="0 0 28.08 17.420625"><defs>
+<svg x="440.96" y="196.579" width="28.08" height="17.4206" viewBox="0 0 28.08 17.420625"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t37-figure_1">
@@ -1076,23 +1075,23 @@ z
   </g>
  </g>
 </svg>
-<text x="455.0" y="228.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">a correction</text>
-<svg x="537.96" y="67.4506" width="94.08" height="13.5494" viewBox="0 0 94.08 13.549375"><defs>
+<text x="455.0" y="234.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">a correction</text>
+<svg x="531.24" y="63.515" width="107.52" height="15.485" viewBox="0 0 107.52 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t38-figure_1">
   <g id="w6t38-patch_1">
-   <path d="M 0 13.549375 
-L 94.08 13.549375 
-L 94.08 -0 
-L 0 -0 
-L 0 13.549375 
+   <path d="M 0 15.485 
+L 107.52 15.485 
+L 107.52 0 
+L 0 0 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t38-text_1">
    <!-- $\mathbf{r}_{t,2} = \mathbf{r}_{t,1} - \mathbf{q}_{t,2}$ -->
-   <g style="fill: #1f2328" transform="translate(0 9.209375) scale(0.14 -0.14)">
+   <g style="fill: #1f2328" transform="translate(0 10.525) scale(0.16 -0.16)">
     <defs>
      <path id="w6t38-Cmb10-72" d="M 91 0 
 L 91 325 
@@ -1532,7 +1531,7 @@ z
 </svg>
 <line x1="705.0" y1="146.0" x2="705.0" y2="172.0" stroke="#7c3aed" stroke-width="1.6"/>
 <polygon points="705.0,180.0 700.0,172.0 710.0,172.0" fill="#7c3aed"/>
-<svg x="686.73" y="195.579" width="36.54" height="17.4206" viewBox="0 0 36.54 17.420625"><defs>
+<svg x="686.73" y="197.579" width="36.54" height="17.4206" viewBox="0 0 36.54 17.420625"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t40-figure_1">
@@ -1733,23 +1732,23 @@ z
   </g>
  </g>
 </svg>
-<text x="705.0" y="228.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">a smaller one</text>
-<svg x="786.84" y="66.04" width="96.32" height="15.96" viewBox="0 0 96.32 15.96"><defs>
+<text x="705.0" y="234.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">a smaller one</text>
+<svg x="779.96" y="62.76" width="110.08" height="18.24" viewBox="0 0 110.08 18.24"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t41-figure_1">
   <g id="w6t41-patch_1">
-   <path d="M 0 15.96 
-L 96.32 15.96 
-L 96.32 0 
-L 0 0 
-L 0 15.96 
+   <path d="M 0 18.24 
+L 110.08 18.24 
+L 110.08 -0 
+L 0 -0 
+L 0 18.24 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t41-text_1">
    <!-- $\mathbf{r}_{t,N_q}\ \ \mathsf{(the\ error)}$ -->
-   <g style="fill: #1f2328" transform="translate(0 10.5) scale(0.14 -0.14)">
+   <g style="fill: #1f2328" transform="translate(0 12) scale(0.16 -0.16)">
     <defs>
      <path id="w6t41-Cmb10-72" d="M 91 0 
 L 91 325 
@@ -2104,15 +2103,15 @@ z
 </svg>
 </g>
 <g class="fragment" data-fragment-index="3">
-<rect x="790.0" y="86.0" width="190.0" height="64.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.4"/>
-<text x="885.0" y="112.0" font-size="15" font-weight="700" fill="#15803d" text-anchor="middle" dominant-baseline="middle">the reconstruction</text>
-<text x="885.0" y="134.0" font-size="12" font-weight="400" fill="#15803d" text-anchor="middle" dominant-baseline="auto">sum the letters (the line below)</text>
-<line x1="764.0" y1="118.0" x2="778.0" y2="118.0" stroke="#15803d" stroke-width="1.6"/>
-<polygon points="786.0,118.0 778.0,123.0 778.0,113.0" fill="#15803d"/>
-<text x="330.0" y="206.0" font-size="20" font-weight="700" fill="#15803d" text-anchor="middle" dominant-baseline="middle">+</text>
-<text x="580.0" y="206.0" font-size="20" font-weight="700" fill="#15803d" text-anchor="middle" dominant-baseline="middle">+</text>
-<text x="885.0" y="206.0" font-size="12" font-weight="400" fill="#15803d" text-anchor="middle" dominant-baseline="middle">= the reconstruction</text>
-<text x="500.0" y="270.0" font-size="13" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">each stage quantises the previous residual, so the residual can only shrink — the big letters carry most of the energy</text>
+<rect x="780.0" y="86.0" width="200.0" height="64.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.4"/>
+<text x="880.0" y="110.0" font-size="17" font-weight="700" fill="#15803d" text-anchor="middle" dominant-baseline="middle">the reconstruction</text>
+<text x="880.0" y="134.0" font-size="16" font-weight="400" fill="#15803d" text-anchor="middle" dominant-baseline="auto">sum the stages — below</text>
+<line x1="764.0" y1="118.0" x2="768.0" y2="118.0" stroke="#15803d" stroke-width="1.6"/>
+<polygon points="776.0,118.0 768.0,123.0 768.0,113.0" fill="#15803d"/>
+<text x="330.0" y="208.0" font-size="20" font-weight="700" fill="#15803d" text-anchor="middle" dominant-baseline="middle">+</text>
+<text x="580.0" y="208.0" font-size="20" font-weight="700" fill="#15803d" text-anchor="middle" dominant-baseline="middle">+</text>
+<text x="880.0" y="208.0" font-size="16" font-weight="400" fill="#15803d" text-anchor="middle" dominant-baseline="middle">= the reconstruction</text>
+<text x="500.0" y="284.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">each stage quantises the last residual, so the residual can only shrink — the big letters carry most of the energy</text>
 </g>
 </svg>
 ```

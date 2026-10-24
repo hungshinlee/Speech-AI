@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 330" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
-<text x="984.0" y="22.0" font-size="15" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">computed from w06-data.json (seed 20261017) — not measured on speech</text>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 340" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<text x="984.0" y="22.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">computed from w06-data.json (seed 20261017) — not measured on speech</text>
 <g class="fragment" data-fragment-index="0">
 <rect x="20.0" y="40.0" width="184.0" height="184.0" rx="4" fill="#ffffff" stroke="#94a3b8" stroke-width="1.0"/>
 <circle cx="178.5" cy="75.7" r="1.4" fill="#cbd5e1"/>
@@ -319,25 +319,25 @@
 <line x1="73.9" y1="167.1" x2="81.9" y2="175.1" stroke="#dc2626" stroke-width="1.6"/>
 <line x1="73.9" y1="175.1" x2="81.9" y2="167.1" stroke="#dc2626" stroke-width="1.6"/>
 <rect x="130.4" y="58.4" width="55.2" height="55.2" rx="2" fill="none" stroke="#15803d" stroke-width="1.0" stroke-dasharray="3 2"/>
-<text x="112.0" y="246.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">random init + gradient</text>
-<text x="112.0" y="264.0" font-size="12" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">2 / 16 codes used · MSE 1.00</text>
-<text x="112.0" y="282.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">only chosen codes move</text>
-<svg x="26" y="49.67" width="50.6" height="11.33" viewBox="0 0 50.6 11.33"><defs>
+<text x="112.0" y="248.0" font-size="16" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">random init, gradient</text>
+<text x="112.0" y="270.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">2 / 16 used, MSE 0.997</text>
+<text x="112.0" y="292.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">only chosen codes move</text>
+<svg x="26" y="47.52" width="73.6" height="16.48" viewBox="0 0 73.6 16.48"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t24-figure_1">
   <g id="w6t24-patch_1">
-   <path d="M 0 11.33 
-L 50.6 11.33 
-L 50.6 0 
+   <path d="M 0 16.48 
+L 73.6 16.48 
+L 73.6 0 
 L 0 0 
-L 0 11.33 
+L 0 16.48 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t24-text_1">
    <!-- $\mathsf{init}\ \mathcal{N}(\mathbf{0}, \mathbf{I})$ -->
-   <g style="fill: #6b7280" transform="translate(0 8.58) scale(0.11 -0.11)">
+   <g style="fill: #6b7280" transform="translate(0 12.48) scale(0.16 -0.16)">
     <defs>
      <path id="w6t24-Cmss10-69" d="M 506 0 
 L 506 2841 
@@ -578,22 +578,22 @@ z
   </g>
  </g>
 </svg>
-<svg x="135.85" y="206.9" width="62.15" height="12.1" viewBox="0 0 62.15 12.1"><defs>
+<svg x="107.6" y="202.4" width="90.4" height="17.6" viewBox="0 0 90.4 17.6"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t25-figure_1">
   <g id="w6t25-patch_1">
-   <path d="M 0 12.1 
-L 62.15 12.1 
-L 62.15 0 
+   <path d="M 0 17.6 
+L 90.4 17.6 
+L 90.4 0 
 L 0 0 
-L 0 12.1 
+L 0 17.6 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t25-text_1">
    <!-- $\mathsf{data\ in}\ [3, 6]^2$ -->
-   <g style="fill: #15803d" transform="translate(0 9.35) scale(0.11 -0.11)">
+   <g style="fill: #15803d" transform="translate(0 13.6) scale(0.16 -0.16)">
     <defs>
      <path id="w6t25-Cmss10-64" d="M 1300 -72 
 Q 959 -72 712 161 
@@ -1246,9 +1246,9 @@ z
 <line x1="269.9" y1="167.1" x2="277.9" y2="175.1" stroke="#dc2626" stroke-width="1.6"/>
 <line x1="269.9" y1="175.1" x2="277.9" y2="167.1" stroke="#dc2626" stroke-width="1.6"/>
 <rect x="326.4" y="58.4" width="55.2" height="55.2" rx="2" fill="none" stroke="#15803d" stroke-width="1.0" stroke-dasharray="3 2"/>
-<text x="308.0" y="246.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">random init + EMA</text>
-<text x="308.0" y="264.0" font-size="12" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">2 / 16 codes used · MSE 0.99</text>
-<text x="308.0" y="282.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">EMA is not the cure</text>
+<text x="308.0" y="248.0" font-size="16" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">random init, EMA</text>
+<text x="308.0" y="270.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">2 / 16 used, MSE 0.993</text>
+<text x="308.0" y="292.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">EMA is not the cure</text>
 </g>
 <g class="fragment" data-fragment-index="2">
 <rect x="412.0" y="40.0" width="184.0" height="184.0" rx="4" fill="#ffffff" stroke="#94a3b8" stroke-width="1.0"/>
@@ -1555,9 +1555,9 @@ z
 <circle cx="533.0" cy="92.8" r="3.6" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
 <circle cx="561.6" cy="96.7" r="3.6" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
 <rect x="522.4" y="58.4" width="55.2" height="55.2" rx="2" fill="none" stroke="#15803d" stroke-width="1.0" stroke-dasharray="3 2"/>
-<text x="504.0" y="246.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">k-means init + EMA</text>
-<text x="504.0" y="264.0" font-size="12" font-weight="700" fill="#7c3aed" text-anchor="middle" dominant-baseline="auto">16 / 16 codes used · MSE 0.07</text>
-<text x="504.0" y="282.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">start inside the data</text>
+<text x="504.0" y="248.0" font-size="16" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">k-means init, EMA</text>
+<text x="504.0" y="270.0" font-size="16" font-weight="700" fill="#7c3aed" text-anchor="middle" dominant-baseline="auto">16 / 16 used, MSE 0.065</text>
+<text x="504.0" y="292.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">start inside the data</text>
 </g>
 <g class="fragment" data-fragment-index="3">
 <rect x="608.0" y="40.0" width="184.0" height="184.0" rx="4" fill="#ffffff" stroke="#94a3b8" stroke-width="1.0"/>
@@ -1864,9 +1864,9 @@ z
 <circle cx="728.8" cy="74.7" r="3.6" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
 <circle cx="762.9" cy="96.3" r="3.6" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
 <rect x="718.4" y="58.4" width="55.2" height="55.2" rx="2" fill="none" stroke="#15803d" stroke-width="1.0" stroke-dasharray="3 2"/>
-<text x="700.0" y="246.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">random init + EMA + reset</text>
-<text x="700.0" y="264.0" font-size="12" font-weight="700" fill="#7c3aed" text-anchor="middle" dominant-baseline="auto">16 / 16 codes used · MSE 0.07</text>
-<text x="700.0" y="282.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">revive unused codes</text>
+<text x="700.0" y="248.0" font-size="16" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">random init, EMA, reset</text>
+<text x="700.0" y="270.0" font-size="16" font-weight="700" fill="#7c3aed" text-anchor="middle" dominant-baseline="auto">16 / 16 used, MSE 0.069</text>
+<text x="700.0" y="292.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">revive unused codes</text>
 </g>
 <g class="fragment" data-fragment-index="4">
 <rect x="804.0" y="40.0" width="184.0" height="184.0" rx="4" fill="#ffffff" stroke="#94a3b8" stroke-width="1.0"/>
@@ -2173,23 +2173,23 @@ z
 <circle cx="961.9" cy="80.8" r="3.2" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
 <circle cx="961.9" cy="66.1" r="3.2" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
 <rect x="914.4" y="58.4" width="55.2" height="55.2" rx="2" fill="none" stroke="#15803d" stroke-width="1.0" stroke-dasharray="3 2"/>
-<text x="862.0" y="246.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">FSQ,</text>
-<svg x="882" y="237" width="52.78" height="13" viewBox="0 0 52.78 13"><defs>
+<text x="852.0" y="248.0" font-size="16" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">FSQ,</text>
+<svg x="876" y="236" width="64.96" height="16" viewBox="0 0 64.96 16"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t26-figure_1">
   <g id="w6t26-patch_1">
-   <path d="M 0 13 
-L 52.78 13 
-L 52.78 0 
+   <path d="M 0 16 
+L 64.96 16 
+L 64.96 0 
 L 0 0 
-L 0 13 
+L 0 16 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t26-text_1">
    <!-- $\Lambda = (4, 4)$ -->
-   <g style="fill: #1f2328" transform="translate(0 9.75) scale(0.13 -0.13)">
+   <g style="fill: #1f2328" transform="translate(0 12) scale(0.16 -0.16)">
     <defs>
      <path id="w6t26-Cmr10-a4" d="M 206 0 
 L 206 225 
@@ -2346,8 +2346,8 @@ z
   </g>
  </g>
 </svg>
-<text x="896.0" y="264.0" font-size="12" font-weight="700" fill="#7c3aed" text-anchor="middle" dominant-baseline="auto">16 / 16 codes used · MSE 0.12</text>
-<text x="896.0" y="282.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">no codebook to kill</text>
+<text x="896.0" y="270.0" font-size="16" font-weight="700" fill="#7c3aed" text-anchor="middle" dominant-baseline="auto">16 / 16 used, MSE 0.123</text>
+<text x="896.0" y="292.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">no codebook to kill</text>
 </g>
-<text x="20.0" y="318.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">grey: data · purple: a code that is used · red ×: a code never chosen · dashed green: the data's support · 200 steps, batch 128, 16 codes</text>
+<text x="20.0" y="332.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">grey: data · purple: a used code · red ×: never chosen · dashed green: the data's support · 200 steps, batch 128</text>
 </svg>

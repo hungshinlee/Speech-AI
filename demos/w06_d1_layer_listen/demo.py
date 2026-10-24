@@ -12,7 +12,7 @@
   selftest   不開視窗：bitrate 公式、F0 估計、指標的恆等、fake 流程；有彩排紀錄時對 w06-metrics.json
   export     只重寫 w06-metrics.json → demo1（從 runs/rehearsal/rehearsal.json）
 
-畫面上的鍵（順序照投影片 p33／p34 講稿的【操作】）：
+畫面上的鍵（順序照投影片 p34／p35 講稿的【操作】）：
   o  播原句                       1 2 4 8  Mimi 只留前 1／2／4／8 層（12.5 Hz；1 層 = 蒸餾 WavLM 的 semantic 層）
   e  EnCodec 24 kHz，每按一次往上一級：1.5 → 3 → 6 → 12 → 24 kbps（2／4／8／16／32 層）
   d  DAC 24 kHz，每按一次往上一級：1 → 2 → 4 → 8 層
@@ -23,7 +23,7 @@
 重建 = 前 n_q 層 codeword 的和，這就是 residual VQ 的定義，也是 quantizer dropout 訓練出來的那個性質。check 對過：切列 decode 與
 用該類別自己的層數參數（bandwidth／n_quantizers／num_quantizers）encode 得到同一組 code。
 bitrate B = f_r · n_q · log2 V，f_r 與 V 從載入的 config 讀、並以 encode 出來的 T 對輸入長度量一次（兩者都印）。
-客觀指標只是參考——判準是耳朵（p34 的 claim）：LSD、SNR（GAN 訓練的 codec 不保相位，SNR 接近 0 dB 是正常的）、有聲 frame 的 F0 RMSE 與 voicing 一致率。
+客觀指標只是參考——判準是耳朵（p35 的 claim）：LSD、SNR（GAN 訓練的 codec 不保相位，SNR 接近 0 dB 是正常的）、有聲 frame 的 F0 RMSE 與 voicing 一致率。
 """
 from __future__ import annotations
 
@@ -554,7 +554,7 @@ class Demo:
 
     def menu(self) -> None:
         o = self.out
-        o(f"\n{C.BOLD}p33／p34{C.RESET}  o 原句   1 2 4 8 Mimi 前 n 層   e EnCodec 1.5→3→6→12→24 kbps   d DAC 1→2→4→8 層")
+        o(f"\n{C.BOLD}p34／p35{C.RESET}  o 原句   1 2 4 8 Mimi 前 n 層   e EnCodec 1.5→3→6→12→24 kbps   d DAC 1→2→4→8 層")
         o(f"          m 換輸入（現在 {CFG['inputs'][self.cur_input]['label']}）   f F0 曲線   r 再播   t 指標表   h 選單   q 離開")
 
     def dispatch(self, k: str) -> bool:
@@ -835,7 +835,7 @@ def export(rec_path: Path) -> None:
              "definitions": {"bitrate_bps": "f_r · n_q · log2 V with f_r and V read from the loaded config; frame_rate_measured = T / seconds",
                              "lsd_db": "log-spectral distance, 25 ms / 10 ms / 1024-point, dB", "snr_db": "waveform SNR (phase-sensitive; near 0 dB is normal for GAN-trained codecs)",
                              "f0_rmse_hz": "RMSE of autocorrelation F0 on frames voiced in both original and reconstruction", "voicing_agree": "fraction of frames with the same voiced/unvoiced decision",
-                             "what_we_heard": "filled by hand after rehearsal (see w06.qmd p33/p31)"},
+                             "what_we_heard": "filled by hand after rehearsal (see w06.qmd p34/p35)"},
              "recon": {}}
     for key, v in rec["recon"].items():
         demo1["recon"][key] = {}
@@ -962,8 +962,8 @@ def main() -> None:
         d.rehearse_figs()
         d.save()
         export(d.folder / "rehearsal.json")
-        print("\n下一步：./present.sh 自己按一遍 o 1 2 4 8 e e e e e d d d d m o 1 8 e f t；把聽到的寫進 p33／p34 的表（what we heard），"
-              "DAC 的 f_r／V、Mimi 的 N_q 從上面的 config 列填進 p33 表格與【提示】。")
+        print("\n下一步：./present.sh 自己按一遍 o 1 2 4 8 e e e e e d d d d m o 1 8 e f t；把聽到的寫進 p34／p35 的表（what we heard），"
+              "DAC 的 f_r／V、Mimi 的 N_q 從上面的 config 列填進 p34 表格與【提示】。")
         return
 
     d.make_fig()

@@ -1,44 +1,43 @@
 <!-- 由 scripts/make_figs_w06.py 產生，勿手改；投影片用 {{< include assets/w06/latency-cell.inline.qmd >}} 貼入 -->
 ```{=html}
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 260" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
-<text x="984.0" y="22.0" font-size="15" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">schematic — not a measurement</text>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 276" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
 <g class="fragment" data-fragment-index="0">
-<text x="20.0" y="36.0" font-size="13" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">W1 p31: the budget we refill every week — every term after the user stops speaking (widths are not to scale)</text>
+<text x="20.0" y="36.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">W1 p31: the budget we refill every week — every term after the user stops speaking (widths are not to scale)</text>
 <rect x="20.0" y="56.0" width="150.0" height="44.0" rx="3" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.0"/>
-<text x="95.0" y="78.0" font-size="12" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">endpoint</text>
-<rect x="174.0" y="56.0" width="110.0" height="44.0" rx="3" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.0"/>
-<text x="229.0" y="78.0" font-size="12" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">ASR final</text>
-<rect x="288.0" y="56.0" width="120.0" height="44.0" rx="3" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.0"/>
-<text x="348.0" y="78.0" font-size="12" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">LLM prefill</text>
-<rect x="412.0" y="56.0" width="120.0" height="44.0" rx="3" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.0"/>
-<text x="472.0" y="78.0" font-size="12" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">LLM first token</text>
-<rect x="536.0" y="56.0" width="170.0" height="44.0" rx="3" fill="#fff7ed" stroke="#94a3b8" stroke-width="1.0"/>
-<text x="621.0" y="78.0" font-size="12" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">TTS first packet</text>
-<rect x="710.0" y="56.0" width="110.0" height="44.0" rx="3" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.0"/>
-<text x="765.0" y="78.0" font-size="12" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">playout</text>
+<text x="95.0" y="78.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">endpoint</text>
+<rect x="174.0" y="56.0" width="120.0" height="44.0" rx="3" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="234.0" y="78.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">ASR final</text>
+<rect x="298.0" y="56.0" width="130.0" height="44.0" rx="3" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="363.0" y="78.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">LLM prefill</text>
+<rect x="432.0" y="56.0" width="140.0" height="44.0" rx="3" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="502.0" y="78.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">LLM first token</text>
+<rect x="576.0" y="56.0" width="170.0" height="44.0" rx="3" fill="#fff7ed" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="661.0" y="78.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">TTS first packet</text>
+<rect x="750.0" y="56.0" width="110.0" height="44.0" rx="3" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="805.0" y="78.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">playout</text>
 </g>
 <g class="fragment" data-fragment-index="1">
-<rect x="536.0" y="54.0" width="170.0" height="48.0" rx="4" fill="none" stroke="#dc2626" stroke-width="2.0" stroke-dasharray="6 4"/>
-<line x1="621.0" y1="104.0" x2="621.0" y2="120.0" stroke="#dc2626" stroke-width="1.6"/>
-<polygon points="621.0,128.0 616.0,120.0 626.0,120.0" fill="#dc2626"/>
-<rect x="416.0" y="132.0" width="410.0" height="60.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
-<text x="621.0" y="152.0" font-size="12" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">inside it: at least one codec frame before the first sample can play</text>
-<svg x="450.34" y="172" width="341.32" height="14" viewBox="0 0 341.32 14"><defs>
+<rect x="576.0" y="54.0" width="170.0" height="48.0" rx="4" fill="none" stroke="#dc2626" stroke-width="2.0" stroke-dasharray="6 4"/>
+<line x1="661.0" y1="104.0" x2="661.0" y2="120.0" stroke="#dc2626" stroke-width="1.6"/>
+<polygon points="661.0,128.0 656.0,120.0 666.0,120.0" fill="#dc2626"/>
+<rect x="346.0" y="132.0" width="600.0" height="66.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+<text x="646.0" y="154.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">inside it: at least one codec frame before the first sample can play</text>
+<svg x="450.96" y="174" width="390.08" height="16" viewBox="0 0 390.08 16"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t61-figure_1">
   <g id="w6t61-patch_1">
-   <path d="M 0 14 
-L 341.32 14 
-L 341.32 0 
+   <path d="M 0 16 
+L 390.08 16 
+L 390.08 0 
 L 0 0 
-L 0 14 
+L 0 16 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t61-text_1">
    <!-- $1/f_r\ (\mathsf{Mimi}\ 80\ \mathsf{ms};\ \mathsf{EnCodec}\ 13\ \mathsf{ms})\ +\ \mathsf{decoder\ lookahead}$ -->
-   <g style="fill: #dc2626" transform="translate(0 10.5) scale(0.14 -0.14)">
+   <g style="fill: #dc2626" transform="translate(0 12) scale(0.16 -0.16)">
     <defs>
      <path id="w6t61-Cmr10-31" d="M 594 0 
 L 594 225 
@@ -824,21 +823,20 @@ z
 </svg>
 </g>
 <g class="fragment" data-fragment-index="2">
-<line x1="20.0" y1="206.0" x2="20.0" y2="222.0" stroke="#7c3aed" stroke-width="1.4"/>
-<line x1="90.0" y1="206.0" x2="90.0" y2="222.0" stroke="#7c3aed" stroke-width="1.4"/>
-<line x1="160.0" y1="206.0" x2="160.0" y2="222.0" stroke="#7c3aed" stroke-width="1.4"/>
-<line x1="230.0" y1="206.0" x2="230.0" y2="222.0" stroke="#7c3aed" stroke-width="1.4"/>
-<line x1="300.0" y1="206.0" x2="300.0" y2="222.0" stroke="#7c3aed" stroke-width="1.4"/>
-<line x1="370.0" y1="206.0" x2="370.0" y2="222.0" stroke="#7c3aed" stroke-width="1.4"/>
-<line x1="440.0" y1="206.0" x2="440.0" y2="222.0" stroke="#7c3aed" stroke-width="1.4"/>
-<line x1="510.0" y1="206.0" x2="510.0" y2="222.0" stroke="#7c3aed" stroke-width="1.4"/>
-<line x1="580.0" y1="206.0" x2="580.0" y2="222.0" stroke="#7c3aed" stroke-width="1.4"/>
-<line x1="650.0" y1="206.0" x2="650.0" y2="222.0" stroke="#7c3aed" stroke-width="1.4"/>
-<line x1="720.0" y1="206.0" x2="720.0" y2="222.0" stroke="#7c3aed" stroke-width="1.4"/>
-<line x1="790.0" y1="206.0" x2="790.0" y2="222.0" stroke="#7c3aed" stroke-width="1.4"/>
-<line x1="20.0" y1="222.0" x2="800.0" y2="222.0" stroke="#7c3aed" stroke-width="1.4"/>
-<text x="820.0" y="226.0" font-size="13" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="auto">W13: one decision per frame</text>
-<text x="20.0" y="246.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">a full-duplex model's clock ticks once per frame — the frame rate is the granularity of reaction, on both sides of the conversation</text>
+<line x1="20.0" y1="214.0" x2="20.0" y2="230.0" stroke="#7c3aed" stroke-width="1.4"/>
+<line x1="90.0" y1="214.0" x2="90.0" y2="230.0" stroke="#7c3aed" stroke-width="1.4"/>
+<line x1="160.0" y1="214.0" x2="160.0" y2="230.0" stroke="#7c3aed" stroke-width="1.4"/>
+<line x1="230.0" y1="214.0" x2="230.0" y2="230.0" stroke="#7c3aed" stroke-width="1.4"/>
+<line x1="300.0" y1="214.0" x2="300.0" y2="230.0" stroke="#7c3aed" stroke-width="1.4"/>
+<line x1="370.0" y1="214.0" x2="370.0" y2="230.0" stroke="#7c3aed" stroke-width="1.4"/>
+<line x1="440.0" y1="214.0" x2="440.0" y2="230.0" stroke="#7c3aed" stroke-width="1.4"/>
+<line x1="510.0" y1="214.0" x2="510.0" y2="230.0" stroke="#7c3aed" stroke-width="1.4"/>
+<line x1="580.0" y1="214.0" x2="580.0" y2="230.0" stroke="#7c3aed" stroke-width="1.4"/>
+<line x1="650.0" y1="214.0" x2="650.0" y2="230.0" stroke="#7c3aed" stroke-width="1.4"/>
+<line x1="720.0" y1="214.0" x2="720.0" y2="230.0" stroke="#7c3aed" stroke-width="1.4"/>
+<line x1="20.0" y1="230.0" x2="720.0" y2="230.0" stroke="#7c3aed" stroke-width="1.4"/>
+<text x="740.0" y="234.0" font-size="17" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="auto">W13: one decision per frame</text>
+<text x="20.0" y="260.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">a full-duplex model's clock ticks once per frame — the frame rate is the granularity of reaction, on both sides</text>
 </g>
 </svg>
 ```

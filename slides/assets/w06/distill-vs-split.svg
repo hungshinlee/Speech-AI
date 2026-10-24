@@ -1,9 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 330" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
-<text x="984.0" y="22.0" font-size="15" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">schematic — not a measurement</text>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 352" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
 <g class="fragment" data-fragment-index="0">
-<text x="20.0" y="36.0" font-size="15" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">SpeechTokenizer (ICLR 2024): distil into stage 1 of the RVQ</text>
-<rect x="20.0" y="60.0" width="80.0" height="50.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<svg x="52.71" y="77.5794" width="14.58" height="17.4206" viewBox="0 0 14.58 17.420625"><defs>
+<text x="20.0" y="36.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">SpeechTokenizer (ICLR 2024): distil into stage 1 of the RVQ</text>
+<rect x="20.0" y="58.0" width="80.0" height="52.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<svg x="52.71" y="76.5794" width="14.58" height="17.4206" viewBox="0 0 14.58 17.420625"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t57-figure_1">
@@ -90,41 +89,41 @@ z
   </g>
  </g>
 </svg>
-<rect x="120.0" y="62.0" width="40.0" height="46.0" rx="4" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.0"/>
-<text x="140.0" y="85.0" font-size="13" font-weight="700" fill="#7c3aed" text-anchor="middle" dominant-baseline="middle">1</text>
-<rect x="164.0" y="62.0" width="40.0" height="46.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
-<text x="184.0" y="85.0" font-size="13" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">2</text>
-<rect x="208.0" y="62.0" width="40.0" height="46.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
-<text x="228.0" y="85.0" font-size="13" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">3</text>
-<rect x="252.0" y="62.0" width="40.0" height="46.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
-<text x="272.0" y="85.0" font-size="13" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">4</text>
-<rect x="296.0" y="62.0" width="40.0" height="46.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
-<text x="316.0" y="85.0" font-size="13" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">5</text>
-<rect x="340.0" y="62.0" width="40.0" height="46.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
-<text x="360.0" y="85.0" font-size="13" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">6</text>
-<rect x="384.0" y="62.0" width="40.0" height="46.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
-<text x="404.0" y="85.0" font-size="13" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">7</text>
-<rect x="428.0" y="62.0" width="40.0" height="46.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
-<text x="448.0" y="85.0" font-size="13" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">8</text>
-<line x1="104.0" y1="85.0" x2="112.0" y2="85.0" stroke="#94a3b8" stroke-width="1.4"/>
-<polygon points="118.0,85.0 112.0,90.0 112.0,80.0" fill="#94a3b8"/>
-<rect x="110.0" y="126.0" width="110.0" height="40.0" rx="5" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.0"/>
-<svg x="151.125" y="138.483" width="27.75" height="14.5172" viewBox="0 0 27.75 14.517187"><defs>
+<rect x="120.0" y="60.0" width="40.0" height="48.0" rx="4" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.0"/>
+<text x="140.0" y="84.0" font-size="16" font-weight="700" fill="#7c3aed" text-anchor="middle" dominant-baseline="middle">1</text>
+<rect x="164.0" y="60.0" width="40.0" height="48.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
+<text x="184.0" y="84.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">2</text>
+<rect x="208.0" y="60.0" width="40.0" height="48.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
+<text x="228.0" y="84.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">3</text>
+<rect x="252.0" y="60.0" width="40.0" height="48.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
+<text x="272.0" y="84.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">4</text>
+<rect x="296.0" y="60.0" width="40.0" height="48.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
+<text x="316.0" y="84.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">5</text>
+<rect x="340.0" y="60.0" width="40.0" height="48.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
+<text x="360.0" y="84.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">6</text>
+<rect x="384.0" y="60.0" width="40.0" height="48.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
+<text x="404.0" y="84.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">7</text>
+<rect x="428.0" y="60.0" width="40.0" height="48.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
+<text x="448.0" y="84.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">8</text>
+<line x1="104.0" y1="84.0" x2="112.0" y2="84.0" stroke="#94a3b8" stroke-width="1.4"/>
+<polygon points="118.0,84.0 112.0,89.0 112.0,79.0" fill="#94a3b8"/>
+<rect x="110.0" y="128.0" width="110.0" height="40.0" rx="5" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.0"/>
+<svg x="150.2" y="140.515" width="29.6" height="15.485" viewBox="0 0 29.6 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t58-figure_1">
   <g id="w6t58-patch_1">
-   <path d="M 0 14.517187 
-L 27.75 14.517187 
-L 27.75 -0 
-L 0 -0 
-L 0 14.517187 
+   <path d="M 0 15.485 
+L 29.6 15.485 
+L 29.6 0 
+L 0 0 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t58-text_1">
    <!-- $\mathcal{L}_{\mathsf{dist}}$ -->
-   <g style="fill: #7c3aed" transform="translate(0 11.397656) scale(0.15 -0.15)">
+   <g style="fill: #7c3aed" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w6t58-Cmsy10-4c" d="M 238 -141 
 Q 197 -141 197 -97 
@@ -291,15 +290,15 @@ z
   </g>
  </g>
 </svg>
-<line x1="165.0" y1="124.0" x2="155.1" y2="114.8" stroke="#7c3aed" stroke-width="1.4"/>
-<polygon points="150.0,110.0 158.5,111.1 151.7,118.4" fill="#7c3aed"/>
-<text x="232.0" y="140.0" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">teacher: HuBERT (layer 9, or the mean of all layers); cosine, first quantizer only</text>
-<text x="232.0" y="158.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">stages 2–8 get no such term: “the remaining seven quantizers produce acoustic tokens” (App. E)</text>
+<line x1="165.0" y1="126.0" x2="154.8" y2="115.1" stroke="#7c3aed" stroke-width="1.4"/>
+<polygon points="150.0,110.0 158.4,111.7 151.1,118.5" fill="#7c3aed"/>
+<text x="234.0" y="142.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">teacher: HuBERT (layer 9, or the mean of all layers); cosine, first quantizer only</text>
+<text x="234.0" y="164.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">stages 2–8 get no such term — “the remaining seven quantizers produce acoustic tokens”</text>
 </g>
 <g class="fragment" data-fragment-index="1">
-<text x="20.0" y="200.0" font-size="15" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">Mimi (Moshi, 2024): split the RVQ</text>
-<rect x="20.0" y="224.0" width="80.0" height="50.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<svg x="52.71" y="241.579" width="14.58" height="17.4206" viewBox="0 0 14.58 17.420625"><defs>
+<text x="20.0" y="206.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">Mimi (Moshi, 2024): split the RVQ</text>
+<rect x="20.0" y="224.0" width="80.0" height="52.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<svg x="52.71" y="242.579" width="14.58" height="17.4206" viewBox="0 0 14.58 17.420625"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t59-figure_1">
@@ -386,42 +385,42 @@ z
   </g>
  </g>
 </svg>
-<line x1="104.0" y1="236.0" x2="112.2" y2="233.6" stroke="#94a3b8" stroke-width="1.4"/>
-<polygon points="118.0,232.0 113.6,238.5 110.9,228.8" fill="#94a3b8"/>
-<line x1="104.0" y1="262.0" x2="112.8" y2="267.0" stroke="#94a3b8" stroke-width="1.4"/>
-<polygon points="118.0,270.0 110.3,271.4 115.3,262.7" fill="#94a3b8"/>
-<rect x="120.0" y="214.0" width="40.0" height="36.0" rx="4" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.0"/>
-<text x="140.0" y="232.0" font-size="12" font-weight="700" fill="#7c3aed" text-anchor="middle" dominant-baseline="middle">VQ</text>
-<text x="170.0" y="232.0" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">semantic: WavLM-large, 1024-d, 50 Hz → pooled to 12.5 Hz, cosine</text>
-<rect x="120.0" y="254.0" width="40.0" height="36.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
-<text x="140.0" y="272.0" font-size="12" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">1</text>
-<rect x="164.0" y="254.0" width="40.0" height="36.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
-<text x="184.0" y="272.0" font-size="12" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">2</text>
-<rect x="208.0" y="254.0" width="40.0" height="36.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
-<text x="228.0" y="272.0" font-size="12" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">3</text>
-<rect x="252.0" y="254.0" width="40.0" height="36.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
-<text x="272.0" y="272.0" font-size="12" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">4</text>
-<rect x="296.0" y="254.0" width="40.0" height="36.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
-<text x="316.0" y="272.0" font-size="12" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">5</text>
-<rect x="340.0" y="254.0" width="40.0" height="36.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
-<text x="360.0" y="272.0" font-size="12" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">6</text>
-<rect x="384.0" y="254.0" width="40.0" height="36.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
-<text x="404.0" y="272.0" font-size="12" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">7</text>
-<text x="440.0" y="272.0" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">acoustic: a 7-level RVQ, in parallel</text>
-<rect x="740.0" y="222.0" width="60.0" height="50.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
-<text x="770.0" y="247.0" font-size="22" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">+</text>
-<line x1="630.0" y1="232.0" x2="729.0" y2="241.3" stroke="#7c3aed" stroke-width="1.4"/>
-<polygon points="736.0,242.0 728.6,246.3 729.5,236.4" fill="#7c3aed"/>
-<line x1="660.0" y1="272.0" x2="729.2" y2="257.4" stroke="#dc2626" stroke-width="1.4"/>
-<polygon points="736.0,256.0 730.2,262.3 728.1,252.5" fill="#dc2626"/>
-<line x1="804.0" y1="247.0" x2="833.0" y2="247.0" stroke="#94a3b8" stroke-width="1.4"/>
-<polygon points="840.0,247.0 833.0,252.0 833.0,242.0" fill="#94a3b8"/>
-<rect x="844.0" y="222.0" width="136.0" height="50.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="912.0" y="241.0" font-size="14" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">decoder</text>
-<text x="912.0" y="261.0" font-size="13" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">8 tokens / step</text>
+<line x1="104.0" y1="238.0" x2="112.2" y2="235.6" stroke="#94a3b8" stroke-width="1.4"/>
+<polygon points="118.0,234.0 113.6,240.5 110.9,230.8" fill="#94a3b8"/>
+<line x1="104.0" y1="262.0" x2="113.1" y2="268.5" stroke="#94a3b8" stroke-width="1.4"/>
+<polygon points="118.0,272.0 110.2,272.6 116.0,264.4" fill="#94a3b8"/>
+<rect x="120.0" y="216.0" width="44.0" height="36.0" rx="4" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.0"/>
+<text x="142.0" y="234.0" font-size="16" font-weight="700" fill="#7c3aed" text-anchor="middle" dominant-baseline="middle">VQ</text>
+<text x="174.0" y="234.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">semantic: WavLM-large (50 Hz → 12.5 Hz), cosine</text>
+<rect x="120.0" y="256.0" width="40.0" height="36.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
+<text x="140.0" y="274.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">1</text>
+<rect x="164.0" y="256.0" width="40.0" height="36.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
+<text x="184.0" y="274.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">2</text>
+<rect x="208.0" y="256.0" width="40.0" height="36.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
+<text x="228.0" y="274.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">3</text>
+<rect x="252.0" y="256.0" width="40.0" height="36.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
+<text x="272.0" y="274.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">4</text>
+<rect x="296.0" y="256.0" width="40.0" height="36.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
+<text x="316.0" y="274.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">5</text>
+<rect x="340.0" y="256.0" width="40.0" height="36.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
+<text x="360.0" y="274.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">6</text>
+<rect x="384.0" y="256.0" width="40.0" height="36.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
+<text x="404.0" y="274.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">7</text>
+<text x="436.0" y="274.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">acoustic: RVQ, 7 levels</text>
+<rect x="740.0" y="222.0" width="60.0" height="52.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="770.0" y="248.0" font-size="22" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">+</text>
+<line x1="600.0" y1="234.0" x2="729.0" y2="241.6" stroke="#7c3aed" stroke-width="1.4"/>
+<polygon points="736.0,242.0 728.7,246.6 729.3,236.6" fill="#7c3aed"/>
+<line x1="630.0" y1="274.0" x2="729.1" y2="257.2" stroke="#dc2626" stroke-width="1.4"/>
+<polygon points="736.0,256.0 729.9,262.1 728.3,252.2" fill="#dc2626"/>
+<line x1="804.0" y1="248.0" x2="833.0" y2="248.0" stroke="#94a3b8" stroke-width="1.4"/>
+<polygon points="840.0,248.0 833.0,253.0 833.0,243.0" fill="#94a3b8"/>
+<rect x="844.0" y="222.0" width="136.0" height="52.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="912.0" y="240.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">decoder</text>
+<text x="912.0" y="264.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">8 tokens / step</text>
 </g>
 <g class="fragment" data-fragment-index="2">
-<rect x="20.0" y="296.0" width="960.0" height="28.0" rx="4" fill="#fff7ed" stroke="#b45309" stroke-width="1.0"/>
-<text x="500.0" y="310.0" font-size="12" font-weight="700" fill="#b45309" text-anchor="middle" dominant-baseline="middle">the price of splitting: the acoustic path is no longer the residual of the semantic one — nothing guarantees the two do not overlap</text>
+<rect x="20.0" y="304.0" width="960.0" height="40.0" rx="4" fill="#fff7ed" stroke="#b45309" stroke-width="1.0"/>
+<text x="500.0" y="324.0" font-size="16" font-weight="700" fill="#b45309" text-anchor="middle" dominant-baseline="middle">the price: the acoustic path is no longer the residual of the semantic one — nothing guarantees they do not overlap</text>
 </g>
 </svg>
