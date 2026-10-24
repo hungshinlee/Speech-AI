@@ -1,11 +1,11 @@
 <!-- 由 scripts/make_figs_w05.py 產生，勿手改；投影片用 {{< include assets/w05/last-week.inline.qmd >}} 貼入 -->
 ```{=html}
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 330" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
-<text x="984.0" y="22.0" font-size="15" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">schematic — not a measurement</text>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 344" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<text x="984.0" y="22.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">schematic — not a measurement</text>
 <g class="fragment" data-fragment-index="0">
-<text x="40.0" y="24.0" font-size="15" font-weight="600" fill="#6b7280" text-anchor="start" dominant-baseline="auto">Week 4, in one picture: the box is open, and every loss had a transcript</text>
-<rect x="40.0" y="70.0" width="90.0" height="150.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.4"/>
-<svg x="76.64" y="129.708" width="16.72" height="21.2919" viewBox="0 0 16.72 21.291875"><defs>
+<text x="40.0" y="24.0" font-size="17" font-weight="600" fill="#6b7280" text-anchor="start" dominant-baseline="auto">Week 4, in one picture: the box is open, and every loss had a transcript</text>
+<rect x="40.0" y="72.0" width="90.0" height="150.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.4"/>
+<svg x="76.64" y="131.708" width="16.72" height="21.2919" viewBox="0 0 16.72 21.291875"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w5t1-figure_1">
@@ -64,22 +64,22 @@ z
   </g>
  </g>
 </svg>
-<svg x="61.405" y="228.418" width="47.19" height="12.5816" viewBox="0 0 47.19 12.581563"><defs>
+<svg x="55.96" y="229.515" width="58.08" height="15.485" viewBox="0 0 58.08 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w5t2-figure_1">
   <g id="w5t2-patch_1">
-   <path d="M 0 12.581563 
-L 47.19 12.581563 
-L 47.19 0 
+   <path d="M 0 15.485 
+L 58.08 15.485 
+L 58.08 0 
 L 0 0 
-L 0 12.581563 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w5t2-text_1">
    <!-- $T \mathsf{\ frames}$ -->
-   <g style="fill: #6b7280" transform="translate(0 9.877969) scale(0.13 -0.13)">
+   <g style="fill: #6b7280" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w5t2-Cmmi10-54" d="M 294 84 
 Q 297 100 308 140 
@@ -300,27 +300,27 @@ z
   </g>
  </g>
 </svg>
-<rect x="170.0" y="70.0" width="200.0" height="150.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
-<text x="270.0" y="92.0" font-size="15" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">encoder (opened)</text>
-<rect x="184.0" y="106.0" width="172.0" height="28.0" rx="4" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.0"/>
-<text x="270.0" y="120.0" font-size="12" font-weight="600" fill="#0b5cad" text-anchor="middle" dominant-baseline="middle">self-attention · chunk mask</text>
-<rect x="184.0" y="140.0" width="172.0" height="28.0" rx="4" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.0"/>
-<svg x="204.72" y="149.386" width="130.56" height="11.6137" viewBox="0 0 130.56 11.61375"><defs>
+<rect x="170.0" y="72.0" width="250.0" height="150.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="295.0" y="96.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">encoder (opened)</text>
+<rect x="182.0" y="108.0" width="226.0" height="30.0" rx="4" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.0"/>
+<text x="295.0" y="123.0" font-size="16" font-weight="600" fill="#0b5cad" text-anchor="middle" dominant-baseline="middle">self-attention · chunk mask</text>
+<rect x="182.0" y="144.0" width="226.0" height="30.0" rx="4" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.0"/>
+<svg x="207.96" y="152.515" width="174.08" height="15.485" viewBox="0 0 174.08 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w5t3-figure_1">
   <g id="w5t3-patch_1">
-   <path d="M 0 11.61375 
-L 130.56 11.61375 
-L 130.56 0 
+   <path d="M 0 15.485 
+L 174.08 15.485 
+L 174.08 0 
 L 0 0 
-L 0 11.61375 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w5t3-text_1">
    <!-- $\mathsf{conv\ module} \cdot \mathsf{subsample\ } s$ -->
-   <g style="fill: #7c3aed" transform="translate(0 9.118125) scale(0.12 -0.12)">
+   <g style="fill: #7c3aed" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w5t3-Cmss10-63" d="M 1594 -72 
 Q 1309 -72 1053 50 
@@ -745,22 +745,22 @@ z
   </g>
  </g>
 </svg>
-<svg x="206.55" y="186.95" width="126.9" height="16.05" viewBox="0 0 126.9 16.05"><defs>
+<svg x="223.09" y="193.81" width="143.82" height="18.19" viewBox="0 0 143.82 18.19"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w5t4-figure_1">
   <g id="w5t4-patch_1">
-   <path d="M 0 16.05 
-L 126.9 16.05 
-L 126.9 0 
+   <path d="M 0 18.19 
+L 143.82 18.19 
+L 143.82 0 
 L 0 0 
-L 0 16.05 
+L 0 18.19 
 z
 " style="fill: none"/>
   </g>
   <g id="w5t4-text_1">
    <!-- $D_{\mathsf{alg}} = (m + \alpha C)\,s\Delta$ -->
-   <g style="fill: #1f2328" transform="translate(0 11.25) scale(0.15 -0.15)">
+   <g style="fill: #1f2328" transform="translate(0 12.75) scale(0.17 -0.17)">
     <defs>
      <path id="w5t4-Cmmi10-44" d="M 313 0 
 Q 250 0 250 84 
@@ -1251,26 +1251,26 @@ z
   </g>
  </g>
 </svg>
-<line x1="134.0" y1="145.0" x2="158.0" y2="145.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="166.0,145.0 158.0,150.0 158.0,140.0" fill="#94a3b8"/>
-<line x1="374.0" y1="145.0" x2="398.0" y2="145.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="406.0,145.0 398.0,150.0 398.0,140.0" fill="#94a3b8"/>
-<svg x="414" y="135.644" width="13.4" height="19.3562" viewBox="0 0 13.4 19.35625"><defs>
+<line x1="134.0" y1="147.0" x2="158.0" y2="147.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="166.0,147.0 158.0,152.0 158.0,142.0" fill="#94a3b8"/>
+<line x1="424.0" y1="147.0" x2="444.0" y2="147.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="452.0,147.0 444.0,152.0 444.0,142.0" fill="#94a3b8"/>
+<svg x="460" y="135.708" width="14.74" height="21.2919" viewBox="0 0 14.74 21.291875"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w5t5-figure_1">
   <g id="w5t5-patch_1">
-   <path d="M 0 19.35625 
-L 13.4 19.35625 
-L 13.4 0 
+   <path d="M 0 21.291875 
+L 14.74 21.291875 
+L 14.74 0 
 L 0 0 
-L 0 19.35625 
+L 0 21.291875 
 z
 " style="fill: none"/>
   </g>
   <g id="w5t5-text_1">
    <!-- $\mathbf{f}_t$ -->
-   <g style="fill: #1f2328" transform="translate(0 15.196875) scale(0.2 -0.2)">
+   <g style="fill: #1f2328" transform="translate(0 16.716563) scale(0.22 -0.22)">
     <defs>
      <path id="w5t5-Cmb10-66" d="M 159 0 
 L 159 325 
@@ -1347,24 +1347,24 @@ z
   </g>
  </g>
 </svg>
-<rect x="470.0" y="60.0" width="490.0" height="52.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
-<text x="484.0" y="86.0" font-size="14" font-weight="700" fill="#b45309" text-anchor="start" dominant-baseline="middle">CTC</text>
-<svg x="580" y="80.85" width="149.25" height="18.15" viewBox="0 0 149.25 18.15"><defs>
+<rect x="530.0" y="62.0" width="430.0" height="54.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="544.0" y="89.0" font-size="16" font-weight="700" fill="#b45309" text-anchor="start" dominant-baseline="middle">CTC</text>
+<svg x="648" y="83.43" width="169.15" height="20.57" viewBox="0 0 169.15 20.57"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w5t6-figure_1">
   <g id="w5t6-patch_1">
-   <path d="M 0 18.15 
-L 149.25 18.15 
-L 149.25 0 
+   <path d="M 0 20.57 
+L 169.15 20.57 
+L 169.15 0 
 L 0 0 
-L 0 18.15 
+L 0 20.57 
 z
 " style="fill: none"/>
   </g>
   <g id="w5t6-text_1">
    <!-- $\mathcal{L} = -\ln \Sigma_{\pi \in \mathcal{B}^{-1}(\ell)} \Pi_t\, y^t_{\pi_t}$ -->
-   <g style="fill: #1f2328" transform="translate(0 12.45) scale(0.15 -0.15)">
+   <g style="fill: #1f2328" transform="translate(0 14.11) scale(0.17 -0.17)">
     <defs>
      <path id="w5t6-Cmsy10-4c" d="M 238 -141 
 Q 197 -141 197 -97 
@@ -1930,24 +1930,24 @@ z
   </g>
  </g>
 </svg>
-<rect x="470.0" y="122.0" width="490.0" height="52.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<text x="484.0" y="148.0" font-size="14" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="middle">RNN-T</text>
-<svg x="580" y="144" width="151.65" height="15" viewBox="0 0 151.65 15"><defs>
+<rect x="530.0" y="126.0" width="430.0" height="54.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="544.0" y="153.0" font-size="16" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="middle">RNN-T</text>
+<svg x="648" y="149" width="171.87" height="17" viewBox="0 0 171.87 17"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w5t7-figure_1">
   <g id="w5t7-patch_1">
-   <path d="M 0 15 
-L 151.65 15 
-L 151.65 0 
+   <path d="M 0 17 
+L 171.87 17 
+L 171.87 0 
 L 0 0 
-L 0 15 
+L 0 17 
 z
 " style="fill: none"/>
   </g>
   <g id="w5t7-text_1">
    <!-- $\mathcal{L} = -\ln \alpha(T, U)\,\varnothing(T, U)$ -->
-   <g style="fill: #1f2328" transform="translate(0 11.25) scale(0.15 -0.15)">
+   <g style="fill: #1f2328" transform="translate(0 12.75) scale(0.17 -0.17)">
     <defs>
      <path id="w5t7-Cmsy10-4c" d="M 238 -141 
 Q 197 -141 197 -97 
@@ -2355,24 +2355,24 @@ z
   </g>
  </g>
 </svg>
-<rect x="470.0" y="184.0" width="490.0" height="52.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="484.0" y="210.0" font-size="14" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="middle">attention</text>
-<svg x="580" y="206" width="159.15" height="15" viewBox="0 0 159.15 15"><defs>
+<rect x="530.0" y="190.0" width="430.0" height="54.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="544.0" y="217.0" font-size="16" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="middle">attention</text>
+<svg x="648" y="213" width="180.37" height="17" viewBox="0 0 180.37 17"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w5t8-figure_1">
   <g id="w5t8-patch_1">
-   <path d="M 0 15 
-L 159.15 15 
-L 159.15 0 
+   <path d="M 0 17 
+L 180.37 17 
+L 180.37 0 
 L 0 0 
-L 0 15 
+L 0 17 
 z
 " style="fill: none"/>
   </g>
   <g id="w5t8-text_1">
    <!-- $\mathcal{L} = -\Sigma_u \ln P(\ell_u \mid \ell_{&lt;u}, \mathbf{X})$ -->
-   <g style="fill: #1f2328" transform="translate(0 11.25) scale(0.15 -0.15)">
+   <g style="fill: #1f2328" transform="translate(0 12.75) scale(0.17 -0.17)">
     <defs>
      <path id="w5t8-Cmsy10-4c" d="M 238 -141 
 Q 197 -141 197 -97 
@@ -2848,28 +2848,28 @@ z
   </g>
  </g>
 </svg>
-<text x="715.0" y="256.0" font-size="13" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">three alignments, three losses — W4 p56</text>
+<text x="745.0" y="266.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">three alignments, three losses — W4 p56</text>
 </g>
 <g class="fragment" data-fragment-index="1">
-<rect x="570.0" y="64.0" width="380.0" height="44.0" rx="5" fill="none" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="5 3"/>
-<rect x="570.0" y="126.0" width="380.0" height="44.0" rx="5" fill="none" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="5 3"/>
-<rect x="570.0" y="188.0" width="380.0" height="44.0" rx="5" fill="none" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="5 3"/>
-<svg x="650.02" y="44.4184" width="219.96" height="12.5816" viewBox="0 0 219.96 12.581563"><defs>
+<rect x="636.0" y="66.0" width="318.0" height="46.0" rx="5" fill="none" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="5 3"/>
+<rect x="636.0" y="130.0" width="318.0" height="46.0" rx="5" fill="none" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="5 3"/>
+<rect x="636.0" y="194.0" width="318.0" height="46.0" rx="5" fill="none" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="5 3"/>
+<svg x="659.64" y="42.515" width="270.72" height="15.485" viewBox="0 0 270.72 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w5t9-figure_1">
   <g id="w5t9-patch_1">
-   <path d="M 0 12.581563 
-L 219.96 12.581563 
-L 219.96 0 
+   <path d="M 0 15.485 
+L 270.72 15.485 
+L 270.72 0 
 L 0 0 
-L 0 12.581563 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w5t9-text_1">
    <!-- $\mathsf{every\ one\ of\ them\ reads\ } \ell\mathsf{,\ the\ transcript}$ -->
-   <g style="fill: #dc2626" transform="translate(0 9.851562) scale(0.13 -0.13)">
+   <g style="fill: #dc2626" transform="translate(0 12.125) scale(0.16 -0.16)">
     <defs>
      <path id="w5t9-Cmss10-65" d="M 1594 -72 
 Q 1300 -72 1044 51 
@@ -3363,23 +3363,23 @@ z
   </g>
  </g>
 </svg>
-<rect x="34.0" y="38.0" width="102.0" height="24.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
-<svg x="54.45" y="44.4184" width="61.1" height="12.5816" viewBox="0 0 61.1 12.581563"><defs>
+<rect x="34.0" y="40.0" width="102.0" height="26.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+<svg x="47.4" y="44.515" width="75.2" height="15.485" viewBox="0 0 75.2 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w5t10-figure_1">
   <g id="w5t10-patch_1">
-   <path d="M 0 12.581563 
-L 61.1 12.581563 
-L 61.1 0 
+   <path d="M 0 15.485 
+L 75.2 15.485 
+L 75.2 0 
 L 0 0 
-L 0 12.581563 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w5t10-text_1">
    <!-- $\ell\ \mathsf{next\ to}\ \mathbf{X}$ -->
-   <g style="fill: #dc2626" transform="translate(0 9.877969) scale(0.13 -0.13)">
+   <g style="fill: #dc2626" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w5t10-Cmmi10-60" d="M 153 475 
 Q 125 475 94 509 
@@ -3589,26 +3589,26 @@ z
 </svg>
 </g>
 <g class="fragment" data-fragment-index="2">
-<rect x="34.0" y="38.0" width="102.0" height="24.0" rx="4" fill="#ffffff" stroke="#dc2626" stroke-width="1.6"/>
-<line x1="38.0" y1="42.0" x2="132.0" y2="58.0" stroke="#dc2626" stroke-width="2.2"/>
-<line x1="38.0" y1="58.0" x2="132.0" y2="42.0" stroke="#dc2626" stroke-width="2.2"/>
-<text x="40.0" y="292.0" font-size="15" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="auto">no transcript.  What should the encoder's output approximate — and who writes that answer down?</text>
-<svg x="40" y="309" width="395.72" height="13" viewBox="0 0 395.72 13"><defs>
+<rect x="34.0" y="40.0" width="102.0" height="26.0" rx="4" fill="#ffffff" stroke="#dc2626" stroke-width="1.6"/>
+<line x1="38.0" y1="44.0" x2="132.0" y2="62.0" stroke="#dc2626" stroke-width="2.2"/>
+<line x1="38.0" y1="62.0" x2="132.0" y2="44.0" stroke="#dc2626" stroke-width="2.2"/>
+<text x="40.0" y="300.0" font-size="17" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="auto">no transcript.  What should the encoder's output approximate — and who writes that answer down?</text>
+<svg x="40" y="318" width="487.04" height="16" viewBox="0 0 487.04 16"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w5t11-figure_1">
   <g id="w5t11-patch_1">
-   <path d="M 0 13 
-L 395.72 13 
-L 395.72 0 
+   <path d="M 0 16 
+L 487.04 16 
+L 487.04 0 
 L 0 0 
-L 0 13 
+L 0 16 
 z
 " style="fill: none"/>
   </g>
   <g id="w5t11-text_1">
    <!-- $\mathsf{(this\ week\ the\ output\ is\ called\ } \mathbf{c}_t;\ \mathsf{the\ four\ answers\ are\ the\ four\ methods)}$ -->
-   <g style="fill: #dc2626" transform="translate(0 9.75) scale(0.13 -0.13)">
+   <g style="fill: #dc2626" transform="translate(0 12) scale(0.16 -0.16)">
     <defs>
      <path id="w5t11-Cmr10-28" d="M 1984 -1588 
 Q 1628 -1306 1370 -942 

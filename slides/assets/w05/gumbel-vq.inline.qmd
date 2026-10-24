@@ -1,26 +1,26 @@
 <!-- 由 scripts/make_figs_w05.py 產生，勿手改；投影片用 {{< include assets/w05/gumbel-vq.inline.qmd >}} 貼入 -->
 ```{=html}
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 206" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
-<text x="984.0" y="22.0" font-size="15" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">schematic — not a measurement</text>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 208" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<text x="984.0" y="22.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">schematic — not a measurement</text>
 <g class="fragment" data-fragment-index="0">
-<line x1="550.0" y1="172.0" x2="976.0" y2="172.0" stroke="#1f2328" stroke-width="1.2"/>
-<rect x="560.0" y="155.2" width="34.0" height="16.8" rx="2" fill="#0b5cad" stroke="none" stroke-width="1"/>
-<svg x="564.28" y="181.386" width="25.44" height="11.6137" viewBox="0 0 25.44 11.61375"><defs>
+<line x1="550.0" y1="170.0" x2="976.0" y2="170.0" stroke="#1f2328" stroke-width="1.2"/>
+<rect x="560.0" y="153.2" width="34.0" height="16.8" rx="2" fill="#0b5cad" stroke="none" stroke-width="1"/>
+<svg x="560.04" y="175.515" width="33.92" height="15.485" viewBox="0 0 33.92 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w5t68-figure_1">
   <g id="w5t68-patch_1">
-   <path d="M 0 11.61375 
-L 25.44 11.61375 
-L 25.44 0 
+   <path d="M 0 15.485 
+L 33.92 15.485 
+L 33.92 0 
 L 0 0 
-L 0 11.61375 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w5t68-text_1">
    <!-- $v{=}1$ -->
-   <g style="fill: #6b7280" transform="translate(0 9.118125) scale(0.12 -0.12)">
+   <g style="fill: #6b7280" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w5t68-Cmmi10-76" d="M 684 722 
 Q 684 866 718 1037 
@@ -112,23 +112,23 @@ z
   </g>
  </g>
 </svg>
-<rect x="612.0" y="104.8" width="34.0" height="67.2" rx="2" fill="#0b5cad" stroke="none" stroke-width="1"/>
-<svg x="616.28" y="181.386" width="25.44" height="11.6137" viewBox="0 0 25.44 11.61375"><defs>
+<rect x="612.0" y="102.8" width="34.0" height="67.2" rx="2" fill="#0b5cad" stroke="none" stroke-width="1"/>
+<svg x="612.04" y="175.515" width="33.92" height="15.485" viewBox="0 0 33.92 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w5t69-figure_1">
   <g id="w5t69-patch_1">
-   <path d="M 0 11.61375 
-L 25.44 11.61375 
-L 25.44 0 
+   <path d="M 0 15.485 
+L 33.92 15.485 
+L 33.92 0 
 L 0 0 
-L 0 11.61375 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w5t69-text_1">
    <!-- $v{=}2$ -->
-   <g style="fill: #6b7280" transform="translate(0 9.118125) scale(0.12 -0.12)">
+   <g style="fill: #6b7280" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w5t69-Cmmi10-76" d="M 684 722 
 Q 684 866 718 1037 
@@ -245,23 +245,23 @@ z
   </g>
  </g>
 </svg>
-<rect x="664.0" y="134.2" width="34.0" height="37.8" rx="2" fill="#0b5cad" stroke="none" stroke-width="1"/>
-<svg x="668.28" y="181.386" width="25.44" height="11.6137" viewBox="0 0 25.44 11.61375"><defs>
+<rect x="664.0" y="132.2" width="34.0" height="37.8" rx="2" fill="#0b5cad" stroke="none" stroke-width="1"/>
+<svg x="664.04" y="175.515" width="33.92" height="15.485" viewBox="0 0 33.92 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w5t70-figure_1">
   <g id="w5t70-patch_1">
-   <path d="M 0 11.61375 
-L 25.44 11.61375 
-L 25.44 0 
+   <path d="M 0 15.485 
+L 33.92 15.485 
+L 33.92 0 
 L 0 0 
-L 0 11.61375 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w5t70-text_1">
    <!-- $v{=}3$ -->
-   <g style="fill: #6b7280" transform="translate(0 9.118125) scale(0.12 -0.12)">
+   <g style="fill: #6b7280" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w5t70-Cmmi10-76" d="M 684 722 
 Q 684 866 718 1037 
@@ -395,23 +395,23 @@ z
   </g>
  </g>
 </svg>
-<rect x="716.0" y="75.4" width="34.0" height="96.6" rx="2" fill="#0b5cad" stroke="none" stroke-width="1"/>
-<svg x="720.28" y="181.386" width="25.44" height="11.6137" viewBox="0 0 25.44 11.61375"><defs>
+<rect x="716.0" y="73.4" width="34.0" height="96.6" rx="2" fill="#0b5cad" stroke="none" stroke-width="1"/>
+<svg x="716.04" y="175.515" width="33.92" height="15.485" viewBox="0 0 33.92 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w5t71-figure_1">
   <g id="w5t71-patch_1">
-   <path d="M 0 11.61375 
-L 25.44 11.61375 
-L 25.44 0 
+   <path d="M 0 15.485 
+L 33.92 15.485 
+L 33.92 0 
 L 0 0 
-L 0 11.61375 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w5t71-text_1">
    <!-- $v{=}4$ -->
-   <g style="fill: #6b7280" transform="translate(0 9.118125) scale(0.12 -0.12)">
+   <g style="fill: #6b7280" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w5t71-Cmmi10-76" d="M 684 722 
 Q 684 866 718 1037 
@@ -514,23 +514,23 @@ z
   </g>
  </g>
 </svg>
-<rect x="768.0" y="163.6" width="34.0" height="8.4" rx="2" fill="#0b5cad" stroke="none" stroke-width="1"/>
-<svg x="772.28" y="181.386" width="25.44" height="11.6137" viewBox="0 0 25.44 11.61375"><defs>
+<rect x="768.0" y="161.6" width="34.0" height="8.4" rx="2" fill="#0b5cad" stroke="none" stroke-width="1"/>
+<svg x="768.04" y="175.515" width="33.92" height="15.485" viewBox="0 0 33.92 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w5t72-figure_1">
   <g id="w5t72-patch_1">
-   <path d="M 0 11.61375 
-L 25.44 11.61375 
-L 25.44 0 
+   <path d="M 0 15.485 
+L 33.92 15.485 
+L 33.92 0 
 L 0 0 
-L 0 11.61375 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w5t72-text_1">
    <!-- $v{=}5$ -->
-   <g style="fill: #6b7280" transform="translate(0 9.118125) scale(0.12 -0.12)">
+   <g style="fill: #6b7280" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w5t72-Cmmi10-76" d="M 684 722 
 Q 684 866 718 1037 
@@ -659,23 +659,23 @@ z
   </g>
  </g>
 </svg>
-<rect x="820.0" y="125.8" width="34.0" height="46.2" rx="2" fill="#0b5cad" stroke="none" stroke-width="1"/>
-<svg x="824.28" y="181.386" width="25.44" height="11.6137" viewBox="0 0 25.44 11.61375"><defs>
+<rect x="820.0" y="123.8" width="34.0" height="46.2" rx="2" fill="#0b5cad" stroke="none" stroke-width="1"/>
+<svg x="820.04" y="175.515" width="33.92" height="15.485" viewBox="0 0 33.92 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w5t73-figure_1">
   <g id="w5t73-patch_1">
-   <path d="M 0 11.61375 
-L 25.44 11.61375 
-L 25.44 0 
+   <path d="M 0 15.485 
+L 33.92 15.485 
+L 33.92 0 
 L 0 0 
-L 0 11.61375 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w5t73-text_1">
    <!-- $v{=}6$ -->
-   <g style="fill: #6b7280" transform="translate(0 9.118125) scale(0.12 -0.12)">
+   <g style="fill: #6b7280" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w5t73-Cmmi10-76" d="M 684 722 
 Q 684 866 718 1037 
@@ -806,23 +806,23 @@ z
   </g>
  </g>
 </svg>
-<rect x="872.0" y="92.2" width="34.0" height="79.8" rx="2" fill="#0b5cad" stroke="none" stroke-width="1"/>
-<svg x="876.28" y="181.386" width="25.44" height="11.6137" viewBox="0 0 25.44 11.61375"><defs>
+<rect x="872.0" y="90.2" width="34.0" height="79.8" rx="2" fill="#0b5cad" stroke="none" stroke-width="1"/>
+<svg x="872.04" y="175.515" width="33.92" height="15.485" viewBox="0 0 33.92 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w5t74-figure_1">
   <g id="w5t74-patch_1">
-   <path d="M 0 11.61375 
-L 25.44 11.61375 
-L 25.44 0 
+   <path d="M 0 15.485 
+L 33.92 15.485 
+L 33.92 0 
 L 0 0 
-L 0 11.61375 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w5t74-text_1">
    <!-- $v{=}7$ -->
-   <g style="fill: #6b7280" transform="translate(0 9.118125) scale(0.12 -0.12)">
+   <g style="fill: #6b7280" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w5t74-Cmmi10-76" d="M 684 722 
 Q 684 866 718 1037 
@@ -926,23 +926,23 @@ z
   </g>
  </g>
 </svg>
-<rect x="924.0" y="146.8" width="34.0" height="25.2" rx="2" fill="#0b5cad" stroke="none" stroke-width="1"/>
-<svg x="928.28" y="181.386" width="25.44" height="11.6137" viewBox="0 0 25.44 11.61375"><defs>
+<rect x="924.0" y="144.8" width="34.0" height="25.2" rx="2" fill="#0b5cad" stroke="none" stroke-width="1"/>
+<svg x="924.04" y="175.515" width="33.92" height="15.485" viewBox="0 0 33.92 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w5t75-figure_1">
   <g id="w5t75-patch_1">
-   <path d="M 0 11.61375 
-L 25.44 11.61375 
-L 25.44 0 
+   <path d="M 0 15.485 
+L 33.92 15.485 
+L 33.92 0 
 L 0 0 
-L 0 11.61375 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w5t75-text_1">
    <!-- $v{=}8$ -->
-   <g style="fill: #6b7280" transform="translate(0 9.118125) scale(0.12 -0.12)">
+   <g style="fill: #6b7280" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w5t75-Cmmi10-76" d="M 684 722 
 Q 684 866 718 1037 
@@ -1644,22 +1644,22 @@ z
   </g>
  </g>
 </svg>
-<svg x="40" y="60" width="260.96" height="14" viewBox="0 0 260.96 14"><defs>
+<svg x="40" y="58" width="298.24" height="16" viewBox="0 0 298.24 16"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w5t77-figure_1">
   <g id="w5t77-patch_1">
-   <path d="M 0 14 
-L 260.96 14 
-L 260.96 0 
+   <path d="M 0 16 
+L 298.24 16 
+L 298.24 0 
 L 0 0 
-L 0 14 
+L 0 16 
 z
 " style="fill: none"/>
   </g>
   <g id="w5t77-text_1">
    <!-- $(V \mathsf{\ entries;\ 320\ in\ wav2vec\ 2.0,\ eight\ drawn})$ -->
-   <g style="fill: #6b7280" transform="translate(0 10.5) scale(0.14 -0.14)">
+   <g style="fill: #6b7280" transform="translate(0 12) scale(0.16 -0.16)">
     <defs>
      <path id="w5t77-Cmr10-28" d="M 1984 -1588 
 Q 1628 -1306 1370 -942 
@@ -2314,14 +2314,14 @@ z
 </svg>
 </g>
 <g class="fragment" data-fragment-index="1">
-<rect x="560.0" y="117.4" width="34.0" height="37.8" rx="2" fill="#b45309" stroke="none" stroke-width="1" opacity="0.75"/>
-<rect x="612.0" y="104.8" width="34.0" height="12.6" rx="2" fill="#ffffff" stroke="#b45309" stroke-width="1.2" stroke-dasharray="3 2"/>
-<rect x="664.0" y="75.4" width="34.0" height="58.8" rx="2" fill="#b45309" stroke="none" stroke-width="1" opacity="0.75"/>
-<rect x="716.0" y="75.4" width="34.0" height="8.4" rx="2" fill="#ffffff" stroke="#b45309" stroke-width="1.2" stroke-dasharray="3 2"/>
-<rect x="768.0" y="142.6" width="34.0" height="21.0" rx="2" fill="#b45309" stroke="none" stroke-width="1" opacity="0.75"/>
-<rect x="820.0" y="121.6" width="34.0" height="4.2" rx="2" fill="#b45309" stroke="none" stroke-width="1" opacity="0.75"/>
-<rect x="872.0" y="41.8" width="34.0" height="50.4" rx="2" fill="#b45309" stroke="none" stroke-width="1" opacity="0.75"/>
-<rect x="924.0" y="146.8" width="34.0" height="25.2" rx="2" fill="#ffffff" stroke="#b45309" stroke-width="1.2" stroke-dasharray="3 2"/>
+<rect x="560.0" y="115.4" width="34.0" height="37.8" rx="2" fill="#b45309" stroke="none" stroke-width="1" opacity="0.75"/>
+<rect x="612.0" y="102.8" width="34.0" height="12.6" rx="2" fill="#ffffff" stroke="#b45309" stroke-width="1.2" stroke-dasharray="3 2"/>
+<rect x="664.0" y="73.4" width="34.0" height="58.8" rx="2" fill="#b45309" stroke="none" stroke-width="1" opacity="0.75"/>
+<rect x="716.0" y="73.4" width="34.0" height="8.4" rx="2" fill="#ffffff" stroke="#b45309" stroke-width="1.2" stroke-dasharray="3 2"/>
+<rect x="768.0" y="140.6" width="34.0" height="21.0" rx="2" fill="#b45309" stroke="none" stroke-width="1" opacity="0.75"/>
+<rect x="820.0" y="119.6" width="34.0" height="4.2" rx="2" fill="#b45309" stroke="none" stroke-width="1" opacity="0.75"/>
+<rect x="872.0" y="39.8" width="34.0" height="50.4" rx="2" fill="#b45309" stroke="none" stroke-width="1" opacity="0.75"/>
+<rect x="924.0" y="144.8" width="34.0" height="25.2" rx="2" fill="#ffffff" stroke="#b45309" stroke-width="1.2" stroke-dasharray="3 2"/>
 <svg x="40" y="93.81" width="332.18" height="18.19" viewBox="0 0 332.18 18.19"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
@@ -3036,22 +3036,22 @@ z
   </g>
  </g>
 </svg>
-<svg x="40" y="120" width="379.96" height="14" viewBox="0 0 379.96 14"><defs>
+<svg x="40" y="118" width="434.24" height="16" viewBox="0 0 434.24 16"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w5t79-figure_1">
   <g id="w5t79-patch_1">
-   <path d="M 0 14 
-L 379.96 14 
-L 379.96 0 
+   <path d="M 0 16 
+L 434.24 16 
+L 434.24 0 
 L 0 0 
-L 0 14 
+L 0 16 
 z
 " style="fill: none"/>
   </g>
   <g id="w5t79-text_1">
    <!-- $(\mathsf{Gumbel\ noise,\ drawn\ fresh\ at\ every\ step;\ dashed\ =\ subtracted})$ -->
-   <g style="fill: #6b7280" transform="translate(0 10.5) scale(0.14 -0.14)">
+   <g style="fill: #6b7280" transform="translate(0 12) scale(0.16 -0.16)">
     <defs>
      <path id="w5t79-Cmr10-28" d="M 1984 -1588 
 Q 1628 -1306 1370 -942 
@@ -3743,7 +3743,7 @@ z
 </svg>
 </g>
 <g class="fragment" data-fragment-index="2">
-<rect x="868.0" y="35.8" width="42.0" height="140.2" rx="4" fill="none" stroke="#15803d" stroke-width="2.0"/>
+<rect x="868.0" y="33.8" width="42.0" height="140.2" rx="4" fill="none" stroke="#15803d" stroke-width="2.0"/>
 <svg x="40" y="154.26" width="198.9" height="20.74" viewBox="0 0 198.9 20.74"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
@@ -4370,22 +4370,22 @@ z
   </g>
  </g>
 </svg>
-<svg x="40" y="180" width="329.42" height="14" viewBox="0 0 329.42 14"><defs>
+<svg x="40" y="178" width="376.48" height="16" viewBox="0 0 376.48 16"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w5t81-figure_1">
   <g id="w5t81-patch_1">
-   <path d="M 0 14 
-L 329.42 14 
-L 329.42 0 
+   <path d="M 0 16 
+L 376.48 16 
+L 376.48 0 
 L 0 0 
-L 0 14 
+L 0 16 
 z
 " style="fill: none"/>
   </g>
   <g id="w5t81-text_1">
    <!-- $(\mathsf{the\ green\ bar\ wins\ this\ step;\ next\ step\ the\ noise\ is\ new})$ -->
-   <g style="fill: #6b7280" transform="translate(0 10.5) scale(0.14 -0.14)">
+   <g style="fill: #6b7280" transform="translate(0 12) scale(0.16 -0.16)">
     <defs>
      <path id="w5t81-Cmr10-28" d="M 1984 -1588 
 Q 1628 -1306 1370 -942 

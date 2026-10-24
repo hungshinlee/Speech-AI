@@ -1,5 +1,5 @@
 <!-- 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。 -->
-# W5 · Demo 2 — units are not phones: three teachers' purities, and one sentence aligned (slides p42–p44)
+# W5 · Demo 2 — units are not phones: three teachers' purities, and one sentence aligned (slides p42–p45)
 
 HuBERT's pre-training target is the id of a k-means cluster, and the model is trained to predict it at masked frames. This demo asks two questions about those ids. **How good is the teacher?** k-means with $K = 100$ is run on three feature sets of the same LibriSpeech dev-clean frames — 39-d MFCC (the teacher of HuBERT's first iteration), and layers 6 and 9 of `facebook/hubert-base-ls960` (the layers the paper clusters for later iterations) — and each clustering is scored against phone labels with the three measures of the HuBERT paper: phone purity, cluster purity and PNMI. **Are the units phones?** The sentence of W3 (`1272-128104-0000`, "Mister Quilter is the apostle…") is drawn with its words and phones from a forced alignment on top and its k-means units underneath, so you can see how many units one phone gets, whether unit boundaries sit on phone boundaries, which unit is silence, and what the same phone becomes in another context; then the word *mister* as said by three other speakers is lined up against the same word in the sentence, unit by unit.
 

@@ -1,11 +1,11 @@
 <!-- 由 scripts/make_figs_w05.py 產生，勿手改；投影片用 {{< include assets/w05/infonce-steps.inline.qmd >}} 貼入 -->
 ```{=html}
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 307" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
-<text x="984.0" y="22.0" font-size="15" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">schematic — not a measurement</text>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 308" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<text x="984.0" y="22.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">schematic — not a measurement</text>
 <g class="fragment" data-fragment-index="0">
 <rect x="30.0" y="34.0" width="940.0" height="119.2" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
 <circle cx="54.0" cy="93.6" r="15.0" fill="#0b5cad" stroke="#0b5cad" stroke-width="1"/>
-<text x="54.0" y="93.6" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">1</text>
+<text x="54.0" y="93.6" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">1</text>
 <svg x="82" y="48" width="280.75" height="91.25" viewBox="0 0 280.75 91.25"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
@@ -691,22 +691,22 @@ z
   </g>
  </g>
 </svg>
-<svg x="666.3" y="126.733" width="293.7" height="14.5172" viewBox="0 0 293.7 14.517187"><defs>
+<svg x="646.72" y="125.765" width="313.28" height="15.485" viewBox="0 0 313.28 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w5t44-figure_1">
   <g id="w5t44-patch_1">
-   <path d="M 0 14.517187 
-L 293.7 14.517187 
-L 293.7 -0 
-L 0 -0 
-L 0 14.517187 
+   <path d="M 0 15.485 
+L 313.28 15.485 
+L 313.28 0 
+L 0 0 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w5t44-text_1">
    <!-- $\mathsf{a\ classification:\ which\ of\ the\ } N \mathsf{\ is\ the\ positive?}$ -->
-   <g style="fill: #0b5cad" transform="translate(0 11.397656) scale(0.15 -0.15)">
+   <g style="fill: #0b5cad" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w5t44-Cmss10-61" d="M 972 -72 
 Q 766 -72 605 48 
@@ -1197,9 +1197,9 @@ z
 </svg>
 </g>
 <g class="fragment" data-fragment-index="1">
-<rect x="30.0" y="165.2" width="940.0" height="138.5" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<rect x="30.0" y="165.2" width="940.0" height="139.5" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
 <circle cx="54.0" cy="223.2" r="15.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
-<text x="54.0" y="223.2" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">2</text>
+<text x="54.0" y="223.2" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">2</text>
 <svg x="82" y="179.25" width="581.75" height="88" viewBox="0 0 581.75 88"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
@@ -2030,22 +2030,22 @@ z
   </g>
  </g>
 </svg>
-<svg x="676.65" y="275.25" width="283.35" height="14.5172" viewBox="0 0 283.35 14.517187"><defs>
+<svg x="657.76" y="275.25" width="302.24" height="15.485" viewBox="0 0 302.24 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w5t46-figure_1">
   <g id="w5t46-patch_1">
-   <path d="M 0 14.517187 
-L 283.35 14.517187 
-L 283.35 -0 
-L 0 -0 
-L 0 14.517187 
+   <path d="M 0 15.485 
+L 302.24 15.485 
+L 302.24 0 
+L 0 0 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w5t46-text_1">
    <!-- $\mathsf{the\ best\ critic\ is\ a\ density\ ratio,\ not\ a\ density}$ -->
-   <g style="fill: #7c3aed" transform="translate(0 11.367187) scale(0.15 -0.15)">
+   <g style="fill: #7c3aed" transform="translate(0 12.125) scale(0.16 -0.16)">
     <defs>
      <path id="w5t46-Cmss10-74" d="M 1141 -72 
 Q 859 -72 753 211 

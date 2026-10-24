@@ -1,44 +1,44 @@
 <!-- 由 scripts/make_figs_w05.py 產生，勿手改；投影片用 {{< include assets/w05/three-streams.inline.qmd >}} 貼入 -->
 ```{=html}
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 300" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
-<text x="984.0" y="22.0" font-size="15" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">schematic — not a measurement</text>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 312" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<text x="984.0" y="22.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">schematic — not a measurement</text>
 <g class="fragment" data-fragment-index="0">
-<rect x="40.0" y="120.0" width="120.0" height="60.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="100.0" y="150.0" font-size="15" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">speech</text>
-<line x1="164.0" y1="150.0" x2="228.8" y2="119.4" stroke="#b45309" stroke-width="1.6"/>
-<polygon points="236.0,116.0 230.9,123.9 226.6,114.9" fill="#b45309"/>
-<rect x="240.0" y="96.0" width="300.0" height="40.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
-<text x="390.0" y="110.0" font-size="13" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">discrete units (HuBERT k-means)</text>
-<text x="390.0" y="126.0" font-size="12" font-weight="400" fill="#b45309" text-anchor="middle" dominant-baseline="middle">“content”</text>
-<line x1="544.0" y1="116.0" x2="608.8" y2="146.6" stroke="#b45309" stroke-width="1.6"/>
-<polygon points="616.0,150.0 606.6,151.1 610.9,142.1" fill="#b45309"/>
-<line x1="164.0" y1="150.0" x2="228.6" y2="176.9" stroke="#7c3aed" stroke-width="1.6"/>
-<polygon points="236.0,180.0 226.7,181.5 230.5,172.3" fill="#7c3aed"/>
-<rect x="240.0" y="160.0" width="300.0" height="40.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<text x="390.0" y="174.0" font-size="13" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">F0 stream (quantised)</text>
-<text x="390.0" y="190.0" font-size="12" font-weight="400" fill="#7c3aed" text-anchor="middle" dominant-baseline="middle">“prosody”</text>
-<line x1="544.0" y1="180.0" x2="608.6" y2="153.1" stroke="#7c3aed" stroke-width="1.6"/>
-<polygon points="616.0,150.0 610.5,157.7 606.7,148.5" fill="#7c3aed"/>
-<line x1="164.0" y1="150.0" x2="231.1" y2="237.6" stroke="#15803d" stroke-width="1.6"/>
-<polygon points="236.0,244.0 227.2,240.7 235.1,234.6" fill="#15803d"/>
-<rect x="240.0" y="224.0" width="300.0" height="40.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
-<text x="390.0" y="238.0" font-size="13" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">speaker embedding</text>
-<text x="390.0" y="254.0" font-size="12" font-weight="400" fill="#15803d" text-anchor="middle" dominant-baseline="middle">“who”</text>
-<line x1="544.0" y1="244.0" x2="611.1" y2="156.4" stroke="#15803d" stroke-width="1.6"/>
-<polygon points="616.0,150.0 615.1,159.4 607.2,153.3" fill="#15803d"/>
-<rect x="620.0" y="120.0" width="140.0" height="60.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="690.0" y="144.0" font-size="15" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">vocoder</text>
-<text x="690.0" y="164.0" font-size="13" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">resynthesis</text>
-<line x1="764.0" y1="150.0" x2="792.0" y2="150.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="800.0,150.0 792.0,155.0 792.0,145.0" fill="#94a3b8"/>
-<rect x="804.0" y="120.0" width="150.0" height="60.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="879.0" y="150.0" font-size="15" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">speech again</text>
-<text x="500.0" y="290.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">Polyak et al., Interspeech 2021 — the design says where each kind of information is expected to live</text>
+<rect x="40.0" y="134.0" width="120.0" height="60.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="100.0" y="164.0" font-size="18" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">speech</text>
+<line x1="164.0" y1="164.0" x2="229.2" y2="124.2" stroke="#b45309" stroke-width="1.6"/>
+<polygon points="236.0,120.0 231.8,128.4 226.6,119.9" fill="#b45309"/>
+<rect x="240.0" y="96.0" width="300.0" height="48.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="390.0" y="112.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">discrete units (HuBERT k-means)</text>
+<text x="390.0" y="132.0" font-size="16" font-weight="400" fill="#b45309" text-anchor="middle" dominant-baseline="middle">“content”</text>
+<line x1="544.0" y1="120.0" x2="609.2" y2="159.8" stroke="#b45309" stroke-width="1.6"/>
+<polygon points="616.0,164.0 606.6,164.1 611.8,155.6" fill="#b45309"/>
+<line x1="164.0" y1="164.0" x2="228.4" y2="185.5" stroke="#7c3aed" stroke-width="1.6"/>
+<polygon points="236.0,188.0 226.8,190.2 230.0,180.7" fill="#7c3aed"/>
+<rect x="240.0" y="164.0" width="300.0" height="48.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="390.0" y="180.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">F0 stream (quantised)</text>
+<text x="390.0" y="200.0" font-size="16" font-weight="400" fill="#7c3aed" text-anchor="middle" dominant-baseline="middle">“prosody”</text>
+<line x1="544.0" y1="188.0" x2="608.4" y2="166.5" stroke="#7c3aed" stroke-width="1.6"/>
+<polygon points="616.0,164.0 610.0,171.3 606.8,161.8" fill="#7c3aed"/>
+<line x1="164.0" y1="164.0" x2="231.1" y2="249.7" stroke="#15803d" stroke-width="1.6"/>
+<polygon points="236.0,256.0 227.1,252.8 235.0,246.6" fill="#15803d"/>
+<rect x="240.0" y="232.0" width="300.0" height="48.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="390.0" y="248.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">speaker embedding</text>
+<text x="390.0" y="268.0" font-size="16" font-weight="400" fill="#15803d" text-anchor="middle" dominant-baseline="middle">“who”</text>
+<line x1="544.0" y1="256.0" x2="611.1" y2="170.3" stroke="#15803d" stroke-width="1.6"/>
+<polygon points="616.0,164.0 615.0,173.4 607.1,167.2" fill="#15803d"/>
+<rect x="620.0" y="134.0" width="150.0" height="60.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="695.0" y="156.0" font-size="18" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">vocoder</text>
+<text x="695.0" y="180.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">resynthesis</text>
+<line x1="774.0" y1="164.0" x2="792.0" y2="164.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="800.0,164.0 792.0,169.0 792.0,159.0" fill="#94a3b8"/>
+<rect x="804.0" y="134.0" width="156.0" height="60.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="882.0" y="164.0" font-size="18" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">speech again</text>
+<text x="500.0" y="304.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">Polyak et al., Interspeech 2021 — the design says where each kind of information is expected to live</text>
 </g>
 <g class="fragment" data-fragment-index="1">
-<rect x="236.0" y="156.0" width="308.0" height="48.0" rx="8" fill="none" stroke="#dc2626" stroke-width="2.0" stroke-dasharray="6 4"/>
-<text x="40.0" y="60.0" font-size="13" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="auto">Mandarin / Taiwanese / Hakka: tone is lexical content — and here it lives in the F0 stream, not in the units</text>
-<text x="40.0" y="78.0" font-size="12" font-weight="400" fill="#dc2626" text-anchor="start" dominant-baseline="auto">(a prediction, not a measurement; the outline keeps a search pointer)</text>
+<rect x="236.0" y="160.0" width="308.0" height="56.0" rx="8" fill="none" stroke="#dc2626" stroke-width="2.0" stroke-dasharray="6 4"/>
+<text x="40.0" y="52.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="auto">Mandarin / Taiwanese / Hakka: tone is lexical content — and here it lives in the F0 stream, not in the units</text>
+<text x="40.0" y="76.0" font-size="16" font-weight="400" fill="#dc2626" text-anchor="start" dominant-baseline="auto">(a prediction, not a measurement; the outline keeps a search pointer)</text>
 </g>
 </svg>
 ```

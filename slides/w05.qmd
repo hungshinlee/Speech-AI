@@ -234,7 +234,7 @@ vq-wav2vec, ICLR 2020 · BERT = Bidirectional Encoder Representations from Trans
 :::
 
 ::: {.footer}
-wav2vec, Interspeech 2019 · vq-wav2vec, ICLR 2020 · the ten-minute numbers: p49
+wav2vec, Interspeech 2019 · vq-wav2vec, ICLR 2020 · the ten-minute numbers: p50
 :::
 
 ## Gumbel-softmax and the straight-through gradient
@@ -356,7 +356,7 @@ Hsu et al., arXiv abstract: "the Hidden-Unit BERT (HuBERT) approach" · TASLP 29
 $$\mathcal{L}_m = -\sum_{t \in M}\ln p(k_t \mid \tilde{\mathbf{X}}, t), \qquad p(k \mid \tilde{\mathbf{X}}, t) = \frac{\exp(\mathrm{sim}(\mathbf{A}\mathbf{c}_t, \mathbf{e}_k)/\kappa)}{\sum_{k'=1}^{K}\exp(\mathrm{sim}(\mathbf{A}\mathbf{c}_t, \mathbf{e}_{k'})/\kappa)}$$
 
 ::: {.footer}
-Hsu et al., TASLP 2021, eq. 3 ($\kappa = 0.1$; $\tau$ there) · §IV-C: layer 6, then 9 · arXiv v1 §V-C, Fig. 2: why 6
+Hsu et al., TASLP 2021, eq. 3 ($\kappa = 0.1$; $\tau$ there) · §IV-C: layer 6, then 9 · v1 §V-C Fig. 2: why 6
 :::
 
 ## How good is a teacher? Three purities
@@ -398,7 +398,7 @@ Hsu et al., TASLP 2021, abstract and Table V · the ICASSP 2021 "bad teacher" pa
 | what it buys | content | content, plus a representation that already separates speakers and ignores noise |
 
 ::: {.claim}
-Two things changed at once — the auxiliary task **and** the data. When WavLM wins a benchmark, you cannot tell which one paid. Keep that for p51.
+Two things changed at once — the auxiliary task **and** the data. When WavLM wins a benchmark, you cannot tell which one paid. Keep that for p52.
 :::
 
 ::: {.footer}
@@ -423,14 +423,10 @@ Baevski et al. 2022 §4.2 · BASE: $K_{\ell} = 8$, instance norm, L2 at $t \in M
 
 ## BEST-RQ: a teacher that knows nothing
 
-::: {.small}
-**BEST-RQ** = BERT-based Speech pre-Training with Random-projection Quantizer.
-:::
-
 {{< include assets/w05/bestrq.inline.qmd >}}
 
 ::: {.claim}
-**A target has to be consistent, not meaningful.** The quantiser is frozen noise; what the encoder learns is to predict that noise from context — the same job HuBERT's student had, with a teacher who knows even less.
+**A target has to be consistent, not meaningful.** The quantiser is frozen noise; the encoder learns to predict that noise from context — HuBERT's student's job, with a teacher who knows even less.
 :::
 
 ::: {.footer}
@@ -497,7 +493,7 @@ Demo 1 · code: `demos/w05_d1_layer_probe` · torch 2.14.0, transformers 5.17.0
 :::
 
 ::: {.footer}
-Demo 1 · demos/w05_d1_layer_probe · curves are schematic · table: M5 Max 2026-10-11, w05-metrics.json → demo1 (frame-level probes, held-out)
+Demo 1 · demos/w05_d1_layer_probe · curves schematic · table: M5 Max 2026-10-11, w05-metrics.json
 :::
 
 ## Why the top layers turn back
@@ -589,11 +585,30 @@ Demo 2 · demos/w05_d2_units_vs_phones · $K = 100$, numpy k-means · phone labe
 {{< include assets/w05/units-vs-phones.inline.qmd >}}
 
 ::: {.claim}
-**One phone, several units; one unit, several contexts; two speakers, about half the runs in common.** Demo 2 measures it: 2.6 units per phone, unit edges on phone edges at chance level, *mister* across four speakers sharing half its runs (MFCC: a quarter).
+**One phone, several units; one unit, several contexts; two speakers, about half the runs in common.** The next slide puts Demo 2's numbers on each.
 :::
 
 ::: {.footer}
 schematic (hand-written ids) · Demo 2 key `2` draws it with real units · phone boundaries from the MFA alignment, not CTC spikes
+:::
+
+## What Demo 2 measured on that sentence
+
+::: {.prose}
+| | the schematic shows | Demo 2 measured (layer 6, $K = 100$) |
+|:--------|:-------------|:--------------------|
+| **finer than phones** | one IH → two units (12, 88) | 2.6 units per phone segment; 11% of segments keep one unit |
+| **edges do not line up** | 12 starts inside M; 0 runs into K | 25% of unit edges fall on a phone edge; chance is 22% |
+| **speaker reduced, not gone** | a few cells differ (red) | *mister*, four speakers: half the runs shared (MFCC: a quarter) |
+| **F0 largely absent** | not drawn | not measured here; Polyak et al. 2021 add F0 back as its own stream |
+:::
+
+::: {.claim}
+**Finer, context-bound, redundant — and without F0.** What the teacher writes down is not a phonetic transcription.
+:::
+
+::: {.footer}
+Demo 2 keys `2`, `3` → w05-metrics.json demo2.sentence · redundancy: Sicherman & Adi 2023
 :::
 
 ## MC 6 — "a discrete unit is a phoneme"
@@ -794,7 +809,7 @@ W3 and W4 asked "where does the alignment come from"; today asked **"where does 
 
 - Mohamed et al., *Self-Supervised Speech Representation Learning: A Review*, IEEE JSTSP 2022 — the survey; read the taxonomy section, then re-sort it by target as we did today
 - Hsu et al., *HuBERT*, IEEE/ACM TASLP 2021 — §II for the loss, §IV-E for the three purities, Table V for the $\alpha$ ablation you saw
-- Baevski et al., *wav2vec 2.0*, NeurIPS 2020 — §2–3 and Appendix B; look at Table 1 with p49 in mind
+- Baevski et al., *wav2vec 2.0*, NeurIPS 2020 — §2–3 and Appendix B; look at Table 1 with p50 in mind
 
 **If one thing today was new to you, make it this one**
 
@@ -818,7 +833,7 @@ Today's unit was *predicted*; next week's token is *reconstructed*. What changes
 | CTC | connectionist temporal classification (W3) |
 | EMA | exponential moving average (p22) |
 | GRU | gated recurrent unit (p10) |
-| GSLM | generative spoken language modeling (p45) |
+| GSLM | generative spoken language modeling (p46) |
 | HuBERT | Hidden-Unit BERT (p26) |
 | InfoNCE | CPC's loss, "based on NCE": noise-contrastive estimation (p10) |
 
@@ -832,7 +847,7 @@ Today's unit was *predicted*; next week's token is *reconstructed*. What changes
 | MC | misconception: a belief that sounds right, and what breaks it |
 | MFA | Montreal Forced Aligner (p36) |
 | MFCC | mel-frequency cepstral coefficients (W2) |
-| ML-SUPERB | multilingual SUPERB (p48) |
+| ML-SUPERB | multilingual SUPERB (p49) |
 | MPS | Metal Performance Shaders: Apple's GPU backend (W3) |
 | PNMI | phone-normalized mutual information (p28) |
 | SSL | self-supervised learning |
