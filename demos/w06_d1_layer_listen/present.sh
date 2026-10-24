@@ -13,7 +13,7 @@
 #   ./present.sh selftest      bitrate 公式、F0 估計、指標恆等、裁靜音、fake 流程；有彩排紀錄時對 w06-metrics.json（不開視窗，約 20 秒）
 #   ./present.sh show --no-plot   只在終端機，不開圖
 #
-# 課堂上的講法與按鍵順序寫在投影片 p34／p35 講稿的【操作】。
+# 課堂上的講法與按鍵順序寫在投影片 p33／p34 講稿的【操作】。
 set -euo pipefail
 cd "$(dirname "$0")"
 export HF_HUB_OFFLINE=1

@@ -314,7 +314,7 @@ SoundStream §III-C · EnCodec §3.2: codebooks a multiple of 4 · DAC: $p = 0.5
 | **later stages** | carry less, and the late ones look like noise | that they are "detail" in any linguistic sense |
 
 ::: {.claim}
-**Most energy $\neq$ the semantics.** AudioLM had to put w2v-BERT's semantic tokens *on top of* SoundStream's 12 acoustic stages because the first acoustic stage was not semantic enough; and from semantic tokens alone the speaker was gone — speaker classification 3.2%. "Stage 1 = semantics" becomes true only through **distillation** (p40).
+**Most energy $\neq$ the semantics.** AudioLM had to put w2v-BERT's semantic tokens *on top of* SoundStream's 12 acoustic stages because the first acoustic stage was not semantic enough; and from semantic tokens alone the speaker was gone — speaker classification 3.2%. "Stage 1 = semantics" becomes true only through **distillation** (p39).
 :::
 
 ::: {.footer}
@@ -386,40 +386,25 @@ Moshi §3.3.1, Table 4 · whether the released Mimi is that variant: not stated 
 SoundStream Fig. 2: transmitter / receiver · W5 p37 · W8, W11
 :::
 
-## MC 4 — "neural codecs beat Opus"
+## MC 4 — "neural codecs beat Opus — their tables say so"
 
 | | the sentence | what it actually claims |
-|:---|:----------|:---------------|
-| **SoundStream**, abstract | "at 3 kbps outperforms Opus at 12 kbps and approaches EVS at 9.6 kbps" | better quality at **a quarter of the bitrate**, in their own listening test |
-| **EnCodec** §4.5 | "at 3 kbps reaches better performance on average than Lyra-v2 using 6 kbps and Opus at 12 kbps" | an average across categories; on clean speech, Opus at 12 kbps still beats EnCodec at 3 kbps |
-| **RFC 6716** §2 | Opus: frames 2.5–60 ms, algorithmic delay 5–65.2 ms | Opus's edge is **delay**, compute and a standard — none of which the papers claim to beat |
-
-::: {.claim}
-Neural codecs win on **quality per bit at low bitrates**. "Which is better" is not a question until the bitrate and the latency budget are named.
-:::
-
-::: {.footer}
-SoundStream abstract · EnCodec §4.5 · RFC 6716 · EVS = Enhanced Voice Services (3GPP)
-:::
-
-## MC 5 — "MUSHRA scores compare across papers"
-
-| | what differs between two papers' tables | consequence |
-|:---|:----------|:---------------|
-| **raters** | the listeners, the instructions, the anchors, the reference | the scale is re-anchored every time |
-| **conditions** | the test sentences and the bitrate grid | not the same points |
-| **baselines** | each paper runs its own | SoundStream ran Opus and EVS; EnCodec ran Opus, EVS and Lyra-v2 — the same EVS, scored twice |
+|:--|:--------------|:--------------|
+| **SoundStream**, abstract | 3 kbps "outperforms Opus at 12 kbps and approaches EVS at 9.6 kbps" | **a quarter of the bitrate**, in their own listening test |
+| **EnCodec** §4.5 | 3 kbps "better … on average than Lyra-v2 using 6 kbps and Opus at 12 kbps" | an average; on clean speech Opus 12 kbps still beats EnCodec 3 kbps |
+| **RFC 6716** §2 | Opus: frames 2.5–60 ms, algorithmic delay 5–65.2 ms | Opus's edge is **delay**, compute and a standard — not contested |
+| **the scores** | MUSHRA, each paper's own listeners, anchors and grid; the same EVS scored twice | **re-anchored every time**: compare only inside one table, or one shared benchmark |
 
 ::: {.small}
-MUSHRA = Multi Stimulus test with Hidden Reference and Anchor (ITU-R BS.1534): listeners score several versions of one clip side by side, a hidden reference and a low anchor among them.
+MUSHRA = Multi Stimulus test with Hidden Reference and Anchor (ITU-R BS.1534) · shared benchmarks: Codec-SUPERB (Findings of ACL 2024), ESPnet-Codec (SLT 2024), DASB = Discrete Audio and Speech Benchmark (TMLR 2026)
 :::
 
 ::: {.claim}
-Compare codecs only **inside one table**, or on one shared benchmark — Codec-SUPERB, ESPnet-Codec, DASB (Discrete Audio and Speech Benchmark) — that runs them all under the same protocol. The same rule W1 gave for MOS and W5 gave for leaderboards.
+Neural codecs win on **quality per bit at low bitrates**, in tests that do not cross papers — "better" needs a bitrate, a latency budget and one table.
 :::
 
 ::: {.footer}
-Codec-SUPERB, Findings of ACL 2024 · ESPnet-Codec, SLT 2024 · DASB, TMLR 2026
+SoundStream abstract · EnCodec §4.5, Table 1 · RFC 6716 · EVS = Enhanced Voice Services (3GPP)
 :::
 
 # What each stage holds: listen, then count {.section-title}
@@ -433,11 +418,11 @@ Codec-SUPERB, Findings of ACL 2024 · ESPnet-Codec, SLT 2024 · DASB, TMLR 2026
 | **The question** | Can one tokenizer give an LM few tokens a second, hold the words, rebuild the voice — and stream? |
 | **The idea** | 24 kHz in, 12.5 Hz out; every convolution causal, a Transformer on each side of the bottleneck. Each 80 ms frame gets a plain VQ distilled toward WavLM (W5 p31), beside a 7-stage acoustic RVQ: 8 tokens, $V = 2048$. |
 | **What it added** | A frame rate six times below EnCodec's — 1.1 kbps, 100 tokens a second — with a *semantic* and an *acoustic* stream from one model. Moshi is trained on these tokens. |
-| **What it leaves open** | Does the distilled codebook alone hold the words? Demo 1, next. Why split, instead of distilling into stage 1 of one RVQ? p40. |
+| **What it leaves open** | Does the distilled codebook alone hold the words? Demo 1, next. Why split, instead of distilling into stage 1 of one RVQ? p39. |
 :::
 
 ::: {.footer}
-Moshi §3.3.1–3.3.2: $D = 512$, $N_q = 8$, $V = 2048$, causal · the bill at 12.5 Hz: p46
+Moshi §3.3.1–3.3.2: $D = 512$, $N_q = 8$, $V = 2048$, causal · the bill at 12.5 Hz: p44
 :::
 
 ## Before Demo 1: adding the letters back, one stage at a time
@@ -491,7 +476,7 @@ $F_0$ is a physical quantity, pitch is a percept (W2 p51): the plot is a referen
 :::
 
 ::: {.footer}
-prediction from the design · heard: rehearsal 2026-10-19, one sentence, one listener · W2 p51, p57 · W5 p49 · unit-level evidence: p44
+prediction from the design · heard: rehearsal 2026-10-19, one sentence, one listener · W2 p51, p57 · W5 p49 · unit-level evidence: p42
 :::
 
 ## Before Demo 2: what the letters look like
@@ -505,7 +490,7 @@ prediction from the design · heard: rehearsal 2026-10-19, one sentence, one lis
 :::
 
 ::: {.footer}
-Demo 2 · code: `demos/w06_d2_token_matrix` · the arithmetic half comes at p46
+Demo 2 · code: `demos/w06_d2_token_matrix` · the arithmetic half comes at p44
 :::
 
 ## Demo 2 — token matrix, codebook usage, residual curve
@@ -552,7 +537,7 @@ W5 p49 · AudioLM, TASLP 2023 · the alphabet's second failure: letters hold onl
 SpeechTokenizer §3.2, App. E · Moshi §3.3.2 · $\mathcal{L}_{\text{dist}}$: a cosine distance
 :::
 
-## MC 6 — "a semantic token is a phoneme"
+## MC 5 — "a semantic token is a phoneme"
 
 | | W5 measured | this week adds |
 |:---|:----------|:---------------|
@@ -560,7 +545,7 @@ SpeechTokenizer §3.2, App. E · Moshi §3.3.2 · $\mathcal{L}_{\text{dist}}$: a
 | **the probe** | purity was measured, not assumed (Demo 2) | on TIMIT, segmental information is **not confined to codebook 1**, and its tokens correspond to **allophones**, not phonemes |
 
 ::: {.claim}
-Demo 1 did **not** go as predicted: stage 1 alone kept neither the words nor the voice. "Semantic" names what the codebook was trained *towards*, not what the ear gets back from it alone — and the tone answer is on p35.
+Demo 1 did **not** go as predicted: stage 1 alone kept neither the words nor the voice. "Semantic" names what the codebook was trained *towards*, not what the ear gets back from it alone — and the tone answer is on p34.
 :::
 
 ::: {.footer}
@@ -585,19 +570,6 @@ The third answer: **make the one codebook big and the frame rate low**, so a tim
 Ji et al. · Xin et al. · Parker et al. · Vocos, ICLR 2024 · other frame rates are derived
 :::
 
-## 2026: letters that do not align — dynamic frame rates
-
-| | the failure of the alphabet metaphor | the 2026 answer |
-|:---|:----------|:---------------|
-| **a fixed grid** | one token every 80 ms, whether that holds half a syllable or a pause | **FlexiCodec** (ICLR 2026): merge semantically similar frames; 3–12.5 Hz controllable at inference |
-| **a fixed rate** | for a signal whose information rate is not fixed | **CodecSlime** (ICASSP 2026): a dynamic-frame-rate plug-in; an 80 Hz backbone run at 40 Hz |
-| **no alignment** | letters that align to nothing linguistic | **DyCAST** (2026, preprint): tokens roughly aligned to characters, 6–18 Hz |
-| **"lower is worse"** | the quality cliff at 6.25 Hz | **Gichamba & Busogi** (Interspeech 2026): it comes from the training setup — too few tokens per fixed-length clip — not from the rate |
-
-::: {.footer}
-Li et al. · Wang et al. · Della Libera et al. · Gichamba & Busogi · all 2026
-:::
-
 ## Tone: evidence at the unit level, a blank at the codec level
 
 ::: {.ask}
@@ -607,7 +579,7 @@ Li et al. · Wang et al. · Della Libera et al. · Gichamba & Busogi · all 2026
 {{< include assets/w06/tone-layers.inline.qmd >}}
 
 ::: {.claim .fragment fragment-index=2}
-At the unit level this is **measured**; at the codec level it is a **prediction** — and p35 is where we listened. For Mandarin, Taiwanese and Hakka, a token that drops tone drops the word.
+At the unit level this is **measured**; at the codec level it is a **prediction** — and p34 is where we listened. For Mandarin, Taiwanese and Hakka, a token that drops tone drops the word.
 :::
 
 ::: {.footer}
@@ -639,7 +611,7 @@ Every column is a function of the three freedoms. **Speech tokens outnumber text
 Demo 2 · codecs: arithmetic · text: one sentence × 30 min, 2026-10-18 · RQ = residual-quantized
 :::
 
-## MC 7 — "lower bitrate is always better"
+## MC 6 — "lower bitrate is always better"
 
 ::: {.ask}
 **Stop and ask:** Mimi chose 12.5 Hz for the LM's sake. Why not 6.25 Hz?
@@ -659,7 +631,7 @@ Three goals pull against each other — feed the LM, keep the voice, react fast 
 Moshi §3.3.1 · Gichamba & Busogi 2026 on the 6.25 Hz cliff · the course's misconception list
 :::
 
-## MC 8 — "frame rate is an implementation detail"
+## MC 7 — "frame rate is an implementation detail"
 
 {{< include assets/w06/frame-rate.inline.qmd >}}
 
@@ -675,7 +647,22 @@ $$D_{\text{codec}} \geq 1/f_r + \text{lookahead}$$
 arithmetic (w06-data.json) · W2: the hop · W4 / W5: the stride · W6: somebody chose
 :::
 
-## MC 9 — "a good PESQ makes a good LM input"
+## 2026: letters that do not align — dynamic frame rates
+
+| | the failure of the alphabet metaphor | the 2026 answer |
+|:---|:----------|:---------------|
+| **a fixed grid** | one token every 80 ms, whether that holds half a syllable or a pause | **FlexiCodec** (ICLR 2026): merge semantically similar frames; 3–12.5 Hz controllable at inference |
+| **a fixed rate** | for a signal whose information rate is not fixed | **CodecSlime** (ICASSP 2026): a dynamic-frame-rate plug-in; an 80 Hz backbone run at 40 Hz |
+| **no alignment** | letters that align to nothing linguistic | **DyCAST** (2026, preprint): tokens roughly aligned to characters, 6–18 Hz |
+| **"lower is worse"** | the quality cliff at 6.25 Hz | **Gichamba & Busogi** (Interspeech 2026): it comes from the training setup — too few tokens per fixed-length clip — not from the rate |
+
+::: {.footer}
+Li et al. · Wang et al. · Della Libera et al. · Gichamba & Busogi · all 2026
+:::
+
+# Two last misconceptions, then back to the three axes {.section-title}
+
+## MC 8 — "a good PESQ makes a good LM input"
 
 | | reconstruction metrics | LM-friendliness |
 |:---|:----------|:---------------|
@@ -694,7 +681,7 @@ Benchmarks that measure the two **separately** exist for this reason: Codec-SUPE
 Codec-SUPERB 2024 · DASB, TMLR 2026 (check §5 before class) · Park et al., ASRU 2025
 :::
 
-## MC 10 — "a codec token is like a text token"
+## MC 9 — "a codec token is like a text token"
 
 | | text token | codec token |
 |:---|:----------|:---------------|
@@ -710,8 +697,6 @@ Four differences, and the next two Parts are built on them: W11's modality gap c
 ::: {.footer}
 W11 modality gap · W13: RQ-Transformer (Lee et al. 2022), delay pattern (MusicGen), Moshi
 :::
-
-# Back to the three axes {.section-title}
 
 ## Representation: the rightmost slot, and a chosen clock
 
@@ -780,7 +765,7 @@ Back to a world with transcripts. The encoder is W5's; the input may be W2's log
 | BPE | byte-pair encoding: a text tokenizer (W3) |
 | CNN | convolutional neural network (W5) |
 | DAC | Descript Audio Codec: the release name of "Improved RVQGAN" (p14) |
-| DASB | Discrete Audio and Speech Benchmark (p30) |
+| DASB | Discrete Audio and Speech Benchmark (p29) |
 | EMA | exponential moving average (W5) |
 | EVS | Enhanced Voice Services: 3GPP's speech codec for LTE (p29) |
 | FSQ | finite scalar quantization (p17) |
@@ -795,10 +780,10 @@ Back to a world with transcripts. The encoder is W5's; the input may be W2's log
 | MOS | mean opinion score (W1) |
 | MS-STFT | multi-scale STFT: EnCodec's discriminator (p25) |
 | MSE, RMSE | mean squared error; its square root |
-| MUSHRA | Multi Stimulus test with Hidden Reference and Anchor (p30) |
+| MUSHRA | Multi Stimulus test with Hidden Reference and Anchor (p29) |
 | PESQ | Perceptual Evaluation of Speech Quality (p49) |
 | RFC | Request for Comments: the Internet's standards documents; RFC 6716 is Opus |
-| RQ-Transformer | residual-quantized Transformer (p46) |
+| RQ-Transformer | residual-quantized Transformer (p44) |
 | RVQ | residual vector quantisation (p20) |
 
 ## Acronyms in this deck, S–W
@@ -806,7 +791,7 @@ Back to a world with transcripts. The encoder is W5's; the input may be W2's log
 | | |
 |:----|:----------------|
 | SSL | self-supervised learning |
-| ST | SpeechTokenizer, in the p28 and p48 figures |
+| ST | SpeechTokenizer, in the p28 and p46 figures |
 | STFT, iSTFT | short-time Fourier transform (W2); its inverse |
 | TAAE | Transformer Audio AutoEncoder (p18) |
 | TTS | text-to-speech (W1) |

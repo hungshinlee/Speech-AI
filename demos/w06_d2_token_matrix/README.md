@@ -1,9 +1,9 @@
 <!-- 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。 -->
-# W6 · Demo 2 — what the letters look like: token matrix, codebook usage, residual energy, the bill (slides p36–p37, p46)
+# W6 · Demo 2 — what the letters look like: token matrix, codebook usage, residual energy, the bill (slides p35–p36, p44)
 
 Demo 1 was about *hearing* what the residual-VQ stages carry. This demo *looks at the tokens themselves* and measures three things the lecture could only draw until now:
 the residual-energy curve (slide p22), how many codes each stage actually uses, and how "language-like" the first stage is.
-Then it does the arithmetic of slide p46: how many tokens a 30-minute conversation is for three codec settings — and for text.
+Then it does the arithmetic of slide p44: how many tokens a 30-minute conversation is for three codec settings — and for text.
 
 **You are not required to run this.** It is published so that you can read it, re-run it and change it (another sentence, another subset, another codec from `transformers`, another tokenizer).
 Menus and labels are in Chinese; the keys are listed below.
@@ -17,7 +17,7 @@ Menus and labels are in Chinese; the keys are listed below.
 | `3` | the residual-energy curve $\sum_t \lVert \mathbf{r}_{t,i} \rVert^2 / \sum_t \lVert \mathbf{z}_t \rVert^2$ per stage — measured, not schematic; Mimi's semantic and acoustic paths drawn separately |
 | `4` | the bigram conditional entropy $H_2 = H(c_t \mid c_{t-1})$ against $H_1$, per stage, with a shuffled-order baseline |
 | `5` | the bill: token rate $f_r N_q$, 30-minute context, steps per second (flattened vs. RQ-Transformer), $1/f_r$ for EnCodec 6 kbps, SpeechTokenizer and Mimi; and the same 30 minutes of speech as text tokens (Gemma 4 tokenizer) |
-| `t` | the numbers for the slide tables (p37, p46) |
+| `t` | the numbers for the slide tables (p36, p44) |
 | `h` menu · `q` quit | |
 
 ## Definitions

@@ -12,13 +12,13 @@
   selftest   不開視窗：熵／run／bigram 的函數、純 numpy RVQ 的殘差恆等、算帳對 w06-data.json、fake 流程；有彩排紀錄時對 w06-metrics.json
   export     只重寫 w06-metrics.json → demo2（從 runs/rehearsal/rehearsal.json）
 
-畫面上的鍵（順序照投影片 p37／p46 講稿的【操作】）：
+畫面上的鍵（順序照投影片 p36／p44 講稿的【操作】）：
   1  W3 那句經三個 codec 的 token 矩陣（終端機：前幾層 × 一個時間窗；[ ] 移窗；視窗：整句的矩陣，同一個 code 同一個顏色）
   2  子集上每一層：用到幾個 code／V、unigram 熵 H1／log2 V、perplexity、重複率、平均 run 長（三個 codec 並排）
   3  殘差能量曲線 E‖r_i‖²／E‖z‖²（Mimi 分 semantic 路與 acoustic 路）——視窗右下
   4  bigram 條件熵 H2 = H(c_t | c_{t-1}) 對 H1（每層都印，第一層是投影片要的那個），附同句內打亂順序的基線
   5  算帳：三組 codec 設定的 token rate、30 分鐘 context、flatten／RQ-Transformer 每秒步數、1/f_r；同一段 30 分鐘用 Gemma 4 的 tokenizer 算文字 token
-  t  投影片 p37 的表（三列四欄）與 p46 文字那一列    h 選單    q 離開
+  t  投影片 p36 的表（三列四欄）與 p44 文字那一列    h 選單    q 離開
 
 定義（README〈數字怎麼定義〉有完整版）：
   使用率 = 子集全部 frame 上該層出現過的 code 數 ÷ V；H1 = 該層 code 的 unigram 熵（bit），除以 log2 V 得 [0, 1]；
@@ -767,7 +767,7 @@ class Demo:
 
     def key_table(self) -> None:
         o = self.out
-        o.banner("t  slide p37 table (fill by hand) · p46 text row", C.BLUE)
+        o.banner("t  slide p36 table (fill by hand) · p44 text row", C.BLUE)
         K = CFG["sentence"]["max_stage_plot"]
         o(f"  {'':<28s}{'codes used / V  (stage 1 … N_q)':<44s}{'H1/log2 V  (stage 1 … N_q)':<40s}{'residual after 1 / 2 / 4 / N_q':<36s}{'H2/H1 st.1'}")
         for key in CODECS:
@@ -786,7 +786,7 @@ class Demo:
 
     def menu(self) -> None:
         o = self.out
-        o(f"\n{C.BOLD}p37／p46{C.RESET}  1 token 矩陣（[ ] 移窗）   2 使用率與熵   3 殘差曲線   4 bigram H2/H1   5 算帳   t 投影片的表   h 選單   q 離開")
+        o(f"\n{C.BOLD}p36／p44{C.RESET}  1 token 矩陣（[ ] 移窗）   2 使用率與熵   3 殘差曲線   4 bigram H2/H1   5 算帳   t 投影片的表   h 選單   q 離開")
 
     def dispatch(self, k: str) -> bool:
         if k == "1":
@@ -1120,7 +1120,7 @@ def main() -> None:
         d.run_all()
         p = d.save(HERE / "runs" / "rehearsal")
         export(p)
-        print("\n下一步：./present.sh 自己按一遍 1 ] ] 2 3 4 5 t；把 t 印的數字填進 p37 的表格與 p46 文字那一列（講稿【提示】記出處與日期）；"
+        print("\n下一步：./present.sh 自己按一遍 1 ] ] 2 3 4 5 t；把 t 印的數字填進 p36 的表格與 p44 文字那一列（講稿【提示】記出處與日期）；"
               "python3 slides/scripts/make_figs_w06.py 重畫 p22 的殘差曲線（讀 w06-metrics.json → demo2，標 measured）。")
         return
 

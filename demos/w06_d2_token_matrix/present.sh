@@ -13,7 +13,7 @@
 #   ./present.sh show --no-plot   只在終端機，不開圖
 #
 # 模型與 W3 那句都由 Demo 1 準備（../w06_d1_layer_listen：fetch／check）；子集的 wav 由 W5 Demo 1 準備（../w05_d1_layer_probe：fetch）。這裡沒有 fetch。
-# 課堂上的講法與按鍵順序寫在投影片 p37／p46 講稿的【操作】。
+# 課堂上的講法與按鍵順序寫在投影片 p36／p44 講稿的【操作】。
 set -euo pipefail
 cd "$(dirname "$0")"
 export HF_HUB_OFFLINE=1

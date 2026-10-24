@@ -30,7 +30,7 @@ shuffle_repeats = 3
 shuffle_seed = 20261018
 
 [budget]
-# 算帳（投影片 p46）：codec 三列從 slides/assets/w06/w06-data.json → paper_settings → budget 讀（算的，不是量的）
+# 算帳（投影片 p44）：codec 三列從 slides/assets/w06/w06-data.json → paper_settings → budget 讀（算的，不是量的）
 minutes = 30
 # 文字那一列：同一段 30 分鐘的對話用文字 tokenizer 算 token 數。語速從兩句實測的語音量：
 #   華語——W1 Demo 2 那句（runs/rehearsal/utterance/result.json 的 transcript 與 speech_segments_s：第一段開始到最後一段結束）
