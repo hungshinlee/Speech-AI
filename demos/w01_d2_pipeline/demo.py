@@ -1,26 +1,26 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
-"""W1 demo 2（投影片 p41「Live: measure your own pipeline」）：同一句話跑 cascade，把延遲預算當場填出來。
+"""W1 demo 2（投影片 p47「Live: measure your own pipeline」）：同一句話跑 cascade，把延遲預算當場填出來。
 
 子命令（用 speech_ai/demos/setup.sh 建好的共用 .venv 執行；通常經由 present.sh）：
 
     devices    列出音訊裝置（接投影機之後跑一次，預設裝置常會換）
     record     錄那句話（中間要停頓約 700 ms）→ audio/utterance.wav
-    endpoint   只做 endpoint 那一格：對錄音跑串流式能量 VAD，列出各門檻在句中／句尾的行為（Misconception 3 的實證）
+    endpoint   只做 endpoint 那一格：對錄音跑串流式能量 VAD，列出各門檻在句中／句尾的行為（MC 3 的實證）
     check      課前體檢：套件、模型能不能載入、各跑一次暖機
     rehearse   課前彩排：完整跑 N 遍，存 runs/rehearsal/<name>/（進版控；現場失敗時的退路）
     show       課堂用：先讓學生預測誰是瓶頸 → 跑 → 畫時間軸 → 填預算表
     replay     現場失敗時：把彩排的結果畫出來（畫面標明非現場）
     moshi      啟動 moshi-mlx 的即時全雙工（同一句話對它講一次；沒有數字，只給教室聽）
 
-**每一格量的是使用者停止說話之後的殘餘時間**（投影片 p32 的規則一）：
+**每一格量的是使用者停止說話之後的殘餘時間**（投影片 p37 的規則一）：
 
     endpoint      = 靜音門檻 + 偵測步距        （演算法延遲：門檻是設定，硬體救不了）
     ASR tail      = endpoint 開火 → 文字出來    （非串流 ASR 整句都算在這裡——這本身是教學點）
     LLM           = prompt 進去 → 第一個 token  （prefill + first token）
     TTS first pkt = 第一句文字進去 → 第一段音訊 （不是全部合成完）
-    playout       = 設定值，不是量測           （投影片 p36 的 D_buf）
+    playout       = 設定值，不是量測           （投影片 p41 的 D_buf）
 
 end-to-end 那一半**沒有現場量**：moshi-mlx 的即時模式吃麥克風、不吐時間戳，要量得先錄成雙軌再跑
 scripts/analyze_duplex_audio.py。所以時間軸上的 e2e 參考點用 cold open 的 Recording 2（60 ms，
@@ -340,7 +340,7 @@ def measure(x, fs, cfg, asr, llm, tts, repeats: int, quiet=False) -> dict:
             "backends": {"asr": asr.name, "llm": llm.name, "tts": tts.name},
             "endpoint_report": ep, "runs": runs, "cells": cells,
             "total_ms": {"p50": total_p50, "p95_sum": total_p95,
-                         "_note": "p95_sum 是各格 p95 直接相加，是上界不是整條鏈的 p95（p40：機率相乘）"},
+                         "_note": "p95_sum 是各格 p95 直接相加，是上界不是整條鏈的 p95（p45：機率相乘）"},
             "e2e_reference": e2e_reference()}
 
 

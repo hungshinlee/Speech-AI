@@ -212,7 +212,7 @@ Only two quantities change: **how far right** a layer reads, and **whether that 
 {{< include assets/w04/masks.inline.qmd >}}
 
 ::: {.footer}
-$T = 12$, $C = 4$, $R = 1$, $H = 4$ · row $i$ reads white columns · W1 p38: $H$ costs too
+$T = 12$, $C = 4$, $R = 1$, $H = 4$ · row $i$ reads white columns · W1 p43: $H$ costs too
 :::
 
 ## Two delays, one picture: what stacks and what does not
@@ -220,14 +220,14 @@ $T = 12$, $C = 4$, $R = 1$, $H = 4$ · row $i$ reads white columns · W1 p38: $H
 {{< include assets/w04/receptive-spread.inline.qmd >}}
 
 ::: {.footer}
-Left: W1 p34 in encoder frames · right: W1 p35's chunk wait, seen through the layers
+Left: W1 p39 in encoder frames · right: W1 p40's chunk wait, seen through the layers
 :::
 
 ## The two derivations, one line each
 
 **(a) Right context stacks.** Layer $k$'s output at $t$ needs layer $k-1$'s output up to $t + r_k$. Apply it $n_{\text{layer}}$ times:
 
-$$t^{(k)} = t^{(k-1)} + r_k \quad\Longrightarrow\quad t^{(n_{\text{layer}})} = t + \sum_{k=1}^{n_{\text{layer}}} r_k = t + m \qquad\text{(W1 p34, now in encoder frames)}$$
+$$t^{(k)} = t^{(k-1)} + r_k \quad\Longrightarrow\quad t^{(n_{\text{layer}})} = t + \sum_{k=1}^{n_{\text{layer}}} r_k = t + m \qquad\text{(W1 p39, now in encoder frames)}$$
 
 **(b) The chunk wait does not.** *Claim:* if every layer reads only up to the end of the current chunk, then layer $n_{\text{layer}}$'s output anywhere in chunk $c$ depends on the input only up to the end of chunk $c$. *Induction:* true for layer 1 by the mask; if true for layer $k-1$, then layer $k$ reads layer $k-1$ only within chunk $c$, whose values depend on input only up to the end of chunk $c$. $\square$
 
@@ -307,7 +307,7 @@ Dai et al. 2019 eq. 2 · Shi et al. 2021 §3 (read 2026-10-04) · Zhang et al. 2
 | …and a term W1 did not have | + emission delay (next section) | measured, not computed |
 
 ::: {.footer}
-Master: W1 p31 · 1120 ms is the p20 example, not a measurement · Demo 2 measures
+Master: W1 p36 · 1120 ms is the p20 example, not a measurement · Demo 2 measures
 :::
 
 # RNN-T: a second axis on the lattice {.section-title}

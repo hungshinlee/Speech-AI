@@ -20,7 +20,7 @@ format:
     # 章節標題會產生垂直堆疊；linear 讓左右鍵逐張前進，講課時才不會跳章
     navigation-mode: linear
     incremental: false
-    # inline SVG 的 fragment（2026-09-19 起，七張示意圖）：?print-pdf 時整張印在一頁，
+    # inline SVG 的 fragment（2026-09-19 起七張示意圖，2026-10-24 加 arch-waist 成八張）：?print-pdf 時整張印在一頁，
     # 不要每個 fragment 各印一頁——講義要看的是完整的圖
     pdf-separate-fragments: false
     chalkboard:
@@ -119,7 +119,7 @@ Minimising response latency fixes the second failure and makes the first one wor
 
 This course is about the machinery that lets a system get both right at once — and about how to measure whether it did.
 
-# What this course is {.section-title}
+# Where the question lives: fourteen weeks, three axes {.section-title}
 
 ## By week 14 you should be able to build one of these, and to argue about it
 
@@ -171,7 +171,7 @@ These five are the hooks that the next thirteen weeks attach to.
 
 These three are the coordinate system for the whole course. Slides in every later week come back to them.
 
-# Three architectures {.section-title}
+# Three architectures: what each one gives up to get both right {.section-title}
 
 ## From walkie-talkie to face to face
 
@@ -185,6 +185,18 @@ Spoken dialogue systems climbed this ladder in the same order. We are somewhere 
 
 ::: {.claim .warn}
 Where the metaphor breaks: two people talking are not two independent tracks that happen to overlap. Each is **continuously adjusting to the other**. That coupling is the hard part — and it is what W12 and W13 are about.
+:::
+
+## At a glance: the cascade
+
+::: {.prose}
+| | |
+|:---|:-----------------|
+| **Name** | **Cascade**: voice activity detection (VAD) → automatic speech recognition (ASR) → a text large language model (LLM) → text-to-speech (TTS). Not one paper: the pipeline almost every 2023–24 product shipped, and the one Moshi's own abstract defines itself against (Défossez et al., 2024). |
+| **The question** | How do you build a spoken dialogue system today, out of parts that already exist and already have benchmarks? |
+| **The idea** | Each module speaks the next one's language: audio in, a string out, a string back, audio out. The only thing the modules share is text. |
+| **What it added** | Independent training, independent monitoring, independent replacement. If it has to ship in three months, this is still the one to pick. |
+| **What it leaves open** | Everything a string cannot carry — and a string has no clock (p16–p18). Its shape also fixes the budget sheet we draw in p36, which is why that sheet will not fit the last of the three. |
 :::
 
 ## Cascade survives because every module can be debugged separately
@@ -221,6 +233,18 @@ emotion · laughter · sighs · hesitation and filled pauses · speaking rate ·
 A string has no timestamps. Not one.
 :::
 
+## At a glance: end-to-end speech-to-speech (S2S)
+
+::: {.prose}
+| | |
+|:---|:-----------------|
+| **Name** | **End-to-end speech-to-speech**: one autoregressive model from speech tokens to speech tokens — an audio encoder (a self-supervised learning (SSL) model or a neural codec), a speech–text language model (LM), a codec decoder. The exemplar is Moshi (Défossez et al., 2024), the model family behind both recordings. |
+| **The question** | If the string is the bottleneck, what happens when nothing is forced through it? |
+| **The idea** | Cast dialogue as speech-to-speech generation: the LM reads and writes speech tokens, and text survives only *inside* the model, as an "inner monologue" written just ahead of the audio. |
+| **What it added** | Emotion, laughter, hesitation, speaking rate — and the timing of all of them — now reach the model. |
+| **What it leaves open** | Speech-token sequences are one to two orders of magnitude longer than text, and language ability pays for it (p21). And the turn is usually still taken from outside: a VAD decides when it may speak. Letting the model itself decide, every frame, is the third rung — p22. |
+:::
+
 ## End-to-end keeps the paralinguistics, and keeps text as a planning channel
 
 ![](assets/w01/arch-e2e.svg){width="100%"}
@@ -237,6 +261,18 @@ Nothing is forced through a transcript. But text does not disappear — it moves
 The field's current answer is neither pure cascade nor pure end-to-end. It is **keeping text in the loop while never forcing audio through it.**
 :::
 
+## At a glance: native full duplex
+
+::: {.prose}
+| | |
+|:---|:-----------------|
+| **Name** | **Native full duplex**: a model that listens and speaks on one frame clock. Moshi (Défossez et al., 2024) models its own speech and the user's as parallel streams and reports a theoretical latency of 160 ms, 200 ms in practice; Lu et al. (2026) is the taxonomy we use for the whole family. |
+| **The question** | Can turn-taking stop being a separate controller and become part of what the model predicts? |
+| **The idea** | Every frame the model emits one token — a sound, or $\varnothing$, "say nothing" — conditioned on everything heard so far *and* on what it has itself said. Silence is a token. |
+| **What it added** | No speaker turns to segment: overlap, interjections and interruptions are ordinary positions in one sequence. The output clock never stops. |
+| **What it leaves open** | Two-track conversational data to learn from (p27, p57); the *stop* side of the budget (p53); and a test that tells it apart from a cascade that merely *looks* interruptible — p24. First, the equation: p23. |
+:::
+
 ## Full duplex is sequence modelling: silence is a token
 
 ![](assets/w01/arch-duplex.svg){width="100%"}
@@ -245,6 +281,30 @@ $$y_t \;=\; f\!\left(x_{1:\,t+\ell},\; y_{1:\,t-1}\right), \qquad y_t \in \mathc
 
 ::: {.claim}
 Once the model emits *something* every frame — including $\varnothing$, "say nothing" — turn-taking becomes ordinary next-token prediction.
+:::
+
+## MC 1 — "full duplex means it supports interruption"
+
+Interruption handling is a *behaviour*. It can be faked: detect user speech with a VAD, stop the TTS. That system is still half duplex.
+
+::: {.claim .warn}
+The test is architectural: **while the model is speaking, does the input stream still enter the computation and still change the next decision?**
+:::
+
+A VAD-gated cascade and a native full-duplex model can look identical on a clean interruption — and diverge completely on a mid-utterance pause, a backchannel, or two people talking.
+
+## The same test, drawn as two clocks
+
+{{< include assets/w01/output-clock.inline.qmd >}}
+
+A VAD-gated cascade **decides once** — when the endpoint fires — and then plays a string. Between that decision and the external "stop", $x_t$ is not read and no $y_t$ is chosen. Its output clock is **broken**; the frame clock of the model above it never stops.
+
+## Where each architecture narrows the channel
+
+{{< include assets/w01/arch-waist.inline.qmd >}}
+
+::: {.claim}
+The cascade narrows at the **transcript** and loses the clock. The other two narrow at the **tokenizer** — which is why W6 is the hinge: what the codebook keeps, and how many frames a second it runs at, is the ceiling for everything downstream.
 :::
 
 ## Which failure can you afford?
@@ -262,23 +322,7 @@ Once the model emits *something* every frame — including $\varnothing$, "say n
 No ranking here — **"end-to-end must be better" is a misconception.** Pick the architecture whose failure mode your application can survive.
 :::
 
-## Misconception 1 — "full duplex means it supports interruption"
-
-Interruption handling is a *behaviour*. It can be faked: detect user speech with a VAD, stop the TTS. That system is still half duplex.
-
-::: {.claim .warn}
-The test is architectural: **while the model is speaking, does the input stream still enter the computation and still change the next decision?**
-:::
-
-A VAD-gated cascade and a native full-duplex model can look identical on a clean interruption — and diverge completely on a mid-utterance pause, a backchannel, or two people talking.
-
-## The same test, drawn as two clocks
-
-{{< include assets/w01/output-clock.inline.qmd >}}
-
-A VAD-gated cascade **decides once** — when the endpoint fires — and then plays a string. Between that decision and the external "stop", $x_t$ is not read and no $y_t$ is chosen. Its output clock is **broken**; the frame clock of the model above it never stops.
-
-# The latency budget {.section-title}
+# What humans aim at: how late is too late? {.section-title}
 
 ## Humans aim at a target, not at a minimum
 
@@ -295,7 +339,7 @@ Delay is a signal, not just a cost. A system that always answers instantly is no
 Stivers et al., PNAS 106(26): 10587–10592, 2009 · open access
 :::
 
-## Misconception 2 — "lower latency is always better"
+## MC 2 — "lower latency is always better"
 
 ::: {.ask}
 If a system answered every question in 40 ms, how would that feel?
@@ -334,7 +378,7 @@ Gap statistics: Stivers et al., PNAS 106(26), 2009. Production timing: word-prod
 
 Put the two numbers on one axis and the conclusion is forced: the planning box has to start **before** the other speaker stops. Nothing else fits the observed gap.
 
-## Misconception 3 — "just make the VAD faster"
+## MC 3 — "just make the VAD faster"
 
 A VAD answers **is someone speaking right now?** — detection, answerable from the current frame.
 
@@ -357,6 +401,8 @@ That is why W12 is about *semantic* endpointing — deciding from the words and 
 {{< include assets/w01/vad-threshold.inline.qmd >}}
 
 The 500 ms pause inside the sentence and the silence after it are **the same signal** to a timer. Only the words tell them apart — and the timer never sees the words.
+
+# The latency budget: where the machine's time goes {.section-title}
 
 ## The budget we will refill every week
 
@@ -382,7 +428,7 @@ A streaming model is a function that may peek $\ell$ frames into the future:
 
 $$\hat{y}_{1:t} \;=\; f\!\left(x_{1:\,t+\ell}\right)$$
 
-$\Delta$ frame shift (s) · $\ell$ lookahead (frames) · $n_{\text{layer}}$ layers · $r_k$ right context of layer $k$ · $C$ chunk size (frames)
+$\Delta$ frame shift (s) · $\ell$ lookahead (frames) · $n_{\text{layer}}$ layers · $r_k$ right context of layer $k$ · $C$ chunk size (frames) · $\mathrm{RTF}$ real-time factor · $T_{\text{queue}}$ queueing
 
 **Algorithmic delay** — still there on infinitely fast hardware:
 
@@ -407,7 +453,7 @@ $$t^{(k)} \;=\; t^{(k-1)} + r_k \qquad\Longrightarrow\qquad t^{(n_{\text{layer}}
 
 {{< include assets/w01/chunk-wait.inline.qmd >}}
 
-The user's last frame lands at position $j$ in its chunk and waits $(C-1-j)\,\Delta$. Averaged over where it lands:
+The user's last frame lands at position $j$ in its chunk and waits $(C-1-j)\,\Delta$; average over $j$:
 
 $$\frac{1}{C}\sum_{j=0}^{C-1} (C-1-j)\,\Delta \;=\; \frac{C-1}{2}\,\Delta \;\approx\; \tfrac12\,C\Delta, \qquad\text{worst case } (C-1)\,\Delta \;\approx\; C\Delta$$
 
@@ -455,11 +501,11 @@ $$\text{cost per second} \;\propto\; \frac{1}{C\Delta}\cdot C\,(C+H)\,d \;=\; \f
 
 Halving $C$ halves the wait but removes only $C$ from $C+H$: **smaller chunks are more often and less efficient, not cheaper.**
 
-## Misconception 4 — "latency is an engineering problem, not a research problem"
+## MC 4 — "latency is an engineering problem, not a research problem"
 
 The streaming constraint does not sit on top of a model. It reaches inside and changes it.
 
-- **The loss function.** RNN-T exists because an attention-based encoder–decoder cannot emit anything before it has seen the whole utterance. `[W4]`
+- **The loss function.** RNN-T (the recurrent neural network transducer) exists because an attention-based encoder–decoder cannot emit anything before it has seen the whole utterance. `[W4]`
 - **The representation.** Low frame-rate neural codecs exist because decoder steps per second is a hard budget. `[W6]`
 - **The architecture.** Causal masks and chunk-wise attention exist because the model is not allowed to look at the future. `[W4, W8]`
 
@@ -485,7 +531,7 @@ Report distributions. In W14 the goal becomes *matching* the human latency distr
 |:---|:-----------------|
 | **Why** | The last ten slides built the budget on paper: every cell is time left after the user stops speaking, and some cells are a setting while others are compute. This demo fills the budget in from a real pipeline on this laptop. |
 | **What runs** | One recorded Mandarin sentence with a pause in the middle ("I'd like a ticket to … Tainan, next Wednesday") through a cascade: an energy-VAD endpoint, whisper.cpp, a local LLM (`mlx-lm`), a local TTS (`mlx-audio`). Every module boundary is time-stamped; ten runs, p50 and p95. Then, on headphones, a full-duplex model on the same laptop — listened to, not measured. |
-| **Watch for** | Which cell is largest, how much each cell varies across the ten runs, and which of the two kinds of delay on p33 the largest one is. For the full-duplex model: *when* it talks, not what it says. |
+| **Watch for** | Which cell is largest, how much each cell varies across the ten runs, and which of the two kinds of delay on p38 the largest one is. For the full-duplex model: *when* it talks, not what it says. |
 :::
 
 ::: {.footer}
@@ -498,13 +544,13 @@ Demo 2 · code: `demos/w01_d2_pipeline` · Apple silicon only (mlx) · rehearsed
 **Demo 2.** Prediction before we run it: which module will dominate?
 :::
 
-The terminal fills in the budget sheet from p31 and draws the timeline; the end-to-end point on it is Recording 2 of the cold open, not this sentence.
+The terminal fills in the budget sheet from p36 and draws the timeline; the end-to-end point on it is Recording 2 of the cold open, not this sentence.
 
 ::: {.footer}
 Demo 2 · code: `demos/w01_d2_pipeline` · whisper.cpp → Gemma 4 → Kokoro, all on this laptop
 :::
 
-# Four behaviours a half-duplex system cannot have {.section-title}
+# When the user is also talking: four behaviours a half-duplex system cannot have {.section-title}
 
 ## The taxonomy
 
@@ -512,12 +558,12 @@ Demo 2 · code: `demos/w01_d2_pipeline` · whisper.cpp → Gemma 4 → Kokoro, a
 |---|---|---|---|
 | **Backchannel** | still speaking; says "mm-hm" | recognise that no turn is being claimed, and keep going | W12 |
 | **Interruption** | taking the floor mid-answer | stop quickly, and keep what it had planned | W12, W13 |
-| **Barge-in** | speaking over the system's own audio | separate its own voice from the user's — AEC | W10 |
+| **Barge-in** | speaking over the system's own audio | separate its own voice from the user's — acoustic echo cancellation (AEC) | W10 |
 | **Overlap continuation** | briefly overlapping, not taking the floor | continue rather than yield | W12 |
 | **Proactive turn** | silent | decide whether to open its mouth at all | open problem |
 
 ::: {.small}
-Four of these five are out of reach for a half-duplex system. **Interruption** is the one it can fake — a VAD trigger that stops the TTS — which is exactly Misconception 1.
+Four of these five are out of reach for a half-duplex system. **Interruption** is the one it can fake — a VAD trigger that stops the TTS — which is exactly MC 1.
 :::
 
 ## A base model can be a competent talker and a useless listener
@@ -577,7 +623,7 @@ The last section measured *user stops → system starts*. Interruption runs the 
 The third cell is the trap: a larger playout buffer protects you from glitches **and** makes you slower to shut up. One parameter, two faces — only one of them shows up in the usual latency number.
 :::
 
-## Misconception 5 — "the user should always win an interruption"
+## MC 5 — "the user should always win an interruption"
 
 Interruptions have different functions: clarification, correction, agreement, seizing the floor. Yielding unconditionally means the system can never finish a necessary long answer — reading out an address, a dosage, a confirmation number.
 
@@ -596,8 +642,8 @@ And the cost of getting it wrong is now a number you can put on the sheet: every
 | W2 | frame shift — the smallest unit of delay there is |
 | W4 | lookahead and chunk size; ASR emission delay |
 | W6 | frame rate and token budget → decoder steps per second |
-| W8 | TTS first-packet latency; NFE versus quality |
-| W10 | AEC and front-end cost; why enhancement can raise WER |
+| W8 | TTS first-packet latency; NFE (number of function evaluations) versus quality |
+| W10 | AEC and front-end cost; why enhancement can raise WER (word error rate) |
 | W13 | per-frame decoding cost for a full-duplex model |
 
 ::: {.claim}
@@ -622,7 +668,7 @@ When we reach W14's open problems, this one has your name on it more than mine.
 
 1. **Was the input the same?** Today's two recordings shared one pre-recorded user track, so the difference was attributable. Most system comparisons do not have that property.
 2. **How was the timing measured?** Energy VAD, a reference VAD, forced alignment, or the model's own logs? Our 2.90&nbsp;s and 60&nbsp;ms came from an energy VAD — the magnitudes hold, the milliseconds do not.
-3. **What was normalised away?** WER depends on text normalisation; MOS depends on the rater pool and the scale anchors. Numbers from two different papers are usually not comparable at all.
+3. **What was normalised away?** WER depends on text normalisation; MOS (mean opinion score) depends on the rater pool and the scale anchors. Numbers from two different papers are usually not comparable at all.
 4. **What does the metric reward?** A benchmark that scores only latency rewards a system that interrupts.
 
 ::: {.claim}
@@ -631,7 +677,7 @@ You will use these four every week — and they are also how you avoid writing a
 
 ## Next week, and what to read
 
-**W2 — Speech Signals, Auditory Front-Ends, and the Physics of Representation.** The only systematic DSP week. Before the STFT it stops for a short refresher — inner products and projections — and then uses them three times.
+**W2 — Speech Signals, Auditory Front-Ends, and the Physics of Representation.** The only systematic digital-signal-processing (DSP) week. Before the short-time Fourier transform (STFT) it stops for a short refresher — inner products and projections — and then uses them three times.
 
 If you read one thing this week:
 
@@ -654,3 +700,21 @@ Two more, if you have time:
 : Lu et al., arXiv:2606.19453 (2026).
 
 Audio analysis code (energy VAD, overlap / response / stop latency, the two-track timeline): `slides/scripts/analyze_duplex_audio.py`, `slides/scripts/make_duplex_timeline.py` in the course repository.
+
+## Acronyms in this deck, A–W
+
+| | |
+|:----|:----------------|
+| AEC | acoustic echo cancellation (p49) |
+| ASR | automatic speech recognition (p14) |
+| LLM | large language model (p14) |
+| MOS | mean opinion score (p58) |
+| NFE | number of function evaluations: sampling steps in a flow-matching TTS model (p56) |
+| RNN-T | recurrent neural network transducer (p44) |
+| RTF | real-time factor: seconds of compute per second of audio (p38) |
+| S2S | speech-to-speech (p19) |
+| SSL | self-supervised learning (p19) |
+| STFT | short-time Fourier transform (p59) |
+| TTS | text-to-speech (p14) |
+| VAD | voice activity detection (p14) |
+| WER | word error rate (p56) |

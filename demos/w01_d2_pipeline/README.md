@@ -1,5 +1,5 @@
 <!-- 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。 -->
-# W1 · Demo 2 — one sentence through a cascade, and the latency budget filled in live (slides p41–p42)
+# W1 · Demo 2 — one sentence through a cascade, and the latency budget filled in live (slides p46–p47)
 
 One recorded sentence with a pause in the middle (a ticket-booking request in Mandarin: "I'd like to book a ticket … er … to Tainan next Wednesday") is pushed through a cascaded pipeline — energy-based endpoint detection → whisper.cpp → an LLM via `mlx-lm` → a TTS model via `mlx-audio` — and every module boundary is time-stamped. The program runs the computational stages ten times, reports **p50 and p95**, draws the timeline, and fills in the latency-budget table from the slides.
 

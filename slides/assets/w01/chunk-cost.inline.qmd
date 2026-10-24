@@ -1,7 +1,6 @@
 <!-- 由 scripts/make_figs_w01.py 產生，勿手改；投影片用 {{< include assets/w01/chunk-cost.inline.qmd >}} 貼入 -->
 ```{=html}
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1100 378" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
-<text x="1084.0" y="22.0" font-size="15" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">schematic — not a measurement</text>
 <svg x="30" y="28" width="570.88" height="16" viewBox="0 0 570.88 16"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
@@ -1272,22 +1271,22 @@ z
   </g>
  </g>
 </svg>
-<svg x="464" y="114.1" width="123.75" height="18.9" viewBox="0 0 123.75 18.9"><defs>
+<svg x="464" y="112.84" width="132" height="20.16" viewBox="0 0 132 20.16"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="t24-figure_1">
   <g id="t24-patch_1">
-   <path d="M 0 18.9 
-L 123.75 18.9 
-L 123.75 0 
+   <path d="M 0 20.16 
+L 132 20.16 
+L 132 0 
 L 0 0 
-L 0 18.9 
+L 0 20.16 
 z
 " style="fill: none"/>
   </g>
   <g id="t24-text_1">
    <!-- $\mathsf{chunk\ wait} \approx \frac{1}{2}\cdot 8\,\Delta$ -->
-   <g style="fill: #dc2626" transform="translate(0 12.75) scale(0.15 -0.15)">
+   <g style="fill: #dc2626" transform="translate(0 13.6) scale(0.16 -0.16)">
     <defs>
      <path id="t24-Cmss10-63" d="M 1594 -72 
 Q 1309 -72 1053 50 
@@ -2054,22 +2053,22 @@ z
   </g>
  </g>
 </svg>
-<svg x="584" y="203.1" width="123.75" height="18.9" viewBox="0 0 123.75 18.9"><defs>
+<svg x="584" y="201.84" width="132" height="20.16" viewBox="0 0 132 20.16"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="t27-figure_1">
   <g id="t27-patch_1">
-   <path d="M 0 18.9 
-L 123.75 18.9 
-L 123.75 0 
+   <path d="M 0 20.16 
+L 132 20.16 
+L 132 0 
 L 0 0 
-L 0 18.9 
+L 0 20.16 
 z
 " style="fill: none"/>
   </g>
   <g id="t27-text_1">
    <!-- $\mathsf{chunk\ wait} \approx \frac{1}{2}\cdot 4\,\Delta$ -->
-   <g style="fill: #dc2626" transform="translate(0 12.75) scale(0.15 -0.15)">
+   <g style="fill: #dc2626" transform="translate(0 13.6) scale(0.16 -0.16)">
     <defs>
      <path id="t27-Cmss10-63" d="M 1594 -72 
 Q 1309 -72 1053 50 
@@ -2895,22 +2894,22 @@ z
   </g>
  </g>
 </svg>
-<svg x="824" y="276.6" width="123.75" height="18.9" viewBox="0 0 123.75 18.9"><defs>
+<svg x="824" y="275.34" width="132" height="20.16" viewBox="0 0 132 20.16"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="t30-figure_1">
   <g id="t30-patch_1">
-   <path d="M 0 18.9 
-L 123.75 18.9 
-L 123.75 0 
+   <path d="M 0 20.16 
+L 132 20.16 
+L 132 0 
 L 0 0 
-L 0 18.9 
+L 0 20.16 
 z
 " style="fill: none"/>
   </g>
   <g id="t30-text_1">
    <!-- $\mathsf{chunk\ wait} \approx \frac{1}{2}\cdot 2\,\Delta$ -->
-   <g style="fill: #dc2626" transform="translate(0 12.75) scale(0.15 -0.15)">
+   <g style="fill: #dc2626" transform="translate(0 13.6) scale(0.16 -0.16)">
     <defs>
      <path id="t30-Cmss10-63" d="M 1594 -72 
 Q 1309 -72 1053 50 
@@ -3279,22 +3278,22 @@ z
 </svg>
 </g>
 <rect x="230.0" y="328.0" width="22.0" height="12.0" rx="0" fill="#e5e7eb" stroke="#6b7280" stroke-width="0.8"/>
-<svg x="260" y="328.483" width="176.85" height="14.5172" viewBox="0 0 176.85 14.517187"><defs>
+<svg x="260" y="327.515" width="188.64" height="15.485" viewBox="0 0 188.64 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="t31-figure_1">
   <g id="t31-patch_1">
-   <path d="M 0 14.517187 
-L 176.85 14.517187 
-L 176.85 -0 
-L 0 -0 
-L 0 14.517187 
+   <path d="M 0 15.485 
+L 188.64 15.485 
+L 188.64 0 
+L 0 0 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="t31-text_1">
    <!-- $\mathsf{keys\ in\ the\ cached\ history\ } H$ -->
-   <g style="fill: #6b7280" transform="translate(0 11.367187) scale(0.15 -0.15)">
+   <g style="fill: #6b7280" transform="translate(0 12.125) scale(0.16 -0.16)">
     <defs>
      <path id="t31-Cmss10-6b" d="M 525 0 
 L 525 4441 
@@ -3699,22 +3698,22 @@ z
  </g>
 </svg>
 <rect x="560.0" y="328.0" width="22.0" height="12.0" rx="0" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<svg x="590" y="328.483" width="172.05" height="14.5172" viewBox="0 0 172.05 14.517187"><defs>
+<svg x="590" y="327.515" width="183.52" height="15.485" viewBox="0 0 183.52 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="t32-figure_1">
   <g id="t32-patch_1">
-   <path d="M 0 14.517187 
-L 172.05 14.517187 
-L 172.05 -0 
-L 0 -0 
-L 0 14.517187 
+   <path d="M 0 15.485 
+L 183.52 15.485 
+L 183.52 0 
+L 0 0 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="t32-text_1">
    <!-- $\mathsf{keys\ in\ the\ current\ chunk\ } C$ -->
-   <g style="fill: #0b5cad" transform="translate(0 11.367187) scale(0.15 -0.15)">
+   <g style="fill: #0b5cad" transform="translate(0 12.125) scale(0.16 -0.16)">
     <defs>
      <path id="t32-Cmss10-6b" d="M 525 0 
 L 525 4441 
