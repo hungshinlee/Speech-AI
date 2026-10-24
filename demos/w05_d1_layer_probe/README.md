@@ -1,16 +1,16 @@
 <!-- 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。 -->
-# W5 · Demo 1 — three curves across thirteen layers: speaker probe, phone probe, CCA with the CNN output (slides p33–p34)
+# W5 · Demo 1 — three curves across thirteen layers: speaker probe, phone probe, CCA with the CNN output (slides p36–p37)
 
 Two pre-trained (not fine-tuned) encoders with the same architecture and the same training audio but different pre-training targets — `facebook/hubert-base-ls960` and `facebook/wav2vec2-base` — are run over a subset of LibriSpeech dev-clean (all 40 speakers, 10 utterances each), and every one of their thirteen representations (layer 0 = the CNN output, layers 1–12 = the transformer blocks) is scored three ways: how well a linear classifier on it recognises the **speaker**, how well a linear classifier on it recognises the **phone**, and how similar it is to **layer 0** (CCA). The point of the slide is that the three curves peak in different places and that the top layer is not the best one for anything but the pre-training target — "which layer" is a measurement, not a guess.
 
 | Part | Keys | What it does | Slide |
 |---|---|---|---|
-| 1 | `1` | plays one utterance (`1272-128104-0000`, the sentence of W3 demo 3) and prints the shape of all thirteen layers for it ($T \times 512$ for the CNN, $T \times 768$ for each transformer block) | p34 |
-| 2 | `2` | speaker probe, one layer at a time: frame-level 40-way logistic regression (the utterance-level accuracy is printed beside it); the test accuracy of each layer appears as a point on the first panel | p34 purple |
-| 3 | `3` | phone probe: frame-level → 39-way logistic regression (ARPAbet, stress stripped); second panel | p34 orange |
-| 4 | `4` | PWCCA between each layer and layer 0 on held-out frames; third panel. `l` switches the target to an 80-band log-mel spectrogram, then `4` again | p34 blue |
-| — | `w` | switch model (HuBERT ↔ wav2vec 2.0) and repeat `2 3 4`; the second model's curves are drawn dashed on the same panels. `a` does all three for both models at once | p34 table |
-| — | `t` | the summary table: for each model the layer where the speaker probe peaks, where the phone probe peaks, and the minimum and top-layer value of the CCA curve — the four cells of the table on p34 | p34 table |
+| 1 | `1` | plays one utterance (`1272-128104-0000`, the sentence of W3 demo 3) and prints the shape of all thirteen layers for it ($T \times 512$ for the CNN, $T \times 768$ for each transformer block) | p37 |
+| 2 | `2` | speaker probe, one layer at a time: frame-level 40-way logistic regression (the utterance-level accuracy is printed beside it); the test accuracy of each layer appears as a point on the first panel | p37 purple |
+| 3 | `3` | phone probe: frame-level → 39-way logistic regression (ARPAbet, stress stripped); second panel | p37 orange |
+| 4 | `4` | PWCCA between each layer and layer 0 on held-out frames; third panel. `l` switches the target to an 80-band log-mel spectrogram, then `4` again | p37 blue |
+| — | `w` | switch model (HuBERT ↔ wav2vec 2.0) and repeat `2 3 4`; the second model's curves are drawn dashed on the same panels. `a` does all three for both models at once | p37 table |
+| — | `t` | the summary table: for each model the layer where the speaker probe peaks, where the phone probe peaks, and the minimum and top-layer value of the CCA curve — the four cells of the table on p37 | p37 table |
 
 ## Definitions
 

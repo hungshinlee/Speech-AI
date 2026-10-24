@@ -116,7 +116,23 @@ Logs are $\ln$ · two temperatures: $\kappa$ divides a similarity, $\tau$ a Gumb
 :::
 
 ::: {.footer}
-wav2vec 2.0 §2, §3.3 · same front end in HuBERT and data2vec · BEST-RQ eats log-mel
+CNN = convolutional neural network · wav2vec 2.0 §2, §3.3 · same front end: HuBERT, data2vec
+:::
+
+## At a glance: Contrastive Predictive Coding (CPC)
+
+::: {.prose}
+| | |
+|:---|:-----------------|
+| **Name** | **Contrastive Predictive Coding** (CPC), Oord, Li & Vinyals, arXiv 2018. Its loss is **InfoNCE**: "a loss based on NCE", noise-contrastive estimation. |
+| **The question** | With no transcript, what can a model be asked to predict about speech? |
+| **The idea** | Fold the past into $\mathbf{c}_t$ with a causal GRU (gated recurrent unit), then pick the true future latent $\mathbf{z}_{t+k}$ out of a set of distractors — a classification, not a reconstruction. |
+| **What it added** | No labels, and no model of the waveform itself: the best classifier learns a density ratio, and its loss bounds the mutual information $I(\mathbf{z};\mathbf{c})$ from below. |
+| **What it leaves open** | The context sees only the past, and only a narrow band of $k$ is useful; wav2vec 2.0 fills a hole instead (p17). |
+:::
+
+::: {.footer}
+CPC §2.3: "a loss based on NCE, which we will call InfoNCE" · the mechanism: p11–p13
 :::
 
 ## CPC: predict the future, against negatives
@@ -200,10 +216,26 @@ Two moves from CPC to wav2vec 2.0: **predict the masked, not the future** — an
 :::
 
 ::: {.footer}
-vq-wav2vec, ICLR 2020 (quantise, then BERT) · wav2vec 2.0, NeurIPS 2020 (one model)
+vq-wav2vec, ICLR 2020 · BERT = Bidirectional Encoder Representations from Transformers
 :::
 
 # wav2vec 2.0: the model quantises its own target {.section-title}
+
+## At a glance: wav2vec 2.0
+
+::: {.prose}
+| | |
+|:---|:-----------------|
+| **Name** | **wav2vec 2.0**, Baevski, Zhou, Mohamed & Auli, NeurIPS 2020. Not an acronym: the second of a line, after wav2vec (2019, purely convolutional, contrastive) and vq-wav2vec (2020: quantise first, then run BERT). |
+| **The question** | If the target is the model's own latent, how do you stop the model from making the contrast easy? |
+| **The idea** | Mask spans of the CNN latents; at each masked step a Transformer must pick the **vector-quantised** (VQ) latent $\mathbf{q}_t$ out of distractors from the same utterance. |
+| **What it added** | Masking and quantisation in one model, trained end to end — and fine-tuning on ten minutes of labels, the result its abstract leads with. |
+| **What it leaves open** | The quantiser has no gradient, and a target that moves can collapse. The next slides take both: Gumbel-softmax, then the diversity loss. |
+:::
+
+::: {.footer}
+wav2vec, Interspeech 2019 · vq-wav2vec, ICLR 2020 · the ten-minute numbers: p49
+:::
 
 ## Gumbel-softmax and the straight-through gradient
 
@@ -218,7 +250,7 @@ $$\text{backward (soft):}\quad \hat{p}_{g,v} = \frac{\exp\big((l_{g,v} + n_{g,v}
 :::
 
 ::: {.claim .fragment fragment-index=3}
-**Straight-through is biased by construction** — it pretends the quantiser is the identity. W6's VQ-VAE reuses it.
+**Straight-through is biased by construction** — it pretends the quantiser is the identity. W6's VQ-VAE (vector-quantised variational autoencoder) reuses it.
 :::
 
 ::: {.footer}
@@ -247,13 +279,17 @@ wav2vec 2.0 eq. 4 · $\mathcal{L} = \mathcal{L}_m + \alpha\mathcal{L}_d$, $\alph
 Collapse is a property of **online targets**, not of "non-contrastive". A fixed target cannot collapse and needs no negatives; a moving target can — with or without them.
 :::
 
+::: {.footer}
+BYOL = Bootstrap Your Own Latent (Grill et al., NeurIPS 2020) · EMA = exponential moving average
+:::
+
 ## The whole loss, and where the negatives come from
 
 $$\mathcal{L} = \mathcal{L}_m + \alpha\,\mathcal{L}_d, \qquad \mathcal{L}_m = -\sum_{t \in M}\ln\frac{\exp(\mathrm{sim}(\mathbf{c}_t, \mathbf{q}_t)/\kappa)}{\sum_{\tilde{\mathbf{q}} \in \mathcal{Z}_t}\exp(\mathrm{sim}(\mathbf{c}_t, \tilde{\mathbf{q}})/\kappa)}$$
 
 | piece | wav2vec 2.0 BASE | why |
 |:--|:--|:--|
-| target | $\mathbf{q}_t = \mathrm{VQ}(\mathbf{z}_t)$ at masked $t$; $G = 2$, $V = 320$ | discrete, finite freedom (p16) |
+| target | $\mathbf{q}_t = \mathrm{VQ}(\mathbf{z}_t)$ at masked $t$; $G = 2$, $V = 320$ | discrete, finite freedom (p17) |
 | negatives $\mathcal{Z}_t \setminus \{\mathbf{q}_t\}$ | $N - 1 = 100$, **other masked steps of the same utterance** | same speaker, same channel: only content separates them |
 | temperatures | $\kappa = 0.1$ (contrast); $\tau\colon 2 \to 0.5$ (Gumbel) | two knobs, two jobs |
 | masking | spans of 10 steps, start prob. 0.065; $\approx 49\%$ of steps masked | long enough that interpolation fails |
@@ -292,10 +328,26 @@ Nothing today is training. Not a ten-minute toy either — it would show "it doe
 :::
 
 ::: {.footer}
-wav2vec 2.0 App. B · HuBERT §IV-C · no demo today is pre-training, by design
+LS-960 = LibriSpeech 960 h · LV-60k = Libri-light 60k h · wav2vec 2.0 App. B · HuBERT §IV-C
 :::
 
 # Targets, second kind: a teacher {.section-title}
+
+## At a glance: Hidden-Unit BERT (HuBERT)
+
+::: {.prose}
+| | |
+|:---|:-----------------|
+| **Name** | **Hidden-Unit BERT** (HuBERT), Hsu et al., IEEE/ACM TASLP 2021. The hidden units are what it predicts: cluster ids found offline, the way BERT predicts masked words. |
+| **The question** | What if the answer for each masked frame is written down before training starts, and never moves? |
+| **The idea** | Cluster frames with k-means; predict the cluster id of every masked frame (a $K$-way classification); then cluster a middle layer of the trained model and train again. |
+| **What it added** | No negatives and no collapse by construction; a target that improves by iteration; and a consistent teacher matters more than an accurate one. |
+| **What it leaves open** | How good must the first teacher be — and what does a "hidden unit" actually hold? The next two slides, and the units section from p41. |
+:::
+
+::: {.footer}
+Hsu et al., arXiv abstract: "the Hidden-Unit BERT (HuBERT) approach" · TASLP 29:3451–3460
+:::
 
 ## HuBERT: a fixed teacher, then a better one
 
@@ -312,7 +364,7 @@ Hsu et al., TASLP 2021, eq. 3 ($\kappa = 0.1$; $\tau$ there) · §IV-C: layer 6,
 {{< include assets/w05/purity.inline.qmd >}}
 
 ::: {.footer}
-HuBERT §IV-E · the MFCC teacher, $K = 100$: cluster 0.099 · phone 0.335 · PNMI 0.255 (arXiv v1 §V-C)
+PNMI = phone-normalized mutual information (HuBERT §IV-E) · MFCC teacher, $K = 100$: 0.099 · 0.335 · 0.255 (v1 §V-C)
 :::
 
 ## MC 3 — "the k-means must be right to teach"
@@ -324,7 +376,7 @@ HuBERT §IV-E · the MFCC teacher, $K = 100$: cluster 0.099 · phone 0.335 · PN
 | chenone (supervised, for reference) | 10.38 | **9.16** | 9.79 |
 
 ::: {.small}
-dev-other WER after fine-tuning, HuBERT Table V. $\mathcal{L}_u$ is the same loss on the *unmasked* frames.
+dev-other word error rate (WER) after fine-tuning, HuBERT Table V. $\mathcal{L}_u$ is the same loss on the *unmasked* frames.
 :::
 
 ::: {.claim}
@@ -346,7 +398,7 @@ Hsu et al., TASLP 2021, abstract and Table V · the ICASSP 2021 "bad teacher" pa
 | what it buys | content | content, plus a representation that already separates speakers and ignores noise |
 
 ::: {.claim}
-Two things changed at once — the auxiliary task **and** the data. When WavLM wins a benchmark, you cannot tell which one paid. Keep that for p48.
+Two things changed at once — the auxiliary task **and** the data. When WavLM wins a benchmark, you cannot tell which one paid. Keep that for p51.
 :::
 
 ::: {.footer}
@@ -370,6 +422,10 @@ Baevski et al. 2022 §4.2 · BASE: $K_{\ell} = 8$, instance norm, L2 at $t \in M
 :::
 
 ## BEST-RQ: a teacher that knows nothing
+
+::: {.small}
+**BEST-RQ** = BERT-based Speech pre-Training with Random-projection Quantizer.
+:::
 
 {{< include assets/w05/bestrq.inline.qmd >}}
 
@@ -417,7 +473,7 @@ wav2vec 2.0 Table 1 (10 min → 960 h) · "pseudo-labels" is our word; HuBERT sa
 | | |
 |:---|:-----------------|
 | **Why** | An SSL encoder gives thirteen representations, not one: the CNN output and twelve blocks. Which layer holds the speaker, which holds the phones, and which still resembles the input decides which layer a downstream task should read. |
-| **What runs** | HuBERT-base, then wav2vec 2.0 base, pre-trained and not fine-tuned, on 400 dev-clean utterances from 40 speakers. For every layer, three numbers: a linear speaker probe, a linear phone probe (labels from MFA forced alignment), and PWCCA with layer 0. Probes and PWCCA are plain numpy; the curves appear point by point. |
+| **What runs** | HuBERT-base, then wav2vec 2.0 base, pre-trained and not fine-tuned, on 400 dev-clean utterances from 40 speakers. For every layer, three numbers: a linear speaker probe, a linear phone probe (labels from the Montreal Forced Aligner, MFA), and PWCCA — projection-weighted canonical correlation analysis — with layer 0. Probes and PWCCA are plain numpy; the curves appear point by point. |
 | **Watch for** | If the last layer were the best for everything, all three curves would climb to the top. Watch where each one peaks, and whether any of them peaks at the top. |
 :::
 
@@ -483,7 +539,7 @@ Pasad et al. 2023: the best single layer often matches or beats the weighted sum
 $$\mathbf{h}_t = \sum_{l=0}^{n_{\text{layer}}} w_l\,\mathbf{h}^{(l)}_t, \qquad \mathbf{w} = \mathrm{softmax}(\boldsymbol{\theta})$$
 
 ::: {.small}
-$\boldsymbol{\theta}$ is learned together with the downstream head; the upstream stays frozen.
+SUPERB = Speech processing Universal PERformance Benchmark. $\boldsymbol{\theta}$ is learned with the downstream head; the upstream stays frozen.
 :::
 
 ::: {.footer}
@@ -555,7 +611,7 @@ Units correlate strongly with phonemes and that is exactly what makes the confus
 :::
 
 ::: {.footer}
-Lakhotia et al., TACL 2021 (GSLM) · Sicherman & Adi, ICASSP 2023 · Polyak et al., Interspeech 2021
+GSLM = generative spoken language modeling, Lakhotia et al. 2021 · Sicherman & Adi 2023
 :::
 
 ## Where speaker and F0 went: three streams
@@ -577,7 +633,7 @@ Polyak et al., Interspeech 2021 (abstract: content, prosody, speaker extracted s
 {{< include assets/w05/confound.inline.qmd >}}
 
 ::: {.claim .fragment fragment-index=4}
-**Match all three before reading the row** — and multilingual does not even guarantee a win (ML-SUPERB).
+**Match all three before reading the row** — and multilingual does not even guarantee a win (ML-SUPERB, the multilingual SUPERB).
 :::
 
 ::: {.footer}
@@ -738,7 +794,7 @@ W3 and W4 asked "where does the alignment come from"; today asked **"where does 
 
 - Mohamed et al., *Self-Supervised Speech Representation Learning: A Review*, IEEE JSTSP 2022 — the survey; read the taxonomy section, then re-sort it by target as we did today
 - Hsu et al., *HuBERT*, IEEE/ACM TASLP 2021 — §II for the loss, §IV-E for the three purities, Table V for the $\alpha$ ablation you saw
-- Baevski et al., *wav2vec 2.0*, NeurIPS 2020 — §2–3 and Appendix B; look at Table 1 with p46 in mind
+- Baevski et al., *wav2vec 2.0*, NeurIPS 2020 — §2–3 and Appendix B; look at Table 1 with p49 in mind
 
 **If one thing today was new to you, make it this one**
 
@@ -747,3 +803,39 @@ W3 and W4 asked "where does the alignment come from"; today asked **"where does 
 **Next week — neural audio codecs and discrete tokens**
 
 Today's unit was *predicted*; next week's token is *reconstructed*. What changes when the target is the waveform itself: residual VQ, codebook collapse in its harsher form, bitrate against intelligibility — and why W6 is the hinge of the course.
+
+## Acronyms in this deck, A–I
+
+| | |
+|:----|:----------------|
+| ASR | automatic speech recognition (W1) |
+| BERT | Bidirectional Encoder Representations from Transformers (p17) |
+| BEST-RQ | BERT-based Speech pre-Training with Random-projection Quantizer (p32) |
+| BYOL | Bootstrap Your Own Latent (p22) |
+| CCA, PWCCA | canonical correlation analysis; projection-weighted CCA (p36) |
+| CNN | convolutional neural network (p9) |
+| CPC | Contrastive Predictive Coding (p10) |
+| CTC | connectionist temporal classification (W3) |
+| EMA | exponential moving average (p22) |
+| GRU | gated recurrent unit (p10) |
+| GSLM | generative spoken language modeling (p45) |
+| HuBERT | Hidden-Unit BERT (p26) |
+| InfoNCE | CPC's loss, "based on NCE": noise-contrastive estimation (p10) |
+
+## Acronyms in this deck, K–W
+
+| | |
+|:----|:----------------|
+| KV | key–value: the cache a Transformer keeps (W4) |
+| LM | language model |
+| LS-960, LV-60k | LibriSpeech, 960 h; Libri-light, 60k h (p24) |
+| MC | misconception: a belief that sounds right, and what breaks it |
+| MFA | Montreal Forced Aligner (p36) |
+| MFCC | mel-frequency cepstral coefficients (W2) |
+| ML-SUPERB | multilingual SUPERB (p48) |
+| MPS | Metal Performance Shaders: Apple's GPU backend (W3) |
+| PNMI | phone-normalized mutual information (p28) |
+| SSL | self-supervised learning |
+| SUPERB | Speech processing Universal PERformance Benchmark (p40) |
+| VQ, VQ-VAE | vector quantisation (p19); vector-quantised variational autoencoder (p20) |
+| WER | word error rate (p29) |

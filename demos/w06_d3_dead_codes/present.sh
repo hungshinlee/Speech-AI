@@ -9,7 +9,7 @@
 #   ./present.sh selftest      同一個 seed 重跑五種設定，對 slides/assets/w06/w06-data.json → dead_codes 逐一比對，再查該有的性質
 #   ./present.sh show --no-plot   只在終端機，不開圖
 #
-# 課堂上的講法與按鍵順序寫在投影片 p15 講稿的【操作】。
+# 課堂上的講法與按鍵順序寫在投影片 p16 講稿的【操作】。
 set -euo pipefail
 cd "$(dirname "$0")"
 PY="../.venv/bin/python"   # 所有 demo 共用 speech_ai/demos/.venv（numpy、matplotlib；common.py 要 scipy）

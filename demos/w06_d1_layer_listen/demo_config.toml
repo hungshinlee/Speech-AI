@@ -12,7 +12,7 @@ order = ["mimi", "encodec", "dac"]
 [codecs.mimi]
 repo = "kyutai/mimi"
 label = "Mimi"
-# 投影片 p30 的四個設定（Moshi §3.3.1：12.5 Hz、Q = 8、N_A = 2048；第一層是蒸餾 WavLM 的 semantic 層）
+# 投影片 p33 的四個設定（Moshi §3.3.1：12.5 Hz、Q = 8、N_A = 2048；第一層是蒸餾 WavLM 的 semantic 層）
 stages = [1, 2, 4, 8]
 # 權重實際有幾個 codebook、frame rate、codebook 大小：全部從載入的 config 與 encode 出來的矩陣讀，不寫死（文件頁、論文、MimiConfig 預設三個數不一致）。
 
@@ -27,7 +27,7 @@ stages = [2, 4, 8, 16, 32]
 repo = "descript/dac_24khz"
 label = "DAC 24 kHz"
 stages = [1, 2, 4, 8]
-# DAC 24 kHz 的 N_q、V、frame rate 大綱沒定（只定了 44.1 kHz 版的 Table 1）：check 印出來之後填進 p30 的表格
+# DAC 24 kHz 的 N_q、V、frame rate 大綱沒定（只定了 44.1 kHz 版的 Table 1）：check 印出來之後填進 p33 的表格
 
 [inputs]
 # 兩段輸入。鍵 m 在兩者之間切換。
@@ -83,7 +83,7 @@ ceiling_hz = 400.0
 voicing = 0.45
 
 [metrics]
-# 客觀參考（不是判準——判準是耳朵，投影片 p31 的 claim）：
+# 客觀參考（不是判準——判準是耳朵，投影片 p34 的 claim）：
 #   lsd   log-spectral distance（dB，dsp.log_spectral_distance，25 ms／10 ms／1024 點）
 #   snr   波形 SNR（dB）——GAN 訓練的 codec 不保相位，SNR 接近 0 dB 也正常，印出來就是為了讓學生看到它不預測可懂度
 #   f0    有聲 frame 上的 F0 RMSE（Hz）與 voicing 一致率（原句 vs. 重建，同一個 F0 估計器）

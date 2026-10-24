@@ -8,14 +8,14 @@
   selftest   對 slides/assets/w06/w06-data.json → dead_codes：同一個 seed 重跑五種設定，用到的 code 數、MSE、codebook、
              每個點的指派逐一比對；再查該有的性質（1 與 2 用到的一樣少、3 與 4 全活、FSQ 全活但 MSE 比 3 高、init 移進資料就不死）
 
-畫面上的鍵（順序照投影片 p15 講稿的【操作】）：
+畫面上的鍵（順序照投影片 p16 講稿的【操作】）：
   1  random init + gradient     codebook 以 N(0, I) 初始化在資料之外，只用 codebook loss 的梯度更新——只有被選到的 code 動
   2  random init + EMA          同樣的初始化，改 EMA 更新（c_v、m_v）——一樣只更新被選到的 code：EMA 不是 collapse 的解
   3  k-means init + EMA         codebook 以第一個 batch 的 k-means 中心初始化（SoundStream 的做法），再 EMA
   4  random init + EMA + reset  連續幾步沒被選到的 code 換成當前 batch 的一個點（Jukebox／SoundStream）——十四個紅叉在第 5 步一起被搬進資料裡
   5  FSQ Λ = (4, 4)             沒有 codebook：z 經固定仿射 → tanh → 十六個格點；沒有東西可以死，但格點等距、對四團資料是浪費
   i  init 移進資料裡            同一組設定、codebook 從 [3, 6]² 均勻抽，gradient 與 EMA 各跑一次——預期大多數都活（collapse 不是調出來的）
-  t  投影片的表                 五列：用到幾個 code／MSE（p15 面板底下那行字）
+  t  投影片的表                 五列：用到幾個 code／MSE（p16 面板底下那行字）
   r  換 seed（用時間；再按 1–5 證明不是湊的；講稿的數字是 seed 20261017 那組）
   h  重印選單      q  離開
 
@@ -207,7 +207,7 @@ def fmt(v: float) -> str:
 
 # ── 圖 ──────────────────────────────────────────────────────────
 class Plots:
-    """一張 2×3 的圖：五個面板（與投影片 p15 同一排法）加鍵 i 的面板。每個鍵把自己的面板動畫跑一遍，最後一格留著。"""
+    """一張 2×3 的圖：五個面板（與投影片 p16 同一排法）加鍵 i 的面板。每個鍵把自己的面板動畫跑一遍，最後一格留著。"""
 
     def __init__(self, enabled: bool, headless: bool, save_dir: Path | None):
         self.enabled = enabled
@@ -388,7 +388,7 @@ class Demo:
         if key == "1":
             self.out(f"{C.DIM}（紅叉留在原點附近：它們離資料太遠，永遠不是最近鄰，永遠收不到梯度——兩個成因同時看得見。）{C.RESET}")
         elif key == "2":
-            self.out(f"{C.DIM}（還是一樣少。EMA 解的是梯度更新的不穩，不是 collapse——p15 的 ask 答案。）{C.RESET}")
+            self.out(f"{C.DIM}（還是一樣少。EMA 解的是梯度更新的不穩，不是 collapse——p16 的 ask 答案。）{C.RESET}")
         elif key == "3":
             self.out(f"{C.DIM}（初始化移進資料裡就不死：這裡的 collapse 不是調出來的，是「init 在資料支撐之外」的直接後果。）{C.RESET}")
         elif key == "4":
@@ -413,7 +413,7 @@ class Demo:
         label = self._final("5", res, "mse_full_data_in_data_plane")
         self.plots.draw_fsq("5", res, 16, label)
         km = self.state["results"]["kmeans_ema"]["mse_full_data"]
-        o(f"{C.DIM}（十六個格點都有人用——沒有 codebook，沒有東西可以死；但 MSE {fmt(res['mse_full_data_in_data_plane'])} 對 k-means 的 {fmt(km)}：格點等距鋪滿，對四團資料是浪費。這是 FSQ 的代價，p17 展開。）{C.RESET}")
+        o(f"{C.DIM}（十六個格點都有人用——沒有 codebook，沒有東西可以死；但 MSE {fmt(res['mse_full_data_in_data_plane'])} 對 k-means 的 {fmt(km)}：格點等距鋪滿，對四團資料是浪費。這是 FSQ 的代價，p18 展開。）{C.RESET}")
         self.done["5"] = {"codes_used_full_data": res["codes_used_full_data"], "mse_full_data_in_data_plane": res["mse_full_data_in_data_plane"],
                           "grid_counts": cnt.tolist()}
         self.log["sections"]["fsq_4x4"] = self.done["5"]
@@ -441,7 +441,7 @@ class Demo:
     # t -------------------------------------------------------------------
     def table(self) -> None:
         o = self.out
-        o.banner("t  投影片 p15 五個面板底下那行字")
+        o.banner("t  投影片 p16 五個面板底下那行字")
         o(f"{'鍵':>3}  {'設定':<28} {'codes used':>11} {'MSE':>7}   註")
         R = self.state["results"]
         rows = []
@@ -611,7 +611,7 @@ def main() -> None:
         d = Demo(out, Plots(plot, headless=True, save_dir=rehearsal), tag="rehearsal")
         d.run_all()
         save(d, rehearsal)
-        print("\n下一步：./present.sh 上課；把 rehearsal.json 的五組 codes used／MSE 與日期對一次 p15 講稿（數字應與投影片相同）。")
+        print("\n下一步：./present.sh 上課；把 rehearsal.json 的五組 codes used／MSE 與日期對一次 p16 講稿（數字應與投影片相同）。")
         return
 
     d = Demo(out, Plots(plot, headless=not sys.stdin.isatty(), save_dir=None))

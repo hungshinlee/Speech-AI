@@ -3,7 +3,7 @@
 # W5 demo 1 課堂與課前的入口。一律離線（HF_HUB_OFFLINE=1），避免教室網路出狀況時卡在連線。
 #
 #   ./present.sh               上課用：從快取讀表徵、開三格的視窗；鍵在視窗裡按：1 播一句＋13 層 shape、2 說話人探針、3 音素探針、
-#                              4 CCA（l 切換 layer 0 ↔ log-mel）、w 換模型、a 兩個模型並排、t 摘要表（p34 的表格）、h 選單、q 離開
+#                              4 CCA（l 切換 layer 0 ↔ log-mel）、w 換模型、a 兩個模型並排、t 摘要表（p37 的表格）、h 選單、q 離開
 #   ./present.sh rehearse      課前彩排：不互動，兩個模型的三條曲線全部算一遍，存 runs/rehearsal/（進版控 = 現場的退路），寫 w05-metrics.json
 #   ./present.sh replay        現場出狀況時：從 runs/rehearsal/ 讀回曲線，同一個視窗、同樣的鍵，不碰 torch
 #   ./present.sh extract       課前：兩個模型對子集抽表徵 → ../_media/w05_d1/feats_<model>.npz（慢的那一步；show／rehearse 缺快取會自動跑）
@@ -13,7 +13,7 @@
 #   ./present.sh selftest      探針與 CCA 的單元檢查 ＋ fake 流程 ＋ 彩排紀錄對 w05-metrics.json（不開視窗，約 2–4 分鐘）
 #   ./present.sh show --no-plot   只在終端機，不開圖
 #
-# 課堂上的講法與按鍵順序寫在投影片 p34 講稿的【操作】。
+# 課堂上的講法與按鍵順序寫在投影片 p37 講稿的【操作】。
 set -euo pipefail
 cd "$(dirname "$0")"
 export HF_HUB_OFFLINE=1

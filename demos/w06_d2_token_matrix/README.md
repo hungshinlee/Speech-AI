@@ -1,9 +1,9 @@
 <!-- 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。 -->
-# W6 · Demo 2 — what the letters look like: token matrix, codebook usage, residual energy, the bill (slides p32–p33, p42)
+# W6 · Demo 2 — what the letters look like: token matrix, codebook usage, residual energy, the bill (slides p35–p36, p45)
 
 Demo 1 was about *hearing* what the residual-VQ stages carry. This demo *looks at the tokens themselves* and measures three things the lecture could only draw until now:
-the residual-energy curve (slide p20), how many codes each stage actually uses, and how "language-like" the first stage is.
-Then it does the arithmetic of slide p42: how many tokens a 30-minute conversation is for three codec settings — and for text.
+the residual-energy curve (slide p22), how many codes each stage actually uses, and how "language-like" the first stage is.
+Then it does the arithmetic of slide p45: how many tokens a 30-minute conversation is for three codec settings — and for text.
 
 **You are not required to run this.** It is published so that you can read it, re-run it and change it (another sentence, another subset, another codec from `transformers`, another tokenizer).
 Menus and labels are in Chinese; the keys are listed below.
@@ -17,7 +17,7 @@ Menus and labels are in Chinese; the keys are listed below.
 | `3` | the residual-energy curve $\sum_t \lVert \mathbf{r}_{t,i} \rVert^2 / \sum_t \lVert \mathbf{z}_t \rVert^2$ per stage — measured, not schematic; Mimi's semantic and acoustic paths drawn separately |
 | `4` | the bigram conditional entropy $H_2 = H(c_t \mid c_{t-1})$ against $H_1$, per stage, with a shuffled-order baseline |
 | `5` | the bill: token rate $f_r N_q$, 30-minute context, steps per second (flattened vs. RQ-Transformer), $1/f_r$ for EnCodec 6 kbps, SpeechTokenizer and Mimi; and the same 30 minutes of speech as text tokens (Gemma 4 tokenizer) |
-| `t` | the numbers for the slide tables (p33, p42) |
+| `t` | the numbers for the slide tables (p36, p45) |
 | `h` menu · `q` quit | |
 
 ## Definitions
@@ -55,8 +55,8 @@ cd speech_ai/demos/w06_d2_token_matrix
 ## What you should see
 
 - **The matrix (`1`).** The lecture's prediction is that stage 1 has the longest runs of repeated tokens — it follows the content, which changes slowly — while the later stages follow the residual, which looks like noise and changes every frame. Mimi's stage 1 is its distilled semantic VQ; EnCodec's and DAC's stage 1 are reconstruction-trained.
-- **Usage and entropy (`2`).** The prediction is that stage 1 is the most skewed (few codes carry most of the mass) and that the later stages approach uniform — the other face of the near-Gaussian residual on p20. Uniform tokens are the hardest for a language model to predict.
-- **The residual curve (`3`).** Monotonically decreasing with a shrinking step — the measured version of the schematic on p20. For Mimi the two paths are not one curve: the acoustic RVQ is not the residual of the semantic VQ.
+- **Usage and entropy (`2`).** The prediction is that stage 1 is the most skewed (few codes carry most of the mass) and that the later stages approach uniform — the other face of the near-Gaussian residual on p22. Uniform tokens are the hardest for a language model to predict.
+- **The residual curve (`3`).** Monotonically decreasing with a shrinking step — the measured version of the schematic on p22. For Mimi the two paths are not one curve: the acoustic RVQ is not the residual of the semantic VQ.
 - **$H_2 / H_1$ (`4`).** The lower the ratio, the more temporal structure. Read it together with the shuffled baseline.
 - **The bill (`5`).** Speech tokens outnumber text tokens by one to two orders of magnitude; the floor $1/f_r$ rises exactly as the token rate falls.
 

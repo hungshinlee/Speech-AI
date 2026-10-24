@@ -2,7 +2,7 @@
 # W6 demo 3：2-D VQ 的 dead code 與三種修法。換內容只改這裡。
 #
 # [toy] 的每一個值與 slides/scripts/make_figs_w06.py 的 dead_code_toy() 預設值相同，
-# 改了任何一個，五個面板就不再是投影片 p15 那五個，selftest 也會對不上 w06-data.json → dead_codes。
+# 改了任何一個，五個面板就不再是投影片 p16 那五個，selftest 也會對不上 w06-data.json → dead_codes。
 # 要換就連 make_figs_w06.py 一起換、重產圖、重跑 publish.py。
 
 [toy]

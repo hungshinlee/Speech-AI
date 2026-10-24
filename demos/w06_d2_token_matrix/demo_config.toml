@@ -21,7 +21,7 @@ path = "../w06_d1_layer_listen/audio/utterance.wav"
 window = 24
 # 從第幾秒開始印（跳過句首靜音；W3 d3 的 forced alignment：MISTER 約從 0.4 s 開始）
 start_s = 0.4
-# 殘差曲線與矩陣最多畫到第幾層（EnCodec／DAC 有 32 層，投影片 p20 的軸畫到 8）
+# 殘差曲線與矩陣最多畫到第幾層（EnCodec／DAC 有 32 層，投影片 p22 的軸畫到 8）
 max_stage_plot = 8
 
 [stats]
@@ -30,7 +30,7 @@ shuffle_repeats = 3
 shuffle_seed = 20261018
 
 [budget]
-# 算帳（投影片 p42）：codec 三列從 slides/assets/w06/w06-data.json → paper_settings → budget 讀（算的，不是量的）
+# 算帳（投影片 p45）：codec 三列從 slides/assets/w06/w06-data.json → paper_settings → budget 讀（算的，不是量的）
 minutes = 30
 # 文字那一列：同一段 30 分鐘的對話用文字 tokenizer 算 token 數。語速從兩句實測的語音量：
 #   華語——W1 Demo 2 那句（runs/rehearsal/utterance/result.json 的 transcript 與 speech_segments_s：第一段開始到最後一段結束）

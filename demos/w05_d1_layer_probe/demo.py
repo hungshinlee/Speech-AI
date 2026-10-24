@@ -11,11 +11,11 @@
   fake       沒有模型也能演練流程：合成的表徵（畫面標明 FAKE，不是給學生看的）
   selftest   不開視窗：探針與 CCA 的單元檢查（可分的群、旋轉過的同一組資料、獨立的資料）＋ fake 流程 ＋ 彩排紀錄對 w05-metrics.json
 
-畫面上的鍵（順序照投影片 p34 講稿的【操作】）：
+畫面上的鍵（順序照投影片 p37 講稿的【操作】）：
   1  播一句（W3 那句 1272-128104-0000）、印它 13 層的 shape        2  說話人探針曲線（13 個點逐個出現）
   3  音素探針曲線                                                   4  CCA 曲線（對第 0 層）；l 切換成對 log-mel
   w  換模型（hubert ↔ w2v2，同樣三條）                              a  兩個模型並排（都算完才畫）
-  t  印摘要表（兩個模型的峰值層、CCA 最低／頂層；p34 的表格）      h  選單    q  離開
+  t  印摘要表（兩個模型的峰值層、CCA 最低／頂層；p37 的表格）      h  選單    q  離開
 
 數字的定義：第 0 層 = CNN 前端直出（model.feature_extractor，512 維，feature projection 之前）、第 1–12 層 = 每個 Transformer block 的輸出（768 維）。
 說話人探針 = frame 級、40 類 logistic regression（句級平均池化的另印，每層都接近 1.0），報測試 frame 的 accuracy；音素探針 = frame 級、39 個 ARPAbet 音素（去重音），報測試 frame 的 accuracy；
@@ -369,7 +369,7 @@ def cca_curve(F: Feats, l: int, target: str) -> dict:
 
 
 def summarize(c: dict) -> dict:
-    """p34 表格的四格：說話人峰值層、音素峰值層、CCA（對第 0 層）最低／頂層。"""
+    """p37 表格的四格：說話人峰值層、音素峰值層、CCA（對第 0 層）最低／頂層。"""
     spk = [r["acc_test"] for r in c["speaker"]]
     ph = [r["acc_test"] for r in c["phone"]]
     cc = [r["mean"] for r in c["cca_layer0"]]
@@ -558,7 +558,7 @@ class Demo:
 
     def table(self) -> None:
         o = self.out
-        o.banner("t  摘要（p34 的表格）")
+        o.banner("t  摘要（p37 的表格）")
         o(f"  {'':<18s} {'speaker: low peak · min · top':>38s} {'phone peak':>14s} {'CCA0 min / top':>18s}")
         res = {}
         for k in MODELS:
@@ -576,7 +576,7 @@ class Demo:
 
     def menu(self) -> None:
         o = self.out
-        o(f"\n{C.BOLD}p34{C.RESET}  1 播一句＋13 層 shape   2 說話人探針   3 音素探針   4 CCA（l 切換 layer 0 ↔ log-mel）")
+        o(f"\n{C.BOLD}p37{C.RESET}  1 播一句＋13 層 shape   2 說話人探針   3 音素探針   4 CCA（l 切換 layer 0 ↔ log-mel）")
         o(f"     w 換模型（現在 {CFG['models'][self.cur]['label']}）   a 兩個模型並排   t 摘要表   h 選單   q 離開")
 
     def dispatch(self, k: str) -> bool:
@@ -1032,7 +1032,7 @@ def main() -> None:
         d.run_all()
         d.save(HERE / "runs" / "rehearsal")
         export(HERE / "runs" / "rehearsal" / "rehearsal.json")
-        print("\n下一步：./present.sh 自己按一遍 1 2 3 4 l 4 w 2 3 4 a t；把 t 的四格填進 p34 的表、曲線的數字填進講稿。")
+        print("\n下一步：./present.sh 自己按一遍 1 2 3 4 l 4 w 2 3 4 a t；把 t 的四格填進 p37 的表、曲線的數字填進講稿。")
         return
 
     out.banner("W5 Demo 1：three curves across thirteen layers" + (f"   [{d.tag}]" if d.tag else ""))

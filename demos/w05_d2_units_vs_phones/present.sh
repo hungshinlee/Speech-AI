@@ -14,7 +14,7 @@
 #   ./present.sh show --no-plot   只在終端機，不開圖
 #
 # 前置：Demo 1 的 fetch 與 extract 要先跑完（子集、音素對齊、../_media/w05_d1/feats_hubert.npz）。沒有新套件要裝。
-# 課堂上的講法與按鍵順序寫在投影片 p40 講稿的【操作】。
+# 課堂上的講法與按鍵順序寫在投影片 p43 講稿的【操作】。
 set -euo pipefail
 cd "$(dirname "$0")"
 export HF_HUB_OFFLINE=1

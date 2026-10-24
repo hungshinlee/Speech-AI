@@ -2,7 +2,7 @@
 # W5 demo 3：InfoNCE 的天花板。換內容只改這裡。
 #
 # [sweep] 的五個值（seed、d、rho、Ns、steps／lr／eval_batches）與 slides/scripts/make_figs_w05.py 的 infonce_sweep() 預設值相同，
-# 改了任何一個，鍵 2 的曲線就不再是投影片 p14 那一條，selftest 也會對不上 w05-data.json。
+# 改了任何一個，鍵 2 的曲線就不再是投影片 p15 那一條，selftest 也會對不上 w05-data.json。
 # 要換就連 make_figs_w05.py 一起換、重產圖、重跑 publish.py。
 
 [sweep]

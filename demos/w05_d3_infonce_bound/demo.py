@@ -8,7 +8,7 @@
   selftest   對 slides/assets/w05/w05-data.json → infonce_ceiling：同一個 seed 重跑整個掃描，十個 N 的估計值、L_N、標準差逐一比對
              （容忍 1e-9；順便報有幾個逐位相同）；再查不等式該有的性質：估計值 ≤ ln N、估計值 < 真值、隨 N 不減、變異隨 N 降
 
-畫面上的鍵（順序照投影片 p14 講稿的【操作】）：
+畫面上的鍵（順序照投影片 p15 講稿的【操作】）：
   1  真值與天花板：I = −(d/2) ln(1 − ρ²)，各 N 的 ln N；天花板在真值底下的 N 標出來；天花板過真值要多少 N
   2  掃 N：逐個 N 訓練 critic（Adam 固定步數），每訓完一個印 ln N − L_N、離天花板多遠、離真值多遠、耗時；圖上多一個點
   3  變異：固定幾個 N（預設 2、32、1024），200 個 held-out batch 上的估計值直方圖與標準差（用 2 訓好的 critic；沒按過 2 會先跑）
@@ -21,7 +21,7 @@
   critic  f(x, y) = exp(xᵀWy + a‖y‖²)。高斯對的 log 密度比是 x、y 的二次式，x 的平方項在列內 softmax 裡消掉、‖y‖² 那一項消不掉，
           所以純雙線性的 critic 學不到最佳 critic；多一個純量 a 就夠了（鍵 b 看差多少）。
   loss    一個 batch 是 N 個 pair，S_ij = f(x_i, y_j)，對角線是正樣本、同一列其餘 N − 1 個是負樣本；
-          L_N = −mean_i log softmax(S)_ii。估計值 = ln N − L_N（在 200 個 held-out batch 上平均）——投影片 p12 第五行：
+          L_N = −mean_i log softmax(S)_ii。估計值 = ln N − L_N（在 200 個 held-out batch 上平均）——投影片 p13 第五行：
           對任何 critic 都有 I ≥ ln N − L_N，而 L_N ≥ 0，所以估計值永遠 ≤ ln N。
 訓練迴圈與 slides/scripts/make_figs_w05.py 的 infonce_sweep() 逐行相同（同一個 rng、同一個抽樣順序），
 所以 seed 20261011 時與 w05-data.json 的十個數字對得上（selftest 就是在對這件事）。
@@ -269,7 +269,7 @@ class Demo:
             o(f"{N:>6} {N - 1:>6} {lnN:>8.{DIG}f}   {mark}")
             rows.append({"N": N, "ln_N": lnN, "ceiling_below_truth": below})
         o()
-        o(f"{C.DIM}（p14 的問題：N = 8 時估計值碰得到真值嗎？ln 8 = {math.log(8):.3f} < {self.I_true:.3f}，答案是不可能——不是 critic 不夠好，是不等式不允許。）{C.RESET}")
+        o(f"{C.DIM}（p15 的問題：N = 8 時估計值碰得到真值嗎？ln 8 = {math.log(8):.3f} < {self.I_true:.3f}，答案是不可能——不是 critic 不夠好，是不等式不允許。）{C.RESET}")
         self.log["sections"]["truth"] = {"I_true_nats": self.I_true, "N_star": N_star, "rows": rows}
 
     # 2：掃 N ------------------------------------------------------------
@@ -313,7 +313,7 @@ class Demo:
             o(f"64 → 1024：負樣本 {C.BOLD}16 倍{C.RESET}，估計值只多 {r[1024]['estimate'] - r[64]['estimate']:.2f} nat")
         o("標準差（200 個 batch）：" + "、".join(f"N={x['N']} {x['estimate_std_over_batches']:.3f}" for x in self.rows if x["N"] in (2, 64, 1024)))
         o(f"每一個 N 的估計值都 ≤ ln N：{all(x['estimate_le_ln_N'] for x in self.rows)}；都 < 真值：{all(x['estimate'] < self.I_true for x in self.rows)}"
-          f"（p12 第五行：任何 critic 都是下界，而我們的 critic 是有限步數訓出來的）")
+          f"（p13 第五行：任何 critic 都是下界，而我們的 critic 是有限步數訓出來的）")
         o(f"{C.DIM}全部 {total:.0f} 秒。{C.RESET}")
         self.log["sections"]["sweep"] = {"seed": self.seed, "rows": self.rows, "seconds_total": total,
                                          "per_batch_estimates": {str(k): v for k, v in self.per_batch.items()}}
@@ -376,7 +376,7 @@ class Demo:
             o(f"{N:>6} {math.log(N):>8.{DIG}f} {est_b:>8.{DIG}f} {est_f:>9.{DIG}f} {est_f - est_b:>7.{DIG}f}   (a = {a_f:+.3f})")
             res.append({"N": N, "estimate_bilinear": est_b, "estimate_full": est_f, "a_full": a_f})
         o()
-        o("兩個都是合法的下界（p12 第五行對任何 critic 成立），差的是**鬆緊**：critic 族裡沒有最佳 critic，下界就緊不起來。")
+        o("兩個都是合法的下界（p13 第五行對任何 critic 成立），差的是**鬆緊**：critic 族裡沒有最佳 critic，下界就緊不起來。")
         self.plots.add_bilinear([{"N": r["N"], "estimate": r["estimate_bilinear"]} for r in res])
         self.log["sections"]["bilinear"] = {"a_star": a_star, "rows": res}
 
@@ -528,7 +528,7 @@ def main() -> None:
         d = Demo(out, Plots(plot, headless=True, save_dir=rehearsal), tag="rehearsal")
         d.run_all()
         save(d, rehearsal)
-        print("\n下一步：./present.sh 上課；把 rehearsal.json 的 sweep.rows（estimate、std、秒數）、variance、bilinear 與日期填進 p14 講稿。")
+        print("\n下一步：./present.sh 上課；把 rehearsal.json 的 sweep.rows（estimate、std、秒數）、variance、bilinear 與日期填進 p15 講稿。")
         return
 
     d = Demo(out, Plots(plot, headless=not sys.stdin.isatty(), save_dir=None))
