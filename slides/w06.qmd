@@ -77,7 +77,7 @@ A codec **invents an alphabet for speech** — and every choice in it is a trade
 :::
 
 ::: {.footer}
-Route: VQ-VAE → residual VQ → listen → two kinds of token → the arithmetic
+Route: quantiser → stacking + objective → listen, count → voice and words → frame rate
 :::
 
 ## Notation for today
@@ -163,7 +163,7 @@ $$\text{k-means M-step:}\quad \mathbf{e}_v \leftarrow \frac{1}{\lvert \{t : k_t 
 VQ-VAE App. A.1, eqs. 6–8 · VQ-VAE-2 §2.1 · "online k-means" is our reading
 :::
 
-## Misconception 1 — "a bigger codebook is a better codebook"
+## MC 1 — "a bigger codebook is a better codebook"
 
 | | what you set | what you get, if nothing is done about it |
 |:---|:----------|:---------------|
@@ -236,7 +236,7 @@ $$\hat{z}_j = \mathrm{round}\!\big(\lfloor \Lambda_j / 2 \rfloor \tanh z_j\big),
 Mentzer et al. §4.3, §5.3: 99% usage with no tricks · TAAE: FSQ at 400 / 700 bps
 :::
 
-# Residual VQ and the acoustic codec recipe {.section-title}
+# Stacking the letters, and what the objective puts in them {.section-title}
 
 ## Residual VQ: big letters first, then the corrections
 
@@ -274,7 +274,7 @@ Because the late residual is nearly noise, **dropping the late stages costs litt
 SoundStream §III-C · EnCodec §3.2: codebooks a multiple of 4 · DAC: $p = 0.5$
 :::
 
-## Misconception 2 — "the first codebook carries the semantics"
+## MC 2 — "the first codebook carries the semantics"
 
 | | what the residual curve shows | what it does *not* show |
 |:---|:----------|:---------------|
@@ -324,7 +324,7 @@ $$\mathcal{L} = \lambda_{\text{spec}}\mathcal{L}_{\text{spec}} + \lambda_{\text{
 SoundStream §III-E · MelGAN · HiFi-GAN · W2 p47: the three reasons a vocoder exists
 :::
 
-## Misconception 3 — "the discriminator is just for sound quality"
+## MC 3 — "the discriminator is just for sound quality"
 
 ::: {.ask}
 **Before the answer:** take the discriminators away and train the same codec with $\mathcal{L}_{\text{spec}}$ alone, at the same bitrate. Do the tokens now carry **more** information or **less**?
@@ -342,7 +342,7 @@ SoundStream §III-E · MelGAN · HiFi-GAN · W2 p47: the three reasons a vocoder
 Moshi §3.3.1, Table 4 · whether the released Mimi is that variant: not stated · W2 p47
 :::
 
-## Misconception 4 — "neural codecs beat Opus"
+## MC 4 — "neural codecs beat Opus"
 
 | | the sentence | what it actually claims |
 |:---|:----------|:---------------|
@@ -358,7 +358,7 @@ Neural codecs win on **quality per bit at low bitrates**. "Which is better" is n
 SoundStream abstract · EnCodec §4.5 · RFC 6716 is a standard, not a paper
 :::
 
-## Misconception 5 — "MUSHRA scores compare across papers"
+## MC 5 — "MUSHRA scores compare across papers"
 
 | | what differs between two papers' tables | consequence |
 |:---|:----------|:---------------|
@@ -374,7 +374,7 @@ Compare codecs only **inside one table**, or on one shared benchmark — Codec-S
 Codec-SUPERB, Findings of ACL 2024 · ESPnet-Codec, SLT 2024 · DASB, TMLR 2026
 :::
 
-# Hearing the alphabet {.section-title}
+# What each stage holds: listen, then count {.section-title}
 
 ## Before Demo 1: adding the letters back, one stage at a time
 
@@ -427,7 +427,7 @@ $F_0$ is a physical quantity, pitch is a percept (W2 p51): the plot is a referen
 :::
 
 ::: {.footer}
-prediction from the design · heard: rehearsal 2026-10-19, one sentence, one listener · W2 p51, p57 · W5 p45 · unit-level evidence: p40
+prediction from the design · heard: rehearsal 2026-10-19, one sentence, one listener · W2 p51, p57 · W5 p43 · unit-level evidence: p40
 :::
 
 ## Before Demo 2: what the letters look like
@@ -462,7 +462,7 @@ Demo 2 · code: `demos/w06_d2_token_matrix` · the arithmetic half comes at p42
 Demo 2 · demos/w06_d2_token_matrix · dev-clean 40 × 10 · measured 2026-10-18
 :::
 
-# Two kinds of token {.section-title}
+# Can one alphabet hold both the voice and the words? {.section-title}
 
 ## Predicted and reconstructed: two tokens, each missing half
 
@@ -473,7 +473,7 @@ Acoustic tokens can rebuild the voice but entangle **who, where and what**; sema
 :::
 
 ::: {.footer}
-W5 p45 · AudioLM, TASLP 2023 · the alphabet's second failure: letters hold only content
+W5 p43 · AudioLM, TASLP 2023 · the alphabet's second failure: letters hold only content
 :::
 
 ## SpeechTokenizer and Mimi: W5's unit, back inside the codec
@@ -488,7 +488,7 @@ W5 p45 · AudioLM, TASLP 2023 · the alphabet's second failure: letters hold onl
 SpeechTokenizer §3.2, App. E · Moshi §3.3.2 · $\mathcal{L}_{\text{dist}}$: a cosine distance
 :::
 
-## Misconception 6 — "a semantic token is a phoneme"
+## MC 6 — "a semantic token is a phoneme"
 
 | | W5 measured | this week adds |
 |:---|:----------|:---------------|
@@ -500,7 +500,7 @@ Demo 1 did **not** go as predicted: stage 1 alone kept neither the words nor the
 :::
 
 ::: {.footer}
-Saloev et al., ICNLSP 2026 (TIMIT) · W5 p42–p44 · "semantic" names a target, not a claim
+Saloev et al., ICNLSP 2026 (TIMIT) · W5 p40–p42 · "semantic" names a target, not a claim
 :::
 
 ## One codebook, no residual: WavTokenizer, BigCodec, TAAE
@@ -547,10 +547,10 @@ At the unit level this is **measured**; at the codec level it is a **prediction*
 :::
 
 ::: {.footer}
-Osakuade & King, Speech Prosody 2026 · Saloev et al. 2026 · W2 p57 · W5 p45
+Osakuade & King, Speech Prosody 2026 · Saloev et al. 2026 · W2 p57 · W5 p43
 :::
 
-# The arithmetic {.section-title}
+# How many letters per second, and who pays {.section-title}
 
 ## Demo 2 — the bill: token rate, context, steps, and the floor
 
@@ -575,7 +575,7 @@ Every column is a function of the three freedoms. **Speech tokens outnumber text
 Demo 2 · codec rows: arithmetic · text row: one sentence's rate × 30 min, 2026-10-18
 :::
 
-## Misconception 7 — "lower bitrate is always better"
+## MC 7 — "lower bitrate is always better"
 
 ::: {.ask}
 **Stop and ask:** Mimi chose 12.5 Hz for the LM's sake. Why not 6.25 Hz?
@@ -595,7 +595,7 @@ Three goals pull against each other — feed the LM, keep the voice, react fast 
 Moshi §3.3.1 · Gichamba & Busogi 2026 on the 6.25 Hz cliff · the course's misconception list
 :::
 
-## Misconception 8 — "frame rate is an implementation detail"
+## MC 8 — "frame rate is an implementation detail"
 
 {{< include assets/w06/frame-rate.inline.qmd >}}
 
@@ -611,7 +611,7 @@ $$D_{\text{codec}} \geq 1/f_r + \text{lookahead}$$
 arithmetic (w06-data.json) · W2: the hop · W4 / W5: the stride · W6: somebody chose
 :::
 
-## Misconception 9 — "a good PESQ makes a good LM input"
+## MC 9 — "a good PESQ makes a good LM input"
 
 | | reconstruction metrics | LM-friendliness |
 |:---|:----------|:---------------|
@@ -626,7 +626,7 @@ Benchmarks that measure the two **separately** exist for this reason: Codec-SUPE
 Codec-SUPERB 2024 · DASB, TMLR 2026 (check §5 before class) · Park et al., ASRU 2025
 :::
 
-## Misconception 10 — "a codec token is like a text token"
+## MC 10 — "a codec token is like a text token"
 
 | | text token | codec token |
 |:---|:----------|:---------------|
@@ -684,7 +684,7 @@ W1 p31 · W4 p20 $D_{\text{alg}}$ · EnCodec streamable vs not · Mimi: causal, 
 :::
 
 ::: {.claim}
-Three freedoms that constrain each other; two causes and five remedies; two tokens that each miss half; and a bill — **token rate, context, steps, a floor of $1/f_r$** — every later week has to pay.
+**Three choices that constrain each other**: the quantiser decides whether the letters get used, the objective what they hold — the voice or the words, rarely both — and the frame rate writes **the bill** for every later week.
 :::
 
 ## Reading, and next week

@@ -13,8 +13,8 @@
   selftest   不開視窗：純度定義、k-means、DCT／Δ、RLE／LCS 的單元檢查 ＋ fake 流程 ＋ 彩排紀錄對 w05-metrics.json
   export     只把 runs/rehearsal/rehearsal.json 重寫進 w05-metrics.json
 
-畫面上的鍵（順序照投影片 p42 講稿的【操作】）：
-  1  三個老師的純度表（MFCC／第 6 層／第 9 層 × phone purity／cluster purity／PNMI；填 p42 的表格）
+畫面上的鍵（順序照投影片 p40 講稿的【操作】）：
+  1  三個老師的純度表（MFCC／第 6 層／第 9 層 × phone purity／cluster purity／PNMI；填 p40 的表格）
   2  那句話：字（MFA）、音素段（MFA）、第 6 層的 unit——先放大前兩個字；印「一個音素幾個 unit」「邊界對不對齊」「哪個 unit 是靜音」
   [  ]  放大窗往前／往後一個字      f  整句        u  多畫第 9 層與 MFCC 的 unit 列（再按收回）
   3  同一個字、不同說話人：unit 字串並排（collapsed runs），標出對不上的格；印重疊率
@@ -866,7 +866,7 @@ class Demo:
     # ── 鍵 ──
     def menu(self) -> None:
         o = self.out
-        o(f"\n{C.BOLD}p42{C.RESET}  1 三個純度   2 那句話（[ ] 移窗、f 整句、u 多兩列）   3 同一個字不同說話人   4 自錄   h 選單   q 離開")
+        o(f"\n{C.BOLD}p40{C.RESET}  1 三個純度   2 那句話（[ ] 移窗、f 整句、u 多兩列）   3 同一個字不同說話人   4 自錄   h 選單   q 離開")
 
     def dispatch(self, k: str) -> bool:
         if k == "1": self.table()
@@ -1202,7 +1202,7 @@ def main() -> None:
         d.run_all(folder)
         d.save(folder)
         export(folder / "rehearsal.json")
-        print("\n下一步：./present.sh 自己按一遍 1 2 ] ] f u 3 4；把 1 的九格填進 p42 的表、2 與 3 的數字填進講稿。")
+        print("\n下一步：./present.sh 自己按一遍 1 2 ] ] f u 3 4；把 1 的九格填進 p40 的表、2 與 3 的數字填進講稿。")
         return
 
     out.banner("W5 Demo 2：units are not phones" + (f"   [{d.tag}]" if d.tag else ""))

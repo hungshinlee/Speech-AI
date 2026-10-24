@@ -175,7 +175,7 @@ Demo 3 · code: `demos/w05_d3_infonce_bound` · numpy only, CPU
 Demo 3 · `demos/w05_d3_infonce_bound` recomputes this curve live (seed 20261011) · numbers: w05-data.json
 :::
 
-## Misconception 1 — "more negatives is always better"
+## MC 1 — "more negatives is always better"
 
 | | what the bound says | what happens in practice |
 |:--|:--|:--|
@@ -239,7 +239,7 @@ $\bar{p}_{g,v}$ is the batch mean of $\mathrm{softmax}(l_g)_v$ over the raw logi
 wav2vec 2.0 eq. 4 · $\mathcal{L} = \mathcal{L}_m + \alpha\mathcal{L}_d$, $\alpha = 0.1$ · W6: the same disease, no contrast to help
 :::
 
-## Misconception 2 — "no negatives means collapse"
+## MC 2 — "no negatives means collapse"
 
 {{< include assets/w05/two-collapses.inline.qmd >}}
 
@@ -315,7 +315,7 @@ Hsu et al., TASLP 2021, eq. 3 ($\kappa = 0.1$; $\tau$ there) · §IV-C: layer 6,
 HuBERT §IV-E · the MFCC teacher, $K = 100$: cluster 0.099 · phone 0.335 · PNMI 0.255 (arXiv v1 §V-C)
 :::
 
-## Misconception 3 — "the k-means must be right to teach"
+## MC 3 — "the k-means must be right to teach"
 
 | teacher ($\mathcal{L} = \alpha\mathcal{L}_m + (1-\alpha)\mathcal{L}_u$) | $\alpha = 1$ masked only | $\alpha = 0.5$ | $\alpha = 0$ unmasked only |
 |:--|--:|--:|--:|
@@ -393,7 +393,7 @@ Who builds the target and whether it moves decide three things at once: **can it
 Mohamed et al. 2022 sort by objective; today sorts by target
 :::
 
-## Misconception 4 — "self-supervised means no labels"
+## MC 4 — "self-supervised means no labels"
 
 | stage | labels? | what SSL changed |
 |:--|:--|:--|
@@ -460,7 +460,7 @@ A layer looks like whatever it is asked to predict. The top of a pre-trained enc
 Pasad, Chou & Livescu, ASRU 2021 (Fig. 3) · Pasad, Shi & Livescu, ICASSP 2023 (seven models)
 :::
 
-## Misconception 5 — "the last layer is the best one"
+## MC 5 — "the last layer is the best one"
 
 | if your task is… | read… | because… |
 |:--|:--|:--|
@@ -488,42 +488,6 @@ $\boldsymbol{\theta}$ is learned together with the downstream head; the upstream
 
 ::: {.footer}
 Yang et al., Interspeech 2021 · Pasad et al. 2023: best single layer beats the sum by 4–9% (ASR)
-:::
-
-## Misconception 6 — "higher SUPERB score, better encoder"
-
-::: {.ask}
-**Stop.** The upstream is frozen, the head is light, the input is a learned weighted sum. *What kind of model does this protocol favour?*
-:::
-
-| the protocol's choice | what it favours | what it penalises |
-|:--|:--|:--|
-| frozen upstream | information that is **already linearly readable** | models that need fine-tuning to show what they know |
-| light downstream head | the same | tasks whose head must do real work |
-| one weighted sum per task | models whose layers specialise cleanly | models with one strong layer and noisy others |
-| the leaderboard itself | **WavLM** — 94k h, denoising task, gated bias: three changes, one score | — |
-
-::: {.claim}
-A benchmark measures a model **under a protocol**. WavLM's lead is partly data and partly the auxiliary task; the protocol cannot split them, and neither can you from the score.
-:::
-
-::: {.footer}
-The two "partly"s are this course's judgement, not a paper's conclusion
-:::
-
-## ML-SUPERB, Dynamic-SUPERB: the biases move, not vanish
-
-| | what changed | what it showed | the bias it kept, or swapped in |
-|:--|:--|:--|:--|
-| **ML-SUPERB** (Interspeech 2023) | 143 languages, few-shot and full | multilingual pre-training does **not** always beat monolingual — "more data" is not a guarantee either | still frozen upstream; language coverage of the pre-training set is now the hidden axis |
-| **Dynamic-SUPERB** (ICASSP 2024) | instruction-tuned tasks, collaborative task pool | models judged by following instructions, not by a probe | favours models trained to follow instructions; the probe bias is traded for a prompt bias |
-
-::: {.claim}
-Changing the benchmark changes **which** bias you are measuring under. Read the protocol before the row.
-:::
-
-::: {.footer}
-Shi et al. 2023 (143 languages; multilingual $\neq$ always better) · Huang et al. 2024
 :::
 
 # What the teacher writes down: units, not phones {.section-title}
@@ -576,7 +540,7 @@ Demo 2 · demos/w05_d2_units_vs_phones · $K = 100$, numpy k-means · phone labe
 schematic (hand-written ids) · Demo 2 key `2` draws it with real units · phone boundaries from the MFA alignment, not CTC spikes
 :::
 
-## Misconception 7 — "a discrete unit is a phoneme"
+## MC 6 — "a discrete unit is a phoneme"
 
 | phoneme | HuBERT unit |
 |:--|:--|
@@ -620,7 +584,7 @@ Polyak et al., Interspeech 2021 (abstract: content, prosody, speaker extracted s
 wav2vec 2.0 Table 1 · Robust wav2vec 2.0, Interspeech 2021 · ML-SUPERB, Interspeech 2023
 :::
 
-## Misconception 8 — "A beats B, so A's architecture wins"
+## MC 7 — "A beats B, so A's architecture wins"
 
 | model | pre-training data | 10 min labels, test-clean / test-other | 100 h labels, test-clean / test-other |
 |:--|:--|--:|--:|
@@ -655,7 +619,43 @@ The cheapest hour of data you can add is an **unlabelled hour from the right dom
 Hsu et al., Robust wav2vec 2.0, Interspeech 2021 — numbers from the abstract
 :::
 
-## Misconception 9 — "an SSL encoder streams as it is"
+## MC 8 — "higher SUPERB score, better encoder"
+
+::: {.ask}
+**Stop.** The upstream is frozen, the head is light, the input is a learned weighted sum. *What kind of model does this protocol favour?*
+:::
+
+| the protocol's choice | what it favours | what it penalises |
+|:--|:--|:--|
+| frozen upstream | information that is **already linearly readable** | models that need fine-tuning to show what they know |
+| light downstream head | the same | tasks whose head must do real work |
+| one weighted sum per task | models whose layers specialise cleanly | models with one strong layer and noisy others |
+| the leaderboard itself | **WavLM** — 94k h, denoising task, gated bias: three changes, one score | — |
+
+::: {.claim}
+A benchmark measures a model **under a protocol**. WavLM's lead is partly data and partly the auxiliary task; the protocol cannot split them, and neither can you from the score.
+:::
+
+::: {.footer}
+The two "partly"s are this course's judgement, not a paper's conclusion
+:::
+
+## ML-SUPERB, Dynamic-SUPERB: the biases move, not vanish
+
+| | what changed | what it showed | the bias it kept, or swapped in |
+|:--|:--|:--|:--|
+| **ML-SUPERB** (Interspeech 2023) | 143 languages, few-shot and full | multilingual pre-training does **not** always beat monolingual — "more data" is not a guarantee either | still frozen upstream; language coverage of the pre-training set is now the hidden axis |
+| **Dynamic-SUPERB** (ICASSP 2024) | instruction-tuned tasks, collaborative task pool | models judged by following instructions, not by a probe | favours models trained to follow instructions; the probe bias is traded for a prompt bias |
+
+::: {.claim}
+Changing the benchmark changes **which** bias you are measuring under. Read the protocol before the row.
+:::
+
+::: {.footer}
+Shi et al. 2023 (143 languages; multilingual $\neq$ always better) · Huang et al. 2024
+:::
+
+## MC 9 — "an SSL encoder streams as it is"
 
 | | a standard SSL encoder | what streaming needs | the bill (W4's accounting) |
 |:--|:--|:--|:--|
@@ -675,7 +675,7 @@ Only BEST-RQ among today's papers evaluates a streaming variant — pre-trained 
 BEST-RQ §4 · W4 p13 ($s$), p20 ($D_{\text{alg}}$), p58 (KV cache) · W1 p31 budget
 :::
 
-## Misconception 10 — "Whisper is self-supervised too"
+## MC 10 — "Whisper is self-supervised too"
 
 | | this week's models | Whisper (W4 Demo 3's model) |
 |:--|:--|:--|
@@ -738,7 +738,7 @@ W3 and W4 asked "where does the alignment come from"; today asked **"where does 
 
 - Mohamed et al., *Self-Supervised Speech Representation Learning: A Review*, IEEE JSTSP 2022 — the survey; read the taxonomy section, then re-sort it by target as we did today
 - Hsu et al., *HuBERT*, IEEE/ACM TASLP 2021 — §II for the loss, §IV-E for the three purities, Table V for the $\alpha$ ablation you saw
-- Baevski et al., *wav2vec 2.0*, NeurIPS 2020 — §2–3 and Appendix B; look at Table 1 with p48 in mind
+- Baevski et al., *wav2vec 2.0*, NeurIPS 2020 — §2–3 and Appendix B; look at Table 1 with p46 in mind
 
 **If one thing today was new to you, make it this one**
 
