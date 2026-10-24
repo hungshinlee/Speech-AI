@@ -1,7 +1,6 @@
 <!-- 由 scripts/make_figs_w05.py 產生，勿手改；投影片用 {{< include assets/w05/data2vec.inline.qmd >}} 貼入 -->
 ```{=html}
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 310" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
-<text x="984.0" y="16.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">schematic — not a measurement</text>
 <g class="fragment" data-fragment-index="0">
 <rect x="60.0" y="48.0" width="400.0" height="220.0" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.4"/>
 <text x="260.0" y="72.0" font-size="16" font-weight="700" fill="#7c3aed" text-anchor="middle" dominant-baseline="auto">teacher — parameters are an EMA of the student</text>
