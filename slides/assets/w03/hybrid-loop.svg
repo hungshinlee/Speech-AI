@@ -1,48 +1,51 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 300" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
-<text x="984.0" y="22.0" font-size="15" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">schematic — not a measurement</text>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1100 326" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
 <g class="fragment" data-fragment-index="0">
-<rect x="30.0" y="70.0" width="164.0" height="64.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.4"/>
-<text x="112.0" y="94.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">GMM–HMM</text>
-<text x="112.0" y="118.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">step 1: Baum–Welch on (X, W)</text>
-<rect x="262.0" y="70.0" width="164.0" height="64.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.4"/>
-<text x="344.0" y="94.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">forced alignment</text>
-<text x="344.0" y="118.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">step 2: Viterbi, words known</text>
-<line x1="196.0" y1="102.0" x2="250.0" y2="102.0" stroke="#6b7280" stroke-width="1.6"/>
-<polygon points="260.0,102.0 250.0,107.0 250.0,97.0" fill="#6b7280"/>
-<text x="228.0" y="124.0" font-size="11" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">already aligns</text>
+<rect x="20.0" y="56.0" width="220.0" height="82.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="130.0" y="80.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">GMM–HMM</text>
+<text x="130.0" y="104.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">step 1: Baum–Welch</text>
+<text x="130.0" y="124.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">on (X, W) — alignment summed</text>
+<rect x="290.0" y="56.0" width="220.0" height="82.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="400.0" y="80.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">forced alignment</text>
+<text x="400.0" y="104.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">step 2: Viterbi,</text>
+<text x="400.0" y="124.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">words known</text>
+<line x1="242.0" y1="97.0" x2="278.0" y2="97.0" stroke="#6b7280" stroke-width="1.6"/>
+<polygon points="288.0,97.0 278.0,102.0 278.0,92.0" fill="#6b7280"/>
+<text x="265.0" y="156.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">already aligns</text>
 </g>
 <g class="fragment" data-fragment-index="1">
-<rect x="494.0" y="70.0" width="164.0" height="64.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.4"/>
-<text x="576.0" y="94.0" font-size="16" font-weight="600" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">one hard path</text>
-<text x="576.0" y="118.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">one state per frame, as “truth”</text>
-<line x1="428.0" y1="102.0" x2="482.0" y2="102.0" stroke="#6b7280" stroke-width="1.6"/>
-<polygon points="492.0,102.0 482.0,107.0 482.0,97.0" fill="#6b7280"/>
-<text x="460.0" y="124.0" font-size="11" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">argmax</text>
-<rect x="760.0" y="70.0" width="164.0" height="64.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.4"/>
-<text x="842.0" y="94.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">DNN</text>
-<text x="842.0" y="118.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">step 3: per-frame cross-entropy</text>
-<line x1="660.0" y1="102.0" x2="748.0" y2="102.0" stroke="#6b7280" stroke-width="1.6"/>
-<polygon points="758.0,102.0 748.0,107.0 748.0,97.0" fill="#6b7280"/>
-<text x="709.0" y="124.0" font-size="11" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">targets</text>
-<rect x="760.0" y="194.0" width="164.0" height="52.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<svg x="781.875" y="207.09" width="120.25" height="13.91" viewBox="0 0 120.25 13.91"><defs>
+<rect x="560.0" y="56.0" width="220.0" height="82.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.4"/>
+<text x="670.0" y="80.0" font-size="17" font-weight="600" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">one hard path</text>
+<text x="670.0" y="104.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">one state per frame,</text>
+<text x="670.0" y="124.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">taken as the truth</text>
+<line x1="512.0" y1="97.0" x2="548.0" y2="97.0" stroke="#6b7280" stroke-width="1.6"/>
+<polygon points="558.0,97.0 548.0,102.0 548.0,92.0" fill="#6b7280"/>
+<text x="535.0" y="156.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">argmax</text>
+<rect x="850.0" y="56.0" width="220.0" height="82.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="960.0" y="80.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">DNN</text>
+<text x="960.0" y="104.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">step 3: per-frame</text>
+<text x="960.0" y="124.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">cross-entropy</text>
+<line x1="782.0" y1="97.0" x2="838.0" y2="97.0" stroke="#6b7280" stroke-width="1.6"/>
+<polygon points="848.0,97.0 838.0,102.0 838.0,92.0" fill="#6b7280"/>
+<text x="815.0" y="156.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">targets</text>
+<rect x="850.0" y="186.0" width="220.0" height="58.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<svg x="886" y="198.88" width="148" height="17.12" viewBox="0 0 148 17.12"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w3t152-figure_1">
-  <g id="w3t152-patch_1">
-   <path d="M 0 13.91 
-L 120.25 13.91 
-L 120.25 0 
+ <g id="w3t153-figure_1">
+  <g id="w3t153-patch_1">
+   <path d="M 0 17.12 
+L 148 17.12 
+L 148 0 
 L 0 0 
-L 0 13.91 
+L 0 17.12 
 z
 " style="fill: none"/>
   </g>
-  <g id="w3t152-text_1">
+  <g id="w3t153-text_1">
    <!-- $b_j(\mathbf{x}_t) \propto P(j \mid \mathbf{x}_t) / P(j)$ -->
-   <g style="fill: #1f2328" transform="translate(0 9.75) scale(0.13 -0.13)">
+   <g style="fill: #1f2328" transform="translate(0 12) scale(0.16 -0.16)">
     <defs>
-     <path id="w3t152-Cmmi10-62" d="M 1106 -72 
+     <path id="w3t153-Cmmi10-62" d="M 1106 -72 
 Q 719 -72 503 231 
 Q 288 534 288 941 
 Q 288 1000 317 1173 
@@ -81,7 +84,7 @@ Q 691 475 795 286
 Q 900 97 1119 97 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t152-Cmmi10-6a" d="M -84 -909 
+     <path id="w3t153-Cmmi10-6a" d="M -84 -909 
 Q -84 -753 23 -639 
 Q 131 -525 288 -525 
 Q 391 -525 461 -589 
@@ -123,7 +126,7 @@ Q 2078 3634 2009 3706
 Q 1941 3778 1941 3878 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t152-Cmr10-28" d="M 1984 -1588 
+     <path id="w3t153-Cmr10-28" d="M 1984 -1588 
 Q 1628 -1306 1370 -942 
 Q 1113 -578 948 -165 
 Q 784 247 703 697 
@@ -149,7 +152,7 @@ L 2016 -1600
 Q 1984 -1600 1984 -1588 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t152-Cmb10-78" d="M 109 0 
+     <path id="w3t153-Cmb10-78" d="M 109 0 
 L 109 325 
 Q 628 325 678 384 
 L 1381 1350 
@@ -182,7 +185,7 @@ L 1381 0
 L 109 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t152-Cmmi10-74" d="M 397 519 
+     <path id="w3t153-Cmmi10-74" d="M 397 519 
 Q 397 613 416 697 
 L 878 2534 
 L 206 2534 
@@ -219,7 +222,7 @@ Q 744 -72 570 93
 Q 397 259 397 519 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t152-Cmr10-29" d="M 416 -1600 
+     <path id="w3t153-Cmr10-29" d="M 416 -1600 
 Q 359 -1600 359 -1544 
 Q 359 -1516 372 -1503 
 Q 1466 -434 1466 1600 
@@ -240,7 +243,7 @@ Q 494 -1600 475 -1600
 L 416 -1600 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t152-Cmsy10-2f" d="M 1466 -72 
+     <path id="w3t153-Cmsy10-2f" d="M 1466 -72 
 Q 947 -72 653 379 
 Q 359 831 359 1381 
 Q 359 1725 487 2059 
@@ -285,7 +288,7 @@ Q 716 519 916 326
 Q 1116 134 1409 134 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t152-Cmmi10-50" d="M 313 0 
+     <path id="w3t153-Cmmi10-50" d="M 313 0 
 Q 250 0 250 84 
 Q 253 100 262 139 
 Q 272 178 289 201 
@@ -332,7 +335,7 @@ Q 2459 4088 2413 3928
 L 1978 2188 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t152-Cmsy10-6a" d="M 763 -1484 
+     <path id="w3t153-Cmsy10-6a" d="M 763 -1484 
 L 763 4684 
 Q 763 4734 800 4767 
 Q 838 4800 891 4800 
@@ -345,7 +348,7 @@ Q 838 -1600 800 -1567
 Q 763 -1534 763 -1484 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t152-Cmmi10-3d" d="M 359 -1472 
+     <path id="w3t153-Cmmi10-3d" d="M 359 -1472 
 Q 359 -1453 366 -1447 
 L 2591 4722 
 Q 2603 4759 2634 4779 
@@ -360,41 +363,41 @@ Q 359 -1525 359 -1472
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w3t152-Cmmi10-62"/>
-    <use xlink:href="#w3t152-Cmmi10-6a" transform="translate(42.919922 -17.00625) scale(0.7)"/>
-    <use xlink:href="#w3t152-Cmr10-28" transform="translate(78.076562 0)"/>
-    <use xlink:href="#w3t152-Cmb10-78" transform="translate(116.894922 0)"/>
-    <use xlink:href="#w3t152-Cmmi10-74" transform="translate(174.044609 -17.00625) scale(0.7)"/>
-    <use xlink:href="#w3t152-Cmr10-29" transform="translate(205.680742 0)"/>
-    <use xlink:href="#w3t152-Cmsy10-2f" transform="translate(262.057695 0)"/>
-    <use xlink:href="#w3t152-Cmmi10-50" transform="translate(357.301836 0)"/>
-    <use xlink:href="#w3t152-Cmr10-28" transform="translate(421.51082 0)"/>
-    <use xlink:href="#w3t152-Cmmi10-6a" transform="translate(460.32918 0)"/>
-    <use xlink:href="#w3t152-Cmsy10-6a" transform="translate(519.001055 0)"/>
-    <use xlink:href="#w3t152-Cmb10-78" transform="translate(564.245195 0)"/>
-    <use xlink:href="#w3t152-Cmmi10-74" transform="translate(621.394883 -17.00625) scale(0.7)"/>
-    <use xlink:href="#w3t152-Cmr10-29" transform="translate(653.031016 0)"/>
-    <use xlink:href="#w3t152-Cmmi10-3d" transform="translate(691.849375 0)"/>
-    <use xlink:href="#w3t152-Cmmi10-50" transform="translate(741.849375 0)"/>
-    <use xlink:href="#w3t152-Cmr10-28" transform="translate(806.058359 0)"/>
-    <use xlink:href="#w3t152-Cmmi10-6a" transform="translate(844.876719 0)"/>
-    <use xlink:href="#w3t152-Cmr10-29" transform="translate(885.99 0)"/>
+    <use xlink:href="#w3t153-Cmmi10-62"/>
+    <use xlink:href="#w3t153-Cmmi10-6a" transform="translate(42.919922 -17.00625) scale(0.7)"/>
+    <use xlink:href="#w3t153-Cmr10-28" transform="translate(78.076562 0)"/>
+    <use xlink:href="#w3t153-Cmb10-78" transform="translate(116.894922 0)"/>
+    <use xlink:href="#w3t153-Cmmi10-74" transform="translate(174.044609 -17.00625) scale(0.7)"/>
+    <use xlink:href="#w3t153-Cmr10-29" transform="translate(205.680742 0)"/>
+    <use xlink:href="#w3t153-Cmsy10-2f" transform="translate(262.057695 0)"/>
+    <use xlink:href="#w3t153-Cmmi10-50" transform="translate(357.301836 0)"/>
+    <use xlink:href="#w3t153-Cmr10-28" transform="translate(421.51082 0)"/>
+    <use xlink:href="#w3t153-Cmmi10-6a" transform="translate(460.32918 0)"/>
+    <use xlink:href="#w3t153-Cmsy10-6a" transform="translate(519.001055 0)"/>
+    <use xlink:href="#w3t153-Cmb10-78" transform="translate(564.245195 0)"/>
+    <use xlink:href="#w3t153-Cmmi10-74" transform="translate(621.394883 -17.00625) scale(0.7)"/>
+    <use xlink:href="#w3t153-Cmr10-29" transform="translate(653.031016 0)"/>
+    <use xlink:href="#w3t153-Cmmi10-3d" transform="translate(691.849375 0)"/>
+    <use xlink:href="#w3t153-Cmmi10-50" transform="translate(741.849375 0)"/>
+    <use xlink:href="#w3t153-Cmr10-28" transform="translate(806.058359 0)"/>
+    <use xlink:href="#w3t153-Cmmi10-6a" transform="translate(844.876719 0)"/>
+    <use xlink:href="#w3t153-Cmr10-29" transform="translate(885.99 0)"/>
    </g>
   </g>
  </g>
 </svg>
-<text x="842.0" y="236.0" font-size="11" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">step 4: back into the HMM</text>
-<line x1="842.0" y1="136.0" x2="842.0" y2="182.0" stroke="#6b7280" stroke-width="1.6"/>
-<polygon points="842.0,192.0 837.0,182.0 847.0,182.0" fill="#6b7280"/>
+<text x="960.0" y="232.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">step 4: back into the HMM</text>
+<line x1="960.0" y1="140.0" x2="960.0" y2="174.0" stroke="#6b7280" stroke-width="1.6"/>
+<polygon points="960.0,184.0 955.0,174.0 965.0,174.0" fill="#6b7280"/>
 </g>
 <g class="fragment" data-fragment-index="2">
-<path d="M 760.0 238.0 L 730.0 238.0 L 730.0 246.0" fill="none" stroke="#7c3aed" stroke-width="1.6" stroke-dasharray="6 4"/>
-<path d="M 730.0 246.0 L 344.0 246.0 L 344.0 174.0" fill="none" stroke="#7c3aed" stroke-width="1.6" stroke-dasharray="6 4"/>
-<line x1="344.0" y1="174.0" x2="344.0" y2="146.0" stroke="#7c3aed" stroke-width="1.6"/>
-<polygon points="344.0,136.0 349.0,146.0 339.0,146.0" fill="#7c3aed"/>
-<text x="537.0" y="262.0" font-size="12" font-weight="600" fill="#7c3aed" text-anchor="middle" dominant-baseline="auto">step 5 (optional): realign with the DNN, repeat step 3</text>
-<text x="576.0" y="202.0" font-size="13" font-weight="600" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">what CTC removes: this box —</text>
-<text x="576.0" y="220.0" font-size="13" font-weight="600" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">and the model needed to produce it</text>
+<path d="M 850.0 234.0 L 820.0 234.0 L 820.0 256.0" fill="none" stroke="#7c3aed" stroke-width="1.6" stroke-dasharray="6 4"/>
+<path d="M 820.0 256.0 L 400.0 256.0 L 400.0 168.0" fill="none" stroke="#7c3aed" stroke-width="1.6" stroke-dasharray="6 4"/>
+<line x1="400.0" y1="168.0" x2="400.0" y2="150.0" stroke="#7c3aed" stroke-width="1.6"/>
+<polygon points="400.0,140.0 405.0,150.0 395.0,150.0" fill="#7c3aed"/>
+<text x="610.0" y="276.0" font-size="16" font-weight="600" fill="#7c3aed" text-anchor="middle" dominant-baseline="auto">step 5 (optional): realign with the DNN, repeat step 3</text>
+<text x="670.0" y="196.0" font-size="16" font-weight="600" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">what CTC removes: this box —</text>
+<text x="670.0" y="216.0" font-size="16" font-weight="600" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">and the model needed to produce it</text>
 </g>
-<text x="500.0" y="288.0" font-size="14" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">The targets are only as good as the model that produced them; CTC replaces this box by a posterior recomputed at every step.</text>
+<text x="550.0" y="314.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">The targets are only as good as the model that produced them; CTC replaces this box by a posterior recomputed at every step.</text>
 </svg>

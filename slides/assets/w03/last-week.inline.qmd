@@ -1,31 +1,30 @@
 <!-- 由 scripts/make_figs_w03.py 產生，勿手改；投影片用 {{< include assets/w03/last-week.inline.qmd >}} 貼入 -->
 ```{=html}
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 300" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
-<text x="984.0" y="22.0" font-size="15" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">schematic — not a measurement</text>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 310" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
 <g class="fragment" data-fragment-index="0">
-<rect x="40.0" y="44.0" width="150.0" height="58.0" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="115.0" y="65.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">air</text>
-<text x="115.0" y="88.0" font-size="13" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">pressure wave</text>
-<rect x="232.0" y="44.0" width="150.0" height="58.0" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="307.0" y="65.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">samples</text>
-<svg x="274.89" y="82.4184" width="64.22" height="12.5816" viewBox="0 0 64.22 12.581563"><defs>
+<rect x="24.0" y="44.0" width="160.0" height="62.0" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="104.0" y="65.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">air</text>
+<text x="104.0" y="91.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">pressure wave</text>
+<rect x="212.0" y="44.0" width="160.0" height="62.0" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="292.0" y="65.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">samples</text>
+<svg x="252.48" y="83.515" width="79.04" height="15.485" viewBox="0 0 79.04 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w3t113-figure_1">
-  <g id="w3t113-patch_1">
-   <path d="M 0 12.581563 
-L 64.22 12.581563 
-L 64.22 0 
+ <g id="w3t114-figure_1">
+  <g id="w3t114-patch_1">
+   <path d="M 0 15.485 
+L 79.04 15.485 
+L 79.04 0 
 L 0 0 
-L 0 12.581563 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
-  <g id="w3t113-text_1">
+  <g id="w3t114-text_1">
    <!-- $f_s = 16\ \mathsf{kHz}$ -->
-   <g style="fill: #6b7280" transform="translate(0 9.851562) scale(0.13 -0.13)">
+   <g style="fill: #6b7280" transform="translate(0 12.125) scale(0.16 -0.16)">
     <defs>
-     <path id="w3t113-Cmmi10-66" d="M 622 -1056 
+     <path id="w3t114-Cmmi10-66" d="M 622 -1056 
 Q 741 -1147 909 -1147 
 Q 1138 -1147 1281 -641 
 Q 1341 -397 1606 966 
@@ -75,7 +74,7 @@ Q 959 -828 857 -942
 Q 756 -1056 622 -1056 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t113-Cmmi10-73" d="M 556 391 
+     <path id="w3t114-Cmmi10-73" d="M 556 391 
 Q 728 97 1247 97 
 Q 1472 97 1675 173 
 Q 1878 250 2011 403 
@@ -122,7 +121,7 @@ Q 734 391 588 391
 L 556 391 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t113-Cmr10-3d" d="M 481 850 
+     <path id="w3t114-Cmr10-3d" d="M 481 850 
 Q 428 850 393 890 
 Q 359 931 359 978 
 Q 359 1031 393 1068 
@@ -147,7 +146,7 @@ Q 4547 2094 4500 2094
 L 481 2094 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t113-Cmr10-31" d="M 594 0 
+     <path id="w3t114-Cmr10-31" d="M 594 0 
 L 594 225 
 Q 1394 225 1394 428 
 L 1394 3788 
@@ -163,7 +162,7 @@ L 2694 0
 L 594 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t113-Cmr10-36" d="M 1600 -141 
+     <path id="w3t114-Cmr10-36" d="M 1600 -141 
 Q 1203 -141 937 70 
 Q 672 281 526 617 
 Q 381 953 325 1322 
@@ -218,7 +217,7 @@ Q 997 450 1156 256
 Q 1316 63 1600 63 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t113-Cmss10-6b" d="M 525 0 
+     <path id="w3t114-Cmss10-6b" d="M 525 0 
 L 525 4441 
 L 1013 4441 
 L 1013 1550 
@@ -233,7 +232,7 @@ L 991 0
 L 525 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t113-Cmss10-48" d="M 588 0 
+     <path id="w3t114-Cmss10-48" d="M 588 0 
 L 588 4441 
 L 1184 4441 
 L 1184 2516 
@@ -248,7 +247,7 @@ L 1184 0
 L 588 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t113-Cmss10-7a" d="M 178 0 
+     <path id="w3t114-Cmss10-7a" d="M 178 0 
 L 178 275 
 L 1850 2444 
 L 269 2438 
@@ -262,38 +261,38 @@ L 178 0
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w3t113-Cmmi10-66" transform="translate(0 0.484375)"/>
-    <use xlink:href="#w3t113-Cmmi10-73" transform="translate(48.876953 -16.521875) scale(0.7)"/>
-    <use xlink:href="#w3t113-Cmr10-3d" transform="translate(105.557031 0.484375)"/>
-    <use xlink:href="#w3t113-Cmr10-31" transform="translate(200.801172 0.484375)"/>
-    <use xlink:href="#w3t113-Cmr10-36" transform="translate(250.801172 0.484375)"/>
-    <use xlink:href="#w3t113-Cmss10-6b" transform="translate(330.065202 0.484375)"/>
-    <use xlink:href="#w3t113-Cmss10-48" transform="translate(378.844499 0.484375)"/>
-    <use xlink:href="#w3t113-Cmss10-7a" transform="translate(449.64528 0.484375)"/>
+    <use xlink:href="#w3t114-Cmmi10-66" transform="translate(0 0.484375)"/>
+    <use xlink:href="#w3t114-Cmmi10-73" transform="translate(48.876953 -16.521875) scale(0.7)"/>
+    <use xlink:href="#w3t114-Cmr10-3d" transform="translate(105.557031 0.484375)"/>
+    <use xlink:href="#w3t114-Cmr10-31" transform="translate(200.801172 0.484375)"/>
+    <use xlink:href="#w3t114-Cmr10-36" transform="translate(250.801172 0.484375)"/>
+    <use xlink:href="#w3t114-Cmss10-6b" transform="translate(330.065202 0.484375)"/>
+    <use xlink:href="#w3t114-Cmss10-48" transform="translate(378.844499 0.484375)"/>
+    <use xlink:href="#w3t114-Cmss10-7a" transform="translate(449.64528 0.484375)"/>
    </g>
   </g>
  </g>
 </svg>
-<rect x="424.0" y="44.0" width="150.0" height="58.0" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="499.0" y="65.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">STFT</text>
-<svg x="459.805" y="83" width="78.39" height="13" viewBox="0 0 78.39 13"><defs>
+<rect x="400.0" y="44.0" width="160.0" height="62.0" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="480.0" y="65.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">STFT</text>
+<svg x="431.76" y="83" width="96.48" height="16" viewBox="0 0 96.48 16"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w3t114-figure_1">
-  <g id="w3t114-patch_1">
-   <path d="M 0 13 
-L 78.39 13 
-L 78.39 0 
+ <g id="w3t115-figure_1">
+  <g id="w3t115-patch_1">
+   <path d="M 0 16 
+L 96.48 16 
+L 96.48 0 
 L 0 0 
-L 0 13 
+L 0 16 
 z
 " style="fill: none"/>
   </g>
-  <g id="w3t114-text_1">
+  <g id="w3t115-text_1">
    <!-- $25\ \mathsf{ms}\ /\ 10\ \mathsf{ms}$ -->
-   <g style="fill: #6b7280" transform="translate(0 9.75) scale(0.13 -0.13)">
+   <g style="fill: #6b7280" transform="translate(0 12) scale(0.16 -0.16)">
     <defs>
-     <path id="w3t114-Cmr10-32" d="M 319 0 
+     <path id="w3t115-Cmr10-32" d="M 319 0 
 L 319 172 
 Q 319 188 331 206 
 L 1325 1306 
@@ -334,7 +333,7 @@ L 2694 0
 L 319 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t114-Cmr10-35" d="M 556 728 
+     <path id="w3t115-Cmr10-35" d="M 556 728 
 Q 622 541 758 387 
 Q 894 234 1080 148 
 Q 1266 63 1466 63 
@@ -387,7 +386,7 @@ Q 625 716 597 720
 Q 569 725 556 728 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t114-Cmss10-6d" d="M 506 0 
+     <path id="w3t115-Cmss10-6d" d="M 506 0 
 L 506 2881 
 L 991 2881 
 L 991 2444 
@@ -417,7 +416,7 @@ L 1031 0
 L 506 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t114-Cmss10-73" d="M 178 213 
+     <path id="w3t115-Cmss10-73" d="M 178 213 
 L 263 672 
 Q 716 359 1259 359 
 Q 1494 359 1659 461 
@@ -449,7 +448,7 @@ Q 1566 -72 1259 -72
 Q 684 -72 178 213 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t114-Cmmi10-3d" d="M 359 -1472 
+     <path id="w3t115-Cmmi10-3d" d="M 359 -1472 
 Q 359 -1453 366 -1447 
 L 2591 4722 
 Q 2603 4759 2634 4779 
@@ -463,7 +462,7 @@ Q 434 -1600 396 -1562
 Q 359 -1525 359 -1472 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t114-Cmr10-31" d="M 594 0 
+     <path id="w3t115-Cmr10-31" d="M 594 0 
 L 594 225 
 Q 1394 225 1394 428 
 L 1394 3788 
@@ -479,7 +478,7 @@ L 2694 0
 L 594 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t114-Cmr10-30" d="M 1600 -141 
+     <path id="w3t115-Cmr10-30" d="M 1600 -141 
 Q 816 -141 533 504 
 Q 250 1150 250 2041 
 Q 250 2597 351 3087 
@@ -510,39 +509,39 @@ Q 1325 25 1600 25
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w3t114-Cmr10-32"/>
-    <use xlink:href="#w3t114-Cmr10-35" transform="translate(50 0)"/>
-    <use xlink:href="#w3t114-Cmss10-6d" transform="translate(129.26403 0)"/>
-    <use xlink:href="#w3t114-Cmss10-73" transform="translate(208.658562 0)"/>
-    <use xlink:href="#w3t114-Cmmi10-3d" transform="translate(276.203842 0)"/>
-    <use xlink:href="#w3t114-Cmr10-31" transform="translate(355.467872 0)"/>
-    <use xlink:href="#w3t114-Cmr10-30" transform="translate(405.467872 0)"/>
-    <use xlink:href="#w3t114-Cmss10-6d" transform="translate(484.731902 0)"/>
-    <use xlink:href="#w3t114-Cmss10-73" transform="translate(564.126434 0)"/>
+    <use xlink:href="#w3t115-Cmr10-32"/>
+    <use xlink:href="#w3t115-Cmr10-35" transform="translate(50 0)"/>
+    <use xlink:href="#w3t115-Cmss10-6d" transform="translate(129.26403 0)"/>
+    <use xlink:href="#w3t115-Cmss10-73" transform="translate(208.658562 0)"/>
+    <use xlink:href="#w3t115-Cmmi10-3d" transform="translate(276.203842 0)"/>
+    <use xlink:href="#w3t115-Cmr10-31" transform="translate(355.467872 0)"/>
+    <use xlink:href="#w3t115-Cmr10-30" transform="translate(405.467872 0)"/>
+    <use xlink:href="#w3t115-Cmss10-6d" transform="translate(484.731902 0)"/>
+    <use xlink:href="#w3t115-Cmss10-73" transform="translate(564.126434 0)"/>
    </g>
   </g>
  </g>
 </svg>
-<rect x="616.0" y="44.0" width="150.0" height="58.0" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="691.0" y="65.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">log-mel</text>
-<svg x="666.885" y="80.4184" width="48.23" height="12.5816" viewBox="0 0 48.23 12.581563"><defs>
+<rect x="588.0" y="44.0" width="160.0" height="62.0" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="668.0" y="65.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">log-mel</text>
+<svg x="638.32" y="80.515" width="59.36" height="15.485" viewBox="0 0 59.36 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w3t115-figure_1">
-  <g id="w3t115-patch_1">
-   <path d="M 0 12.581563 
-L 48.23 12.581563 
-L 48.23 0 
+ <g id="w3t116-figure_1">
+  <g id="w3t116-patch_1">
+   <path d="M 0 15.485 
+L 59.36 15.485 
+L 59.36 0 
 L 0 0 
-L 0 12.581563 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
-  <g id="w3t115-text_1">
+  <g id="w3t116-text_1">
    <!-- $80\ \mathsf{bands}$ -->
-   <g style="fill: #6b7280" transform="translate(0 9.877969) scale(0.13 -0.13)">
+   <g style="fill: #6b7280" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
-     <path id="w3t115-Cmr10-38" d="M 269 972 
+     <path id="w3t116-Cmr10-38" d="M 269 972 
 Q 269 1356 522 1651 
 Q 775 1947 1172 2144 
 L 934 2297 
@@ -594,7 +593,7 @@ Q 750 3631 750 3431
 Q 750 3131 1056 2925 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t115-Cmr10-30" d="M 1600 -141 
+     <path id="w3t116-Cmr10-30" d="M 1600 -141 
 Q 816 -141 533 504 
 Q 250 1150 250 2041 
 Q 250 2597 351 3087 
@@ -624,7 +623,7 @@ Q 991 484 1158 254
 Q 1325 25 1600 25 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t115-Cmss10-62" d="M 513 0 
+     <path id="w3t116-Cmss10-62" d="M 513 0 
 L 513 4441 
 L 1019 4441 
 L 1019 2547 
@@ -656,7 +655,7 @@ Q 1159 2306 1038 2138
 L 1038 744 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t115-Cmss10-61" d="M 972 -72 
+     <path id="w3t116-Cmss10-61" d="M 972 -72 
 Q 766 -72 605 48 
 Q 444 169 356 359 
 Q 269 550 269 763 
@@ -690,7 +689,7 @@ Q 1641 1228 1198 1125
 Q 756 1022 756 763 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t115-Cmss10-6e" d="M 506 0 
+     <path id="w3t116-Cmss10-6e" d="M 506 0 
 L 506 2881 
 L 991 2881 
 L 991 2444 
@@ -710,7 +709,7 @@ L 1031 0
 L 506 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t115-Cmss10-64" d="M 1300 -72 
+     <path id="w3t116-Cmss10-64" d="M 1300 -72 
 Q 959 -72 712 161 
 Q 466 394 342 741 
 Q 219 1088 219 1422 
@@ -741,7 +740,7 @@ Q 744 981 959 664
 Q 1175 347 1594 347 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t115-Cmss10-73" d="M 178 213 
+     <path id="w3t116-Cmss10-73" d="M 178 213 
 L 263 672 
 Q 716 359 1259 359 
 Q 1494 359 1659 461 
@@ -774,23 +773,23 @@ Q 684 -72 178 213
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w3t115-Cmr10-38" transform="translate(0 0.609375)"/>
-    <use xlink:href="#w3t115-Cmr10-30" transform="translate(50 0.609375)"/>
-    <use xlink:href="#w3t115-Cmss10-62" transform="translate(129.26403 0.609375)"/>
-    <use xlink:href="#w3t115-Cmss10-61" transform="translate(180.875358 0.609375)"/>
-    <use xlink:href="#w3t115-Cmss10-6e" transform="translate(228.873405 0.609375)"/>
-    <use xlink:href="#w3t115-Cmss10-64" transform="translate(280.484733 0.609375)"/>
-    <use xlink:href="#w3t115-Cmss10-73" transform="translate(332.096062 0.609375)"/>
+    <use xlink:href="#w3t116-Cmr10-38" transform="translate(0 0.609375)"/>
+    <use xlink:href="#w3t116-Cmr10-30" transform="translate(50 0.609375)"/>
+    <use xlink:href="#w3t116-Cmss10-62" transform="translate(129.26403 0.609375)"/>
+    <use xlink:href="#w3t116-Cmss10-61" transform="translate(180.875358 0.609375)"/>
+    <use xlink:href="#w3t116-Cmss10-6e" transform="translate(228.873405 0.609375)"/>
+    <use xlink:href="#w3t116-Cmss10-64" transform="translate(280.484733 0.609375)"/>
+    <use xlink:href="#w3t116-Cmss10-73" transform="translate(332.096062 0.609375)"/>
    </g>
   </g>
  </g>
 </svg>
-<rect x="808.0" y="44.0" width="170.0" height="58.0" rx="5" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.6"/>
-<svg x="837.4" y="57" width="111.2" height="16" viewBox="0 0 111.2 16"><defs>
+<rect x="776.0" y="44.0" width="200.0" height="62.0" rx="5" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.6"/>
+<svg x="820.4" y="58" width="111.2" height="16" viewBox="0 0 111.2 16"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w3t116-figure_1">
-  <g id="w3t116-patch_1">
+ <g id="w3t117-figure_1">
+  <g id="w3t117-patch_1">
    <path d="M 0 16 
 L 111.2 16 
 L 111.2 0 
@@ -799,11 +798,11 @@ L 0 16
 z
 " style="fill: none"/>
   </g>
-  <g id="w3t116-text_1">
+  <g id="w3t117-text_1">
    <!-- $\mathbf{X} = (\mathbf{x}_1, \dots, \mathbf{x}_T)$ -->
    <g style="fill: #1f2328" transform="translate(0 12) scale(0.16 -0.16)">
     <defs>
-     <path id="w3t116-Cmb10-58" d="M 184 0 
+     <path id="w3t117-Cmb10-58" d="M 184 0 
 L 184 325 
 Q 856 325 909 384 
 L 2009 2106 
@@ -839,7 +838,7 @@ L 1881 0
 L 184 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t116-Cmr10-3d" d="M 481 850 
+     <path id="w3t117-Cmr10-3d" d="M 481 850 
 Q 428 850 393 890 
 Q 359 931 359 978 
 Q 359 1031 393 1068 
@@ -864,7 +863,7 @@ Q 4547 2094 4500 2094
 L 481 2094 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t116-Cmr10-28" d="M 1984 -1588 
+     <path id="w3t117-Cmr10-28" d="M 1984 -1588 
 Q 1628 -1306 1370 -942 
 Q 1113 -578 948 -165 
 Q 784 247 703 697 
@@ -890,7 +889,7 @@ L 2016 -1600
 Q 1984 -1600 1984 -1588 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t116-Cmb10-78" d="M 109 0 
+     <path id="w3t117-Cmb10-78" d="M 109 0 
 L 109 325 
 Q 628 325 678 384 
 L 1381 1350 
@@ -923,7 +922,7 @@ L 1381 0
 L 109 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t116-Cmr10-31" d="M 594 0 
+     <path id="w3t117-Cmr10-31" d="M 594 0 
 L 594 225 
 Q 1394 225 1394 428 
 L 1394 3788 
@@ -939,7 +938,7 @@ L 2694 0
 L 594 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t116-Cmmi10-3b" d="M 634 -1153 
+     <path id="w3t117-Cmmi10-3b" d="M 634 -1153 
 Q 634 -1125 659 -1100 
 Q 891 -878 1019 -587 
 Q 1147 -297 1147 25 
@@ -958,7 +957,7 @@ Q 697 -1241 665 -1212
 Q 634 -1184 634 -1153 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t116-STIXGeneral-Regular-2026" d="M 5683 275 
+     <path id="w3t117-STIXGeneral-Regular-2026" d="M 5683 275 
 Q 5683 134 5577 32 
 Q 5472 -70 5325 -70 
 Q 5178 -70 5075 32 
@@ -989,7 +988,7 @@ Q 1210 640 1315 531
 Q 1421 422 1421 275 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t116-Cmmi10-54" d="M 294 84 
+     <path id="w3t117-Cmmi10-54" d="M 294 84 
 Q 297 100 308 140 
 Q 319 181 336 203 
 Q 353 225 384 225 
@@ -1033,7 +1032,7 @@ L 359 0
 Q 294 0 294 84 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t116-Cmr10-29" d="M 416 -1600 
+     <path id="w3t117-Cmr10-29" d="M 416 -1600 
 Q 359 -1600 359 -1544 
 Q 359 -1516 372 -1503 
 Q 1466 -434 1466 1600 
@@ -1055,39 +1054,39 @@ L 416 -1600
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w3t116-Cmb10-58"/>
-    <use xlink:href="#w3t116-Cmr10-3d" transform="translate(93.046875 0)"/>
-    <use xlink:href="#w3t116-Cmr10-28" transform="translate(188.291016 0)"/>
-    <use xlink:href="#w3t116-Cmb10-78" transform="translate(227.109375 0)"/>
-    <use xlink:href="#w3t116-Cmr10-31" transform="translate(284.259063 -17.00625) scale(0.7)"/>
-    <use xlink:href="#w3t116-Cmmi10-3b" transform="translate(325.636406 0)"/>
-    <use xlink:href="#w3t116-STIXGeneral-Regular-2026" transform="translate(388.439141 0)"/>
-    <use xlink:href="#w3t116-Cmmi10-3b" transform="translate(505.997719 0)"/>
-    <use xlink:href="#w3t116-Cmb10-78" transform="translate(551.24186 0)"/>
-    <use xlink:href="#w3t116-Cmmi10-54" transform="translate(608.391547 -17.00625) scale(0.7)"/>
-    <use xlink:href="#w3t116-Cmr10-29" transform="translate(655.647797 0)"/>
+    <use xlink:href="#w3t117-Cmb10-58"/>
+    <use xlink:href="#w3t117-Cmr10-3d" transform="translate(93.046875 0)"/>
+    <use xlink:href="#w3t117-Cmr10-28" transform="translate(188.291016 0)"/>
+    <use xlink:href="#w3t117-Cmb10-78" transform="translate(227.109375 0)"/>
+    <use xlink:href="#w3t117-Cmr10-31" transform="translate(284.259063 -17.00625) scale(0.7)"/>
+    <use xlink:href="#w3t117-Cmmi10-3b" transform="translate(325.636406 0)"/>
+    <use xlink:href="#w3t117-STIXGeneral-Regular-2026" transform="translate(388.439141 0)"/>
+    <use xlink:href="#w3t117-Cmmi10-3b" transform="translate(505.997719 0)"/>
+    <use xlink:href="#w3t117-Cmb10-78" transform="translate(551.24186 0)"/>
+    <use xlink:href="#w3t117-Cmmi10-54" transform="translate(608.391547 -17.00625) scale(0.7)"/>
+    <use xlink:href="#w3t117-Cmr10-29" transform="translate(655.647797 0)"/>
    </g>
   </g>
  </g>
 </svg>
-<svg x="833.005" y="82.4184" width="119.99" height="12.5816" viewBox="0 0 119.99 12.581563"><defs>
+<svg x="821.52" y="83.515" width="108.96" height="15.485" viewBox="0 0 108.96 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w3t117-figure_1">
-  <g id="w3t117-patch_1">
-   <path d="M 0 12.581563 
-L 119.99 12.581563 
-L 119.99 0 
+ <g id="w3t118-figure_1">
+  <g id="w3t118-patch_1">
+   <path d="M 0 15.485 
+L 108.96 15.485 
+L 108.96 0 
 L 0 0 
-L 0 12.581563 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
-  <g id="w3t117-text_1">
-   <!-- $100\ \mathsf{frames\ per\ second}$ -->
-   <g style="fill: #0b5cad" transform="translate(0 9.877969) scale(0.13 -0.13)">
+  <g id="w3t118-text_1">
+   <!-- $100\ \mathsf{frames\ per\ s}$ -->
+   <g style="fill: #0b5cad" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
-     <path id="w3t117-Cmr10-31" d="M 594 0 
+     <path id="w3t118-Cmr10-31" d="M 594 0 
 L 594 225 
 Q 1394 225 1394 428 
 L 1394 3788 
@@ -1103,7 +1102,7 @@ L 2694 0
 L 594 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t117-Cmr10-30" d="M 1600 -141 
+     <path id="w3t118-Cmr10-30" d="M 1600 -141 
 Q 816 -141 533 504 
 Q 250 1150 250 2041 
 Q 250 2597 351 3087 
@@ -1133,7 +1132,7 @@ Q 991 484 1158 254
 Q 1325 25 1600 25 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t117-Cmss10-66" d="M 634 0 
+     <path id="w3t118-Cmss10-66" d="M 634 0 
 L 634 2444 
 L 172 2444 
 L 172 2841 
@@ -1157,7 +1156,7 @@ L 1141 0
 L 634 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t117-Cmss10-72" d="M 513 0 
+     <path id="w3t118-Cmss10-72" d="M 513 0 
 L 513 2881 
 L 984 2881 
 L 984 2328 
@@ -1172,7 +1171,7 @@ L 1019 0
 L 513 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t117-Cmss10-61" d="M 972 -72 
+     <path id="w3t118-Cmss10-61" d="M 972 -72 
 Q 766 -72 605 48 
 Q 444 169 356 359 
 Q 269 550 269 763 
@@ -1206,7 +1205,7 @@ Q 1641 1228 1198 1125
 Q 756 1022 756 763 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t117-Cmss10-6d" d="M 506 0 
+     <path id="w3t118-Cmss10-6d" d="M 506 0 
 L 506 2881 
 L 991 2881 
 L 991 2444 
@@ -1236,7 +1235,7 @@ L 1031 0
 L 506 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t117-Cmss10-65" d="M 1594 -72 
+     <path id="w3t118-Cmss10-65" d="M 1594 -72 
 Q 1300 -72 1044 51 
 Q 788 175 602 390 
 Q 416 606 314 882 
@@ -1264,7 +1263,7 @@ Q 984 2319 876 2145
 Q 769 1972 722 1778 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t117-Cmss10-73" d="M 178 213 
+     <path id="w3t118-Cmss10-73" d="M 178 213 
 L 263 672 
 Q 716 359 1259 359 
 Q 1494 359 1659 461 
@@ -1296,7 +1295,7 @@ Q 1566 -72 1259 -72
 Q 684 -72 178 213 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t117-Cmss10-70" d="M 513 -1241 
+     <path id="w3t118-Cmss10-70" d="M 513 -1241 
 L 513 2841 
 L 1019 2841 
 L 1019 2541 
@@ -1326,218 +1325,103 @@ Q 1116 2238 1038 2125
 L 1038 744 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t117-Cmss10-63" d="M 1594 -72 
-Q 1309 -72 1053 50 
-Q 797 172 609 386 
-Q 422 600 320 870 
-Q 219 1141 219 1422 
-Q 219 1713 320 1988 
-Q 422 2263 608 2480 
-Q 794 2697 1044 2823 
-Q 1294 2950 1594 2950 
-Q 1934 2950 2136 2897 
-Q 2338 2844 2625 2675 
-L 2547 2228 
-Q 2288 2403 2102 2459 
-Q 1916 2516 1594 2516 
-Q 1322 2516 1126 2355 
-Q 931 2194 837 1945 
-Q 744 1697 744 1422 
-Q 744 1163 842 919 
-Q 941 675 1134 520 
-Q 1328 366 1594 366 
-Q 1894 366 2139 448 
-Q 2384 531 2619 697 
-L 2656 250 
-Q 2513 106 2183 17 
-Q 1853 -72 1594 -72 
-z
-" transform="scale(0.015625)"/>
-     <path id="w3t117-Cmss10-6f" d="M 1600 -72 
-Q 1203 -72 878 133 
-Q 553 338 365 680 
-Q 178 1022 178 1403 
-Q 178 1697 284 1976 
-Q 391 2256 580 2476 
-Q 769 2697 1033 2823 
-Q 1297 2950 1600 2950 
-Q 1900 2950 2161 2825 
-Q 2422 2700 2615 2476 
-Q 2809 2253 2912 1975 
-Q 3016 1697 3016 1403 
-Q 3016 1022 2830 680 
-Q 2644 338 2317 133 
-Q 1991 -72 1600 -72 
-z
-M 1600 366 
-Q 1894 366 2095 525 
-Q 2297 684 2394 940 
-Q 2491 1197 2491 1478 
-Q 2491 1753 2389 1995 
-Q 2288 2238 2086 2386 
-Q 1884 2534 1600 2534 
-Q 1313 2534 1111 2387 
-Q 909 2241 806 1997 
-Q 703 1753 703 1478 
-Q 703 1278 756 1079 
-Q 809 881 926 714 
-Q 1044 547 1214 456 
-Q 1384 366 1600 366 
-z
-" transform="scale(0.015625)"/>
-     <path id="w3t117-Cmss10-6e" d="M 506 0 
-L 506 2881 
-L 991 2881 
-L 991 2444 
-Q 1163 2666 1402 2789 
-Q 1641 2913 1913 2913 
-Q 2391 2913 2594 2645 
-Q 2797 2378 2797 1881 
-L 2797 0 
-L 2272 0 
-L 2272 1881 
-Q 2272 2200 2114 2348 
-Q 1956 2497 1638 2497 
-Q 1425 2497 1289 2355 
-Q 1153 2213 1092 2005 
-Q 1031 1797 1031 1588 
-L 1031 0 
-L 506 0 
-z
-" transform="scale(0.015625)"/>
-     <path id="w3t117-Cmss10-64" d="M 1300 -72 
-Q 959 -72 712 161 
-Q 466 394 342 741 
-Q 219 1088 219 1422 
-Q 219 1675 291 1933 
-Q 363 2191 500 2414 
-Q 638 2638 847 2775 
-Q 1056 2913 1319 2913 
-Q 1591 2913 1842 2822 
-Q 2094 2731 2284 2572 
-L 2284 4441 
-L 2791 4441 
-L 2791 0 
-L 2266 0 
-L 2266 319 
-Q 2059 128 1818 28 
-Q 1578 -72 1300 -72 
-z
-M 1594 347 
-Q 1806 347 1984 465 
-Q 2163 584 2266 781 
-L 2266 2163 
-Q 2166 2316 2006 2406 
-Q 1847 2497 1672 2497 
-Q 1372 2497 1161 2350 
-Q 950 2203 847 1958 
-Q 744 1713 744 1422 
-Q 744 981 959 664 
-Q 1175 347 1594 347 
-z
-" transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w3t117-Cmr10-31" transform="translate(0 0.484375)"/>
-    <use xlink:href="#w3t117-Cmr10-30" transform="translate(50 0.484375)"/>
-    <use xlink:href="#w3t117-Cmr10-30" transform="translate(100 0.484375)"/>
-    <use xlink:href="#w3t117-Cmss10-66" transform="translate(179.26403 0.484375)"/>
-    <use xlink:href="#w3t117-Cmss10-72" transform="translate(209.781608 0.484375)"/>
-    <use xlink:href="#w3t117-Cmss10-61" transform="translate(243.86364 0.484375)"/>
-    <use xlink:href="#w3t117-Cmss10-6d" transform="translate(291.861687 0.484375)"/>
-    <use xlink:href="#w3t117-Cmss10-65" transform="translate(371.256218 0.484375)"/>
-    <use xlink:href="#w3t117-Cmss10-73" transform="translate(415.640983 0.484375)"/>
-    <use xlink:href="#w3t117-Cmss10-70" transform="translate(483.186264 0.484375)"/>
-    <use xlink:href="#w3t117-Cmss10-65" transform="translate(534.797592 0.484375)"/>
-    <use xlink:href="#w3t117-Cmss10-72" transform="translate(579.182357 0.484375)"/>
-    <use xlink:href="#w3t117-Cmss10-73" transform="translate(642.528419 0.484375)"/>
-    <use xlink:href="#w3t117-Cmss10-65" transform="translate(680.809669 0.484375)"/>
-    <use xlink:href="#w3t117-Cmss10-63" transform="translate(725.194435 0.484375)"/>
-    <use xlink:href="#w3t117-Cmss10-6f" transform="translate(769.5792 0.484375)"/>
-    <use xlink:href="#w3t117-Cmss10-6e" transform="translate(819.5792 0.484375)"/>
-    <use xlink:href="#w3t117-Cmss10-64" transform="translate(871.190528 0.484375)"/>
+    <use xlink:href="#w3t118-Cmr10-31" transform="translate(0 0.484375)"/>
+    <use xlink:href="#w3t118-Cmr10-30" transform="translate(50 0.484375)"/>
+    <use xlink:href="#w3t118-Cmr10-30" transform="translate(100 0.484375)"/>
+    <use xlink:href="#w3t118-Cmss10-66" transform="translate(179.26403 0.484375)"/>
+    <use xlink:href="#w3t118-Cmss10-72" transform="translate(209.781608 0.484375)"/>
+    <use xlink:href="#w3t118-Cmss10-61" transform="translate(243.86364 0.484375)"/>
+    <use xlink:href="#w3t118-Cmss10-6d" transform="translate(291.861687 0.484375)"/>
+    <use xlink:href="#w3t118-Cmss10-65" transform="translate(371.256218 0.484375)"/>
+    <use xlink:href="#w3t118-Cmss10-73" transform="translate(415.640983 0.484375)"/>
+    <use xlink:href="#w3t118-Cmss10-70" transform="translate(483.186264 0.484375)"/>
+    <use xlink:href="#w3t118-Cmss10-65" transform="translate(534.797592 0.484375)"/>
+    <use xlink:href="#w3t118-Cmss10-72" transform="translate(579.182357 0.484375)"/>
+    <use xlink:href="#w3t118-Cmss10-73" transform="translate(642.528419 0.484375)"/>
    </g>
   </g>
  </g>
 </svg>
-<line x1="193.0" y1="73.0" x2="221.0" y2="73.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="229.0,73.0 221.0,78.0 221.0,68.0" fill="#94a3b8"/>
-<line x1="385.0" y1="73.0" x2="413.0" y2="73.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="421.0,73.0 413.0,78.0 413.0,68.0" fill="#94a3b8"/>
-<line x1="577.0" y1="73.0" x2="605.0" y2="73.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="613.0,73.0 605.0,78.0 605.0,68.0" fill="#94a3b8"/>
-<line x1="769.0" y1="73.0" x2="797.0" y2="73.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="805.0,73.0 797.0,78.0 797.0,68.0" fill="#94a3b8"/>
-<text x="40.0" y="24.0" font-size="15" font-weight="600" fill="#6b7280" text-anchor="start" dominant-baseline="auto">Week 2, in one line: the front end</text>
-<rect x="120.8" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="137.6" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="154.4" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="171.2" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="188.0" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="204.8" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="221.6" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="238.4" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="255.2" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="272.0" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="288.8" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="305.6" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="322.4" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="339.2" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="356.0" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="372.8" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="389.6" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="406.4" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="423.2" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="440.0" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="456.8" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="473.6" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="490.4" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="507.2" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="524.0" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="540.8" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="557.6" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="574.4" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="591.2" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="608.0" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="624.8" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="641.6" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="658.4" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="675.2" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="692.0" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="708.8" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="725.6" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="742.4" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="759.2" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="776.0" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="792.8" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="809.6" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="826.4" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="843.2" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="860.0" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="876.8" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="893.6" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="910.4" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="927.2" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<rect x="944.0" y="140.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
-<text x="110.0" y="153.0" font-size="15" font-weight="600" fill="#1f2328" text-anchor="end" dominant-baseline="middle">frames</text>
-<text x="120.0" y="183.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">0 s</text>
-<text x="960.0" y="183.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">0.5 s  ·  50 frames of 10 ms</text>
+<line x1="187.0" y1="75.0" x2="201.0" y2="75.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="209.0,75.0 201.0,80.0 201.0,70.0" fill="#94a3b8"/>
+<line x1="375.0" y1="75.0" x2="389.0" y2="75.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="397.0,75.0 389.0,80.0 389.0,70.0" fill="#94a3b8"/>
+<line x1="563.0" y1="75.0" x2="577.0" y2="75.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="585.0,75.0 577.0,80.0 577.0,70.0" fill="#94a3b8"/>
+<line x1="751.0" y1="75.0" x2="765.0" y2="75.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="773.0,75.0 765.0,80.0 765.0,70.0" fill="#94a3b8"/>
+<text x="24.0" y="24.0" font-size="16" font-weight="600" fill="#6b7280" text-anchor="start" dominant-baseline="auto">Week 2, in one line: the front end</text>
+<rect x="120.8" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="137.6" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="154.4" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="171.2" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="188.0" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="204.8" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="221.6" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="238.4" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="255.2" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="272.0" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="288.8" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="305.6" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="322.4" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="339.2" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="356.0" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="372.8" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="389.6" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="406.4" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="423.2" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="440.0" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="456.8" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="473.6" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="490.4" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="507.2" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="524.0" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="540.8" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="557.6" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="574.4" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="591.2" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="608.0" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="624.8" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="641.6" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="658.4" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="675.2" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="692.0" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="708.8" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="725.6" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="742.4" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="759.2" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="776.0" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="792.8" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="809.6" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="826.4" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="843.2" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="860.0" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="876.8" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="893.6" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="910.4" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="927.2" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="944.0" y="144.0" width="15.2" height="26.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<text x="110.0" y="157.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="end" dominant-baseline="middle">frames</text>
+<text x="120.0" y="189.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">0 s</text>
+<text x="960.0" y="189.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">0.5 s  ·  50 frames of 10 ms</text>
 </g>
 <g class="fragment" data-fragment-index="1">
-<rect x="121.0" y="214.0" width="140.8" height="34.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.2" stroke-dasharray="5 3"/>
-<text x="191.4" y="231.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">S</text>
-<rect x="263.8" y="214.0" width="98.8" height="34.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.2" stroke-dasharray="5 3"/>
-<text x="313.2" y="231.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">P</text>
-<rect x="364.6" y="214.0" width="174.4" height="34.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.2" stroke-dasharray="5 3"/>
-<text x="451.8" y="231.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">IY</text>
-<rect x="541.0" y="214.0" width="157.6" height="34.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.2" stroke-dasharray="5 3"/>
-<text x="619.8" y="231.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">CH</text>
-<rect x="700.6" y="214.0" width="107.2" height="34.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.2" stroke-dasharray="5 3"/>
-<text x="754.2" y="231.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">IH</text>
-<rect x="809.8" y="214.0" width="149.2" height="34.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.2" stroke-dasharray="5 3"/>
-<text x="884.4" y="231.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Z</text>
-<text x="110.0" y="231.0" font-size="15" font-weight="600" fill="#1f2328" text-anchor="end" dominant-baseline="middle">phones</text>
-<text x="120.0" y="266.0" font-size="12" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">"speech is" in ARPAbet · about a dozen phones per second (order of magnitude) · boundaries drawn here are invented</text>
-<text x="954.0" y="206.0" font-size="14" font-weight="600" fill="#dc2626" text-anchor="end" dominant-baseline="auto">which frames belong to which? — nobody says</text>
+<rect x="121.0" y="222.0" width="140.8" height="34.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.2" stroke-dasharray="5 3"/>
+<text x="191.4" y="239.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">S</text>
+<rect x="263.8" y="222.0" width="98.8" height="34.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.2" stroke-dasharray="5 3"/>
+<text x="313.2" y="239.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">P</text>
+<rect x="364.6" y="222.0" width="174.4" height="34.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.2" stroke-dasharray="5 3"/>
+<text x="451.8" y="239.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">IY</text>
+<rect x="541.0" y="222.0" width="157.6" height="34.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.2" stroke-dasharray="5 3"/>
+<text x="619.8" y="239.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">CH</text>
+<rect x="700.6" y="222.0" width="107.2" height="34.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.2" stroke-dasharray="5 3"/>
+<text x="754.2" y="239.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">IH</text>
+<rect x="809.8" y="222.0" width="149.2" height="34.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.2" stroke-dasharray="5 3"/>
+<text x="884.4" y="239.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Z</text>
+<text x="110.0" y="239.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="end" dominant-baseline="middle">phones</text>
+<text x="120.0" y="278.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">"speech is" in ARPAbet · about a dozen phones per second (order of magnitude) · boundaries invented</text>
+<text x="954.0" y="212.0" font-size="16" font-weight="600" fill="#dc2626" text-anchor="end" dominant-baseline="auto">which frames belong to which? — nobody says</text>
 </g>
 </svg>
 ```

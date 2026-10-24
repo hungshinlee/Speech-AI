@@ -1,7 +1,6 @@
 <!-- 由 scripts/make_figs_w03.py 產生，勿手改；投影片用 {{< include assets/w03/alignment-gap.inline.qmd >}} 貼入 -->
 ```{=html}
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 330" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
-<text x="984.0" y="22.0" font-size="15" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">schematic — not a measurement</text>
 <g class="fragment" data-fragment-index="0">
 <rect x="230.0" y="58.0" width="27.0" height="34.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.0"/>
 <rect x="260.0" y="58.0" width="27.0" height="34.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.0"/>
@@ -28,22 +27,22 @@
 <rect x="890.0" y="58.0" width="27.0" height="34.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.0"/>
 <rect x="920.0" y="58.0" width="27.0" height="34.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.0"/>
 <text x="216.0" y="69.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="end" dominant-baseline="middle">normal rate</text>
-<svg x="129.6" y="80.4828" width="86.4" height="14.5172" viewBox="0 0 86.4 14.517187"><defs>
+<svg x="123.84" y="79.515" width="92.16" height="15.485" viewBox="0 0 92.16 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w3t1-figure_1">
   <g id="w3t1-patch_1">
-   <path d="M 0 14.517187 
-L 86.4 14.517187 
-L 86.4 -0 
-L 0 -0 
-L 0 14.517187 
+   <path d="M 0 15.485 
+L 92.16 15.485 
+L 92.16 0 
+L 0 0 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w3t1-text_1">
    <!-- $T = 24\ \mathsf{frames}$ -->
-   <g style="fill: #6b7280" transform="translate(0 11.397656) scale(0.15 -0.15)">
+   <g style="fill: #6b7280" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w3t1-Cmmi10-54" d="M 294 84 
 Q 297 100 308 140 
@@ -373,22 +372,22 @@ z
 <rect x="530.0" y="128.0" width="27.0" height="34.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.0"/>
 <rect x="560.0" y="128.0" width="27.0" height="34.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.0"/>
 <text x="216.0" y="139.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="end" dominant-baseline="middle">twice as fast</text>
-<svg x="129.6" y="150.483" width="86.4" height="14.5172" viewBox="0 0 86.4 14.517187"><defs>
+<svg x="123.84" y="149.515" width="92.16" height="15.485" viewBox="0 0 92.16 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w3t2-figure_1">
   <g id="w3t2-patch_1">
-   <path d="M 0 14.517187 
-L 86.4 14.517187 
-L 86.4 -0 
-L 0 -0 
-L 0 14.517187 
+   <path d="M 0 15.485 
+L 92.16 15.485 
+L 92.16 0 
+L 0 0 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w3t2-text_1">
    <!-- $T = 12\ \mathsf{frames}$ -->
-   <g style="fill: #6b7280" transform="translate(0 11.397656) scale(0.15 -0.15)">
+   <g style="fill: #6b7280" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w3t2-Cmmi10-54" d="M 294 84 
 Q 297 100 308 140 
@@ -694,7 +693,7 @@ z
   </g>
  </g>
 </svg>
-<text x="230.0" y="46.0" font-size="15" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">one frame every 10 ms → 100 per second</text>
+<text x="230.0" y="46.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">one frame every 10 ms → 100 per second</text>
 </g>
 <g class="fragment" data-fragment-index="1">
 <rect x="410.0" y="236.0" width="64.0" height="44.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.4"/>
@@ -1532,22 +1531,22 @@ z
  </g>
 </svg>
 <text x="216.0" y="252.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="end" dominant-baseline="middle">transcript</text>
-<svg x="103.95" y="265.483" width="112.05" height="14.5172" viewBox="0 0 112.05 14.517187"><defs>
+<svg x="96.48" y="265.515" width="119.52" height="15.485" viewBox="0 0 119.52 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w3t8-figure_1">
   <g id="w3t8-patch_1">
-   <path d="M 0 14.517187 
-L 112.05 14.517187 
-L 112.05 -0 
-L 0 -0 
-L 0 14.517187 
+   <path d="M 0 15.485 
+L 119.52 15.485 
+L 119.52 0 
+L 0 0 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w3t8-text_1">
    <!-- $U = 5,\ \mathsf{both\ times}$ -->
-   <g style="fill: #6b7280" transform="translate(0 11.397656) scale(0.15 -0.15)">
+   <g style="fill: #6b7280" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w3t8-Cmmi10-55" d="M 941 891 
 Q 941 656 1033 472 

@@ -1,25 +1,24 @@
 <!-- 由 scripts/make_figs_w03.py 產生，勿手改；投影片用 {{< include assets/w03/lprime-graph.inline.qmd >}} 貼入 -->
 ```{=html}
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1100 300" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
-<text x="1084.0" y="22.0" font-size="15" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">schematic — not a measurement</text>
 <circle cx="110.0" cy="150.0" r="20.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
 <text x="110.0" y="150.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">∅</text>
-<svg x="95.3" y="181.451" width="29.4" height="13.5494" viewBox="0 0 29.4 13.549375"><defs>
+<svg x="93.2" y="179.515" width="33.6" height="15.485" viewBox="0 0 33.6 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w3t28-figure_1">
   <g id="w3t28-patch_1">
-   <path d="M 0 13.549375 
-L 29.4 13.549375 
-L 29.4 -0 
-L 0 -0 
-L 0 13.549375 
+   <path d="M 0 15.485 
+L 33.6 15.485 
+L 33.6 0 
+L 0 0 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w3t28-text_1">
    <!-- $s = 1$ -->
-   <g style="fill: #6b7280" transform="translate(0 10.637812) scale(0.14 -0.14)">
+   <g style="fill: #6b7280" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w3t28-Cmmi10-73" d="M 556 391 
 Q 728 97 1247 97 
@@ -123,22 +122,22 @@ z
 <polygon points="178.0,150.0 168.0,155.0 168.0,145.0" fill="#6b7280"/>
 <circle cx="198.0" cy="150.0" r="20.0" fill="#fff7ed" stroke="#b45309" stroke-width="1.4"/>
 <text x="198.0" y="150.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">h</text>
-<svg x="183.3" y="181.451" width="29.4" height="13.5494" viewBox="0 0 29.4 13.549375"><defs>
+<svg x="181.2" y="179.515" width="33.6" height="15.485" viewBox="0 0 33.6 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w3t29-figure_1">
   <g id="w3t29-patch_1">
-   <path d="M 0 13.549375 
-L 29.4 13.549375 
-L 29.4 -0 
-L 0 -0 
-L 0 13.549375 
+   <path d="M 0 15.485 
+L 33.6 15.485 
+L 33.6 0 
+L 0 0 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w3t29-text_1">
    <!-- $s = 2$ -->
-   <g style="fill: #6b7280" transform="translate(0 10.637812) scale(0.14 -0.14)">
+   <g style="fill: #6b7280" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w3t29-Cmmi10-73" d="M 556 391 
 Q 728 97 1247 97 
@@ -267,22 +266,22 @@ z
 <polygon points="266.0,150.0 256.0,155.0 256.0,145.0" fill="#6b7280"/>
 <circle cx="286.0" cy="150.0" r="20.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
 <text x="286.0" y="150.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">∅</text>
-<svg x="271.3" y="181.451" width="29.4" height="13.5494" viewBox="0 0 29.4 13.549375"><defs>
+<svg x="269.2" y="179.515" width="33.6" height="15.485" viewBox="0 0 33.6 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w3t30-figure_1">
   <g id="w3t30-patch_1">
-   <path d="M 0 13.549375 
-L 29.4 13.549375 
-L 29.4 -0 
-L 0 -0 
-L 0 13.549375 
+   <path d="M 0 15.485 
+L 33.6 15.485 
+L 33.6 0 
+L 0 0 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w3t30-text_1">
    <!-- $s = 3$ -->
-   <g style="fill: #6b7280" transform="translate(0 10.637812) scale(0.14 -0.14)">
+   <g style="fill: #6b7280" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w3t30-Cmmi10-73" d="M 556 391 
 Q 728 97 1247 97 
@@ -428,22 +427,22 @@ z
 <polygon points="354.0,150.0 344.0,155.0 344.0,145.0" fill="#6b7280"/>
 <circle cx="374.0" cy="150.0" r="20.0" fill="#fff7ed" stroke="#b45309" stroke-width="1.4"/>
 <text x="374.0" y="150.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">e</text>
-<svg x="359.3" y="181.451" width="29.4" height="13.5494" viewBox="0 0 29.4 13.549375"><defs>
+<svg x="357.2" y="179.515" width="33.6" height="15.485" viewBox="0 0 33.6 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w3t31-figure_1">
   <g id="w3t31-patch_1">
-   <path d="M 0 13.549375 
-L 29.4 13.549375 
-L 29.4 -0 
-L 0 -0 
-L 0 13.549375 
+   <path d="M 0 15.485 
+L 33.6 15.485 
+L 33.6 0 
+L 0 0 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w3t31-text_1">
    <!-- $s = 4$ -->
-   <g style="fill: #6b7280" transform="translate(0 10.637812) scale(0.14 -0.14)">
+   <g style="fill: #6b7280" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w3t31-Cmmi10-73" d="M 556 391 
 Q 728 97 1247 97 
@@ -558,22 +557,22 @@ z
 <polygon points="442.0,150.0 432.0,155.0 432.0,145.0" fill="#6b7280"/>
 <circle cx="462.0" cy="150.0" r="20.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
 <text x="462.0" y="150.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">∅</text>
-<svg x="447.3" y="181.451" width="29.4" height="13.5494" viewBox="0 0 29.4 13.549375"><defs>
+<svg x="445.2" y="179.515" width="33.6" height="15.485" viewBox="0 0 33.6 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w3t32-figure_1">
   <g id="w3t32-patch_1">
-   <path d="M 0 13.549375 
-L 29.4 13.549375 
-L 29.4 -0 
-L 0 -0 
-L 0 13.549375 
+   <path d="M 0 15.485 
+L 33.6 15.485 
+L 33.6 0 
+L 0 0 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w3t32-text_1">
    <!-- $s = 5$ -->
-   <g style="fill: #6b7280" transform="translate(0 10.637812) scale(0.14 -0.14)">
+   <g style="fill: #6b7280" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w3t32-Cmmi10-73" d="M 556 391 
 Q 728 97 1247 97 
@@ -714,22 +713,22 @@ z
 <polygon points="530.0,150.0 520.0,155.0 520.0,145.0" fill="#6b7280"/>
 <circle cx="550.0" cy="150.0" r="20.0" fill="#fff7ed" stroke="#b45309" stroke-width="1.4"/>
 <text x="550.0" y="150.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">l</text>
-<svg x="535.3" y="181.451" width="29.4" height="13.5494" viewBox="0 0 29.4 13.549375"><defs>
+<svg x="533.2" y="179.515" width="33.6" height="15.485" viewBox="0 0 33.6 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w3t33-figure_1">
   <g id="w3t33-patch_1">
-   <path d="M 0 13.549375 
-L 29.4 13.549375 
-L 29.4 -0 
-L 0 -0 
-L 0 13.549375 
+   <path d="M 0 15.485 
+L 33.6 15.485 
+L 33.6 0 
+L 0 0 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w3t33-text_1">
    <!-- $s = 6$ -->
-   <g style="fill: #6b7280" transform="translate(0 10.637812) scale(0.14 -0.14)">
+   <g style="fill: #6b7280" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w3t33-Cmmi10-73" d="M 556 391 
 Q 728 97 1247 97 
@@ -872,22 +871,22 @@ z
 <polygon points="618.0,150.0 608.0,155.0 608.0,145.0" fill="#6b7280"/>
 <circle cx="638.0" cy="150.0" r="20.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
 <text x="638.0" y="150.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">∅</text>
-<svg x="623.3" y="181.451" width="29.4" height="13.5494" viewBox="0 0 29.4 13.549375"><defs>
+<svg x="621.2" y="179.515" width="33.6" height="15.485" viewBox="0 0 33.6 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w3t34-figure_1">
   <g id="w3t34-patch_1">
-   <path d="M 0 13.549375 
-L 29.4 13.549375 
-L 29.4 -0 
-L 0 -0 
-L 0 13.549375 
+   <path d="M 0 15.485 
+L 33.6 15.485 
+L 33.6 0 
+L 0 0 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w3t34-text_1">
    <!-- $s = 7$ -->
-   <g style="fill: #6b7280" transform="translate(0 10.637812) scale(0.14 -0.14)">
+   <g style="fill: #6b7280" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w3t34-Cmmi10-73" d="M 556 391 
 Q 728 97 1247 97 
@@ -1003,22 +1002,22 @@ z
 <polygon points="706.0,150.0 696.0,155.0 696.0,145.0" fill="#6b7280"/>
 <circle cx="726.0" cy="150.0" r="20.0" fill="#fff7ed" stroke="#b45309" stroke-width="1.4"/>
 <text x="726.0" y="150.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">l</text>
-<svg x="711.3" y="181.451" width="29.4" height="13.5494" viewBox="0 0 29.4 13.549375"><defs>
+<svg x="709.2" y="179.515" width="33.6" height="15.485" viewBox="0 0 33.6 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w3t35-figure_1">
   <g id="w3t35-patch_1">
-   <path d="M 0 13.549375 
-L 29.4 13.549375 
-L 29.4 -0 
-L 0 -0 
-L 0 13.549375 
+   <path d="M 0 15.485 
+L 33.6 15.485 
+L 33.6 0 
+L 0 0 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w3t35-text_1">
    <!-- $s = 8$ -->
-   <g style="fill: #6b7280" transform="translate(0 10.637812) scale(0.14 -0.14)">
+   <g style="fill: #6b7280" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w3t35-Cmmi10-73" d="M 556 391 
 Q 728 97 1247 97 
@@ -1158,22 +1157,22 @@ z
 <polygon points="794.0,150.0 784.0,155.0 784.0,145.0" fill="#6b7280"/>
 <circle cx="814.0" cy="150.0" r="20.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
 <text x="814.0" y="150.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">∅</text>
-<svg x="799.3" y="181.451" width="29.4" height="13.5494" viewBox="0 0 29.4 13.549375"><defs>
+<svg x="797.2" y="179.515" width="33.6" height="15.485" viewBox="0 0 33.6 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w3t36-figure_1">
   <g id="w3t36-patch_1">
-   <path d="M 0 13.549375 
-L 29.4 13.549375 
-L 29.4 -0 
-L 0 -0 
-L 0 13.549375 
+   <path d="M 0 15.485 
+L 33.6 15.485 
+L 33.6 0 
+L 0 0 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w3t36-text_1">
    <!-- $s = 9$ -->
-   <g style="fill: #6b7280" transform="translate(0 10.637812) scale(0.14 -0.14)">
+   <g style="fill: #6b7280" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w3t36-Cmmi10-73" d="M 556 391 
 Q 728 97 1247 97 
@@ -1309,22 +1308,22 @@ z
 <polygon points="882.0,150.0 872.0,155.0 872.0,145.0" fill="#6b7280"/>
 <circle cx="902.0" cy="150.0" r="20.0" fill="#fff7ed" stroke="#b45309" stroke-width="1.4"/>
 <text x="902.0" y="150.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">o</text>
-<svg x="883.8" y="181.451" width="36.4" height="13.5494" viewBox="0 0 36.4 13.549375"><defs>
+<svg x="881.2" y="179.515" width="41.6" height="15.485" viewBox="0 0 41.6 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w3t37-figure_1">
   <g id="w3t37-patch_1">
-   <path d="M 0 13.549375 
-L 36.4 13.549375 
-L 36.4 -0 
-L 0 -0 
-L 0 13.549375 
+   <path d="M 0 15.485 
+L 41.6 15.485 
+L 41.6 0 
+L 0 0 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w3t37-text_1">
    <!-- $s = 10$ -->
-   <g style="fill: #6b7280" transform="translate(0 10.637812) scale(0.14 -0.14)">
+   <g style="fill: #6b7280" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w3t37-Cmmi10-73" d="M 556 391 
 Q 728 97 1247 97 
@@ -1459,22 +1458,22 @@ z
 <polygon points="970.0,150.0 960.0,155.0 960.0,145.0" fill="#6b7280"/>
 <circle cx="990.0" cy="150.0" r="20.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
 <text x="990.0" y="150.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">∅</text>
-<svg x="971.8" y="181.451" width="36.4" height="13.5494" viewBox="0 0 36.4 13.549375"><defs>
+<svg x="969.2" y="179.515" width="41.6" height="15.485" viewBox="0 0 41.6 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w3t38-figure_1">
   <g id="w3t38-patch_1">
-   <path d="M 0 13.549375 
-L 36.4 13.549375 
-L 36.4 -0 
-L 0 -0 
-L 0 13.549375 
+   <path d="M 0 15.485 
+L 41.6 15.485 
+L 41.6 0 
+L 0 0 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w3t38-text_1">
    <!-- $s = 11$ -->
-   <g style="fill: #6b7280" transform="translate(0 10.637812) scale(0.14 -0.14)">
+   <g style="fill: #6b7280" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w3t38-Cmmi10-73" d="M 556 391 
 Q 728 97 1247 97 
@@ -1575,12 +1574,12 @@ z
 </svg>
 <path d="M 983.0 130.0 C 972.0 106.0 1008.0 106.0 997.0 130.0" fill="none" stroke="#6b7280" stroke-width="1.4"/>
 <polygon points="998.0,131.0 993.0,121.0 1003.0,123.0" fill="#6b7280"/>
-<text x="80.0" y="108.0" font-size="14" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">stay</text>
-<text x="80.0" y="154.0" font-size="14" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">+1</text>
+<text x="80.0" y="108.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">stay</text>
+<text x="80.0" y="154.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">+1</text>
 <circle cx="24.0" cy="30.0" r="8.0" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
-<text x="38.0" y="30.0" font-size="14" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">label position</text>
-<circle cx="160.0" cy="30.0" r="8.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="174.0" y="30.0" font-size="14" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">blank</text>
+<text x="38.0" y="30.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">label position</text>
+<circle cx="174.0" cy="30.0" r="8.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="188.0" y="30.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">blank</text>
 <g class="fragment" data-fragment-index="0">
 <path d="M 204.0 130.0 Q 286.0 78.0 359.6 124.6" fill="none" stroke="#15803d" stroke-width="2.0"/>
 <polygon points="368.0,130.0 356.9,128.9 362.2,120.4" fill="#15803d"/>
@@ -1588,26 +1587,26 @@ z
 <polygon points="544.0,130.0 532.9,128.9 538.2,120.4" fill="#15803d"/>
 <path d="M 732.0 130.0 Q 814.0 78.0 887.6 124.6" fill="none" stroke="#15803d" stroke-width="2.0"/>
 <polygon points="896.0,130.0 884.9,128.9 890.2,120.4" fill="#15803d"/>
-<text x="286.0" y="70.0" font-size="15" font-weight="600" fill="#15803d" text-anchor="middle" dominant-baseline="auto">+2: skip the blank — allowed when the two labels differ</text>
+<text x="316.0" y="70.0" font-size="16" font-weight="600" fill="#15803d" text-anchor="middle" dominant-baseline="auto">+2: skip the blank — allowed when the two labels differ</text>
 </g>
 <g class="fragment" data-fragment-index="1">
 <path d="M 556.0 130.0 Q 638.0 78.0 711.6 124.6" fill="none" stroke="#dc2626" stroke-width="2.0"/>
 <polygon points="720.0,130.0 708.9,128.9 714.2,120.4" fill="#dc2626"/>
 <line x1="628.0" y1="90.0" x2="648.0" y2="110.0" stroke="#dc2626" stroke-width="3.0"/>
 <line x1="628.0" y1="110.0" x2="648.0" y2="90.0" stroke="#dc2626" stroke-width="3.0"/>
-<text x="638.0" y="70.0" font-size="15" font-weight="600" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">l → l: forbidden</text>
+<text x="678.0" y="70.0" font-size="16" font-weight="600" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">l → l: forbidden</text>
 </g>
 <g class="fragment" data-fragment-index="2">
 <line x1="110.0" y1="230.0" x2="110.0" y2="210.0" stroke="#0b5cad" stroke-width="1.8"/>
 <polygon points="110.0,200.0 115.0,210.0 105.0,210.0" fill="#0b5cad"/>
 <line x1="198.0" y1="230.0" x2="198.0" y2="210.0" stroke="#0b5cad" stroke-width="1.8"/>
 <polygon points="198.0,200.0 203.0,210.0 193.0,210.0" fill="#0b5cad"/>
-<text x="154.0" y="250.0" font-size="15" font-weight="600" fill="#0b5cad" text-anchor="middle" dominant-baseline="auto">start</text>
+<text x="154.0" y="250.0" font-size="16" font-weight="600" fill="#0b5cad" text-anchor="middle" dominant-baseline="auto">start</text>
 <line x1="902.0" y1="200.0" x2="902.0" y2="220.0" stroke="#0b5cad" stroke-width="1.8"/>
 <polygon points="902.0,230.0 897.0,220.0 907.0,220.0" fill="#0b5cad"/>
 <line x1="990.0" y1="200.0" x2="990.0" y2="220.0" stroke="#0b5cad" stroke-width="1.8"/>
 <polygon points="990.0,230.0 985.0,220.0 995.0,220.0" fill="#0b5cad"/>
-<text x="946.0" y="250.0" font-size="15" font-weight="600" fill="#0b5cad" text-anchor="middle" dominant-baseline="auto">end</text>
+<text x="946.0" y="250.0" font-size="16" font-weight="600" fill="#0b5cad" text-anchor="middle" dominant-baseline="auto">end</text>
 </g>
 <text x="550.0" y="290.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">Every transition has weight 1. There is no transition probability anywhere — that absence returns as "peaky".</text>
 </svg>
