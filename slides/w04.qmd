@@ -693,7 +693,7 @@ Demo 2 · sherpa-onnx streaming zipformer · measured 2026-10-06 on M5 Max · w0
 ::: {.prose}
 | | |
 |:---|:-----------------|
-| **Name** | Attention-based encoder–decoder — "AED", or sequence-to-sequence with attention. For speech: Chorowski et al., NIPS 2015; Chan et al., *Listen, Attend and Spell*, ICASSP 2016. Whisper is this family at scale. |
+| **Name** | Attention-based encoder–decoder — "AED", or sequence-to-sequence with attention. For speech: Chorowski et al., NIPS 2015; Chan et al., *Listen, Attend and Spell* (LAS), ICASSP 2016. Whisper is this family at scale. |
 | **The question** | CTC and the RNN-T carry a blank and a monotonic lattice — machinery that says *which frame we are at*. What if the decoder is handed all $T$ encoder outputs and left to learn where to read from? |
 | **The idea** | A decoder state $\mathbf{s}_u$ scores every encoder frame; a softmax turns the scores into weights $a_{u,t}$; the weighted average is a context $\mathbf{c}_u$; the next label comes from $[\mathbf{s}_u; \mathbf{c}_u]$. No blank, no lattice, no monotonicity. |
 | **What it added** | The best full-context accuracy of the three families, a decoder with the full output history — and no notion of "consumed a frame", the root of its failures. |
