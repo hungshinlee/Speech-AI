@@ -1,53 +1,53 @@
 <!-- 由 scripts/make_figs_w04.py 產生，勿手改；投影片用 {{< include assets/w04/delay-stack.inline.qmd >}} 貼入 -->
 ```{=html}
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 270" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
-<text x="984.0" y="22.0" font-size="15" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">measured — Demo 2, 2026-10-06, per-symbol medians</text>
-<text x="188.0" y="44.0" font-size="12" font-weight="600" fill="#6b7280" text-anchor="end" dominant-baseline="auto">feed chunk</text>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 298" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<text x="984.0" y="22.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">measured — Demo 2, 2026-10-06, per-symbol medians</text>
+<text x="188.0" y="70.0" font-size="16" font-weight="600" fill="#6b7280" text-anchor="end" dominant-baseline="auto">feed chunk</text>
 <g class="fragment" data-fragment-index="0">
-<rect x="200.0" y="34.0" width="12.0" height="12.0" rx="2" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
-<text x="218.0" y="44.0" font-size="11" font-weight="600" fill="#b45309" text-anchor="start" dominant-baseline="auto">emitted − acoustic end: learned (emission delay)</text>
+<rect x="30.0" y="40.0" width="14.0" height="14.0" rx="2" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="50.0" y="52.0" font-size="16" font-weight="600" fill="#b45309" text-anchor="start" dominant-baseline="auto">emitted − end: emission delay (learned)</text>
 </g>
 <g class="fragment" data-fragment-index="1">
-<rect x="490.0" y="34.0" width="12.0" height="12.0" rx="2" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
-<text x="508.0" y="44.0" font-size="11" font-weight="600" fill="#15803d" text-anchor="start" dominant-baseline="auto">fed − emitted: architecture (chunk wait + pad)</text>
+<rect x="390.0" y="40.0" width="14.0" height="14.0" rx="2" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="410.0" y="52.0" font-size="16" font-weight="600" fill="#15803d" text-anchor="start" dominant-baseline="auto">fed − emitted: chunk wait + pad</text>
 </g>
 <g class="fragment" data-fragment-index="2">
-<rect x="780.0" y="34.0" width="12.0" height="12.0" rx="2" fill="#f3f4f6" stroke="#6b7280" stroke-width="1.2"/>
-<text x="798.0" y="44.0" font-size="11" font-weight="600" fill="#6b7280" text-anchor="start" dominant-baseline="auto">wall − fed: compute</text>
+<rect x="700.0" y="40.0" width="14.0" height="14.0" rx="2" fill="#f3f4f6" stroke="#6b7280" stroke-width="1.2"/>
+<text x="720.0" y="52.0" font-size="16" font-weight="600" fill="#6b7280" text-anchor="start" dominant-baseline="auto">wall − fed: compute</text>
 </g>
 <g class="fragment" data-fragment-index="0">
-<text x="188.0" y="81.0" font-size="14" font-weight="600" fill="#1f2328" text-anchor="end" dominant-baseline="middle">320 ms</text>
-<rect x="200.0" y="64.0" width="99.8" height="34.0" rx="2" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
-<text x="249.9" y="81.0" font-size="13" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="middle">220</text>
-<text x="188.0" y="139.0" font-size="14" font-weight="600" fill="#1f2328" text-anchor="end" dominant-baseline="middle">640 ms</text>
-<rect x="200.0" y="122.0" width="99.8" height="34.0" rx="2" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
-<text x="249.9" y="139.0" font-size="13" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="middle">220</text>
-<text x="188.0" y="197.0" font-size="14" font-weight="600" fill="#1f2328" text-anchor="end" dominant-baseline="middle">1280 ms</text>
-<rect x="200.0" y="180.0" width="99.8" height="34.0" rx="2" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
-<text x="249.9" y="197.0" font-size="13" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="middle">220</text>
+<text x="188.0" y="103.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="end" dominant-baseline="middle">320 ms</text>
+<rect x="200.0" y="86.0" width="99.8" height="34.0" rx="2" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="249.9" y="103.0" font-size="16" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="middle">220</text>
+<text x="188.0" y="161.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="end" dominant-baseline="middle">640 ms</text>
+<rect x="200.0" y="144.0" width="99.8" height="34.0" rx="2" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="249.9" y="161.0" font-size="16" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="middle">220</text>
+<text x="188.0" y="219.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="end" dominant-baseline="middle">1280 ms</text>
+<rect x="200.0" y="202.0" width="99.8" height="34.0" rx="2" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="249.9" y="219.0" font-size="16" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="middle">220</text>
 </g>
 <g class="fragment" data-fragment-index="1">
-<rect x="299.8" y="64.0" width="226.9" height="34.0" rx="2" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
-<text x="413.3" y="81.0" font-size="13" font-weight="600" fill="#15803d" text-anchor="middle" dominant-baseline="middle">500</text>
-<line x1="517.7" y1="58.0" x2="517.7" y2="104.0" stroke="#1f2328" stroke-width="1.6"/>
-<svg x="485.546" y="47" width="64.24" height="11" viewBox="0 0 64.24 11"><defs>
+<rect x="299.8" y="86.0" width="226.9" height="34.0" rx="2" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="413.3" y="103.0" font-size="16" font-weight="600" fill="#15803d" text-anchor="middle" dominant-baseline="middle">500</text>
+<line x1="517.7" y1="80.0" x2="517.7" y2="126.0" stroke="#1f2328" stroke-width="1.6"/>
+<svg x="470.946" y="65" width="93.44" height="16" viewBox="0 0 93.44 16"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w4t178-figure_1">
-  <g id="w4t178-patch_1">
-   <path d="M 0 11 
-L 64.24 11 
-L 64.24 0 
+ <g id="w4t184-figure_1">
+  <g id="w4t184-patch_1">
+   <path d="M 0 16 
+L 93.44 16 
+L 93.44 0 
 L 0 0 
-L 0 11 
+L 0 16 
 z
 " style="fill: none"/>
   </g>
-  <g id="w4t178-text_1">
+  <g id="w4t184-text_1">
    <!-- $c + F/2 = 480$ -->
-   <g style="fill: #1f2328" transform="translate(0 8.25) scale(0.11 -0.11)">
+   <g style="fill: #1f2328" transform="translate(0 12) scale(0.16 -0.16)">
     <defs>
-     <path id="w4t178-Cmmi10-63" d="M 750 763 
+     <path id="w4t184-Cmmi10-63" d="M 750 763 
 Q 750 484 892 290 
 Q 1034 97 1300 97 
 Q 1681 97 2032 272 
@@ -80,7 +80,7 @@ Q 1034 2022 892 1576
 Q 750 1131 750 763 
 z
 " transform="scale(0.015625)"/>
-     <path id="w4t178-Cmr10-2b" d="M 481 1472 
+     <path id="w4t184-Cmr10-2b" d="M 481 1472 
 Q 428 1472 393 1512 
 Q 359 1553 359 1600 
 Q 359 1647 393 1687 
@@ -107,7 +107,7 @@ L 2363 1472
 L 481 1472 
 z
 " transform="scale(0.015625)"/>
-     <path id="w4t178-Cmmi10-46" d="M 300 0 
+     <path id="w4t184-Cmmi10-46" d="M 300 0 
 Q 238 0 238 84 
 Q 241 100 250 139 
 Q 259 178 276 201 
@@ -165,7 +165,7 @@ Q 2244 0 2181 0
 L 300 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w4t178-Cmmi10-3d" d="M 359 -1472 
+     <path id="w4t184-Cmmi10-3d" d="M 359 -1472 
 Q 359 -1453 366 -1447 
 L 2591 4722 
 Q 2603 4759 2634 4779 
@@ -179,7 +179,7 @@ Q 434 -1600 396 -1562
 Q 359 -1525 359 -1472 
 z
 " transform="scale(0.015625)"/>
-     <path id="w4t178-Cmr10-32" d="M 319 0 
+     <path id="w4t184-Cmr10-32" d="M 319 0 
 L 319 172 
 Q 319 188 331 206 
 L 1325 1306 
@@ -220,7 +220,7 @@ L 2694 0
 L 319 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w4t178-Cmr10-3d" d="M 481 850 
+     <path id="w4t184-Cmr10-3d" d="M 481 850 
 Q 428 850 393 890 
 Q 359 931 359 978 
 Q 359 1031 393 1068 
@@ -245,7 +245,7 @@ Q 4547 2094 4500 2094
 L 481 2094 
 z
 " transform="scale(0.015625)"/>
-     <path id="w4t178-Cmr10-34" d="M 178 1056 
+     <path id="w4t184-Cmr10-34" d="M 178 1056 
 L 178 1281 
 L 2156 4231 
 Q 2178 4263 2222 4263 
@@ -272,7 +272,7 @@ L 1906 3547
 L 391 1281 
 z
 " transform="scale(0.015625)"/>
-     <path id="w4t178-Cmr10-38" d="M 269 972 
+     <path id="w4t184-Cmr10-38" d="M 269 972 
 Q 269 1356 522 1651 
 Q 775 1947 1172 2144 
 L 934 2297 
@@ -324,7 +324,7 @@ Q 750 3631 750 3431
 Q 750 3131 1056 2925 
 z
 " transform="scale(0.015625)"/>
-     <path id="w4t178-Cmr10-30" d="M 1600 -141 
+     <path id="w4t184-Cmr10-30" d="M 1600 -141 
 Q 816 -141 533 504 
 Q 250 1150 250 2041 
 Q 250 2597 351 3087 
@@ -355,40 +355,40 @@ Q 1325 25 1600 25
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w4t178-Cmmi10-63"/>
-    <use xlink:href="#w4t178-Cmr10-2b" transform="translate(60.771484 0)"/>
-    <use xlink:href="#w4t178-Cmmi10-46" transform="translate(156.015625 0)"/>
-    <use xlink:href="#w4t178-Cmmi10-3d" transform="translate(220.322266 0)"/>
-    <use xlink:href="#w4t178-Cmr10-32" transform="translate(270.322266 0)"/>
-    <use xlink:href="#w4t178-Cmr10-3d" transform="translate(337.880859 0)"/>
-    <use xlink:href="#w4t178-Cmr10-34" transform="translate(433.125 0)"/>
-    <use xlink:href="#w4t178-Cmr10-38" transform="translate(483.125 0)"/>
-    <use xlink:href="#w4t178-Cmr10-30" transform="translate(533.125 0)"/>
+    <use xlink:href="#w4t184-Cmmi10-63"/>
+    <use xlink:href="#w4t184-Cmr10-2b" transform="translate(60.771484 0)"/>
+    <use xlink:href="#w4t184-Cmmi10-46" transform="translate(156.015625 0)"/>
+    <use xlink:href="#w4t184-Cmmi10-3d" transform="translate(220.322266 0)"/>
+    <use xlink:href="#w4t184-Cmr10-32" transform="translate(270.322266 0)"/>
+    <use xlink:href="#w4t184-Cmr10-3d" transform="translate(337.880859 0)"/>
+    <use xlink:href="#w4t184-Cmr10-34" transform="translate(433.125 0)"/>
+    <use xlink:href="#w4t184-Cmr10-38" transform="translate(483.125 0)"/>
+    <use xlink:href="#w4t184-Cmr10-30" transform="translate(533.125 0)"/>
    </g>
   </g>
  </g>
 </svg>
-<rect x="299.8" y="122.0" width="290.4" height="34.0" rx="2" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
-<text x="445.1" y="139.0" font-size="13" font-weight="600" fill="#15803d" text-anchor="middle" dominant-baseline="middle">640</text>
-<line x1="590.3" y1="116.0" x2="590.3" y2="162.0" stroke="#1f2328" stroke-width="1.6"/>
-<svg x="558.156" y="105" width="64.24" height="11" viewBox="0 0 64.24 11"><defs>
+<rect x="299.8" y="144.0" width="290.4" height="34.0" rx="2" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="445.1" y="161.0" font-size="16" font-weight="600" fill="#15803d" text-anchor="middle" dominant-baseline="middle">640</text>
+<line x1="590.3" y1="138.0" x2="590.3" y2="184.0" stroke="#1f2328" stroke-width="1.6"/>
+<svg x="543.556" y="123" width="93.44" height="16" viewBox="0 0 93.44 16"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w4t179-figure_1">
-  <g id="w4t179-patch_1">
-   <path d="M 0 11 
-L 64.24 11 
-L 64.24 0 
+ <g id="w4t185-figure_1">
+  <g id="w4t185-patch_1">
+   <path d="M 0 16 
+L 93.44 16 
+L 93.44 0 
 L 0 0 
-L 0 11 
+L 0 16 
 z
 " style="fill: none"/>
   </g>
-  <g id="w4t179-text_1">
+  <g id="w4t185-text_1">
    <!-- $c + F/2 = 640$ -->
-   <g style="fill: #1f2328" transform="translate(0 8.25) scale(0.11 -0.11)">
+   <g style="fill: #1f2328" transform="translate(0 12) scale(0.16 -0.16)">
     <defs>
-     <path id="w4t179-Cmmi10-63" d="M 750 763 
+     <path id="w4t185-Cmmi10-63" d="M 750 763 
 Q 750 484 892 290 
 Q 1034 97 1300 97 
 Q 1681 97 2032 272 
@@ -421,7 +421,7 @@ Q 1034 2022 892 1576
 Q 750 1131 750 763 
 z
 " transform="scale(0.015625)"/>
-     <path id="w4t179-Cmr10-2b" d="M 481 1472 
+     <path id="w4t185-Cmr10-2b" d="M 481 1472 
 Q 428 1472 393 1512 
 Q 359 1553 359 1600 
 Q 359 1647 393 1687 
@@ -448,7 +448,7 @@ L 2363 1472
 L 481 1472 
 z
 " transform="scale(0.015625)"/>
-     <path id="w4t179-Cmmi10-46" d="M 300 0 
+     <path id="w4t185-Cmmi10-46" d="M 300 0 
 Q 238 0 238 84 
 Q 241 100 250 139 
 Q 259 178 276 201 
@@ -506,7 +506,7 @@ Q 2244 0 2181 0
 L 300 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w4t179-Cmmi10-3d" d="M 359 -1472 
+     <path id="w4t185-Cmmi10-3d" d="M 359 -1472 
 Q 359 -1453 366 -1447 
 L 2591 4722 
 Q 2603 4759 2634 4779 
@@ -520,7 +520,7 @@ Q 434 -1600 396 -1562
 Q 359 -1525 359 -1472 
 z
 " transform="scale(0.015625)"/>
-     <path id="w4t179-Cmr10-32" d="M 319 0 
+     <path id="w4t185-Cmr10-32" d="M 319 0 
 L 319 172 
 Q 319 188 331 206 
 L 1325 1306 
@@ -561,7 +561,7 @@ L 2694 0
 L 319 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w4t179-Cmr10-3d" d="M 481 850 
+     <path id="w4t185-Cmr10-3d" d="M 481 850 
 Q 428 850 393 890 
 Q 359 931 359 978 
 Q 359 1031 393 1068 
@@ -586,7 +586,7 @@ Q 4547 2094 4500 2094
 L 481 2094 
 z
 " transform="scale(0.015625)"/>
-     <path id="w4t179-Cmr10-36" d="M 1600 -141 
+     <path id="w4t185-Cmr10-36" d="M 1600 -141 
 Q 1203 -141 937 70 
 Q 672 281 526 617 
 Q 381 953 325 1322 
@@ -641,7 +641,7 @@ Q 997 450 1156 256
 Q 1316 63 1600 63 
 z
 " transform="scale(0.015625)"/>
-     <path id="w4t179-Cmr10-34" d="M 178 1056 
+     <path id="w4t185-Cmr10-34" d="M 178 1056 
 L 178 1281 
 L 2156 4231 
 Q 2178 4263 2222 4263 
@@ -668,7 +668,7 @@ L 1906 3547
 L 391 1281 
 z
 " transform="scale(0.015625)"/>
-     <path id="w4t179-Cmr10-30" d="M 1600 -141 
+     <path id="w4t185-Cmr10-30" d="M 1600 -141 
 Q 816 -141 533 504 
 Q 250 1150 250 2041 
 Q 250 2597 351 3087 
@@ -699,40 +699,40 @@ Q 1325 25 1600 25
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w4t179-Cmmi10-63"/>
-    <use xlink:href="#w4t179-Cmr10-2b" transform="translate(60.771484 0)"/>
-    <use xlink:href="#w4t179-Cmmi10-46" transform="translate(156.015625 0)"/>
-    <use xlink:href="#w4t179-Cmmi10-3d" transform="translate(220.322266 0)"/>
-    <use xlink:href="#w4t179-Cmr10-32" transform="translate(270.322266 0)"/>
-    <use xlink:href="#w4t179-Cmr10-3d" transform="translate(337.880859 0)"/>
-    <use xlink:href="#w4t179-Cmr10-36" transform="translate(433.125 0)"/>
-    <use xlink:href="#w4t179-Cmr10-34" transform="translate(483.125 0)"/>
-    <use xlink:href="#w4t179-Cmr10-30" transform="translate(533.125 0)"/>
+    <use xlink:href="#w4t185-Cmmi10-63"/>
+    <use xlink:href="#w4t185-Cmr10-2b" transform="translate(60.771484 0)"/>
+    <use xlink:href="#w4t185-Cmmi10-46" transform="translate(156.015625 0)"/>
+    <use xlink:href="#w4t185-Cmmi10-3d" transform="translate(220.322266 0)"/>
+    <use xlink:href="#w4t185-Cmr10-32" transform="translate(270.322266 0)"/>
+    <use xlink:href="#w4t185-Cmr10-3d" transform="translate(337.880859 0)"/>
+    <use xlink:href="#w4t185-Cmr10-36" transform="translate(433.125 0)"/>
+    <use xlink:href="#w4t185-Cmr10-34" transform="translate(483.125 0)"/>
+    <use xlink:href="#w4t185-Cmr10-30" transform="translate(533.125 0)"/>
    </g>
   </g>
  </g>
 </svg>
-<rect x="299.8" y="180.0" width="435.7" height="34.0" rx="2" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
-<text x="517.7" y="197.0" font-size="13" font-weight="600" fill="#15803d" text-anchor="middle" dominant-baseline="middle">960</text>
-<line x1="735.5" y1="174.0" x2="735.5" y2="220.0" stroke="#1f2328" stroke-width="1.6"/>
-<svg x="703.374" y="163" width="64.24" height="11" viewBox="0 0 64.24 11"><defs>
+<rect x="299.8" y="202.0" width="435.7" height="34.0" rx="2" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="517.7" y="219.0" font-size="16" font-weight="600" fill="#15803d" text-anchor="middle" dominant-baseline="middle">960</text>
+<line x1="735.5" y1="196.0" x2="735.5" y2="242.0" stroke="#1f2328" stroke-width="1.6"/>
+<svg x="688.774" y="181" width="93.44" height="16" viewBox="0 0 93.44 16"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w4t180-figure_1">
-  <g id="w4t180-patch_1">
-   <path d="M 0 11 
-L 64.24 11 
-L 64.24 0 
+ <g id="w4t186-figure_1">
+  <g id="w4t186-patch_1">
+   <path d="M 0 16 
+L 93.44 16 
+L 93.44 0 
 L 0 0 
-L 0 11 
+L 0 16 
 z
 " style="fill: none"/>
   </g>
-  <g id="w4t180-text_1">
+  <g id="w4t186-text_1">
    <!-- $c + F/2 = 960$ -->
-   <g style="fill: #1f2328" transform="translate(0 8.25) scale(0.11 -0.11)">
+   <g style="fill: #1f2328" transform="translate(0 12) scale(0.16 -0.16)">
     <defs>
-     <path id="w4t180-Cmmi10-63" d="M 750 763 
+     <path id="w4t186-Cmmi10-63" d="M 750 763 
 Q 750 484 892 290 
 Q 1034 97 1300 97 
 Q 1681 97 2032 272 
@@ -765,7 +765,7 @@ Q 1034 2022 892 1576
 Q 750 1131 750 763 
 z
 " transform="scale(0.015625)"/>
-     <path id="w4t180-Cmr10-2b" d="M 481 1472 
+     <path id="w4t186-Cmr10-2b" d="M 481 1472 
 Q 428 1472 393 1512 
 Q 359 1553 359 1600 
 Q 359 1647 393 1687 
@@ -792,7 +792,7 @@ L 2363 1472
 L 481 1472 
 z
 " transform="scale(0.015625)"/>
-     <path id="w4t180-Cmmi10-46" d="M 300 0 
+     <path id="w4t186-Cmmi10-46" d="M 300 0 
 Q 238 0 238 84 
 Q 241 100 250 139 
 Q 259 178 276 201 
@@ -850,7 +850,7 @@ Q 2244 0 2181 0
 L 300 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w4t180-Cmmi10-3d" d="M 359 -1472 
+     <path id="w4t186-Cmmi10-3d" d="M 359 -1472 
 Q 359 -1453 366 -1447 
 L 2591 4722 
 Q 2603 4759 2634 4779 
@@ -864,7 +864,7 @@ Q 434 -1600 396 -1562
 Q 359 -1525 359 -1472 
 z
 " transform="scale(0.015625)"/>
-     <path id="w4t180-Cmr10-32" d="M 319 0 
+     <path id="w4t186-Cmr10-32" d="M 319 0 
 L 319 172 
 Q 319 188 331 206 
 L 1325 1306 
@@ -905,7 +905,7 @@ L 2694 0
 L 319 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w4t180-Cmr10-3d" d="M 481 850 
+     <path id="w4t186-Cmr10-3d" d="M 481 850 
 Q 428 850 393 890 
 Q 359 931 359 978 
 Q 359 1031 393 1068 
@@ -930,7 +930,7 @@ Q 4547 2094 4500 2094
 L 481 2094 
 z
 " transform="scale(0.015625)"/>
-     <path id="w4t180-Cmr10-39" d="M 722 269 
+     <path id="w4t186-Cmr10-39" d="M 722 269 
 Q 897 63 1331 63 
 Q 1575 63 1786 228 
 Q 1997 394 2113 634 
@@ -978,7 +978,7 @@ Q 941 1947 1094 1751
 Q 1247 1556 1563 1556 
 z
 " transform="scale(0.015625)"/>
-     <path id="w4t180-Cmr10-36" d="M 1600 -141 
+     <path id="w4t186-Cmr10-36" d="M 1600 -141 
 Q 1203 -141 937 70 
 Q 672 281 526 617 
 Q 381 953 325 1322 
@@ -1033,7 +1033,7 @@ Q 997 450 1156 256
 Q 1316 63 1600 63 
 z
 " transform="scale(0.015625)"/>
-     <path id="w4t180-Cmr10-30" d="M 1600 -141 
+     <path id="w4t186-Cmr10-30" d="M 1600 -141 
 Q 816 -141 533 504 
 Q 250 1150 250 2041 
 Q 250 2597 351 3087 
@@ -1064,28 +1064,29 @@ Q 1325 25 1600 25
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w4t180-Cmmi10-63"/>
-    <use xlink:href="#w4t180-Cmr10-2b" transform="translate(60.771484 0)"/>
-    <use xlink:href="#w4t180-Cmmi10-46" transform="translate(156.015625 0)"/>
-    <use xlink:href="#w4t180-Cmmi10-3d" transform="translate(220.322266 0)"/>
-    <use xlink:href="#w4t180-Cmr10-32" transform="translate(270.322266 0)"/>
-    <use xlink:href="#w4t180-Cmr10-3d" transform="translate(337.880859 0)"/>
-    <use xlink:href="#w4t180-Cmr10-39" transform="translate(433.125 0)"/>
-    <use xlink:href="#w4t180-Cmr10-36" transform="translate(483.125 0)"/>
-    <use xlink:href="#w4t180-Cmr10-30" transform="translate(533.125 0)"/>
+    <use xlink:href="#w4t186-Cmmi10-63"/>
+    <use xlink:href="#w4t186-Cmr10-2b" transform="translate(60.771484 0)"/>
+    <use xlink:href="#w4t186-Cmmi10-46" transform="translate(156.015625 0)"/>
+    <use xlink:href="#w4t186-Cmmi10-3d" transform="translate(220.322266 0)"/>
+    <use xlink:href="#w4t186-Cmr10-32" transform="translate(270.322266 0)"/>
+    <use xlink:href="#w4t186-Cmr10-3d" transform="translate(337.880859 0)"/>
+    <use xlink:href="#w4t186-Cmr10-39" transform="translate(433.125 0)"/>
+    <use xlink:href="#w4t186-Cmr10-36" transform="translate(483.125 0)"/>
+    <use xlink:href="#w4t186-Cmr10-30" transform="translate(533.125 0)"/>
    </g>
   </g>
  </g>
 </svg>
 </g>
 <g class="fragment" data-fragment-index="2">
-<rect x="526.7" y="64.0" width="9.5" height="34.0" rx="2" fill="#f3f4f6" stroke="#6b7280" stroke-width="1.2"/>
-<text x="544.3" y="81.0" font-size="12" font-weight="600" fill="#6b7280" text-anchor="start" dominant-baseline="middle">21 → 741 ms</text>
-<rect x="590.3" y="122.0" width="15.0" height="34.0" rx="2" fill="#f3f4f6" stroke="#6b7280" stroke-width="1.2"/>
-<text x="613.3" y="139.0" font-size="12" font-weight="600" fill="#6b7280" text-anchor="start" dominant-baseline="middle">33 → 893 ms</text>
-<rect x="735.5" y="180.0" width="24.5" height="34.0" rx="2" fill="#f3f4f6" stroke="#6b7280" stroke-width="1.2"/>
-<text x="768.0" y="197.0" font-size="12" font-weight="600" fill="#6b7280" text-anchor="start" dominant-baseline="middle">54 → 1234 ms</text>
+<rect x="526.7" y="86.0" width="9.5" height="34.0" rx="2" fill="#f3f4f6" stroke="#6b7280" stroke-width="1.2"/>
+<text x="544.3" y="103.0" font-size="16" font-weight="600" fill="#6b7280" text-anchor="start" dominant-baseline="middle">21 → 741 ms</text>
+<rect x="590.3" y="144.0" width="15.0" height="34.0" rx="2" fill="#f3f4f6" stroke="#6b7280" stroke-width="1.2"/>
+<text x="613.3" y="161.0" font-size="16" font-weight="600" fill="#6b7280" text-anchor="start" dominant-baseline="middle">33 → 893 ms</text>
+<rect x="735.5" y="202.0" width="24.5" height="34.0" rx="2" fill="#f3f4f6" stroke="#6b7280" stroke-width="1.2"/>
+<text x="768.0" y="219.0" font-size="16" font-weight="600" fill="#6b7280" text-anchor="start" dominant-baseline="middle">54 → 1234 ms</text>
 </g>
-<text x="200.0" y="240.0" font-size="11" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">220 ms in every row: the model's delay, not the feed's · black tick = architecture's bound · per-symbol medians add up; per-word ones (the table) do not</text>
+<text x="200.0" y="262.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">220 ms in every row: the model's delay, not the feed's · black tick = the architecture's bound</text>
+<text x="200.0" y="284.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">per-symbol medians add up; the per-word medians in the table do not</text>
 </svg>
 ```

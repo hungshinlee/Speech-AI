@@ -50,7 +50,7 @@ format:
 
 <!-- 此檔由 bin/publish_slides.py 從投影片正本產生（中文講稿區塊已剝除），請勿直接編輯。正本在 private repo 的 <course>/slides/。 -->
 
-# Two holes, and one constraint {.section-title}
+# Two holes, one constraint: how much of the future may the model see before it answers? {.section-title}
 
 ## Where we are: week 4 of 14
 
@@ -105,7 +105,7 @@ Logs are $\ln$ · no $L$ (W2's window): left context is $H$ · lookahead is $m$,
 4. **A third delay the architecture does not show**: emission delay, which the loss can be told to fight (FastEmit).
 5. **Attention is not alignment**, and the state of a Transformer grows with $T$.
 
-# The box: Transformer and Conformer {.section-title}
+# The box: what does each frame get to see, and what does that cost? {.section-title}
 
 ## Attention in one line: three matrices and a $T \times T$ score
 
@@ -119,7 +119,7 @@ Vaswani et al., NeurIPS 2017 · JM3 Ch 7 has the walk-through; today only the sh
 
 ## Multi-head, and the mask as an addition
 
-**Multi-head.** $h$ attentions in parallel, each of width $d_k = d/h$, concatenated and projected once: $\operatorname{MHA}(\mathbf{X}) = [\text{head}_1; \dots; \text{head}_h]\,\mathbf{W}_O$, $\mathbf{W}_O \in \mathbb{R}^{d \times d}$. Same cost as one head of width $d$; $h$ different ways to read the same frame.
+**Multi-head attention (MHA).** $h$ attentions in parallel, each of width $d_k = d/h$, concatenated and projected once: $\operatorname{MHA}(\mathbf{X}) = [\text{head}_1; \dots; \text{head}_h]\,\mathbf{W}_O$, $\mathbf{W}_O \in \mathbb{R}^{d \times d}$. Same cost as one head of width $d$; $h$ different ways to read the same frame.
 
 **The mask is an addition, not a multiplication.** $M_{ij} \in \{0, -\infty\}$ is added *before* the softmax:
 
@@ -135,6 +135,22 @@ $$M_{ij} = 0 \;\text{(frame } i \text{ may read frame } j), \qquad M_{ij} = -\in
 Chunk mask after Chen et al., ICASSP 2021 · $R$ = right context past the chunk edge
 :::
 
+## At a glance: the Conformer
+
+::: {.prose}
+| | |
+|:---|:-----------------|
+| **Name** | Convolution-augmented Transformer — "Conformer", a portmanteau, not an acronym. Gulati et al., Interspeech 2020. |
+| **The question** | Self-attention reads the whole utterance by content; speech is also local — a formant glide, a burst, a few neighbouring frames. Can one block have both the global read and the local bias? |
+| **The idea** | Keep the Transformer block; add a convolution module beside the attention; split the feed-forward layer into two half-steps around them ("Macaron"); use relative positions. Four modules, a residual around each. |
+| **What it added** | The encoder shape this course keeps meeting (W5's SSL models, W7's paradigms, W8's streaming synthesis), and an ablation that reads as one path back to a plain Transformer. |
+| **What it leaves open** | What each module does (next two slides); how the front end's stride $s$ sets everything downstream; why positions must be relative once the utterance is cut into chunks; and the next section's question — how to make this block *causal*. |
+:::
+
+::: {.footer}
+Gulati et al., Interspeech 2020 (arXiv:2005.08100) · §2 the block, §3.4 the ablation
+:::
+
 ## Conformer: four modules, one block
 
 {{< include assets/w04/conformer-block.inline.qmd >}}
@@ -143,7 +159,7 @@ Chunk mask after Chen et al., ICASSP 2021 · $R$ = right context past the chunk 
 Gulati et al. 2020 · kernel 32 · $s = 4$ (10 → 40 ms) · Macaron: ½ FFN each side
 :::
 
-## Misconception 1 — "the conv module just adds a bit of locality"
+## MC 1 — "the conv module just adds a bit of locality"
 
 | Step (each removes one more thing — cumulative) | dev-other | test-other |
 |:--|--:|--:|
@@ -192,16 +208,16 @@ Under chunks or segment recurrence, a frame's **absolute** index inside the curr
 Dai et al., ACL 2019, §3.3 · Conformer's MHSA reuses it · skeleton only, not derived here
 :::
 
-# Making the box causal: four families {.section-title}
+# Making the box causal: what does looking right cost — and when does it compound with depth? {.section-title}
 
 ## Four ways to turn a non-causal encoder into a streaming one
 
 | Family | Mechanism | Delay term | Stacks? | Example |
-|:--|:--|:--|:--|:--|
+|:------|:----------------|:------------|:--------|:--------|
 | **causal mask** | $M_{ij} = -\infty$, $j > i$ | none ($m = 0$, $C = 1$) | — | cheapest, worst quality |
 | **chunk + lookahead** | read to the chunk end, $+R$ past it, $\leq H$ back | $\alpha C\,s\Delta$ (chunk) + $m\,s\Delta$ if $R$ is re-read per layer | chunk: **no** · $R$: **yes** | Transformer Transducer; Chen et al. 2021 |
 | **memory / state carry-over** | a compressed summary of past segments replaces $H$ raw frames | none: bounds the *history* | — | Transformer-XL; Emformer |
-| **latency-controlled BLSTM** | backward LSTM over a short future window only | the window: $m\,s\Delta$ | **no** — the window is re-cut per chunk at every layer | Zhang et al. 2016 |
+| **LC-BLSTM** | latency-controlled bidirectional LSTM: the backward LSTM runs over a short future window only | the window: $m\,s\Delta$ | **no** — the window is re-cut per chunk at every layer | Zhang et al. 2016 |
 
 ::: {.claim}
 Only two quantities change: **how far right** a layer reads, and **whether that compounds with depth.** The past costs memory, not time.
@@ -253,7 +269,7 @@ W1 wrote $\ell\Delta + \alpha C\Delta$ on the 10 ms grid — correct for a model
 | $\alpha C = \tfrac12 \times 8$ | 4 | 160 |
 | $D_{\text{alg}}$ (mean) | 28 | **1120** — worst case 1280 |
 
-## Misconception 2 — "add lookahead to get the quality back"
+## MC 2 — "add lookahead to get the quality back"
 
 Raising $r_k$ from $2$ to $8$ at every layer, with $s = 4$:
 
@@ -261,13 +277,13 @@ $$\text{per layer: } 2 \times 40 = 80 \text{ ms} \;\longrightarrow\; 8 \times 40
 
 - **One layer** at $r_k = 8$ already spends a whole human-scale budget (a few hundred ms, W1).
 - Lookahead's benefit saturates quickly; its cost is linear, **per layer**, and in $s\Delta$ units.
-- The budget is spent at the *sum*, so the only cheap right context is the kind that does not stack: put it in the chunk, or copy it per segment (Emformer, p23).
+- The budget is spent at the *sum*, so the only cheap right context is the kind that does not stack: put it in the chunk, or copy it per segment (Emformer, p24).
 
 ::: {.claim}
 Before adding one frame of right context, ask three questions: **which layer, times how many layers, times what frame size.**
 :::
 
-## Misconception 3 — "streaming is just a causal mask"
+## MC 3 — "streaming is just a causal mask"
 
 | Setting | $m$ | $C$ | $D_{\text{alg}}$ | What you pay |
 |:--|--:|--:|:--|:--|
@@ -284,17 +300,24 @@ Streaming is a **three-number trade-off** — $m$, $C$, $H$ — not a switch. Th
 W1's budget takes $D_{\text{alg}}$ with both terms · "nobody ships" is a field judgement
 :::
 
-## History: Transformer-XL recurrence, Emformer, LC-BLSTM
+## Right context that does not leak; history that costs memory
 
 {{< include assets/w04/right-context-copy.inline.qmd >}}
 
 ::: {.small}
-**Transformer-XL.** Layer $n$ of segment $\tau + 1$ attends to $[\,\operatorname{SG}(\mathbf{h}^{\,n-1}_{\tau})\,;\ \mathbf{h}^{\,n-1}_{\tau+1}\,]$ — the previous segment's states, stop-gradient, as extra keys and values: history costs memory, not waiting.
-**Emformer.** $\mathbf{K}^n_i = [\,\mathbf{W}_k \mathbf{M}^n_i,\ \mathbf{K}^n_{L,i},\ \mathbf{W}_k \mathbf{C}^n_i,\ \mathbf{W}_k \mathbf{R}^n_i\,]$ — memory bank (one vector per past segment, carried over **from the lower layer**), cached left context, centre chunk, and the **hard-copied** right context drawn above.
+**Transformer-XL.** Layer $n$ of segment $\tau + 1$ attends to $[\,\operatorname{SG}(\mathbf{h}^{\,n-1}_{\tau})\,;\ \mathbf{h}^{\,n-1}_{\tau+1}\,]$ — the previous segment's states under stop-gradient ($\operatorname{SG}$) as extra keys and values: history costs memory, not waiting. **Emformer.** $\mathbf{K}^n_i = [\,\mathbf{W}_k \mathbf{M}^n_i,\ \mathbf{K}^n_{L,i},\ \mathbf{W}_k \mathbf{C}^n_i,\ \mathbf{W}_k \mathbf{R}^n_i\,]$ — memory bank (one vector per past segment, carried over **from the lower layer**), cached left context, centre chunk, **hard-copied** right context.
 :::
 
 ::: {.footer}
 Dai et al. 2019 eq. 2 · Shi et al. 2021 §3 (read 2026-10-04) · Zhang et al. 2016
+:::
+
+## Train with a mask, run with a cache: two schedules
+
+{{< include assets/w04/mask-vs-cache.inline.qmd >}}
+
+::: {.footer}
+Chen et al. 2021 · Shi et al. 2021 · $C = 4$, $R = 1$, $H = 4$ as on the mask slide
 :::
 
 ## Refill W1's budget: the encoder row
@@ -307,10 +330,26 @@ Dai et al. 2019 eq. 2 · Shi et al. 2021 §3 (read 2026-10-04) · Zhang et al. 2
 | …and a term W1 did not have | + emission delay (next section) | measured, not computed |
 
 ::: {.footer}
-Master: W1 p36 · 1120 ms is the p20 example, not a measurement · Demo 2 measures
+Master: W1 p36 · 1120 ms is the p21 example, not a measurement · Demo 2 measures
 :::
 
-# RNN-T: a second axis on the lattice {.section-title}
+# RNN-T: how does the output get a memory without losing the lattice? {.section-title}
+
+## At a glance: the recurrent neural network transducer (RNN-T)
+
+::: {.prose}
+| | |
+|:---|:-----------------|
+| **Name** | Recurrent neural network transducer — "RNN-T", or "the transducer". Graves, arXiv:1211.3711 (2012); this deck follows its notation. |
+| **The question** | CTC trains from audio and text alone and streams, but its outputs never see each other. Can the output side remember what it has written — without giving up the monotonic lattice? |
+| **The idea** | Keep the encoder. Add a network that reads only the labels emitted so far, and a joint that combines the two at every pair $(t, u)$. A path is a walk on a $T \times (U + 1)$ grid — right consumes a frame, up emits a label — and the loss sums every walk. |
+| **What it added** | An output-side language model inside a streamable model; no floor on $T$ (a frame may emit several labels); a gradient that is W3's $y - \gamma$ with one factor in front. The on-device streaming workhorse of 2019–2023. |
+| **What it leaves open** | How two sequences of different length meet, and who runs when (next five slides); the lattice, its paths, the sum (the twelve after); the bill — a memory wall when training, a learned delay when decoding (the rest). |
+:::
+
+::: {.footer}
+Graves 2012 · He et al., ICASSP 2019 for "on-device workhorse" · this section fills W3's first hole
+:::
 
 ## Three networks, one joint
 
@@ -390,7 +429,7 @@ Right: one joint evaluation and a new frame. Up: one joint evaluation **plus a p
 greedy: argmax at each step · $\ell = \text{ab}$, $T = 3$ · argmax results staged, not a model's output
 :::
 
-## Misconception 4 — "the RNN-T blank is the CTC blank"
+## MC 4 — "the RNN-T blank is the CTC blank"
 
 | | CTC (W3) | RNN-T (today) | W1's $\varnothing$ |
 |:--|:--|:--|:--|
@@ -417,7 +456,7 @@ $\ell = \text{ab}$, $T = 3$ · start at $(1, 0)$, reach $(T, U)$, then one last 
 | | |
 |:---|:-----------------|
 | **Why** | The CTC lattice had one way to move; this one has two, and emitting does not cost a frame. Count the paths by hand to feel the difference, then check the RNN-T forward recursion against brute force, as in W3. |
-| **What runs** | A terminal program in the style of W3's Demo 2 (standard library, fixed seed), used three times: next slide, the paths for "ab" and "aa", on paper first; at Misconception 5, greedy decoding on a *synthetic* joint with and without a cap of 5 symbols per frame; after the forward recursion, one random $\mathbf{y}^{t,u}$ through enumeration and through the table. |
+| **What runs** | A terminal program in the style of W3's Demo 2 (standard library, fixed seed), used three times: next slide, the paths for "ab" and "aa", on paper first; at MC 5, greedy decoding on a *synthetic* joint with and without a cap of 5 symbols per frame; after the forward recursion, one random $\mathbf{y}^{t,u}$ through enumeration and through the table. |
 | **Expect** | Enumeration and forward agree to the last digit; if they do not, the recursion is wrong. Watch the CTC count beside the RNN-T one: can RNN-T have a path where CTC has none? And what does the decoder do once the cap is gone? |
 :::
 
@@ -454,16 +493,14 @@ $$\#\,\text{paths} \;=\; \binom{T + U - 1}{U} \qquad\text{vs. CTC: } \lvert \mat
 
 | | CTC | RNN-T |
 |:-----------------|:---------------------------------|:-----------------------------------------------|
-| labels per frame | exactly one symbol of $\mathcal{V}'$ | any number, then a blank |
-| repeated labels | a blank must separate them | nothing needed: emit, emit |
 | minimum $T$ | $U + r$ | **1** |
 | what replaces the floor | — | compute: one more joint evaluation per emit |
 
 ::: {.claim}
-W3's floor on the frame rate is gone; in its place a **cost per emitted label** — the opening TDT exploits by predicting durations too.
+W3's floor on the frame rate is gone; in its place a **cost per emitted label** — the opening the token-and-duration transducer (TDT) exploits.
 :::
 
-## Misconception 5 — "RNN-T also needs $T \geq U + r$"
+## MC 5 — "RNN-T also needs $T \geq U + r$"
 
 …and its twin, *"an RNN-T emits at most one label per frame."* Both wrong, for the same reason: **emitting does not consume a frame.** A path may go up as many times as it likes before it goes right; $T = 1$ already has a path for any $\ell$.
 
@@ -556,6 +593,14 @@ $$\frac{\partial \mathcal{L}}{\partial z^{t,u}_k} = \sum_j \frac{\partial \mathc
 Divide today's gradient by the occupancy and it is W3's line again: $y^{t,u}_k - \text{(posterior of leaving by edge } k\text{)}$. The transducer did not change the learning signal — it changed **where the nodes are.**
 :::
 
+## One lattice, two uses: training and decoding
+
+{{< include assets/w04/train-vs-decode.inline.qmd >}}
+
+::: {.footer}
+$\ell = \text{ab}$, $T = 5$ · green walk: the greedy decode of the five-step slide · W3 drew the same for CTC
+:::
+
 ## The memory wall: $B \times T \times U \times |\mathcal{V}'|$
 
 One softmax per lattice node means the joint's logits are a four-way tensor. Order of magnitude for **character-level Mandarin** (assumptions, not a measurement):
@@ -596,7 +641,7 @@ Kuang et al., Interspeech 2022 (abstract) · the band from a joiner linear in $\
 Yu et al., ICASSP 2021 (FastEmit), eq. 11–12 · a third delay: learned, not designed
 :::
 
-## Misconception 6 — "computed latency is measured latency"
+## MC 6 — "computed latency is measured latency"
 
 $$D_{\text{what you measure}} \;\geq\; \underbrace{(m + \alpha C)\,s\Delta}_{\text{architecture: a lower bound}} \;+\; \underbrace{D_{\text{emit}}}_{\text{learned; same encoder, different training}} \;+\; D_{\text{comp}}$$
 
@@ -611,7 +656,7 @@ $D_{\text{alg}}$ is what the architecture *guarantees you cannot beat.* What you
 ::: {.prose}
 | | |
 |:---|:-----------------|
-| **Why** | Misconception 6 drew the measured delay as three stacked parts: the model's emission delay, the architecture's $m + \alpha C$, and compute. This demo produces those parts live, word by word, and checks the middle one against the formula. |
+| **Why** | MC 6 drew the measured delay as three stacked parts: the model's emission delay, the architecture's $m + \alpha C$, and compute. This demo produces those parts live, word by word, and checks the middle one against the formula. |
 | **What runs** | `sherpa-onnx`'s streaming zipformer transducer on the CPU, fed W3's sentence at real-time pace in 1280, 640 and 320 ms pieces; the model's own chunk stays 320 ms. Every word gets three clocks against the end of its acoustic evidence (W3's forced alignment): the frame that emitted it, the audio fed when it appeared, and the wall clock. |
 | **Expect** | The emitting frame does not move when the feed changes — that part belongs to the model; only the middle part follows the feed. Watch which word waits longest, and whether it is the last word of the sentence. |
 :::
@@ -634,7 +679,7 @@ Demo 2 · code: `demos/w04_d2_stream_chunks` · sherpa-onnx 1.13.8, CPU · rehea
 | 320 ms ($=$ model chunk) | 480 ms | $+220$ ms | $+742$ ms | MIDDLE $+922$ |
 
 ::: {.small}
-$D_{\text{alg}}$ here is $c + F/2$, $c = 320$ ms the model's own chunk, $F$ the feed: the 130 ms lookahead past the chunk edge waits for the **next feed to arrive whole**, so it is paid in feed chunks, not in milliseconds (p19's $\alpha$, exact).
+$D_{\text{alg}}$ here is $c + F/2$, $c = 320$ ms the model's own chunk, $F$ the feed: the 130 ms lookahead past the chunk edge waits for the **next feed to arrive whole**, so it is paid in feed chunks, not in milliseconds (p20's $\alpha$, exact).
 :::
 ::::
 
@@ -642,7 +687,23 @@ $D_{\text{alg}}$ here is $c + F/2$, $c = 320$ ms the model's own chunk, $F$ the 
 Demo 2 · sherpa-onnx streaming zipformer · measured 2026-10-06 on M5 Max · w04-metrics.json
 :::
 
-# Attention as the third alignment — and why it is not one {.section-title}
+# Attention as the third alignment: is what the decoder learns about *where* an alignment? {.section-title}
+
+## At a glance: the attention-based encoder–decoder (AED)
+
+::: {.prose}
+| | |
+|:---|:-----------------|
+| **Name** | Attention-based encoder–decoder — "AED", or sequence-to-sequence with attention. For speech: Chorowski et al., NIPS 2015; Chan et al., *Listen, Attend and Spell*, ICASSP 2016. Whisper is this family at scale. |
+| **The question** | CTC and the RNN-T carry a blank and a monotonic lattice — machinery that says *which frame we are at*. What if the decoder is handed all $T$ encoder outputs and left to learn where to read from? |
+| **The idea** | A decoder state $\mathbf{s}_u$ scores every encoder frame; a softmax turns the scores into weights $a_{u,t}$; the weighted average is a context $\mathbf{c}_u$; the next label comes from $[\mathbf{s}_u; \mathbf{c}_u]$. No blank, no lattice, no monotonicity. |
+| **What it added** | The best full-context accuracy of the three families, a decoder with the full output history — and no notion of "consumed a frame", the root of its failures. |
+| **What it leaves open** | Whether $a_{u,t}$ is an alignment at all (Demo 3); why it need not be sharp to be right (MC 7); where word timestamps really come from; what happens on long inputs; and what this family cannot do without extra machinery — stream. |
+:::
+
+::: {.footer}
+Chorowski et al., NIPS 2015 · Chan et al., ICASSP 2016 · Radford et al., ICML 2023 (Whisper)
+:::
 
 ## The decoder attends: the attention-based encoder–decoder
 
@@ -655,7 +716,7 @@ What AED learns about *where* is a weighting $a_{u,t}$: soft, never forced to mo
 :::
 
 ::: {.footer}
-Chan et al. (LAS) · Chorowski et al. 2015 · Whisper is this family · $\mathbf{s}_u$ state, $\mathbf{c}_u$ context
+Chan et al. (Listen, Attend and Spell, LAS) · Chorowski et al. 2015 · Whisper is this family · $\mathbf{s}_u$ state, $\mathbf{c}_u$ context
 :::
 
 ## Before Demo 3: does attention look like an alignment?
@@ -664,7 +725,7 @@ Chan et al. (LAS) · Chorowski et al. 2015 · Whisper is this family · $\mathbf
 | | |
 |:---|:-----------------|
 | **Why** | The encoder–decoder has no alignment variable; its cross-attention weights look like one and are often read as one. Whisper, on a sentence it gets right, tests that reading. |
-| **What runs** | `openai/whisper-small` on the CPU transcribes W3's sentence. All 144 decoder cross-attention heads (12 layers of 12) are drawn as heat-maps — one row per text token, one column per 20 ms encoder frame — and sorted into band, flat, stare or other by a fixed rule. Then the ten heads OpenAI's code uses for word timestamps, and the times DTW makes from them. |
+| **What runs** | `openai/whisper-small` on the CPU transcribes W3's sentence. All 144 decoder cross-attention heads (12 layers of 12) are drawn as heat-maps — one row per text token, one column per 20 ms encoder frame — and sorted into band, flat, stare or other by a fixed rule. Then the ten heads OpenAI's code uses for word timestamps, and the times dynamic time warping (DTW) makes from them. |
 | **Watch for** | The transcript will be right. If attention were the alignment, most heads would be monotonic bands: count them. And look at where the weight goes — the input is always padded to 30 s. |
 :::
 
@@ -692,12 +753,12 @@ Demo 3 · code: `demos/w04_d3_attention_heads` · `openai/whisper-small`, eager 
 Demo 3 · whisper-small, eager, CPU · dev-clean 1272-128104-0000 · measured 2026-10-06
 :::
 
-## Misconception 7 — "attention weights are the alignment"
+## MC 7 — "attention weights are the alignment"
 
 {{< include assets/w04/weights-vs-seating.inline.qmd >}}
 
 ::: {.claim}
-Attention is the **weights of a weighted average**; an alignment is a **seating chart**. The weights may be flat and the output still right, because the encoder already mixed the context into every position.
+**Weights of an average** are not **a seating chart**: flat weights, right transcript.
 :::
 
 ## Where word timestamps actually come from
@@ -710,7 +771,7 @@ Attention is the **weights of a weighted average**; an alignment is a **seating 
 | 4 | read word boundaries off the DTW path | the timestamp is a post-processing artefact, not a model output |
 
 ::: {.claim}
-Even the authors treat attention as **raw material for an alignment**, not as one. The alignment is manufactured: a hand-picked subset, a smoothing, and a monotonic DP on top.
+Even the authors treat attention as **raw material for an alignment**, not as one. The alignment is manufactured: a hand-picked subset, a smoothing, and a monotonic dynamic programme on top.
 :::
 
 ::: {.footer}
@@ -748,9 +809,9 @@ Chorowski et al., NIPS 2015 — "10 times longer (repeated) utterances" (abstrac
 W3 p60 had three columns; this is the fourth, and the row W3 could not fill
 :::
 
-# The state that grows {.section-title}
+# The state that grows: what does a Transformer carry forward, and how fast does it grow? {.section-title}
 
-## KV cache: the state of a Transformer
+## The key–value (KV) cache: the state of a Transformer
 
 {{< include assets/w04/kv-cache.inline.qmd >}}
 
@@ -758,11 +819,11 @@ W3 p60 had three columns; this is the fourth, and the row W3 could not fill
 `w04-data.json`: $n_{\text{layer}} = 12$, $d = 512$, $T = 1500$ → $1.8 \times 10^7$ numbers, 37 MB fp16
 :::
 
-## Misconception 8 — "the KV cache is a serving detail"
+## MC 8 — "the KV cache is a serving detail"
 
 | Claim (two of them) | What is actually true |
 |:--|:--|
-| "a Transformer always beats an RNN" | on quality with full context, usually; under strict streaming and on-device, a **constant-memory state** (RNN, SSM) is a structural advantage |
+| "a Transformer always beats an RNN" | on quality with full context, usually; under strict streaming and on-device, a **constant-memory state** (RNN; state-space model, SSM) is a structural advantage |
 | "the cache is an engineering detail" | the cache *is* the model's state; its linear growth decides whether a full-duplex model survives twenty minutes |
 | "Zipformer solves this" | no — Zipformer is an *encoder-efficiency* design (U-Net-style downsampling); it does not bound the decoder's state |
 
@@ -772,7 +833,7 @@ Three ways to bound the state: **truncate** (sliding window), **compress** (memo
 W11 and W13 will ask every architecture one question first: **how is the state kept bounded?** Today is where the question comes from.
 :::
 
-# Back to the three axes {.section-title}
+# Back to the three axes: what did today put on each? {.section-title}
 
 ## Representation: $s$ sets $T$, and the floor is gone
 
@@ -827,3 +888,33 @@ A $T \times T$ block; three numbers to trade; one more axis on the lattice; and 
 **Next week — self-supervised representation learning**
 
 The box is open; now where does its ability come from? Masked prediction over audio, discrete targets, and why every SSL comparison is confounded by data: wav2vec 2.0, HuBERT, and what "pretrained encoder" means for W7.
+
+## Acronyms in this deck, A–L
+
+| | |
+|:----|:----------------|
+| AED | attention-based encoder–decoder (p54) |
+| ASR | automatic speech recognition (W1) |
+| BLSTM, LC-BLSTM | bidirectional LSTM; latency-controlled BLSTM (p17) |
+| CTC | connectionist temporal classification (W3) |
+| DTW | dynamic time warping (p56) |
+| FFN | feed-forward network: the Conformer block's two half-steps (p12) |
+| GLU | gated linear unit (p12) |
+| KV | key–value: the cache a Transformer keeps (p63) |
+| LAS | Listen, Attend and Spell (p54) |
+| LM | language model (W3) |
+| LSTM | long short-term memory network (W3) |
+
+## Acronyms in this deck, M–W
+
+| | |
+|:----|:----------------|
+| MC | misconception: a belief that sounds right, and what breaks it (p13) |
+| MHA, MHSA | multi-head attention (p10); multi-head self-attention (p12) |
+| RNN | recurrent neural network (p28) |
+| RNN-T | recurrent neural network transducer (W1; the card is p28) |
+| SG | stop-gradient (p24) |
+| SSL | self-supervised learning (W1) |
+| SSM | state-space model (p64) |
+| TDT | token-and-duration transducer (p38) |
+| WER | word error rate (W1) |

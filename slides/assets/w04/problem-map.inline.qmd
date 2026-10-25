@@ -1,38 +1,37 @@
 <!-- 由 scripts/make_figs_w04.py 產生，勿手改；投影片用 {{< include assets/w04/problem-map.inline.qmd >}} 貼入 -->
 ```{=html}
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 384" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
-<text x="984.0" y="22.0" font-size="15" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">schematic — not a measurement</text>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 404" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
 <g class="fragment" data-fragment-index="0">
-<rect x="30.0" y="60.0" width="250.0" height="292.0" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
-<text x="155.0" y="48.0" font-size="15" font-weight="600" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">the stream, as it arrives</text>
-<rect x="60.0" y="100.0" width="17.0" height="24.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.9"/>
-<rect x="78.0" y="100.0" width="17.0" height="24.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.9"/>
-<rect x="96.0" y="100.0" width="17.0" height="24.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.9"/>
-<rect x="114.0" y="100.0" width="17.0" height="24.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.9"/>
-<rect x="132.0" y="100.0" width="17.0" height="24.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.9"/>
-<rect x="150.0" y="100.0" width="17.0" height="24.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.9"/>
-<rect x="168.0" y="100.0" width="17.0" height="24.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.9"/>
-<rect x="186.0" y="100.0" width="17.0" height="24.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.9"/>
-<rect x="204.0" y="100.0" width="17.0" height="24.0" rx="1" fill="#ffffff" stroke="#e5e7eb" stroke-width="0.9"/>
-<rect x="222.0" y="100.0" width="17.0" height="24.0" rx="1" fill="#ffffff" stroke="#e5e7eb" stroke-width="0.9"/>
-<rect x="240.0" y="100.0" width="17.0" height="24.0" rx="1" fill="#ffffff" stroke="#e5e7eb" stroke-width="0.9"/>
-<rect x="258.0" y="100.0" width="17.0" height="24.0" rx="1" fill="#ffffff" stroke="#e5e7eb" stroke-width="0.9"/>
-<svg x="121.775" y="74.4828" width="66.45" height="14.5172" viewBox="0 0 66.45 14.517187"><defs>
+<rect x="24.0" y="60.0" width="272.0" height="324.0" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="160.0" y="48.0" font-size="16" font-weight="600" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">the stream, as it arrives</text>
+<rect x="48.0" y="104.0" width="18.0" height="24.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.9"/>
+<rect x="67.0" y="104.0" width="18.0" height="24.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.9"/>
+<rect x="86.0" y="104.0" width="18.0" height="24.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.9"/>
+<rect x="105.0" y="104.0" width="18.0" height="24.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.9"/>
+<rect x="124.0" y="104.0" width="18.0" height="24.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.9"/>
+<rect x="143.0" y="104.0" width="18.0" height="24.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.9"/>
+<rect x="162.0" y="104.0" width="18.0" height="24.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.9"/>
+<rect x="181.0" y="104.0" width="18.0" height="24.0" rx="1" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.9"/>
+<rect x="200.0" y="104.0" width="18.0" height="24.0" rx="1" fill="#ffffff" stroke="#e5e7eb" stroke-width="0.9"/>
+<rect x="219.0" y="104.0" width="18.0" height="24.0" rx="1" fill="#ffffff" stroke="#e5e7eb" stroke-width="0.9"/>
+<rect x="238.0" y="104.0" width="18.0" height="24.0" rx="1" fill="#ffffff" stroke="#e5e7eb" stroke-width="0.9"/>
+<rect x="257.0" y="104.0" width="18.0" height="24.0" rx="1" fill="#ffffff" stroke="#e5e7eb" stroke-width="0.9"/>
+<svg x="124.56" y="75.515" width="70.88" height="15.485" viewBox="0 0 70.88 15.485"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w4t11-figure_1">
   <g id="w4t11-patch_1">
-   <path d="M 0 14.517187 
-L 66.45 14.517187 
-L 66.45 -0 
-L 0 -0 
-L 0 14.517187 
+   <path d="M 0 15.485 
+L 70.88 15.485 
+L 70.88 0 
+L 0 0 
+L 0 15.485 
 z
 " style="fill: none"/>
   </g>
   <g id="w4t11-text_1">
    <!-- $\mathbf{X}:\ \mathsf{frames}$ -->
-   <g style="fill: #1f2328" transform="translate(0 11.397656) scale(0.15 -0.15)">
+   <g style="fill: #1f2328" transform="translate(0 12.1575) scale(0.16 -0.16)">
     <defs>
      <path id="w4t11-Cmb10-58" d="M 184 0 
 L 184 325 
@@ -270,30 +269,30 @@ z
   </g>
  </g>
 </svg>
-<line x1="203.5" y1="90.0" x2="203.5" y2="260.0" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="5 3"/>
-<text x="207.5" y="150.0" font-size="13" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="auto">now</text>
-<text x="207.5" y="168.0" font-size="11" font-weight="400" fill="#dc2626" text-anchor="start" dominant-baseline="auto">right of this line:</text>
-<text x="207.5" y="182.0" font-size="11" font-weight="400" fill="#dc2626" text-anchor="start" dominant-baseline="auto">not yet spoken</text>
-<rect x="60.0" y="200.0" width="110.0" height="44.0" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="115.0" y="222.0" font-size="15" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">encoder</text>
-<line x1="115.0" y1="126.0" x2="115.0" y2="188.0" stroke="#94a3b8" stroke-width="1.4"/>
-<polygon points="115.0,196.0 110.0,188.0 120.0,188.0" fill="#94a3b8"/>
-<svg x="91.72" y="262.2" width="46.56" height="16.8" viewBox="0 0 46.56 16.8"><defs>
+<line x1="199.5" y1="84.0" x2="199.5" y2="180.0" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="5 3"/>
+<text x="204.5" y="98.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="auto">now</text>
+<text x="204.5" y="150.0" font-size="16" font-weight="400" fill="#dc2626" text-anchor="start" dominant-baseline="auto">not yet</text>
+<text x="204.5" y="170.0" font-size="16" font-weight="400" fill="#dc2626" text-anchor="start" dominant-baseline="auto">spoken</text>
+<rect x="54.0" y="194.0" width="120.0" height="46.0" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="114.0" y="217.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">encoder</text>
+<line x1="114.0" y1="130.0" x2="114.0" y2="182.0" stroke="#94a3b8" stroke-width="1.4"/>
+<polygon points="114.0,190.0 109.0,182.0 119.0,182.0" fill="#94a3b8"/>
+<svg x="89.265" y="260.15" width="49.47" height="17.85" viewBox="0 0 49.47 17.85"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w4t12-figure_1">
   <g id="w4t12-patch_1">
-   <path d="M 0 16.8 
-L 46.56 16.8 
-L 46.56 0 
+   <path d="M 0 17.85 
+L 49.47 17.85 
+L 49.47 0 
 L 0 0 
-L 0 16.8 
+L 0 17.85 
 z
 " style="fill: none"/>
   </g>
   <g id="w4t12-text_1">
    <!-- $\mathbf{f}_t \in \mathbb{R}^d$ -->
-   <g style="fill: #1f2328" transform="translate(0 13.4725) scale(0.16 -0.16)">
+   <g style="fill: #1f2328" transform="translate(0 14.314531) scale(0.17 -0.17)">
     <defs>
      <path id="w4t12-Cmb10-66" d="M 159 0 
 L 159 325 
@@ -497,50 +496,51 @@ z
   </g>
  </g>
 </svg>
-<line x1="115.0" y1="248.0" x2="115.0" y2="250.0" stroke="#94a3b8" stroke-width="1.4"/>
-<polygon points="115.0,258.0 110.0,250.0 120.0,250.0" fill="#94a3b8"/>
-<text x="155.0" y="310.0" font-size="13" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">how much of the future may</text>
-<text x="155.0" y="328.0" font-size="13" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">the encoder see before it answers?</text>
+<line x1="114.0" y1="244.0" x2="114.0" y2="246.0" stroke="#94a3b8" stroke-width="1.4"/>
+<polygon points="114.0,254.0 109.0,246.0 119.0,246.0" fill="#94a3b8"/>
+<text x="160.0" y="322.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">how much of the future</text>
+<text x="160.0" y="344.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">may the encoder see</text>
+<text x="160.0" y="366.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">before it answers?</text>
 </g>
 <g class="fragment" data-fragment-index="1">
-<rect x="330.0" y="60.0" width="640.0" height="96.0" rx="8" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.4"/>
-<line x1="286.0" y1="206.0" x2="322.6" y2="116.3" stroke="#0b5cad" stroke-width="1.8"/>
-<polygon points="326.0,108.0 327.2,118.2 318.0,114.4" fill="#0b5cad"/>
-<text x="346.0" y="84.0" font-size="17" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="auto">1 · the box itself</text>
-<rect x="346.0" y="94.0" width="284.0" height="38.0" rx="4" fill="#ffffff" stroke="#0b5cad" stroke-width="1.0"/>
-<text x="360.0" y="109.0" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">self-attention: every frame</text>
-<text x="360.0" y="125.0" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">sees the whole utterance</text>
-<rect x="646.0" y="94.0" width="284.0" height="38.0" rx="4" fill="#ffffff" stroke="#0b5cad" stroke-width="1.0"/>
-<text x="660.0" y="109.0" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">conv module: the local</text>
-<text x="660.0" y="125.0" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">bias attention lacks</text>
-<text x="956.0" y="149.0" font-size="13" font-weight="600" fill="#0b5cad" text-anchor="end" dominant-baseline="auto">Transformer / Conformer  ·  then: make it causal, four ways</text>
+<rect x="314.0" y="60.0" width="666.0" height="104.0" rx="8" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.4"/>
+<line x1="302.0" y1="222.0" x2="309.3" y2="121.0" stroke="#0b5cad" stroke-width="1.8"/>
+<polygon points="310.0,112.0 314.3,121.3 304.4,120.6" fill="#0b5cad"/>
+<text x="330.0" y="84.0" font-size="18" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="auto">1 · the box itself</text>
+<rect x="328.0" y="93.0" width="314.0" height="44.0" rx="4" fill="#ffffff" stroke="#0b5cad" stroke-width="1.0"/>
+<text x="340.0" y="108.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">self-attention: every frame</text>
+<text x="340.0" y="127.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">sees the whole utterance</text>
+<rect x="654.0" y="93.0" width="314.0" height="44.0" rx="4" fill="#ffffff" stroke="#0b5cad" stroke-width="1.0"/>
+<text x="666.0" y="108.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">conv module: the local</text>
+<text x="666.0" y="127.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">bias attention lacks</text>
+<text x="966.0" y="157.0" font-size="16" font-weight="600" fill="#0b5cad" text-anchor="end" dominant-baseline="auto">Transformer / Conformer  ·  then: make it causal, four ways</text>
 </g>
 <g class="fragment" data-fragment-index="2">
-<rect x="330.0" y="164.0" width="640.0" height="96.0" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.4"/>
-<line x1="286.0" y1="206.0" x2="317.1" y2="210.7" stroke="#7c3aed" stroke-width="1.8"/>
-<polygon points="326.0,212.0 316.4,215.6 317.8,205.7" fill="#7c3aed"/>
-<text x="346.0" y="188.0" font-size="17" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="auto">2 · an output that remembers its past</text>
-<rect x="346.0" y="198.0" width="284.0" height="38.0" rx="4" fill="#ffffff" stroke="#7c3aed" stroke-width="1.0"/>
-<text x="360.0" y="213.0" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">a prediction network reads</text>
-<text x="360.0" y="229.0" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">the labels emitted so far</text>
-<rect x="646.0" y="198.0" width="284.0" height="38.0" rx="4" fill="#ffffff" stroke="#7c3aed" stroke-width="1.0"/>
-<text x="660.0" y="213.0" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">lattice gains an axis:</text>
-<svg x="660" y="223" width="62.4" height="13" viewBox="0 0 62.4 13"><defs>
+<rect x="314.0" y="170.0" width="666.0" height="104.0" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.4"/>
+<line x1="302.0" y1="222.0" x2="301.0" y2="222.0" stroke="#7c3aed" stroke-width="1.8"/>
+<polygon points="310.0,222.0 301.0,227.0 301.0,217.0" fill="#7c3aed"/>
+<text x="330.0" y="194.0" font-size="18" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="auto">2 · an output that remembers its past</text>
+<rect x="328.0" y="203.0" width="314.0" height="44.0" rx="4" fill="#ffffff" stroke="#7c3aed" stroke-width="1.0"/>
+<text x="340.0" y="218.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">a prediction network reads</text>
+<text x="340.0" y="237.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">the labels emitted so far</text>
+<rect x="654.0" y="203.0" width="314.0" height="44.0" rx="4" fill="#ffffff" stroke="#7c3aed" stroke-width="1.0"/>
+<text x="666.0" y="218.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">the lattice gains an axis:</text>
+<svg x="666" y="229" width="76.8" height="16" viewBox="0 0 76.8 16"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w4t13-figure_1">
   <g id="w4t13-patch_1">
-   <path d="M 0 13 
-L 62.4 13 
-L 62.4 0 
+   <path d="M 0 16 
+L 76.8 16 
+L 76.8 0 
 L 0 0 
-L 0 13 
+L 0 16 
 z
 " style="fill: none"/>
   </g>
   <g id="w4t13-text_1">
    <!-- $T \times (U + 1)$ -->
-   <g style="fill: #1f2328" transform="translate(0 9.75) scale(0.13 -0.13)">
+   <g style="fill: #1f2328" transform="translate(0 12) scale(0.16 -0.16)">
     <defs>
      <path id="w4t13-Cmmi10-54" d="M 294 84 
 Q 297 100 308 140 
@@ -763,20 +763,20 @@ z
   </g>
  </g>
 </svg>
-<text x="956.0" y="253.0" font-size="13" font-weight="600" fill="#7c3aed" text-anchor="end" dominant-baseline="auto">RNN-T  ·  monotonic, streamable, output dependency  ·  W3's debt</text>
+<text x="966.0" y="267.0" font-size="16" font-weight="600" fill="#7c3aed" text-anchor="end" dominant-baseline="auto">RNN-T  ·  monotonic, streamable, output dependency  ·  W3's debt</text>
 </g>
 <g class="fragment" data-fragment-index="3">
-<rect x="330.0" y="268.0" width="640.0" height="96.0" rx="8" fill="#fff7ed" stroke="#b45309" stroke-width="1.4"/>
-<line x1="286.0" y1="206.0" x2="322.9" y2="307.5" stroke="#b45309" stroke-width="1.8"/>
-<polygon points="326.0,316.0 318.2,309.3 327.6,305.8" fill="#b45309"/>
-<text x="346.0" y="292.0" font-size="17" font-weight="700" fill="#b45309" text-anchor="start" dominant-baseline="auto">3 · a third kind of alignment</text>
-<rect x="346.0" y="302.0" width="284.0" height="38.0" rx="4" fill="#ffffff" stroke="#b45309" stroke-width="1.0"/>
-<text x="360.0" y="317.0" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">the decoder attends over</text>
-<text x="360.0" y="333.0" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">encoder outputs: soft, non-monotonic</text>
-<rect x="646.0" y="302.0" width="284.0" height="38.0" rx="4" fill="#ffffff" stroke="#b45309" stroke-width="1.0"/>
-<text x="660.0" y="317.0" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">and the weights are not</text>
-<text x="660.0" y="333.0" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">the alignment</text>
-<text x="956.0" y="357.0" font-size="13" font-weight="600" fill="#b45309" text-anchor="end" dominant-baseline="auto">attention-based encoder–decoder  ·  the correction of the week</text>
+<rect x="314.0" y="280.0" width="666.0" height="104.0" rx="8" fill="#fff7ed" stroke="#b45309" stroke-width="1.4"/>
+<line x1="302.0" y1="222.0" x2="309.3" y2="323.0" stroke="#b45309" stroke-width="1.8"/>
+<polygon points="310.0,332.0 304.4,323.4 314.3,322.7" fill="#b45309"/>
+<text x="330.0" y="304.0" font-size="18" font-weight="700" fill="#b45309" text-anchor="start" dominant-baseline="auto">3 · a third kind of alignment</text>
+<rect x="328.0" y="313.0" width="314.0" height="44.0" rx="4" fill="#ffffff" stroke="#b45309" stroke-width="1.0"/>
+<text x="340.0" y="328.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">the decoder attends over the</text>
+<text x="340.0" y="347.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">encoder outputs: soft, non-monotonic</text>
+<rect x="654.0" y="313.0" width="314.0" height="44.0" rx="4" fill="#ffffff" stroke="#b45309" stroke-width="1.0"/>
+<text x="666.0" y="328.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">and the weights are not</text>
+<text x="666.0" y="347.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">the alignment</text>
+<text x="966.0" y="377.0" font-size="16" font-weight="600" fill="#b45309" text-anchor="end" dominant-baseline="auto">attention-based encoder–decoder  ·  the correction of the week</text>
 </g>
 </svg>
 ```

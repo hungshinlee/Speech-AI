@@ -65,7 +65,7 @@ format:
 :::
 
 ::: {.footer}
-W4 p5 the box · p20 $D_{\text{alg}}$ · p56 three alignments, three losses
+W4 p5 the box · p21 $D_{\text{alg}}$ · p61 three alignments, three losses
 :::
 
 ## The problem this week handles, in one picture
@@ -754,7 +754,7 @@ Shi et al. 2023 (143 languages; multilingual $\neq$ always better) · Huang et a
 
 | | a standard SSL encoder | what streaming needs | the bill (W4's accounting) |
 |:--|:--|:--|:--|
-| attention | bidirectional, whole utterance | a causal or chunked mask (W4's $C$, $m$, $H$) | retrain or fine-tune with the mask; a quality cost (W4 p21–p22) |
+| attention | bidirectional, whole utterance | a causal or chunked mask (W4's $C$, $m$, $H$) | retrain or fine-tune with the mask; a quality cost (W4 p22–p23) |
 | frame rate | $s\Delta = 20$ ms, fixed by the CNN | W4's Conformer ran at 40 ms | **twice the frames**: $T$ doubles, $T^2$ quadruples, KV cache doubles |
 | compute per frame | ~100M (BASE) to ~300M (LARGE) parameters every 20 ms | a term $D_{\text{comp}}$ did not have | measure it (W3 Demo 3's MPS number is one forward of one short utterance) |
 
@@ -767,7 +767,7 @@ Only BEST-RQ among today's papers evaluates a streaming variant — pre-trained 
 :::
 
 ::: {.footer}
-BEST-RQ §4 · W4 p13 ($s$), p20 ($D_{\text{alg}}$), p58 (KV cache) · W1 p36 budget
+BEST-RQ §4 · W4 p14 ($s$), p21 ($D_{\text{alg}}$), p63 (KV cache) · W1 p36 budget
 :::
 
 ## MC 10 — "Whisper is self-supervised too"
@@ -784,7 +784,7 @@ Two roads to a speech foundation model: **no transcripts and a built target** (t
 :::
 
 ::: {.footer}
-W4 p52 (Whisper cross-attention heads) · W7 compares the two roads
+W4 p57 (Whisper cross-attention heads) · W7 compares the two roads
 :::
 
 # Back to the three axes {.section-title}

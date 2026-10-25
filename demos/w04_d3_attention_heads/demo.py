@@ -14,13 +14,13 @@
   export     runs/rehearsal/rehearsal.json 的摘要 → slides/assets/w04/w04-metrics.json（鍵 demo3；量測數字進版控的出處）
   recompute  改了判準／後處理之後：從 runs/rehearsal/ 已存的權重重新分類、重算 DTW、重畫圖、重寫 rehearsal.json——不碰模型
 
-畫面上的鍵（順序照投影片 p52 講稿的【操作】）：
+畫面上的鍵（順序照投影片 p57 講稿的【操作】）：
   1  播那句音訊；終端機印參考文字、轉錄、字錯數（原樣與正規化後）
   2  目前這一層 12 個 head 的熱圖（U 個文字 token × 音訊範圍內的 frame），每格標 band／flat／stare／other 與 padding 比例
-  3  下一層（12 層循環）           0  全部 144 個 head 的縮圖，一格一個 head，邊框顏色 = 類別；標題是四類的數目（填 p52 的表）
+  3  下一層（12 層循環）           0  全部 144 個 head 的縮圖，一格一個 head，邊框顏色 = 類別；標題是四類的數目（填 p57 的表）
   4  把 OpenAI _ALIGNMENT_HEADS（= HF alignment_heads）的 10 個框出來（在 2／0 的畫面上）
   5  那 10 個 head 照 timing.py 的做法（標準化 → 中值濾波 → 平均 → DTW）得到的矩陣與路徑；字的時間戳印在終端機
-  a  在 5 的畫面上疊 W3 Demo 3 的 forced alignment（每個字第一到最後一個 CTC 尖峰的跨度，不是音段）——p53 座位表的前導
+  a  在 5 的畫面上疊 W3 Demo 3 的 forced alignment（每個字第一到最後一個 CTC 尖峰的跨度，不是音段）——p58 座位表的前導
   h  重印選單        q  離開
 
 數字的定義：U = 轉錄出來的文字 token 數（不含 <|startoftranscript|><|en|><|transcribe|><|notimestamps|> 前綴與 <|endoftext|>）；
@@ -218,7 +218,7 @@ def classify_head(w_text: np.ndarray, pad_mass: np.ndarray) -> dict:
             "pad_heavy": bool(med_pad >= c["pad_max"]), "distinct": distinct, "tstar": tstar.tolist()}
 
 
-# ── W3 Demo 3 的 forced alignment（每個字的尖峰跨度；不是座位表，座位表見 p53）──────
+# ── W3 Demo 3 的 forced alignment（每個字的尖峰跨度；不是座位表，座位表見 p58）──────
 def load_alignment(path: Path) -> list[dict] | None:
     if not path.exists():
         return None
@@ -725,16 +725,16 @@ class Demo:
             self.ax_dtw.axvspan(a["start"], a["end"], color="white", alpha=0.08, lw=0)
         ax.text(0.0, 1.05, "W3 Demo 3 CTC forced alignment: first → last spike of each word (a span, not a segment: blanks sit inside)", fontsize=8.5, color="0.4",
                 transform=ax.transAxes, va="bottom")
-        self.foot.set_text("grey bars: CTC spike spans, not word segments (p53 shows the blanks inside) — below: the weights (soft, a different object)")
+        self.foot.set_text("grey bars: CTC spike spans, not word segments (p58 shows the blanks inside) — below: the weights (soft, a different object)")
         if redraw:
             self.fig.canvas.draw_idle()
-        self.out("  疊上 W3 的 forced alignment：灰條是每個字第一到最後一個 CTC 尖峰的跨度（中間夾著 blank，不是音段；p53 拆開看），底下是權重——兩個不同的物件。")
+        self.out("  疊上 W3 的 forced alignment：灰條是每個字第一到最後一個 CTC 尖峰的跨度（中間夾著 blank，不是音段；p58 拆開看），底下是權重——兩個不同的物件。")
 
     # -- 選單、鍵、流程 --
     def menu(self) -> None:
         o = self.out
-        o(f"\n{C.BOLD}p52{C.RESET}  1 播音＋轉錄   2 這一層的 12 個 head   3 下一層   0 全部 144 個   4 框出 OpenAI 的 alignment heads   5 DTW 與時間戳")
-        o(f"{C.BOLD}p53{C.RESET}  a 疊 W3 的尖峰跨度      h 選單   q 離開")
+        o(f"\n{C.BOLD}p57{C.RESET}  1 播音＋轉錄   2 這一層的 12 個 head   3 下一層   0 全部 144 個   4 框出 OpenAI 的 alignment heads   5 DTW 與時間戳")
+        o(f"{C.BOLD}p58{C.RESET}  a 疊 W3 的尖峰跨度      h 選單   q 離開")
 
     def dispatch(self, k: str) -> bool:
         if k == "1":
@@ -1154,7 +1154,7 @@ def main() -> None:
         d.run_all(folder)
         d.save(folder)
         print("\n下一步：./present.sh 自己按一遍 1 2 3 0 4 5 a；把 rehearsal.json → sections.classes.counts 與 alignment_heads_band、"
-              "sections.transcript 的字錯數填進 p52 的表；./present.sh export 寫進 w04-metrics.json。")
+              "sections.transcript 的字錯數填進 p57 的表；./present.sh export 寫進 w04-metrics.json。")
         return
 
     out.banner("W4 Demo 3：attention heads" + (f"   [{d.tag}]" if d.tag else ""))

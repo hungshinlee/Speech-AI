@@ -1,16 +1,16 @@
 <!-- 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。 -->
-# W4 · Demo 1 — the RNN-T lattice: paths by brute force vs. forward, and `max_symbols_per_step` (slides p33–p34, p36, p38, p39)
+# W4 · Demo 1 — the RNN-T lattice: paths by brute force vs. forward, and `max_symbols_per_step` (slides p36–p37, p39, p41, p42)
 
 Standard library only, CPU, terminal only — no window, no audio. The W3 demo again, one week later: $P(\ell \mid \mathbf{X})$ for a transducer is still one number that can be reached either by summing every path or by a recursion on a lattice, and the two agree. What changed is the lattice — a $T \times (U + 1)$ grid where **moving up costs no frame** — so $T = 1$ already has a path, repeated labels need no blank between them, and CTC's floor $T \geq U + r$ is gone. The third part separates two things students merge: the training sum has no per-frame cap on symbols; the decoder's `max_symbols_per_step` is an engineering limit.
 
 | Part | Keys | What it does | Slide |
 |---|---|---|---|
-| 1 | `1` `2` `3` `0` | every RNN-T path for "ab" at $T = 2$ (3 paths), "aa" at $T = 1$ (1 path; CTC has none), "ab" at $T = 3$ (6; CTC 5), "aa" at $T = 2$ (3; CTC 0). Each path as its action string (E = emit, go up; R = blank, go right), the nodes $(t, u)$ it visits, and what each step means; several emits on one frame are highlighted. Counts are checked against $\binom{T+U-1}{U}$ and the CTC count is printed beside each (read from `w03-data.json` where available, enumerated otherwise) | p34 |
-| 2 | `4` | a random $\mathbf{y}^{t,u}$ — one softmax over $\{a, b, \varnothing\}$ per node — for "ab", $T = 2$: the six nodes' probabilities, the four factors of each of the 3 paths, their products, and the sum | p38 |
-| 2 | `5` | the same $\mathbf{y}^{t,u}$ through the forward recursion, **revealed one cell at a time** (any key for the next, `a` for all, `q` to stop); each cell shows which two $\alpha$'s times which numbers it adds and marks the missing term (`[t=1: nothing to the left]`, `[u=0: nothing below]`); then $\alpha(T,U)\,\varnothing(T,U)$ against the brute-force sum; then the backward table and the four anti-diagonals of $\sum \alpha\beta$ | p38, p39 |
+| 1 | `1` `2` `3` `0` | every RNN-T path for "ab" at $T = 2$ (3 paths), "aa" at $T = 1$ (1 path; CTC has none), "ab" at $T = 3$ (6; CTC 5), "aa" at $T = 2$ (3; CTC 0). Each path as its action string (E = emit, go up; R = blank, go right), the nodes $(t, u)$ it visits, and what each step means; several emits on one frame are highlighted. Counts are checked against $\binom{T+U-1}{U}$ and the CTC count is printed beside each (read from `w03-data.json` where available, enumerated otherwise) | p37 |
+| 2 | `4` | a random $\mathbf{y}^{t,u}$ — one softmax over $\{a, b, \varnothing\}$ per node — for "ab", $T = 2$: the six nodes' probabilities, the four factors of each of the 3 paths, their products, and the sum | p41 |
+| 2 | `5` | the same $\mathbf{y}^{t,u}$ through the forward recursion, **revealed one cell at a time** (any key for the next, `a` for all, `q` to stop); each cell shows which two $\alpha$'s times which numbers it adds and marks the missing term (`[t=1: nothing to the left]`, `[u=0: nothing below]`); then $\alpha(T,U)\,\varnothing(T,U)$ against the brute-force sum; then the backward table and the four anti-diagonals of $\sum \alpha\beta$ | p41, p42 |
 | 2 | `r` | a new random $\mathbf{y}^{t,u}$ (seed from the clock), then `4` `5` again | |
-| 3 | `6` | greedy decoding on a **synthetic** joint network with `max_symbols_per_step = 5`: frame 3 has a badly calibrated $\varnothing$; the decoder emits five symbols there and is forced to a blank. The last line connects the cap back to part 2: the share of $P$ carried by paths that emit more than once on a frame — all of them are in the training sum | p36 |
-| 3 | `u` | the same joint with the cap removed: on frame 3, $\varnothing$ never wins and the decoder alternates a / b until the program's safety limit (40) | p36 |
+| 3 | `6` | greedy decoding on a **synthetic** joint network with `max_symbols_per_step = 5`: frame 3 has a badly calibrated $\varnothing$; the decoder emits five symbols there and is forced to a blank. The last line connects the cap back to part 2: the share of $P$ carried by paths that emit more than once on a frame — all of them are in the training sum | p39 |
+| 3 | `u` | the same joint with the cap removed: on frame 3, $\varnothing$ never wins and the decoder alternates a / b until the program's safety limit (40) | p39 |
 
 ## Definitions
 

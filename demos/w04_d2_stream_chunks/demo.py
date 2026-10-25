@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
-"""W4 demo 2：同一段音訊、三種 chunk——字何時出現（投影片 p48）。
+"""W4 demo 2：同一段音訊、三種 chunk——字何時出現（投影片 p52）。
 
   show       課堂：載入 sherpa-onnx 的 streaming zipformer transducer，開一個空的時間軸視窗；鍵在視窗裡按（下面的鍵）。離開時存 runs/live/<時間>/
   rehearse   課前：不互動，三種餵法各跑一次（不播音），存 runs/rehearsal/（進版控 = 現場的退路）
@@ -12,10 +12,10 @@
   export     把 runs/rehearsal/rehearsal.json 的摘要寫進 slides/assets/w04/w04-metrics.json（鍵 demo2；量測數字進版控的出處）
   recompute  從 runs/rehearsal/rehearsal.json（與 runs/check.json）已存的符號事件重新併字、比對、統計、重畫圖——改了程式的後處理時用，不碰模型、不改時鐘
 
-畫面上的鍵（順序照投影片 p48 講稿的【操作】）：
+畫面上的鍵（順序照投影片 p52 講稿的【操作】）：
   1  餵 1280 ms 一塊      2  餵 640 ms 一塊      3  餵 320 ms 一塊（= 模型匯出時的 chunk）
      每一種：以即時步調餵那一句（同時用 afplay 播），每個符號出現時印三個時鐘，跑完畫那一列、印每個字的差與中位數
-  a  三列的摘要表（填 p48 的表格）＋ 第四格：中位數差對 feed chunk 的折線，疊上算出來的 D_alg
+  a  三列的摘要表（填 p52 的表格）＋ 第四格：中位數差對 feed chunk 的折線，疊上算出來的 D_alg
   p  只播那句音訊          m  靜音／取消靜音       h  重印選單        q  離開
 
 三個時鐘（每個符號各記一次）：
@@ -127,7 +127,7 @@ def match_words(ref: list[dict], hyp: list[dict]) -> list[dict]:
 
 
 def d_alg_ms(feed_ms: float, pad_frames: int, input_frame_ms: float, chunk_frames_: int | None = None) -> dict:
-    """投影片 p19／p20 的 D_alg = (m + αC) sΔ，在 100 Hz 輸入幀上算（s = 1，Δ = input_frame_ms）。
+    """投影片 p20／p21 的 D_alg = (m + αC) sΔ，在 100 Hz 輸入幀上算（s = 1，Δ = input_frame_ms）。
     一個 frame 的符號要等：(a) 它所在的模型 chunk（c = decode_chunk_len × Δ）湊滿——平均 c/2；(b) 再多 13 幀 pad——
     但資料是一塊 F 一塊 F 來的，chunk 結尾之後那一點點 pad 要等到下一塊餵入才到，等的是「下一個 F 邊界」：
     chunk 結尾落在 F 的 k = F/c 個格位上各一次，平均 (F + c)/2。合計 mean = c + F/2、worst = c + F、best = c（pad < c、F 是 c 的整數倍時）。
@@ -494,7 +494,7 @@ class Demo:
         self.log["runs"][key] = {"setting": st, "events": events, "words": rows, "summary": summ}
 
     def summary_table(self) -> None:
-        self.out.banner("p48 的表格（三列）" + ("  [FAKE]" if self.fake else ""), C.AMBER if self.fake else C.BLUE)
+        self.out.banner("p52 的表格（三列）" + ("  [FAKE]" if self.fake else ""), C.AMBER if self.fake else C.BLUE)
         self.out(f"{'feed chunk':>24} │ {'D_alg mean':>10} │ {'emit−end med':>12} {'fed−end med':>11} {'wall−end med':>12} │ worst word (wall)")
         for st in self.settings:
             r = self.log["runs"].get(st["key"])
@@ -773,7 +773,7 @@ def recompute() -> None:
         out(f"computed D_alg: c = {da['c_ms']:.0f}, pad = {da['m_ms']:.0f}, F = {da['C_ms']:.0f} → mean c + F/2 = {da['mean_ms']:.0f} ms, worst c + F = {da['worst_ms']:.0f} ms (naive pad + F/2 = {da['naive_mean_ms']:.0f})")
         out(f"measured  fed − emit: median {summ.get('median_fed_minus_frame_ms', float('nan')):+.0f} ms · wall − fed: median {summ.get('median_wall_minus_fed_ms', float('nan')):+.0f} ms")
     # 摘要表（同 Demo.summary_table，但不靠 Demo 物件）
-    out.banner("p48 的表格（三列）")
+    out.banner("p52 的表格（三列）")
     out(f"{'feed chunk':>24} │ {'D_alg mean':>10} │ {'emit−end med':>12} {'fed−end med':>11} {'wall−end med':>12} │ worst word (wall)")
     for st in settings:
         s_ = log["runs"][st["key"]]["summary"]
@@ -912,7 +912,7 @@ def main() -> None:
         d = Demo(out, be, al, x, tag="rehearsal", mute=True)
         d.run_all()
         save(d, rehearsal)
-        print("\n下一步：./present.sh export（寫 slides/assets/w04/w04-metrics.json）；把三列的中位數、最差字與日期填進 p48 的表格與【提示】。")
+        print("\n下一步：./present.sh export（寫 slides/assets/w04/w04-metrics.json）；把三列的中位數、最差字與日期填進 p52 的表格與【提示】。")
         return
 
     d = Demo(out, be, al, x, mute=args.mute)
