@@ -1,4 +1,5 @@
 ---
+# 此檔由 bin/publish_slides.py 從投影片正本產生（中文講稿區塊已剝除），請勿直接編輯。正本在 private repo 的 <course>/slides/。
 title: "The Alignment Problem: From HMM to CTC"
 subtitle: "Speech Processing & Human–Machine Interaction · Week 3"
 author: "Hung-Shin Lee"
@@ -47,8 +48,6 @@ format:
           })();
           </script>
 ---
-
-<!-- 此檔由 bin/publish_slides.py 從投影片正本產生（中文講稿區塊已剝除），請勿直接編輯。正本在 private repo 的 <course>/slides/。 -->
 
 # The gap between frames and symbols: who says which belongs to which? {.section-title}
 

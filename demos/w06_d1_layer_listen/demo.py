@@ -835,7 +835,7 @@ def export(rec_path: Path) -> None:
              "definitions": {"bitrate_bps": "f_r · n_q · log2 V with f_r and V read from the loaded config; frame_rate_measured = T / seconds",
                              "lsd_db": "log-spectral distance, 25 ms / 10 ms / 1024-point, dB", "snr_db": "waveform SNR (phase-sensitive; near 0 dB is normal for GAN-trained codecs)",
                              "f0_rmse_hz": "RMSE of autocorrelation F0 on frames voiced in both original and reconstruction", "voicing_agree": "fraction of frames with the same voiced/unvoiced decision",
-                             "what_we_heard": "filled by hand after rehearsal (see w06.qmd p33/p35)"},
+                             "what_we_heard": "filled by hand after rehearsal (see w06.qmd p33/p34)"},
              "recon": {}}
     for key, v in rec["recon"].items():
         demo1["recon"][key] = {}
