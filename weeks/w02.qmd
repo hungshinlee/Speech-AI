@@ -37,13 +37,15 @@ Tested on one machine only — an Apple M5 Max (64 GB, no CUDA), macOS 26.6, Pyt
 - **JM3** Ch 15 *Phonetics and Speech Feature Extraction* — the reference for both halves of the week, phonetics and feature extraction
 - **HAH** Ch 2 (Spoken Language Structure), Ch 5 (Digital Signal Processing), Ch 6 (Speech Signal Representations) — the full derivations of the cepstrum, LPC and the source–filter model are here
 - Allen & Rabiner, **A Unified Approach to Short-Time Fourier Analysis and Synthesis**, Proc. IEEE 65(11):1558–1564, 1977 — the analysis–synthesis framework behind the STFT: frames, overlap, and the way back to the signal
-- Griffin & Lim, **Signal Estimation from Modified Short-Time Fourier Transform**, IEEE TASSP, 1984
+- Griffin & Lim, **Signal Estimation from Modified Short-Time Fourier Transform**, IEEE TASSP 32(2):236–243, 1984 (DOI 10.1109/TASSP.1984.1164317)
 - Nawab, Quatieri & Lim, **Signal Reconstruction from Short-Time Fourier Transform Magnitude**, IEEE TASSP 31(4):986–998, 1983 — the conditions under which the STFT magnitude alone determines the signal
 - Davis & Mermelstein, **Comparison of Parametric Representations for Monosyllabic Word Recognition in Continuously Spoken Sentences**, IEEE TASSP 28(4):357–366, 1980 — the original MFCC paper
 - Stevens, Volkmann & Newman, **A Scale for the Measurement of the Psychological Magnitude Pitch**, JASA 8(3):185–190, 1937 — where the mel scale comes from. Read it to see that mel is the outcome of a small perceptual experiment, not a physical quantity
 - de Cheveigné & Kawahara, **YIN, a Fundamental Frequency Estimator for Speech and Music**, JASA 111(4):1917–1930, 2002
 - Mauch & Dixon, **pYIN: A Fundamental Frequency Estimator Using Probabilistic Threshold Distributions**, ICASSP 2014
 - Kim, Salamon, Li & Bello, **CREPE: A Convolutional Representation for Pitch Estimation**, ICASSP 2018
+- Fant, *Acoustic Theory of Speech Production*, Mouton, 1960 — the classic source of the source–filter model
+- Johnson, *Acoustic and Auditory Phonetics*, 3rd ed., Wiley-Blackwell, 2011 — an introduction to phonetics and hearing for readers with no background
 - F0 modelling in tone languages (further searching): *tone sandhi Taiwanese Southern Min acoustic*, *lexical tone discrete speech units*, *tonal language self-supervised speech representation tone*, *tone intonation interaction F0*
 - SI-SDR, definition and motivation: *SDR half-baked or well done* (used formally in W10)
 - LPC meets neural networks: *LPCNet linear prediction neural vocoder*

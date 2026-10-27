@@ -76,7 +76,7 @@
 | `scripts/build_weeks.py`、`scripts/visibility.py` | 過濾器：大綱哪些區塊公開（預設不公開、白名單制）、引用標記怎麼處理、哪些週次已開放、Demos 表的版面 |
 | `styles.scss`、`_present-mode.html`、`_quarto.yml` | 站台主題、展示模式、Quarto 設定 |
 | `.github/workflows/publish.yml` | CI：洩漏檢查加 `quarto render`，部署到 GitHub Pages |
-| `CLAUDE.md` | 維護筆記：建置流程、渲染陷阱、決策 |
+| `CLAUDE.md` | 在這個 repo 工作的須知：哪些是產物、哪些可以手改 |
 
 ## 刻意不放在這裡的東西
 

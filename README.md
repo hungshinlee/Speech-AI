@@ -76,7 +76,7 @@ Most of this repository is *generated*. Files marked ⚙︎ are overwritten on t
 | `scripts/build_weeks.py`, `scripts/visibility.py` | The filter: which sections of the outline are public (deny by default, whitelist), how citation markers are handled, which weeks are published, how the Demos tables are laid out |
 | `styles.scss`, `_present-mode.html`, `_quarto.yml` | Site theme, presentation mode, Quarto configuration |
 | `.github/workflows/publish.yml` | CI: a leak guard plus `quarto render`, deployed to GitHub Pages |
-| `CLAUDE.md` | Maintainer notes: build procedure, rendering pitfalls, decisions |
+| `CLAUDE.md` | Notes for working in this repo: what is generated and what may be edited by hand |
 
 ## What is deliberately not here
 
