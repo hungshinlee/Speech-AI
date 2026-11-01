@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 300" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
+<text x="20.0" y="30.0" font-size="16" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">W1 p36: everything after the user stops speaking (widths are positions, not measurements)</text>
+<rect x="60.0" y="46.0" width="180.0" height="44.0" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="150.0" y="68.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">endpoint</text>
+<rect x="244.0" y="46.0" width="150.0" height="44.0" rx="4" fill="#fff7ed" stroke="#b45309" stroke-width="1.4"/>
+<text x="319.0" y="68.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">ASR tail</text>
+<rect x="398.0" y="46.0" width="140.0" height="44.0" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="468.0" y="68.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">LLM prefill</text>
+<rect x="542.0" y="46.0" width="120.0" height="44.0" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="602.0" y="68.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">first token</text>
+<rect x="666.0" y="46.0" width="170.0" height="44.0" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="751.0" y="68.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">TTS first packet</text>
+<rect x="840.0" y="46.0" width="120.0" height="44.0" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="900.0" y="68.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">playout</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<line x1="244.0" y1="90.0" x2="20.0" y2="130.0" stroke="#b45309" stroke-width="1.2" stroke-dasharray="4 3"/>
+<line x1="394.0" y1="90.0" x2="980.0" y2="130.0" stroke="#b45309" stroke-width="1.2" stroke-dasharray="4 3"/>
+<rect x="20.0" y="130.0" width="960.0" height="112.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="36.0" y="150.0" font-size="17" font-weight="700" fill="#b45309" text-anchor="start" dominant-baseline="middle">this week's cell has three shapes, one per paradigm:</text>
+<text x="36.0" y="178.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">streaming RNN-T: emission delay + endpoint — 220 ms median (W4 Demo 2)</text>
+<text x="36.0" y="202.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">non-streaming AED: the whole decode — 68 ms p50, whisper.cpp small on this laptop (W1 Demo 2)</text>
+<text x="36.0" y="226.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">LLM-based: prefill + first token + one LLM pass per further token — three terms, all growing with the LLM</text>
+</g>
+<g class="fragment" data-fragment-index="2">
+<rect x="20.0" y="256.0" width="960.0" height="32.0" rx="5" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.0"/>
+<text x="500.0" y="272.0" font-size="16" font-weight="600" fill="#0b5cad" text-anchor="middle" dominant-baseline="middle">W11 removes this cell: an audio-native LM has no transcript to wait for — and W12 asks what it loses by not waiting</text>
+</g>
+</svg>

@@ -1,0 +1,113 @@
+# 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
+# W7 demo 2：Biasing——提詞卡的三種用法（p49 前導頁、p50 Demo 2；p44 三條路、p45 WFST、p47 prompt）。換內容只改這裡。
+#
+# 設計（2026-11-01；理由見 README）：
+#   兩段含專有名詞的音訊——一句 LibriSpeech dev-clean 的英文（名單是句子裡的人名）、一句授課者自錄的華語（名單是三四個
+#   人名／路名／產品名；錄音、參考文字、名單都放 ../_media/w07_d2/，不進版控、不上站）——走三條加名單的路：
+#   (a) 分數層：wav2vec2-base-960h 的 logits 過自寫的 CTC prefix beam search（ctc_prefix_beam.py），名單編成 trie，
+#       走在路上每個字元 +δ、岔開扣回（Zhao 2019 的 failure arc），δ 掃三個值；
+#   (c) prompt 層：Whisper small 的 prompt_ids 槽——空、名單、一句繁體寫的話（只看字體翻不翻）、一句完整的台詞（看它會不會被念出來）；
+#   (c') LLM-based ASR 的 context 槽：Qwen3-ASR（transformers 原生版）的 prompt 參數，同一份名單、同一句台詞。
+#   (b) deep biasing（CLAS）沒有現成模型，只在投影片上畫。
+
+[whisper]
+# 多語版 small（244 M），與 W4 Demo 3、W7 Demo 1 同一份權重、同一個 commit（fetch 讀 ../w07_d1_hallucination/model.lock）。
+repo = "openai/whisper-small"
+# 2026-11-01 Demo 1 實測：transformers 5.17.0 的 Whisper generate 在 MPS 上掛（EncoderDecoderCache.layers），所以放 CPU。
+device = "cpu"
+task = "transcribe"
+max_new_tokens = 160
+num_beams = 1            # 溫度 0 的 greedy；fallback 不開（Demo 1 講過那條階梯，這裡只看 prompt 的效果）
+language_en = "en"
+language_zh = "zh"
+
+[ctc]
+# W3 Demo 3 的模型（fetch 讀 ../w03_d3_blank_heatmap/model.lock）。只對英文那句；它是英文字元級模型，華語那句不過它。
+repo = "facebook/wav2vec2-base-960h"
+device = "auto"          # 有 MPS 就 MPS（Demo 1 的 check：MPS 與 CPU 的字串相同）
+beam = 32
+prune_logp = -12.0
+# hotword 的 δ（每個字元加在 log 分數上）三個值，由小到大。δ = 0 另外跑一次當「沒有名單的 beam」。
+# 量級：wav2vec2 的字元 log 機率在對的字上接近 0、錯的字上 -5 到 -15；δ = 1 大約抵一個「有點猶豫」的字元，δ = 6 能把整個名字硬改掉。
+# 2026-11-01 彩排：1／3／6 都只把 GLENARVIN 改成 GLENARVAN、沒動到別的詞（名字進來了、副作用沒看到），第三個值改成 24 看副作用。
+deltas = [1.0, 6.0, 24.0]
+
+[qwen]
+# Qwen3-ASR 的 transformers 原生版（model card：transformers ≥ 5.13.0；context 經 apply_transcription_request 的 prompt 參數，
+# 或 chat template 的 system message——同一個槽）。選 1.7B 不選 0.6B：這一格要看的是「LLM 的先驗認不認得名單上的名字」，先驗越大越看得出來；
+# bf16 3.4 GB，這台機器上記憶體不是問題。0.6B 想對照就把 repo 換掉再 fetch。
+repo = "Qwen/Qwen3-ASR-1.7B-hf"
+device = "auto"          # auto = 有 MPS 就 MPS，掛了退 CPU（check 會記下哪一條能跑）
+dtype = "bfloat16"       # MPS 上 bf16；CPU 退成 float32
+max_new_tokens = 256
+language_en = "English"
+language_zh = "Chinese"
+
+[english]
+# 課堂用的那一句：dev-clean 的 utterance id（wav 在 ../_media/w05_d1/wav/，W5 Demo 1 解出來的；沒有就由 fetch 從 ../_media/dev-clean.tar.gz 解）。
+# ./present.sh pick 把下面全部候選過一遍 Whisper 無 prompt 與 CTC greedy，印出哪些名字錯——挑一句兩個模型至少有一個名字錯的。
+utt = "2803-154320-0011"
+# 名單＝句子裡的專有名詞（Whisper 的 prompt 寫法在 prompt_list_fmt）。候選都在 W5 Demo 1 的子集裡；參考文字是 LibriSpeech 的（CC BY 4.0）。
+[[english.candidates]]
+utt = "2803-154320-0011"
+text = "THINK OF LADY GLENARVAN THINK OF MARY GRANT"
+names = ["Glenarvan", "Mary Grant"]
+[[english.candidates]]
+utt = "1462-170138-0012"
+text = "MAC CONNELL LET ME INTRODUCE MISTER BARTLEY ALEXANDER"
+names = ["Mac Connell", "Bartley Alexander"]
+[[english.candidates]]
+utt = "2035-147960-0013"
+text = "OTTO FUCHS WAS THE FIRST ONE WE MET"
+names = ["Otto Fuchs"]
+[[english.candidates]]
+utt = "3081-166546-0007"
+text = "DO THEY STILL INSIST THAT MISS CHALLONER WAS THE ONLY PERSON IN THE ROOM WITH THEM AT THIS TIME"
+names = ["Challoner"]
+[[english.candidates]]
+utt = "1462-170138-0008"
+text = "OF COURSE HILDA IS IRISH THE BURGOYNES HAVE BEEN STAGE PEOPLE FOR GENERATIONS AND SHE HAS THE IRISH VOICE"
+names = ["Hilda", "Burgoynes"]
+[[english.candidates]]
+utt = "2277-149874-0008"
+text = "THEN SHE WALKED AND SANG TO IT UNTIL HANSON DISTURBED IN HIS READING CAME AND TOOK IT"
+names = ["Hanson"]
+[[english.candidates]]
+utt = "174-168635-0011"
+text = "MOREOVER JEAN VALJEAN HAD CHOSEN HIS REFUGE WELL"
+names = ["Jean Valjean"]
+
+[prompts]
+# Whisper 的 prompt 是「上一個視窗的轉錄」（p17 的槽）：名單寫成一串名字就好，不要寫成指令。{names} 會換成名單（英文用 ", "、華語用 "、" 接）。
+list_fmt_en = "{names}."
+list_fmt_zh = "{names}。"
+# 英文的「台詞」prompt：一句完整的話，看它會不會出現在轉錄裡（提詞卡被念出來）。與句子內容無關是故意的。
+dialogue_en = "Thanks for watching, and don't forget to subscribe to the channel."
+# 華語：只看字體翻不翻的那一句（繁體、沒有名字、沒有指令）
+traditional_zh = "以下是在臺北開的一場會議，用繁體中文記錄。"
+# 華語的台詞 prompt（繁體）
+dialogue_zh = "好，那我們今天的會議就先到這裡，謝謝大家，下次見。"
+# Qwen3-ASR 的 context 槽：model card 的寫法是 "Vocabulary: …"；名單照它、台詞照原句
+qwen_list_fmt = "Vocabulary: {names}."
+
+[mandarin]
+# 授課者自錄：./present.sh record 錄 seconds 秒 → ../_media/w07_d2/mandarin.wav，接著在終端機輸入參考文字與名單
+# → mandarin.txt、names.txt（一行一個名字，繁體）。三個檔都不進版控、不上站；rehearse 的華語結果也只存在 ../_media/w07_d2/。
+dir = "../_media/w07_d2"
+seconds = 8.0
+
+[audio]
+fs = 16000
+dev_clean_tar = "../_media/dev-clean.tar.gz"
+w05_wav_dir = "../_media/w05_d1/wav"
+w3_wav = "../w03_d3_blank_heatmap/runs/rehearsal/utterance.wav"
+# 鍵 0：近乎靜音的合成音訊（極低白噪音），配台詞 prompt 看兩個模型會不會把卡念出來。RMS 0.002 ≈ 2026-11-01 誤錄到的室內底噪（16-bit 下 RMS 69）
+quiet_s = 8.0
+quiet_rms = 0.002
+quiet_seed = 20261102
+
+[display]
+digits = 3
+# 「prompt 洩漏」的判定：英文＝prompt 裡連續 n 個詞出現在轉錄裡；華語＝連續 n 個字
+leak_ngram_en = 3
+leak_ngram_zh = 4

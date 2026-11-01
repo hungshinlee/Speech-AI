@@ -1,0 +1,136 @@
+
+────────────────────────────────────────────────────────────────────────
+外部 LM：LibriSpeech 官方 3-gram（pruned 1e-7，openslr 11），自己讀 ARPA、自己 backoff
+────────────────────────────────────────────────────────────────────────
+  1-gram 200,003、2-gram 2,451,827、3-gram 1,134,656；<unk> 有，OOV 另加 -5 + -3×字元數（ln）；載入 0.0 s（快取）
+  ln P =  -30.94   THE CAT SAT ON THE MAT
+  ln P =  -61.14   MAT THE ON SAT CAT THE   （同樣的詞倒過來）
+  ln P =  -65.92   THINK OF LADY GLENARVAN THINK OF MARY GRANT   （Demo 2 那句）
+  ln P =  -85.48   THINK OF LADY GLENARVIN THINK OF MARY GRANT   （Demo 2 的錯字）
+  測試集參考句的 perplexity 239.9（每詞）
+
+────────────────────────────────────────────────────────────────────────
+p32 的數字例子：T = 2，兩格的機率 → 九條路徑 → 按標籤合併 → greedy 對 prefix beam
+────────────────────────────────────────────────────────────────────────
+  y¹ = {'a': 0.35, 'b': 0.4, '∅': 0.25}    y² = {'a': 0.35, 'b': 0.25, '∅': 0.4}
+  九條路徑（path → 標籤，機率）：
+    ∅∅   → ""   0.1000
+    ∅a   → a    0.0875
+    ∅b   → b    0.0625
+    a∅   → a    0.1400
+    aa   → a    0.1225
+    ab   → ab   0.0875
+    b∅   → b    0.1600
+    ba   → ba   0.1400
+    bb   → b    0.1000
+  按標籤合併：a 0.3500、b 0.3225、ba 0.1400、"" 0.1000、ab 0.0875
+  單條最高的路徑 b∅（0.16）→ greedy 給 [31m'b'[0m
+  prefix beam search（合併之後再搜）給 [31m'a'[0m：a 0.3500、b 0.3225、ba 0.1400、"" 0.1000、ab 0.0875、bb 0.0000、aa 0.0000
+  與 w07-data.json 逐位相同：是
+
+────────────────────────────────────────────────────────────────────────
+測試集 30 句（dev-clean，每位說話人一句）：greedy（無 LM）與 prefix beam λ = 0
+────────────────────────────────────────────────────────────────────────
+  共 199 s 語音、9927 frame、563 個參考詞
+  greedy            WER [31m2.66%[0m（15 錯：S 13／D 1／I 1）
+  prefix beam λ=0   WER [31m2.66%[0m（15 錯：S 13／D 1／I 1；beam 32，0.9 s）
+  兩者輸出相同的句子 30/30——沒有 LM 時，合併 prefix 只在機率很接近的地方改變答案
+
+────────────────────────────────────────────────────────────────────────
+λ 掃描：score = ln P_ctc + λ·ln P_LM + η·詞數；beam 32、η = 0（rehearse 調的）固定，λ ∈ [0.0, 0.1, 0.2, 0.3, 0.5, 0.7, 1.0, 1.5, 2.0, 3.0, 4.0]
+────────────────────────────────────────────────────────────────────────
+  λ = 0    WER   2.66%   S  13  D   1  I   1   (0.8 s)
+  λ = 0.1  WER   1.95%   S   9  D   1  I   1   (0.8 s)
+  λ = 0.2  WER   1.60%   S   8  D   1  I   0   (0.8 s)
+  λ = 0.3  WER   1.60%   S   8  D   1  I   0   (0.8 s)
+  λ = 0.5  WER   1.78%   S   9  D   1  I   0   (0.8 s)
+  λ = 0.7  WER   1.95%   S   9  D   1  I   1   (0.8 s)
+  λ = 1    WER   1.78%   S   8  D   1  I   1   (0.8 s)
+  λ = 1.5  WER   2.31%   S   9  D   3  I   1   (0.9 s)
+  λ = 2    WER   2.84%   S  11  D   4  I   1   (0.8 s)
+  λ = 3    WER  11.01%   S  32  D  29  I   1   (0.8 s)
+  λ = 4    WER  51.69%   S  71  D 219  I   1   (0.7 s)
+
+  最佳 λ = [1m0.2[0m，WER [31m1.60%[0m；λ = 0 是 2.66%，λ = 4 是 51.69%；greedy 2.66%；整個掃描 9 s
+  形狀：U 形（左邊下降、右邊回升）
+
+────────────────────────────────────────────────────────────────────────
+一句看字：6313-66125-0007（說話人 6313，4.9 s）——λ = 0／最佳 0.2／過大 2；第 1/30 句（n 換下一句）
+────────────────────────────────────────────────────────────────────────
+  參考：I AM THE ONE TO GO AFTER WALT IF ANYONE HAS TO I'LL GO DOWN MISTER THOMAS
+  greedy：I AM THE ONE TO GO AFTER WALT IF [31m+ANY[0m [31mONE[0m[90m[ANYONE][0m HAS [31mTOP[0m[90m[TO][0m I'LL GO DOWN MISTER THOMAS
+
+  [1mλ = 0         [0m I AM THE ONE TO GO AFTER WALT IF [31m+ANY[0m [31mONE[0m[90m[ANYONE][0m HAS [31mTOP[0m[90m[TO][0m I'LL GO DOWN MISTER THOMAS
+    錯 3；ln P_ctc -1.760；ln P_LM -110.351 → λ·ln P_LM -0.000；18 詞 → η·詞數 0.000
+
+  [1m最佳 λ = 0.2    [0m I AM THE ONE TO GO AFTER WALT IF ANYONE HAS [31mTOP[0m[90m[TO][0m I'LL GO DOWN MISTER THOMAS
+    錯 1；ln P_ctc -2.237；ln P_LM -107.387 → λ·ln P_LM -21.477；17 詞 → η·詞數 0.000
+
+  [1m過大 λ = 2      [0m I AM THE ONE TO GO AFTER WALT IF [31m+ANY[0m [31mONE[0m[90m[ANYONE][0m HAS TO I'LL GO DOWN MISTER THOMAS
+    錯 2；ln P_ctc -5.838；ln P_LM -102.238 → λ·ln P_LM -204.477；18 詞 → η·詞數 0.000
+  [90mLM 的看法（ln P，三元含 backoff；過大 λ 的版本對參考）：[0m
+    …WALT IF → [31mANY[0m -4.51   （插入）
+    …IF ANY → [31mONE[0m -1.35   參考 ANYONE -11.63
+
+────────────────────────────────────────────────────────────────────────
+一句看字：5536-43358-0003（說話人 5536，6.0 s）——λ = 0／最佳 0.2／過大 2；第 2/30 句（n 換下一句）
+────────────────────────────────────────────────────────────────────────
+  參考：NONE MIGHT EXHORT OR CONFESS OR IN ANY WAY MEDDLE WITH THE RELIGIOUS EXPERIENCE OF ANOTHER
+  greedy：NONE MIGHT EXHORT OR CONFESS OR IN ANY WAY [31mMEDLE[0m[90m[MEDDLE][0m WITH THE RELIGIOUS EXPERIENCE OF ANOTHER
+
+  [1mλ = 0         [0m NONE MIGHT EXHORT OR CONFESS OR IN ANY WAY [31mMEDLE[0m[90m[MEDDLE][0m WITH THE RELIGIOUS EXPERIENCE OF ANOTHER
+    錯 1；ln P_ctc -1.549；ln P_LM -121.910 → λ·ln P_LM -0.000；16 詞 → η·詞數 0.000；1 個詞不在 LM 字典裡（當 <unk>）
+
+  [1m最佳 λ = 0.2    [0m NONE MIGHT EXHORT OR CONFESS OR IN ANY WAY MEDDLE WITH THE RELIGIOUS EXPERIENCE OF ANOTHER
+    錯 0；ln P_ctc -2.626；ln P_LM -104.681 → λ·ln P_LM -20.936；16 詞 → η·詞數 0.000
+
+  [1m過大 λ = 2      [0m NONE MIGHT [31mEXERT[0m[90m[EXHORT][0m OR CONFESS OR IN ANY WAY [31mMEAL[0m[90m[MEDDLE][0m WITH THE RELIGIOUS EXPERIENCE OF ANOTHER
+    錯 2；ln P_ctc -17.147；ln P_LM -99.802 → λ·ln P_LM -199.603；16 詞 → η·詞數 0.000
+  [90mLM 的看法（ln P，三元含 backoff；過大 λ 的版本對參考）：[0m
+    …NONE MIGHT → [31mEXERT[0m -8.73   參考 EXHORT -14.88
+    …ANY WAY → [31mMEAL[0m -11.10   參考 MEDDLE -13.12
+
+────────────────────────────────────────────────────────────────────────
+一句看字：6295-244435-0001（說話人 6295，7.9 s）——λ = 0／最佳 0.2／過大 2；第 3/30 句（n 換下一句）
+────────────────────────────────────────────────────────────────────────
+  參考：COLONEL LEONIDAS TALBOT REGARDED THE WHITE FLAG WITH FEELINGS IN WHICH TRIUMPH AND SADNESS WERE MINGLED STRANGELY
+  greedy：COLONEL [31mLEONITAS[0m[90m[LEONIDAS][0m TALBOT REGARDED THE WHITE FLAG WITH FEELINGS IN WHICH TRIUMPH AND SADNESS WERE MINGLED STRANGELY
+
+  [1mλ = 0         [0m COLONEL [31mLEONITAS[0m[90m[LEONIDAS][0m TALBOT REGARDED THE WHITE FLAG WITH FEELINGS IN WHICH TRIUMPH AND SADNESS WERE MINGLED STRANGELY
+    錯 1；ln P_ctc -1.315；ln P_LM -156.452 → λ·ln P_LM -0.000；17 詞 → η·詞數 0.000；1 個詞不在 LM 字典裡（當 <unk>）
+
+  [1m最佳 λ = 0.2    [0m COLONEL LEONIDAS TALBOT REGARDED THE WHITE FLAG WITH FEELINGS IN WHICH TRIUMPH AND SADNESS WERE MINGLED STRANGELY
+    錯 0；ln P_ctc -1.509；ln P_LM -119.011 → λ·ln P_LM -23.802；17 詞 → η·詞數 0.000
+
+  [1m過大 λ = 2      [0m COLONEL LEONIDAS TALBOT REGARDED THE WHITE FLAG WITH FEELINGS [90m[-IN][0m WHICH TRIUMPH AND SADNESS WERE MINGLED STRANGELY
+    錯 1；ln P_ctc -9.465；ln P_LM -112.253 → λ·ln P_LM -224.506；16 詞 → η·詞數 0.000
+
+────────────────────────────────────────────────────────────────────────
+η（每個詞的插入獎勵）：調參集 10 句、λ = 0.5 固定
+────────────────────────────────────────────────────────────────────────
+  η = 0    WER   1.57%   S   3  D   0  I   0 ←
+  η = 0.5  WER   1.57%   S   3  D   0  I   0
+  η = 1    WER   1.57%   S   3  D   0  I   0
+  η = 1.5  WER   1.57%   S   3  D   0  I   0
+  η = 2    WER   1.57%   S   3  D   0  I   0
+  η = 3    WER   3.14%   S   4  D   0  I   2
+  η = 4    WER   4.19%   S   5  D   0  I   3
+  η = 6    WER   6.81%   S   7  D   0  I   6
+  取 η = 0；它只在 rehearse 時調一次，課堂上固定——一次只變一個量
+
+────────────────────────────────────────────────────────────────────────
+投影片 p41 的表
+────────────────────────────────────────────────────────────────────────
+  greedy, no LM                 2.66%
+  prefix beam, λ = 0            2.66%
+  prefix beam, best λ = 0.2      1.60%   (η = 0, beam 32, 30 sentences)
+  prefix beam, large λ = 2     2.84%   (S 11, D 4, I 1)
+  prefix beam, λ = 4           51.69%   (S 71, D 219, I 1)
+  p32's example in code         greedy → 'b'; prefix beam → 'a'；對 json 逐位相同
+  華語（數字；文字只有 public_text 的句子上投影片）：
+    zh:w1_ticket:mms         CER 15.4%  替換 2：同音 1／異音 1
+    zh:w1_ticket:whisper     CER 0.0%  替換 0：同音 0／異音 0
+    zh:w1_ticket:qwen        CER 0.0%  替換 0：同音 0／異音 0
+    zh:w7_d2:mms             CER 40.9%  替換 9：同音 7／異音 2
+    zh:w7_d2:whisper         CER 4.5%  替換 1：同音 1／異音 0
+    zh:w7_d2:qwen            CER 9.1%  替換 2：同音 2／異音 0

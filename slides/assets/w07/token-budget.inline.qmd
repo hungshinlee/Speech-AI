@@ -1,0 +1,51 @@
+<!-- 由 scripts/make_figs_w07.py 產生，勿手改；投影片用 {{< include assets/w07/token-budget.inline.qmd >}} 貼入 -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 396" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<text x="984.0" y="22.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">arithmetic from the papers' settings (w07-data.json → token_budget) — not measured</text>
+<g class="fragment" data-fragment-index="0">
+<text x="350.0" y="63.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="end" dominant-baseline="middle">waveform, 16 kHz</text>
+<rect x="360.0" y="52.0" width="508.3" height="22.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="878.3" y="63.0" font-size="16" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="middle">16,000 / s</text>
+</g>
+<g class="fragment" data-fragment-index="0">
+<text x="350.0" y="99.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="end" dominant-baseline="middle">log-mel, 10 ms hop</text>
+<rect x="360.0" y="88.0" width="241.8" height="22.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="611.8" y="99.0" font-size="16" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="middle">100 / s</text>
+</g>
+<g class="fragment" data-fragment-index="0">
+<text x="350.0" y="135.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="end" dominant-baseline="middle">encoder output (W4, W5)</text>
+<rect x="360.0" y="124.0" width="205.4" height="22.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="575.4" y="135.0" font-size="16" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="middle">50 / s</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<text x="350.0" y="171.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="end" dominant-baseline="middle">SLAM-ASR: stack 5 frames</text>
+<rect x="360.0" y="160.0" width="120.9" height="22.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="490.9" y="171.0" font-size="16" font-weight="700" fill="#b45309" text-anchor="start" dominant-baseline="middle">10 / s  (50 / 5)</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<text x="350.0" y="207.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="end" dominant-baseline="middle">Qwen2-Audio: stride-2 pool</text>
+<rect x="360.0" y="196.0" width="169.0" height="22.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="539.0" y="207.0" font-size="16" font-weight="700" fill="#b45309" text-anchor="start" dominant-baseline="middle">25 / s  (≈ 40 ms a frame)</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<text x="350.0" y="243.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="end" dominant-baseline="middle">Qwen3-ASR: AuT, 8× on fbank</text>
+<rect x="360.0" y="232.0" width="132.6" height="22.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="502.6" y="243.0" font-size="16" font-weight="700" fill="#b45309" text-anchor="start" dominant-baseline="middle">12.5 / s  (100 / 8)</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<text x="350.0" y="279.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="end" dominant-baseline="middle">SALMONN: Q-Former, 88 per 30 s</text>
+<rect x="360.0" y="268.0" width="56.4" height="22.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="426.4" y="279.0" font-size="16" font-weight="700" fill="#b45309" text-anchor="start" dominant-baseline="middle">2.93 / s  (88 / 30)</text>
+</g>
+<g class="fragment" data-fragment-index="2">
+<text x="350.0" y="315.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="end" dominant-baseline="middle">English text, 2–3 words/s, 1–2 BPE per word</text>
+<rect x="396.4" y="304.0" width="57.7" height="22.0" rx="3" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="464.1" y="315.0" font-size="16" font-weight="700" fill="#15803d" text-anchor="start" dominant-baseline="middle">2–6 tokens</text>
+</g>
+<g class="fragment" data-fragment-index="2">
+<rect x="20.0" y="340.0" width="960.0" height="48.0" rx="5" fill="#fee2e2" stroke="#dc2626" stroke-width="1.0"/>
+<text x="500.0" y="354.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">after stacking, speech is still 2–4× longer than its own transcript —</text>
+<text x="500.0" y="376.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">and who decides the rate is now the LLM's context length and its decoding budget</text>
+</g>
+</svg>
+```

@@ -1,0 +1,110 @@
+# 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
+# W7 demo 3：解碼——先驗的位置與重量（p40 前導頁、p41 Demo 3；p32 prefix 合併的數字例子、p35 四個旋鈕、p39 不是越大越好）。換內容只改這裡。
+#
+# 設計（2026-11-01；理由見 README）：
+#   (1) λ 掃描：wav2vec2-base-960h（W3 Demo 3 的模型，幾乎沒有 internal LM）對 dev-clean 的一批句子取 log softmax，
+#       自寫的 CTC prefix beam search（../w07_d2_biasing/ctc_prefix_beam.py，Hannun 2014 Algorithm 1）接一個詞級 3-gram LM
+#       （LibriSpeech 官方的 pruned ARPA，arpa_lm.py 自己讀、自己 backoff，不裝 kenlm）：score = ln P_ctc + λ·ln P_LM + η·詞數。
+#       beam 與 η 固定、只掃 λ；畫 WER 對 λ。另印 greedy、beam λ=0，與 p32 那組數字例子的程式驗證。
+#   (2) 華語同音字：一句華語過 MMS-1B-all 的 CTC（cmn-script_simplified adapter、greedy、無 LM）、Whisper small、Qwen3-ASR，
+#       輸出對參考文字做字元對齊，替換的字用 pypinyin 判是不是同音。
+
+[ctc]
+# W3 Demo 3 的模型（commit 讀 ../w03_d3_blank_heatmap 或 ../w07_d2_biasing 的 model.lock）。英文字元級、大寫、詞界 "|"。
+repo = "facebook/wav2vec2-base-960h"
+device = "auto"          # 有 MPS 就 MPS（W7 d1 的 check：MPS 與 CPU 的字串相同）
+
+[lm]
+# LibriSpeech 官方的 3-gram，pruned 1e-7（openslr 11，約 34 MB .gz；1e-7 是三個 pruned 版本裡最大的）。
+# fetch 下載到 ../_media/w07_d3/，第一次讀完存成 .npz 快取（之後幾秒就載得起來）。換 3e-7（13 MB）或 4-gram 就改這裡再 fetch。
+url = "https://www.openslr.org/resources/11/3-gram.pruned.1e-7.arpa.gz"
+file = "../_media/w07_d3/3-gram.pruned.1e-7.arpa.gz"
+cache = "../_media/w07_d3/3-gram.pruned.1e-7.npz"
+# 字典裡沒有的詞一律當 <unk>（ARPA 有這個詞就用它的機率），再加 oov_ln_penalty + oov_ln_per_char × 字元數（自然對數）。
+# 2026-11-01 彩排：這份 ARPA 的 <UNK> 比多數真實詞的三元機率還高，不加罰 λ 一大 beam 就把空白吃掉、整句拼成一個 <unk>
+# （λ = 4 時 WER 87%、D 285）；只加固定的 -10 還是黏（第二輪 λ = 4 D 507）——27 個詞黏成一個省下 λ·140 的 LM 稅、只多繳 λ·10。
+# 所以罰要隨長度長：每字元 -3 ≈ ln(1/27)，等於給 OOV 一個均勻的拼字模型（pyctcdecode 的 unk_score_offset 只有固定那一筆）。
+oov_ln_penalty = -5.0
+oov_ln_per_char = -3.0
+# 第三輪彩排（有上面兩個罰）λ = 4 仍然整句黏成一個 <unk>：句尾算總分黏詞明明輸 1,700 ln，但搜尋途中半個詞不付 LM 的錢、
+# 付了錢（接了空白）的假設先被修剪掉，句尾 beam 裡沒有別的候選。所以修剪時半個詞先當 OOV 估分（接到詞界換成真值）；
+# pyctcdecode 的 partial-token score 是同一件事。關掉就回到第三輪的行為。
+score_partial_as_oov = true
+# LM 沒有 <unk> 時用這個 log10 地板值
+oov_floor_log10 = -7.0
+
+[decode]
+beam = 32
+prune_logp = -12.0       # 某格 log 機率低於它的字元不展開（省時間；與 Demo 2 相同）
+# λ 掃描的值（由小到大；0 = 純聲學）。最佳點通常落在 0.3–1 之間，右邊要掃到看得見回升。
+lambdas = [0.0, 0.1, 0.2, 0.3, 0.5, 0.7, 1.0, 1.5, 2.0, 3.0, 4.0]
+# η（每個詞的插入獎勵，加在 ln 分數上；抵銷 LM 偏好短句）："auto" = 用 rehearse 時在調參集上調出來、存在 runs/rehearsal/eta.json 的值；
+# 寫一個數字就固定用它。
+eta = "auto"
+# 調 η：在調參集（與測試集不重疊）上固定 λ = tune_lambda，掃 eta_grid，取 WER 最低的
+tune_lambda = 0.5
+# 2026-11-01 第一輪彩排（還沒有 OOV 罰）η 調到 3 是格子的邊界，格子延長到 6；第二輪（固定罰 -10）調到 0
+eta_grid = [0.0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 6.0]
+# 鍵 3 的「λ 過大」用掃描裡的哪一個值（寫掃描裡有的值）。2026-11-02 彩排：λ = 2 看得到 p36 的機制（MEDDLE → MEAL、EXHORT → EXERT），
+# λ = 4 已經是 p39 的空字串（整句刪光），所以鍵 3 用 2；表（t）兩個都印
+large_lambda = 2.0
+
+[sentences]
+# 測試集與調參集都從 W5 Demo 1 的子集（../w05_d1_layer_probe/data/subset.json，40 位說話人 × 10 句）挑：
+# 每位說話人一句（長度在 min_s–max_s 之間、最接近 target_s 的那句）→ 依 seed 洗牌 → 前 n_test 句是測試集、接著 n_tune 句是調參集。
+# 參考文字由 fetch 從 ../_media/dev-clean.tar.gz 的 *.trans.txt 讀出來 → data/sentences.json（進版控；LibriSpeech 文字是 CC BY 4.0）。
+n_test = 30
+n_tune = 10
+min_s = 3.0
+max_s = 12.0
+target_s = 7.0
+seed = 20261101
+subset = "../w05_d1_layer_probe/data/subset.json"
+wav_dir = "../_media/w05_d1/wav"
+dev_clean_tar = "../_media/dev-clean.tar.gz"
+
+[mandarin]
+# (2) 華語那半的輸入；有幾個就跑幾個。文字只有 public_text = true 的才進 export 與公開紀錄（我自己的錄音一律不進版控、不上站；
+# W1 訂票句的文字已在 w01_d2_pipeline/demo_config.toml 上站過，所以可以公開文字）。
+dir = "../_media/w07_d3"
+[[mandarin.inputs]]
+key = "w1_ticket"
+label = "W1 Demo 2 的訂票句（授課者自錄）"
+path = "../w01_d2_pipeline/audio/utterance.wav"
+text = "我想訂一張下週三去台南的票"
+public_text = true
+[[mandarin.inputs]]
+key = "w7_d2"
+label = "W7 Demo 2 的自錄句（含專有名詞）"
+path = "../_media/w07_d2/mandarin.wav"
+text_file = "../_media/w07_d2/mandarin.txt"
+public_text = false
+[[mandarin.inputs]]
+key = "own"
+label = "本 demo 自錄（./present.sh record）"
+path = "../_media/w07_d3/mandarin.wav"
+text_file = "../_media/w07_d3/mandarin.txt"
+public_text = false
+record_seconds = 8.0
+
+[mms]
+# MMS-1B-all：CTC、字元級；華語只有簡體的 adapter（cmn-script_simplified），沒有繁體——輸出轉繁體再比，轉換本身是一個 normalization 步驟。
+# fetch 只抓 model.safetensors（3.9 GB）與這一個 adapter（約 9 MB），不抓其他 1,100 多個語言的 adapter。
+repo = "facebook/mms-1b-all"
+adapter = "cmn-script_simplified"
+device = "auto"          # 1B fp32 約 4 GB；MPS 掛了退 CPU（check 記下哪條能跑）
+
+[whisper]
+repo = "openai/whisper-small"      # 與 W4 d3、W7 d1、d2 同一份；設定（CPU、greedy）沿 ../w07_d2_biasing/demo_config.toml
+language_zh = "zh"
+
+[qwen]
+repo = "Qwen/Qwen3-ASR-1.7B-hf"   # 沿 Demo 2（MPS bf16）；載不起來就只放 MMS 與 Whisper 兩格
+language_zh = "Chinese"
+
+[audio]
+fs = 16000
+
+[display]
+digits = 3
+# 鍵 3 預設挑「λ=0 → 最佳 λ 修好最多詞」的句子；n 換下一句

@@ -238,6 +238,33 @@ $c-muted: #6b7280;
   margin-top: .5em;
 }
 
+// ── 機器產生的文字樣本（2026-10-31 W7 起用；照 nlp_llm/slides/theme.scss 的 .gen 逐字搬，HANDOVER-archive D 節預告的那一塊）──
+// 用襯線體與淺底把「機器產生的東西」（ASR 的逐字稿、幻覺句、prompt）和投影片的論述文字分開，
+// 一眼就看得出哪一段是資料、哪一段是我的話。
+.reveal .gen {
+  font-family: Georgia, "Times New Roman", "Songti TC", serif;
+  background: #fbfaf7;
+  border-left: 5px solid #d6d3ce;
+  padding: .62em .85em;
+  margin: .5em 0;
+  font-size: $fs-support;          // T4：模型吐出來的東西是資料，不是論述
+  line-height: $lh-support;
+  color: #2b2b2b;
+}
+.reveal .gen.hit {                 // 幻覺句、被 prompt 帶偏的句子：紅邊
+  border-left-color: $c-warn;
+  background: #fdf6f6;
+}
+.reveal .gen .n {                  // 左上角的來源標記（model · setting）
+  display: block;
+  font-family: inherit;
+  font-size: $fs-meta;             // T5
+  font-weight: 700;
+  color: $c-muted;
+  margin-bottom: .2em;
+  letter-spacing: .04em;
+}
+
 // 圖片不要被 reveal 的預設邊框與陰影干擾
 .reveal section img { border: none; box-shadow: none; margin: .3em 0; background: none; }
 

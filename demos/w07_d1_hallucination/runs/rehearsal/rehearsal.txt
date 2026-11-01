@@ -1,0 +1,358 @@
+
+────────────────────────────────────────────────────────────────────────
+對照：W3 那句（有語音）→ 兩個模型  [fallback 關 · condition_on_prev 開 · 語言 en]
+────────────────────────────────────────────────────────────────────────
+  [1mw3[0m  temperature 0.0  (0.77 s)
+  轉錄：[31m' Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.'[0m
+  17 個字、22 個 token；平均 log 機率 -0.130、最高 -0.002、高於 -0.5 的有 20 個；<|endoftext|> -0.013
+  no_speech_prob 0.012   壓縮比 1.09   §4.5 判定：合格
+  逐 token： ' Mr'(-0.43)  '.'(-0.05)  ' Qu'(-0.04)  'il'(-0.33)  'ter'(-0.00)  ' is'(-0.01)  ' the'(-0.01)  ' apostle'(-0.52)  ' of'(-0.00)  ' the'(-0.01)  ' middle'(-0.58)  ' classes'(-0.11)  ','(-0.33)  ' and'(-0.01)  ' we'(-0.00)  ' are'(-0.02)  ' glad'(-0.01)  ' to'(-0.00)  ' welcome'(-0.00)  ' his'(-0.03)  ' gospel'(-0.30)  '.'(-0.19)
+  CTC greedy：T 292，blank 51.0%，[31m'MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL'[0m
+  參考：'MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL'
+
+────────────────────────────────────────────────────────────────────────
+silence：10 s 純靜音（全零） → Whisper small  [fallback 關 · condition_on_prev 開 · 語言 en]
+────────────────────────────────────────────────────────────────────────
+  [1msilence[0m  temperature 0.0  (0.54 s)
+  轉錄：[31m' you'[0m
+  1 個字、1 個 token；平均 log 機率 -0.534、最高 -1.049、高於 -0.5 的有 0 個；<|endoftext|> -0.019
+  no_speech_prob 0.938   壓縮比 0.33   §4.5 判定：合格
+  逐 token： ' you'(-1.05)
+
+────────────────────────────────────────────────────────────────────────
+noise_0：10 s 白噪音，SNR 0 dB 對 W3 那句 → Whisper small  [fallback 關 · condition_on_prev 開 · 語言 en]
+────────────────────────────────────────────────────────────────────────
+  [1mnoise_0[0m  temperature 0.0  (0.69 s)
+  轉錄：[31m' you'[0m
+  1 個字、1 個 token；平均 log 機率 -1.949、最高 -3.822、高於 -0.5 的有 0 個；<|endoftext|> -0.076
+  no_speech_prob 0.814   壓縮比 0.33   §4.5 判定：不合格 → avg logprob -1.95 < -1.0；no_speech 門檻 + log 機率門檻都過 → 當靜音
+  逐 token： ' you'(-3.82)
+
+────────────────────────────────────────────────────────────────────────
+noise_20：10 s 白噪音，SNR 20 dB 對 W3 那句 → Whisper small  [fallback 關 · condition_on_prev 開 · 語言 en]
+────────────────────────────────────────────────────────────────────────
+  [1mnoise_20[0m  temperature 0.0  (1.00 s)
+  轉錄：[31m' you'[0m
+  1 個字、1 個 token；平均 log 機率 -1.555、最高 -3.034、高於 -0.5 的有 0 個；<|endoftext|> -0.076
+  no_speech_prob 0.844   壓縮比 0.33   §4.5 判定：不合格 → avg logprob -1.56 < -1.0；no_speech 門檻 + log 機率門檻都過 → 當靜音
+  逐 token： ' you'(-3.03)
+
+────────────────────────────────────────────────────────────────────────
+noise_40：10 s 白噪音，SNR 40 dB 對 W3 那句 → Whisper small  [fallback 關 · condition_on_prev 開 · 語言 en]
+────────────────────────────────────────────────────────────────────────
+  [1mnoise_40[0m  temperature 0.0  (0.95 s)
+  轉錄：[31m' you'[0m
+  1 個字、1 個 token；平均 log 機率 -1.279、最高 -2.461、高於 -0.5 的有 0 個；<|endoftext|> -0.097
+  no_speech_prob 0.895   壓縮比 0.33   §4.5 判定：不合格 → avg logprob -1.28 < -1.0；no_speech 門檻 + log 機率門檻都過 → 當靜音
+  逐 token： ' you'(-2.46)
+
+────────────────────────────────────────────────────────────────────────
+long：W3 那句 + 30 s 靜音 → Whisper small，固定 30 s 視窗  [fallback 關 · condition_on_prev 開 · 語言 en]
+────────────────────────────────────────────────────────────────────────
+
+  視窗 1：0.0–30.0 s，prompt 槽空
+  [1m視窗 1[0m  temperature 0.0  (1.28 s)
+  轉錄：[31m' Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.'[0m
+  17 個字、22 個 token；平均 log 機率 -0.130、最高 -0.002、高於 -0.5 的有 20 個；<|endoftext|> -0.013
+  no_speech_prob 0.012   壓縮比 1.09   §4.5 判定：合格
+  逐 token： ' Mr'(-0.43)  '.'(-0.05)  ' Qu'(-0.04)  'il'(-0.33)  'ter'(-0.00)  ' is'(-0.01)  ' the'(-0.01)  ' apostle'(-0.52)  ' of'(-0.00)  ' the'(-0.01)  ' middle'(-0.58)  ' classes'(-0.11)  ','(-0.33)  ' and'(-0.01)  ' we'(-0.00)  ' are'(-0.02)  ' glad'(-0.01)  ' to'(-0.00)  ' welcome'(-0.00)  ' his'(-0.03)  ' gospel'(-0.30)  '.'(-0.19)
+
+  視窗 2：30.0–35.9 s，prompt 槽 = 'Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.'
+  [1m視窗 2[0m  temperature 0.0  (0.95 s)
+  轉錄：[31m' You'[0m
+  1 個字、1 個 token；平均 log 機率 -1.136、最高 -2.086、高於 -0.5 的有 0 個；<|endoftext|> -0.186
+  no_speech_prob 0.971   壓縮比 0.33   §4.5 判定：不合格 → avg logprob -1.14 < -1.0；no_speech 門檻 + log 機率門檻都過 → 當靜音
+  逐 token： ' You'(-2.09)
+
+  整段：[31m'Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel. You'[0m
+
+────────────────────────────────────────────────────────────────────────
+long：W3 那句 + 30 s 靜音 → Whisper small，固定 30 s 視窗  [fallback 關 · condition_on_prev 關 · 語言 en]
+────────────────────────────────────────────────────────────────────────
+
+  視窗 1：0.0–30.0 s，prompt 槽空
+  [1m視窗 1[0m  temperature 0.0  (1.26 s)
+  轉錄：[31m' Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.'[0m
+  17 個字、22 個 token；平均 log 機率 -0.130、最高 -0.002、高於 -0.5 的有 20 個；<|endoftext|> -0.013
+  no_speech_prob 0.012   壓縮比 1.09   §4.5 判定：合格
+  逐 token： ' Mr'(-0.43)  '.'(-0.05)  ' Qu'(-0.04)  'il'(-0.33)  'ter'(-0.00)  ' is'(-0.01)  ' the'(-0.01)  ' apostle'(-0.52)  ' of'(-0.00)  ' the'(-0.01)  ' middle'(-0.58)  ' classes'(-0.11)  ','(-0.33)  ' and'(-0.01)  ' we'(-0.00)  ' are'(-0.02)  ' glad'(-0.01)  ' to'(-0.00)  ' welcome'(-0.00)  ' his'(-0.03)  ' gospel'(-0.30)  '.'(-0.19)
+
+  視窗 2：30.0–35.9 s，prompt 槽空
+  [1m視窗 2[0m  temperature 0.0  (0.80 s)
+  轉錄：[31m' you'[0m
+  1 個字、1 個 token；平均 log 機率 -0.534、最高 -1.049、高於 -0.5 的有 0 個；<|endoftext|> -0.019
+  no_speech_prob 0.938   壓縮比 0.33   §4.5 判定：合格
+  逐 token： ' you'(-1.05)
+
+  整段：[31m'Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel. you'[0m
+
+────────────────────────────────────────────────────────────────────────
+own：自己錄的非語音（audio/own.wav） → Whisper small  [fallback 關 · condition_on_prev 開 · 語言 en]
+────────────────────────────────────────────────────────────────────────
+  [1mown[0m  temperature 0.0  (0.94 s)
+  轉錄：[31m' I'[0m
+  1 個字、1 個 token；平均 log 機率 -3.104、最高 -4.872、高於 -0.5 的有 0 個；<|endoftext|> -1.336
+  no_speech_prob 0.515   壓縮比 0.20   §4.5 判定：不合格 → avg logprob -3.10 < -1.0
+  逐 token： ' I'(-4.87)
+
+────────────────────────────────────────────────────────────────────────
+同一批檔案 → wav2vec2-base-960h（CTC）greedy：逐 frame argmax → 摺疊 → 刪 blank
+────────────────────────────────────────────────────────────────────────
+  clip           T   blank  非blank    符號  摺疊後
+  silence      499 100.0%       0     0  [31m''[0m
+  noise_0      499 100.0%       0     0  [31m''[0m
+  noise_20     499 100.0%       0     0  [31m''[0m
+  noise_40     499 100.0%       0     0  [31m''[0m
+  long        1792  92.6%     132    90  [31m'MISTER QUILDER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL'[0m
+  own          499  99.8%       1     1  [31m'E'[0m
+  w3           292  51.0%     143    90  [31m'MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL'[0m
+  （blank 贏不是「偵測到靜音」，是「這一格沒有符號可發」——CTC 沒有靜音這個概念；W3 p48）
+
+────────────────────────────────────────────────────────────────────────
+encoder 輸出換成全零 → decoder 自由生成（P_ILM 的樣本）  語言 en
+────────────────────────────────────────────────────────────────────────
+  beam 5，前 5 條（平均 log 機率是 encoder 歸零之下 teacher-forced 的）：
+   1. [31m" I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry,"[0m   (160 token，avg -0.178)
+   2. [31m" I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry,"[0m   (160 token，avg -0.178)
+   3. [31m" I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry,"[0m   (160 token，avg -0.178)
+   4. [31m" I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry,"[0m   (160 token，avg -0.178)
+   5. [31m" I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry,"[0m   (160 token，avg -0.178)
+  溫度 0.8 抽樣 5 條：
+   1. [31m' La La La'[0m
+   2. [31m" As the weather has gotten worse, and that has been so hot lately, I'm sure we'll finish it in about 4 hours."[0m
+   3. [31m' i think a'[0m
+   4. [31m' probably the most incredible that ever was.'[0m
+   5. [31m' and in'[0m
+  （這是 ILME 的近似：Meng et al. 2021 對 AED 是拿掉 context 向量，不是字面上把 encoder 輸出設零）
+
+────────────────────────────────────────────────────────────────────────
+encoder 輸出換成W3 那句 encoder 輸出的平均向量 → decoder 自由生成（P_ILM 的樣本）  語言 en
+────────────────────────────────────────────────────────────────────────
+  beam 5，前 5 條（平均 log 機率是 encoder 歸零之下 teacher-forced 的）：
+   1. [31m''[0m   (0 token，avg -5.370)
+   2. [31m''[0m   (0 token，avg -5.370)
+   3. [31m''[0m   (0 token，avg -5.370)
+   4. [31m''[0m   (0 token，avg -5.370)
+   5. [31m''[0m   (0 token，avg -5.370)
+  溫度 0.8 抽樣 5 條：
+   1. [31m' La'[0m
+   2. [31m' As,,,,,,,, as,,'[0m
+   3. [31m''[0m
+   4. [31m' The the'[0m
+   5. [31m' The-'[0m
+  （這是 ILME 的近似：Meng et al. 2021 對 AED 是拿掉 context 向量，不是字面上把 encoder 輸出設零）
+
+────────────────────────────────────────────────────────────────────────
+silence：10 s 純靜音（全零） → Whisper small  [fallback 開 · condition_on_prev 開 · 語言 en]
+────────────────────────────────────────────────────────────────────────
+  [1msilence · 嘗試 1/1[0m  temperature 0.0  (1.66 s)
+  轉錄：[31m' you'[0m
+  1 個字、1 個 token；平均 log 機率 -0.534、最高 -1.049、高於 -0.5 的有 0 個；<|endoftext|> -0.019
+  no_speech_prob 0.938   壓縮比 0.33   §4.5 判定：合格
+  逐 token： ' you'(-1.05)
+  → 採用溫度 0.0 的輸出
+
+────────────────────────────────────────────────────────────────────────
+noise_0：10 s 白噪音，SNR 0 dB 對 W3 那句 → Whisper small  [fallback 開 · condition_on_prev 開 · 語言 en]
+────────────────────────────────────────────────────────────────────────
+  [1mnoise_0 · 嘗試 1/6[0m  temperature 0.0  (1.17 s)
+  轉錄：[31m' you'[0m
+  1 個字、1 個 token；平均 log 機率 -1.949、最高 -3.822、高於 -0.5 的有 0 個；<|endoftext|> -0.076
+  no_speech_prob 0.814   壓縮比 0.33   §4.5 判定：不合格 → avg logprob -1.95 < -1.0；no_speech 門檻 + log 機率門檻都過 → 當靜音
+  逐 token： ' you'(-3.82)
+  [1mnoise_0 · 嘗試 2/6[0m  temperature 0.2  (1.11 s)
+  轉錄：[31m' You'[0m
+  1 個字、1 個 token；平均 log 機率 -2.178、最高 -4.234、高於 -0.5 的有 0 個；<|endoftext|> -0.122
+  no_speech_prob 0.814   壓縮比 0.33   §4.5 判定：不合格 → avg logprob -2.18 < -1.0；no_speech 門檻 + log 機率門檻都過 → 當靜音
+  逐 token： ' You'(-4.23)
+  [1mnoise_0 · 嘗試 3/6[0m  temperature 0.4  (0.82 s)
+  轉錄：[31m' you'[0m
+  1 個字、1 個 token；平均 log 機率 -1.949、最高 -3.822、高於 -0.5 的有 0 個；<|endoftext|> -0.076
+  no_speech_prob 0.814   壓縮比 0.33   §4.5 判定：不合格 → avg logprob -1.95 < -1.0；no_speech 門檻 + log 機率門檻都過 → 當靜音
+  逐 token： ' you'(-3.82)
+  [1mnoise_0 · 嘗試 4/6[0m  temperature 0.6  (1.02 s)
+  轉錄：[31m' and'[0m
+  1 個字、1 個 token；平均 log 機率 -3.278、最高 -5.343、高於 -0.5 的有 0 個；<|endoftext|> -1.212
+  no_speech_prob 0.814   壓縮比 0.33   §4.5 判定：不合格 → avg logprob -3.28 < -1.0；no_speech 門檻 + log 機率門檻都過 → 當靜音
+  逐 token： ' and'(-5.34)
+  [1mnoise_0 · 嘗試 5/6[0m  temperature 0.8  (0.92 s)
+  轉錄：[31m' Oh'[0m
+  1 個字、1 個 token；平均 log 機率 -3.000、最高 -5.559、高於 -0.5 的有 0 個；<|endoftext|> -0.441
+  no_speech_prob 0.814   壓縮比 0.27   §4.5 判定：不合格 → avg logprob -3.00 < -1.0；no_speech 門檻 + log 機率門檻都過 → 當靜音
+  逐 token： ' Oh'(-5.56)
+  [1mnoise_0 · 嘗試 6/6[0m  temperature 1.0  (1.02 s)
+  轉錄：[31m' I kind of took that picture?!'[0m
+  6 個字、7 個 token；平均 log 機率 -4.714、最高 -0.073、高於 -0.5 的有 1 個；<|endoftext|> -0.514
+  no_speech_prob 0.814   壓縮比 0.79   §4.5 判定：不合格 → avg logprob -4.71 < -1.0；no_speech 門檻 + log 機率門檻都過 → 當靜音
+  逐 token： ' I'(-4.60)  ' kind'(-8.23)  ' of'(-0.07)  ' took'(-6.29)  ' that'(-2.72)  ' picture'(-4.72)  '?!'(-10.57)
+  → 採用溫度 1.0 的輸出（階梯用完仍不合格，照 openai 的做法採最後一次）
+
+────────────────────────────────────────────────────────────────────────
+noise_20：10 s 白噪音，SNR 20 dB 對 W3 那句 → Whisper small  [fallback 開 · condition_on_prev 開 · 語言 en]
+────────────────────────────────────────────────────────────────────────
+  [1mnoise_20 · 嘗試 1/6[0m  temperature 0.0  (0.76 s)
+  轉錄：[31m' you'[0m
+  1 個字、1 個 token；平均 log 機率 -1.555、最高 -3.034、高於 -0.5 的有 0 個；<|endoftext|> -0.076
+  no_speech_prob 0.844   壓縮比 0.33   §4.5 判定：不合格 → avg logprob -1.56 < -1.0；no_speech 門檻 + log 機率門檻都過 → 當靜音
+  逐 token： ' you'(-3.03)
+  [1mnoise_20 · 嘗試 2/6[0m  temperature 0.2  (0.98 s)
+  轉錄：[31m' You'[0m
+  1 個字、1 個 token；平均 log 機率 -1.840、最高 -3.568、高於 -0.5 的有 0 個；<|endoftext|> -0.113
+  no_speech_prob 0.844   壓縮比 0.33   §4.5 判定：不合格 → avg logprob -1.84 < -1.0；no_speech 門檻 + log 機率門檻都過 → 當靜音
+  逐 token： ' You'(-3.57)
+  [1mnoise_20 · 嘗試 3/6[0m  temperature 0.4  (1.03 s)
+  轉錄：[31m' you'[0m
+  1 個字、1 個 token；平均 log 機率 -1.555、最高 -3.034、高於 -0.5 的有 0 個；<|endoftext|> -0.076
+  no_speech_prob 0.844   壓縮比 0.33   §4.5 判定：不合格 → avg logprob -1.56 < -1.0；no_speech 門檻 + log 機率門檻都過 → 當靜音
+  逐 token： ' you'(-3.03)
+  [1mnoise_20 · 嘗試 4/6[0m  temperature 0.6  (1.03 s)
+  轉錄：[31m' .'[0m
+  1 個字、1 個 token；平均 log 機率 -2.147、最高 -4.148、高於 -0.5 的有 0 個；<|endoftext|> -0.145
+  no_speech_prob 0.844   壓縮比 0.20   §4.5 判定：不合格 → avg logprob -2.15 < -1.0；no_speech 門檻 + log 機率門檻都過 → 當靜音
+  逐 token： ' .'(-4.15)
+  [1mnoise_20 · 嘗試 5/6[0m  temperature 0.8  (1.50 s)
+  轉錄：[31m' GET YOURSELF AT ETAB'[0m
+  4 個字、9 個 token；平均 log 機率 -3.992、最高 -0.018、高於 -0.5 的有 2 個；<|endoftext|> -2.562
+  no_speech_prob 0.844   壓縮比 0.72   §4.5 判定：不合格 → avg logprob -3.99 < -1.0；no_speech 門檻 + log 機率門檻都過 → 當靜音
+  逐 token： ' GET'(-10.77)  ' YOUR'(-5.22)  'S'(-3.11)  'EL'(-0.05)  'F'(-0.02)  ' AT'(-4.47)  ' E'(-4.75)  'TA'(-5.19)  'B'(-3.78)
+  [1mnoise_20 · 嘗試 6/6[0m  temperature 1.0  (0.94 s)
+  轉錄：[31m' I kind of took that picture, because the burnwasty was really fine'[0m
+  12 個字、15 個 token；平均 log 機率 -4.765、最高 -0.074、高於 -0.5 的有 1 個；<|endoftext|> -3.244
+  no_speech_prob 0.844   壓縮比 0.97   §4.5 判定：不合格 → avg logprob -4.76 < -1.0；no_speech 門檻 + log 機率門檻都過 → 當靜音
+  逐 token： ' I'(-4.43)  ' kind'(-8.21)  ' of'(-0.07)  ' took'(-6.23)  ' that'(-2.72)  ' picture'(-4.43)  ','(-2.34)  ' because'(-3.30)  ' the'(-3.18)  ' burn'(-9.56)  'was'(-9.91)  'ty'(-8.31)  ' was'(-1.73)  ' really'(-3.05)  ' fine'(-5.52)
+  → 採用溫度 1.0 的輸出（階梯用完仍不合格，照 openai 的做法採最後一次）
+
+────────────────────────────────────────────────────────────────────────
+noise_40：10 s 白噪音，SNR 40 dB 對 W3 那句 → Whisper small  [fallback 開 · condition_on_prev 開 · 語言 en]
+────────────────────────────────────────────────────────────────────────
+  [1mnoise_40 · 嘗試 1/6[0m  temperature 0.0  (1.00 s)
+  轉錄：[31m' you'[0m
+  1 個字、1 個 token；平均 log 機率 -1.279、最高 -2.461、高於 -0.5 的有 0 個；<|endoftext|> -0.097
+  no_speech_prob 0.895   壓縮比 0.33   §4.5 判定：不合格 → avg logprob -1.28 < -1.0；no_speech 門檻 + log 機率門檻都過 → 當靜音
+  逐 token： ' you'(-2.46)
+  [1mnoise_40 · 嘗試 2/6[0m  temperature 0.2  (1.07 s)
+  轉錄：[31m' You'[0m
+  1 個字、1 個 token；平均 log 機率 -1.533、最高 -2.976、高於 -0.5 的有 0 個；<|endoftext|> -0.090
+  no_speech_prob 0.895   壓縮比 0.33   §4.5 判定：不合格 → avg logprob -1.53 < -1.0；no_speech 門檻 + log 機率門檻都過 → 當靜音
+  逐 token： ' You'(-2.98)
+  [1mnoise_40 · 嘗試 3/6[0m  temperature 0.4  (1.02 s)
+  轉錄：[31m' you'[0m
+  1 個字、1 個 token；平均 log 機率 -1.279、最高 -2.461、高於 -0.5 的有 0 個；<|endoftext|> -0.097
+  no_speech_prob 0.895   壓縮比 0.33   §4.5 判定：不合格 → avg logprob -1.28 < -1.0；no_speech 門檻 + log 機率門檻都過 → 當靜音
+  逐 token： ' you'(-2.46)
+  [1mnoise_40 · 嘗試 4/6[0m  temperature 0.6  (1.00 s)
+  轉錄：[31m' .'[0m
+  1 個字、1 個 token；平均 log 機率 -1.569、最高 -3.000、高於 -0.5 的有 0 個；<|endoftext|> -0.138
+  no_speech_prob 0.895   壓縮比 0.20   §4.5 判定：不合格 → avg logprob -1.57 < -1.0；no_speech 門檻 + log 機率門檻都過 → 當靜音
+  逐 token： ' .'(-3.00)
+  [1mnoise_40 · 嘗試 5/6[0m  temperature 0.8  (1.02 s)
+  轉錄：[31m' .'[0m
+  1 個字、1 個 token；平均 log 機率 -1.569、最高 -3.000、高於 -0.5 的有 0 個；<|endoftext|> -0.138
+  no_speech_prob 0.895   壓縮比 0.20   §4.5 判定：不合格 → avg logprob -1.57 < -1.0；no_speech 門檻 + log 機率門檻都過 → 當靜音
+  逐 token： ' .'(-3.00)
+  [1mnoise_40 · 嘗試 6/6[0m  temperature 1.0  (0.70 s)
+  轉錄：[31m' You'[0m
+  1 個字、1 個 token；平均 log 機率 -1.533、最高 -2.976、高於 -0.5 的有 0 個；<|endoftext|> -0.090
+  no_speech_prob 0.895   壓縮比 0.33   §4.5 判定：不合格 → avg logprob -1.53 < -1.0；no_speech 門檻 + log 機率門檻都過 → 當靜音
+  逐 token： ' You'(-2.98)
+  → 採用溫度 1.0 的輸出（階梯用完仍不合格，照 openai 的做法採最後一次）
+
+────────────────────────────────────────────────────────────────────────
+long：W3 那句 + 30 s 靜音 → Whisper small，固定 30 s 視窗  [fallback 開 · condition_on_prev 開 · 語言 en]
+────────────────────────────────────────────────────────────────────────
+
+  視窗 1：0.0–30.0 s，prompt 槽空
+  [1m視窗 1 · 嘗試 1/1[0m  temperature 0.0  (1.29 s)
+  轉錄：[31m' Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.'[0m
+  17 個字、22 個 token；平均 log 機率 -0.130、最高 -0.002、高於 -0.5 的有 20 個；<|endoftext|> -0.013
+  no_speech_prob 0.012   壓縮比 1.09   §4.5 判定：合格
+  逐 token： ' Mr'(-0.43)  '.'(-0.05)  ' Qu'(-0.04)  'il'(-0.33)  'ter'(-0.00)  ' is'(-0.01)  ' the'(-0.01)  ' apostle'(-0.52)  ' of'(-0.00)  ' the'(-0.01)  ' middle'(-0.58)  ' classes'(-0.11)  ','(-0.33)  ' and'(-0.01)  ' we'(-0.00)  ' are'(-0.02)  ' glad'(-0.01)  ' to'(-0.00)  ' welcome'(-0.00)  ' his'(-0.03)  ' gospel'(-0.30)  '.'(-0.19)
+  → 採用溫度 0.0 的輸出
+
+  視窗 2：30.0–35.9 s，prompt 槽 = 'Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.'
+  [1m視窗 2 · 嘗試 1/6[0m  temperature 0.0  (0.99 s)
+  轉錄：[31m' You'[0m
+  1 個字、1 個 token；平均 log 機率 -1.136、最高 -2.086、高於 -0.5 的有 0 個；<|endoftext|> -0.186
+  no_speech_prob 0.971   壓縮比 0.33   §4.5 判定：不合格 → avg logprob -1.14 < -1.0；no_speech 門檻 + log 機率門檻都過 → 當靜音
+  逐 token： ' You'(-2.09)
+  [1m視窗 2 · 嘗試 2/6[0m  temperature 0.2  (1.44 s)
+  轉錄：[31m' You'[0m
+  1 個字、1 個 token；平均 log 機率 -1.136、最高 -2.086、高於 -0.5 的有 0 個；<|endoftext|> -0.186
+  no_speech_prob 0.971   壓縮比 0.33   §4.5 判定：不合格 → avg logprob -1.14 < -1.0；no_speech 門檻 + log 機率門檻都過 → 當靜音
+  逐 token： ' You'(-2.09)
+  [1m視窗 2 · 嘗試 3/6[0m  temperature 0.4  (0.73 s)
+  轉錄：[31m' You'[0m
+  1 個字、1 個 token；平均 log 機率 -1.136、最高 -2.086、高於 -0.5 的有 0 個；<|endoftext|> -0.186
+  no_speech_prob 0.971   壓縮比 0.33   §4.5 判定：不合格 → avg logprob -1.14 < -1.0；no_speech 門檻 + log 機率門檻都過 → 當靜音
+  逐 token： ' You'(-2.09)
+  [1m視窗 2 · 嘗試 4/6[0m  temperature 0.6  (0.98 s)
+  轉錄：[31m' You'[0m
+  1 個字、1 個 token；平均 log 機率 -1.136、最高 -2.086、高於 -0.5 的有 0 個；<|endoftext|> -0.186
+  no_speech_prob 0.971   壓縮比 0.33   §4.5 判定：不合格 → avg logprob -1.14 < -1.0；no_speech 門檻 + log 機率門檻都過 → 當靜音
+  逐 token： ' You'(-2.09)
+  [1m視窗 2 · 嘗試 5/6[0m  temperature 0.8  (1.18 s)
+  轉錄：[31m' We thank you.'[0m
+  3 個字、4 個 token；平均 log 機率 -1.908、最高 -0.818、高於 -0.5 的有 0 個；<|endoftext|> -0.161
+  no_speech_prob 0.971   壓縮比 0.64   §4.5 判定：不合格 → avg logprob -1.91 < -1.0；no_speech 門檻 + log 機率門檻都過 → 當靜音
+  逐 token： ' We'(-3.69)  ' thank'(-3.07)  ' you'(-0.82)  '.'(-1.80)
+  [1m視窗 2 · 嘗試 6/6[0m  temperature 1.0  (1.00 s)
+  轉錄：[31m' You'[0m
+  1 個字、1 個 token；平均 log 機率 -1.136、最高 -2.086、高於 -0.5 的有 0 個；<|endoftext|> -0.186
+  no_speech_prob 0.971   壓縮比 0.33   §4.5 判定：不合格 → avg logprob -1.14 < -1.0；no_speech 門檻 + log 機率門檻都過 → 當靜音
+  逐 token： ' You'(-2.09)
+  → 採用溫度 1.0 的輸出（階梯用完仍不合格，照 openai 的做法採最後一次）
+
+  整段：[31m'Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel. You'[0m
+
+────────────────────────────────────────────────────────────────────────
+own：自己錄的非語音（audio/own.wav） → Whisper small  [fallback 開 · condition_on_prev 開 · 語言 en]
+────────────────────────────────────────────────────────────────────────
+  [1mown · 嘗試 1/6[0m  temperature 0.0  (0.71 s)
+  轉錄：[31m' I'[0m
+  1 個字、1 個 token；平均 log 機率 -3.104、最高 -4.872、高於 -0.5 的有 0 個；<|endoftext|> -1.336
+  no_speech_prob 0.515   壓縮比 0.20   §4.5 判定：不合格 → avg logprob -3.10 < -1.0
+  逐 token： ' I'(-4.87)
+  [1mown · 嘗試 2/6[0m  temperature 0.2  (1.07 s)
+  轉錄：[31m' You'[0m
+  1 個字、1 個 token；平均 log 機率 -2.569、最高 -4.884、高於 -0.5 的有 0 個；<|endoftext|> -0.254
+  no_speech_prob 0.515   壓縮比 0.33   §4.5 判定：不合格 → avg logprob -2.57 < -1.0
+  逐 token： ' You'(-4.88)
+  [1mown · 嘗試 3/6[0m  temperature 0.4  (0.99 s)
+  轉錄：[31m' I'[0m
+  1 個字、1 個 token；平均 log 機率 -3.104、最高 -4.872、高於 -0.5 的有 0 個；<|endoftext|> -1.336
+  no_speech_prob 0.515   壓縮比 0.20   §4.5 判定：不合格 → avg logprob -3.10 < -1.0
+  逐 token： ' I'(-4.87)
+  [1mown · 嘗試 4/6[0m  temperature 0.6  (0.98 s)
+  轉錄：[31m' I'[0m
+  1 個字、1 個 token；平均 log 機率 -3.104、最高 -4.872、高於 -0.5 的有 0 個；<|endoftext|> -1.336
+  no_speech_prob 0.515   壓縮比 0.20   §4.5 判定：不合格 → avg logprob -3.10 < -1.0
+  逐 token： ' I'(-4.87)
+  [1mown · 嘗試 5/6[0m  temperature 0.8  (1.00 s)
+  轉錄：[31m' Oh'[0m
+  1 個字、1 個 token；平均 log 機率 -3.012、最高 -5.602、高於 -0.5 的有 0 個；<|endoftext|> -0.421
+  no_speech_prob 0.515   壓縮比 0.27   §4.5 判定：不合格 → avg logprob -3.01 < -1.0
+  逐 token： ' Oh'(-5.60)
+  [1mown · 嘗試 6/6[0m  temperature 1.0  (0.79 s)
+  轉錄：[31m' I kind of took that off?!'[0m
+  6 個字、7 個 token；平均 log 機率 -4.238、最高 -0.043、高於 -0.5 的有 1 個；<|endoftext|> -0.463
+  no_speech_prob 0.515   壓縮比 0.81   §4.5 判定：不合格 → avg logprob -4.24 < -1.0
+  逐 token： ' I'(-4.87)  ' kind'(-7.99)  ' of'(-0.04)  ' took'(-6.06)  ' that'(-2.70)  ' off'(-2.16)  '?!'(-9.61)
+  → 採用溫度 1.0 的輸出（階梯用完仍不合格，照 openai 的做法採最後一次）
+
+────────────────────────────────────────────────────────────────────────
+silence：10 s 純靜音（全零） → Whisper small  [fallback 關 · condition_on_prev 開 · 語言 zh]
+────────────────────────────────────────────────────────────────────────
+  [1msilence[0m  temperature 0.0  (1.09 s)
+  轉錄：[31m'你不要再說了'[0m
+  1 個字、5 個 token；平均 log 機率 -2.362、最高 -0.188、高於 -0.5 的有 1 個；<|endoftext|> -2.062
+  no_speech_prob 0.938   壓縮比 0.67   §4.5 判定：不合格 → avg logprob -2.36 < -1.0；no_speech 門檻 + log 機率門檻都過 → 當靜音
+  逐 token： '你'(-2.94)  '不要'(-3.58)  '再'(-2.36)  '說'(-3.04)  '了'(-0.19)
+
+────────────────────────────────────────────────────────────────────────
+noise_0：10 s 白噪音，SNR 0 dB 對 W3 那句 → Whisper small  [fallback 關 · condition_on_prev 開 · 語言 zh]
+────────────────────────────────────────────────────────────────────────
+  [1mnoise_0[0m  temperature 0.0  (1.07 s)
+  轉錄：[31m'小辣椒'[0m
+  1 個字、5 個 token；平均 log 機率 -1.286、最高 -0.001、高於 -0.5 的有 3 個；<|endoftext|> -0.678
+  no_speech_prob 0.814   壓縮比 0.50   §4.5 判定：不合格 → avg logprob -1.29 < -1.0；no_speech 門檻 + log 機率門檻都過 → 當靜音
+  逐 token： '小'(-4.41)  '�'(-2.59)  '�'(-0.02)  '�'(-0.02)  '�'(-0.00)

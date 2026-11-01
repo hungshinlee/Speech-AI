@@ -1,0 +1,4004 @@
+{
+ "time": "2026-11-02T00:55:37",
+ "tag": "rehearsal",
+ "backend": "wav2vec2",
+ "device": {
+  "ctc": "mps",
+  "mms": "mps",
+  "whisper": "cpu",
+  "qwen": "mps"
+ },
+ "versions": {
+  "python": "3.12.14",
+  "platform": "macOS-27.2-arm64-arm-64bit",
+  "numpy": "2.4.4",
+  "scipy": "1.17.1",
+  "matplotlib": "3.10.9",
+  "sounddevice": "0.5.6",
+  "torch": "2.14.0",
+  "transformers": "5.17.0",
+  "huggingface_hub": "1.32.0",
+  "pypinyin": "0.55.0",
+  "models": {
+   "facebook/wav2vec2-base-960h": "22aad52d435eb6dbaf354bdad9b0da84ce7d6156",
+   "facebook/mms-1b-all": "3d33597edbdaaba14a8e858e2c8caa76e3cec0cd",
+   "openai/whisper-small": "973afd24965f72e36ca33b3055d56a652f456b4d",
+   "Qwen/Qwen3-ASR-1.7B-hf": "bcd2b5b7f32b480ab5790554cfa8347f246a14f3"
+  }
+ },
+ "config": {
+  "ctc": {
+   "repo": "facebook/wav2vec2-base-960h",
+   "device": "auto"
+  },
+  "lm": {
+   "url": "https://www.openslr.org/resources/11/3-gram.pruned.1e-7.arpa.gz",
+   "file": "../_media/w07_d3/3-gram.pruned.1e-7.arpa.gz",
+   "cache": "../_media/w07_d3/3-gram.pruned.1e-7.npz",
+   "oov_ln_penalty": -5.0,
+   "oov_ln_per_char": -3.0,
+   "score_partial_as_oov": true,
+   "oov_floor_log10": -7.0
+  },
+  "decode": {
+   "beam": 32,
+   "prune_logp": -12.0,
+   "lambdas": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.5,
+    0.7,
+    1.0,
+    1.5,
+    2.0,
+    3.0,
+    4.0
+   ],
+   "eta": "auto",
+   "tune_lambda": 0.5,
+   "eta_grid": [
+    0.0,
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    3.0,
+    4.0,
+    6.0
+   ],
+   "large_lambda": 2.0
+  },
+  "sentences": {
+   "n_test": 30,
+   "n_tune": 10,
+   "min_s": 3.0,
+   "max_s": 12.0,
+   "target_s": 7.0,
+   "seed": 20261101,
+   "subset": "../w05_d1_layer_probe/data/subset.json",
+   "wav_dir": "../_media/w05_d1/wav",
+   "dev_clean_tar": "../_media/dev-clean.tar.gz"
+  },
+  "mandarin": {
+   "dir": "../_media/w07_d3",
+   "inputs": [
+    {
+     "key": "w1_ticket",
+     "label": "W1 Demo 2 的訂票句（授課者自錄）",
+     "path": "../w01_d2_pipeline/audio/utterance.wav",
+     "text": "我想訂一張下週三去台南的票",
+     "public_text": true
+    },
+    {
+     "key": "w7_d2",
+     "label": "W7 Demo 2 的自錄句（含專有名詞）",
+     "path": "../_media/w07_d2/mandarin.wav",
+     "text_file": "../_media/w07_d2/mandarin.txt",
+     "public_text": false
+    },
+    {
+     "key": "own",
+     "label": "本 demo 自錄（./present.sh record）",
+     "path": "../_media/w07_d3/mandarin.wav",
+     "text_file": "../_media/w07_d3/mandarin.txt",
+     "public_text": false,
+     "record_seconds": 8.0
+    }
+   ]
+  },
+  "mms": {
+   "repo": "facebook/mms-1b-all",
+   "adapter": "cmn-script_simplified",
+   "device": "auto"
+  },
+  "whisper": {
+   "repo": "openai/whisper-small",
+   "language_zh": "zh"
+  },
+  "qwen": {
+   "repo": "Qwen/Qwen3-ASR-1.7B-hf",
+   "language_zh": "Chinese"
+  },
+  "audio": {
+   "fs": 16000
+  },
+  "display": {
+   "digits": 3
+  }
+ },
+ "eta": 0.0,
+ "eta_source": "rehearse 調的",
+ "sentences": {
+  "source": {
+   "audio": "https://www.openslr.org/resources/12/dev-clean.tar.gz",
+   "subset": "../w05_d1_layer_probe/data/subset.json",
+   "license": "CC BY 4.0",
+   "time": "2026-11-01T22:37:15",
+   "selection": {
+    "n_test": 30,
+    "n_tune": 10,
+    "min_s": 3.0,
+    "max_s": 12.0,
+    "target_s": 7.0,
+    "seed": 20261101,
+    "subset": "../w05_d1_layer_probe/data/subset.json",
+    "wav_dir": "../_media/w05_d1/wav",
+    "dev_clean_tar": "../_media/dev-clean.tar.gz"
+   }
+  },
+  "n_speakers": 40,
+  "test": [
+   {
+    "id": "1919-142785-0009",
+    "spk": "1919",
+    "dur_s": 5.84,
+    "text": "SEASONABLE THIS RECIPE SHOULD BE USED IN JUNE JULY OR AUGUST"
+   },
+   {
+    "id": "1673-143396-0007",
+    "spk": "1673",
+    "dur_s": 7.095,
+    "text": "BUT THE PREVAILING DOCTRINE OF THE ETERNITY AND INHERENT PRAVITY OF MATTER INFECTED THE PRIMITIVE CHURCHES OF THE EAST"
+   },
+   {
+    "id": "3536-23268-0003",
+    "spk": "3536",
+    "dur_s": 7.995,
+    "text": "NIGHT AFTER NIGHT HIS SLEEP HAD BEEN DISTURBED BY FEARS FOR HER WHEN ABROAD MORNING AFTER MORNING IT HAD BEEN BROKEN BY THE CLAMOUR OF HER RETURN"
+   },
+   {
+    "id": "3000-15664-0007",
+    "spk": "3000",
+    "dur_s": 6.965,
+    "text": "THUS ONE SAUNTERS ON AND ON IN THE GLORIOUS RADIANCE IN UTTER PEACE AND FORGETFULNESS OF TIME"
+   },
+   {
+    "id": "5536-43358-0003",
+    "spk": "5536",
+    "dur_s": 6.04,
+    "text": "NONE MIGHT EXHORT OR CONFESS OR IN ANY WAY MEDDLE WITH THE RELIGIOUS EXPERIENCE OF ANOTHER"
+   },
+   {
+    "id": "1272-128104-0000",
+    "spk": "1272",
+    "dur_s": 5.855,
+    "text": "MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL"
+   },
+   {
+    "id": "8297-275154-0004",
+    "spk": "8297",
+    "dur_s": 6.655,
+    "text": "HE IS STAYING AT THIS HOTEL TO TRY THE AIR OF SYDENHAM AND HE FINDS THAT IT AGREES WITH HIM"
+   },
+   {
+    "id": "2078-142845-0011",
+    "spk": "2078",
+    "dur_s": 4.53,
+    "text": "IT WILL GROW ON POOR SOILS AND IS EXTREMELY PRODUCTIVE"
+   },
+   {
+    "id": "2412-153947-0002",
+    "spk": "2412",
+    "dur_s": 6.595,
+    "text": "ON MY RETURN I PURPOSELY AVOIDED LOOKING INTO IT UNTIL I HAD SENT BACK MY LAST REVISES TO THE PRINTER"
+   },
+   {
+    "id": "8842-302196-0009",
+    "spk": "8842",
+    "dur_s": 7.055,
+    "text": "IT IS THEREFORE AND ON ALL ACCOUNTS UNNECESSARY TO SAY MUCH MORE OF THE WORK HERE THAN IT SAYS FOR ITSELF"
+   },
+   {
+    "id": "5338-24615-0011",
+    "spk": "5338",
+    "dur_s": 6.93,
+    "text": "TWO BATTLEMENTED WALLS ONE OF WHICH FACED THE AVENUE AND THE OTHER DIVIDED THE COURT FROM THE GARDEN COMPLETED THE INCLOSURE"
+   },
+   {
+    "id": "174-168635-0006",
+    "spk": "174",
+    "dur_s": 6.57,
+    "text": "SHE FELT THAT WHICH SHE HAD NEVER FELT BEFORE A SENSATION OF EXPANSION"
+   },
+   {
+    "id": "1988-147956-0007",
+    "spk": "1988",
+    "dur_s": 5.865,
+    "text": "MY GRANDMOTHER ALWAYS SPOKE IN A VERY LOUD TONE TO FOREIGNERS AS IF THEY WERE DEAF"
+   },
+   {
+    "id": "3576-138058-0012",
+    "spk": "3576",
+    "dur_s": 5.48,
+    "text": "DON QUIXOTE DID SO AND ASKED HIM WHAT HAD HAPPENED TO HIM AND WHAT HE WAS AFRAID OF"
+   },
+   {
+    "id": "3170-137482-0006",
+    "spk": "3170",
+    "dur_s": 7.145,
+    "text": "WE DID THE SAME WITH PHYSICIANS WHOM WE OFTEN SENT HALF DRESSED TO SOME NOBLEMAN WHO WAS ENJOYING EXCELLENT HEALTH"
+   },
+   {
+    "id": "2803-154320-0003",
+    "spk": "2803",
+    "dur_s": 6.475,
+    "text": "THEIR MINDS WERE SO DISTRACTED AT THIS CHANGE OF ROUTE AS TO BE QUITE UNHINGED"
+   },
+   {
+    "id": "6319-275224-0010",
+    "spk": "6319",
+    "dur_s": 6.94,
+    "text": "ECHOED THE FLOWERS TREMULOUSLY AS WITH A SORT OF FEARFUL PLEASURE THEY AWAITED HIS APPROACH"
+   },
+   {
+    "id": "2035-147960-0005",
+    "spk": "2035",
+    "dur_s": 6.585,
+    "text": "I WHIRLED ROUND AND THERE ON ONE OF THOSE DRY GRAVEL BEDS WAS THE BIGGEST SNAKE I HAD EVER SEEN"
+   },
+   {
+    "id": "7976-105575-0008",
+    "spk": "7976",
+    "dur_s": 7.19,
+    "text": "WITH A FEW LANTERNS OUR MEN THEN WENT ABOUT AND TRIED TO GATHER UP THE WOUNDED THE DEAD WERE LEFT TILL MORNING"
+   },
+   {
+    "id": "6241-61943-0000",
+    "spk": "6241",
+    "dur_s": 6.95,
+    "text": "ON THE SECOND OF THE MONTH AT TWO IN THE MORNING OUR PRECIOUS CARGO OF LUGGAGE WAS TAKEN ON BOARD THE GOOD SHIP VALKYRIE"
+   },
+   {
+    "id": "1993-147149-0000",
+    "spk": "1993",
+    "dur_s": 6.715,
+    "text": "HOW INFINITE THE WEALTH OF LOVE AND HOPE GARNERED IN THESE SAME TINY TREASURE HOUSES AND OH"
+   },
+   {
+    "id": "84-121123-0008",
+    "spk": "84",
+    "dur_s": 7.015,
+    "text": "OH YOU RAVE SIR EXCLAIMED VILLEFORT IN VAIN ENDEAVORING TO ESCAPE THE NET IN WHICH HE WAS TAKEN I RAVE"
+   },
+   {
+    "id": "2902-9006-0012",
+    "spk": "2902",
+    "dur_s": 6.42,
+    "text": "TRIBE AFTER TRIBE WAS CROWDING DOWN TO THE ALPS AND TRAMPLING UPON EACH OTHER ON THE FRONTIERS OF THE EMPIRE"
+   },
+   {
+    "id": "5694-64025-0011",
+    "spk": "5694",
+    "dur_s": 7.03,
+    "text": "I HAD BEEN FEELING MEAN ALL THE MORNING AS IF I HAD STOLEN A SHEEP BUT WHEN THE ORDER TO CHARGE WAS GIVEN I GOT HAPPY"
+   },
+   {
+    "id": "6345-64257-0005",
+    "spk": "6345",
+    "dur_s": 7.665,
+    "text": "SHE WAS ONE OF A LARGE COMPANY AT A HOUSE WHERE SHE HAD NEVER BEEN BEFORE A BEAUTIFUL HOUSE WITH A LARGE GARDEN BEHIND"
+   },
+   {
+    "id": "2277-149874-0001",
+    "spk": "2277",
+    "dur_s": 7.04,
+    "text": "TO CARRIE THE SOUND OF THE LITTLE BELLS UPON THE HORSE CARS AS THEY TINKLED IN AND OUT OF HEARING WAS AS PLEASING AS IT WAS NOVEL"
+   },
+   {
+    "id": "3853-163249-0003",
+    "spk": "3853",
+    "dur_s": 6.85,
+    "text": "NOTHING CAN SURPRISE ME NOW I'M PREPARED FOR ANY THING EVEN THE SIGHT OF MY QUAKERISH LOVER DANCING A JIG"
+   },
+   {
+    "id": "6295-244435-0001",
+    "spk": "6295",
+    "dur_s": 7.885,
+    "text": "COLONEL LEONIDAS TALBOT REGARDED THE WHITE FLAG WITH FEELINGS IN WHICH TRIUMPH AND SADNESS WERE MINGLED STRANGELY"
+   },
+   {
+    "id": "6313-66125-0007",
+    "spk": "6313",
+    "dur_s": 4.93,
+    "text": "I AM THE ONE TO GO AFTER WALT IF ANYONE HAS TO I'LL GO DOWN MISTER THOMAS"
+   },
+   {
+    "id": "5895-34615-0003",
+    "spk": "5895",
+    "dur_s": 6.605,
+    "text": "ACCORDING TO ALL APPEARANCE INDUSTRIOUS MANIPULATORS OF CHILDREN HAD WORKED UPON HIS FACE"
+   }
+  ],
+  "tune": [
+   {
+    "id": "652-129742-0004",
+    "spk": "652",
+    "dur_s": 7.12,
+    "text": "ADD TWO TABLESPOONS THICK SOUR CREAM TWO TABLESPOONS SUGAR A SPRINKLE OF MUSTARD AND HALF CUP OF VINEGAR"
+   },
+   {
+    "id": "3081-166546-0007",
+    "spk": "3081",
+    "dur_s": 5.655,
+    "text": "DO THEY STILL INSIST THAT MISS CHALLONER WAS THE ONLY PERSON IN THE ROOM WITH THEM AT THIS TIME"
+   },
+   {
+    "id": "2428-83699-0006",
+    "spk": "2428",
+    "dur_s": 6.825,
+    "text": "NOW IT IS A REMARKABLE THING THAT I HAVE ALWAYS HAD AN EXTRAORDINARY PREDILECTION FOR THE NAME MADGE I DO NOT KNOW WHY"
+   },
+   {
+    "id": "2086-149214-0001",
+    "spk": "2086",
+    "dur_s": 6.97,
+    "text": "IN GOOD FAITH HOWEVER HE IS NOT SUFFICIENTLY IMAGINATIVE TO FLATTER HIMSELF WITH THE SLIGHTEST HOPE OF THIS KIND"
+   },
+   {
+    "id": "7850-111771-0008",
+    "spk": "7850",
+    "dur_s": 6.915,
+    "text": "WHEN HIS PUBLIC SERVICES WERE FINISHED HE STARTED IN COMPANY WITH HIS WIFE SON JESSE AND A FEW FRIENDS"
+   },
+   {
+    "id": "251-118436-0002",
+    "spk": "251",
+    "dur_s": 6.965,
+    "text": "SINCE HIS BIRTH HE HAS BEEN GUARDED SO CLOSELY THAT THE CLEVEREST POISONERS OF THE EAST COULD NOT REACH HIM"
+   },
+   {
+    "id": "422-122949-0004",
+    "spk": "422",
+    "dur_s": 6.985,
+    "text": "HE HONOURS WHATEVER HE RECOGNIZES IN HIMSELF SUCH MORALITY EQUALS SELF GLORIFICATION"
+   },
+   {
+    "id": "3752-4943-0002",
+    "spk": "3752",
+    "dur_s": 7.21,
+    "text": "I'M NOT TO GO IN THERE SAYS THE EX BANK CLERK DRAWING BACK IN DISMAY FROM THE CLOUD OF FOUL FACES WHICH LOWERED UPON HIM"
+   },
+   {
+    "id": "1462-170138-0008",
+    "spk": "1462",
+    "dur_s": 6.32,
+    "text": "OF COURSE HILDA IS IRISH THE BURGOYNES HAVE BEEN STAGE PEOPLE FOR GENERATIONS AND SHE HAS THE IRISH VOICE"
+   },
+   {
+    "id": "777-126732-0002",
+    "spk": "777",
+    "dur_s": 5.06,
+    "text": "AT BEST THEY CAN ONLY INTERPRET THE MIND OF THE PROPHET AND CAN HAVE NO OBJECTIVE VALUE"
+   }
+  ]
+ },
+ "lm": {
+  "source": "https://www.openslr.org/resources/11/3-gram.pruned.1e-7.arpa.gz",
+  "n_unigrams": 200003,
+  "n_bigrams": 2451827,
+  "n_trigrams": 1134656,
+  "unk": "<UNK>",
+  "oov_penalty": -5.0,
+  "oov_per_char": -3.0
+ },
+ "mandarin": {
+  "inputs": [
+   {
+    "key": "w1_ticket",
+    "label": "W1 Demo 2 的訂票句（授課者自錄）",
+    "public_text": true
+   },
+   {
+    "key": "w7_d2",
+    "label": "W7 Demo 2 的自錄句（含專有名詞）",
+    "public_text": false
+   }
+  ],
+  "results": {
+   "zh:w1_ticket:mms": {
+    "seconds": 0.031635666000511264,
+    "script": "繁",
+    "cer": 0.15384615384615385,
+    "S": 2,
+    "D": 0,
+    "I": 0,
+    "n_ref": 13,
+    "homophone_counts": {
+     "same_tone": 1,
+     "same_base": 0,
+     "different": 1,
+     "unknown": 0,
+     "homophone": 1
+    },
+    "text": "我想定一張下周山去臺南的票",
+    "ref": "我想訂一張下週三去台南的票",
+    "subs": [
+     {
+      "ref": "订",
+      "hyp": "定",
+      "kind": "same_tone"
+     },
+     {
+      "ref": "三",
+      "hyp": "山",
+      "kind": "different"
+     }
+    ]
+   },
+   "zh:w1_ticket:whisper": {
+    "seconds": 0.4797891249982058,
+    "script": "繁",
+    "cer": 0.0,
+    "S": 0,
+    "D": 0,
+    "I": 0,
+    "n_ref": 13,
+    "homophone_counts": {
+     "same_tone": 0,
+     "same_base": 0,
+     "different": 0,
+     "unknown": 0,
+     "homophone": 0
+    },
+    "text": "我想訂一張下週三去台南的票",
+    "ref": "我想訂一張下週三去台南的票",
+    "subs": []
+   },
+   "zh:w1_ticket:qwen": {
+    "seconds": 0.3373959589989681,
+    "script": "簡",
+    "cer": 0.0,
+    "S": 0,
+    "D": 0,
+    "I": 0,
+    "n_ref": 13,
+    "homophone_counts": {
+     "same_tone": 0,
+     "same_base": 0,
+     "different": 0,
+     "unknown": 0,
+     "homophone": 0
+    },
+    "text": "我想订一张下周三去台南的票。",
+    "ref": "我想訂一張下週三去台南的票",
+    "subs": []
+   },
+   "zh:w7_d2:mms": {
+    "seconds": 0.023994499999389518,
+    "script": "繁",
+    "cer": 0.4090909090909091,
+    "S": 9,
+    "D": 0,
+    "I": 0,
+    "n_ref": 22,
+    "homophone_counts": {
+     "same_tone": 7,
+     "same_base": 0,
+     "different": 2,
+     "unknown": 0,
+     "homophone": 7
+    }
+   },
+   "zh:w7_d2:whisper": {
+    "seconds": 0.5287842079997063,
+    "script": "繁",
+    "cer": 0.045454545454545456,
+    "S": 1,
+    "D": 0,
+    "I": 0,
+    "n_ref": 22,
+    "homophone_counts": {
+     "same_tone": 1,
+     "same_base": 0,
+     "different": 0,
+     "unknown": 0,
+     "homophone": 1
+    }
+   },
+   "zh:w7_d2:qwen": {
+    "seconds": 0.3212918749995879,
+    "script": "簡",
+    "cer": 0.09090909090909091,
+    "S": 2,
+    "D": 0,
+    "I": 0,
+    "n_ref": 22,
+    "homophone_counts": {
+     "same_tone": 1,
+     "same_base": 1,
+     "different": 0,
+     "unknown": 0,
+     "homophone": 2
+    }
+   }
+  }
+ },
+ "mms_error": null,
+ "qwen_error": null,
+ "results": {
+  "eta_tuning": {
+   "tune_lambda": 0.5,
+   "rows": [
+    {
+     "eta": 0.0,
+     "wer": 0.015706806282722512,
+     "errors": 3,
+     "S": 3,
+     "D": 0,
+     "I": 0,
+     "seconds": 0.3334373749967199
+    },
+    {
+     "eta": 0.5,
+     "wer": 0.015706806282722512,
+     "errors": 3,
+     "S": 3,
+     "D": 0,
+     "I": 0,
+     "seconds": 0.31974041600187775
+    },
+    {
+     "eta": 1.0,
+     "wer": 0.015706806282722512,
+     "errors": 3,
+     "S": 3,
+     "D": 0,
+     "I": 0,
+     "seconds": 0.31936420800047927
+    },
+    {
+     "eta": 1.5,
+     "wer": 0.015706806282722512,
+     "errors": 3,
+     "S": 3,
+     "D": 0,
+     "I": 0,
+     "seconds": 0.32046099999934086
+    },
+    {
+     "eta": 2.0,
+     "wer": 0.015706806282722512,
+     "errors": 3,
+     "S": 3,
+     "D": 0,
+     "I": 0,
+     "seconds": 0.31925991699972656
+    },
+    {
+     "eta": 3.0,
+     "wer": 0.031413612565445025,
+     "errors": 6,
+     "S": 4,
+     "D": 0,
+     "I": 2,
+     "seconds": 0.3198562920006225
+    },
+    {
+     "eta": 4.0,
+     "wer": 0.041884816753926704,
+     "errors": 8,
+     "S": 5,
+     "D": 0,
+     "I": 3,
+     "seconds": 0.3196172080024553
+    },
+    {
+     "eta": 6.0,
+     "wer": 0.06806282722513089,
+     "errors": 13,
+     "S": 7,
+     "D": 0,
+     "I": 6,
+     "seconds": 0.31993695799974375
+    }
+   ],
+   "best_eta": 0.0,
+   "n_tune": 10
+  },
+  "lm_info": {
+   "n_unigrams": 200003,
+   "n_bigrams": 2451827,
+   "n_trigrams": 1134656,
+   "unk": "<UNK>",
+   "oov_penalty": -5.0,
+   "oov_per_char": -3.0,
+   "load_seconds": 0.025340667001728434,
+   "from_cache": true,
+   "examples": [
+    {
+     "text": "THE CAT SAT ON THE MAT",
+     "lnp": -30.939033816656618,
+     "per_word": [
+      -2.4400771745963583,
+      -7.888829180317984,
+      -6.321575641458175,
+      -3.090631092439526,
+      -0.6364761731608096,
+      -8.071143481243249,
+      -2.4903010734405178
+     ],
+     "note": "",
+     "oov": []
+    },
+    {
+     "text": "MAT THE ON SAT CAT THE",
+     "lnp": -61.14429404745749,
+     "per_word": [
+      -13.16139458945051,
+      -4.296683751804157,
+      -9.63020065971213,
+      -9.628221452933957,
+      -11.534744637953649,
+      -4.7316900974851555,
+      -8.161358858117932
+     ],
+     "note": "同樣的詞倒過來",
+     "oov": []
+    },
+    {
+     "text": "THINK OF LADY GLENARVAN THINK OF MARY GRANT",
+     "lnp": -65.91867111876567,
+     "per_word": [
+      -7.815100193778313,
+      -0.8210318183683256,
+      -8.970957912944524,
+      -17.369704034300643,
+      -8.602450911236536,
+      -2.8751526916396886,
+      -9.414360069973412,
+      -6.9008682765529255,
+      -3.1490452099713098
+     ],
+     "note": "Demo 2 那句",
+     "oov": []
+    },
+    {
+     "text": "THINK OF LADY GLENARVIN THINK OF MARY GRANT",
+     "lnp": -85.47819736580784,
+     "per_word": [
+      -7.815100193778313,
+      -0.8210318183683256,
+      -8.970957912944524,
+      -37.01570277041139,
+      -8.515978422167954,
+      -2.8751526916396886,
+      -9.414360069973412,
+      -6.9008682765529255,
+      -3.1490452099713098
+     ],
+     "note": "Demo 2 的錯字",
+     "oov": [
+      "GLENARVIN"
+     ]
+    }
+   ],
+   "ppl_test": 239.92404127107514
+  },
+  "example": {
+   "paths": [
+    {
+     "path": "∅∅",
+     "prob": 0.1,
+     "label": ""
+    },
+    {
+     "path": "∅a",
+     "prob": 0.0875,
+     "label": "a"
+    },
+    {
+     "path": "∅b",
+     "prob": 0.0625,
+     "label": "b"
+    },
+    {
+     "path": "a∅",
+     "prob": 0.14,
+     "label": "a"
+    },
+    {
+     "path": "aa",
+     "prob": 0.1225,
+     "label": "a"
+    },
+    {
+     "path": "ab",
+     "prob": 0.0875,
+     "label": "ab"
+    },
+    {
+     "path": "b∅",
+     "prob": 0.16,
+     "label": "b"
+    },
+    {
+     "path": "ba",
+     "prob": 0.14,
+     "label": "ba"
+    },
+    {
+     "path": "bb",
+     "prob": 0.1,
+     "label": "b"
+    }
+   ],
+   "by_label": {
+    "": 0.1,
+    "a": 0.35,
+    "b": 0.3225,
+    "ab": 0.0875,
+    "ba": 0.14
+   },
+   "best_single_path": {
+    "path": "b∅",
+    "prob": 0.16,
+    "label": "b"
+   },
+   "greedy_label": "b",
+   "beam_label": "a",
+   "beam_probs": {
+    "a": 0.35,
+    "b": 0.3225,
+    "ba": 0.14,
+    "": 0.1,
+    "ab": 0.0875,
+    "bb": 0.0,
+    "aa": 0.0
+   },
+   "ok": true
+  },
+  "baseline": {
+   "greedy": {
+    "hyps": [
+     "SEASONABLE THIS RECIPE SHOULD BE USED IN JUNE JULY OR AUGUST",
+     "BUT THE PREVAILING DOCTRINE OF THE ETERNITY AND INHERENT PRAVITY OF MATTER INFECTED THE PRIMITIVE CHURCHES OF THE EAST",
+     "NIGHT AFTER NIGHT HIS SLEEP HAD BEEN DISTURBED BY FEARS FOR HER WHENT ABROAD MORNING AFTER MORNING IT HAD BEEN BROKEN BY THE CLAMOUR OF HER RETURN",
+     "THUS ONE SAUNTERS ON AND ON IN THE GLORIOUS RADIANCE IN UTTER PEACE AND FORGETFULNESS OF TIME",
+     "NONE MIGHT EXHORT OR CONFESS OR IN ANY WAY MEDLE WITH THE RELIGIOUS EXPERIENCE OF ANOTHER",
+     "MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL",
+     "HE IS STAYING AT THIS HOTEL TO TRY THE AIR OF SIDANUM AND HE FINDS THAT IT AGREES WITH HIM",
+     "IT WILL GROW ON POOR SOILS AND IS EXTREMELY PRODUCTIVE",
+     "ON MY RETURN I PURPOSELY AVOIDED LOOKING INTO IT UNTIL I HAD SENT BACK MY LAST REVISES TO THE PRINTER",
+     "IT IS THEREFORE AND ON ALL ACCOUNTS UNNECESSARY TO SAY MUCH MORE OF THE WORK HERE THAN IT SAYS FOR ITSELF",
+     "TWO BATTLEMENTED WALLS ONE OF WHICH FACED THE AVENUE AND THE OTHER DIVIDED THE COURT FROM THE GARDEN COMPLETED THE ENCLOSURE",
+     "SHE FELT THAT WHICH SHE HAD NEVER FELT BEFORE A SENSATION OF EXPANSION",
+     "MY GRANDMOTHER ALWAYS SPOKE IN A VERY LOUD TONE TO FOREIGNERS AS IF THEY WERE DEAF",
+     "DON QUIXOTE DID SO AND ASKED HIM WHAT HAD HAPPENED TO HIM AND WHAT HE WAS AFRAID OF",
+     "WE DID THE SAME WITH PHYSICIANS WHOM WE OFTEN SENT HALF DRESSED TO SOME NOBLEMAN WHO WAS ENJOYING EXCELLENT HEALTH",
+     "THEIR MINDS WERE SO DISTRACTED AT THIS CHANGE OF ROUTE AS TO BE QUITE UNHINGED",
+     "ECHOED THE FLOWERS TREMULOUSLY AS WITH A SORT OF FEARFUL PLEASURE THEY AWAITED HIS APPROACH",
+     "I WHIRLED ROUND AND THERE ON ONE OF THOSE DRY GRAVEL BEDS WAS THE BIGGEST SNAKE I HAD EVER SEEN",
+     "WITH A FEW LANTERNS OUR MEN THEN WENT ABOUT AND TRIED TO GATHER UP THE WOUNDED THE DEAD WERE LEFT TILL MORNING",
+     "ON THE SECOND OF THE MONTH AT TWO IN THE MORNING OUR PRECIOUS CARGO OF LUGGAGE WAS TAKEN ON BOARD THE GOOD SHIP VALKARY",
+     "HOW INFINITE THE WEALTH OF LOVE AND HOPE GARNERED IN THESE SAME TINY TREASURE HOUSES AND OH",
+     "OH YOU RAVE SIR EXCLAIMED VILLEFORT IN VAIN ENDEAVORING TO ESCAPE THE NET IN WHICH HE WAS TAKEN I RAVE",
+     "TRIBE AFTER TRIBE WAS CROWDING DOWN TO THE ALPS AND TRAMPLING UPON EACH OTHER ON THE FRONTIERS OF THE EMPIRE",
+     "I HAD BEEN FEELING MEAN ALL THE MORNING AS IF I HAD STOLEN A SHEEP BUT WHEN THE ORDERED THE CHARGE WAS GIVEN I GOT HAPPY",
+     "SHE WAS ONE OF A LARGE COMPANY AT A HOUSE WHERE SHE HAD NEVER BEEN BEFORE A BEAUTIFUL HOUSE WITH A LARGE GARDEN BEHIND",
+     "TO CARRY THE SOUND OF THE LITTLE BELLS UPON THE HORSE CARS AS THEY TINKLED IN AND OUT OF HEARING WAS AS PLEASING AS IT WAS NOVEL",
+     "NOTHING CAN SURPRISE ME NOW I'M PREPARED FOR ANYTHING EVEN THE SIGHT OF MY QUAKERISH LOVER DANCING A JIK",
+     "COLONEL LEONITAS TALBOT REGARDED THE WHITE FLAG WITH FEELINGS IN WHICH TRIUMPH AND SADNESS WERE MINGLED STRANGELY",
+     "I AM THE ONE TO GO AFTER WALT IF ANY ONE HAS TOP I'LL GO DOWN MISTER THOMAS",
+     "ACCORDING TO ALL APPEARANCE INDUSTRIOUS MANIPULATORS OF CHILDREN HAD WORKED UPON HIS FACE"
+    ],
+    "errors": 15,
+    "n_ref": 563,
+    "wer": 0.02664298401420959,
+    "S": 13,
+    "D": 1,
+    "I": 1,
+    "per_sentence": [
+     0,
+     0,
+     1,
+     0,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     2,
+     0,
+     1,
+     3,
+     1,
+     3,
+     0
+    ]
+   },
+   "beam0": {
+    "lam": 0.0,
+    "eta": 0.0,
+    "hyps": [
+     "SEASONABLE THIS RECIPE SHOULD BE USED IN JUNE JULY OR AUGUST",
+     "BUT THE PREVAILING DOCTRINE OF THE ETERNITY AND INHERENT PRAVITY OF MATTER INFECTED THE PRIMITIVE CHURCHES OF THE EAST",
+     "NIGHT AFTER NIGHT HIS SLEEP HAD BEEN DISTURBED BY FEARS FOR HER WHENT ABROAD MORNING AFTER MORNING IT HAD BEEN BROKEN BY THE CLAMOUR OF HER RETURN",
+     "THUS ONE SAUNTERS ON AND ON IN THE GLORIOUS RADIANCE IN UTTER PEACE AND FORGETFULNESS OF TIME",
+     "NONE MIGHT EXHORT OR CONFESS OR IN ANY WAY MEDLE WITH THE RELIGIOUS EXPERIENCE OF ANOTHER",
+     "MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL",
+     "HE IS STAYING AT THIS HOTEL TO TRY THE AIR OF SIDANUM AND HE FINDS THAT IT AGREES WITH HIM",
+     "IT WILL GROW ON POOR SOILS AND IS EXTREMELY PRODUCTIVE",
+     "ON MY RETURN I PURPOSELY AVOIDED LOOKING INTO IT UNTIL I HAD SENT BACK MY LAST REVISES TO THE PRINTER",
+     "IT IS THEREFORE AND ON ALL ACCOUNTS UNNECESSARY TO SAY MUCH MORE OF THE WORK HERE THAN IT SAYS FOR ITSELF",
+     "TWO BATTLEMENTED WALLS ONE OF WHICH FACED THE AVENUE AND THE OTHER DIVIDED THE COURT FROM THE GARDEN COMPLETED THE ENCLOSURE",
+     "SHE FELT THAT WHICH SHE HAD NEVER FELT BEFORE A SENSATION OF EXPANSION",
+     "MY GRANDMOTHER ALWAYS SPOKE IN A VERY LOUD TONE TO FOREIGNERS AS IF THEY WERE DEAF",
+     "DON QUIXOTE DID SO AND ASKED HIM WHAT HAD HAPPENED TO HIM AND WHAT HE WAS AFRAID OF",
+     "WE DID THE SAME WITH PHYSICIANS WHOM WE OFTEN SENT HALF DRESSED TO SOME NOBLEMAN WHO WAS ENJOYING EXCELLENT HEALTH",
+     "THEIR MINDS WERE SO DISTRACTED AT THIS CHANGE OF ROUTE AS TO BE QUITE UNHINGED",
+     "ECHOED THE FLOWERS TREMULOUSLY AS WITH A SORT OF FEARFUL PLEASURE THEY AWAITED HIS APPROACH",
+     "I WHIRLED ROUND AND THERE ON ONE OF THOSE DRY GRAVEL BEDS WAS THE BIGGEST SNAKE I HAD EVER SEEN",
+     "WITH A FEW LANTERNS OUR MEN THEN WENT ABOUT AND TRIED TO GATHER UP THE WOUNDED THE DEAD WERE LEFT TILL MORNING",
+     "ON THE SECOND OF THE MONTH AT TWO IN THE MORNING OUR PRECIOUS CARGO OF LUGGAGE WAS TAKEN ON BOARD THE GOOD SHIP VALKARY",
+     "HOW INFINITE THE WEALTH OF LOVE AND HOPE GARNERED IN THESE SAME TINY TREASURE HOUSES AND OH",
+     "OH YOU RAVE SIR EXCLAIMED VILLEFORT IN VAIN ENDEAVORING TO ESCAPE THE NET IN WHICH HE WAS TAKEN I RAVE",
+     "TRIBE AFTER TRIBE WAS CROWDING DOWN TO THE ALPS AND TRAMPLING UPON EACH OTHER ON THE FRONTIERS OF THE EMPIRE",
+     "I HAD BEEN FEELING MEAN ALL THE MORNING AS IF I HAD STOLEN A SHEEP BUT WHEN THE ORDERED THE CHARGE WAS GIVEN I GOT HAPPY",
+     "SHE WAS ONE OF A LARGE COMPANY AT A HOUSE WHERE SHE HAD NEVER BEEN BEFORE A BEAUTIFUL HOUSE WITH A LARGE GARDEN BEHIND",
+     "TO CARRY THE SOUND OF THE LITTLE BELLS UPON THE HORSE CARS AS THEY TINKLED IN AND OUT OF HEARING WAS AS PLEASING AS IT WAS NOVEL",
+     "NOTHING CAN SURPRISE ME NOW I'M PREPARED FOR ANYTHING EVEN THE SIGHT OF MY QUAKERISH LOVER DANCING A JIK",
+     "COLONEL LEONITAS TALBOT REGARDED THE WHITE FLAG WITH FEELINGS IN WHICH TRIUMPH AND SADNESS WERE MINGLED STRANGELY",
+     "I AM THE ONE TO GO AFTER WALT IF ANY ONE HAS TOP I'LL GO DOWN MISTER THOMAS",
+     "ACCORDING TO ALL APPEARANCE INDUSTRIOUS MANIPULATORS OF CHILDREN HAD WORKED UPON HIS FACE"
+    ],
+    "parts": [
+     {
+      "logp_ctc": -0.006282090865129898,
+      "lm_ln": -75.43387264730684,
+      "n_words": 11,
+      "n_oov": 0
+     },
+     {
+      "logp_ctc": -0.0922886013010338,
+      "lm_ln": -130.4098535879188,
+      "n_words": 19,
+      "n_oov": 0
+     },
+     {
+      "logp_ctc": -1.404233224558493,
+      "lm_ln": -169.83741719733155,
+      "n_words": 27,
+      "n_oov": 1
+     },
+     {
+      "logp_ctc": -0.05220228941480807,
+      "lm_ln": -112.17994552269758,
+      "n_words": 17,
+      "n_oov": 0
+     },
+     {
+      "logp_ctc": -1.5494069594078168,
+      "lm_ln": -121.90966548287967,
+      "n_words": 16,
+      "n_oov": 1
+     },
+     {
+      "logp_ctc": -0.026763644768751815,
+      "lm_ln": -99.02103213849222,
+      "n_words": 17,
+      "n_oov": 0
+     },
+     {
+      "logp_ctc": -1.4121514867421514,
+      "lm_ln": -119.69590084293043,
+      "n_words": 20,
+      "n_oov": 1
+     },
+     {
+      "logp_ctc": -0.006703016159724817,
+      "lm_ln": -70.37568558357027,
+      "n_words": 10,
+      "n_oov": 0
+     },
+     {
+      "logp_ctc": -0.33357665882096726,
+      "lm_ln": -119.28242220105551,
+      "n_words": 20,
+      "n_oov": 0
+     },
+     {
+      "logp_ctc": -0.10137079238628675,
+      "lm_ln": -112.59282030057312,
+      "n_words": 21,
+      "n_oov": 0
+     },
+     {
+      "logp_ctc": -0.3393154466423536,
+      "lm_ln": -126.47181442889959,
+      "n_words": 21,
+      "n_oov": 0
+     },
+     {
+      "logp_ctc": -0.004107352850208639,
+      "lm_ln": -60.10653747425325,
+      "n_words": 13,
+      "n_oov": 0
+     },
+     {
+      "logp_ctc": -0.07993138344169641,
+      "lm_ln": -85.58696052182928,
+      "n_words": 16,
+      "n_oov": 0
+     },
+     {
+      "logp_ctc": -0.03907283858060281,
+      "lm_ln": -71.33378729290567,
+      "n_words": 18,
+      "n_oov": 0
+     },
+     {
+      "logp_ctc": -0.4996996278598966,
+      "lm_ln": -131.68701600323183,
+      "n_words": 20,
+      "n_oov": 0
+     },
+     {
+      "logp_ctc": -0.1672771429393749,
+      "lm_ln": -93.5487294841015,
+      "n_words": 15,
+      "n_oov": 0
+     },
+     {
+      "logp_ctc": -0.012140865253872021,
+      "lm_ln": -88.86328704509565,
+      "n_words": 15,
+      "n_oov": 0
+     },
+     {
+      "logp_ctc": -0.594581277334687,
+      "lm_ln": -104.70667594526707,
+      "n_words": 20,
+      "n_oov": 0
+     },
+     {
+      "logp_ctc": -0.051223009929512654,
+      "lm_ln": -125.89741541464485,
+      "n_words": 22,
+      "n_oov": 0
+     },
+     {
+      "logp_ctc": -1.6128707604333792,
+      "lm_ln": -145.98502571624965,
+      "n_words": 24,
+      "n_oov": 1
+     },
+     {
+      "logp_ctc": -0.21197751670619402,
+      "lm_ln": -108.93655171106275,
+      "n_words": 17,
+      "n_oov": 0
+     },
+     {
+      "logp_ctc": -0.41529154677357866,
+      "lm_ln": -126.16765357662258,
+      "n_words": 20,
+      "n_oov": 0
+     },
+     {
+      "logp_ctc": -0.3162837465828356,
+      "lm_ln": -101.02874274182487,
+      "n_words": 20,
+      "n_oov": 0
+     },
+     {
+      "logp_ctc": -1.148161847245177,
+      "lm_ln": -147.16056545444602,
+      "n_words": 26,
+      "n_oov": 0
+     },
+     {
+      "logp_ctc": -0.01102042556638009,
+      "lm_ln": -111.72984731359871,
+      "n_words": 24,
+      "n_oov": 0
+     },
+     {
+      "logp_ctc": -0.487268396663244,
+      "lm_ln": -141.51170036296196,
+      "n_words": 27,
+      "n_oov": 0
+     },
+     {
+      "logp_ctc": -2.103740127121993,
+      "lm_ln": -136.46731655893606,
+      "n_words": 19,
+      "n_oov": 1
+     },
+     {
+      "logp_ctc": -1.3146927743119374,
+      "lm_ln": -156.45159169314803,
+      "n_words": 17,
+      "n_oov": 1
+     },
+     {
+      "logp_ctc": -1.7603601240927258,
+      "lm_ln": -110.3508123798316,
+      "n_words": 18,
+      "n_oov": 0
+     },
+     {
+      "logp_ctc": -0.0061213171620137985,
+      "lm_ln": -76.46847838947217,
+      "n_words": 13,
+      "n_oov": 0
+     }
+    ],
+    "seconds": 0.8545618329990248,
+    "errors": 15,
+    "n_ref": 563,
+    "wer": 0.02664298401420959,
+    "S": 13,
+    "D": 1,
+    "I": 1,
+    "per_sentence": [
+     0,
+     0,
+     1,
+     0,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     2,
+     0,
+     1,
+     3,
+     1,
+     3,
+     0
+    ]
+   },
+   "T_total": 9927,
+   "dur_total": 198.91
+  },
+  "sweep": {
+   "lambdas": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.5,
+    0.7,
+    1.0,
+    1.5,
+    2.0,
+    3.0,
+    4.0
+   ],
+   "eta": 0.0,
+   "beam": 32,
+   "rows": [
+    {
+     "lam": 0.0,
+     "eta": 0.0,
+     "hyps": [
+      "SEASONABLE THIS RECIPE SHOULD BE USED IN JUNE JULY OR AUGUST",
+      "BUT THE PREVAILING DOCTRINE OF THE ETERNITY AND INHERENT PRAVITY OF MATTER INFECTED THE PRIMITIVE CHURCHES OF THE EAST",
+      "NIGHT AFTER NIGHT HIS SLEEP HAD BEEN DISTURBED BY FEARS FOR HER WHENT ABROAD MORNING AFTER MORNING IT HAD BEEN BROKEN BY THE CLAMOUR OF HER RETURN",
+      "THUS ONE SAUNTERS ON AND ON IN THE GLORIOUS RADIANCE IN UTTER PEACE AND FORGETFULNESS OF TIME",
+      "NONE MIGHT EXHORT OR CONFESS OR IN ANY WAY MEDLE WITH THE RELIGIOUS EXPERIENCE OF ANOTHER",
+      "MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL",
+      "HE IS STAYING AT THIS HOTEL TO TRY THE AIR OF SIDANUM AND HE FINDS THAT IT AGREES WITH HIM",
+      "IT WILL GROW ON POOR SOILS AND IS EXTREMELY PRODUCTIVE",
+      "ON MY RETURN I PURPOSELY AVOIDED LOOKING INTO IT UNTIL I HAD SENT BACK MY LAST REVISES TO THE PRINTER",
+      "IT IS THEREFORE AND ON ALL ACCOUNTS UNNECESSARY TO SAY MUCH MORE OF THE WORK HERE THAN IT SAYS FOR ITSELF",
+      "TWO BATTLEMENTED WALLS ONE OF WHICH FACED THE AVENUE AND THE OTHER DIVIDED THE COURT FROM THE GARDEN COMPLETED THE ENCLOSURE",
+      "SHE FELT THAT WHICH SHE HAD NEVER FELT BEFORE A SENSATION OF EXPANSION",
+      "MY GRANDMOTHER ALWAYS SPOKE IN A VERY LOUD TONE TO FOREIGNERS AS IF THEY WERE DEAF",
+      "DON QUIXOTE DID SO AND ASKED HIM WHAT HAD HAPPENED TO HIM AND WHAT HE WAS AFRAID OF",
+      "WE DID THE SAME WITH PHYSICIANS WHOM WE OFTEN SENT HALF DRESSED TO SOME NOBLEMAN WHO WAS ENJOYING EXCELLENT HEALTH",
+      "THEIR MINDS WERE SO DISTRACTED AT THIS CHANGE OF ROUTE AS TO BE QUITE UNHINGED",
+      "ECHOED THE FLOWERS TREMULOUSLY AS WITH A SORT OF FEARFUL PLEASURE THEY AWAITED HIS APPROACH",
+      "I WHIRLED ROUND AND THERE ON ONE OF THOSE DRY GRAVEL BEDS WAS THE BIGGEST SNAKE I HAD EVER SEEN",
+      "WITH A FEW LANTERNS OUR MEN THEN WENT ABOUT AND TRIED TO GATHER UP THE WOUNDED THE DEAD WERE LEFT TILL MORNING",
+      "ON THE SECOND OF THE MONTH AT TWO IN THE MORNING OUR PRECIOUS CARGO OF LUGGAGE WAS TAKEN ON BOARD THE GOOD SHIP VALKARY",
+      "HOW INFINITE THE WEALTH OF LOVE AND HOPE GARNERED IN THESE SAME TINY TREASURE HOUSES AND OH",
+      "OH YOU RAVE SIR EXCLAIMED VILLEFORT IN VAIN ENDEAVORING TO ESCAPE THE NET IN WHICH HE WAS TAKEN I RAVE",
+      "TRIBE AFTER TRIBE WAS CROWDING DOWN TO THE ALPS AND TRAMPLING UPON EACH OTHER ON THE FRONTIERS OF THE EMPIRE",
+      "I HAD BEEN FEELING MEAN ALL THE MORNING AS IF I HAD STOLEN A SHEEP BUT WHEN THE ORDERED THE CHARGE WAS GIVEN I GOT HAPPY",
+      "SHE WAS ONE OF A LARGE COMPANY AT A HOUSE WHERE SHE HAD NEVER BEEN BEFORE A BEAUTIFUL HOUSE WITH A LARGE GARDEN BEHIND",
+      "TO CARRY THE SOUND OF THE LITTLE BELLS UPON THE HORSE CARS AS THEY TINKLED IN AND OUT OF HEARING WAS AS PLEASING AS IT WAS NOVEL",
+      "NOTHING CAN SURPRISE ME NOW I'M PREPARED FOR ANYTHING EVEN THE SIGHT OF MY QUAKERISH LOVER DANCING A JIK",
+      "COLONEL LEONITAS TALBOT REGARDED THE WHITE FLAG WITH FEELINGS IN WHICH TRIUMPH AND SADNESS WERE MINGLED STRANGELY",
+      "I AM THE ONE TO GO AFTER WALT IF ANY ONE HAS TOP I'LL GO DOWN MISTER THOMAS",
+      "ACCORDING TO ALL APPEARANCE INDUSTRIOUS MANIPULATORS OF CHILDREN HAD WORKED UPON HIS FACE"
+     ],
+     "parts": [
+      {
+       "logp_ctc": -0.006282090865129898,
+       "lm_ln": -75.43387264730684,
+       "n_words": 11,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.0922886013010338,
+       "lm_ln": -130.4098535879188,
+       "n_words": 19,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.404233224558493,
+       "lm_ln": -169.83741719733155,
+       "n_words": 27,
+       "n_oov": 1
+      },
+      {
+       "logp_ctc": -0.05220228941480807,
+       "lm_ln": -112.17994552269758,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.5494069594078168,
+       "lm_ln": -121.90966548287967,
+       "n_words": 16,
+       "n_oov": 1
+      },
+      {
+       "logp_ctc": -0.026763644768751815,
+       "lm_ln": -99.02103213849222,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.4121514867421514,
+       "lm_ln": -119.69590084293043,
+       "n_words": 20,
+       "n_oov": 1
+      },
+      {
+       "logp_ctc": -0.006703016159724817,
+       "lm_ln": -70.37568558357027,
+       "n_words": 10,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.33357665882096726,
+       "lm_ln": -119.28242220105551,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.10137079238628675,
+       "lm_ln": -112.59282030057312,
+       "n_words": 21,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.3393154466423536,
+       "lm_ln": -126.47181442889959,
+       "n_words": 21,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.004107352850208639,
+       "lm_ln": -60.10653747425325,
+       "n_words": 13,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.07993138344169641,
+       "lm_ln": -85.58696052182928,
+       "n_words": 16,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.03907283858060281,
+       "lm_ln": -71.33378729290567,
+       "n_words": 18,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.4996996278598966,
+       "lm_ln": -131.68701600323183,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.1672771429393749,
+       "lm_ln": -93.5487294841015,
+       "n_words": 15,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.012140865253872021,
+       "lm_ln": -88.86328704509565,
+       "n_words": 15,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.594581277334687,
+       "lm_ln": -104.70667594526707,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.051223009929512654,
+       "lm_ln": -125.89741541464485,
+       "n_words": 22,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.6128707604333792,
+       "lm_ln": -145.98502571624965,
+       "n_words": 24,
+       "n_oov": 1
+      },
+      {
+       "logp_ctc": -0.21197751670619402,
+       "lm_ln": -108.93655171106275,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.41529154677357866,
+       "lm_ln": -126.16765357662258,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.3162837465828356,
+       "lm_ln": -101.02874274182487,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.148161847245177,
+       "lm_ln": -147.16056545444602,
+       "n_words": 26,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.01102042556638009,
+       "lm_ln": -111.72984731359871,
+       "n_words": 24,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.487268396663244,
+       "lm_ln": -141.51170036296196,
+       "n_words": 27,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -2.103740127121993,
+       "lm_ln": -136.46731655893606,
+       "n_words": 19,
+       "n_oov": 1
+      },
+      {
+       "logp_ctc": -1.3146927743119374,
+       "lm_ln": -156.45159169314803,
+       "n_words": 17,
+       "n_oov": 1
+      },
+      {
+       "logp_ctc": -1.7603601240927258,
+       "lm_ln": -110.3508123798316,
+       "n_words": 18,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.0061213171620137985,
+       "lm_ln": -76.46847838947217,
+       "n_words": 13,
+       "n_oov": 0
+      }
+     ],
+     "seconds": 0.8271009169984609,
+     "errors": 15,
+     "n_ref": 563,
+     "wer": 0.02664298401420959,
+     "S": 13,
+     "D": 1,
+     "I": 1,
+     "per_sentence": [
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      2,
+      0,
+      1,
+      3,
+      1,
+      3,
+      0
+     ]
+    },
+    {
+     "lam": 0.1,
+     "eta": 0.0,
+     "hyps": [
+      "SEASONABLE THIS RECIPE SHOULD BE USED IN JUNE JULY OR AUGUST",
+      "BUT THE PREVAILING DOCTRINE OF THE ETERNITY AND INHERENT PRAVITY OF MATTER INFECTED THE PRIMITIVE CHURCHES OF THE EAST",
+      "NIGHT AFTER NIGHT HIS SLEEP HAD BEEN DISTURBED BY FEARS FOR HER WHEN ABROAD MORNING AFTER MORNING IT HAD BEEN BROKEN BY THE CLAMOUR OF HER RETURN",
+      "THUS ONE SAUNTERS ON AND ON IN THE GLORIOUS RADIANCE IN UTTER PEACE AND FORGETFULNESS OF TIME",
+      "NONE MIGHT EXHORT OR CONFESS OR IN ANY WAY MEDDLE WITH THE RELIGIOUS EXPERIENCE OF ANOTHER",
+      "MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL",
+      "HE IS STAYING AT THIS HOTEL TO TRY THE AIR OF SIDANUM AND HE FINDS THAT IT AGREES WITH HIM",
+      "IT WILL GROW ON POOR SOILS AND IS EXTREMELY PRODUCTIVE",
+      "ON MY RETURN I PURPOSELY AVOIDED LOOKING INTO IT UNTIL I HAD SENT BACK MY LAST REVISES TO THE PRINTER",
+      "IT IS THEREFORE AND ON ALL ACCOUNTS UNNECESSARY TO SAY MUCH MORE OF THE WORK HERE THAN IT SAYS FOR ITSELF",
+      "TWO BATTLEMENTED WALLS ONE OF WHICH FACED THE AVENUE AND THE OTHER DIVIDED THE COURT FROM THE GARDEN COMPLETED THE ENCLOSURE",
+      "SHE FELT THAT WHICH SHE HAD NEVER FELT BEFORE A SENSATION OF EXPANSION",
+      "MY GRANDMOTHER ALWAYS SPOKE IN A VERY LOUD TONE TO FOREIGNERS AS IF THEY WERE DEAF",
+      "DON QUIXOTE DID SO AND ASKED HIM WHAT HAD HAPPENED TO HIM AND WHAT HE WAS AFRAID OF",
+      "WE DID THE SAME WITH PHYSICIANS WHOM WE OFTEN SENT HALF DRESSED TO SOME NOBLEMAN WHO WAS ENJOYING EXCELLENT HEALTH",
+      "THEIR MINDS WERE SO DISTRACTED AT THIS CHANGE OF ROUTE AS TO BE QUITE UNHINGED",
+      "ECHOED THE FLOWERS TREMULOUSLY AS WITH A SORT OF FEARFUL PLEASURE THEY AWAITED HIS APPROACH",
+      "I WHIRLED ROUND AND THERE ON ONE OF THOSE DRY GRAVEL BEDS WAS THE BIGGEST SNAKE I HAD EVER SEEN",
+      "WITH A FEW LANTERNS OUR MEN THEN WENT ABOUT AND TRIED TO GATHER UP THE WOUNDED THE DEAD WERE LEFT TILL MORNING",
+      "ON THE SECOND OF THE MONTH AT TWO IN THE MORNING OUR PRECIOUS CARGO OF LUGGAGE WAS TAKEN ON BOARD THE GOOD SHIP VALKARY",
+      "HOW INFINITE THE WEALTH OF LOVE AND HOPE GARNERED IN THESE SAME TINY TREASURE HOUSES AND OH",
+      "OH YOU RAVE SIR EXCLAIMED VILLEFORT IN VAIN ENDEAVORING TO ESCAPE THE NET IN WHICH HE WAS TAKEN I RAVE",
+      "TRIBE AFTER TRIBE WAS CROWDING DOWN TO THE ALPS AND TRAMPLING UPON EACH OTHER ON THE FRONTIERS OF THE EMPIRE",
+      "I HAD BEEN FEELING MEAN ALL THE MORNING AS IF I HAD STOLEN A SHEEP BUT WHEN THE ORDERED THE CHARGE WAS GIVEN I GOT HAPPY",
+      "SHE WAS ONE OF A LARGE COMPANY AT A HOUSE WHERE SHE HAD NEVER BEEN BEFORE A BEAUTIFUL HOUSE WITH A LARGE GARDEN BEHIND",
+      "TO CARRY THE SOUND OF THE LITTLE BELLS UPON THE HORSE CARS AS THEY TINKLED IN AND OUT OF HEARING WAS AS PLEASING AS IT WAS NOVEL",
+      "NOTHING CAN SURPRISE ME NOW I'M PREPARED FOR ANYTHING EVEN THE SIGHT OF MY QUAKERISH LOVER DANCING A JIG",
+      "COLONEL LEONIDAS TALBOT REGARDED THE WHITE FLAG WITH FEELINGS IN WHICH TRIUMPH AND SADNESS WERE MINGLED STRANGELY",
+      "I AM THE ONE TO GO AFTER WALT IF ANY ONE HAS TOP I'LL GO DOWN MISTER THOMAS",
+      "ACCORDING TO ALL APPEARANCE INDUSTRIOUS MANIPULATORS OF CHILDREN HAD WORKED UPON HIS FACE"
+     ],
+     "parts": [
+      {
+       "logp_ctc": -0.006282090352053591,
+       "lm_ln": -75.43387264730684,
+       "n_words": 11,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.09227662831031894,
+       "lm_ln": -130.4098535879188,
+       "n_words": 19,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.5368892305800361,
+       "lm_ln": -147.4218556951135,
+       "n_words": 27,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.05220210188662477,
+       "lm_ln": -112.17994552269758,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -2.625617149768984,
+       "lm_ln": -104.68112748886499,
+       "n_words": 16,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.026763643202028065,
+       "lm_ln": -99.02103213849222,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.4122114706592743,
+       "lm_ln": -119.69590084293043,
+       "n_words": 20,
+       "n_oov": 1
+      },
+      {
+       "logp_ctc": -0.006703015750125518,
+       "lm_ln": -70.37568558357027,
+       "n_words": 10,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.3335854207364564,
+       "lm_ln": -119.28242220105551,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.10136006000352375,
+       "lm_ln": -112.59282030057312,
+       "n_words": 21,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.33928337516280016,
+       "lm_ln": -126.47181442889959,
+       "n_words": 21,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.004107352837951589,
+       "lm_ln": -60.10653747425325,
+       "n_words": 13,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.07993138189906698,
+       "lm_ln": -85.58696052182928,
+       "n_words": 16,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.03907761834503461,
+       "lm_ln": -71.33378729290567,
+       "n_words": 18,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.49967322993537916,
+       "lm_ln": -131.68701600323183,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.1672714566097268,
+       "lm_ln": -93.5487294841015,
+       "n_words": 15,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.012123663970461511,
+       "lm_ln": -88.86328704509565,
+       "n_words": 15,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.5944750257970774,
+       "lm_ln": -104.70667594526707,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.05119311901061929,
+       "lm_ln": -125.89741541464485,
+       "n_words": 22,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.6127967686756608,
+       "lm_ln": -145.98502571624965,
+       "n_words": 24,
+       "n_oov": 1
+      },
+      {
+       "logp_ctc": -0.21189076635014317,
+       "lm_ln": -108.93655171106275,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.415287053214845,
+       "lm_ln": -126.16765357662258,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.3162196864334535,
+       "lm_ln": -101.02874274182487,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.1481357188969263,
+       "lm_ln": -147.16056545444602,
+       "n_words": 26,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.01102042372929766,
+       "lm_ln": -111.72984731359871,
+       "n_words": 24,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.487244997689346,
+       "lm_ln": -141.51170036296196,
+       "n_words": 27,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -3.6154007195512703,
+       "lm_ln": -118.20371184956241,
+       "n_words": 19,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.5089432052070173,
+       "lm_ln": -119.01139722769794,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.7603418562499509,
+       "lm_ln": -110.3508123798316,
+       "n_words": 18,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.00612131062289755,
+       "lm_ln": -76.46847838947217,
+       "n_words": 13,
+       "n_oov": 0
+      }
+     ],
+     "seconds": 0.8368135419987084,
+     "errors": 11,
+     "n_ref": 563,
+     "wer": 0.019538188277087035,
+     "S": 9,
+     "D": 1,
+     "I": 1,
+     "per_sentence": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      2,
+      0,
+      1,
+      2,
+      0,
+      3,
+      0
+     ]
+    },
+    {
+     "lam": 0.2,
+     "eta": 0.0,
+     "hyps": [
+      "SEASONABLE THIS RECIPE SHOULD BE USED IN JUNE JULY OR AUGUST",
+      "BUT THE PREVAILING DOCTRINE OF THE ETERNITY AND INHERENT PRAVITY OF MATTER INFECTED THE PRIMITIVE CHURCHES OF THE EAST",
+      "NIGHT AFTER NIGHT HIS SLEEP HAD BEEN DISTURBED BY FEARS FOR HER WHEN ABROAD MORNING AFTER MORNING IT HAD BEEN BROKEN BY THE CLAMOUR OF HER RETURN",
+      "THUS ONE SAUNTERS ON AND ON IN THE GLORIOUS RADIANCE IN UTTER PEACE AND FORGETFULNESS OF TIME",
+      "NONE MIGHT EXHORT OR CONFESS OR IN ANY WAY MEDDLE WITH THE RELIGIOUS EXPERIENCE OF ANOTHER",
+      "MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL",
+      "HE IS STAYING AT THIS HOTEL TO TRY THE AIR OF SIDANUM AND HE FINDS THAT IT AGREES WITH HIM",
+      "IT WILL GROW ON POOR SOILS AND IS EXTREMELY PRODUCTIVE",
+      "ON MY RETURN I PURPOSELY AVOIDED LOOKING INTO IT UNTIL I HAD SENT BACK MY LAST REVISES TO THE PRINTER",
+      "IT IS THEREFORE AND ON ALL ACCOUNTS UNNECESSARY TO SAY MUCH MORE OF THE WORK HERE THAN IT SAYS FOR ITSELF",
+      "TWO BATTLEMENTED WALLS ONE OF WHICH FACED THE AVENUE AND THE OTHER DIVIDED THE COURT FROM THE GARDEN COMPLETED THE ENCLOSURE",
+      "SHE FELT THAT WHICH SHE HAD NEVER FELT BEFORE A SENSATION OF EXPANSION",
+      "MY GRANDMOTHER ALWAYS SPOKE IN A VERY LOUD TONE TO FOREIGNERS AS IF THEY WERE DEAF",
+      "DON QUIXOTE DID SO AND ASKED HIM WHAT HAD HAPPENED TO HIM AND WHAT HE WAS AFRAID OF",
+      "WE DID THE SAME WITH PHYSICIANS WHOM WE OFTEN SENT HALF DRESSED TO SOME NOBLEMAN WHO WAS ENJOYING EXCELLENT HEALTH",
+      "THEIR MINDS WERE SO DISTRACTED AT THIS CHANGE OF ROUTE AS TO BE QUITE UNHINGED",
+      "ECHOED THE FLOWERS TREMULOUSLY AS WITH A SORT OF FEARFUL PLEASURE THEY AWAITED HIS APPROACH",
+      "I WHIRLED ROUND AND THERE ON ONE OF THOSE DRY GRAVEL BEDS WAS THE BIGGEST SNAKE I HAD EVER SEEN",
+      "WITH A FEW LANTERNS OUR MEN THEN WENT ABOUT AND TRIED TO GATHER UP THE WOUNDED THE DEAD WERE LEFT TILL MORNING",
+      "ON THE SECOND OF THE MONTH AT TWO IN THE MORNING OUR PRECIOUS CARGO OF LUGGAGE WAS TAKEN ON BOARD THE GOOD SHIP VALKARY",
+      "HOW INFINITE THE WEALTH OF LOVE AND HOPE GARNERED IN THESE SAME TINY TREASURE HOUSES AND OH",
+      "OH YOU RAVE SIR EXCLAIMED VILLEFORT IN VAIN ENDEAVORING TO ESCAPE THE NET IN WHICH HE WAS TAKEN I RAVE",
+      "TRIBE AFTER TRIBE WAS CROWDING DOWN TO THE ALPS AND TRAMPLING UPON EACH OTHER ON THE FRONTIERS OF THE EMPIRE",
+      "I HAD BEEN FEELING MEAN ALL THE MORNING AS IF I HAD STOLEN A SHEEP BUT WHEN THE ORDERED THE CHARGE WAS GIVEN I GOT HAPPY",
+      "SHE WAS ONE OF A LARGE COMPANY AT A HOUSE WHERE SHE HAD NEVER BEEN BEFORE A BEAUTIFUL HOUSE WITH A LARGE GARDEN BEHIND",
+      "TO CARRY THE SOUND OF THE LITTLE BELLS UPON THE HORSE CARS AS THEY TINKLED IN AND OUT OF HEARING WAS AS PLEASING AS IT WAS NOVEL",
+      "NOTHING CAN SURPRISE ME NOW I'M PREPARED FOR ANYTHING EVEN THE SIGHT OF MY QUAKERISH LOVER DANCING A JIG",
+      "COLONEL LEONIDAS TALBOT REGARDED THE WHITE FLAG WITH FEELINGS IN WHICH TRIUMPH AND SADNESS WERE MINGLED STRANGELY",
+      "I AM THE ONE TO GO AFTER WALT IF ANYONE HAS TOP I'LL GO DOWN MISTER THOMAS",
+      "ACCORDING TO ALL APPEARANCE INDUSTRIOUS MANIPULATORS OF CHILDREN HAD WORKED UPON HIS FACE"
+     ],
+     "parts": [
+      {
+       "logp_ctc": -0.006282090309303204,
+       "lm_ln": -75.43387264730684,
+       "n_words": 11,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.09225574826193757,
+       "lm_ln": -130.4098535879188,
+       "n_words": 19,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.5368845727403448,
+       "lm_ln": -147.4218556951135,
+       "n_words": 27,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.052202370943001154,
+       "lm_ln": -112.17994552269758,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -2.6256118373506614,
+       "lm_ln": -104.68112748886499,
+       "n_words": 16,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.026752107511756162,
+       "lm_ln": -99.02103213849222,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.4121836281512226,
+       "lm_ln": -119.69590084293043,
+       "n_words": 20,
+       "n_oov": 1
+      },
+      {
+       "logp_ctc": -0.006701760080973334,
+       "lm_ln": -70.37568558357027,
+       "n_words": 10,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.3335853930904186,
+       "lm_ln": -119.28242220105551,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.10133307792910277,
+       "lm_ln": -112.59282030057312,
+       "n_words": 21,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.33927494072770303,
+       "lm_ln": -126.47181442889959,
+       "n_words": 21,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.004107352837951589,
+       "lm_ln": -60.10653747425325,
+       "n_words": 13,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.07993138189905988,
+       "lm_ln": -85.58696052182928,
+       "n_words": 16,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.03906566178440193,
+       "lm_ln": -71.33378729290567,
+       "n_words": 18,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.49966707443115393,
+       "lm_ln": -131.68701600323183,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.16727143184340543,
+       "lm_ln": -93.5487294841015,
+       "n_words": 15,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.012123663924314632,
+       "lm_ln": -88.86328704509565,
+       "n_words": 15,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.5944750084251553,
+       "lm_ln": -104.70667594526707,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.051192714148398856,
+       "lm_ln": -125.89741541464485,
+       "n_words": 22,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.6127967666050824,
+       "lm_ln": -145.98502571624965,
+       "n_words": 24,
+       "n_oov": 1
+      },
+      {
+       "logp_ctc": -0.21190282891918139,
+       "lm_ln": -108.93655171106275,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.41528386991153127,
+       "lm_ln": -126.16765357662258,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.3160781639352867,
+       "lm_ln": -101.02874274182487,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.148115440706786,
+       "lm_ln": -147.16056545444602,
+       "n_words": 26,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.011020423520649395,
+       "lm_ln": -111.72984731359871,
+       "n_words": 24,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.4871829998691026,
+       "lm_ln": -141.51170036296196,
+       "n_words": 27,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -3.6154007181679892,
+       "lm_ln": -118.20371184956241,
+       "n_words": 19,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.508914183423668,
+       "lm_ln": -119.01139722769794,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -2.2369818000124084,
+       "lm_ln": -107.38654762199538,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.00612131062289755,
+       "lm_ln": -76.46847838947217,
+       "n_words": 13,
+       "n_oov": 0
+      }
+     ],
+     "seconds": 0.8362310830016213,
+     "errors": 9,
+     "n_ref": 563,
+     "wer": 0.015985790408525755,
+     "S": 8,
+     "D": 1,
+     "I": 0,
+     "per_sentence": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      2,
+      0,
+      1,
+      2,
+      0,
+      1,
+      0
+     ]
+    },
+    {
+     "lam": 0.3,
+     "eta": 0.0,
+     "hyps": [
+      "SEASONABLE THIS RECIPE SHOULD BE USED IN JUNE JULY OR AUGUST",
+      "BUT THE PREVAILING DOCTRINE OF THE ETERNITY AND INHERENT PRAVITY OF MATTER INFECTED THE PRIMITIVE CHURCHES OF THE EAST",
+      "NIGHT AFTER NIGHT HIS SLEEP HAD BEEN DISTURBED BY FEARS FOR HER WHEN ABROAD MORNING AFTER MORNING IT HAD BEEN BROKEN BY THE CLAMOUR OF HER RETURN",
+      "THUS ONE SAUNTERS ON AND ON IN THE GLORIOUS RADIANCE IN UTTER PEACE AND FORGETFULNESS OF TIME",
+      "NONE MIGHT EXHORT OR CONFESS OR IN ANY WAY MEDDLE WITH THE RELIGIOUS EXPERIENCE OF ANOTHER",
+      "MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL",
+      "HE IS STAYING AT THIS HOTEL TO TRY THE AIR OF SIDANUM AND HE FINDS THAT IT AGREES WITH HIM",
+      "IT WILL GROW ON POOR SOILS AND IS EXTREMELY PRODUCTIVE",
+      "ON MY RETURN I PURPOSELY AVOIDED LOOKING INTO IT UNTIL I HAD SENT BACK MY LAST REVISES TO THE PRINTER",
+      "IT IS THEREFORE AND ON ALL ACCOUNTS UNNECESSARY TO SAY MUCH MORE OF THE WORK HERE THAN IT SAYS FOR ITSELF",
+      "TWO BATTLEMENTED WALLS ONE OF WHICH FACED THE AVENUE AND THE OTHER DIVIDED THE COURT FROM THE GARDEN COMPLETED THE ENCLOSURE",
+      "SHE FELT THAT WHICH SHE HAD NEVER FELT BEFORE A SENSATION OF EXPANSION",
+      "MY GRANDMOTHER ALWAYS SPOKE IN A VERY LOUD TONE TO FOREIGNERS AS IF THEY WERE DEAF",
+      "DON QUIXOTE DID SO AND ASKED HIM WHAT HAD HAPPENED TO HIM AND WHAT HE WAS AFRAID OF",
+      "WE DID THE SAME WITH PHYSICIANS WHOM WE OFTEN SENT HALF DRESSED TO SOME NOBLEMAN WHO WAS ENJOYING EXCELLENT HEALTH",
+      "THEIR MINDS WERE SO DISTRACTED AT THIS CHANGE OF ROUTE AS TO BE QUITE UNHINGED",
+      "ECHOED THE FLOWERS TREMULOUSLY AS WITH A SORT OF FEARFUL PLEASURE THEY AWAITED HIS APPROACH",
+      "I WHIRLED ROUND AND THERE ON ONE OF THOSE DRY GRAVEL BEDS WAS THE BIGGEST SNAKE I HAD EVER SEEN",
+      "WITH A FEW LANTERNS OUR MEN THEN WENT ABOUT AND TRIED TO GATHER UP THE WOUNDED THE DEAD WERE LEFT TILL MORNING",
+      "ON THE SECOND OF THE MONTH AT TWO IN THE MORNING OUR PRECIOUS CARGO OF LUGGAGE WAS TAKEN ON BOARD THE GOOD SHIP VALKARY",
+      "HOW INFINITE THE WEALTH OF LOVE AND HOPE GARNERED IN THESE SAME TINY TREASURE HOUSES AND OH",
+      "OH YOU RAVE SIR EXCLAIMED VILLEFORT IN VAIN ENDEAVORING TO ESCAPE THE NET IN WHICH HE WAS TAKEN I RAVE",
+      "TRIBE AFTER TRIBE WAS CROWDING DOWN TO THE ALPS AND TRAMPLING UPON EACH OTHER ON THE FRONTIERS OF THE EMPIRE",
+      "I HAD BEEN FEELING MEAN ALL THE MORNING AS IF I HAD STOLEN A SHEEP BUT WHEN THE ORDERED THE CHARGE WAS GIVEN I GOT HAPPY",
+      "SHE WAS ONE OF A LARGE COMPANY AT A HOUSE WHERE SHE HAD NEVER BEEN BEFORE A BEAUTIFUL HOUSE WITH A LARGE GARDEN BEHIND",
+      "TO CARRY THE SOUND OF THE LITTLE BELLS UPON THE HORSE CARS AS THEY TINKLED IN AND OUT OF HEARING WAS AS PLEASING AS IT WAS NOVEL",
+      "NOTHING CAN SURPRISE ME NOW I'M PREPARED FOR ANYTHING EVEN THE SIGHT OF MY QUAKERISH LOVER DANCING A JIG",
+      "COLONEL LEONIDAS TALBOT REGARDED THE WHITE FLAG WITH FEELINGS IN WHICH TRIUMPH AND SADNESS WERE MINGLED STRANGELY",
+      "I AM THE ONE TO GO AFTER WALT IF ANYONE HAS TOP I'LL GO DOWN MISTER THOMAS",
+      "ACCORDING TO ALL APPEARANCE INDUSTRIOUS MANIPULATORS OF CHILDREN HAD WORKED UPON HIS FACE"
+     ],
+     "parts": [
+      {
+       "logp_ctc": -0.0062820903080382995,
+       "lm_ln": -75.43387264730684,
+       "n_words": 11,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.0922557434227651,
+       "lm_ln": -130.4098535879188,
+       "n_words": 19,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.5368844554376715,
+       "lm_ln": -147.4218556951135,
+       "n_words": 27,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.05220210178822323,
+       "lm_ln": -112.17994552269758,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -2.6255914237462767,
+       "lm_ln": -104.68112748886499,
+       "n_words": 16,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.026752106883028315,
+       "lm_ln": -99.02103213849222,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.4121835337873885,
+       "lm_ln": -119.69590084293043,
+       "n_words": 20,
+       "n_oov": 1
+      },
+      {
+       "logp_ctc": -0.006701746486017062,
+       "lm_ln": -70.37568558357027,
+       "n_words": 10,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.3335853933762722,
+       "lm_ln": -119.28242220105551,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.10134874521329189,
+       "lm_ln": -112.59282030057312,
+       "n_words": 21,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.33927493612850246,
+       "lm_ln": -126.47181442889959,
+       "n_words": 21,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.004107352841847216,
+       "lm_ln": -60.10653747425325,
+       "n_words": 13,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.07993123578079295,
+       "lm_ln": -85.58696052182928,
+       "n_words": 16,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.039065657668173014,
+       "lm_ln": -71.33378729290567,
+       "n_words": 18,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.49965266235460576,
+       "lm_ln": -131.68701600323183,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.16727142401560963,
+       "lm_ln": -93.5487294841015,
+       "n_words": 15,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.01212366392359901,
+       "lm_ln": -88.86328704509565,
+       "n_words": 15,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.5944750084251553,
+       "lm_ln": -104.70667594526707,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.051192714013660226,
+       "lm_ln": -125.89741541464485,
+       "n_words": 22,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.6262752789007167,
+       "lm_ln": -145.98502571624965,
+       "n_words": 24,
+       "n_oov": 1
+      },
+      {
+       "logp_ctc": -0.2118906427538086,
+       "lm_ln": -108.93655171106275,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.4152838697595561,
+       "lm_ln": -126.16765357662258,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.3160781617644925,
+       "lm_ln": -101.02874274182487,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.1481134612468773,
+       "lm_ln": -147.16056545444602,
+       "n_words": 26,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.011020423557379403,
+       "lm_ln": -111.72984731359871,
+       "n_words": 24,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.4871406798130972,
+       "lm_ln": -141.51170036296196,
+       "n_words": 27,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -3.6153921122909223,
+       "lm_ln": -118.20371184956241,
+       "n_words": 19,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.5089093857734468,
+       "lm_ln": -119.01139722769794,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -2.236927252425916,
+       "lm_ln": -107.38654762199538,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.00612131062289755,
+       "lm_ln": -76.46847838947217,
+       "n_words": 13,
+       "n_oov": 0
+      }
+     ],
+     "seconds": 0.8355126249989553,
+     "errors": 9,
+     "n_ref": 563,
+     "wer": 0.015985790408525755,
+     "S": 8,
+     "D": 1,
+     "I": 0,
+     "per_sentence": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      2,
+      0,
+      1,
+      2,
+      0,
+      1,
+      0
+     ]
+    },
+    {
+     "lam": 0.5,
+     "eta": 0.0,
+     "hyps": [
+      "SEASONABLE THIS RECIPE SHOULD BE USED IN JUNE JULY OR AUGUST",
+      "BUT THE PREVAILING DOCTRINE OF THE ETERNITY AND INHERENT PRAVITY OF MATTER INFECTED THE PRIMITIVE CHURCHES OF THE EAST",
+      "NIGHT AFTER NIGHT HIS SLEEP HAD BEEN DISTURBED BY FEARS FOR HER WHEN ABROAD MORNING AFTER MORNING IT HAD BEEN BROKEN BY THE CLAMOUR OF HER RETURN",
+      "THUS ONE SAUNTERS ON AND ON IN THE GLORIOUS RADIANCE IN UTTER PEACE AND FORGETFULNESS OF TIME",
+      "NONE MIGHT EXHORT OR CONFESS OR IN ANY WAY MEDDLE WITH THE RELIGIOUS EXPERIENCE OF ANOTHER",
+      "MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL",
+      "HE IS STAYING AT THIS HOTEL TO TRY THE AIR OF SIDANUM AND HE FINDS THAT IT AGREES WITH HIM",
+      "IT WILL GROW ON POOR SOILS AND IS EXTREMELY PRODUCTIVE",
+      "ON MY RETURN I PURPOSELY AVOIDED LOOKING INTO IT UNTIL I HAD SENT BACK MY LAST REVISES TO THE PRINTER",
+      "IT IS THEREFORE AND ON ALL ACCOUNTS UNNECESSARY TO SAY MUCH MORE OF THE WORK HERE THAN IT SAYS FOR ITSELF",
+      "TWO BATTLEMENTED WALLS ONE OF WHICH FACED THE AVENUE AND THE OTHER DIVIDED THE COURT FROM THE GARDEN COMPLETED THE ENCLOSURE",
+      "SHE FELT THAT WHICH SHE HAD NEVER FELT BEFORE A SENSATION OF EXPANSION",
+      "MY GRANDMOTHER ALWAYS SPOKE IN A VERY LOUD TONE TO FOREIGNERS AS IF THEY WERE DEAF",
+      "DON QUIXOTE DID SO AND ASKED HIM WHAT HAD HAPPENED TO HIM AND WHAT HE WAS AFRAID OF",
+      "WE DID THE SAME WITH PHYSICIANS WHOM WE OFTEN SENT HALF DRESSED TO SOME NOBLEMAN WHO WAS ENJOYING EXCELLENT HEALTH",
+      "THEIR MINDS WERE SO DISTRACTED AT THIS CHANGE OF ROUTE AS TO BE QUITE UNHINGED",
+      "ECHOED THE FLOWERS TREMULOUSLY AS WITH A SORT OF FEARFUL PLEASURE THEY AWAITED HIS APPROACH",
+      "I WHIRLED ROUND AND THERE ON ONE OF THOSE DRY GRAVEL BEDS WAS THE BIGGEST SNAKE I HAD EVER SEEN",
+      "WITH A FEW LANTERNS OUR MEN THEN WENT ABOUT AND TRIED TO GATHER UP THE WOUNDED THE DEAD WERE LEFT TILL MORNING",
+      "ON THE SECOND OF THE MONTH AT TWO IN THE MORNING OUR PRECIOUS CARGO OF LUGGAGE WAS TAKEN ON BOARD THE GOOD SHIP VALKARY",
+      "HOW INFINITE THE WEALTH OF LOVE AND HOPE GARNERED IN THE SAME TINY TREASURE HOUSES AND OH",
+      "OH YOU RAVE SIR EXCLAIMED VILLEFORT IN VAIN ENDEAVORING TO ESCAPE THE NET IN WHICH HE WAS TAKEN I RAVE",
+      "TRIBE AFTER TRIBE WAS CROWDING DOWN TO THE ALPS AND TRAMPLING UPON EACH OTHER ON THE FRONTIERS OF THE EMPIRE",
+      "I HAD BEEN FEELING MEAN ALL THE MORNING AS IF I HAD STOLEN A SHEEP BUT WHEN THE ORDERED THE CHARGE WAS GIVEN I GOT HAPPY",
+      "SHE WAS ONE OF A LARGE COMPANY AT A HOUSE WHERE SHE HAD NEVER BEEN BEFORE A BEAUTIFUL HOUSE WITH A LARGE GARDEN BEHIND",
+      "TO CARRY THE SOUND OF THE LITTLE BELLS UPON THE HORSE CARS AS THEY TINKLED IN AND OUT OF HEARING WAS AS PLEASING AS IT WAS NOVEL",
+      "NOTHING CAN SURPRISE ME NOW I'M PREPARED FOR ANYTHING EVEN THE SIGHT OF MY QUAKERISH LOVER DANCING A JIG",
+      "COLONEL LEONIDAS TALBOT REGARDED THE WHITE FLAG WITH FEELINGS IN WHICH TRIUMPH AND SADNESS WERE MINGLED STRANGELY",
+      "I AM THE ONE TO GO AFTER WALT IF ANYONE HAS TOP I'LL GO DOWN MISTER THOMAS",
+      "ACCORDING TO ALL APPEARANCE INDUSTRIOUS MANIPULATORS OF CHILDREN HAD WORKED UPON HIS FACE"
+     ],
+     "parts": [
+      {
+       "logp_ctc": -0.006282089998194874,
+       "lm_ln": -75.43387264730684,
+       "n_words": 11,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.09225574340938983,
+       "lm_ln": -130.4098535879188,
+       "n_words": 19,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.5368844553794754,
+       "lm_ln": -147.4218556951135,
+       "n_words": 27,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.052202101598378216,
+       "lm_ln": -112.17994552269758,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -2.6256496781061336,
+       "lm_ln": -104.68112748886499,
+       "n_words": 16,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.026752106779887708,
+       "lm_ln": -99.02103213849222,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.4134489676390078,
+       "lm_ln": -119.69590084293043,
+       "n_words": 20,
+       "n_oov": 1
+      },
+      {
+       "logp_ctc": -0.006701746485939791,
+       "lm_ln": -70.37568558357027,
+       "n_words": 10,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.3335639979887043,
+       "lm_ln": -119.28242220105551,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.10133299817942243,
+       "lm_ln": -112.59282030057312,
+       "n_words": 21,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.33927457523341487,
+       "lm_ln": -126.47181442889959,
+       "n_words": 21,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.004107352841813465,
+       "lm_ln": -60.10653747425325,
+       "n_words": 13,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.07993124166694529,
+       "lm_ln": -85.58696052182928,
+       "n_words": 16,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.039065657668173014,
+       "lm_ln": -71.33378729290567,
+       "n_words": 18,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.4996526619154708,
+       "lm_ln": -131.68701600323183,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.16727096946088088,
+       "lm_ln": -93.5487294841015,
+       "n_words": 15,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.012123663495260298,
+       "lm_ln": -88.86328704509565,
+       "n_words": 15,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.5944750080125174,
+       "lm_ln": -104.70667594526707,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.051192702180909794,
+       "lm_ln": -125.89741541464485,
+       "n_words": 22,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.6262632186746546,
+       "lm_ln": -145.98502571624965,
+       "n_words": 24,
+       "n_oov": 1
+      },
+      {
+       "logp_ctc": -3.7190337924905714,
+       "lm_ln": -101.69805950321214,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.4152838522758577,
+       "lm_ln": -126.16765357662258,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.3160780856363767,
+       "lm_ln": -101.02874274182487,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.1481048849102202,
+       "lm_ln": -147.16056545444602,
+       "n_words": 26,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.011020334832459325,
+       "lm_ln": -111.72984731359871,
+       "n_words": 24,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.48714067976732073,
+       "lm_ln": -141.51170036296196,
+       "n_words": 27,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -3.6095242878834495,
+       "lm_ln": -118.20371184956241,
+       "n_words": 19,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.5089181771597753,
+       "lm_ln": -119.01139722769794,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -2.236960027635454,
+       "lm_ln": -107.38654762199538,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.00612131062289755,
+       "lm_ln": -76.46847838947217,
+       "n_words": 13,
+       "n_oov": 0
+      }
+     ],
+     "seconds": 0.8471400829985214,
+     "errors": 10,
+     "n_ref": 563,
+     "wer": 0.017761989342806393,
+     "S": 9,
+     "D": 1,
+     "I": 0,
+     "per_sentence": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      2,
+      0,
+      1,
+      2,
+      0,
+      1,
+      0
+     ]
+    },
+    {
+     "lam": 0.7,
+     "eta": 0.0,
+     "hyps": [
+      "SEASONABLE THIS RECIPE SHOULD BE USED IN JUNE JULY OR AUGUST",
+      "BUT THE PREVAILING DOCTRINE OF THE ETERNITY AND INHERENT PRAVITY OF MATTER INFECTED THE PRIMITIVE CHURCHES OF THE EAST",
+      "NIGHT AFTER NIGHT HIS SLEEP HAD BEEN DISTURBED BY FEARS FOR HER WHEN ABROAD MORNING AFTER MORNING IT HAD BEEN BROKEN BY THE CLAMOUR OF HER RETURN",
+      "THUS ONE SAUNTERS ON AND ON IN THE GLORIOUS RADIANCE IN UTTER PEACE AND FORGETFULNESS OF TIME",
+      "NONE MIGHT EXHORT OR CONFESS OR IN ANY WAY MEDDLE WITH THE RELIGIOUS EXPERIENCE OF ANOTHER",
+      "MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL",
+      "HE IS STAYING AT THIS HOTEL TO TRY THE AIR OF SIDANUM AND HE FINDS THAT IT AGREES WITH HIM",
+      "IT WILL GROW ON POOR SOILS AND IS EXTREMELY PRODUCTIVE",
+      "ON MY RETURN I PURPOSELY AVOIDED LOOKING INTO IT UNTIL I HAD SENT BACK MY LAST REVISES TO THE PRINTER",
+      "IT IS THEREFORE AND ON ALL ACCOUNTS UNNECESSARY TO SAY MUCH MORE OF THE WORK HERE THAN IT SAYS FOR ITSELF",
+      "TWO BATTLEMENTED WALLS ONE OF WHICH FACED THE AVENUE AND THE OTHER DIVIDED THE COURT FROM THE GARDEN COMPLETED THE ENCLOSURE",
+      "SHE FELT THAT WHICH SHE HAD NEVER FELT BEFORE A SENSATION OF EXPANSION",
+      "MY GRANDMOTHER ALWAYS SPOKE IN A VERY LOUD TONE TO FOREIGNERS AS IF THEY WERE DEAF",
+      "DON QUIXOTE DID SO AND ASKED HIM WHAT HAD HAPPENED TO HIM AND WHAT HE WAS AFRAID OF",
+      "WE DID THE SAME WITH PHYSICIANS WHOM WE OFTEN SENT HALF DRESSED TO SOME NOBLEMAN WHO WAS ENJOYING EXCELLENT HEALTH",
+      "THEIR MINDS WERE SO DISTRACTED AT THIS CHANGE OF ROUTE AS TO BE QUITE UNHINGED",
+      "ECHOED THE FLOWERS TREMULOUSLY AS WITH A SORT OF FEARFUL PLEASURE THEY AWAITED HIS APPROACH",
+      "I WHIRLED ROUND AND THERE ON ONE OF THOSE DRY GRAVEL BEDS WAS THE BIGGEST SNAKE I HAD EVER SEEN",
+      "WITH A FEW LANTERNS OUR MEN THEN WENT ABOUT AND TRIED TO GATHER UP THE WOUNDED THE DEAD WERE LEFT TILL MORNING",
+      "ON THE SECOND OF THE MONTH AT TWO IN THE MORNING OUR PRECIOUS CARGO OF LUGGAGE WAS TAKEN ON BOARD THE GOOD SHIP VALKARY",
+      "HOW INFINITE THE WEALTH OF LOVE AND HOPE GARNERED IN THE SAME TINY TREASURE HOUSES AND OH",
+      "OH YOU RAVE SIR EXCLAIMED VILLEFORT IN VAIN ENDEAVORING TO ESCAPE THE NET IN WHICH HE WAS TAKEN I RAVE",
+      "TRIBE AFTER TRIBE WAS CROWDING DOWN TO THE ALPS AND TRAMPLING UPON EACH OTHER ON THE FRONTIERS OF THE EMPIRE",
+      "I HAD BEEN FEELING MEAN ALL THE MORNING AS IF I HAD STOLEN A SHEEP BUT WHEN THE ORDERED THE CHARGE WAS GIVEN I GOT HAPPY",
+      "SHE WAS ONE OF A LARGE COMPANY AT A HOUSE WHERE SHE HAD NEVER BEEN BEFORE A BEAUTIFUL HOUSE WITH A LARGE GARDEN BEHIND",
+      "TO CARRY THE SOUND OF THE LITTLE BELLS UPON THE HORSE CARS AS THEY TINKLED IN AND OUT OF HEARING WAS AS PLEASING AS IT WAS NOVEL",
+      "NOTHING CAN SURPRISE ME NOW I'M PREPARED FOR ANYTHING EVEN THE SIGHT OF MY QUAKERISH LOVER DANCING A JIG",
+      "COLONEL LEONIDAS TALBOT REGARDED THE WHITE FLAG WITH FEELINGS IN WHICH TRIUMPH AND SADNESS WERE MINGLED STRANGELY",
+      "I AM THE ONE TO GO AFTER WALT IF ANY ONE HAS TO I'LL GO DOWN MISTER THOMAS",
+      "ACCORDING TO ALL APPEARANCE INDUSTRIOUS MANIPULATORS OF CHILDREN HAD WORKED UPON HIS FACE"
+     ],
+     "parts": [
+      {
+       "logp_ctc": -0.006282089998194874,
+       "lm_ln": -75.43387264730684,
+       "n_words": 11,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.09225574329262945,
+       "lm_ln": -130.4098535879188,
+       "n_words": 19,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.536884923355835,
+       "lm_ln": -147.4218556951135,
+       "n_words": 27,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.052194952854756484,
+       "lm_ln": -112.17994552269758,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -2.6256473837423213,
+       "lm_ln": -104.68112748886499,
+       "n_words": 16,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.026752105716830954,
+       "lm_ln": -99.02103213849222,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.4134841147665036,
+       "lm_ln": -119.69590084293043,
+       "n_words": 20,
+       "n_oov": 1
+      },
+      {
+       "logp_ctc": -0.006701746485939791,
+       "lm_ln": -70.37568558357027,
+       "n_words": 10,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.3335639979862761,
+       "lm_ln": -119.28242220105551,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.10133212420094789,
+       "lm_ln": -112.59282030057312,
+       "n_words": 21,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.339268274196469,
+       "lm_ln": -126.47181442889959,
+       "n_words": 21,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.004107352841816053,
+       "lm_ln": -60.10653747425325,
+       "n_words": 13,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.07993123578079295,
+       "lm_ln": -85.58696052182928,
+       "n_words": 16,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.0390657311619672,
+       "lm_ln": -71.33378729290567,
+       "n_words": 18,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.49965266179526374,
+       "lm_ln": -131.68701600323183,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.1672709573632038,
+       "lm_ln": -93.5487294841015,
+       "n_words": 15,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.012123663495260298,
+       "lm_ln": -88.86328704509565,
+       "n_words": 15,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.5944750080125174,
+       "lm_ln": -104.70667594526707,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.051190016250938046,
+       "lm_ln": -125.89741541464485,
+       "n_words": 22,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.6262632166836783,
+       "lm_ln": -145.98502571624965,
+       "n_words": 24,
+       "n_oov": 1
+      },
+      {
+       "logp_ctc": -3.7190339086642643,
+       "lm_ln": -101.69805950321214,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.4152836973041739,
+       "lm_ln": -126.16765357662258,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.3161279336714277,
+       "lm_ln": -101.02874274182487,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.1481099242072519,
+       "lm_ln": -147.16056545444602,
+       "n_words": 26,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.011020334832459325,
+       "lm_ln": -111.72984731359871,
+       "n_words": 24,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.4871406797673205,
+       "lm_ln": -141.51170036296196,
+       "n_words": 27,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -3.6095673943233337,
+       "lm_ln": -118.20371184956241,
+       "n_words": 19,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.5089230925844799,
+       "lm_ln": -119.01139722769794,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -5.826905285151408,
+       "lm_ln": -102.23841253847827,
+       "n_words": 18,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.00612131062289755,
+       "lm_ln": -76.46847838947217,
+       "n_words": 13,
+       "n_oov": 0
+      }
+     ],
+     "seconds": 0.8321725839996361,
+     "errors": 11,
+     "n_ref": 563,
+     "wer": 0.019538188277087035,
+     "S": 9,
+     "D": 1,
+     "I": 1,
+     "per_sentence": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      2,
+      0,
+      1,
+      2,
+      0,
+      2,
+      0
+     ]
+    },
+    {
+     "lam": 1.0,
+     "eta": 0.0,
+     "hyps": [
+      "SEASONABLE THIS RECIPE SHOULD BE USED IN JUNE JULY OR AUGUST",
+      "BUT THE PREVAILING DOCTRINE OF THE ETERNITY AND INHERENT PRAVITY OF MATTER INFECTED THE PRIMITIVE CHURCHES OF THE EAST",
+      "NIGHT AFTER NIGHT HIS SLEEP HAD BEEN DISTURBED BY FEARS FOR HER WHEN ABROAD MORNING AFTER MORNING IT HAD BEEN BROKEN BY THE CLAMOUR OF HER RETURN",
+      "THUS ONE SAUNTERS ON AND ON IN THE GLORIOUS RADIANCE IN UTTER PEACE AND FORGETFULNESS OF TIME",
+      "NONE MIGHT EXHORT OR CONFESS OR IN ANY WAY MEDDLE WITH THE RELIGIOUS EXPERIENCE OF ANOTHER",
+      "MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL",
+      "HE IS STAYING AT THIS HOTEL TO TRY THE AIR OF SIDANUM AND HE FINDS THAT IT AGREES WITH HIM",
+      "IT WILL GROW ON POOR SOILS AND IS EXTREMELY PRODUCTIVE",
+      "ON MY RETURN I PURPOSELY AVOIDED LOOKING INTO IT UNTIL I HAD SENT BACK MY LAST REVISES TO THE PRINTER",
+      "IT IS THEREFORE AND ON ALL ACCOUNTS UNNECESSARY TO SAY MUCH MORE OF THE WORK HERE THAN IT SAYS FOR ITSELF",
+      "TWO BATTLEMENTED WALLS ONE OF WHICH FACED THE AVENUE AND THE OTHER DIVIDED THE COURT FROM THE GARDEN COMPLETED THE ENCLOSURE",
+      "SHE FELT THAT WHICH SHE HAD NEVER FELT BEFORE A SENSATION OF EXPANSION",
+      "MY GRANDMOTHER ALWAYS SPOKE IN A VERY LOUD TONE TO FOREIGNERS AS IF THEY WERE DEAF",
+      "DON QUIXOTE DID SO AND ASKED HIM WHAT HAD HAPPENED TO HIM AND WHAT HE WAS AFRAID OF",
+      "WE DID THE SAME WITH PHYSICIANS WHOM WE OFTEN SENT HALF DRESSED TO SOME NOBLEMAN WHO WAS ENJOYING EXCELLENT HEALTH",
+      "THEIR MINDS WERE SO DISTRACTED AT THIS CHANGE OF ROUTE AS TO BE QUITE UNHINGED",
+      "ECHOED THE FLOWERS TREMULOUSLY AS WITH A SORT OF FEARFUL PLEASURE THEY AWAITED HIS APPROACH",
+      "I WHIRLED ROUND AND THERE ON ONE OF THOSE DRY GRAVEL BEDS WAS THE BIGGEST SNAKE I HAD EVER SEEN",
+      "WITH A FEW LANTERNS OUR MEN THEN WENT ABOUT AND TRIED TO GATHER UP THE WOUNDED THE DEAD WERE LEFT TILL MORNING",
+      "ON THE SECOND OF THE MONTH AT TWO IN THE MORNING OUR PRECIOUS CARGO OF LUGGAGE WAS TAKEN ON BOARD THE GOOD SHIP VALERY",
+      "HOW INFINITE THE WEALTH OF LOVE AND HOPE GARNERED IN THE SAME TINY TREASURE HOUSES AND OH",
+      "OH YOU RAVE SIR EXCLAIMED VILLEFORT IN VAIN ENDEAVORING TO ESCAPE THE NET IN WHICH HE WAS TAKEN I RAVE",
+      "TRIBE AFTER TRIBE WAS CROWDING DOWN TO THE ALPS AND TRAMPLING UPON EACH OTHER ON THE FRONTIERS OF THE EMPIRE",
+      "I HAD BEEN FEELING MEAN ALL THE MORNING AS IF I HAD STOLEN A SHEEP BUT WHEN THE ORDERED TO CHARGE WAS GIVEN I GOT HAPPY",
+      "SHE WAS ONE OF A LARGE COMPANY AT A HOUSE WHERE SHE HAD NEVER BEEN BEFORE A BEAUTIFUL HOUSE WITH A LARGE GARDEN BEHIND",
+      "TO CARRY THE SOUND OF THE LITTLE BELLS UPON THE HORSE CARS AS THEY TINKLED IN AND OUT OF HEARING WAS AS PLEASING AS IT WAS NOVEL",
+      "NOTHING CAN SURPRISE ME NOW I'M PREPARED FOR ANYTHING EVEN THE SIGHT OF MY QUAKERISH LOVER DANCING A JIG",
+      "COLONEL LEONIDAS TALBOT REGARDED THE WHITE FLAG WITH FEELINGS IN WHICH TRIUMPH AND SADNESS WERE MINGLED STRANGELY",
+      "I AM THE ONE TO GO AFTER WALT IF ANY ONE HAS TO I'LL GO DOWN MISTER THOMAS",
+      "ACCORDING TO ALL APPEARANCE INDUSTRIOUS MANIPULATORS OF CHILDREN HAD WORKED UPON HIS FACE"
+     ],
+     "parts": [
+      {
+       "logp_ctc": -0.006282089998194874,
+       "lm_ln": -75.43387264730684,
+       "n_words": 11,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.09225574335808276,
+       "lm_ln": -130.4098535879188,
+       "n_words": 19,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.5368849543619856,
+       "lm_ln": -147.4218556951135,
+       "n_words": 27,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.052194614162247556,
+       "lm_ln": -112.17994552269758,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -2.6279334458739827,
+       "lm_ln": -104.68112748886499,
+       "n_words": 16,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.026752105724993758,
+       "lm_ln": -99.02103213849222,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.9075376000713409,
+       "lm_ln": -119.69590084293043,
+       "n_words": 20,
+       "n_oov": 1
+      },
+      {
+       "logp_ctc": -0.006701746485939791,
+       "lm_ln": -70.37568558357027,
+       "n_words": 10,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.33357199171006235,
+       "lm_ln": -119.28242220105551,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.10133195608076523,
+       "lm_ln": -112.59282030057312,
+       "n_words": 21,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.3392747270398806,
+       "lm_ln": -126.47181442889959,
+       "n_words": 21,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.004107355594383838,
+       "lm_ln": -60.10653747425325,
+       "n_words": 13,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.07993123578079295,
+       "lm_ln": -85.58696052182928,
+       "n_words": 16,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.039065731163964716,
+       "lm_ln": -71.33378729290567,
+       "n_words": 18,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.49971230270337724,
+       "lm_ln": -131.68701600323183,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.16727096480529235,
+       "lm_ln": -93.5487294841015,
+       "n_words": 15,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.012123663495260298,
+       "lm_ln": -88.86328704509565,
+       "n_words": 15,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.8955965102759142,
+       "lm_ln": -104.70667594526707,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.05119001851303413,
+       "lm_ln": -125.89741541464485,
+       "n_words": 22,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -7.9537920008936345,
+       "lm_ln": -131.33868837403674,
+       "n_words": 24,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -3.7190898432267794,
+       "lm_ln": -101.69805950321214,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.41528368708687646,
+       "lm_ln": -126.16765357662258,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.31612793352281726,
+       "lm_ln": -101.02874274182487,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -3.6133845881193274,
+       "lm_ln": -144.271660614177,
+       "n_words": 26,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.011020334832449777,
+       "lm_ln": -111.72984731359871,
+       "n_words": 24,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.4871406255663521,
+       "lm_ln": -141.51170036296196,
+       "n_words": 27,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -3.609567388216069,
+       "lm_ln": -118.20371184956241,
+       "n_words": 19,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.5089595215479337,
+       "lm_ln": -119.01139722769794,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -5.826905272391126,
+       "lm_ln": -102.23841253847827,
+       "n_words": 18,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.00612131062289755,
+       "lm_ln": -76.46847838947217,
+       "n_words": 13,
+       "n_oov": 0
+      }
+     ],
+     "seconds": 0.8303360830032034,
+     "errors": 10,
+     "n_ref": 563,
+     "wer": 0.017761989342806393,
+     "S": 8,
+     "D": 1,
+     "I": 1,
+     "per_sentence": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      2,
+      0,
+      2,
+      0
+     ]
+    },
+    {
+     "lam": 1.5,
+     "eta": 0.0,
+     "hyps": [
+      "SEASONABLE THIS RECIPE SHOULD BE USED IN JUNE JULY OR AUGUST",
+      "BUT THE PREVAILING DOCTRINE OF THE ETERNITY AND INHERENT PRAVITY OF MATTER INFECTED THE PRIMITIVE CHURCHES OF THE EAST",
+      "NIGHT AFTER NIGHT HIS SLEEP HAD BEEN DISTURBED BY FEARS FOR HER WHEN ABROAD MORNING AFTER MORNING IT HAD BEEN BROKEN BY THE CLAMOUR OF HER RETURN",
+      "THUS ONE SAUNTERS ON AND ON IN THE GLORIOUS RADIANCE IN UTTER PEACE AND FORGETFULNESS OF TIME",
+      "NONE MIGHT EXHORT OR CONFESS OR IN ANY WAY MEAL WITH THE RELIGIOUS EXPERIENCE OF ANOTHER",
+      "MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL",
+      "HE IS STAYING AT THIS HOTEL TO TRY THE AIR OF SIDON  AND HE FINDS THAT IT AGREES WITH HIM",
+      "IT WILL GROW ON POOR SOILS AND IS EXTREMELY PRODUCTIVE",
+      "ON MY RETURN I PURPOSELY AVOIDED LOOKING INTO IT UNTIL I HAD SENT BACK MY LAST REVISES TO THE PRINTER",
+      "IT IS THEREFORE AND ON ALL ACCOUNTS UNNECESSARY TO SAY MUCH MORE OF THE WORK HERE THAN IT SAYS FOR ITSELF",
+      "TWO BATTLEMENTED WALLS ONE OF WHICH FACED THE AVENUE AND THE OTHER DIVIDED THE COURT FROM THE GARDEN COMPLETED THE ENCLOSURE",
+      "SHE FELT THAT WHICH SHE HAD NEVER FELT BEFORE A SENSATION OF EXPANSION",
+      "MY GRANDMOTHER ALWAYS SPOKE IN A VERY LOUD TONE TO FOREIGNERS AS IF THEY WERE DEAF",
+      "DON QUIXOTE DID SO AND ASKED HIM WHAT HAD HAPPENED TO HIM AND WHAT HE WAS AFRAID OF",
+      "WE DID THE SAME WITH PHYSICIANS WHOM WE OFTEN SENT HALF DRESSED TO SOME NOBLEMAN WHO WAS ENJOYING EXCELLENT HEALTH",
+      "THEIR MINDS WERE SO DISTRACTED AT THIS CHANGE OF ROUTE AS TO BE QUITE UNHINGED",
+      "ECHOED THE FLOWERS TREMULOUSLY AS WITH A SORT OF FEARFUL PLEASURE THEY AWAITED HIS APPROACH",
+      "I WHIRLED ROUND AND THERE ON ONE OF THOSE DRY GRAVEL BEDS WAS THE BIGGEST SNAKE I  EVER SEEN",
+      "WITH A FEW LANTERNS OUR MEN THEN WENT ABOUT AND TRIED TO GATHER UP THE WOUNDED THE DEAD WERE LEFT TILL MORNING",
+      "ON THE SECOND OF THE MONTH AT TWO IN THE MORNING OUR PRECIOUS CARGO OF LUGGAGE WAS TAKEN ON BOARD THE GOOD SHIP VALERY",
+      "HOW INFINITE THE WEALTH OF LOVE AND HOPE GARNERED IN THE SAME TINY TREASURE HOUSES AND OH",
+      "OH YOU RAVE SIR EXCLAIMED VILLEFORT IN VAIN ENDEAVORING TO ESCAPE THE NET IN WHICH HE WAS TAKEN I RAVE",
+      "TRIBE AFTER TRIBE WAS CROWDING DOWN TO THE ALPS AND TRAMPLING UPON EACH OTHER ON THE FRONTIERS OF THE EMPIRE",
+      "I HAD BEEN FEELING MEAN ALL THE MORNING AS IF I HAD STOLEN A SHEEP BUT WHEN THE ORDERED TO CHARGE WAS GIVEN I GOT HAPPY",
+      "SHE WAS ONE OF A LARGE COMPANY AT A HOUSE WHERE SHE HAD NEVER BEEN BEFORE A BEAUTIFUL HOUSE WITH A LARGE GARDEN BEHIND",
+      "TO CARRY THE SOUND OF THE LITTLE BELLS UPON THE HORSE CARS AS THEY TINKLED IN AND OUT OF HEARING WAS AS PLEASING AS IT WAS NOVEL",
+      "NOTHING CAN SURPRISE ME NOW I'M PREPARED FOR ANYTHING EVEN THE SIGHT OF MY QUAKERISH LOVER DANCING A JIG",
+      "COLONEL LEONIDAS TALBOT REGARDED THE WHITE FLAG WITH FEELINGS  WHICH TRIUMPH AND SADNESS WERE MINGLED STRANGELY",
+      "I AM THE ONE TO GO AFTER WALT IF ANY ONE HAS TO I'LL GO DOWN MISTER THOMAS",
+      "ACCORDING TO ALL APPEARANCE INDUSTRIOUS MANIPULATORS OF CHILDREN HAD WORKED UPON HIS FACE"
+     ],
+     "parts": [
+      {
+       "logp_ctc": -0.0062820903080382995,
+       "lm_ln": -75.43387264730684,
+       "n_words": 11,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.09225574335693845,
+       "lm_ln": -130.4098535879188,
+       "n_words": 19,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.5368844890306939,
+       "lm_ln": -147.4218556951135,
+       "n_words": 27,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.0530343546611862,
+       "lm_ln": -112.17994552269758,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -6.685850877439137,
+       "lm_ln": -105.41888398646795,
+       "n_words": 16,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.026788380587705274,
+       "lm_ln": -99.02103213849222,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -21.068688566950353,
+       "lm_ln": -100.36039553751297,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.006745524457101123,
+       "lm_ln": -70.37568558357027,
+       "n_words": 10,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.3335933660544254,
+       "lm_ln": -119.28242220105551,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.10438179464550033,
+       "lm_ln": -112.59282030057312,
+       "n_words": 21,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.991861812186431,
+       "lm_ln": -126.47181442889959,
+       "n_words": 21,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.004107355590487642,
+       "lm_ln": -60.10653747425325,
+       "n_words": 13,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.08391060433922967,
+       "lm_ln": -85.58696052182928,
+       "n_words": 16,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.03906573115299238,
+       "lm_ln": -71.33378729290567,
+       "n_words": 18,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.5033868497626589,
+       "lm_ln": -131.68701600323183,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.16727097071010982,
+       "lm_ln": -93.5487294841015,
+       "n_words": 15,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.012139213590604532,
+       "lm_ln": -88.86328704509565,
+       "n_words": 15,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -6.962533786898368,
+       "lm_ln": -104.20998782140789,
+       "n_words": 19,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.051192702180908906,
+       "lm_ln": -125.89741541464485,
+       "n_words": 22,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -10.803799578508254,
+       "lm_ln": -131.33868837403674,
+       "n_words": 24,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -3.7190891217323747,
+       "lm_ln": -101.69805950321214,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -3.153554250415854,
+       "lm_ln": -126.16765357662258,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.316237481037487,
+       "lm_ln": -101.02874274182487,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -3.83718901578894,
+       "lm_ln": -144.271660614177,
+       "n_words": 26,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.011020334774593002,
+       "lm_ln": -111.72984731359871,
+       "n_words": 24,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.48734849161980826,
+       "lm_ln": -141.51170036296196,
+       "n_words": 27,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -3.626281928887273,
+       "lm_ln": -118.20371184956241,
+       "n_words": 19,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -9.46404403963389,
+       "lm_ln": -112.2529303209352,
+       "n_words": 16,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -5.8318685909047145,
+       "lm_ln": -102.23841253847827,
+       "n_words": 18,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.00612131062289755,
+       "lm_ln": -76.46847838947217,
+       "n_words": 13,
+       "n_oov": 0
+      }
+     ],
+     "seconds": 0.8775467909981671,
+     "errors": 13,
+     "n_ref": 563,
+     "wer": 0.023090586145648313,
+     "S": 9,
+     "D": 3,
+     "I": 1,
+     "per_sentence": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      2,
+      1,
+      2,
+      0
+     ]
+    },
+    {
+     "lam": 2.0,
+     "eta": 0.0,
+     "hyps": [
+      "SEASONABLE THIS RECIPE SHOULD BE USED IN JUNE JULY OR AUGUST",
+      "BUT THE PREVAILING DOCTRINE OF THE ETERNITY AND INHERENT PRAVITY OF MATTER INFECTED THE PRIMITIVE CHURCHES OF THE EAST",
+      "NIGHT AFTER NIGHT HIS SLEEP HAD BEEN DISTURBED BY FEARS FOR HER WHEN ABROAD MORNING AFTER MORNING IT HAD BEEN BROKEN BY THE CLAMOUR OF HER RETURN",
+      "THUS ONE SAUNTERS ON AND ON IN THE GLORIOUS RADIANCE IN UTTER PEACE AND FORGETFULNESS OF TIME",
+      "NONE MIGHT EXERT OR CONFESS OR IN ANY WAY MEAL WITH THE RELIGIOUS EXPERIENCE OF ANOTHER",
+      "MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL",
+      "HE IS STAYING AT THIS HOTEL TO TRY THE AIR OF SIDON  AND HE FINDS THAT IT AGREES WITH HIM",
+      "IT WILL GROW ON POOR SOILS AND IS EXTREMELY PRODUCTIVE",
+      "ON MY RETURN I PURPOSELY AVOIDED LOOKING INTO IT UNTIL I HAD SENT BACK MY LAST REVISES TO THE PRINTER",
+      "IT IS THEREFORE AND ON ALL ACCOUNTS UNNECESSARY TO SAY MUCH MORE OF THE WORK HERE THAN IT SAYS FOR ITSELF",
+      "TWO BATTLEMENT  WALLS ONE OF WHICH FACED THE AVENUE AND THE OTHER DIVIDED THE COURT FROM THE GARDEN COMPLETED THE ENCLOSURE",
+      "SHE FELT THAT WHICH SHE HAD NEVER FELT BEFORE A SENSATION OF EXPANSION",
+      "MY GRANDMOTHER ALWAYS SPOKE IN A VERY LOUD TONE TO FOREIGNERS AS IF THEY WERE DEAF",
+      "DON QUIXOTE DID SO AND ASKED HIM WHAT HAD HAPPENED TO HIM AND WHAT HE WAS AFRAID OF",
+      "WE DID THE SAME WITH PHYSICIANS WHOM WE OFTEN SENT HALF DRESS TO SOME NOBLEMAN WHO WAS ENJOYING EXCELLENT HEALTH",
+      "THEIR MINDS WERE SO DISTRACTED AT THIS CHANGE OF ROUTE AS TO BE QUITE UNHINGED",
+      "ECHOED THE FLOWERS TREMULOUSLY AS WITH A SORT OF FEARFUL PLEASURE THEY AWAITED HIS APPROACH",
+      "I WHIRLED ROUND AND THERE ON ONE OF THOSE DRY GRAVEL BEDS WAS THE BIGGEST SNAKE I  EVER SEEN",
+      "WITH A FEW LANTERNS OUR MEN THEN WENT ABOUT AND TRIED TO GATHER UP THE WOUNDED THE DEAD WERE LEFT TILL MORNING",
+      "ON THE SECOND OF THE MONTH AT TWO IN THE MORNING OUR PRECIOUS CARGO OF LUGGAGE WAS TAKEN ON BOARD THE GOOD SHIP VALERY",
+      "HOW INFINITE THE WEALTH OF LOVE AND HOPE GARNERED IN THE SAME TINY TREASURE HOUSES AND OH",
+      "OH YOU RAVE SIR EXCLAIMED VILLEFORT IN VAIN ENDEAVORING TO ESCAPE THE NET IN WHICH HE WAS TAKEN  RAVE",
+      "TRIBE AFTER TRIBE WAS CROWDING DOWN TO THE ALPS AND TRAMPLING UPON EACH OTHER ON THE FRONTIERS OF THE EMPIRE",
+      "I HAD BEEN FEELING MEAN ALL THE MORNING AS IF I HAD STOLEN A SHEEP BUT WHEN THE ORDER TO CHARGE WAS GIVEN I GOT HAPPY",
+      "SHE WAS ONE OF A LARGE COMPANY AT A HOUSE WHERE SHE HAD NEVER BEEN BEFORE A BEAUTIFUL HOUSE WITH A LARGE GARDEN BEHIND",
+      "TO CARRY THE SOUND OF THE LITTLE BELLS UPON THE HORSE CARS AS THEY TINKLED IN AND OUT OF HEARING WAS AS PLEASING AS IT WAS NOVEL",
+      "NOTHING CAN SURPRISE ME NOW I'M PREPARED FOR ANYTHING EVEN THE SIGHT OF MY QUAKERISH LOVER DANCING A JIG",
+      "COLONEL LEONIDAS TALBOT REGARDED THE WHITE FLAG WITH FEELINGS  WHICH TRIUMPH AND SADNESS WERE MINGLED STRANGELY",
+      "I AM THE ONE TO GO AFTER WALT IF ANY ONE HAS TO I'LL GO DOWN MISTER THOMAS",
+      "ACCORDING TO ALL APPEARANCE INDUSTRIOUS MANIPULATORS OF CHILDREN HAD WORKED UPON HIS FACE"
+     ],
+     "parts": [
+      {
+       "logp_ctc": -0.009891274704706833,
+       "lm_ln": -75.43387264730684,
+       "n_words": 11,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.09227203699017264,
+       "lm_ln": -130.4098535879188,
+       "n_words": 19,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.5368851083710657,
+       "lm_ln": -147.4218556951135,
+       "n_words": 27,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.0572649356339043,
+       "lm_ln": -112.17994552269758,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -17.14674548094548,
+       "lm_ln": -99.80157626179884,
+       "n_words": 16,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.026790394756666225,
+       "lm_ln": -99.02103213849222,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -21.068883455578657,
+       "lm_ln": -100.36039553751297,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.006717070367940691,
+       "lm_ln": -70.37568558357027,
+       "n_words": 10,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.628533849611782,
+       "lm_ln": -119.28242220105551,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -5.248443767464961,
+       "lm_ln": -112.59282030057312,
+       "n_words": 21,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -28.82169891027445,
+       "lm_ln": -128.63105614691497,
+       "n_words": 21,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.004107354937507123,
+       "lm_ln": -60.10653747425325,
+       "n_words": 13,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.08471061478695949,
+       "lm_ln": -85.58696052182928,
+       "n_words": 16,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.03906565765714939,
+       "lm_ln": -71.33378729290567,
+       "n_words": 18,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -3.2829476992383197,
+       "lm_ln": -135.56015259251427,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.16803479958159648,
+       "lm_ln": -93.5487294841015,
+       "n_words": 15,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.012230421756789652,
+       "lm_ln": -88.86328704509565,
+       "n_words": 15,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -6.962580434952138,
+       "lm_ln": -104.20998782140789,
+       "n_words": 19,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.05119270218081746,
+       "lm_ln": -125.89741541464485,
+       "n_words": 22,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -10.807251514030098,
+       "lm_ln": -131.33868837403674,
+       "n_words": 24,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -3.7190891201258323,
+       "lm_ln": -101.69805950321214,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -9.181801732367193,
+       "lm_ln": -122.94787296295922,
+       "n_words": 19,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.32587235854173285,
+       "lm_ln": -101.02874274182487,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -7.605796130883449,
+       "lm_ln": -142.95471473243273,
+       "n_words": 26,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.028077809516929376,
+       "lm_ln": -111.72984731359871,
+       "n_words": 24,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.4872105949406296,
+       "lm_ln": -141.51170036296196,
+       "n_words": 27,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -3.6318400055338036,
+       "lm_ln": -118.20371184956241,
+       "n_words": 19,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -9.465320925295803,
+       "lm_ln": -112.2529303209352,
+       "n_words": 16,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -5.837638607312976,
+       "lm_ln": -102.23841253847827,
+       "n_words": 18,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.00612131062289755,
+       "lm_ln": -76.46847838947217,
+       "n_words": 13,
+       "n_oov": 0
+      }
+     ],
+     "seconds": 0.8357702909997897,
+     "errors": 16,
+     "n_ref": 563,
+     "wer": 0.028419182948490232,
+     "S": 11,
+     "D": 4,
+     "I": 1,
+     "per_sentence": [
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      1,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      2,
+      1,
+      2,
+      0
+     ]
+    },
+    {
+     "lam": 3.0,
+     "eta": 0.0,
+     "hyps": [
+      "SEASONABLE THIS RECIPE SHOULD BE USED IN JUNE JULY OR AUGUST",
+      "BUT THE PREVAILING DOCTRINE OF THE ETERNITY AND INHERENT PRAVITY OF MATTER INFECTED THE PRIMITIVE CHURCHES OF THE EAST",
+      "NIGHT AFTER NIGHT HIS SLEEP HAD BEEN DISTURBED BY FEARS FOR HER WHEN ABROAD MORNING AFTER MORNING IT HAD BEEN BROKEN BY THE CLAMOUR OF HER RETURN",
+      "THUS ONE SUTER  AND   GLORIOUS RADIANCE IN UTTER PEACE AND FORGETFULNESS OF TIME",
+      "NONE MIGHT EXERT OR CONFESS OR IN ANY WAY MEAL WITH THE RELIGIOUS EXPERIENCE OF ANOTHER",
+      "MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL",
+      "HE IS STAYING AT THIS HOTEL TO TRY THE AIR OF  AND  FINDS A  REES WITH HIM",
+      "IT WILL GROW ON POOR SOILS AND IS EXTREMELY PRODUCTIVE",
+      "ON MY RETURN I PURPOSELY AVOIDED LOOKING INTO IT UNTIL I HAD SENT BACK MY LAST IS TO THE PRINTER",
+      "THERE FORE AND ON ALL ACCOUNTS UNNECESSARY TO SAY MUCH MORE OF THE WORK HERE THAN IT SAYS FOR ITSELF",
+      "TWO BATTLEMENT  WALLS ONE OF WHICH FACED THE AVENUE AND THE OTHER DIVIDED THE COURT FROM THE GARDEN COMPLETED THE ENCLOSURE",
+      "SHE FELT THAT WHICH SHE HAD NEVER FELT BEFORE A SENSATION OF EXPANSION",
+      "MY GRAND MOTHER ALWAYS SPOKE IN A VERY LOUD TONE  FOR  AS  THE WERE DEAF",
+      "DON QUIXOTE DID SO AND ASKED HIM WHAT HAD HAPPENED TO HIM AND THAT HE WAS AFRAID OF",
+      "WE DID THE SAME WITH PHYSICIANS WHOM HE OFTEN SENT HALF DRESS  SOME NOBLE MAN WHO WAS ENJOYING EXCELLENT HEALTH",
+      "THEIR MINDS WERE SO DISTRACT  A  CHANGE OF ROUT AS TO BE QUITE UNHINGE",
+      "ECHOED THE FLOWERS TREMULOUSLY AS WITH A SORT OF FEARFUL PLEASURE THEY AWAITED HIS APPROACH",
+      "I WHIRLED ROUND AND THERE ON ONE OF THOSE DRY GRAVEL BEDS WAS THE BIGGEST SNAKE   EVER SEEN",
+      "WITH A FEW LANTERNS OUR MEN THEN WENT ABOUT AND TRIED TO GATHER UP THE WOUNDED THE DEAD WERE LEFT TILL MORNING",
+      "ON THE SECOND OF THE MONTH AT TWO IN THE MORNING OUR PRECIOUS CARGO OF LUGGAGE WAS TAKEN ON BOARD THE GOOD SHIP VARY",
+      "HOW INFINITE THE WEALTH OF LOVE AND HOPE GARNER IN THE SAME TINY TREASURE HOUSES AND OH",
+      "OH YOU RAVE SIR EXCLAIMED VILLEFORT IN VAIN ENDEAVORING TO ESCAPE THE NET IN WHICH HE WAS TAKEN  RAVE",
+      "TRIBE AFTER TRIBE WAS CROWDING DOWN TO THE ALPS AND TRAMPING UPON EACH OTHER IN THE FRONTIERS OF THE EMPIRE",
+      "I HAD BEEN FEELING MEAN ALL THE MORNING AS  I HAD STOLEN A SHEEP BUT WHEN THE ORDER TO CHARGE WAS GIVEN  GOT HAPPY",
+      "SHE WAS ONE OF A LARGE COMPANY AT A HOUSE WHERE SHE HAD NEVER BEEN BEFORE A BEAUTIFUL HOUSE WITH A LARGE GARDEN BEHIND",
+      "TO CARRY THE SOUND OF THE LITTLE BELLS UPON THE HORSE CARS AS THEY TINKLED IN AND OUT OF HEARING WAS AS PLEASING AS IT WAS NOVEL",
+      "NOTHING CAN SURPRISE ME NOW   PREPARED FOR ANY THING EVEN THE SIGHT OF MY QUAKE  LOVER DANCING",
+      "ONE IS TALBOT REGARDED THE WHITE FLAG WITH FEELINGS  WHICH TRIUMPH AND SADNESS WERE MINGLED STRANGELY",
+      "I AM THE ONE TO GO AFTER WALT",
+      "ACCORDING TO ALL APPEARANCE INDUSTRIOUS MANIPULATORS OF CHILDREN HAD WORKED UPON HIS FACE"
+     ],
+     "parts": [
+      {
+       "logp_ctc": -0.16119785838106626,
+       "lm_ln": -75.43387264730684,
+       "n_words": 11,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -3.0638681077110914,
+       "lm_ln": -130.4098535879188,
+       "n_words": 19,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -2.1201397377026634,
+       "lm_ln": -147.4218556951135,
+       "n_words": 27,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -97.59537770265153,
+       "lm_ln": -100.67318811202486,
+       "n_words": 13,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -17.37668273209578,
+       "lm_ln": -99.80157626179884,
+       "n_words": 16,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.4632531668943394,
+       "lm_ln": -99.02103213849222,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -145.55824328925877,
+       "lm_ln": -99.27291745851028,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -1.0181064384199348,
+       "lm_ln": -70.37568558357027,
+       "n_words": 10,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -37.28749660778197,
+       "lm_ln": -108.89497837987547,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -28.474589408744336,
+       "lm_ln": -117.08183598605655,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -30.0741910287572,
+       "lm_ln": -128.63105614691497,
+       "n_words": 21,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.01009936611030979,
+       "lm_ln": -60.10653747425325,
+       "n_words": 13,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -131.98785484062043,
+       "lm_ln": -91.42594826651897,
+       "n_words": 15,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -12.063627025827103,
+       "lm_ln": -67.11359365216548,
+       "n_words": 18,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -31.758558129844143,
+       "lm_ln": -132.74803937290568,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -81.1525076672051,
+       "lm_ln": -101.68829845383809,
+       "n_words": 14,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.013709797308920997,
+       "lm_ln": -88.86328704509565,
+       "n_words": 15,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -17.522863395659044,
+       "lm_ln": -102.35276645626841,
+       "n_words": 18,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.06063810461072241,
+       "lm_ln": -125.89741541464485,
+       "n_words": 22,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -25.972386391814,
+       "lm_ln": -125.01607231431468,
+       "n_words": 24,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -18.183283350844718,
+       "lm_ln": -102.02339554600572,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -13.792672887974945,
+       "lm_ln": -122.94787296295922,
+       "n_words": 19,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -9.955879527287445,
+       "lm_ln": -105.83828640850714,
+       "n_words": 20,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -35.96593148758916,
+       "lm_ln": -135.0764566415454,
+       "n_words": 24,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.2682537418261462,
+       "lm_ln": -111.72984731359871,
+       "n_words": 24,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.48899990739720406,
+       "lm_ln": -141.51170036296196,
+       "n_words": 27,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -93.07474441232941,
+       "lm_ln": -109.65220886335808,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -89.77139400120254,
+       "lm_ln": -118.27528145267885,
+       "n_words": 16,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -352.31090729107694,
+       "lm_ln": -46.40042634947405,
+       "n_words": 8,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -0.0062398320652373085,
+       "lm_ln": -76.46847838947217,
+       "n_words": 13,
+       "n_oov": 0
+      }
+     ],
+     "seconds": 0.8384449170007429,
+     "errors": 62,
+     "n_ref": 563,
+     "wer": 0.11012433392539965,
+     "S": 32,
+     "D": 29,
+     "I": 1,
+     "per_sentence": [
+      0,
+      0,
+      0,
+      5,
+      2,
+      0,
+      5,
+      0,
+      1,
+      3,
+      2,
+      0,
+      6,
+      1,
+      5,
+      5,
+      0,
+      2,
+      0,
+      1,
+      2,
+      1,
+      2,
+      2,
+      0,
+      1,
+      4,
+      3,
+      9,
+      0
+     ]
+    },
+    {
+     "lam": 4.0,
+     "eta": 0.0,
+     "hyps": [
+      "SEASONABLE THIS RECIPE SHOULD BE USED IN JUNE JULY OR AUGUST",
+      "BUT HE  DOIN OF       INFECT THE PRIM CHURCHES OF THE EAST",
+      "NIGHT AFTER NIGHT  SLEEP HAD BEEN DISTURB BY FEARS FOR HER WHEN  BROAD MORNIN AFTER MORNIN   BROKE BY  CLAR",
+      "THIS ONE SAT        UTTER PEACE AND FORGETS TIME",
+      "NONE MIGHT EXERT  CONFESS OR IN ANY WAY MET IT   EXPERIENCE OF ANOTHER",
+      "MISTER QUILT IS  APOSTLE OF MIDDLE CLASSES AND  ARE GLAD TO WELCOME HIS GOSPEL",
+      "HE IS SIN",
+      "IT WILL GROW ON POOR SOIL   EXTREMELY PRODUCT",
+      "ON MY RETURN I PROSY AVOIDED LOOKING INTO IT    SENT BACK MY LAST",
+      "HER FOR AN   COUNTS     MUCH MORE OF WORK HERE",
+      "TWO BALM   ON WHICH FACED THE AVENUE AND  THE      COME",
+      "SHE FELT THAT WHICH SHE HAD NEVER FELT BEFORE  SENSATION OF EXPANSION",
+      "MY GRAND MOTHER ALWAYS SPOKE IN A VERY LOUD TONE  FOR  AS    DEAF",
+      "DON QUIXOTE DID SO AND AS    HAPPED",
+      "WE DID  SAM     OF  HALF DRESS  SOME NOBLE WHO WAS ENJOY",
+      "THE MIND WERE SO IS   CHANGE OF ROUT AS   IT",
+      "ECHOED THE FLOWERS TREMULOUSLY AS WITH A SORT OF FEARFUL PLEASURE THEY ATE HIS APPROACH",
+      "WHIRL ON  THERE   HE  GAVE  BEDS WAS THE BIG     SEE",
+      "WITH A FEW LANTERNS OUR MEN THEN WENT ABOUT AND TRIED TO GATHER UP THE WOUNDED THE DEAD WERE LEFT TILL MORNING",
+      "ON  SECOND    TO     CARGO OF LUGGAGE WAS TAKEN ON BOARD THE GOOD SHIP",
+      "HOW  THE WET  LOVE AND HOPE ARE  SAME TINY TEAS HOUSES",
+      "YOU RAVE SIR EXCLAIMED VILLEFORT IN VAIN ENDE TO ESCAPE THE NET IN WHICH HE WAS TAKEN",
+      "TRIBE AFTER TRIBE WAS CROWD DOWN TO   AND TRIG",
+      "",
+      "SHE WAS ONE OF LARGE COMPANY AT A HOUSE WHERE SHE HAD NEVER BEEN BEFORE  BUTIFUL HOUSE WITH A LARGE GARDEN BEHIND",
+      "TO CARRY THE SOUND OF THE LITTLE BELLS ON HORSE CARS AS THEY TINGLED IN    WAS AS PLAIN AS IT WAS NO",
+      "NOTHIN CAN SPISE  NOW      EVEN SIGH",
+      "ONE IS TALBOT REGARD THE WHITE FLAG WITH FEEL     SAD   MINGLED STRANGE",
+      "I AM",
+      "ACCORDING TO ALL APPEARANCE INDUSTRIOUS  OF CHILDREN HAD WORKED UPON HIS FACE"
+     ],
+     "parts": [
+      {
+       "logp_ctc": -0.37938793425379724,
+       "lm_ln": -75.43387264730684,
+       "n_words": 11,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -688.1315038433156,
+       "lm_ln": -76.3341582402916,
+       "n_words": 11,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -466.50937871646624,
+       "lm_ln": -140.37781728078846,
+       "n_words": 19,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -478.8380074988252,
+       "lm_ln": -64.15724672933322,
+       "n_words": 8,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -234.99275959028995,
+       "lm_ln": -87.44855682981375,
+       "n_words": 13,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -113.14287952562076,
+       "lm_ln": -92.93496982022998,
+       "n_words": 14,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -720.0575227015275,
+       "lm_ln": -17.139792219005976,
+       "n_words": 3,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -103.4278548790908,
+       "lm_ln": -59.449220357338085,
+       "n_words": 8,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -336.96821842730185,
+       "lm_ln": -85.66977925498985,
+       "n_words": 13,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -568.7559271623415,
+       "lm_ln": -58.91246808434451,
+       "n_words": 9,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -688.0756378480934,
+       "lm_ln": -66.1647159620105,
+       "n_words": 10,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -9.31694201956977,
+       "lm_ln": -60.08097330332544,
+       "n_words": 12,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -210.35774718856655,
+       "lm_ln": -80.83014884205501,
+       "n_words": 13,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -422.8939708147181,
+       "lm_ln": -49.33768669409136,
+       "n_words": 7,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -660.0131770128726,
+       "lm_ln": -83.32183291385229,
+       "n_words": 11,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -319.69107446177645,
+       "lm_ln": -69.44083836585341,
+       "n_words": 10,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -37.62873447937422,
+       "lm_ln": -93.90516856849938,
+       "n_words": 15,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -497.45612330592934,
+       "lm_ln": -79.14232260201071,
+       "n_words": 10,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -2.0414811542230367,
+       "lm_ln": -125.89741541464485,
+       "n_words": 22,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -499.57312982798203,
+       "lm_ln": -75.97457065587143,
+       "n_words": 13,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -369.5963993768063,
+       "lm_ln": -88.30137977714566,
+       "n_words": 11,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -152.42606119752926,
+       "lm_ln": -117.50661393820005,
+       "n_words": 17,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -572.5195104217106,
+       "lm_ln": -68.62670627078859,
+       "n_words": 9,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -983.4847501032162,
+       "lm_ln": 0.0,
+       "n_words": 0,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -37.3294385869273,
+       "lm_ln": -116.83757934776386,
+       "n_words": 22,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -306.7001316425911,
+       "lm_ln": -119.53587155385515,
+       "n_words": 22,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -689.4662865512054,
+       "lm_ln": -60.20027266472163,
+       "n_words": 6,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -422.7187848512508,
+       "lm_ln": -96.88315819971204,
+       "n_words": 12,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -544.9330188221948,
+       "lm_ln": -9.090255867581853,
+       "n_words": 2,
+       "n_oov": 0
+      },
+      {
+       "logp_ctc": -160.17674475106554,
+       "lm_ln": -67.38731896777138,
+       "n_words": 12,
+       "n_oov": 0
+      }
+     ],
+     "seconds": 0.7038213749983697,
+     "errors": 291,
+     "n_ref": 563,
+     "wer": 0.5168738898756661,
+     "S": 71,
+     "D": 219,
+     "I": 1,
+     "per_sentence": [
+      0,
+      12,
+      14,
+      12,
+      6,
+      4,
+      18,
+      4,
+      8,
+      16,
+      14,
+      1,
+      7,
+      13,
+      14,
+      10,
+      1,
+      16,
+      0,
+      12,
+      9,
+      4,
+      13,
+      26,
+      3,
+      10,
+      17,
+      11,
+      15,
+      1
+     ]
+    }
+   ],
+   "best_lam": 0.2,
+   "best_wer": 0.015985790408525755,
+   "seconds": 9.10481908300062,
+   "n_test": 30
+  },
+  "sentence_picks": {
+   "6313-66125-0007": {
+    "index": 28,
+    "ref": "I AM THE ONE TO GO AFTER WALT IF ANYONE HAS TO I'LL GO DOWN MISTER THOMAS",
+    "hyps": {
+     "0.0": "I AM THE ONE TO GO AFTER WALT IF ANY ONE HAS TOP I'LL GO DOWN MISTER THOMAS",
+     "0.2": "I AM THE ONE TO GO AFTER WALT IF ANYONE HAS TOP I'LL GO DOWN MISTER THOMAS",
+     "2.0": "I AM THE ONE TO GO AFTER WALT IF ANY ONE HAS TO I'LL GO DOWN MISTER THOMAS"
+    },
+    "errors": {
+     "0.0": 3,
+     "0.2": 1,
+     "2.0": 2
+    },
+    "greedy": "I AM THE ONE TO GO AFTER WALT IF ANY ONE HAS TOP I'LL GO DOWN MISTER THOMAS"
+   },
+   "5536-43358-0003": {
+    "index": 4,
+    "ref": "NONE MIGHT EXHORT OR CONFESS OR IN ANY WAY MEDDLE WITH THE RELIGIOUS EXPERIENCE OF ANOTHER",
+    "hyps": {
+     "0.0": "NONE MIGHT EXHORT OR CONFESS OR IN ANY WAY MEDLE WITH THE RELIGIOUS EXPERIENCE OF ANOTHER",
+     "0.2": "NONE MIGHT EXHORT OR CONFESS OR IN ANY WAY MEDDLE WITH THE RELIGIOUS EXPERIENCE OF ANOTHER",
+     "2.0": "NONE MIGHT EXERT OR CONFESS OR IN ANY WAY MEAL WITH THE RELIGIOUS EXPERIENCE OF ANOTHER"
+    },
+    "errors": {
+     "0.0": 1,
+     "0.2": 0,
+     "2.0": 2
+    },
+    "greedy": "NONE MIGHT EXHORT OR CONFESS OR IN ANY WAY MEDLE WITH THE RELIGIOUS EXPERIENCE OF ANOTHER"
+   },
+   "6295-244435-0001": {
+    "index": 27,
+    "ref": "COLONEL LEONIDAS TALBOT REGARDED THE WHITE FLAG WITH FEELINGS IN WHICH TRIUMPH AND SADNESS WERE MINGLED STRANGELY",
+    "hyps": {
+     "0.0": "COLONEL LEONITAS TALBOT REGARDED THE WHITE FLAG WITH FEELINGS IN WHICH TRIUMPH AND SADNESS WERE MINGLED STRANGELY",
+     "0.2": "COLONEL LEONIDAS TALBOT REGARDED THE WHITE FLAG WITH FEELINGS IN WHICH TRIUMPH AND SADNESS WERE MINGLED STRANGELY",
+     "2.0": "COLONEL LEONIDAS TALBOT REGARDED THE WHITE FLAG WITH FEELINGS  WHICH TRIUMPH AND SADNESS WERE MINGLED STRANGELY"
+    },
+    "errors": {
+     "0.0": 1,
+     "0.2": 0,
+     "2.0": 1
+    },
+    "greedy": "COLONEL LEONITAS TALBOT REGARDED THE WHITE FLAG WITH FEELINGS IN WHICH TRIUMPH AND SADNESS WERE MINGLED STRANGELY"
+   }
+  }
+ },
+ "_redacted": "keys ['lm.source'] were replaced before publishing (bin/publish_demos.py); see this demo's README"
+}

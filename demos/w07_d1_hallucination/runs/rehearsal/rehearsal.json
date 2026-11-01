@@ -1,0 +1,3009 @@
+{
+ "time": "2026-11-01T20:43:03",
+ "tag": "rehearsal",
+ "backend": "whisper",
+ "device": {
+  "whisper": "cpu",
+  "ctc": "mps"
+ },
+ "versions": {
+  "python": "3.12.14",
+  "platform": "macOS-27.2-arm64-arm-64bit",
+  "numpy": "2.4.4",
+  "scipy": "1.17.1",
+  "matplotlib": "3.10.9",
+  "sounddevice": "0.5.6",
+  "torch": "2.14.0",
+  "transformers": "5.17.0",
+  "huggingface_hub": "1.32.0",
+  "tokenizers": "0.23.2",
+  "models": {
+   "openai/whisper-small": "973afd24965f72e36ca33b3055d56a652f456b4d",
+   "facebook/wav2vec2-base-960h": "22aad52d435eb6dbaf354bdad9b0da84ce7d6156"
+  }
+ },
+ "config": {
+  "whisper": {
+   "repo": "openai/whisper-small",
+   "device": "cpu",
+   "language": "en",
+   "language_alt": "zh",
+   "task": "transcribe",
+   "max_new_tokens": 160,
+   "num_beams": 1,
+   "fallback_default": false,
+   "temperatures": [
+    0.0,
+    0.2,
+    0.4,
+    0.6,
+    0.8,
+    1.0
+   ],
+   "compression_ratio_threshold": 2.4,
+   "logprob_threshold": -1.0,
+   "no_speech_threshold": 0.6,
+   "prompt_reset_temperature": 0.5,
+   "window_s": 30.0,
+   "condition_on_prev_default": true,
+   "seed": 20261101
+  },
+  "zeroed": {
+   "mode": "zeros",
+   "num_beams": 5,
+   "num_return": 5,
+   "n_samples": 5,
+   "sample_temperature": 0.8
+  },
+  "ctc": {
+   "repo": "facebook/wav2vec2-base-960h",
+   "device": "auto",
+   "frame_ms": 20.0
+  },
+  "audio": {
+   "fs": 16000,
+   "w3_wav": "../w03_d3_blank_heatmap/runs/rehearsal/utterance.wav",
+   "w3_text": "../w03_d3_blank_heatmap/runs/rehearsal/utterance.txt",
+   "silence_s": 10.0,
+   "noise_s": 10.0,
+   "noise_snr_db": [
+    0.0,
+    20.0,
+    40.0
+   ],
+   "noise_seed": 20261101,
+   "tail_silence_s": 30.0,
+   "own_s": 10.0
+  },
+  "display": {
+   "digits": 3,
+   "max_tokens_each": 24,
+   "confident_logprob": -0.5
+  }
+ },
+ "clips": {
+  "silence": 10.0,
+  "noise_0": 10.0,
+  "noise_20": 10.0,
+  "noise_40": 10.0,
+  "long": 35.855,
+  "own": 10.0,
+  "w3": 5.855
+ },
+ "nospeech_token": "<|nocaptions|>",
+ "results": {
+  "whisper:w3:en:nofb": {
+   "attempts": [
+    {
+     "temperature": 0.0,
+     "ids": [
+      2221,
+      13,
+      2326,
+      388,
+      391,
+      307,
+      264,
+      50244,
+      295,
+      264,
+      2808,
+      5359,
+      11,
+      293,
+      321,
+      366,
+      5404,
+      281,
+      2928,
+      702,
+      14943,
+      13
+     ],
+     "pieces": [
+      " Mr",
+      ".",
+      " Qu",
+      "il",
+      "ter",
+      " is",
+      " the",
+      " apostle",
+      " of",
+      " the",
+      " middle",
+      " classes",
+      ",",
+      " and",
+      " we",
+      " are",
+      " glad",
+      " to",
+      " welcome",
+      " his",
+      " gospel",
+      "."
+     ],
+     "logprobs": [
+      -0.4285743832588196,
+      -0.051939886063337326,
+      -0.03963679075241089,
+      -0.32759594917297363,
+      -0.0019119569333270192,
+      -0.007179769221693277,
+      -0.008503655903041363,
+      -0.5197012424468994,
+      -0.0027333064936101437,
+      -0.006762002129107714,
+      -0.5760096311569214,
+      -0.11260529607534409,
+      -0.330556184053421,
+      -0.006072878837585449,
+      -0.002025458961725235,
+      -0.02221531979739666,
+      -0.008149821311235428,
+      -0.0026203603483736515,
+      -0.0017471539322286844,
+      -0.026978211477398872,
+      -0.30053868889808655,
+      -0.1907126009464264
+     ],
+     "eot_logprob": -0.0131290964782238,
+     "text": " Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+     "n_tokens": 22,
+     "n_words": 17,
+     "avg_logprob": -0.12990868020215598,
+     "max_logprob": -0.0017471539322286844,
+     "n_confident": 20,
+     "no_speech_prob": 0.011580511927604675,
+     "compression_ratio": 1.0853658536585367,
+     "verdict": {
+      "needs_fallback": false,
+      "reasons": [],
+      "is_silence": false
+     },
+     "seconds": 0.7749115410006198
+    }
+   ],
+   "final_temperature": 0.0,
+   "final": {
+    "temperature": 0.0,
+    "ids": [
+     2221,
+     13,
+     2326,
+     388,
+     391,
+     307,
+     264,
+     50244,
+     295,
+     264,
+     2808,
+     5359,
+     11,
+     293,
+     321,
+     366,
+     5404,
+     281,
+     2928,
+     702,
+     14943,
+     13
+    ],
+    "pieces": [
+     " Mr",
+     ".",
+     " Qu",
+     "il",
+     "ter",
+     " is",
+     " the",
+     " apostle",
+     " of",
+     " the",
+     " middle",
+     " classes",
+     ",",
+     " and",
+     " we",
+     " are",
+     " glad",
+     " to",
+     " welcome",
+     " his",
+     " gospel",
+     "."
+    ],
+    "logprobs": [
+     -0.4285743832588196,
+     -0.051939886063337326,
+     -0.03963679075241089,
+     -0.32759594917297363,
+     -0.0019119569333270192,
+     -0.007179769221693277,
+     -0.008503655903041363,
+     -0.5197012424468994,
+     -0.0027333064936101437,
+     -0.006762002129107714,
+     -0.5760096311569214,
+     -0.11260529607534409,
+     -0.330556184053421,
+     -0.006072878837585449,
+     -0.002025458961725235,
+     -0.02221531979739666,
+     -0.008149821311235428,
+     -0.0026203603483736515,
+     -0.0017471539322286844,
+     -0.026978211477398872,
+     -0.30053868889808655,
+     -0.1907126009464264
+    ],
+    "eot_logprob": -0.0131290964782238,
+    "text": " Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+    "n_tokens": 22,
+    "n_words": 17,
+    "avg_logprob": -0.12990868020215598,
+    "max_logprob": -0.0017471539322286844,
+    "n_confident": 20,
+    "no_speech_prob": 0.011580511927604675,
+    "compression_ratio": 1.0853658536585367,
+    "verdict": {
+     "needs_fallback": false,
+     "reasons": [],
+     "is_silence": false
+    },
+    "seconds": 0.7749115410006198
+   },
+   "fallback": false,
+   "language": "en",
+   "prompt": null,
+   "exhausted": false
+  },
+  "ctc:w3": {
+   "T": 292,
+   "blank_frames": 149,
+   "nonblank_frames": 143,
+   "blank_fraction": 0.5102739726027398,
+   "n_symbols": 90,
+   "text": "MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL"
+  },
+  "whisper:silence:en:nofb": {
+   "attempts": [
+    {
+     "temperature": 0.0,
+     "ids": [
+      291
+     ],
+     "pieces": [
+      " you"
+     ],
+     "logprobs": [
+      -1.0490394830703735
+     ],
+     "eot_logprob": -0.018606293946504593,
+     "text": " you",
+     "n_tokens": 1,
+     "n_words": 1,
+     "avg_logprob": -0.5338228885084391,
+     "max_logprob": -1.0490394830703735,
+     "n_confident": 0,
+     "no_speech_prob": 0.9380704760551453,
+     "compression_ratio": 0.3333333333333333,
+     "verdict": {
+      "needs_fallback": false,
+      "reasons": [],
+      "is_silence": false
+     },
+     "seconds": 0.5444684160001998
+    }
+   ],
+   "final_temperature": 0.0,
+   "final": {
+    "temperature": 0.0,
+    "ids": [
+     291
+    ],
+    "pieces": [
+     " you"
+    ],
+    "logprobs": [
+     -1.0490394830703735
+    ],
+    "eot_logprob": -0.018606293946504593,
+    "text": " you",
+    "n_tokens": 1,
+    "n_words": 1,
+    "avg_logprob": -0.5338228885084391,
+    "max_logprob": -1.0490394830703735,
+    "n_confident": 0,
+    "no_speech_prob": 0.9380704760551453,
+    "compression_ratio": 0.3333333333333333,
+    "verdict": {
+     "needs_fallback": false,
+     "reasons": [],
+     "is_silence": false
+    },
+    "seconds": 0.5444684160001998
+   },
+   "fallback": false,
+   "language": "en",
+   "prompt": null,
+   "exhausted": false
+  },
+  "whisper:noise_0:en:nofb": {
+   "attempts": [
+    {
+     "temperature": 0.0,
+     "ids": [
+      291
+     ],
+     "pieces": [
+      " you"
+     ],
+     "logprobs": [
+      -3.8216254711151123
+     ],
+     "eot_logprob": -0.07624313980340958,
+     "text": " you",
+     "n_tokens": 1,
+     "n_words": 1,
+     "avg_logprob": -1.948934305459261,
+     "max_logprob": -3.8216254711151123,
+     "n_confident": 0,
+     "no_speech_prob": 0.814092755317688,
+     "compression_ratio": 0.3333333333333333,
+     "verdict": {
+      "needs_fallback": true,
+      "reasons": [
+       "avg logprob -1.95 < -1.0"
+      ],
+      "is_silence": true
+     },
+     "seconds": 0.6853167499994015
+    }
+   ],
+   "final_temperature": 0.0,
+   "final": {
+    "temperature": 0.0,
+    "ids": [
+     291
+    ],
+    "pieces": [
+     " you"
+    ],
+    "logprobs": [
+     -3.8216254711151123
+    ],
+    "eot_logprob": -0.07624313980340958,
+    "text": " you",
+    "n_tokens": 1,
+    "n_words": 1,
+    "avg_logprob": -1.948934305459261,
+    "max_logprob": -3.8216254711151123,
+    "n_confident": 0,
+    "no_speech_prob": 0.814092755317688,
+    "compression_ratio": 0.3333333333333333,
+    "verdict": {
+     "needs_fallback": true,
+     "reasons": [
+      "avg logprob -1.95 < -1.0"
+     ],
+     "is_silence": true
+    },
+    "seconds": 0.6853167499994015
+   },
+   "fallback": false,
+   "language": "en",
+   "prompt": null,
+   "exhausted": false
+  },
+  "whisper:noise_20:en:nofb": {
+   "attempts": [
+    {
+     "temperature": 0.0,
+     "ids": [
+      291
+     ],
+     "pieces": [
+      " you"
+     ],
+     "logprobs": [
+      -3.034287929534912
+     ],
+     "eot_logprob": -0.07626765966415405,
+     "text": " you",
+     "n_tokens": 1,
+     "n_words": 1,
+     "avg_logprob": -1.555277794599533,
+     "max_logprob": -3.034287929534912,
+     "n_confident": 0,
+     "no_speech_prob": 0.8443138599395752,
+     "compression_ratio": 0.3333333333333333,
+     "verdict": {
+      "needs_fallback": true,
+      "reasons": [
+       "avg logprob -1.56 < -1.0"
+      ],
+      "is_silence": true
+     },
+     "seconds": 0.9953436249998049
+    }
+   ],
+   "final_temperature": 0.0,
+   "final": {
+    "temperature": 0.0,
+    "ids": [
+     291
+    ],
+    "pieces": [
+     " you"
+    ],
+    "logprobs": [
+     -3.034287929534912
+    ],
+    "eot_logprob": -0.07626765966415405,
+    "text": " you",
+    "n_tokens": 1,
+    "n_words": 1,
+    "avg_logprob": -1.555277794599533,
+    "max_logprob": -3.034287929534912,
+    "n_confident": 0,
+    "no_speech_prob": 0.8443138599395752,
+    "compression_ratio": 0.3333333333333333,
+    "verdict": {
+     "needs_fallback": true,
+     "reasons": [
+      "avg logprob -1.56 < -1.0"
+     ],
+     "is_silence": true
+    },
+    "seconds": 0.9953436249998049
+   },
+   "fallback": false,
+   "language": "en",
+   "prompt": null,
+   "exhausted": false
+  },
+  "whisper:noise_40:en:nofb": {
+   "attempts": [
+    {
+     "temperature": 0.0,
+     "ids": [
+      291
+     ],
+     "pieces": [
+      " you"
+     ],
+     "logprobs": [
+      -2.461318254470825
+     ],
+     "eot_logprob": -0.09691888093948364,
+     "text": " you",
+     "n_tokens": 1,
+     "n_words": 1,
+     "avg_logprob": -1.2791185677051544,
+     "max_logprob": -2.461318254470825,
+     "n_confident": 0,
+     "no_speech_prob": 0.8952488303184509,
+     "compression_ratio": 0.3333333333333333,
+     "verdict": {
+      "needs_fallback": true,
+      "reasons": [
+       "avg logprob -1.28 < -1.0"
+      ],
+      "is_silence": true
+     },
+     "seconds": 0.9487743749996298
+    }
+   ],
+   "final_temperature": 0.0,
+   "final": {
+    "temperature": 0.0,
+    "ids": [
+     291
+    ],
+    "pieces": [
+     " you"
+    ],
+    "logprobs": [
+     -2.461318254470825
+    ],
+    "eot_logprob": -0.09691888093948364,
+    "text": " you",
+    "n_tokens": 1,
+    "n_words": 1,
+    "avg_logprob": -1.2791185677051544,
+    "max_logprob": -2.461318254470825,
+    "n_confident": 0,
+    "no_speech_prob": 0.8952488303184509,
+    "compression_ratio": 0.3333333333333333,
+    "verdict": {
+     "needs_fallback": true,
+     "reasons": [
+      "avg logprob -1.28 < -1.0"
+     ],
+     "is_silence": true
+    },
+    "seconds": 0.9487743749996298
+   },
+   "fallback": false,
+   "language": "en",
+   "prompt": null,
+   "exhausted": false
+  },
+  "long:en:cond:nofb": {
+   "windows": [
+    {
+     "attempts": [
+      {
+       "temperature": 0.0,
+       "ids": [
+        2221,
+        13,
+        2326,
+        388,
+        391,
+        307,
+        264,
+        50244,
+        295,
+        264,
+        2808,
+        5359,
+        11,
+        293,
+        321,
+        366,
+        5404,
+        281,
+        2928,
+        702,
+        14943,
+        13
+       ],
+       "pieces": [
+        " Mr",
+        ".",
+        " Qu",
+        "il",
+        "ter",
+        " is",
+        " the",
+        " apostle",
+        " of",
+        " the",
+        " middle",
+        " classes",
+        ",",
+        " and",
+        " we",
+        " are",
+        " glad",
+        " to",
+        " welcome",
+        " his",
+        " gospel",
+        "."
+       ],
+       "logprobs": [
+        -0.4285743832588196,
+        -0.051939886063337326,
+        -0.03963679075241089,
+        -0.32759594917297363,
+        -0.0019119569333270192,
+        -0.007179769221693277,
+        -0.008503655903041363,
+        -0.5197012424468994,
+        -0.0027333064936101437,
+        -0.006762002129107714,
+        -0.5760096311569214,
+        -0.11260529607534409,
+        -0.330556184053421,
+        -0.006072878837585449,
+        -0.002025458961725235,
+        -0.02221531979739666,
+        -0.008149821311235428,
+        -0.0026203603483736515,
+        -0.0017471539322286844,
+        -0.026978211477398872,
+        -0.30053868889808655,
+        -0.1907126009464264
+       ],
+       "eot_logprob": -0.0131290964782238,
+       "text": " Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+       "n_tokens": 22,
+       "n_words": 17,
+       "avg_logprob": -0.12990868020215598,
+       "max_logprob": -0.0017471539322286844,
+       "n_confident": 20,
+       "no_speech_prob": 0.011580511927604675,
+       "compression_ratio": 1.0853658536585367,
+       "verdict": {
+        "needs_fallback": false,
+        "reasons": [],
+        "is_silence": false
+       },
+       "seconds": 1.2833323750001
+      }
+     ],
+     "final_temperature": 0.0,
+     "final": {
+      "temperature": 0.0,
+      "ids": [
+       2221,
+       13,
+       2326,
+       388,
+       391,
+       307,
+       264,
+       50244,
+       295,
+       264,
+       2808,
+       5359,
+       11,
+       293,
+       321,
+       366,
+       5404,
+       281,
+       2928,
+       702,
+       14943,
+       13
+      ],
+      "pieces": [
+       " Mr",
+       ".",
+       " Qu",
+       "il",
+       "ter",
+       " is",
+       " the",
+       " apostle",
+       " of",
+       " the",
+       " middle",
+       " classes",
+       ",",
+       " and",
+       " we",
+       " are",
+       " glad",
+       " to",
+       " welcome",
+       " his",
+       " gospel",
+       "."
+      ],
+      "logprobs": [
+       -0.4285743832588196,
+       -0.051939886063337326,
+       -0.03963679075241089,
+       -0.32759594917297363,
+       -0.0019119569333270192,
+       -0.007179769221693277,
+       -0.008503655903041363,
+       -0.5197012424468994,
+       -0.0027333064936101437,
+       -0.006762002129107714,
+       -0.5760096311569214,
+       -0.11260529607534409,
+       -0.330556184053421,
+       -0.006072878837585449,
+       -0.002025458961725235,
+       -0.02221531979739666,
+       -0.008149821311235428,
+       -0.0026203603483736515,
+       -0.0017471539322286844,
+       -0.026978211477398872,
+       -0.30053868889808655,
+       -0.1907126009464264
+      ],
+      "eot_logprob": -0.0131290964782238,
+      "text": " Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+      "n_tokens": 22,
+      "n_words": 17,
+      "avg_logprob": -0.12990868020215598,
+      "max_logprob": -0.0017471539322286844,
+      "n_confident": 20,
+      "no_speech_prob": 0.011580511927604675,
+      "compression_ratio": 1.0853658536585367,
+      "verdict": {
+       "needs_fallback": false,
+       "reasons": [],
+       "is_silence": false
+      },
+      "seconds": 1.2833323750001
+     },
+     "fallback": false,
+     "language": "en",
+     "prompt": null,
+     "exhausted": false,
+     "start_s": 0.0,
+     "end_s": 30.0,
+     "prompt_used": null
+    },
+    {
+     "attempts": [
+      {
+       "temperature": 0.0,
+       "ids": [
+        509
+       ],
+       "pieces": [
+        " You"
+       ],
+       "logprobs": [
+        -2.0858805179595947
+       ],
+       "eot_logprob": -0.18636849522590637,
+       "text": " You",
+       "n_tokens": 1,
+       "n_words": 1,
+       "avg_logprob": -1.1361245065927505,
+       "max_logprob": -2.0858805179595947,
+       "n_confident": 0,
+       "no_speech_prob": 0.9707909226417542,
+       "compression_ratio": 0.3333333333333333,
+       "verdict": {
+        "needs_fallback": true,
+        "reasons": [
+         "avg logprob -1.14 < -1.0"
+        ],
+        "is_silence": true
+       },
+       "seconds": 0.9490109170001233
+      }
+     ],
+     "final_temperature": 0.0,
+     "final": {
+      "temperature": 0.0,
+      "ids": [
+       509
+      ],
+      "pieces": [
+       " You"
+      ],
+      "logprobs": [
+       -2.0858805179595947
+      ],
+      "eot_logprob": -0.18636849522590637,
+      "text": " You",
+      "n_tokens": 1,
+      "n_words": 1,
+      "avg_logprob": -1.1361245065927505,
+      "max_logprob": -2.0858805179595947,
+      "n_confident": 0,
+      "no_speech_prob": 0.9707909226417542,
+      "compression_ratio": 0.3333333333333333,
+      "verdict": {
+       "needs_fallback": true,
+       "reasons": [
+        "avg logprob -1.14 < -1.0"
+       ],
+       "is_silence": true
+      },
+      "seconds": 0.9490109170001233
+     },
+     "fallback": false,
+     "language": "en",
+     "prompt": "Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+     "exhausted": false,
+     "start_s": 30.0,
+     "end_s": 35.855,
+     "prompt_used": "Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel."
+    }
+   ],
+   "condition_on_prev": true,
+   "fallback": false,
+   "language": "en",
+   "text": "Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel. You"
+  },
+  "long:en:nocond:nofb": {
+   "windows": [
+    {
+     "attempts": [
+      {
+       "temperature": 0.0,
+       "ids": [
+        2221,
+        13,
+        2326,
+        388,
+        391,
+        307,
+        264,
+        50244,
+        295,
+        264,
+        2808,
+        5359,
+        11,
+        293,
+        321,
+        366,
+        5404,
+        281,
+        2928,
+        702,
+        14943,
+        13
+       ],
+       "pieces": [
+        " Mr",
+        ".",
+        " Qu",
+        "il",
+        "ter",
+        " is",
+        " the",
+        " apostle",
+        " of",
+        " the",
+        " middle",
+        " classes",
+        ",",
+        " and",
+        " we",
+        " are",
+        " glad",
+        " to",
+        " welcome",
+        " his",
+        " gospel",
+        "."
+       ],
+       "logprobs": [
+        -0.4285743832588196,
+        -0.051939886063337326,
+        -0.03963679075241089,
+        -0.32759594917297363,
+        -0.0019119569333270192,
+        -0.007179769221693277,
+        -0.008503655903041363,
+        -0.5197012424468994,
+        -0.0027333064936101437,
+        -0.006762002129107714,
+        -0.5760096311569214,
+        -0.11260529607534409,
+        -0.330556184053421,
+        -0.006072878837585449,
+        -0.002025458961725235,
+        -0.02221531979739666,
+        -0.008149821311235428,
+        -0.0026203603483736515,
+        -0.0017471539322286844,
+        -0.026978211477398872,
+        -0.30053868889808655,
+        -0.1907126009464264
+       ],
+       "eot_logprob": -0.0131290964782238,
+       "text": " Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+       "n_tokens": 22,
+       "n_words": 17,
+       "avg_logprob": -0.12990868020215598,
+       "max_logprob": -0.0017471539322286844,
+       "n_confident": 20,
+       "no_speech_prob": 0.011580511927604675,
+       "compression_ratio": 1.0853658536585367,
+       "verdict": {
+        "needs_fallback": false,
+        "reasons": [],
+        "is_silence": false
+       },
+       "seconds": 1.262580290999722
+      }
+     ],
+     "final_temperature": 0.0,
+     "final": {
+      "temperature": 0.0,
+      "ids": [
+       2221,
+       13,
+       2326,
+       388,
+       391,
+       307,
+       264,
+       50244,
+       295,
+       264,
+       2808,
+       5359,
+       11,
+       293,
+       321,
+       366,
+       5404,
+       281,
+       2928,
+       702,
+       14943,
+       13
+      ],
+      "pieces": [
+       " Mr",
+       ".",
+       " Qu",
+       "il",
+       "ter",
+       " is",
+       " the",
+       " apostle",
+       " of",
+       " the",
+       " middle",
+       " classes",
+       ",",
+       " and",
+       " we",
+       " are",
+       " glad",
+       " to",
+       " welcome",
+       " his",
+       " gospel",
+       "."
+      ],
+      "logprobs": [
+       -0.4285743832588196,
+       -0.051939886063337326,
+       -0.03963679075241089,
+       -0.32759594917297363,
+       -0.0019119569333270192,
+       -0.007179769221693277,
+       -0.008503655903041363,
+       -0.5197012424468994,
+       -0.0027333064936101437,
+       -0.006762002129107714,
+       -0.5760096311569214,
+       -0.11260529607534409,
+       -0.330556184053421,
+       -0.006072878837585449,
+       -0.002025458961725235,
+       -0.02221531979739666,
+       -0.008149821311235428,
+       -0.0026203603483736515,
+       -0.0017471539322286844,
+       -0.026978211477398872,
+       -0.30053868889808655,
+       -0.1907126009464264
+      ],
+      "eot_logprob": -0.0131290964782238,
+      "text": " Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+      "n_tokens": 22,
+      "n_words": 17,
+      "avg_logprob": -0.12990868020215598,
+      "max_logprob": -0.0017471539322286844,
+      "n_confident": 20,
+      "no_speech_prob": 0.011580511927604675,
+      "compression_ratio": 1.0853658536585367,
+      "verdict": {
+       "needs_fallback": false,
+       "reasons": [],
+       "is_silence": false
+      },
+      "seconds": 1.262580290999722
+     },
+     "fallback": false,
+     "language": "en",
+     "prompt": null,
+     "exhausted": false,
+     "start_s": 0.0,
+     "end_s": 30.0,
+     "prompt_used": null
+    },
+    {
+     "attempts": [
+      {
+       "temperature": 0.0,
+       "ids": [
+        291
+       ],
+       "pieces": [
+        " you"
+       ],
+       "logprobs": [
+        -1.0490394830703735
+       ],
+       "eot_logprob": -0.018606293946504593,
+       "text": " you",
+       "n_tokens": 1,
+       "n_words": 1,
+       "avg_logprob": -0.5338228885084391,
+       "max_logprob": -1.0490394830703735,
+       "n_confident": 0,
+       "no_speech_prob": 0.9380704760551453,
+       "compression_ratio": 0.3333333333333333,
+       "verdict": {
+        "needs_fallback": false,
+        "reasons": [],
+        "is_silence": false
+       },
+       "seconds": 0.7994079579993922
+      }
+     ],
+     "final_temperature": 0.0,
+     "final": {
+      "temperature": 0.0,
+      "ids": [
+       291
+      ],
+      "pieces": [
+       " you"
+      ],
+      "logprobs": [
+       -1.0490394830703735
+      ],
+      "eot_logprob": -0.018606293946504593,
+      "text": " you",
+      "n_tokens": 1,
+      "n_words": 1,
+      "avg_logprob": -0.5338228885084391,
+      "max_logprob": -1.0490394830703735,
+      "n_confident": 0,
+      "no_speech_prob": 0.9380704760551453,
+      "compression_ratio": 0.3333333333333333,
+      "verdict": {
+       "needs_fallback": false,
+       "reasons": [],
+       "is_silence": false
+      },
+      "seconds": 0.7994079579993922
+     },
+     "fallback": false,
+     "language": "en",
+     "prompt": null,
+     "exhausted": false,
+     "start_s": 30.0,
+     "end_s": 35.855,
+     "prompt_used": null
+    }
+   ],
+   "condition_on_prev": false,
+   "fallback": false,
+   "language": "en",
+   "text": "Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel. you"
+  },
+  "whisper:own:en:nofb": {
+   "attempts": [
+    {
+     "temperature": 0.0,
+     "ids": [
+      286
+     ],
+     "pieces": [
+      " I"
+     ],
+     "logprobs": [
+      -4.872374534606934
+     ],
+     "eot_logprob": -1.3358447551727295,
+     "text": " I",
+     "n_tokens": 1,
+     "n_words": 1,
+     "avg_logprob": -3.1041096448898315,
+     "max_logprob": -4.872374534606934,
+     "n_confident": 0,
+     "no_speech_prob": 0.5152053236961365,
+     "compression_ratio": 0.2,
+     "verdict": {
+      "needs_fallback": true,
+      "reasons": [
+       "avg logprob -3.10 < -1.0"
+      ],
+      "is_silence": false
+     },
+     "seconds": 0.9397174999994604
+    }
+   ],
+   "final_temperature": 0.0,
+   "final": {
+    "temperature": 0.0,
+    "ids": [
+     286
+    ],
+    "pieces": [
+     " I"
+    ],
+    "logprobs": [
+     -4.872374534606934
+    ],
+    "eot_logprob": -1.3358447551727295,
+    "text": " I",
+    "n_tokens": 1,
+    "n_words": 1,
+    "avg_logprob": -3.1041096448898315,
+    "max_logprob": -4.872374534606934,
+    "n_confident": 0,
+    "no_speech_prob": 0.5152053236961365,
+    "compression_ratio": 0.2,
+    "verdict": {
+     "needs_fallback": true,
+     "reasons": [
+      "avg logprob -3.10 < -1.0"
+     ],
+     "is_silence": false
+    },
+    "seconds": 0.9397174999994604
+   },
+   "fallback": false,
+   "language": "en",
+   "prompt": null,
+   "exhausted": false
+  },
+  "ctc:silence": {
+   "T": 499,
+   "blank_frames": 499,
+   "nonblank_frames": 0,
+   "blank_fraction": 1.0,
+   "n_symbols": 0,
+   "text": ""
+  },
+  "ctc:noise_0": {
+   "T": 499,
+   "blank_frames": 499,
+   "nonblank_frames": 0,
+   "blank_fraction": 1.0,
+   "n_symbols": 0,
+   "text": ""
+  },
+  "ctc:noise_20": {
+   "T": 499,
+   "blank_frames": 499,
+   "nonblank_frames": 0,
+   "blank_fraction": 1.0,
+   "n_symbols": 0,
+   "text": ""
+  },
+  "ctc:noise_40": {
+   "T": 499,
+   "blank_frames": 499,
+   "nonblank_frames": 0,
+   "blank_fraction": 1.0,
+   "n_symbols": 0,
+   "text": ""
+  },
+  "ctc:long": {
+   "T": 1792,
+   "blank_frames": 1660,
+   "nonblank_frames": 132,
+   "blank_fraction": 0.9263392857142857,
+   "n_symbols": 90,
+   "text": "MISTER QUILDER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL"
+  },
+  "ctc:own": {
+   "T": 499,
+   "blank_frames": 498,
+   "nonblank_frames": 1,
+   "blank_fraction": 0.9979959919839679,
+   "n_symbols": 1,
+   "text": "E"
+  },
+  "zeroed:zeros:en": {
+   "mode": "zeros",
+   "beams": [
+    {
+     "text": " I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry,",
+     "n_tokens": 160,
+     "avg_logprob": -0.17841000950125896
+    },
+    {
+     "text": " I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry,",
+     "n_tokens": 160,
+     "avg_logprob": -0.17841000950125896
+    },
+    {
+     "text": " I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry,",
+     "n_tokens": 160,
+     "avg_logprob": -0.17841000950125896
+    },
+    {
+     "text": " I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry,",
+     "n_tokens": 160,
+     "avg_logprob": -0.17841000950125896
+    },
+    {
+     "text": " I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry,",
+     "n_tokens": 160,
+     "avg_logprob": -0.17841000950125896
+    }
+   ],
+   "samples": [
+    {
+     "text": " La La La",
+     "n_tokens": 3
+    },
+    {
+     "text": " As the weather has gotten worse, and that has been so hot lately, I'm sure we'll finish it in about 4 hours.",
+     "n_tokens": 27
+    },
+    {
+     "text": " i think a",
+     "n_tokens": 3
+    },
+    {
+     "text": " probably the most incredible that ever was.",
+     "n_tokens": 8
+    },
+    {
+     "text": " and in",
+     "n_tokens": 2
+    }
+   ]
+  },
+  "zeroed:mean:en": {
+   "mode": "mean",
+   "beams": [
+    {
+     "text": "",
+     "n_tokens": 0,
+     "avg_logprob": -5.370383262634277
+    },
+    {
+     "text": "",
+     "n_tokens": 0,
+     "avg_logprob": -5.370383262634277
+    },
+    {
+     "text": "",
+     "n_tokens": 0,
+     "avg_logprob": -5.370383262634277
+    },
+    {
+     "text": "",
+     "n_tokens": 0,
+     "avg_logprob": -5.370383262634277
+    },
+    {
+     "text": "",
+     "n_tokens": 0,
+     "avg_logprob": -5.370383262634277
+    }
+   ],
+   "samples": [
+    {
+     "text": " La",
+     "n_tokens": 1
+    },
+    {
+     "text": " As,,,,,,,, as,,",
+     "n_tokens": 12
+    },
+    {
+     "text": "",
+     "n_tokens": 0
+    },
+    {
+     "text": " The the",
+     "n_tokens": 2
+    },
+    {
+     "text": " The-",
+     "n_tokens": 2
+    }
+   ]
+  },
+  "whisper:silence:en:fb": {
+   "attempts": [
+    {
+     "temperature": 0.0,
+     "ids": [
+      291
+     ],
+     "pieces": [
+      " you"
+     ],
+     "logprobs": [
+      -1.0490394830703735
+     ],
+     "eot_logprob": -0.018606293946504593,
+     "text": " you",
+     "n_tokens": 1,
+     "n_words": 1,
+     "avg_logprob": -0.5338228885084391,
+     "max_logprob": -1.0490394830703735,
+     "n_confident": 0,
+     "no_speech_prob": 0.9380704760551453,
+     "compression_ratio": 0.3333333333333333,
+     "verdict": {
+      "needs_fallback": false,
+      "reasons": [],
+      "is_silence": false
+     },
+     "seconds": 1.6648603339999681
+    }
+   ],
+   "final_temperature": 0.0,
+   "final": {
+    "temperature": 0.0,
+    "ids": [
+     291
+    ],
+    "pieces": [
+     " you"
+    ],
+    "logprobs": [
+     -1.0490394830703735
+    ],
+    "eot_logprob": -0.018606293946504593,
+    "text": " you",
+    "n_tokens": 1,
+    "n_words": 1,
+    "avg_logprob": -0.5338228885084391,
+    "max_logprob": -1.0490394830703735,
+    "n_confident": 0,
+    "no_speech_prob": 0.9380704760551453,
+    "compression_ratio": 0.3333333333333333,
+    "verdict": {
+     "needs_fallback": false,
+     "reasons": [],
+     "is_silence": false
+    },
+    "seconds": 1.6648603339999681
+   },
+   "fallback": true,
+   "language": "en",
+   "prompt": null,
+   "exhausted": false
+  },
+  "whisper:noise_0:en:fb": {
+   "attempts": [
+    {
+     "temperature": 0.0,
+     "ids": [
+      291
+     ],
+     "pieces": [
+      " you"
+     ],
+     "logprobs": [
+      -3.8216254711151123
+     ],
+     "eot_logprob": -0.07624313980340958,
+     "text": " you",
+     "n_tokens": 1,
+     "n_words": 1,
+     "avg_logprob": -1.948934305459261,
+     "max_logprob": -3.8216254711151123,
+     "n_confident": 0,
+     "no_speech_prob": 0.814092755317688,
+     "compression_ratio": 0.3333333333333333,
+     "verdict": {
+      "needs_fallback": true,
+      "reasons": [
+       "avg logprob -1.95 < -1.0"
+      ],
+      "is_silence": true
+     },
+     "seconds": 1.1707752910006093
+    },
+    {
+     "temperature": 0.2,
+     "ids": [
+      509
+     ],
+     "pieces": [
+      " You"
+     ],
+     "logprobs": [
+      -4.233619689941406
+     ],
+     "eot_logprob": -0.12204766273498535,
+     "text": " You",
+     "n_tokens": 1,
+     "n_words": 1,
+     "avg_logprob": -2.177833676338196,
+     "max_logprob": -4.233619689941406,
+     "n_confident": 0,
+     "no_speech_prob": 0.814092755317688,
+     "compression_ratio": 0.3333333333333333,
+     "verdict": {
+      "needs_fallback": true,
+      "reasons": [
+       "avg logprob -2.18 < -1.0"
+      ],
+      "is_silence": true
+     },
+     "seconds": 1.1119845419998455
+    },
+    {
+     "temperature": 0.4,
+     "ids": [
+      291
+     ],
+     "pieces": [
+      " you"
+     ],
+     "logprobs": [
+      -3.8216254711151123
+     ],
+     "eot_logprob": -0.07624313980340958,
+     "text": " you",
+     "n_tokens": 1,
+     "n_words": 1,
+     "avg_logprob": -1.948934305459261,
+     "max_logprob": -3.8216254711151123,
+     "n_confident": 0,
+     "no_speech_prob": 0.814092755317688,
+     "compression_ratio": 0.3333333333333333,
+     "verdict": {
+      "needs_fallback": true,
+      "reasons": [
+       "avg logprob -1.95 < -1.0"
+      ],
+      "is_silence": true
+     },
+     "seconds": 0.8157993330005411
+    },
+    {
+     "temperature": 0.6,
+     "ids": [
+      293
+     ],
+     "pieces": [
+      " and"
+     ],
+     "logprobs": [
+      -5.343499183654785
+     ],
+     "eot_logprob": -1.2122387886047363,
+     "text": " and",
+     "n_tokens": 1,
+     "n_words": 1,
+     "avg_logprob": -3.2778689861297607,
+     "max_logprob": -5.343499183654785,
+     "n_confident": 0,
+     "no_speech_prob": 0.814092755317688,
+     "compression_ratio": 0.3333333333333333,
+     "verdict": {
+      "needs_fallback": true,
+      "reasons": [
+       "avg logprob -3.28 < -1.0"
+      ],
+      "is_silence": true
+     },
+     "seconds": 1.020358457999464
+    },
+    {
+     "temperature": 0.8,
+     "ids": [
+      876
+     ],
+     "pieces": [
+      " Oh"
+     ],
+     "logprobs": [
+      -5.559291839599609
+     ],
+     "eot_logprob": -0.44127777218818665,
+     "text": " Oh",
+     "n_tokens": 1,
+     "n_words": 1,
+     "avg_logprob": -3.000284805893898,
+     "max_logprob": -5.559291839599609,
+     "n_confident": 0,
+     "no_speech_prob": 0.814092755317688,
+     "compression_ratio": 0.2727272727272727,
+     "verdict": {
+      "needs_fallback": true,
+      "reasons": [
+       "avg logprob -3.00 < -1.0"
+      ],
+      "is_silence": true
+     },
+     "seconds": 0.9168914579995544
+    },
+    {
+     "temperature": 1.0,
+     "ids": [
+      286,
+      733,
+      295,
+      1890,
+      300,
+      3036,
+      3529
+     ],
+     "pieces": [
+      " I",
+      " kind",
+      " of",
+      " took",
+      " that",
+      " picture",
+      "?!"
+     ],
+     "logprobs": [
+      -4.598852634429932,
+      -8.232030868530273,
+      -0.07292211800813675,
+      -6.288494110107422,
+      -2.7154853343963623,
+      -4.723916053771973,
+      -10.568514823913574
+     ],
+     "eot_logprob": -0.5142256021499634,
+     "text": " I kind of took that picture?!",
+     "n_tokens": 7,
+     "n_words": 6,
+     "avg_logprob": -4.7143051931634545,
+     "max_logprob": -0.07292211800813675,
+     "n_confident": 1,
+     "no_speech_prob": 0.814092755317688,
+     "compression_ratio": 0.7894736842105263,
+     "verdict": {
+      "needs_fallback": true,
+      "reasons": [
+       "avg logprob -4.71 < -1.0"
+      ],
+      "is_silence": true
+     },
+     "seconds": 1.015558625000267
+    }
+   ],
+   "final_temperature": 1.0,
+   "final": {
+    "temperature": 1.0,
+    "ids": [
+     286,
+     733,
+     295,
+     1890,
+     300,
+     3036,
+     3529
+    ],
+    "pieces": [
+     " I",
+     " kind",
+     " of",
+     " took",
+     " that",
+     " picture",
+     "?!"
+    ],
+    "logprobs": [
+     -4.598852634429932,
+     -8.232030868530273,
+     -0.07292211800813675,
+     -6.288494110107422,
+     -2.7154853343963623,
+     -4.723916053771973,
+     -10.568514823913574
+    ],
+    "eot_logprob": -0.5142256021499634,
+    "text": " I kind of took that picture?!",
+    "n_tokens": 7,
+    "n_words": 6,
+    "avg_logprob": -4.7143051931634545,
+    "max_logprob": -0.07292211800813675,
+    "n_confident": 1,
+    "no_speech_prob": 0.814092755317688,
+    "compression_ratio": 0.7894736842105263,
+    "verdict": {
+     "needs_fallback": true,
+     "reasons": [
+      "avg logprob -4.71 < -1.0"
+     ],
+     "is_silence": true
+    },
+    "seconds": 1.015558625000267
+   },
+   "fallback": true,
+   "language": "en",
+   "prompt": null,
+   "exhausted": true
+  },
+  "whisper:noise_20:en:fb": {
+   "attempts": [
+    {
+     "temperature": 0.0,
+     "ids": [
+      291
+     ],
+     "pieces": [
+      " you"
+     ],
+     "logprobs": [
+      -3.034287929534912
+     ],
+     "eot_logprob": -0.07626765966415405,
+     "text": " you",
+     "n_tokens": 1,
+     "n_words": 1,
+     "avg_logprob": -1.555277794599533,
+     "max_logprob": -3.034287929534912,
+     "n_confident": 0,
+     "no_speech_prob": 0.8443138599395752,
+     "compression_ratio": 0.3333333333333333,
+     "verdict": {
+      "needs_fallback": true,
+      "reasons": [
+       "avg logprob -1.56 < -1.0"
+      ],
+      "is_silence": true
+     },
+     "seconds": 0.7590453749999142
+    },
+    {
+     "temperature": 0.2,
+     "ids": [
+      509
+     ],
+     "pieces": [
+      " You"
+     ],
+     "logprobs": [
+      -3.5683131217956543
+     ],
+     "eot_logprob": -0.11251528561115265,
+     "text": " You",
+     "n_tokens": 1,
+     "n_words": 1,
+     "avg_logprob": -1.8404142037034035,
+     "max_logprob": -3.5683131217956543,
+     "n_confident": 0,
+     "no_speech_prob": 0.8443138599395752,
+     "compression_ratio": 0.3333333333333333,
+     "verdict": {
+      "needs_fallback": true,
+      "reasons": [
+       "avg logprob -1.84 < -1.0"
+      ],
+      "is_silence": true
+     },
+     "seconds": 0.9790191669999331
+    },
+    {
+     "temperature": 0.4,
+     "ids": [
+      291
+     ],
+     "pieces": [
+      " you"
+     ],
+     "logprobs": [
+      -3.034287929534912
+     ],
+     "eot_logprob": -0.07626765966415405,
+     "text": " you",
+     "n_tokens": 1,
+     "n_words": 1,
+     "avg_logprob": -1.555277794599533,
+     "max_logprob": -3.034287929534912,
+     "n_confident": 0,
+     "no_speech_prob": 0.8443138599395752,
+     "compression_ratio": 0.3333333333333333,
+     "verdict": {
+      "needs_fallback": true,
+      "reasons": [
+       "avg logprob -1.56 < -1.0"
+      ],
+      "is_silence": true
+     },
+     "seconds": 1.0251705830005449
+    },
+    {
+     "temperature": 0.6,
+     "ids": [
+      2411
+     ],
+     "pieces": [
+      " ."
+     ],
+     "logprobs": [
+      -4.1479811668396
+     ],
+     "eot_logprob": -0.1450914889574051,
+     "text": " .",
+     "n_tokens": 1,
+     "n_words": 1,
+     "avg_logprob": -2.1465363278985023,
+     "max_logprob": -4.1479811668396,
+     "n_confident": 0,
+     "no_speech_prob": 0.8443138599395752,
+     "compression_ratio": 0.2,
+     "verdict": {
+      "needs_fallback": true,
+      "reasons": [
+       "avg logprob -2.15 < -1.0"
+      ],
+      "is_silence": true
+     },
+     "seconds": 1.0251912500007165
+    },
+    {
+     "temperature": 0.8,
+     "ids": [
+      28091,
+      25166,
+      50,
+      3158,
+      37,
+      8872,
+      462,
+      8241,
+      33
+     ],
+     "pieces": [
+      " GET",
+      " YOUR",
+      "S",
+      "EL",
+      "F",
+      " AT",
+      " E",
+      "TA",
+      "B"
+     ],
+     "logprobs": [
+      -10.769876480102539,
+      -5.215665817260742,
+      -3.111707925796509,
+      -0.047605499625205994,
+      -0.0180689487606287,
+      -4.471102237701416,
+      -4.748417377471924,
+      -5.193904876708984,
+      -3.7837440967559814
+     ],
+     "eot_logprob": -2.561701774597168,
+     "text": " GET YOURSELF AT ETAB",
+     "n_tokens": 9,
+     "n_words": 4,
+     "avg_logprob": -3.99217950347811,
+     "max_logprob": -0.0180689487606287,
+     "n_confident": 2,
+     "no_speech_prob": 0.8443138599395752,
+     "compression_ratio": 0.7241379310344828,
+     "verdict": {
+      "needs_fallback": true,
+      "reasons": [
+       "avg logprob -3.99 < -1.0"
+      ],
+      "is_silence": true
+     },
+     "seconds": 1.4975308330003827
+    },
+    {
+     "temperature": 1.0,
+     "ids": [
+      286,
+      733,
+      295,
+      1890,
+      300,
+      3036,
+      11,
+      570,
+      264,
+      5064,
+      6569,
+      874,
+      390,
+      534,
+      2489
+     ],
+     "pieces": [
+      " I",
+      " kind",
+      " of",
+      " took",
+      " that",
+      " picture",
+      ",",
+      " because",
+      " the",
+      " burn",
+      "was",
+      "ty",
+      " was",
+      " really",
+      " fine"
+     ],
+     "logprobs": [
+      -4.4296135902404785,
+      -8.211552619934082,
+      -0.07420875132083893,
+      -6.230992794036865,
+      -2.7206788063049316,
+      -4.431840419769287,
+      -2.341062545776367,
+      -3.304170846939087,
+      -3.175567150115967,
+      -9.555678367614746,
+      -9.905522346496582,
+      -8.314436912536621,
+      -1.7252322435379028,
+      -3.049332857131958,
+      -5.520502090454102
+     ],
+     "eot_logprob": -3.2441930770874023,
+     "text": " I kind of took that picture, because the burnwasty was really fine",
+     "n_tokens": 15,
+     "n_words": 12,
+     "avg_logprob": -4.764661588706076,
+     "max_logprob": -0.07420875132083893,
+     "n_confident": 1,
+     "no_speech_prob": 0.8443138599395752,
+     "compression_ratio": 0.9710144927536232,
+     "verdict": {
+      "needs_fallback": true,
+      "reasons": [
+       "avg logprob -4.76 < -1.0"
+      ],
+      "is_silence": true
+     },
+     "seconds": 0.9431311250000363
+    }
+   ],
+   "final_temperature": 1.0,
+   "final": {
+    "temperature": 1.0,
+    "ids": [
+     286,
+     733,
+     295,
+     1890,
+     300,
+     3036,
+     11,
+     570,
+     264,
+     5064,
+     6569,
+     874,
+     390,
+     534,
+     2489
+    ],
+    "pieces": [
+     " I",
+     " kind",
+     " of",
+     " took",
+     " that",
+     " picture",
+     ",",
+     " because",
+     " the",
+     " burn",
+     "was",
+     "ty",
+     " was",
+     " really",
+     " fine"
+    ],
+    "logprobs": [
+     -4.4296135902404785,
+     -8.211552619934082,
+     -0.07420875132083893,
+     -6.230992794036865,
+     -2.7206788063049316,
+     -4.431840419769287,
+     -2.341062545776367,
+     -3.304170846939087,
+     -3.175567150115967,
+     -9.555678367614746,
+     -9.905522346496582,
+     -8.314436912536621,
+     -1.7252322435379028,
+     -3.049332857131958,
+     -5.520502090454102
+    ],
+    "eot_logprob": -3.2441930770874023,
+    "text": " I kind of took that picture, because the burnwasty was really fine",
+    "n_tokens": 15,
+    "n_words": 12,
+    "avg_logprob": -4.764661588706076,
+    "max_logprob": -0.07420875132083893,
+    "n_confident": 1,
+    "no_speech_prob": 0.8443138599395752,
+    "compression_ratio": 0.9710144927536232,
+    "verdict": {
+     "needs_fallback": true,
+     "reasons": [
+      "avg logprob -4.76 < -1.0"
+     ],
+     "is_silence": true
+    },
+    "seconds": 0.9431311250000363
+   },
+   "fallback": true,
+   "language": "en",
+   "prompt": null,
+   "exhausted": true
+  },
+  "whisper:noise_40:en:fb": {
+   "attempts": [
+    {
+     "temperature": 0.0,
+     "ids": [
+      291
+     ],
+     "pieces": [
+      " you"
+     ],
+     "logprobs": [
+      -2.461318254470825
+     ],
+     "eot_logprob": -0.09691888093948364,
+     "text": " you",
+     "n_tokens": 1,
+     "n_words": 1,
+     "avg_logprob": -1.2791185677051544,
+     "max_logprob": -2.461318254470825,
+     "n_confident": 0,
+     "no_speech_prob": 0.8952488303184509,
+     "compression_ratio": 0.3333333333333333,
+     "verdict": {
+      "needs_fallback": true,
+      "reasons": [
+       "avg logprob -1.28 < -1.0"
+      ],
+      "is_silence": true
+     },
+     "seconds": 0.9975142499997673
+    },
+    {
+     "temperature": 0.2,
+     "ids": [
+      509
+     ],
+     "pieces": [
+      " You"
+     ],
+     "logprobs": [
+      -2.975632905960083
+     ],
+     "eot_logprob": -0.08995760232210159,
+     "text": " You",
+     "n_tokens": 1,
+     "n_words": 1,
+     "avg_logprob": -1.5327952541410923,
+     "max_logprob": -2.975632905960083,
+     "n_confident": 0,
+     "no_speech_prob": 0.8952488303184509,
+     "compression_ratio": 0.3333333333333333,
+     "verdict": {
+      "needs_fallback": true,
+      "reasons": [
+       "avg logprob -1.53 < -1.0"
+      ],
+      "is_silence": true
+     },
+     "seconds": 1.0695712919996367
+    },
+    {
+     "temperature": 0.4,
+     "ids": [
+      291
+     ],
+     "pieces": [
+      " you"
+     ],
+     "logprobs": [
+      -2.461318254470825
+     ],
+     "eot_logprob": -0.09691888093948364,
+     "text": " you",
+     "n_tokens": 1,
+     "n_words": 1,
+     "avg_logprob": -1.2791185677051544,
+     "max_logprob": -2.461318254470825,
+     "n_confident": 0,
+     "no_speech_prob": 0.8952488303184509,
+     "compression_ratio": 0.3333333333333333,
+     "verdict": {
+      "needs_fallback": true,
+      "reasons": [
+       "avg logprob -1.28 < -1.0"
+      ],
+      "is_silence": true
+     },
+     "seconds": 1.0196021670008122
+    },
+    {
+     "temperature": 0.6,
+     "ids": [
+      2411
+     ],
+     "pieces": [
+      " ."
+     ],
+     "logprobs": [
+      -2.9997141361236572
+     ],
+     "eot_logprob": -0.13841654360294342,
+     "text": " .",
+     "n_tokens": 1,
+     "n_words": 1,
+     "avg_logprob": -1.5690653398633003,
+     "max_logprob": -2.9997141361236572,
+     "n_confident": 0,
+     "no_speech_prob": 0.8952488303184509,
+     "compression_ratio": 0.2,
+     "verdict": {
+      "needs_fallback": true,
+      "reasons": [
+       "avg logprob -1.57 < -1.0"
+      ],
+      "is_silence": true
+     },
+     "seconds": 1.0002049159993476
+    },
+    {
+     "temperature": 0.8,
+     "ids": [
+      2411
+     ],
+     "pieces": [
+      " ."
+     ],
+     "logprobs": [
+      -2.9997141361236572
+     ],
+     "eot_logprob": -0.13841654360294342,
+     "text": " .",
+     "n_tokens": 1,
+     "n_words": 1,
+     "avg_logprob": -1.5690653398633003,
+     "max_logprob": -2.9997141361236572,
+     "n_confident": 0,
+     "no_speech_prob": 0.8952488303184509,
+     "compression_ratio": 0.2,
+     "verdict": {
+      "needs_fallback": true,
+      "reasons": [
+       "avg logprob -1.57 < -1.0"
+      ],
+      "is_silence": true
+     },
+     "seconds": 1.015478332999919
+    },
+    {
+     "temperature": 1.0,
+     "ids": [
+      509
+     ],
+     "pieces": [
+      " You"
+     ],
+     "logprobs": [
+      -2.975632905960083
+     ],
+     "eot_logprob": -0.08995760232210159,
+     "text": " You",
+     "n_tokens": 1,
+     "n_words": 1,
+     "avg_logprob": -1.5327952541410923,
+     "max_logprob": -2.975632905960083,
+     "n_confident": 0,
+     "no_speech_prob": 0.8952488303184509,
+     "compression_ratio": 0.3333333333333333,
+     "verdict": {
+      "needs_fallback": true,
+      "reasons": [
+       "avg logprob -1.53 < -1.0"
+      ],
+      "is_silence": true
+     },
+     "seconds": 0.7019885839999915
+    }
+   ],
+   "final_temperature": 1.0,
+   "final": {
+    "temperature": 1.0,
+    "ids": [
+     509
+    ],
+    "pieces": [
+     " You"
+    ],
+    "logprobs": [
+     -2.975632905960083
+    ],
+    "eot_logprob": -0.08995760232210159,
+    "text": " You",
+    "n_tokens": 1,
+    "n_words": 1,
+    "avg_logprob": -1.5327952541410923,
+    "max_logprob": -2.975632905960083,
+    "n_confident": 0,
+    "no_speech_prob": 0.8952488303184509,
+    "compression_ratio": 0.3333333333333333,
+    "verdict": {
+     "needs_fallback": true,
+     "reasons": [
+      "avg logprob -1.53 < -1.0"
+     ],
+     "is_silence": true
+    },
+    "seconds": 0.7019885839999915
+   },
+   "fallback": true,
+   "language": "en",
+   "prompt": null,
+   "exhausted": true
+  },
+  "long:en:cond:fb": {
+   "windows": [
+    {
+     "attempts": [
+      {
+       "temperature": 0.0,
+       "ids": [
+        2221,
+        13,
+        2326,
+        388,
+        391,
+        307,
+        264,
+        50244,
+        295,
+        264,
+        2808,
+        5359,
+        11,
+        293,
+        321,
+        366,
+        5404,
+        281,
+        2928,
+        702,
+        14943,
+        13
+       ],
+       "pieces": [
+        " Mr",
+        ".",
+        " Qu",
+        "il",
+        "ter",
+        " is",
+        " the",
+        " apostle",
+        " of",
+        " the",
+        " middle",
+        " classes",
+        ",",
+        " and",
+        " we",
+        " are",
+        " glad",
+        " to",
+        " welcome",
+        " his",
+        " gospel",
+        "."
+       ],
+       "logprobs": [
+        -0.4285743832588196,
+        -0.051939886063337326,
+        -0.03963679075241089,
+        -0.32759594917297363,
+        -0.0019119569333270192,
+        -0.007179769221693277,
+        -0.008503655903041363,
+        -0.5197012424468994,
+        -0.0027333064936101437,
+        -0.006762002129107714,
+        -0.5760096311569214,
+        -0.11260529607534409,
+        -0.330556184053421,
+        -0.006072878837585449,
+        -0.002025458961725235,
+        -0.02221531979739666,
+        -0.008149821311235428,
+        -0.0026203603483736515,
+        -0.0017471539322286844,
+        -0.026978211477398872,
+        -0.30053868889808655,
+        -0.1907126009464264
+       ],
+       "eot_logprob": -0.0131290964782238,
+       "text": " Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+       "n_tokens": 22,
+       "n_words": 17,
+       "avg_logprob": -0.12990868020215598,
+       "max_logprob": -0.0017471539322286844,
+       "n_confident": 20,
+       "no_speech_prob": 0.011580511927604675,
+       "compression_ratio": 1.0853658536585367,
+       "verdict": {
+        "needs_fallback": false,
+        "reasons": [],
+        "is_silence": false
+       },
+       "seconds": 1.292757457999869
+      }
+     ],
+     "final_temperature": 0.0,
+     "final": {
+      "temperature": 0.0,
+      "ids": [
+       2221,
+       13,
+       2326,
+       388,
+       391,
+       307,
+       264,
+       50244,
+       295,
+       264,
+       2808,
+       5359,
+       11,
+       293,
+       321,
+       366,
+       5404,
+       281,
+       2928,
+       702,
+       14943,
+       13
+      ],
+      "pieces": [
+       " Mr",
+       ".",
+       " Qu",
+       "il",
+       "ter",
+       " is",
+       " the",
+       " apostle",
+       " of",
+       " the",
+       " middle",
+       " classes",
+       ",",
+       " and",
+       " we",
+       " are",
+       " glad",
+       " to",
+       " welcome",
+       " his",
+       " gospel",
+       "."
+      ],
+      "logprobs": [
+       -0.4285743832588196,
+       -0.051939886063337326,
+       -0.03963679075241089,
+       -0.32759594917297363,
+       -0.0019119569333270192,
+       -0.007179769221693277,
+       -0.008503655903041363,
+       -0.5197012424468994,
+       -0.0027333064936101437,
+       -0.006762002129107714,
+       -0.5760096311569214,
+       -0.11260529607534409,
+       -0.330556184053421,
+       -0.006072878837585449,
+       -0.002025458961725235,
+       -0.02221531979739666,
+       -0.008149821311235428,
+       -0.0026203603483736515,
+       -0.0017471539322286844,
+       -0.026978211477398872,
+       -0.30053868889808655,
+       -0.1907126009464264
+      ],
+      "eot_logprob": -0.0131290964782238,
+      "text": " Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+      "n_tokens": 22,
+      "n_words": 17,
+      "avg_logprob": -0.12990868020215598,
+      "max_logprob": -0.0017471539322286844,
+      "n_confident": 20,
+      "no_speech_prob": 0.011580511927604675,
+      "compression_ratio": 1.0853658536585367,
+      "verdict": {
+       "needs_fallback": false,
+       "reasons": [],
+       "is_silence": false
+      },
+      "seconds": 1.292757457999869
+     },
+     "fallback": true,
+     "language": "en",
+     "prompt": null,
+     "exhausted": false,
+     "start_s": 0.0,
+     "end_s": 30.0,
+     "prompt_used": null
+    },
+    {
+     "attempts": [
+      {
+       "temperature": 0.0,
+       "ids": [
+        509
+       ],
+       "pieces": [
+        " You"
+       ],
+       "logprobs": [
+        -2.0858805179595947
+       ],
+       "eot_logprob": -0.18636849522590637,
+       "text": " You",
+       "n_tokens": 1,
+       "n_words": 1,
+       "avg_logprob": -1.1361245065927505,
+       "max_logprob": -2.0858805179595947,
+       "n_confident": 0,
+       "no_speech_prob": 0.9707909226417542,
+       "compression_ratio": 0.3333333333333333,
+       "verdict": {
+        "needs_fallback": true,
+        "reasons": [
+         "avg logprob -1.14 < -1.0"
+        ],
+        "is_silence": true
+       },
+       "seconds": 0.9881006249997881
+      },
+      {
+       "temperature": 0.2,
+       "ids": [
+        509
+       ],
+       "pieces": [
+        " You"
+       ],
+       "logprobs": [
+        -2.0858805179595947
+       ],
+       "eot_logprob": -0.18636849522590637,
+       "text": " You",
+       "n_tokens": 1,
+       "n_words": 1,
+       "avg_logprob": -1.1361245065927505,
+       "max_logprob": -2.0858805179595947,
+       "n_confident": 0,
+       "no_speech_prob": 0.9707909226417542,
+       "compression_ratio": 0.3333333333333333,
+       "verdict": {
+        "needs_fallback": true,
+        "reasons": [
+         "avg logprob -1.14 < -1.0"
+        ],
+        "is_silence": true
+       },
+       "seconds": 1.437043416999586
+      },
+      {
+       "temperature": 0.4,
+       "ids": [
+        509
+       ],
+       "pieces": [
+        " You"
+       ],
+       "logprobs": [
+        -2.0858805179595947
+       ],
+       "eot_logprob": -0.18636849522590637,
+       "text": " You",
+       "n_tokens": 1,
+       "n_words": 1,
+       "avg_logprob": -1.1361245065927505,
+       "max_logprob": -2.0858805179595947,
+       "n_confident": 0,
+       "no_speech_prob": 0.9707909226417542,
+       "compression_ratio": 0.3333333333333333,
+       "verdict": {
+        "needs_fallback": true,
+        "reasons": [
+         "avg logprob -1.14 < -1.0"
+        ],
+        "is_silence": true
+       },
+       "seconds": 0.7289177499997095
+      },
+      {
+       "temperature": 0.6,
+       "ids": [
+        509
+       ],
+       "pieces": [
+        " You"
+       ],
+       "logprobs": [
+        -2.0858805179595947
+       ],
+       "eot_logprob": -0.18636849522590637,
+       "text": " You",
+       "n_tokens": 1,
+       "n_words": 1,
+       "avg_logprob": -1.1361245065927505,
+       "max_logprob": -2.0858805179595947,
+       "n_confident": 0,
+       "no_speech_prob": 0.9707909226417542,
+       "compression_ratio": 0.3333333333333333,
+       "verdict": {
+        "needs_fallback": true,
+        "reasons": [
+         "avg logprob -1.14 < -1.0"
+        ],
+        "is_silence": true
+       },
+       "seconds": 0.9847527920001085
+      },
+      {
+       "temperature": 0.8,
+       "ids": [
+        492,
+        1309,
+        291,
+        13
+       ],
+       "pieces": [
+        " We",
+        " thank",
+        " you",
+        "."
+       ],
+       "logprobs": [
+        -3.6910641193389893,
+        -3.0675952434539795,
+        -0.8176138401031494,
+        -1.802276849746704
+       ],
+       "eot_logprob": -0.1610693335533142,
+       "text": " We thank you.",
+       "n_tokens": 4,
+       "n_words": 3,
+       "avg_logprob": -1.9079238772392273,
+       "max_logprob": -0.8176138401031494,
+       "n_confident": 0,
+       "no_speech_prob": 0.9707909226417542,
+       "compression_ratio": 0.6363636363636364,
+       "verdict": {
+        "needs_fallback": true,
+        "reasons": [
+         "avg logprob -1.91 < -1.0"
+        ],
+        "is_silence": true
+       },
+       "seconds": 1.178398125000058
+      },
+      {
+       "temperature": 1.0,
+       "ids": [
+        509
+       ],
+       "pieces": [
+        " You"
+       ],
+       "logprobs": [
+        -2.0858805179595947
+       ],
+       "eot_logprob": -0.18636849522590637,
+       "text": " You",
+       "n_tokens": 1,
+       "n_words": 1,
+       "avg_logprob": -1.1361245065927505,
+       "max_logprob": -2.0858805179595947,
+       "n_confident": 0,
+       "no_speech_prob": 0.9707909226417542,
+       "compression_ratio": 0.3333333333333333,
+       "verdict": {
+        "needs_fallback": true,
+        "reasons": [
+         "avg logprob -1.14 < -1.0"
+        ],
+        "is_silence": true
+       },
+       "seconds": 0.9996321250000619
+      }
+     ],
+     "final_temperature": 1.0,
+     "final": {
+      "temperature": 1.0,
+      "ids": [
+       509
+      ],
+      "pieces": [
+       " You"
+      ],
+      "logprobs": [
+       -2.0858805179595947
+      ],
+      "eot_logprob": -0.18636849522590637,
+      "text": " You",
+      "n_tokens": 1,
+      "n_words": 1,
+      "avg_logprob": -1.1361245065927505,
+      "max_logprob": -2.0858805179595947,
+      "n_confident": 0,
+      "no_speech_prob": 0.9707909226417542,
+      "compression_ratio": 0.3333333333333333,
+      "verdict": {
+       "needs_fallback": true,
+       "reasons": [
+        "avg logprob -1.14 < -1.0"
+       ],
+       "is_silence": true
+      },
+      "seconds": 0.9996321250000619
+     },
+     "fallback": true,
+     "language": "en",
+     "prompt": "Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+     "exhausted": true,
+     "start_s": 30.0,
+     "end_s": 35.855,
+     "prompt_used": "Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel."
+    }
+   ],
+   "condition_on_prev": true,
+   "fallback": true,
+   "language": "en",
+   "text": "Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel. You"
+  },
+  "whisper:own:en:fb": {
+   "attempts": [
+    {
+     "temperature": 0.0,
+     "ids": [
+      286
+     ],
+     "pieces": [
+      " I"
+     ],
+     "logprobs": [
+      -4.872374534606934
+     ],
+     "eot_logprob": -1.3358447551727295,
+     "text": " I",
+     "n_tokens": 1,
+     "n_words": 1,
+     "avg_logprob": -3.1041096448898315,
+     "max_logprob": -4.872374534606934,
+     "n_confident": 0,
+     "no_speech_prob": 0.5152053236961365,
+     "compression_ratio": 0.2,
+     "verdict": {
+      "needs_fallback": true,
+      "reasons": [
+       "avg logprob -3.10 < -1.0"
+      ],
+      "is_silence": false
+     },
+     "seconds": 0.7095165000000634
+    },
+    {
+     "temperature": 0.2,
+     "ids": [
+      509
+     ],
+     "pieces": [
+      " You"
+     ],
+     "logprobs": [
+      -4.88361930847168
+     ],
+     "eot_logprob": -0.2542186677455902,
+     "text": " You",
+     "n_tokens": 1,
+     "n_words": 1,
+     "avg_logprob": -2.568918988108635,
+     "max_logprob": -4.88361930847168,
+     "n_confident": 0,
+     "no_speech_prob": 0.5152053236961365,
+     "compression_ratio": 0.3333333333333333,
+     "verdict": {
+      "needs_fallback": true,
+      "reasons": [
+       "avg logprob -2.57 < -1.0"
+      ],
+      "is_silence": false
+     },
+     "seconds": 1.0684456250000949
+    },
+    {
+     "temperature": 0.4,
+     "ids": [
+      286
+     ],
+     "pieces": [
+      " I"
+     ],
+     "logprobs": [
+      -4.872374534606934
+     ],
+     "eot_logprob": -1.3358447551727295,
+     "text": " I",
+     "n_tokens": 1,
+     "n_words": 1,
+     "avg_logprob": -3.1041096448898315,
+     "max_logprob": -4.872374534606934,
+     "n_confident": 0,
+     "no_speech_prob": 0.5152053236961365,
+     "compression_ratio": 0.2,
+     "verdict": {
+      "needs_fallback": true,
+      "reasons": [
+       "avg logprob -3.10 < -1.0"
+      ],
+      "is_silence": false
+     },
+     "seconds": 0.9898310829994443
+    },
+    {
+     "temperature": 0.6,
+     "ids": [
+      286
+     ],
+     "pieces": [
+      " I"
+     ],
+     "logprobs": [
+      -4.872374534606934
+     ],
+     "eot_logprob": -1.3358447551727295,
+     "text": " I",
+     "n_tokens": 1,
+     "n_words": 1,
+     "avg_logprob": -3.1041096448898315,
+     "max_logprob": -4.872374534606934,
+     "n_confident": 0,
+     "no_speech_prob": 0.5152053236961365,
+     "compression_ratio": 0.2,
+     "verdict": {
+      "needs_fallback": true,
+      "reasons": [
+       "avg logprob -3.10 < -1.0"
+      ],
+      "is_silence": false
+     },
+     "seconds": 0.9804754580000008
+    },
+    {
+     "temperature": 0.8,
+     "ids": [
+      876
+     ],
+     "pieces": [
+      " Oh"
+     ],
+     "logprobs": [
+      -5.601909637451172
+     ],
+     "eot_logprob": -0.4212486743927002,
+     "text": " Oh",
+     "n_tokens": 1,
+     "n_words": 1,
+     "avg_logprob": -3.011579155921936,
+     "max_logprob": -5.601909637451172,
+     "n_confident": 0,
+     "no_speech_prob": 0.5152053236961365,
+     "compression_ratio": 0.2727272727272727,
+     "verdict": {
+      "needs_fallback": true,
+      "reasons": [
+       "avg logprob -3.01 < -1.0"
+      ],
+      "is_silence": false
+     },
+     "seconds": 1.0022367500005203
+    },
+    {
+     "temperature": 1.0,
+     "ids": [
+      286,
+      733,
+      295,
+      1890,
+      300,
+      766,
+      3529
+     ],
+     "pieces": [
+      " I",
+      " kind",
+      " of",
+      " took",
+      " that",
+      " off",
+      "?!"
+     ],
+     "logprobs": [
+      -4.8723835945129395,
+      -7.994934558868408,
+      -0.04297227784991264,
+      -6.06455659866333,
+      -2.70275616645813,
+      -2.1580185890197754,
+      -9.606377601623535
+     ],
+     "eot_logprob": -0.46336427330970764,
+     "text": " I kind of took that off?!",
+     "n_tokens": 7,
+     "n_words": 6,
+     "avg_logprob": -4.238170457538217,
+     "max_logprob": -0.04297227784991264,
+     "n_confident": 1,
+     "no_speech_prob": 0.5152053236961365,
+     "compression_ratio": 0.8125,
+     "verdict": {
+      "needs_fallback": true,
+      "reasons": [
+       "avg logprob -4.24 < -1.0"
+      ],
+      "is_silence": false
+     },
+     "seconds": 0.78503258299952
+    }
+   ],
+   "final_temperature": 1.0,
+   "final": {
+    "temperature": 1.0,
+    "ids": [
+     286,
+     733,
+     295,
+     1890,
+     300,
+     766,
+     3529
+    ],
+    "pieces": [
+     " I",
+     " kind",
+     " of",
+     " took",
+     " that",
+     " off",
+     "?!"
+    ],
+    "logprobs": [
+     -4.8723835945129395,
+     -7.994934558868408,
+     -0.04297227784991264,
+     -6.06455659866333,
+     -2.70275616645813,
+     -2.1580185890197754,
+     -9.606377601623535
+    ],
+    "eot_logprob": -0.46336427330970764,
+    "text": " I kind of took that off?!",
+    "n_tokens": 7,
+    "n_words": 6,
+    "avg_logprob": -4.238170457538217,
+    "max_logprob": -0.04297227784991264,
+    "n_confident": 1,
+    "no_speech_prob": 0.5152053236961365,
+    "compression_ratio": 0.8125,
+    "verdict": {
+     "needs_fallback": true,
+     "reasons": [
+      "avg logprob -4.24 < -1.0"
+     ],
+     "is_silence": false
+    },
+    "seconds": 0.78503258299952
+   },
+   "fallback": true,
+   "language": "en",
+   "prompt": null,
+   "exhausted": true
+  },
+  "whisper:silence:zh:nofb": {
+   "attempts": [
+    {
+     "temperature": 0.0,
+     "ids": [
+      2166,
+      11962,
+      8623,
+      4622,
+      2289
+     ],
+     "pieces": [
+      "你",
+      "不要",
+      "再",
+      "說",
+      "了"
+     ],
+     "logprobs": [
+      -2.9423482418060303,
+      -3.576742649078369,
+      -2.3630776405334473,
+      -3.042400598526001,
+      -0.1879734992980957
+     ],
+     "eot_logprob": -2.062141180038452,
+     "text": "你不要再說了",
+     "n_tokens": 5,
+     "n_words": 1,
+     "avg_logprob": -2.3624473015467324,
+     "max_logprob": -0.1879734992980957,
+     "n_confident": 1,
+     "no_speech_prob": 0.9380704760551453,
+     "compression_ratio": 0.6666666666666666,
+     "verdict": {
+      "needs_fallback": true,
+      "reasons": [
+       "avg logprob -2.36 < -1.0"
+      ],
+      "is_silence": true
+     },
+     "seconds": 1.0890575409994199
+    }
+   ],
+   "final_temperature": 0.0,
+   "final": {
+    "temperature": 0.0,
+    "ids": [
+     2166,
+     11962,
+     8623,
+     4622,
+     2289
+    ],
+    "pieces": [
+     "你",
+     "不要",
+     "再",
+     "說",
+     "了"
+    ],
+    "logprobs": [
+     -2.9423482418060303,
+     -3.576742649078369,
+     -2.3630776405334473,
+     -3.042400598526001,
+     -0.1879734992980957
+    ],
+    "eot_logprob": -2.062141180038452,
+    "text": "你不要再說了",
+    "n_tokens": 5,
+    "n_words": 1,
+    "avg_logprob": -2.3624473015467324,
+    "max_logprob": -0.1879734992980957,
+    "n_confident": 1,
+    "no_speech_prob": 0.9380704760551453,
+    "compression_ratio": 0.6666666666666666,
+    "verdict": {
+     "needs_fallback": true,
+     "reasons": [
+      "avg logprob -2.36 < -1.0"
+     ],
+     "is_silence": true
+    },
+    "seconds": 1.0890575409994199
+   },
+   "fallback": false,
+   "language": "zh",
+   "prompt": null,
+   "exhausted": false
+  },
+  "whisper:noise_0:zh:nofb": {
+   "attempts": [
+    {
+     "temperature": 0.0,
+     "ids": [
+      7322,
+      9830,
+      96,
+      38739,
+      240
+     ],
+     "pieces": [
+      "小",
+      "�",
+      "�",
+      "�",
+      "�"
+     ],
+     "logprobs": [
+      -4.411031246185303,
+      -2.5932023525238037,
+      -0.018636249005794525,
+      -0.01555899903178215,
+      -0.0009298768127337098
+     ],
+     "eot_logprob": -0.6778258681297302,
+     "text": "小辣椒",
+     "n_tokens": 5,
+     "n_words": 1,
+     "avg_logprob": -1.2861974319481912,
+     "max_logprob": -0.0009298768127337098,
+     "n_confident": 3,
+     "no_speech_prob": 0.814092755317688,
+     "compression_ratio": 0.5,
+     "verdict": {
+      "needs_fallback": true,
+      "reasons": [
+       "avg logprob -1.29 < -1.0"
+      ],
+      "is_silence": true
+     },
+     "seconds": 1.0662317080004868
+    }
+   ],
+   "final_temperature": 0.0,
+   "final": {
+    "temperature": 0.0,
+    "ids": [
+     7322,
+     9830,
+     96,
+     38739,
+     240
+    ],
+    "pieces": [
+     "小",
+     "�",
+     "�",
+     "�",
+     "�"
+    ],
+    "logprobs": [
+     -4.411031246185303,
+     -2.5932023525238037,
+     -0.018636249005794525,
+     -0.01555899903178215,
+     -0.0009298768127337098
+    ],
+    "eot_logprob": -0.6778258681297302,
+    "text": "小辣椒",
+    "n_tokens": 5,
+    "n_words": 1,
+    "avg_logprob": -1.2861974319481912,
+    "max_logprob": -0.0009298768127337098,
+    "n_confident": 3,
+    "no_speech_prob": 0.814092755317688,
+    "compression_ratio": 0.5,
+    "verdict": {
+     "needs_fallback": true,
+     "reasons": [
+      "avg logprob -1.29 < -1.0"
+     ],
+     "is_silence": true
+    },
+    "seconds": 1.0662317080004868
+   },
+   "fallback": false,
+   "language": "zh",
+   "prompt": null,
+   "exhausted": false
+  }
+ }
+}

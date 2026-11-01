@@ -1,0 +1,80 @@
+# 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
+# W7 demo 1：幻覺——證據歸零時先驗長什麼樣（p26 前導頁、p27 Demo 1、p28 長段落、p29 對策）。換內容只改這裡。
+#
+# 設計（2026-11-01；理由見 README）：
+#   同一批「沒有語音」的音訊（靜音、白噪音、W3 那句接長靜音、授課者自錄的非語音）餵兩個模型：
+#   有先驗的 Whisper small（AED：decoder 讀 ℓ_{<u}）與沒有先驗的 wav2vec2-base-960h（CTC：逐 frame 各自 argmax）。
+#   Whisper 這邊印轉錄、逐 token 的 log 機率（teacher-forced 一次前向算出）、no_speech_prob（<|startoftranscript|> 那一格的
+#   <|nospeech|> 機率，照 openai/whisper decoding.py）、以及 §4.5 的 fallback 規則（自己寫的迴圈，每一次嘗試都印出來）。
+#   第三格把 encoder 輸出整個換成零（forward hook），讓 decoder 自由生成——那是 P_ILM 的樣本，與第一格的幻覺句並排。
+
+[whisper]
+# 多語版 small（244 M）。與 W4 Demo 3 同一份權重、同一個 commit（fetch 會先讀 ../w04_d3_attention_heads/model.lock）。
+repo = "openai/whisper-small"
+# 推論放哪：cpu。2026-11-01 在 M5 Max 上實測 transformers 5.17.0 的 Whisper generate 在 MPS 上會掛
+# （generation/utils.py _sample → stop_check.finish() 讀 EncoderDecoderCache.layers → AttributeError；teacher-forced 前向沒事），
+# 所以與 W4 Demo 3 一樣放 CPU：small 對 30 s 的輸入 generate 是秒級。check 仍會試一次 mps 並把錯誤記進 check.json。
+# 溫度 > 0 是抽樣，同機同 seed 才重現。
+device = "cpu"
+language = "en"          # 課堂上按 l 可以切成 zh 再餵一次靜音（先驗換了、證據還是平的）
+language_alt = "zh"
+task = "transcribe"
+max_new_tokens = 160
+# 溫度 0 時用幾條 beam：1 = greedy（與 W4 Demo 3 同）；Whisper 原文 §4.5 的 fallback 是 beam 5 起跳，改成 5 會慢四五倍。
+num_beams = 1
+# 自己實作的 fallback（Whisper §4.5；openai/whisper transcribe.py decode_with_fallback 的規則，逐條對過）：
+#   溫度從 0 起每次 +0.2 到 1.0；一次嘗試「不合格」= gzip 壓縮比 > compression_ratio_threshold 或 平均 log 機率 < logprob_threshold；
+#   no_speech_prob > no_speech_threshold 且 平均 log 機率 < logprob_threshold 才當靜音（兩個條件一起，原文說單獨看 <|nospeech|> 不夠）；
+#   前一個視窗的文字只在該視窗最後用的溫度 < 0.5 時才帶進下一個視窗的 prompt。
+# 課堂上預設 fallback 關（fallback_default = false）：先看溫度 0 的輸出，按 f 再打開一次看規則怎麼動。
+fallback_default = false
+temperatures = [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]
+compression_ratio_threshold = 2.4
+logprob_threshold = -1.0
+no_speech_threshold = 0.6
+prompt_reset_temperature = 0.5
+# 長段落：固定 30 s 視窗（openai 是用預測出來的最後一個時間戳前進；這裡不解時間戳，視窗等距——是簡化，README 說明）。
+window_s = 30.0
+condition_on_prev_default = true
+# 抽樣的 seed（溫度 > 0 時）；同一台機器同 seed 可重現，跨機器不保證。
+seed = 20261101
+
+[zeroed]
+# encoder 歸零：forward hook 把 encoder 的 last_hidden_state 換掉。mode = zeros（全零）或 mean（W3 那句 encoder 輸出對時間取平均的常數向量）。
+# 按 z 用 zeros、按 Z 用 mean。beam 5、回 5 條；另外再抽 n_samples 條（溫度 sample_temperature）。
+mode = "zeros"
+num_beams = 5
+num_return = 5
+n_samples = 5
+sample_temperature = 0.8
+
+[ctc]
+# W3 Demo 3 的模型與 commit（fetch 會先讀 ../w03_d3_blank_heatmap/model.lock）。greedy：逐 frame argmax → 摺疊 → 刪 blank。
+# auto = 有 MPS 就 MPS（2026-11-01 check：MPS 與 CPU 對靜音、W3 那句的字串相同）。
+repo = "facebook/wav2vec2-base-960h"
+device = "auto"
+frame_ms = 20.0
+
+[audio]
+fs = 16000
+# W3 那一句（LibriSpeech dev-clean 1272-128104-0000，5.855 s，CC BY 4.0；出處 media-sources/w03-librispeech.md）——進了版控的那份。
+w3_wav = "../w03_d3_blank_heatmap/runs/rehearsal/utterance.wav"
+w3_text = "../w03_d3_blank_heatmap/runs/rehearsal/utterance.txt"
+# ./present.sh make 產生（確定性，seed 固定；audio/ 不進版控，隨時可重做）：
+silence_s = 10.0
+noise_s = 10.0
+# 白噪音的音量用「對 W3 那句的 RMS 的 SNR」標：0 dB = 跟語音一樣響、20 dB = 低 20 dB、40 dB = 低 40 dB（接近底噪）。
+noise_snr_db = [0.0, 20.0, 40.0]
+noise_seed = 20261101
+# W3 那句後面接多長的靜音。注意要 > 30 − 5.855 ≈ 24 s 才會有第二個視窗（大綱寫 20 s，那樣整段仍在一個視窗裡；
+# 2026-11-01 建置時改成 30 s：總長 35.9 s，第二個視窗全是靜音、prompt 槽裡是第一個視窗的輸出）。
+tail_silence_s = 30.0
+# 授課者自錄的非語音（音樂、咳嗽、敲桌）：./present.sh record 錄 own_s 秒 → audio/own.wav。不進版控、不上站。
+own_s = 10.0
+
+[display]
+digits = 3
+# 逐 token 印幾個（太長的輸出只印前後各 max_tokens_each 個）
+max_tokens_each = 24
+# log 機率「接近零」的門檻（ask 的那題：有沒有任何一個 token 的 log 機率高於它）
+confident_logprob = -0.5

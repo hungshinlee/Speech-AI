@@ -1,0 +1,478 @@
+{
+ "time": "2026-11-01T22:01:28",
+ "tag": "rehearsal",
+ "backend": "whisper",
+ "device": {
+  "whisper": "cpu",
+  "ctc": "mps",
+  "qwen": "mps"
+ },
+ "versions": {
+  "python": "3.12.14",
+  "platform": "macOS-27.2-arm64-arm-64bit",
+  "numpy": "2.4.4",
+  "scipy": "1.17.1",
+  "matplotlib": "3.10.9",
+  "sounddevice": "0.5.6",
+  "torch": "2.14.0",
+  "transformers": "5.17.0",
+  "huggingface_hub": "1.32.0",
+  "tokenizers": "0.23.2",
+  "models": {
+   "openai/whisper-small": "973afd24965f72e36ca33b3055d56a652f456b4d",
+   "facebook/wav2vec2-base-960h": "22aad52d435eb6dbaf354bdad9b0da84ce7d6156",
+   "Qwen/Qwen3-ASR-1.7B-hf": "bcd2b5b7f32b480ab5790554cfa8347f246a14f3"
+  }
+ },
+ "config": {
+  "whisper": {
+   "repo": "openai/whisper-small",
+   "device": "cpu",
+   "task": "transcribe",
+   "max_new_tokens": 160,
+   "num_beams": 1,
+   "language_en": "en",
+   "language_zh": "zh"
+  },
+  "ctc": {
+   "repo": "facebook/wav2vec2-base-960h",
+   "device": "auto",
+   "beam": 32,
+   "prune_logp": -12.0,
+   "deltas": [
+    1.0,
+    6.0,
+    24.0
+   ]
+  },
+  "qwen": {
+   "repo": "Qwen/Qwen3-ASR-1.7B-hf",
+   "device": "auto",
+   "dtype": "bfloat16",
+   "max_new_tokens": 256,
+   "language_en": "English",
+   "language_zh": "Chinese"
+  },
+  "english": {
+   "utt": "2803-154320-0011",
+   "candidates": [
+    {
+     "utt": "2803-154320-0011",
+     "text": "THINK OF LADY GLENARVAN THINK OF MARY GRANT",
+     "names": [
+      "Glenarvan",
+      "Mary Grant"
+     ]
+    },
+    {
+     "utt": "1462-170138-0012",
+     "text": "MAC CONNELL LET ME INTRODUCE MISTER BARTLEY ALEXANDER",
+     "names": [
+      "Mac Connell",
+      "Bartley Alexander"
+     ]
+    },
+    {
+     "utt": "2035-147960-0013",
+     "text": "OTTO FUCHS WAS THE FIRST ONE WE MET",
+     "names": [
+      "Otto Fuchs"
+     ]
+    },
+    {
+     "utt": "3081-166546-0007",
+     "text": "DO THEY STILL INSIST THAT MISS CHALLONER WAS THE ONLY PERSON IN THE ROOM WITH THEM AT THIS TIME",
+     "names": [
+      "Challoner"
+     ]
+    },
+    {
+     "utt": "1462-170138-0008",
+     "text": "OF COURSE HILDA IS IRISH THE BURGOYNES HAVE BEEN STAGE PEOPLE FOR GENERATIONS AND SHE HAS THE IRISH VOICE",
+     "names": [
+      "Hilda",
+      "Burgoynes"
+     ]
+    },
+    {
+     "utt": "2277-149874-0008",
+     "text": "THEN SHE WALKED AND SANG TO IT UNTIL HANSON DISTURBED IN HIS READING CAME AND TOOK IT",
+     "names": [
+      "Hanson"
+     ]
+    },
+    {
+     "utt": "174-168635-0011",
+     "text": "MOREOVER JEAN VALJEAN HAD CHOSEN HIS REFUGE WELL",
+     "names": [
+      "Jean Valjean"
+     ]
+    }
+   ]
+  },
+  "prompts": {
+   "list_fmt_en": "{names}.",
+   "list_fmt_zh": "{names}。",
+   "dialogue_en": "Thanks for watching, and don't forget to subscribe to the channel.",
+   "traditional_zh": "以下是在臺北開的一場會議，用繁體中文記錄。",
+   "dialogue_zh": "好，那我們今天的會議就先到這裡，謝謝大家，下次見。",
+   "qwen_list_fmt": "Vocabulary: {names}."
+  },
+  "mandarin": {
+   "dir": "../_media/w07_d2",
+   "seconds": 8.0
+  },
+  "audio": {
+   "fs": 16000,
+   "dev_clean_tar": "../_media/dev-clean.tar.gz",
+   "w05_wav_dir": "../_media/w05_d1/wav",
+   "w3_wav": "../w03_d3_blank_heatmap/runs/rehearsal/utterance.wav",
+   "quiet_s": 8.0,
+   "quiet_rms": 0.002,
+   "quiet_seed": 20261102
+  },
+  "display": {
+   "digits": 3,
+   "leak_ngram_en": 3,
+   "leak_ngram_zh": 4
+  }
+ },
+ "english": {
+  "utt": "2803-154320-0011",
+  "text": "THINK OF LADY GLENARVAN THINK OF MARY GRANT",
+  "names": [
+   "Glenarvan",
+   "Mary Grant"
+  ]
+ },
+ "prompts_en": {
+  "none": null,
+  "list": "Glenarvan, Mary Grant.",
+  "dialogue": "Thanks for watching, and don't forget to subscribe to the channel.",
+  "qwen_list": "Vocabulary: Glenarvan, Mary Grant."
+ },
+ "qwen_error": null,
+ "mandarin": {
+  "recorded": true,
+  "n_names": 3
+ },
+ "results": {
+  "whisper:en:none": {
+   "text": "Think of Lady Glenarvin. Think of Mary Grant.",
+   "n_tokens": 12,
+   "n_prompt_tokens": 0,
+   "avg_logprob": -0.33999175796858394,
+   "seconds": 2.491510833000575,
+   "hits": {
+    "Glenarvan": false,
+    "Mary Grant": true
+   },
+   "n_hit": 1,
+   "n_names": 2,
+   "script": null,
+   "leak": [],
+   "wer": {
+    "errors": 1,
+    "n_ref": 8,
+    "wer": 0.125
+   }
+  },
+  "whisper:en:list": {
+   "text": "Think of Lady Glenarvan. Think of Mary Grant.",
+   "n_tokens": 12,
+   "n_prompt_tokens": 8,
+   "avg_logprob": -0.11550309029049598,
+   "seconds": 0.6857047499997861,
+   "hits": {
+    "Glenarvan": true,
+    "Mary Grant": true
+   },
+   "n_hit": 2,
+   "n_names": 2,
+   "script": null,
+   "leak": [],
+   "wer": {
+    "errors": 0,
+    "n_ref": 8,
+    "wer": 0.0
+   }
+  },
+  "whisper:en:dialogue": {
+   "text": "Think of Lady Glenarvin, think of Mary Grant.",
+   "n_tokens": 12,
+   "n_prompt_tokens": 15,
+   "avg_logprob": -0.3949517028119702,
+   "seconds": 0.7886849169990455,
+   "hits": {
+    "Glenarvan": false,
+    "Mary Grant": true
+   },
+   "n_hit": 1,
+   "n_names": 2,
+   "script": null,
+   "leak": [],
+   "wer": {
+    "errors": 1,
+    "n_ref": 8,
+    "wer": 0.125
+   }
+  },
+  "ctc:en": {
+   "T": 213,
+   "rows": [
+    {
+     "delta": null,
+     "label": "greedy",
+     "text": "THINK OF LADY GLENARVIN THINK OF MARY GRANT",
+     "logp": null,
+     "bonus": 0.0,
+     "hits": {
+      "Glenarvan": false,
+      "Mary Grant": true
+     },
+     "n_hit": 1,
+     "wer": {
+      "errors": 1,
+      "n_ref": 8,
+      "wer": 0.125
+     },
+     "diff_vs_delta0": null
+    },
+    {
+     "delta": 0.0,
+     "label": "beam δ=0",
+     "text": "THINK OF LADY GLENARVIN THINK OF MARY GRANT",
+     "logp": -0.48155869455291916,
+     "bonus": 0.0,
+     "seconds": 0.04754779199902259,
+     "hits": {
+      "Glenarvan": false,
+      "Mary Grant": true
+     },
+     "n_hit": 1,
+     "wer": {
+      "errors": 1,
+      "n_ref": 8,
+      "wer": 0.125
+     },
+     "diff_vs_delta0": null
+    },
+    {
+     "delta": 1.0,
+     "label": "beam δ=1",
+     "text": "THINK OF LADY GLENARVAN THINK OF MARY GRANT",
+     "logp": -2.2975406893441117,
+     "bonus": 19.0,
+     "seconds": 0.04685841600075946,
+     "hits": {
+      "Glenarvan": true,
+      "Mary Grant": true
+     },
+     "n_hit": 2,
+     "wer": {
+      "errors": 0,
+      "n_ref": 8,
+      "wer": 0.0
+     },
+     "diff_vs_delta0": {
+      "n_changed": 1,
+      "changes": [
+       {
+        "from": "glenarvin",
+        "to": "glenarvan"
+       }
+      ]
+     }
+    },
+    {
+     "delta": 6.0,
+     "label": "beam δ=6",
+     "text": "THINK OF LADY GLENARVAN THINK OF MARY GRANT",
+     "logp": -2.2975381250358224,
+     "bonus": 114.0,
+     "seconds": 0.04634183300004224,
+     "hits": {
+      "Glenarvan": true,
+      "Mary Grant": true
+     },
+     "n_hit": 2,
+     "wer": {
+      "errors": 0,
+      "n_ref": 8,
+      "wer": 0.0
+     },
+     "diff_vs_delta0": {
+      "n_changed": 1,
+      "changes": [
+       {
+        "from": "glenarvin",
+        "to": "glenarvan"
+       }
+      ]
+     }
+    },
+    {
+     "delta": 24.0,
+     "label": "beam δ=24",
+     "text": "THINK OF GLENARVAN GLENARVAN THINK OF MARY GRANT",
+     "logp": -216.67145661256112,
+     "bonus": 672.0,
+     "seconds": 0.04713654199986195,
+     "hits": {
+      "Glenarvan": true,
+      "Mary Grant": true
+     },
+     "n_hit": 2,
+     "wer": {
+      "errors": 1,
+      "n_ref": 8,
+      "wer": 0.125
+     },
+     "diff_vs_delta0": {
+      "n_changed": 1,
+      "changes": [
+       {
+        "from": "lady glenarvin",
+        "to": "glenarvan glenarvan"
+       }
+      ]
+     }
+    }
+   ],
+   "names": [
+    "Glenarvan",
+    "Mary Grant"
+   ],
+   "trie_nodes": 20
+  },
+  "qwen:en:none": {
+   "text": "Think of Lady Glenarvan. Think of Mary Grant.",
+   "raw": "Think of Lady Glenarvan. Think of Mary Grant.<|im_end|>",
+   "n_tokens": 13,
+   "seconds": 1.3698448330014799,
+   "audio_as": "array",
+   "hits": {
+    "Glenarvan": true,
+    "Mary Grant": true
+   },
+   "n_hit": 2,
+   "n_names": 2,
+   "script": null,
+   "leak": [],
+   "wer": {
+    "errors": 0,
+    "n_ref": 8,
+    "wer": 0.0
+   }
+  },
+  "qwen:en:list": {
+   "text": "Think of Lady Glenarvan. Think of Mary Grant.",
+   "raw": "Think of Lady Glenarvan. Think of Mary Grant.<|im_end|>",
+   "n_tokens": 13,
+   "seconds": 1.177480291999018,
+   "audio_as": "array",
+   "hits": {
+    "Glenarvan": true,
+    "Mary Grant": true
+   },
+   "n_hit": 2,
+   "n_names": 2,
+   "script": null,
+   "leak": [],
+   "wer": {
+    "errors": 0,
+    "n_ref": 8,
+    "wer": 0.0
+   }
+  },
+  "qwen:en:dialogue": {
+   "text": "Think of Lady Glenarvan. Think of Mary Grant.",
+   "raw": "Think of Lady Glenarvan. Think of Mary Grant.<|im_end|>",
+   "n_tokens": 13,
+   "seconds": 1.1949936250002793,
+   "audio_as": "array",
+   "hits": {
+    "Glenarvan": true,
+    "Mary Grant": true
+   },
+   "n_hit": 2,
+   "n_names": 2,
+   "script": null,
+   "leak": [],
+   "wer": {
+    "errors": 0,
+    "n_ref": 8,
+    "wer": 0.0
+   }
+  },
+  "quiet:whisper:en": {
+   "text": "Thanks for watching, and don't forget to subscribe to the channel.",
+   "n_tokens": 14,
+   "n_prompt_tokens": 15,
+   "avg_logprob": -0.27853635511904334,
+   "seconds": 0.5748473340008786,
+   "leak": [
+    "thanks for watching and don't forget to subscribe to the channel"
+   ],
+   "echo_verbatim": true
+  },
+  "quiet:whisper:zh": {
+   "text": "謝謝大家，",
+   "n_tokens": 5,
+   "n_prompt_tokens": 24,
+   "avg_logprob": -0.6839438832054535,
+   "seconds": 0.565941875000135,
+   "leak": [
+    "谢谢大家"
+   ],
+   "echo_verbatim": false
+  },
+  "quiet:whisper:zh-trad": {
+   "text": "在臺北開的一場會議，用繁體中文記錄。",
+   "n_tokens": 23,
+   "n_prompt_tokens": 28,
+   "avg_logprob": -0.5184461153691586,
+   "seconds": 0.9157856250003533,
+   "leak": [
+    "在台北开的一场会议",
+    "用繁体中文记录"
+   ],
+   "echo_verbatim": false
+  },
+  "quiet:qwen:en": {
+   "text": "Thanks for watching, and don't forget to subscribe to the channel.",
+   "raw": "Thanks for watching, and don't forget to subscribe to the channel.<|im_end|>",
+   "n_tokens": 15,
+   "seconds": 1.583272541000042,
+   "audio_as": "array",
+   "leak": [
+    "thanks for watching and don't forget to subscribe to the channel"
+   ],
+   "echo_verbatim": true
+  },
+  "quiet:qwen:zh": {
+   "text": "好，那我們今天的會議就先到這裡，謝謝大家，下次見。",
+   "raw": "好，那我們今天的會議就先到這裡，謝謝大家，下次見。<|im_end|>",
+   "n_tokens": 19,
+   "seconds": 1.6473959579998336,
+   "audio_as": "array",
+   "leak": [
+    "那我们今天的会议就先到这里",
+    "谢谢大家"
+   ],
+   "echo_verbatim": true
+  },
+  "quiet:qwen:zh-trad": {
+   "text": "以下是在臺北開的一場會議，用繁體中文記錄。",
+   "raw": "以下是在臺北開的一場會議，用繁體中文記錄。<|im_end|>",
+   "n_tokens": 16,
+   "seconds": 1.4080607920004695,
+   "audio_as": "array",
+   "leak": [
+    "以下是在台北开的一场会议",
+    "用繁体中文记录"
+   ],
+   "echo_verbatim": true
+  }
+ }
+}

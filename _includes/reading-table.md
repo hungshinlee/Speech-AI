@@ -10,7 +10,7 @@
 | [W4](weeks/w04.qmd) | Sequence models and streaming | Graves, *Sequence Transduction with RNNs*, arXiv:1211.3711 |
 | [W5](weeks/w05.qmd) | SSL | Hsu et al., *HuBERT*, TASLP 2021 |
 | [W6](weeks/w06.qmd) | Codec / tokenization | Défossez et al., *Moshi* (the Mimi codec section) |
-| W7 | ASR | Radford et al., *Whisper*, ICML 2023 |
+| [W7](weeks/w07.qmd) | ASR | Radford et al., *Whisper*, ICML 2023 |
 | W8 | TTS I | Lipman et al., *Flow Matching for Generative Modeling*, ICLR 2023 |
 | W9 | TTS II | Rafailov et al., *DPO*, NeurIPS 2023 + ITU-T P.808 |
 | W10 | Acoustic front end | Wang & Chen, *Supervised Speech Separation: An Overview*, TASLP 2018 |

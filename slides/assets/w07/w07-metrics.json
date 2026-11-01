@@ -1,0 +1,1899 @@
+{
+ "demo1": {
+  "source": "demos/w07_d1_hallucination/runs/rehearsal/rehearsal.json",
+  "time": "2026-11-01T20:43:03",
+  "backend": "whisper",
+  "device": {
+   "whisper": "cpu",
+   "ctc": "mps"
+  },
+  "models": {
+   "openai/whisper-small": "973afd24965f72e36ca33b3055d56a652f456b4d",
+   "facebook/wav2vec2-base-960h": "22aad52d435eb6dbaf354bdad9b0da84ce7d6156"
+  },
+  "transformers": "5.17.0",
+  "torch": "2.14.0",
+  "clips_s": {
+   "silence": 10.0,
+   "noise_0": 10.0,
+   "noise_20": 10.0,
+   "noise_40": 10.0,
+   "long": 35.855,
+   "own": 10.0,
+   "w3": 5.855
+  },
+  "noise_snr_db": [
+   0.0,
+   20.0,
+   40.0
+  ],
+  "tail_silence_s": 30.0,
+  "thresholds": {
+   "compression_ratio_threshold": 2.4,
+   "logprob_threshold": -1.0,
+   "no_speech_threshold": 0.6,
+   "prompt_reset_temperature": 0.5,
+   "temperatures": [
+    0.0,
+    0.2,
+    0.4,
+    0.6,
+    0.8,
+    1.0
+   ]
+  },
+  "whisper_t0": {
+   "silence": {
+    "text": " you",
+    "n_words": 1,
+    "n_tokens": 1,
+    "avg_logprob": -0.5338228885084391,
+    "max_logprob": -1.0490394830703735,
+    "n_confident": 0,
+    "no_speech_prob": 0.9380704760551453,
+    "compression_ratio": 0.3333333333333333,
+    "temperature": 0.0,
+    "n_attempts": 1,
+    "attempts": [
+     {
+      "temperature": 0.0,
+      "text": " you",
+      "avg_logprob": -0.5338228885084391,
+      "compression_ratio": 0.3333333333333333,
+      "no_speech_prob": 0.9380704760551453,
+      "verdict": {
+       "needs_fallback": false,
+       "reasons": [],
+       "is_silence": false
+      }
+     }
+    ]
+   },
+   "noise_0": {
+    "text": " you",
+    "n_words": 1,
+    "n_tokens": 1,
+    "avg_logprob": -1.948934305459261,
+    "max_logprob": -3.8216254711151123,
+    "n_confident": 0,
+    "no_speech_prob": 0.814092755317688,
+    "compression_ratio": 0.3333333333333333,
+    "temperature": 0.0,
+    "n_attempts": 1,
+    "attempts": [
+     {
+      "temperature": 0.0,
+      "text": " you",
+      "avg_logprob": -1.948934305459261,
+      "compression_ratio": 0.3333333333333333,
+      "no_speech_prob": 0.814092755317688,
+      "verdict": {
+       "needs_fallback": true,
+       "reasons": [
+        "avg logprob -1.95 < -1.0"
+       ],
+       "is_silence": true
+      }
+     }
+    ]
+   },
+   "noise_20": {
+    "text": " you",
+    "n_words": 1,
+    "n_tokens": 1,
+    "avg_logprob": -1.555277794599533,
+    "max_logprob": -3.034287929534912,
+    "n_confident": 0,
+    "no_speech_prob": 0.8443138599395752,
+    "compression_ratio": 0.3333333333333333,
+    "temperature": 0.0,
+    "n_attempts": 1,
+    "attempts": [
+     {
+      "temperature": 0.0,
+      "text": " you",
+      "avg_logprob": -1.555277794599533,
+      "compression_ratio": 0.3333333333333333,
+      "no_speech_prob": 0.8443138599395752,
+      "verdict": {
+       "needs_fallback": true,
+       "reasons": [
+        "avg logprob -1.56 < -1.0"
+       ],
+       "is_silence": true
+      }
+     }
+    ]
+   },
+   "noise_40": {
+    "text": " you",
+    "n_words": 1,
+    "n_tokens": 1,
+    "avg_logprob": -1.2791185677051544,
+    "max_logprob": -2.461318254470825,
+    "n_confident": 0,
+    "no_speech_prob": 0.8952488303184509,
+    "compression_ratio": 0.3333333333333333,
+    "temperature": 0.0,
+    "n_attempts": 1,
+    "attempts": [
+     {
+      "temperature": 0.0,
+      "text": " you",
+      "avg_logprob": -1.2791185677051544,
+      "compression_ratio": 0.3333333333333333,
+      "no_speech_prob": 0.8952488303184509,
+      "verdict": {
+       "needs_fallback": true,
+       "reasons": [
+        "avg logprob -1.28 < -1.0"
+       ],
+       "is_silence": true
+      }
+     }
+    ]
+   },
+   "own": {
+    "text": " I",
+    "n_words": 1,
+    "n_tokens": 1,
+    "avg_logprob": -3.1041096448898315,
+    "max_logprob": -4.872374534606934,
+    "n_confident": 0,
+    "no_speech_prob": 0.5152053236961365,
+    "compression_ratio": 0.2,
+    "temperature": 0.0,
+    "n_attempts": 1,
+    "attempts": [
+     {
+      "temperature": 0.0,
+      "text": " I",
+      "avg_logprob": -3.1041096448898315,
+      "compression_ratio": 0.2,
+      "no_speech_prob": 0.5152053236961365,
+      "verdict": {
+       "needs_fallback": true,
+       "reasons": [
+        "avg logprob -3.10 < -1.0"
+       ],
+       "is_silence": false
+      }
+     }
+    ]
+   },
+   "w3": {
+    "text": " Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+    "n_words": 17,
+    "n_tokens": 22,
+    "avg_logprob": -0.12990868020215598,
+    "max_logprob": -0.0017471539322286844,
+    "n_confident": 20,
+    "no_speech_prob": 0.011580511927604675,
+    "compression_ratio": 1.0853658536585367,
+    "temperature": 0.0,
+    "n_attempts": 1,
+    "attempts": [
+     {
+      "temperature": 0.0,
+      "text": " Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+      "avg_logprob": -0.12990868020215598,
+      "compression_ratio": 1.0853658536585367,
+      "no_speech_prob": 0.011580511927604675,
+      "verdict": {
+       "needs_fallback": false,
+       "reasons": [],
+       "is_silence": false
+      }
+     }
+    ]
+   }
+  },
+  "whisper_fallback": {
+   "silence": {
+    "text": " you",
+    "n_words": 1,
+    "n_tokens": 1,
+    "avg_logprob": -0.5338228885084391,
+    "max_logprob": -1.0490394830703735,
+    "n_confident": 0,
+    "no_speech_prob": 0.9380704760551453,
+    "compression_ratio": 0.3333333333333333,
+    "temperature": 0.0,
+    "n_attempts": 1,
+    "attempts": [
+     {
+      "temperature": 0.0,
+      "text": " you",
+      "avg_logprob": -0.5338228885084391,
+      "compression_ratio": 0.3333333333333333,
+      "no_speech_prob": 0.9380704760551453,
+      "verdict": {
+       "needs_fallback": false,
+       "reasons": [],
+       "is_silence": false
+      }
+     }
+    ]
+   },
+   "noise_0": {
+    "text": " I kind of took that picture?!",
+    "n_words": 6,
+    "n_tokens": 7,
+    "avg_logprob": -4.7143051931634545,
+    "max_logprob": -0.07292211800813675,
+    "n_confident": 1,
+    "no_speech_prob": 0.814092755317688,
+    "compression_ratio": 0.7894736842105263,
+    "temperature": 1.0,
+    "n_attempts": 6,
+    "attempts": [
+     {
+      "temperature": 0.0,
+      "text": " you",
+      "avg_logprob": -1.948934305459261,
+      "compression_ratio": 0.3333333333333333,
+      "no_speech_prob": 0.814092755317688,
+      "verdict": {
+       "needs_fallback": true,
+       "reasons": [
+        "avg logprob -1.95 < -1.0"
+       ],
+       "is_silence": true
+      }
+     },
+     {
+      "temperature": 0.2,
+      "text": " You",
+      "avg_logprob": -2.177833676338196,
+      "compression_ratio": 0.3333333333333333,
+      "no_speech_prob": 0.814092755317688,
+      "verdict": {
+       "needs_fallback": true,
+       "reasons": [
+        "avg logprob -2.18 < -1.0"
+       ],
+       "is_silence": true
+      }
+     },
+     {
+      "temperature": 0.4,
+      "text": " you",
+      "avg_logprob": -1.948934305459261,
+      "compression_ratio": 0.3333333333333333,
+      "no_speech_prob": 0.814092755317688,
+      "verdict": {
+       "needs_fallback": true,
+       "reasons": [
+        "avg logprob -1.95 < -1.0"
+       ],
+       "is_silence": true
+      }
+     },
+     {
+      "temperature": 0.6,
+      "text": " and",
+      "avg_logprob": -3.2778689861297607,
+      "compression_ratio": 0.3333333333333333,
+      "no_speech_prob": 0.814092755317688,
+      "verdict": {
+       "needs_fallback": true,
+       "reasons": [
+        "avg logprob -3.28 < -1.0"
+       ],
+       "is_silence": true
+      }
+     },
+     {
+      "temperature": 0.8,
+      "text": " Oh",
+      "avg_logprob": -3.000284805893898,
+      "compression_ratio": 0.2727272727272727,
+      "no_speech_prob": 0.814092755317688,
+      "verdict": {
+       "needs_fallback": true,
+       "reasons": [
+        "avg logprob -3.00 < -1.0"
+       ],
+       "is_silence": true
+      }
+     },
+     {
+      "temperature": 1.0,
+      "text": " I kind of took that picture?!",
+      "avg_logprob": -4.7143051931634545,
+      "compression_ratio": 0.7894736842105263,
+      "no_speech_prob": 0.814092755317688,
+      "verdict": {
+       "needs_fallback": true,
+       "reasons": [
+        "avg logprob -4.71 < -1.0"
+       ],
+       "is_silence": true
+      }
+     }
+    ]
+   },
+   "noise_20": {
+    "text": " I kind of took that picture, because the burnwasty was really fine",
+    "n_words": 12,
+    "n_tokens": 15,
+    "avg_logprob": -4.764661588706076,
+    "max_logprob": -0.07420875132083893,
+    "n_confident": 1,
+    "no_speech_prob": 0.8443138599395752,
+    "compression_ratio": 0.9710144927536232,
+    "temperature": 1.0,
+    "n_attempts": 6,
+    "attempts": [
+     {
+      "temperature": 0.0,
+      "text": " you",
+      "avg_logprob": -1.555277794599533,
+      "compression_ratio": 0.3333333333333333,
+      "no_speech_prob": 0.8443138599395752,
+      "verdict": {
+       "needs_fallback": true,
+       "reasons": [
+        "avg logprob -1.56 < -1.0"
+       ],
+       "is_silence": true
+      }
+     },
+     {
+      "temperature": 0.2,
+      "text": " You",
+      "avg_logprob": -1.8404142037034035,
+      "compression_ratio": 0.3333333333333333,
+      "no_speech_prob": 0.8443138599395752,
+      "verdict": {
+       "needs_fallback": true,
+       "reasons": [
+        "avg logprob -1.84 < -1.0"
+       ],
+       "is_silence": true
+      }
+     },
+     {
+      "temperature": 0.4,
+      "text": " you",
+      "avg_logprob": -1.555277794599533,
+      "compression_ratio": 0.3333333333333333,
+      "no_speech_prob": 0.8443138599395752,
+      "verdict": {
+       "needs_fallback": true,
+       "reasons": [
+        "avg logprob -1.56 < -1.0"
+       ],
+       "is_silence": true
+      }
+     },
+     {
+      "temperature": 0.6,
+      "text": " .",
+      "avg_logprob": -2.1465363278985023,
+      "compression_ratio": 0.2,
+      "no_speech_prob": 0.8443138599395752,
+      "verdict": {
+       "needs_fallback": true,
+       "reasons": [
+        "avg logprob -2.15 < -1.0"
+       ],
+       "is_silence": true
+      }
+     },
+     {
+      "temperature": 0.8,
+      "text": " GET YOURSELF AT ETAB",
+      "avg_logprob": -3.99217950347811,
+      "compression_ratio": 0.7241379310344828,
+      "no_speech_prob": 0.8443138599395752,
+      "verdict": {
+       "needs_fallback": true,
+       "reasons": [
+        "avg logprob -3.99 < -1.0"
+       ],
+       "is_silence": true
+      }
+     },
+     {
+      "temperature": 1.0,
+      "text": " I kind of took that picture, because the burnwasty was really fine",
+      "avg_logprob": -4.764661588706076,
+      "compression_ratio": 0.9710144927536232,
+      "no_speech_prob": 0.8443138599395752,
+      "verdict": {
+       "needs_fallback": true,
+       "reasons": [
+        "avg logprob -4.76 < -1.0"
+       ],
+       "is_silence": true
+      }
+     }
+    ]
+   },
+   "noise_40": {
+    "text": " You",
+    "n_words": 1,
+    "n_tokens": 1,
+    "avg_logprob": -1.5327952541410923,
+    "max_logprob": -2.975632905960083,
+    "n_confident": 0,
+    "no_speech_prob": 0.8952488303184509,
+    "compression_ratio": 0.3333333333333333,
+    "temperature": 1.0,
+    "n_attempts": 6,
+    "attempts": [
+     {
+      "temperature": 0.0,
+      "text": " you",
+      "avg_logprob": -1.2791185677051544,
+      "compression_ratio": 0.3333333333333333,
+      "no_speech_prob": 0.8952488303184509,
+      "verdict": {
+       "needs_fallback": true,
+       "reasons": [
+        "avg logprob -1.28 < -1.0"
+       ],
+       "is_silence": true
+      }
+     },
+     {
+      "temperature": 0.2,
+      "text": " You",
+      "avg_logprob": -1.5327952541410923,
+      "compression_ratio": 0.3333333333333333,
+      "no_speech_prob": 0.8952488303184509,
+      "verdict": {
+       "needs_fallback": true,
+       "reasons": [
+        "avg logprob -1.53 < -1.0"
+       ],
+       "is_silence": true
+      }
+     },
+     {
+      "temperature": 0.4,
+      "text": " you",
+      "avg_logprob": -1.2791185677051544,
+      "compression_ratio": 0.3333333333333333,
+      "no_speech_prob": 0.8952488303184509,
+      "verdict": {
+       "needs_fallback": true,
+       "reasons": [
+        "avg logprob -1.28 < -1.0"
+       ],
+       "is_silence": true
+      }
+     },
+     {
+      "temperature": 0.6,
+      "text": " .",
+      "avg_logprob": -1.5690653398633003,
+      "compression_ratio": 0.2,
+      "no_speech_prob": 0.8952488303184509,
+      "verdict": {
+       "needs_fallback": true,
+       "reasons": [
+        "avg logprob -1.57 < -1.0"
+       ],
+       "is_silence": true
+      }
+     },
+     {
+      "temperature": 0.8,
+      "text": " .",
+      "avg_logprob": -1.5690653398633003,
+      "compression_ratio": 0.2,
+      "no_speech_prob": 0.8952488303184509,
+      "verdict": {
+       "needs_fallback": true,
+       "reasons": [
+        "avg logprob -1.57 < -1.0"
+       ],
+       "is_silence": true
+      }
+     },
+     {
+      "temperature": 1.0,
+      "text": " You",
+      "avg_logprob": -1.5327952541410923,
+      "compression_ratio": 0.3333333333333333,
+      "no_speech_prob": 0.8952488303184509,
+      "verdict": {
+       "needs_fallback": true,
+       "reasons": [
+        "avg logprob -1.53 < -1.0"
+       ],
+       "is_silence": true
+      }
+     }
+    ]
+   },
+   "own": {
+    "text": " I kind of took that off?!",
+    "n_words": 6,
+    "n_tokens": 7,
+    "avg_logprob": -4.238170457538217,
+    "max_logprob": -0.04297227784991264,
+    "n_confident": 1,
+    "no_speech_prob": 0.5152053236961365,
+    "compression_ratio": 0.8125,
+    "temperature": 1.0,
+    "n_attempts": 6,
+    "attempts": [
+     {
+      "temperature": 0.0,
+      "text": " I",
+      "avg_logprob": -3.1041096448898315,
+      "compression_ratio": 0.2,
+      "no_speech_prob": 0.5152053236961365,
+      "verdict": {
+       "needs_fallback": true,
+       "reasons": [
+        "avg logprob -3.10 < -1.0"
+       ],
+       "is_silence": false
+      }
+     },
+     {
+      "temperature": 0.2,
+      "text": " You",
+      "avg_logprob": -2.568918988108635,
+      "compression_ratio": 0.3333333333333333,
+      "no_speech_prob": 0.5152053236961365,
+      "verdict": {
+       "needs_fallback": true,
+       "reasons": [
+        "avg logprob -2.57 < -1.0"
+       ],
+       "is_silence": false
+      }
+     },
+     {
+      "temperature": 0.4,
+      "text": " I",
+      "avg_logprob": -3.1041096448898315,
+      "compression_ratio": 0.2,
+      "no_speech_prob": 0.5152053236961365,
+      "verdict": {
+       "needs_fallback": true,
+       "reasons": [
+        "avg logprob -3.10 < -1.0"
+       ],
+       "is_silence": false
+      }
+     },
+     {
+      "temperature": 0.6,
+      "text": " I",
+      "avg_logprob": -3.1041096448898315,
+      "compression_ratio": 0.2,
+      "no_speech_prob": 0.5152053236961365,
+      "verdict": {
+       "needs_fallback": true,
+       "reasons": [
+        "avg logprob -3.10 < -1.0"
+       ],
+       "is_silence": false
+      }
+     },
+     {
+      "temperature": 0.8,
+      "text": " Oh",
+      "avg_logprob": -3.011579155921936,
+      "compression_ratio": 0.2727272727272727,
+      "no_speech_prob": 0.5152053236961365,
+      "verdict": {
+       "needs_fallback": true,
+       "reasons": [
+        "avg logprob -3.01 < -1.0"
+       ],
+       "is_silence": false
+      }
+     },
+     {
+      "temperature": 1.0,
+      "text": " I kind of took that off?!",
+      "avg_logprob": -4.238170457538217,
+      "compression_ratio": 0.8125,
+      "no_speech_prob": 0.5152053236961365,
+      "verdict": {
+       "needs_fallback": true,
+       "reasons": [
+        "avg logprob -4.24 < -1.0"
+       ],
+       "is_silence": false
+      }
+     }
+    ]
+   }
+  },
+  "whisper_zh": {
+   "silence": {
+    "text": "你不要再說了",
+    "n_words": 1,
+    "n_tokens": 5,
+    "avg_logprob": -2.3624473015467324,
+    "max_logprob": -0.1879734992980957,
+    "n_confident": 1,
+    "no_speech_prob": 0.9380704760551453,
+    "compression_ratio": 0.6666666666666666,
+    "temperature": 0.0,
+    "n_attempts": 1,
+    "attempts": [
+     {
+      "temperature": 0.0,
+      "text": "你不要再說了",
+      "avg_logprob": -2.3624473015467324,
+      "compression_ratio": 0.6666666666666666,
+      "no_speech_prob": 0.9380704760551453,
+      "verdict": {
+       "needs_fallback": true,
+       "reasons": [
+        "avg logprob -2.36 < -1.0"
+       ],
+       "is_silence": true
+      }
+     }
+    ]
+   },
+   "noise_0": {
+    "text": "小辣椒",
+    "n_words": 1,
+    "n_tokens": 5,
+    "avg_logprob": -1.2861974319481912,
+    "max_logprob": -0.0009298768127337098,
+    "n_confident": 3,
+    "no_speech_prob": 0.814092755317688,
+    "compression_ratio": 0.5,
+    "temperature": 0.0,
+    "n_attempts": 1,
+    "attempts": [
+     {
+      "temperature": 0.0,
+      "text": "小辣椒",
+      "avg_logprob": -1.2861974319481912,
+      "compression_ratio": 0.5,
+      "no_speech_prob": 0.814092755317688,
+      "verdict": {
+       "needs_fallback": true,
+       "reasons": [
+        "avg logprob -1.29 < -1.0"
+       ],
+       "is_silence": true
+      }
+     }
+    ]
+   }
+  },
+  "long": {
+   "long:en:cond:nofb": {
+    "text": "Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel. You",
+    "windows": [
+     {
+      "start_s": 0.0,
+      "end_s": 30.0,
+      "prompt_used": null,
+      "text": " Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+      "n_words": 17,
+      "n_tokens": 22,
+      "avg_logprob": -0.12990868020215598,
+      "max_logprob": -0.0017471539322286844,
+      "n_confident": 20,
+      "no_speech_prob": 0.011580511927604675,
+      "compression_ratio": 1.0853658536585367,
+      "temperature": 0.0,
+      "n_attempts": 1,
+      "attempts": [
+       {
+        "temperature": 0.0,
+        "text": " Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+        "avg_logprob": -0.12990868020215598,
+        "compression_ratio": 1.0853658536585367,
+        "no_speech_prob": 0.011580511927604675,
+        "verdict": {
+         "needs_fallback": false,
+         "reasons": [],
+         "is_silence": false
+        }
+       }
+      ]
+     },
+     {
+      "start_s": 30.0,
+      "end_s": 35.855,
+      "prompt_used": "Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+      "text": " You",
+      "n_words": 1,
+      "n_tokens": 1,
+      "avg_logprob": -1.1361245065927505,
+      "max_logprob": -2.0858805179595947,
+      "n_confident": 0,
+      "no_speech_prob": 0.9707909226417542,
+      "compression_ratio": 0.3333333333333333,
+      "temperature": 0.0,
+      "n_attempts": 1,
+      "attempts": [
+       {
+        "temperature": 0.0,
+        "text": " You",
+        "avg_logprob": -1.1361245065927505,
+        "compression_ratio": 0.3333333333333333,
+        "no_speech_prob": 0.9707909226417542,
+        "verdict": {
+         "needs_fallback": true,
+         "reasons": [
+          "avg logprob -1.14 < -1.0"
+         ],
+         "is_silence": true
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "long:en:nocond:nofb": {
+    "text": "Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel. you",
+    "windows": [
+     {
+      "start_s": 0.0,
+      "end_s": 30.0,
+      "prompt_used": null,
+      "text": " Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+      "n_words": 17,
+      "n_tokens": 22,
+      "avg_logprob": -0.12990868020215598,
+      "max_logprob": -0.0017471539322286844,
+      "n_confident": 20,
+      "no_speech_prob": 0.011580511927604675,
+      "compression_ratio": 1.0853658536585367,
+      "temperature": 0.0,
+      "n_attempts": 1,
+      "attempts": [
+       {
+        "temperature": 0.0,
+        "text": " Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+        "avg_logprob": -0.12990868020215598,
+        "compression_ratio": 1.0853658536585367,
+        "no_speech_prob": 0.011580511927604675,
+        "verdict": {
+         "needs_fallback": false,
+         "reasons": [],
+         "is_silence": false
+        }
+       }
+      ]
+     },
+     {
+      "start_s": 30.0,
+      "end_s": 35.855,
+      "prompt_used": null,
+      "text": " you",
+      "n_words": 1,
+      "n_tokens": 1,
+      "avg_logprob": -0.5338228885084391,
+      "max_logprob": -1.0490394830703735,
+      "n_confident": 0,
+      "no_speech_prob": 0.9380704760551453,
+      "compression_ratio": 0.3333333333333333,
+      "temperature": 0.0,
+      "n_attempts": 1,
+      "attempts": [
+       {
+        "temperature": 0.0,
+        "text": " you",
+        "avg_logprob": -0.5338228885084391,
+        "compression_ratio": 0.3333333333333333,
+        "no_speech_prob": 0.9380704760551453,
+        "verdict": {
+         "needs_fallback": false,
+         "reasons": [],
+         "is_silence": false
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "long:en:cond:fb": {
+    "text": "Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel. You",
+    "windows": [
+     {
+      "start_s": 0.0,
+      "end_s": 30.0,
+      "prompt_used": null,
+      "text": " Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+      "n_words": 17,
+      "n_tokens": 22,
+      "avg_logprob": -0.12990868020215598,
+      "max_logprob": -0.0017471539322286844,
+      "n_confident": 20,
+      "no_speech_prob": 0.011580511927604675,
+      "compression_ratio": 1.0853658536585367,
+      "temperature": 0.0,
+      "n_attempts": 1,
+      "attempts": [
+       {
+        "temperature": 0.0,
+        "text": " Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+        "avg_logprob": -0.12990868020215598,
+        "compression_ratio": 1.0853658536585367,
+        "no_speech_prob": 0.011580511927604675,
+        "verdict": {
+         "needs_fallback": false,
+         "reasons": [],
+         "is_silence": false
+        }
+       }
+      ]
+     },
+     {
+      "start_s": 30.0,
+      "end_s": 35.855,
+      "prompt_used": "Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+      "text": " You",
+      "n_words": 1,
+      "n_tokens": 1,
+      "avg_logprob": -1.1361245065927505,
+      "max_logprob": -2.0858805179595947,
+      "n_confident": 0,
+      "no_speech_prob": 0.9707909226417542,
+      "compression_ratio": 0.3333333333333333,
+      "temperature": 1.0,
+      "n_attempts": 6,
+      "attempts": [
+       {
+        "temperature": 0.0,
+        "text": " You",
+        "avg_logprob": -1.1361245065927505,
+        "compression_ratio": 0.3333333333333333,
+        "no_speech_prob": 0.9707909226417542,
+        "verdict": {
+         "needs_fallback": true,
+         "reasons": [
+          "avg logprob -1.14 < -1.0"
+         ],
+         "is_silence": true
+        }
+       },
+       {
+        "temperature": 0.2,
+        "text": " You",
+        "avg_logprob": -1.1361245065927505,
+        "compression_ratio": 0.3333333333333333,
+        "no_speech_prob": 0.9707909226417542,
+        "verdict": {
+         "needs_fallback": true,
+         "reasons": [
+          "avg logprob -1.14 < -1.0"
+         ],
+         "is_silence": true
+        }
+       },
+       {
+        "temperature": 0.4,
+        "text": " You",
+        "avg_logprob": -1.1361245065927505,
+        "compression_ratio": 0.3333333333333333,
+        "no_speech_prob": 0.9707909226417542,
+        "verdict": {
+         "needs_fallback": true,
+         "reasons": [
+          "avg logprob -1.14 < -1.0"
+         ],
+         "is_silence": true
+        }
+       },
+       {
+        "temperature": 0.6,
+        "text": " You",
+        "avg_logprob": -1.1361245065927505,
+        "compression_ratio": 0.3333333333333333,
+        "no_speech_prob": 0.9707909226417542,
+        "verdict": {
+         "needs_fallback": true,
+         "reasons": [
+          "avg logprob -1.14 < -1.0"
+         ],
+         "is_silence": true
+        }
+       },
+       {
+        "temperature": 0.8,
+        "text": " We thank you.",
+        "avg_logprob": -1.9079238772392273,
+        "compression_ratio": 0.6363636363636364,
+        "no_speech_prob": 0.9707909226417542,
+        "verdict": {
+         "needs_fallback": true,
+         "reasons": [
+          "avg logprob -1.91 < -1.0"
+         ],
+         "is_silence": true
+        }
+       },
+       {
+        "temperature": 1.0,
+        "text": " You",
+        "avg_logprob": -1.1361245065927505,
+        "compression_ratio": 0.3333333333333333,
+        "no_speech_prob": 0.9707909226417542,
+        "verdict": {
+         "needs_fallback": true,
+         "reasons": [
+          "avg logprob -1.14 < -1.0"
+         ],
+         "is_silence": true
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  "ctc": {
+   "silence": {
+    "T": 499,
+    "blank_frames": 499,
+    "nonblank_frames": 0,
+    "blank_fraction": 1.0,
+    "n_symbols": 0,
+    "text": ""
+   },
+   "noise_0": {
+    "T": 499,
+    "blank_frames": 499,
+    "nonblank_frames": 0,
+    "blank_fraction": 1.0,
+    "n_symbols": 0,
+    "text": ""
+   },
+   "noise_20": {
+    "T": 499,
+    "blank_frames": 499,
+    "nonblank_frames": 0,
+    "blank_fraction": 1.0,
+    "n_symbols": 0,
+    "text": ""
+   },
+   "noise_40": {
+    "T": 499,
+    "blank_frames": 499,
+    "nonblank_frames": 0,
+    "blank_fraction": 1.0,
+    "n_symbols": 0,
+    "text": ""
+   },
+   "long": {
+    "T": 1792,
+    "blank_frames": 1660,
+    "nonblank_frames": 132,
+    "blank_fraction": 0.9263392857142857,
+    "n_symbols": 90,
+    "text": "MISTER QUILDER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL"
+   },
+   "own": {
+    "T": 499,
+    "blank_frames": 498,
+    "nonblank_frames": 1,
+    "blank_fraction": 0.9979959919839679,
+    "n_symbols": 1,
+    "text": "E"
+   },
+   "w3": {
+    "T": 292,
+    "blank_frames": 149,
+    "nonblank_frames": 143,
+    "blank_fraction": 0.5102739726027398,
+    "n_symbols": 90,
+    "text": "MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL"
+   }
+  },
+  "zeroed": {
+   "zeros": {
+    "mode": "zeros",
+    "beams": [
+     {
+      "text": " I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry,",
+      "n_tokens": 160,
+      "avg_logprob": -0.17841000950125896
+     },
+     {
+      "text": " I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry,",
+      "n_tokens": 160,
+      "avg_logprob": -0.17841000950125896
+     },
+     {
+      "text": " I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry,",
+      "n_tokens": 160,
+      "avg_logprob": -0.17841000950125896
+     },
+     {
+      "text": " I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry,",
+      "n_tokens": 160,
+      "avg_logprob": -0.17841000950125896
+     },
+     {
+      "text": " I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry,",
+      "n_tokens": 160,
+      "avg_logprob": -0.17841000950125896
+     }
+    ],
+    "samples": [
+     {
+      "text": " La La La",
+      "n_tokens": 3
+     },
+     {
+      "text": " As the weather has gotten worse, and that has been so hot lately, I'm sure we'll finish it in about 4 hours.",
+      "n_tokens": 27
+     },
+     {
+      "text": " i think a",
+      "n_tokens": 3
+     },
+     {
+      "text": " probably the most incredible that ever was.",
+      "n_tokens": 8
+     },
+     {
+      "text": " and in",
+      "n_tokens": 2
+     }
+    ]
+   },
+   "mean": {
+    "mode": "mean",
+    "beams": [
+     {
+      "text": "",
+      "n_tokens": 0,
+      "avg_logprob": -5.370383262634277
+     },
+     {
+      "text": "",
+      "n_tokens": 0,
+      "avg_logprob": -5.370383262634277
+     },
+     {
+      "text": "",
+      "n_tokens": 0,
+      "avg_logprob": -5.370383262634277
+     },
+     {
+      "text": "",
+      "n_tokens": 0,
+      "avg_logprob": -5.370383262634277
+     },
+     {
+      "text": "",
+      "n_tokens": 0,
+      "avg_logprob": -5.370383262634277
+     }
+    ],
+    "samples": [
+     {
+      "text": " La",
+      "n_tokens": 1
+     },
+     {
+      "text": " As,,,,,,,, as,,",
+      "n_tokens": 12
+     },
+     {
+      "text": "",
+      "n_tokens": 0
+     },
+     {
+      "text": " The the",
+      "n_tokens": 2
+     },
+     {
+      "text": " The-",
+      "n_tokens": 2
+     }
+    ]
+   }
+  }
+ },
+ "demo2": {
+  "source": "demos/w07_d2_biasing/runs/rehearsal/rehearsal.json (+ the instructor's private Mandarin record, counts only)",
+  "time": "2026-11-01T22:01:28",
+  "device": {
+   "whisper": "cpu",
+   "ctc": "mps",
+   "qwen": "mps"
+  },
+  "models": {
+   "openai/whisper-small": "973afd24965f72e36ca33b3055d56a652f456b4d",
+   "facebook/wav2vec2-base-960h": "22aad52d435eb6dbaf354bdad9b0da84ce7d6156",
+   "Qwen/Qwen3-ASR-1.7B-hf": "bcd2b5b7f32b480ab5790554cfa8347f246a14f3"
+  },
+  "transformers": "5.17.0",
+  "torch": "2.14.0",
+  "english": {
+   "utt": "2803-154320-0011",
+   "text": "THINK OF LADY GLENARVAN THINK OF MARY GRANT",
+   "names": [
+    "Glenarvan",
+    "Mary Grant"
+   ]
+  },
+  "prompts_en": {
+   "none": null,
+   "list": "Glenarvan, Mary Grant.",
+   "dialogue": "Thanks for watching, and don't forget to subscribe to the channel.",
+   "qwen_list": "Vocabulary: Glenarvan, Mary Grant."
+  },
+  "whisper_en": {
+   "none": {
+    "text": "Think of Lady Glenarvin. Think of Mary Grant.",
+    "n_hit": 1,
+    "n_names": 2,
+    "hits": {
+     "Glenarvan": false,
+     "Mary Grant": true
+    },
+    "leak": [],
+    "avg_logprob": -0.33999175796858394,
+    "wer": {
+     "errors": 1,
+     "n_ref": 8,
+     "wer": 0.125
+    },
+    "seconds": 2.491510833000575
+   },
+   "list": {
+    "text": "Think of Lady Glenarvan. Think of Mary Grant.",
+    "n_hit": 2,
+    "n_names": 2,
+    "hits": {
+     "Glenarvan": true,
+     "Mary Grant": true
+    },
+    "leak": [],
+    "avg_logprob": -0.11550309029049598,
+    "wer": {
+     "errors": 0,
+     "n_ref": 8,
+     "wer": 0.0
+    },
+    "seconds": 0.6857047499997861
+   },
+   "dialogue": {
+    "text": "Think of Lady Glenarvin, think of Mary Grant.",
+    "n_hit": 1,
+    "n_names": 2,
+    "hits": {
+     "Glenarvan": false,
+     "Mary Grant": true
+    },
+    "leak": [],
+    "avg_logprob": -0.3949517028119702,
+    "wer": {
+     "errors": 1,
+     "n_ref": 8,
+     "wer": 0.125
+    },
+    "seconds": 0.7886849169990455
+   }
+  },
+  "qwen_en": {
+   "none": {
+    "text": "Think of Lady Glenarvan. Think of Mary Grant.",
+    "n_hit": 2,
+    "n_names": 2,
+    "hits": {
+     "Glenarvan": true,
+     "Mary Grant": true
+    },
+    "leak": [],
+    "avg_logprob": null,
+    "wer": {
+     "errors": 0,
+     "n_ref": 8,
+     "wer": 0.0
+    },
+    "seconds": 1.3698448330014799
+   },
+   "list": {
+    "text": "Think of Lady Glenarvan. Think of Mary Grant.",
+    "n_hit": 2,
+    "n_names": 2,
+    "hits": {
+     "Glenarvan": true,
+     "Mary Grant": true
+    },
+    "leak": [],
+    "avg_logprob": null,
+    "wer": {
+     "errors": 0,
+     "n_ref": 8,
+     "wer": 0.0
+    },
+    "seconds": 1.177480291999018
+   },
+   "dialogue": {
+    "text": "Think of Lady Glenarvan. Think of Mary Grant.",
+    "n_hit": 2,
+    "n_names": 2,
+    "hits": {
+     "Glenarvan": true,
+     "Mary Grant": true
+    },
+    "leak": [],
+    "avg_logprob": null,
+    "wer": {
+     "errors": 0,
+     "n_ref": 8,
+     "wer": 0.0
+    },
+    "seconds": 1.1949936250002793
+   }
+  },
+  "qwen_error": null,
+  "ctc_en": {
+   "T": 213,
+   "deltas": [
+    1.0,
+    6.0,
+    24.0
+   ],
+   "beam": 32,
+   "rows": [
+    {
+     "label": "greedy",
+     "delta": null,
+     "text": "THINK OF LADY GLENARVIN THINK OF MARY GRANT",
+     "n_hit": 1,
+     "wer": {
+      "errors": 1,
+      "n_ref": 8,
+      "wer": 0.125
+     },
+     "logp": null,
+     "bonus": 0.0,
+     "n_changed_vs_delta0": null,
+     "changes_vs_delta0": null
+    },
+    {
+     "label": "beam δ=0",
+     "delta": 0.0,
+     "text": "THINK OF LADY GLENARVIN THINK OF MARY GRANT",
+     "n_hit": 1,
+     "wer": {
+      "errors": 1,
+      "n_ref": 8,
+      "wer": 0.125
+     },
+     "logp": -0.48155869455291916,
+     "bonus": 0.0,
+     "n_changed_vs_delta0": null,
+     "changes_vs_delta0": null
+    },
+    {
+     "label": "beam δ=1",
+     "delta": 1.0,
+     "text": "THINK OF LADY GLENARVAN THINK OF MARY GRANT",
+     "n_hit": 2,
+     "wer": {
+      "errors": 0,
+      "n_ref": 8,
+      "wer": 0.0
+     },
+     "logp": -2.2975406893441117,
+     "bonus": 19.0,
+     "n_changed_vs_delta0": 1,
+     "changes_vs_delta0": [
+      {
+       "from": "glenarvin",
+       "to": "glenarvan"
+      }
+     ]
+    },
+    {
+     "label": "beam δ=6",
+     "delta": 6.0,
+     "text": "THINK OF LADY GLENARVAN THINK OF MARY GRANT",
+     "n_hit": 2,
+     "wer": {
+      "errors": 0,
+      "n_ref": 8,
+      "wer": 0.0
+     },
+     "logp": -2.2975381250358224,
+     "bonus": 114.0,
+     "n_changed_vs_delta0": 1,
+     "changes_vs_delta0": [
+      {
+       "from": "glenarvin",
+       "to": "glenarvan"
+      }
+     ]
+    },
+    {
+     "label": "beam δ=24",
+     "delta": 24.0,
+     "text": "THINK OF GLENARVAN GLENARVAN THINK OF MARY GRANT",
+     "n_hit": 2,
+     "wer": {
+      "errors": 1,
+      "n_ref": 8,
+      "wer": 0.125
+     },
+     "logp": -216.67145661256112,
+     "bonus": 672.0,
+     "n_changed_vs_delta0": 1,
+     "changes_vs_delta0": [
+      {
+       "from": "lady glenarvin",
+       "to": "glenarvan glenarvan"
+      }
+     ]
+    }
+   ]
+  },
+  "quiet": {
+   "whisper:en": {
+    "text": "Thanks for watching, and don't forget to subscribe to the channel.",
+    "leak": [
+     "thanks for watching and don't forget to subscribe to the channel"
+    ],
+    "echo_verbatim": true,
+    "avg_logprob": -0.27853635511904334,
+    "seconds": 0.5748473340008786
+   },
+   "whisper:zh": {
+    "text": "謝謝大家，",
+    "leak": [
+     "谢谢大家"
+    ],
+    "echo_verbatim": false,
+    "avg_logprob": -0.6839438832054535,
+    "seconds": 0.565941875000135
+   },
+   "whisper:zh-trad": {
+    "text": "在臺北開的一場會議，用繁體中文記錄。",
+    "leak": [
+     "在台北开的一场会议",
+     "用繁体中文记录"
+    ],
+    "echo_verbatim": false,
+    "avg_logprob": -0.5184461153691586,
+    "seconds": 0.9157856250003533
+   },
+   "qwen:en": {
+    "text": "Thanks for watching, and don't forget to subscribe to the channel.",
+    "leak": [
+     "thanks for watching and don't forget to subscribe to the channel"
+    ],
+    "echo_verbatim": true,
+    "avg_logprob": null,
+    "seconds": 1.583272541000042
+   },
+   "qwen:zh": {
+    "text": "好，那我們今天的會議就先到這裡，謝謝大家，下次見。",
+    "leak": [
+     "那我们今天的会议就先到这里",
+     "谢谢大家"
+    ],
+    "echo_verbatim": true,
+    "avg_logprob": null,
+    "seconds": 1.6473959579998336
+   },
+   "qwen:zh-trad": {
+    "text": "以下是在臺北開的一場會議，用繁體中文記錄。",
+    "leak": [
+     "以下是在台北开的一场会议",
+     "用繁体中文记录"
+    ],
+    "echo_verbatim": true,
+    "avg_logprob": null,
+    "seconds": 1.4080607920004695
+   }
+  },
+  "mandarin": {
+   "n_names": 3,
+   "whisper": {
+    "none": {
+     "n_hit": 2,
+     "n_names": 3,
+     "script": "繁",
+     "leaked": false,
+     "n_leak_fragments": 0,
+     "n_chars": 23,
+     "seconds": 1.5125375839998014
+    },
+    "list": {
+     "n_hit": 3,
+     "n_names": 3,
+     "script": "繁",
+     "leaked": false,
+     "n_leak_fragments": 0,
+     "n_chars": 23,
+     "seconds": 1.3374024580007244
+    },
+    "traditional": {
+     "n_hit": 2,
+     "n_names": 3,
+     "script": "繁",
+     "leaked": false,
+     "n_leak_fragments": 0,
+     "n_chars": 23,
+     "seconds": 1.4708623749993421
+    },
+    "dialogue": {
+     "n_hit": 2,
+     "n_names": 3,
+     "script": "繁",
+     "leaked": false,
+     "n_leak_fragments": 0,
+     "n_chars": 23,
+     "seconds": 1.0594637920003152
+    }
+   },
+   "qwen": {
+    "none": {
+     "n_hit": 2,
+     "n_names": 3,
+     "script": "簡",
+     "leaked": false,
+     "n_leak_fragments": 0,
+     "n_chars": 23,
+     "seconds": 1.5480087910000293
+    },
+    "list": {
+     "n_hit": 3,
+     "n_names": 3,
+     "script": "簡",
+     "leaked": false,
+     "n_leak_fragments": 0,
+     "n_chars": 23,
+     "seconds": 1.5581621250003082
+    },
+    "traditional": {
+     "n_hit": 2,
+     "n_names": 3,
+     "script": "繁",
+     "leaked": false,
+     "n_leak_fragments": 0,
+     "n_chars": 23,
+     "seconds": 1.8713754579985107
+    },
+    "dialogue": {
+     "n_hit": 2,
+     "n_names": 3,
+     "script": "簡",
+     "leaked": false,
+     "n_leak_fragments": 0,
+     "n_chars": 23,
+     "seconds": 1.5463884589989902
+    }
+   }
+  }
+ },
+ "demo3": {
+  "source": "demos/w07_d3_decoding/runs/rehearsal/rehearsal.json (Mandarin: counts, plus text only for the W1 ticket sentence)",
+  "time": "2026-11-02T00:55:37",
+  "device": {
+   "ctc": "mps",
+   "mms": "mps",
+   "whisper": "cpu",
+   "qwen": "mps"
+  },
+  "models": {
+   "facebook/wav2vec2-base-960h": "22aad52d435eb6dbaf354bdad9b0da84ce7d6156",
+   "facebook/mms-1b-all": "3d33597edbdaaba14a8e858e2c8caa76e3cec0cd",
+   "openai/whisper-small": "973afd24965f72e36ca33b3055d56a652f456b4d",
+   "Qwen/Qwen3-ASR-1.7B-hf": "bcd2b5b7f32b480ab5790554cfa8347f246a14f3"
+  },
+  "transformers": "5.17.0",
+  "torch": "2.14.0",
+  "test_set": {
+   "n_sentences": 30,
+   "n_ref_words": 563,
+   "dur_s": 198.91,
+   "utts": [
+    "1919-142785-0009",
+    "1673-143396-0007",
+    "3536-23268-0003",
+    "3000-15664-0007",
+    "5536-43358-0003",
+    "1272-128104-0000",
+    "8297-275154-0004",
+    "2078-142845-0011",
+    "2412-153947-0002",
+    "8842-302196-0009",
+    "5338-24615-0011",
+    "174-168635-0006",
+    "1988-147956-0007",
+    "3576-138058-0012",
+    "3170-137482-0006",
+    "2803-154320-0003",
+    "6319-275224-0010",
+    "2035-147960-0005",
+    "7976-105575-0008",
+    "6241-61943-0000",
+    "1993-147149-0000",
+    "84-121123-0008",
+    "2902-9006-0012",
+    "5694-64025-0011",
+    "6345-64257-0005",
+    "2277-149874-0001",
+    "3853-163249-0003",
+    "6295-244435-0001",
+    "6313-66125-0007",
+    "5895-34615-0003"
+   ]
+  },
+  "lm": {
+   "source": "https://www.openslr.org/resources/11/3-gram.pruned.1e-7.arpa.gz",
+   "n_unigrams": 200003,
+   "n_bigrams": 2451827,
+   "n_trigrams": 1134656,
+   "unk": "<UNK>",
+   "oov_penalty": -5.0,
+   "oov_per_char": -3.0
+  },
+  "eta": 0.0,
+  "eta_tuning": {
+   "tune_lambda": 0.5,
+   "rows": [
+    {
+     "eta": 0.0,
+     "wer": 0.015706806282722512,
+     "errors": 3,
+     "S": 3,
+     "D": 0,
+     "I": 0,
+     "seconds": 0.3334373749967199
+    },
+    {
+     "eta": 0.5,
+     "wer": 0.015706806282722512,
+     "errors": 3,
+     "S": 3,
+     "D": 0,
+     "I": 0,
+     "seconds": 0.31974041600187775
+    },
+    {
+     "eta": 1.0,
+     "wer": 0.015706806282722512,
+     "errors": 3,
+     "S": 3,
+     "D": 0,
+     "I": 0,
+     "seconds": 0.31936420800047927
+    },
+    {
+     "eta": 1.5,
+     "wer": 0.015706806282722512,
+     "errors": 3,
+     "S": 3,
+     "D": 0,
+     "I": 0,
+     "seconds": 0.32046099999934086
+    },
+    {
+     "eta": 2.0,
+     "wer": 0.015706806282722512,
+     "errors": 3,
+     "S": 3,
+     "D": 0,
+     "I": 0,
+     "seconds": 0.31925991699972656
+    },
+    {
+     "eta": 3.0,
+     "wer": 0.031413612565445025,
+     "errors": 6,
+     "S": 4,
+     "D": 0,
+     "I": 2,
+     "seconds": 0.3198562920006225
+    },
+    {
+     "eta": 4.0,
+     "wer": 0.041884816753926704,
+     "errors": 8,
+     "S": 5,
+     "D": 0,
+     "I": 3,
+     "seconds": 0.3196172080024553
+    },
+    {
+     "eta": 6.0,
+     "wer": 0.06806282722513089,
+     "errors": 13,
+     "S": 7,
+     "D": 0,
+     "I": 6,
+     "seconds": 0.31993695799974375
+    }
+   ],
+   "best_eta": 0.0,
+   "n_tune": 10
+  },
+  "beam": 32,
+  "greedy_wer": 0.02664298401420959,
+  "beam0_wer": 0.02664298401420959,
+  "sweep": {
+   "lambdas": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.5,
+    0.7,
+    1.0,
+    1.5,
+    2.0,
+    3.0,
+    4.0
+   ],
+   "wer": [
+    0.02664298401420959,
+    0.019538188277087035,
+    0.015985790408525755,
+    0.015985790408525755,
+    0.017761989342806393,
+    0.019538188277087035,
+    0.017761989342806393,
+    0.023090586145648313,
+    0.028419182948490232,
+    0.11012433392539965,
+    0.5168738898756661
+   ],
+   "S": [
+    13,
+    9,
+    8,
+    8,
+    9,
+    9,
+    8,
+    9,
+    11,
+    32,
+    71
+   ],
+   "D": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    3,
+    4,
+    29,
+    219
+   ],
+   "I": [
+    1,
+    1,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "best_lam": 0.2,
+   "best_wer": 0.015985790408525755,
+   "large_lam": 2.0,
+   "seconds": 9.10481908300062
+  },
+  "example_p32": {
+   "greedy": "b",
+   "beam": "a",
+   "matches_json": true
+  },
+  "sentence_picks": {
+   "6313-66125-0007": {
+    "index": 28,
+    "ref": "I AM THE ONE TO GO AFTER WALT IF ANYONE HAS TO I'LL GO DOWN MISTER THOMAS",
+    "hyps": {
+     "0.0": "I AM THE ONE TO GO AFTER WALT IF ANY ONE HAS TOP I'LL GO DOWN MISTER THOMAS",
+     "0.2": "I AM THE ONE TO GO AFTER WALT IF ANYONE HAS TOP I'LL GO DOWN MISTER THOMAS",
+     "2.0": "I AM THE ONE TO GO AFTER WALT IF ANY ONE HAS TO I'LL GO DOWN MISTER THOMAS"
+    },
+    "errors": {
+     "0.0": 3,
+     "0.2": 1,
+     "2.0": 2
+    },
+    "greedy": "I AM THE ONE TO GO AFTER WALT IF ANY ONE HAS TOP I'LL GO DOWN MISTER THOMAS"
+   },
+   "5536-43358-0003": {
+    "index": 4,
+    "ref": "NONE MIGHT EXHORT OR CONFESS OR IN ANY WAY MEDDLE WITH THE RELIGIOUS EXPERIENCE OF ANOTHER",
+    "hyps": {
+     "0.0": "NONE MIGHT EXHORT OR CONFESS OR IN ANY WAY MEDLE WITH THE RELIGIOUS EXPERIENCE OF ANOTHER",
+     "0.2": "NONE MIGHT EXHORT OR CONFESS OR IN ANY WAY MEDDLE WITH THE RELIGIOUS EXPERIENCE OF ANOTHER",
+     "2.0": "NONE MIGHT EXERT OR CONFESS OR IN ANY WAY MEAL WITH THE RELIGIOUS EXPERIENCE OF ANOTHER"
+    },
+    "errors": {
+     "0.0": 1,
+     "0.2": 0,
+     "2.0": 2
+    },
+    "greedy": "NONE MIGHT EXHORT OR CONFESS OR IN ANY WAY MEDLE WITH THE RELIGIOUS EXPERIENCE OF ANOTHER"
+   },
+   "6295-244435-0001": {
+    "index": 27,
+    "ref": "COLONEL LEONIDAS TALBOT REGARDED THE WHITE FLAG WITH FEELINGS IN WHICH TRIUMPH AND SADNESS WERE MINGLED STRANGELY",
+    "hyps": {
+     "0.0": "COLONEL LEONITAS TALBOT REGARDED THE WHITE FLAG WITH FEELINGS IN WHICH TRIUMPH AND SADNESS WERE MINGLED STRANGELY",
+     "0.2": "COLONEL LEONIDAS TALBOT REGARDED THE WHITE FLAG WITH FEELINGS IN WHICH TRIUMPH AND SADNESS WERE MINGLED STRANGELY",
+     "2.0": "COLONEL LEONIDAS TALBOT REGARDED THE WHITE FLAG WITH FEELINGS  WHICH TRIUMPH AND SADNESS WERE MINGLED STRANGELY"
+    },
+    "errors": {
+     "0.0": 1,
+     "0.2": 0,
+     "2.0": 1
+    },
+    "greedy": "COLONEL LEONITAS TALBOT REGARDED THE WHITE FLAG WITH FEELINGS IN WHICH TRIUMPH AND SADNESS WERE MINGLED STRANGELY"
+   }
+  },
+  "mandarin": {
+   "inputs": [
+    {
+     "key": "w1_ticket",
+     "label": "W1 Demo 2 的訂票句（授課者自錄）",
+     "public_text": true
+    },
+    {
+     "key": "w7_d2",
+     "label": "W7 Demo 2 的自錄句（含專有名詞）",
+     "public_text": false
+    }
+   ],
+   "results": {
+    "zh:w1_ticket:mms": {
+     "seconds": 0.031635666000511264,
+     "script": "繁",
+     "cer": 0.15384615384615385,
+     "S": 2,
+     "D": 0,
+     "I": 0,
+     "n_ref": 13,
+     "homophone_counts": {
+      "same_tone": 1,
+      "same_base": 0,
+      "different": 1,
+      "unknown": 0,
+      "homophone": 1
+     },
+     "text": "我想定一張下周山去臺南的票",
+     "ref": "我想訂一張下週三去台南的票",
+     "subs": [
+      {
+       "ref": "订",
+       "hyp": "定",
+       "kind": "same_tone"
+      },
+      {
+       "ref": "三",
+       "hyp": "山",
+       "kind": "different"
+      }
+     ]
+    },
+    "zh:w1_ticket:whisper": {
+     "seconds": 0.4797891249982058,
+     "script": "繁",
+     "cer": 0.0,
+     "S": 0,
+     "D": 0,
+     "I": 0,
+     "n_ref": 13,
+     "homophone_counts": {
+      "same_tone": 0,
+      "same_base": 0,
+      "different": 0,
+      "unknown": 0,
+      "homophone": 0
+     },
+     "text": "我想訂一張下週三去台南的票",
+     "ref": "我想訂一張下週三去台南的票",
+     "subs": []
+    },
+    "zh:w1_ticket:qwen": {
+     "seconds": 0.3373959589989681,
+     "script": "簡",
+     "cer": 0.0,
+     "S": 0,
+     "D": 0,
+     "I": 0,
+     "n_ref": 13,
+     "homophone_counts": {
+      "same_tone": 0,
+      "same_base": 0,
+      "different": 0,
+      "unknown": 0,
+      "homophone": 0
+     },
+     "text": "我想订一张下周三去台南的票。",
+     "ref": "我想訂一張下週三去台南的票",
+     "subs": []
+    },
+    "zh:w7_d2:mms": {
+     "seconds": 0.023994499999389518,
+     "script": "繁",
+     "cer": 0.4090909090909091,
+     "S": 9,
+     "D": 0,
+     "I": 0,
+     "n_ref": 22,
+     "homophone_counts": {
+      "same_tone": 7,
+      "same_base": 0,
+      "different": 2,
+      "unknown": 0,
+      "homophone": 7
+     }
+    },
+    "zh:w7_d2:whisper": {
+     "seconds": 0.5287842079997063,
+     "script": "繁",
+     "cer": 0.045454545454545456,
+     "S": 1,
+     "D": 0,
+     "I": 0,
+     "n_ref": 22,
+     "homophone_counts": {
+      "same_tone": 1,
+      "same_base": 0,
+      "different": 0,
+      "unknown": 0,
+      "homophone": 1
+     }
+    },
+    "zh:w7_d2:qwen": {
+     "seconds": 0.3212918749995879,
+     "script": "簡",
+     "cer": 0.09090909090909091,
+     "S": 2,
+     "D": 0,
+     "I": 0,
+     "n_ref": 22,
+     "homophone_counts": {
+      "same_tone": 1,
+      "same_base": 1,
+      "different": 0,
+      "unknown": 0,
+      "homophone": 2
+     }
+    }
+   }
+  },
+  "mms_error": null,
+  "qwen_error": null
+ }
+}
