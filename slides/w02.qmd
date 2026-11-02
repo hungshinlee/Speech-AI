@@ -882,21 +882,44 @@ Feed a pretrained model features built with the wrong recipe and nothing crashes
 Computed: 80 filters, 0–8 kHz · largest gap 262 Hz, at filter 64 · w02-data.json
 :::
 
-## An experiment we have not run yet
+## Before Demo 3: does the recogniser notice?
 
-**Demo 3, as a plan.** Same audio, same pretrained recogniser. Change only the front-end recipe — swap the mel scale, or drop the filter normalisation — and measure the word error rate.
+::: {.prose}
+| | |
+|:---|:-----------------|
+| **Why** | The last slide listed seven places where two "80-dim log-mel" front-ends can differ. Question 1 from Week 1 — *is the input the same?* — in its most concrete form: feed a pretrained recogniser features made with the wrong recipe, and measure. |
+| **What runs** | Forty dev-clean sentences, one per speaker, into Whisper small. The reference run uses Whisper's own front-end. Every other run recomputes the features in our own code (`demos/dsp.py`) with **one knob turned** — mel scale, filter normalisation, power vs. magnitude, log floor, dither, pre-emphasis, output normalisation — and feeds them to the same model. Each run prints the word error rate, the model's average log-probability per token, and how far the features moved. |
+| **Watch for** | Which knobs move WER, which do not, and by how much. Whether the knob that moves the *features* most is the one that moves the *words* most. Whether the model's confidence moves before its words do. |
+:::
+
+::: {.footer}
+Demo 3 · code: `demos/w02_d3_frontend_mismatch` · Whisper small via `transformers`, CPU
+:::
+
+## Demo 3 — same name, different features
 
 ::: {.ask}
-Predict before anyone measures: does WER move a little, or a lot? Does it depend on which knob?
+**Predict before anyone measures.** Rank the seven knobs: which hurts most, which least? Will any of them leave WER unchanged? Write your ranking down.
 :::
 
-This is the first of the four questions from Week 1, in its most concrete form:
-
-::: {.claim}
-**Is the input the same?** Two papers that both report "80-dim log-mel, 25 ms / 10 ms" have not told you enough to know.
+::: {.fragment fragment-index=1}
+| | recipe | mean $\lvert\Delta\rvert$ | WER % | avg $\log P$ |
+|:--|:---|--:|--:|--:|
+| r | Whisper's own front-end | 0 | — | — |
+| 0 | same recipe, our own code | — | — | — |
+| 1 | mel scale: HTK instead of Slaney | — | — | — |
+| 2 | filter normalisation: peak 1 instead of area | — | — | — |
+| 3 | magnitude instead of power | — | — | — |
+| 4 | log floor $10^{-5}$ instead of $10^{-10}$ | — | — | — |
+| 5 | dither, one 16-bit step | — | — | — |
+| 6 | pre-emphasis 0.97 | — | — | — |
+| 7 | output: per-utterance CMVN | — | — | — |
+| 8 | five knobs at once | — | — | — |
 :::
 
-We will run it once the toolchain for this laptop is settled, and bring the numbers back.
+::: {.footer}
+Demo 3 · 40 dev-clean sentences · not yet rehearsed · numbers: `w02-metrics.json → demo3`
+:::
 
 ## SNR, and the metric W10 will use instead
 
@@ -981,7 +1004,7 @@ We have 100 frames per second. A sentence has perhaps a dozen phonemes per secon
 |:----|:----------------|
 | MFCC | mel-frequency cepstral coefficients (p35) |
 | RTF | real-time factor (W1) |
-| SI-SDR | scale-invariant signal-to-distortion ratio (p66) |
+| SI-SDR | scale-invariant signal-to-distortion ratio (p67) |
 | SNR | signal-to-noise ratio (p51) |
 | SPL | sound pressure level — the dB SPL axis (p37) |
 | SSL | self-supervised learning (W1) |
