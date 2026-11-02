@@ -64,7 +64,7 @@ format:
 :::
 
 ::: {.footer}
-W5 p34 four targets in one row · W5 p62's last sentence
+W5 p35 four targets in one row · W5 p63's last sentence
 :::
 
 ## The problem this week handles, in one picture
@@ -382,7 +382,7 @@ Moshi §3.3.1, Table 4 · whether the released Mimi is that variant: not stated 
 :::
 
 ::: {.footer}
-SoundStream Fig. 2: transmitter / receiver · W5 p37 · W8, W11
+SoundStream Fig. 2: transmitter / receiver · W5 p38 · W8, W11
 :::
 
 ## MC 4 — "neural codecs beat Opus — their tables say so"
@@ -475,7 +475,7 @@ $F_0$ is a physical quantity, pitch is a percept (W2 p56): the plot is a referen
 :::
 
 ::: {.footer}
-prediction from the design · heard: rehearsal 2026-10-19, one sentence, one listener · W2 p56, p62 · W5 p49 · unit-level evidence: p42
+prediction from the design · heard: rehearsal 2026-10-19, one sentence, one listener · W2 p56, p62 · W5 p50 · unit-level evidence: p42
 :::
 
 ## Before Demo 2: what the letters look like
@@ -521,7 +521,7 @@ Acoustic tokens can rebuild the voice but entangle **who, where and what**; sema
 :::
 
 ::: {.footer}
-W5 p49 · AudioLM, TASLP 2023 · the alphabet's second failure: letters hold only content
+W5 p50 · AudioLM, TASLP 2023 · the alphabet's second failure: letters hold only content
 :::
 
 ## SpeechTokenizer and Mimi: W5's unit, back inside the codec
@@ -540,7 +540,7 @@ SpeechTokenizer §3.2, App. E · Moshi §3.3.2 · $\mathcal{L}_{\text{dist}}$: a
 
 | | W5 measured | this week adds |
 |:---|:----------|:---------------|
-| **the unit** | HuBERT units are not phonemes: one id per 20 ms, context-dependent, redundant (W5 p46) | Mimi's first codebook is a VQ trained to be **cosine-close to WavLM**, not a phone classifier |
+| **the unit** | HuBERT units are not phonemes: one id per 20 ms, context-dependent, redundant (W5 p47) | Mimi's first codebook is a VQ trained to be **cosine-close to WavLM**, not a phone classifier |
 | **the probe** | purity was measured, not assumed (Demo 2) | on TIMIT, segmental information is **not confined to codebook 1**, and its tokens correspond to **allophones**, not phonemes |
 
 ::: {.claim}
@@ -548,7 +548,7 @@ Demo 1 did **not** go as predicted: stage 1 alone kept neither the words nor the
 :::
 
 ::: {.footer}
-Saloev et al., ICNLSP 2026 (TIMIT) · W5 p45–p48 · "semantic" names a target, not a claim
+Saloev et al., ICNLSP 2026 (TIMIT) · W5 p46–p49 · "semantic" names a target, not a claim
 :::
 
 ## One codebook, no residual: WavTokenizer, BigCodec, TAAE
@@ -582,7 +582,7 @@ At the unit level this is **measured**; at the codec level it is a **prediction*
 :::
 
 ::: {.footer}
-Osakuade & King, Speech Prosody 2026 · Saloev et al. 2026 · W2 p62 · W5 p49
+Osakuade & King, Speech Prosody 2026 · Saloev et al. 2026 · W2 p62 · W5 p50
 :::
 
 # How many letters per second, and who pays {.section-title}
@@ -710,7 +710,7 @@ The rightmost slot is filled — and for the first time the clock was **chosen**
 :::
 
 ::: {.footer}
-W2 p68 · W5 p59 · Mimi: 12.5 Hz for the LM's sequence length, Moshi §3.3.1
+W2 p68 · W5 p60 · Mimi: 12.5 Hz for the LM's sequence length, Moshi §3.3.1
 :::
 
 ## Latency: the cell in W1's budget, filled in

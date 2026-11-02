@@ -233,7 +233,7 @@ vq-wav2vec, ICLR 2020 · BERT = Bidirectional Encoder Representations from Trans
 :::
 
 ::: {.footer}
-wav2vec, Interspeech 2019 · vq-wav2vec, ICLR 2020 · the ten-minute numbers: p52
+wav2vec, Interspeech 2019 · vq-wav2vec, ICLR 2020 · the ten-minute numbers: p53
 :::
 
 ## wav2vec 2.0: two paths that meet only at the masked steps
@@ -353,7 +353,7 @@ LS-960 = LibriSpeech 960 h · LV-60k = Libri-light 60k h · wav2vec 2.0 App. B �
 | **The question** | What if the answer for each masked frame is written down before training starts, and never moves? |
 | **The idea** | Cluster frames with k-means; predict the cluster id of every masked frame (a $K$-way classification); then cluster a middle layer of the trained model and train again. |
 | **What it added** | No negatives and no collapse by construction; a target that improves by iteration; and a consistent teacher matters more than an accurate one. |
-| **What it leaves open** | How good must the first teacher be — and what does a "hidden unit" actually hold? The next two slides, and the units section from p43. |
+| **What it leaves open** | How good must the first teacher be — and what does a "hidden unit" actually hold? The next two slides, and the units section from p44. |
 :::
 
 ::: {.footer}
@@ -398,11 +398,23 @@ dev-other word error rate (WER) after fine-tuning, HuBERT Table V. $\mathcal{L}_
 Hsu et al., TASLP 2021, abstract and Table V · the ICASSP 2021 "bad teacher" paper
 :::
 
-## WavLM: HuBERT that hears through noise and other voices
+## WavLM: predict the main speaker's units through the mix
 
 ::: {.small}
 SSL had been judged on recognition — **what** is said. Speech also carries **who** says it and **how**; WavLM (Microsoft, 2022) wants one encoder for all of it — *full stack*, in its title.
 :::
+
+{{< include assets/w05/wavlm-mix.inline.qmd >}}
+
+::: {.claim}
+Same teacher, harder input: to answer for A where B is talking, the model has to tell **who** the main speaker is.
+:::
+
+::: {.footer}
+Chen et al., IEEE JSTSP 2022: §IV-B, Fig. 1 · 20% of utterances mixed (§V-A), each by less than half
+:::
+
+## WavLM next to HuBERT: same teacher, three changes
 
 | | HuBERT | WavLM |
 |:--|:--|:--|
@@ -410,13 +422,14 @@ SSL had been judged on recognition — **what** is said. Speech also carries **w
 | input | clean utterance, masked | utterance **mixed with noise or another speaker**, masked — predict the clean target |
 | position | a convolutional relative positional embedding (wav2vec 2.0's) | adds a **gated relative position bias** inside attention |
 | pre-training data (LARGE) | 60k h Libri-light | **94k h** Libri-light + GigaSpeech + VoxPopuli |
+| what it buys | content | content, plus a representation that already separates speakers and ignores noise |
 
 ::: {.claim}
-Three things changed at once — the task, the position bias **and** the data. When WavLM wins a benchmark, you cannot tell which one paid. Keep that for p54.
+Three things changed at once — the task, the position bias **and** the data. When WavLM wins a benchmark, you cannot tell which one paid. Keep that for p55.
 :::
 
 ::: {.footer}
-Chen et al., IEEE JSTSP 2022 (title and abstract: denoising, gated position bias, 60k → 94k h)
+Chen et al., IEEE JSTSP 2022 (abstract: denoising, gated position bias, 60k → 94k h)
 :::
 
 ## data2vec: the teacher is the student, smoothed
@@ -835,7 +848,7 @@ W3 and W4 asked "where does the alignment come from"; today asked **"where does 
 
 - Mohamed et al., *Self-Supervised Speech Representation Learning: A Review*, IEEE JSTSP 2022 — the survey; read the taxonomy section, then re-sort it by target as we did today
 - Hsu et al., *HuBERT*, IEEE/ACM TASLP 2021 — §II for the loss, §IV-E for the three purities, Table V for the $\alpha$ ablation you saw
-- Baevski et al., *wav2vec 2.0*, NeurIPS 2020 — §2–3 and Appendix B; look at Table 1 with p52 in mind
+- Baevski et al., *wav2vec 2.0*, NeurIPS 2020 — §2–3 and Appendix B; look at Table 1 with p53 in mind
 
 **If one thing today was new to you, make it this one**
 
@@ -851,15 +864,15 @@ Today's unit was *predicted*; next week's token is *reconstructed*. What changes
 |:----|:----------------|
 | ASR | automatic speech recognition (W1) |
 | BERT | Bidirectional Encoder Representations from Transformers (p17) |
-| BEST-RQ | BERT-based Speech pre-Training with Random-projection Quantizer (p33) |
+| BEST-RQ | BERT-based Speech pre-Training with Random-projection Quantizer (p34) |
 | BYOL | Bootstrap Your Own Latent (p23) |
-| CCA, PWCCA | canonical correlation analysis; projection-weighted CCA (p38) |
+| CCA, PWCCA | canonical correlation analysis; projection-weighted CCA (p39) |
 | CNN | convolutional neural network (p9) |
 | CPC | Contrastive Predictive Coding (p10) |
 | CTC | connectionist temporal classification (W3) |
 | EMA | exponential moving average (p23) |
 | GRU | gated recurrent unit (p10) |
-| GSLM | generative spoken language modeling (p48) |
+| GSLM | generative spoken language modeling (p49) |
 | HuBERT | Hidden-Unit BERT (p27) |
 | InfoNCE | CPC's loss, "based on NCE": noise-contrastive estimation (p10) |
 
@@ -871,12 +884,12 @@ Today's unit was *predicted*; next week's token is *reconstructed*. What changes
 | LM | language model |
 | LS-960, LV-60k | LibriSpeech, 960 h; Libri-light, 60k h (p25) |
 | MC | misconception: a belief that sounds right, and what breaks it |
-| MFA | Montreal Forced Aligner (p38) |
+| MFA | Montreal Forced Aligner (p39) |
 | MFCC | mel-frequency cepstral coefficients (W2) |
-| ML-SUPERB | multilingual SUPERB (p51) |
+| ML-SUPERB | multilingual SUPERB (p52) |
 | MPS | Metal Performance Shaders: Apple's GPU backend (W3) |
 | PNMI | phone-normalized mutual information (p29) |
 | SSL | self-supervised learning |
-| SUPERB | Speech processing Universal PERformance Benchmark (p42) |
+| SUPERB | Speech processing Universal PERformance Benchmark (p43) |
 | VQ, VQ-VAE | vector quantisation (p19); vector-quantised variational autoencoder (p21) |
 | WER | word error rate (p30) |
