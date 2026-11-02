@@ -14,7 +14,7 @@
   selftest   不需要模型：trie 與 failure arc、prefix beam search 對窮舉、名字命中、繁簡判定、洩漏判定、fake 整條流程
   export     runs/rehearsal/ 與 private_rehearsal.json 的摘要 → slides/assets/w07/w07-metrics.json（鍵 demo2；華語只進「幾個名字對、字體、有沒有洩漏」，不進文字）
 
-畫面上的鍵（順序照投影片 p50 講稿的【操作】）：
+畫面上的鍵（順序照投影片 p51 講稿的【操作】）：
   1  英文那句 → Whisper，prompt 空            2  同一句，prompt = 名單
   e  同一句，prompt = 一句台詞（英文版的 6）
   3  華語那句 → Whisper，prompt 空            4  prompt = 名單（繁體）
@@ -23,7 +23,7 @@
   8  Qwen3-ASR：英文與華語各兩次（context 空／名單）
   9  Qwen3-ASR：華語，context = 繁體那句／台詞那句（與 5、6 並排）
   0  沒有語音時提詞卡會怎樣：8 s 近乎靜音的合成音訊（極低的白噪音）配台詞 prompt → Whisper（en、zh）與 Qwen3-ASR（en、zh）——Demo 1 的「證據歸零」接到這裡
-  p  印出全部 prompt 的原文      t  投影片 p50 的表      h  重印選單      q  離開
+  p  印出全部 prompt 的原文      t  投影片 p51 的表      h  重印選單      q  離開
 
 判定的定義（課堂上要念出來的）：
   名字命中   英文：轉錄小寫、去標點後，名字當一個詞串出現；華語：兩邊都轉成簡體再找子字串（字體不算錯）
@@ -792,7 +792,7 @@ class Demo:
     # 投影片的表
     def panel_table(self) -> None:
         o = self.out
-        o.banner("投影片 p50 的表（名字對幾個／字體／洩漏）——華語那列只有數字，文字不上站")
+        o.banner("投影片 p51 的表（名字對幾個／字體／洩漏）——華語那列只有數字，文字不上站")
         cols = [("Whisper 無 prompt", "whisper:{w}:none"), ("Whisper + 名單", "whisper:{w}:list"), ("Whisper + 繁體句", "whisper:{w}:traditional"),
                 ("Whisper + 台詞", "whisper:{w}:dialogue"), ("Qwen3-ASR 無 context", "qwen:{w}:none"), ("Qwen3-ASR + 名單", "qwen:{w}:list")]
 
@@ -1268,7 +1268,7 @@ def main() -> None:
     if args.cmd == "rehearse":
         d.run_all()
         d.save(HERE / "runs" / "rehearsal")
-        print("\n下一步：./present.sh 自己按一遍 1 2 e 3 4 5 6 7 8 9 0 t；把 rehearsal.json（英文）與 ../_media/w07_d2/private_rehearsal.json（華語）的結果填進 p50 的表、"
+        print("\n下一步：./present.sh 自己按一遍 1 2 e 3 4 5 6 7 8 9 0 t；把 rehearsal.json（英文）與 ../_media/w07_d2/private_rehearsal.json（華語）的結果填進 p51 的表、"
               ".gen 區塊、【操作】【講述】；./present.sh export 寫進 w07-metrics.json。")
         return
     out.banner("W7 Demo 2：Biasing——同一段音訊，有名單與沒有名單" + (f"   [{d.tag}]" if d.tag else ""))

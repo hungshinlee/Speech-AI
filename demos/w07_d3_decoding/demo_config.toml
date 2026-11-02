@@ -1,11 +1,11 @@
 # 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
-# W7 demo 3：解碼——先驗的位置與重量（p40 前導頁、p41 Demo 3；p32 prefix 合併的數字例子、p35 四個旋鈕、p39 不是越大越好）。換內容只改這裡。
+# W7 demo 3：解碼——先驗的位置與重量（p41 前導頁、p42 Demo 3；p33 prefix 合併的數字例子、p36 四個旋鈕、p40 不是越大越好）。換內容只改這裡。
 #
 # 設計（2026-11-01；理由見 README）：
 #   (1) λ 掃描：wav2vec2-base-960h（W3 Demo 3 的模型，幾乎沒有 internal LM）對 dev-clean 的一批句子取 log softmax，
 #       自寫的 CTC prefix beam search（../w07_d2_biasing/ctc_prefix_beam.py，Hannun 2014 Algorithm 1）接一個詞級 3-gram LM
 #       （LibriSpeech 官方的 pruned ARPA，arpa_lm.py 自己讀、自己 backoff，不裝 kenlm）：score = ln P_ctc + λ·ln P_LM + η·詞數。
-#       beam 與 η 固定、只掃 λ；畫 WER 對 λ。另印 greedy、beam λ=0，與 p32 那組數字例子的程式驗證。
+#       beam 與 η 固定、只掃 λ；畫 WER 對 λ。另印 greedy、beam λ=0，與 p33 那組數字例子的程式驗證。
 #   (2) 華語同音字：一句華語過 MMS-1B-all 的 CTC（cmn-script_simplified adapter、greedy、無 LM）、Whisper small、Qwen3-ASR，
 #       輸出對參考文字做字元對齊，替換的字用 pypinyin 判是不是同音。
 
@@ -45,8 +45,8 @@ eta = "auto"
 tune_lambda = 0.5
 # 2026-11-01 第一輪彩排（還沒有 OOV 罰）η 調到 3 是格子的邊界，格子延長到 6；第二輪（固定罰 -10）調到 0
 eta_grid = [0.0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 6.0]
-# 鍵 3 的「λ 過大」用掃描裡的哪一個值（寫掃描裡有的值）。2026-11-02 彩排：λ = 2 看得到 p36 的機制（MEDDLE → MEAL、EXHORT → EXERT），
-# λ = 4 已經是 p39 的空字串（整句刪光），所以鍵 3 用 2；表（t）兩個都印
+# 鍵 3 的「λ 過大」用掃描裡的哪一個值（寫掃描裡有的值）。2026-11-02 彩排：λ = 2 看得到 p37 的機制（MEDDLE → MEAL、EXHORT → EXERT），
+# λ = 4 已經是 p40 的空字串（整句刪光），所以鍵 3 用 2；表（t）兩個都印
 large_lambda = 2.0
 
 [sentences]

@@ -1,5 +1,5 @@
 <!-- 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。 -->
-# W7 · Demo 1 — Silence, noise, and a zeroed encoder: what a prior says when there is nothing to hear (slides p26–p28)
+# W7 · Demo 1 — Silence, noise, and a zeroed encoder: what a prior says when there is nothing to hear (slides p26–p29)
 
 The same "no speech" audio goes into two models that differ only in whether the output side carries a language prior.
 
@@ -14,7 +14,7 @@ The same "no speech" audio goes into two models that differ only in whether the 
 |---|---|---|
 | (1) | **Whisper `small`** (`transformers`, the same weights as W4 demo 3) | the transcript, every token's log-probability $\log P(\ell_u \mid \ell_{<u}, \mathbf{X})$ (teacher-forced after generation, including `<\|endoftext\|>`), the average, `no_speech_prob` (the probability of `<\|nospeech\|>` at the `<\|startoftranscript\|>` position), the gzip compression ratio, and which of the §4.5 fallback rules fired |
 | (2) | **wav2vec2-base-960h** (W3 demo 3's CTC model), greedy | $T$, the fraction of frames whose argmax is blank, the number of non-blank frames, and the collapsed string |
-| (3) | Whisper with its **encoder output replaced by zeros** (or by the time-average of W3's encoder output), decoder free-running | five beams and five samples — an approximation of the internal language model that p37's ILME estimates |
+| (3) | Whisper with its **encoder output replaced by zeros** (or by the time-average of W3's encoder output), decoder free-running | five beams and five samples — an approximation of the internal language model that p38's ILME estimates |
 
 The fallback loop is written out in `demo.py` rather than taken from `transformers`, so that every attempt is shown: temperature rises from 0 in steps of 0.2 up to 1.0; an attempt fails if the compression ratio exceeds 2.4 or the average log-probability is below $-1$; `no_speech_prob > 0.6` counts as silence only together with the log-probability threshold; the previous window's text is carried into the next window's prompt only if that window's final temperature was below 0.5. Long audio is cut into fixed 30 s windows (the original advances by the last predicted timestamp; this demo does not decode timestamps).
 
@@ -24,11 +24,11 @@ The fallback loop is written out in `demo.py` rather than taken from `transforme
 |---|---|---|
 | `1` | silence → Whisper | p27 |
 | `2` | the three noise clips → Whisper | p27 |
-| `3` | the long clip in two windows; `c` toggles whether the first window's text is carried into the second | p27, p28 |
+| `3` | the long clip in two windows; `c` toggles whether the first window's text is carried into the second | p27, p29 |
 | `4` | the instructor's own clip | p27 |
 | `w` | every clip (and W3's sentence itself) → wav2vec2 greedy | p27 |
 | `z` / `Z` | encoder zeroed / replaced by the mean vector → beams and samples | p27 |
-| `f` | toggle the temperature fallback (default off; on, every attempt is printed) | p28 |
+| `f` | toggle the temperature fallback (default off; on, every attempt is printed) | p29 |
 | `l` | toggle the language token en / zh — a different prior, the same flat evidence | p24 |
 | `s` | W3's sentence through both models (the control for the control) | |
 | `h` `q` | menu, quit | |

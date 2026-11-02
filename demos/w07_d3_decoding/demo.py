@@ -13,19 +13,19 @@
              3-gram ARPA（openslr 11）；從 dev-clean.tar.gz 讀出測試集與調參集的參考文字 → data/sentences.json；要網路
   record     錄一句自己的華語 → ../_media/w07_d3/mandarin.wav，接著輸入參考文字 → mandarin.txt
   fake       沒有模型也能演練流程（合成的 log 機率 + 小 LM，畫面標明 FAKE，不是給學生看的）
-  selftest   不需要模型：ARPA 解析與 backoff 對手算、LMBonus 的狀態、prefix beam 對 p32 的窮舉（w07-data.json）、WER／字元對齊、
+  selftest   不需要模型：ARPA 解析與 backoff 對手算、LMBonus 的狀態、prefix beam 對 p33 的窮舉（w07-data.json）、WER／字元對齊、
              同音判定、句子挑選的確定性、fake 整條流程
   export     runs/rehearsal/ 的摘要 → slides/assets/w07/w07-metrics.json（鍵 demo3；華語只進數字，public_text 的句子才進文字）
 
-畫面上的鍵（順序照投影片 p41 講稿的【操作】）：
-  0  p32 的數字例子：九條路徑窮舉、greedy 的輸出、prefix beam 的輸出（對 w07-data.json）
+畫面上的鍵（順序照投影片 p42 講稿的【操作】）：
+  0  p33 的數字例子：九條路徑窮舉、greedy 的輸出、prefix beam 的輸出（對 w07-data.json）
   1  greedy（無 LM）與 beam λ=0 的 WER（測試集）
   2  λ 掃描：逐點印 WER、視窗上逐點畫曲線；最後印最佳 λ
   3  挑一句：λ=0／最佳 λ／過大 λ 三個版本的轉錄，錯的詞標色，分數拆成 ln P_ctc、λ·ln P_LM、η·詞數      n  換下一句
   m  華語：每個可用的輸入過 MMS-1B-all CTC（cmn adapter、greedy、無 LM；輸出轉繁體）、Whisper small、Qwen3-ASR；
      對參考文字做字元對齊，替換的字用 pypinyin 判同音
   e  調 η 的結果（調參集上每個 η 的 WER）      l  LM 本身：幾個 n-gram、<unk>、幾個例句的 ln P
-  t  投影片 p41 的表      h  重印選單      q  離開
+  t  投影片 p42 的表      h  重印選單      q  離開
 
 判定的定義（課堂上要念出來的）：
   WER        測試集全部參考詞數為分母的 corpus WER（Levenshtein，詞級；大寫、去標點；LibriSpeech 的參考本來就是這個格式）
@@ -159,7 +159,7 @@ def select_sentences(subset: dict, cfg: dict) -> dict:
 
 _PUNCT_ZH = r"[\s，。、！？；：「」『』（）()《》〈〉—…,.!?;:\"'\-]"
 # Demo 2 的對照表沒收的幾個字（訂票句會用到）。只加「繁 → 簡」那一向：週→周 只能單向——周也是繁體字（周圍、周杰倫），
-# 簡 → 繁 時不敢把每個周都換成週，這正是「一簡對多繁」讓轉換自己出錯的例子（p63）。
+# 簡 → 繁 時不敢把每個周都換成週，這正是「一簡對多繁」讓轉換自己出錯的例子（p65）。
 _EXTRA_T2S = {"訂": "订", "週": "周", "張": "张", "們": "们", "實": "实", "驗": "验", "師": "师", "贏": "赢", "選": "选", "舉": "举", "萬": "万", "長": "长"}
 _EXTRA_S2T = {"订": "訂", "张": "張", "实": "實", "验": "驗", "师": "師", "赢": "贏", "选": "選", "举": "舉", "万": "萬", "长": "長"}
 T2S = {**D2.T2S, **_EXTRA_T2S}
@@ -232,7 +232,7 @@ def collapse(path: list[int], blank: int) -> list[int]:
 
 
 def prefix_example(data: dict) -> dict:
-    """p32 的 T=2 例子：窮舉九條路徑、按標籤合併、greedy，再用 prefix_beam_search 跑一次；全部對 w07-data.json。符號 id：∅=0、a=1、b=2。"""
+    """p33 的 T=2 例子：窮舉九條路徑、按標籤合併、greedy，再用 prefix_beam_search 跑一次；全部對 w07-data.json。符號 id：∅=0、a=1、b=2。"""
     y1, y2 = data["y1"], data["y2"]
     sym = ["∅", "a", "b"]
     lp = np.log(np.array([[y1["∅"], y1["a"], y1["b"]], [y2["∅"], y2["a"], y2["b"]]]))
@@ -593,13 +593,13 @@ class Demo:
         w = corpus_wer(refs, hyps)
         return {"lam": lam, "eta": eta, "hyps": hyps, "parts": parts, "seconds": time.perf_counter() - t0, **{k: w[k] for k in ("errors", "n_ref", "wer", "S", "D", "I", "per_sentence")}}
 
-    # 0：p32 的例子
+    # 0：p33 的例子
     def panel_example(self) -> None:
         o = self.out
         data = json.loads(DATA_JSON.read_text(encoding="utf-8"))["prefix_example"] if DATA_JSON.exists() else None
         if data is None:
             o("  沒有 w07-data.json"); return
-        o.banner("p32 的數字例子：T = 2，兩格的機率 → 九條路徑 → 按標籤合併 → greedy 對 prefix beam")
+        o.banner("p33 的數字例子：T = 2，兩格的機率 → 九條路徑 → 按標籤合併 → greedy 對 prefix beam")
         o(f"  y¹ = {data['y1']}    y² = {data['y2']}")
         r = self._get("example", lambda: prefix_example(data))
         if not r:
@@ -893,7 +893,7 @@ class Demo:
     # t：投影片的表
     def panel_table(self) -> None:
         o = self.out
-        o.banner("投影片 p41 的表")
+        o.banner("投影片 p42 的表")
         b, sw, ex = self.res.get("baseline"), self.res.get("sweep"), self.res.get("example")
         if b:
             o(f"  greedy, no LM                 {100 * b['greedy']['wer']:.2f}%")
@@ -908,7 +908,7 @@ class Demo:
             if last["lam"] != large:
                 o(f"  prefix beam, λ = {last['lam']:g}           {100 * last['wer']:.2f}%   (S {last['S']}, D {last['D']}, I {last['I']})")
         if ex:
-            o(f"  p32's example in code         greedy → {ex['greedy_label']!r}; prefix beam → {ex['beam_label']!r}；{'對 json 逐位相同' if ex['ok'] else '與 json 不同！'}")
+            o(f"  p33's example in code         greedy → {ex['greedy_label']!r}; prefix beam → {ex['beam_label']!r}；{'對 json 逐位相同' if ex['ok'] else '與 json 不同！'}")
         zh = {k: v for k, v in self.res_priv.items() if k.startswith("zh:")}
         if zh:
             o("  華語（數字；文字只有 public_text 的句子上投影片）：")
@@ -919,7 +919,7 @@ class Demo:
 
     def menu(self) -> None:
         o = self.out
-        o("\n  0 p32 的例子   1 greedy 與 beam λ=0   2 λ 掃描   3 一句看字（n 下一句）   m 華語同音字")
+        o("\n  0 p33 的例子   1 greedy 與 beam λ=0   2 λ 掃描   3 一句看字（n 下一句）   m 華語同音字")
         o("  e η 的調參   l LM 本身   t 表   h 選單   q 離開")
 
     def dispatch(self, k: str) -> bool:
@@ -1353,17 +1353,17 @@ def selftest() -> None:
     chk("連續兩個詞界不會多算一個空詞", st2[4] == 2 and st2[2] == ())
     b0 = lm_bonus(None, 0.0, 0.0, fc)
     chk("沒有 LM、λ=η=0 時 bonus 全是 0", b0.finish(b0.step(b0.step(b0.start(), fc.vocab["A"]), fc.delim)) == 0.0)
-    # p32 的例子
+    # p33 的例子
     if DATA_JSON.exists():
         data = json.loads(DATA_JSON.read_text(encoding="utf-8"))["prefix_example"]
         ex = prefix_example(data)
-        chk("p32：九條路徑、合併、greedy b、prefix beam a——對 w07-data.json 逐位相同", ex["ok"], f"greedy {ex['greedy_label']!r}、beam {ex['beam_label']!r}、a {ex['by_label'].get('a')}、b {ex['by_label'].get('b')}")
-        chk("p32：prefix beam 的 P(a) = 0.35、P(b) = 0.3225", abs(ex["beam_probs"]["a"] - 0.35) < 1e-9 and abs(ex["beam_probs"]["b"] - 0.3225) < 1e-9)
+        chk("p33：九條路徑、合併、greedy b、prefix beam a——對 w07-data.json 逐位相同", ex["ok"], f"greedy {ex['greedy_label']!r}、beam {ex['beam_label']!r}、a {ex['by_label'].get('a')}、b {ex['by_label'].get('b')}")
+        chk("p33：prefix beam 的 P(a) = 0.35、P(b) = 0.3225", abs(ex["beam_probs"]["a"] - 0.35) < 1e-9 and abs(ex["beam_probs"]["b"] - 0.3225) < 1e-9)
     else:
         chk("w07-data.json 在", False, str(DATA_JSON))
     # WER／對齊
     a = wer_words("A CAT SAT", "THE CAT SAT DOWN")
-    chk("WER：p62 的例子 S 1／I 1／N 3 → 2/3", (a["S"], a["D"], a["I"], a["n_ref"]) == (1, 0, 1, 3) and abs(a["wer"] - 2 / 3) < 1e-12)
+    chk("WER：p64 的例子 S 1／I 1／N 3 → 2/3", (a["S"], a["D"], a["I"], a["n_ref"]) == (1, 0, 1, 3) and abs(a["wer"] - 2 / 3) < 1e-12)
     cw = corpus_wer(["A B C", "D E"], ["A X C", "D E F"])
     chk("corpus WER：(1+1)/5", cw["errors"] == 2 and cw["n_ref"] == 5 and cw["per_sentence"] == [1, 1])
     chk("norm_en：大寫、去標點、保留撇號", norm_en("Don't stop, now.") == "DON'T STOP NOW")
@@ -1453,7 +1453,7 @@ def main() -> None:
             C.note(f"  η = {d.eta:g}")
         d.run_all()
         d.save(HERE / "runs" / "rehearsal")
-        print("\n下一步：./present.sh 自己按一遍 0 1 2 3 n m t；把 rehearsal.json 的數字填進 p41 的表、.gen 區塊、【操作】【講述】；./present.sh export 寫進 w07-metrics.json。")
+        print("\n下一步：./present.sh 自己按一遍 0 1 2 3 n m t；把 rehearsal.json 的數字填進 p42 的表、.gen 區塊、【操作】【講述】；./present.sh export 寫進 w07-metrics.json。")
         return
     out.banner("W7 Demo 3：解碼——先驗的重量 λ 掃一遍；同一個 CTC 帶到華語" + (f"   [{d.tag}]" if d.tag else ""))
     d.menu()

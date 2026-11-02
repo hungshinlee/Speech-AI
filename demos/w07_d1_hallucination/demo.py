@@ -1043,7 +1043,7 @@ def main() -> None:
     if args.cmd == "rehearse":
         d.run_all()
         d.save(HERE / "runs" / "rehearsal")
-        print("\n下一步：./present.sh 自己按一遍 1 2 3 c 3 4 w z f 1 2；把 rehearsal.json 的數字填進 p27 的表與 .gen 區塊、p24／p28 圖裡的例句；"
+        print("\n下一步：./present.sh 自己按一遍 1 2 3 c 3 4 w z f 1 2；把 rehearsal.json 的數字填進 p27 的表與 p28 的 .gen 區塊、p24／p29 圖裡的例句；"
               "./present.sh export 寫進 w07-metrics.json。")
         return
     out.banner("W7 Demo 1：幻覺——證據歸零時先驗長什麼樣" + (f"   [{d.tag}]" if d.tag else ""))

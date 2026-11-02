@@ -1,5 +1,5 @@
 <!-- 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。 -->
-# W7 · Demo 2 — The same audio, with and without the list: three ways to add a name at run time (slides p44–p50)
+# W7 · Demo 2 — The same audio, with and without the list: three ways to add a name at run time (slides p45–p51)
 
 Two recordings that contain proper names go through three ASR systems; a list of those names is handed to each system at the layer where it can take one.
 
@@ -10,11 +10,11 @@ Two recordings that contain proper names go through three ASR systems; a list of
 
 | Panel | Layer (slide) | Model | How the list goes in | What is printed |
 |---|---|---|---|---|
-| (a) key `7` | the **score** (p45) | wav2vec2-base-960h, W3 demo 3's CTC model | `ctc_prefix_beam.py`: a CTC prefix beam search (Hannun et al. 2014, Algorithm 1; numpy, character level, 32 beams) with the names in a trie — every character on a path of the list adds $\delta$ to the score, a path that is abandoned gives the bonus back (the failure arc of Zhao et al. 2019), $\delta \in \{1, 6, 24\}$; greedy and $\delta = 0$ as controls | each hypothesis with the names marked ✓/✗, the word errors, $\log P$ + bonus, and the **word-level diff against $\delta = 0$** — which ordinary words turned into names |
-| (c) keys `1`–`6`, `e` | the **prompt** (p47) | Whisper `small` (`transformers`, the same weights as W4 demo 3 and W7 demo 1) | `prompt_ids`, the previous-text slot: empty; the list of names; a sentence written in traditional characters (no names — only to see whether the output script flips); a full line of dialogue (to see whether it is read into the transcript) | the transcript, names ✓/✗, the teacher-forced average log-probability, word errors; for Mandarin the script judgement; and **prompt leakage**: any run of ≥ 3 English words / ≥ 4 Chinese characters of the prompt that appears in the transcript |
-| (c′) keys `8`, `9` | the **context slot of an LLM-based ASR** (p47, p52) | Qwen3-ASR (`Qwen/Qwen3-ASR-1.7B-hf`, the Transformers-native release) | `apply_transcription_request(audio, language, prompt=…)` — the model card's "free-form context … to bias the transcription", the same slot as a system message in its chat template; the same list (`Vocabulary: …`), the same traditional sentence, the same line of dialogue | the same fields, side by side with Whisper's |
+| (a) key `7` | the **score** (p46) | wav2vec2-base-960h, W3 demo 3's CTC model | `ctc_prefix_beam.py`: a CTC prefix beam search (Hannun et al. 2014, Algorithm 1; numpy, character level, 32 beams) with the names in a trie — every character on a path of the list adds $\delta$ to the score, a path that is abandoned gives the bonus back (the failure arc of Zhao et al. 2019), $\delta \in \{1, 6, 24\}$; greedy and $\delta = 0$ as controls | each hypothesis with the names marked ✓/✗, the word errors, $\log P$ + bonus, and the **word-level diff against $\delta = 0$** — which ordinary words turned into names |
+| (c) keys `1`–`6`, `e` | the **prompt** (p48) | Whisper `small` (`transformers`, the same weights as W4 demo 3 and W7 demo 1) | `prompt_ids`, the previous-text slot: empty; the list of names; a sentence written in traditional characters (no names — only to see whether the output script flips); a full line of dialogue (to see whether it is read into the transcript) | the transcript, names ✓/✗, the teacher-forced average log-probability, word errors; for Mandarin the script judgement; and **prompt leakage**: any run of ≥ 3 English words / ≥ 4 Chinese characters of the prompt that appears in the transcript |
+| (c′) keys `8`, `9` | the **context slot of an LLM-based ASR** (p48, p54) | Qwen3-ASR (`Qwen/Qwen3-ASR-1.7B-hf`, the Transformers-native release) | `apply_transcription_request(audio, language, prompt=…)` — the model card's "free-form context … to bias the transcription", the same slot as a system message in its chat template; the same list (`Vocabulary: …`), the same traditional sentence, the same line of dialogue | the same fields, side by side with Whisper's |
 
-Deep biasing (CLAS, p43–p44) has no ready-made model and is only drawn on the slides.
+Deep biasing (CLAS, p44–p45) has no ready-made model and is only drawn on the slides.
 
 Definitions: a name counts as recognised when it appears as a word sequence in the lower-cased, de-punctuated transcript (English) or as a substring after both sides are mapped to simplified characters (Mandarin — the script is not an error here). The script judgement counts characters that exist only in simplified or only in traditional usage, from a table of about six hundred common pairs built into `demo.py` (not OpenCC). The $\delta$ bonus is added to the log score once per character; wav2vec2's character log-probabilities are near 0 on a confident character and $-5$ to $-15$ on a wrong one, so $\delta = 1$ roughly outweighs one hesitant character and $\delta = 6$ can rewrite a whole name.
 
@@ -24,14 +24,14 @@ Differences from Zhao et al. 2019: the bonus is applied at the character level (
 
 | Key | Screen | Slide |
 |---|---|---|
-| `1` `2` `e` | English → Whisper: no prompt / the list / a line of dialogue | p50 |
-| `3` `4` `5` `6` | Mandarin → Whisper: no prompt / the list / a traditional-script sentence / a line of dialogue | p50 |
-| `7` | English → wav2vec2 log-probabilities → greedy, beam $\delta = 0$, $\delta$ = 1 / 6 / 24 | p45, p50 |
-| `8` | Qwen3-ASR, English and Mandarin: no context / the list | p50 |
-| `9` | Qwen3-ASR, Mandarin: the traditional sentence / the line of dialogue | p50 |
-| `0` | 8 s of near-silence (synthetic low-level white noise) with the dialogue prompts → Whisper and Qwen3-ASR: what each writes when the prompt is all it has | p47, p50 |
+| `1` `2` `e` | English → Whisper: no prompt / the list / a line of dialogue | p51 |
+| `3` `4` `5` `6` | Mandarin → Whisper: no prompt / the list / a traditional-script sentence / a line of dialogue | p51 |
+| `7` | English → wav2vec2 log-probabilities → greedy, beam $\delta = 0$, $\delta$ = 1 / 6 / 24 | p46, p51 |
+| `8` | Qwen3-ASR, English and Mandarin: no context / the list | p51 |
+| `9` | Qwen3-ASR, Mandarin: the traditional sentence / the line of dialogue | p51 |
+| `0` | 8 s of near-silence (synthetic low-level white noise) with the dialogue prompts → Whisper and Qwen3-ASR: what each writes when the prompt is all it has | p48, p51 |
 | `p` | print every prompt | |
-| `t` | the slide's table: names recognised / script / leakage per cell | p50 |
+| `t` | the slide's table: names recognised / script / leakage per cell | p51 |
 | `h` `q` | menu, quit | |
 
 ## Running it
