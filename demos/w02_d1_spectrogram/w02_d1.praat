@@ -5,8 +5,8 @@
 #   1. Praat 選單 Praat > Open Praat script… 開這個檔，Run，在表單裡填 WAV 的完整路徑
 #   2. 終端機：./present.sh praat vowels
 #
-# **這支 script 是 2026-09-17 憑對 Praat 語法的記憶寫的，沒有在 Praat 裡跑過。**
-# 第一次用之前先跑一次；指令名稱或參數順序若與你的 Praat 版本不合，Praat 會指出是哪一行。
+# 2026-09-17 憑對 Praat 語法的記憶寫的；2026-11-02 在 Praat 裡跑過，沒有報錯。
+# 換了 Praat 版本先跑一次；指令名稱或參數順序若與你的版本不合，Praat 會指出是哪一行。
 # 最容易出錯的是 Paint 與 To Pitch 的參數個數——對照 Praat 裡按同名按鈕跳出來的表單欄位即可。
 
 form W2 demo 1
@@ -39,6 +39,13 @@ selectObject: sound
 pitch = To Pitch: 0, pitch_floor, pitch_ceiling
 Draw: 0, 0, 0, pitch_ceiling, "yes"
 Text top: "no", "F0 (Hz)"
+
+# 把整張圖另存一份 PNG 到 runs/live/（不進版控、不上站），彩排時不用截圖就能回報畫出了什麼
+Select outer viewport: 0, 9, 0, 9
+png$ = replace$ (wav_file$, "rehearsal/", "live/praat_", 1)
+png$ = replace$ (png$, ".wav", ".png", 1)
+Save as 300-dpi PNG file: png$
+appendInfoLine: "saved ", png$
 
 # 留下 Sound 物件並開編輯視窗，要讀共振峰數值時用（Formant > Show formants，游標放上去按 F1）
 removeObject: wide, narrow, pitch

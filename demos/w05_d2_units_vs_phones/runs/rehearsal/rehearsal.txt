@@ -45,4 +45,23 @@
     spk 2412   13 frames  80 15 54 68 71 96 50 51 57 88                                  LCS 5/11 of the sentence's runs (45 %), Jaccard of unit sets 0.31
     spk 3752   16 frames  13 69 15 68 12 96 38 50 1 57 88                                LCS 5/11 of the sentence's runs (45 %), Jaccard of unit sets 0.29
     spk 5338   17 frames  15 68 71 96 11 50 39 57 88 90                                  LCS 7/11 of the sentence's runs (64 %), Jaccard of unit sets 0.50
-  沒有自錄的 wav（demo_config.toml [extra].wavs，再 ./present.sh extract）
+
+────────────────────────────────────────────────────────────────────────
+4  4 own recordings — unit runs (l6)
+────────────────────────────────────────────────────────────────────────
+  extra_ma1            T =  42  l6: 43 83 43 83 36 32 95 61 95 29 79 75 8 71 24 43
+  extra_ma2            T =  40  l6: 43 83 43 83 36 32 95 61 29 95 29 46 65 16 71 43
+  extra_ma3            T =  37  l6: 43 83 43 83 36 26 32 95 61 15 61 95 93 95 93 28 75 71 43
+  extra_ma4            T =  32  l6: 43 83 36 32 95 61 95 28 93 75
+    LCS(extra_ma1, extra_ma2) = 12 / 16
+    LCS(extra_ma1, extra_ma3) = 12 / 16
+    LCS(extra_ma1, extra_ma4) = 8 / 16
+    LCS(extra_ma2, extra_ma1) = 12 / 16
+    LCS(extra_ma2, extra_ma3) = 11 / 16
+    LCS(extra_ma2, extra_ma4) = 7 / 16
+    LCS(extra_ma3, extra_ma1) = 12 / 19
+    LCS(extra_ma3, extra_ma2) = 11 / 19
+    LCS(extra_ma3, extra_ma4) = 9 / 19
+    LCS(extra_ma4, extra_ma1) = 8 / 10
+    LCS(extra_ma4, extra_ma2) = 7 / 10
+    LCS(extra_ma4, extra_ma3) = 9 / 10

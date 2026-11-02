@@ -173,13 +173,15 @@ class Viewer:
             t = (pos - self.total) / FS
             f0 = np.array([t_[1] for t_ in self.track])
             self.pitch.set_data(t, f0) if self.show_pitch else self.pitch.set_data([], [])
-            n_trail = CFG["vowel_space"]["trail_frames"]
+            # replay：整段已經凍結，把每一個有共振峰的 frame 都畫出來（/a/ /i/ /u/ 三團都看得到），不是只留最近幾十個
+            n_trail = len(self.track) if self.mode == "replay" else CFG["vowel_space"]["trail_frames"]
             ff = np.array([(t_[3], t_[2]) for t_ in list(self.track)[-n_trail:]])
             ff = ff[~np.isnan(ff).any(axis=1)]
             self.trail.set_data(ff[:, 0], ff[:, 1]) if len(ff) else self.trail.set_data([], [])
             recent = ff[-CFG["vowel_space"]["smooth_frames"]:]
             # 只在最近這幾個 frame 都有聲時才畫紅點，取中位數壓掉 LPC 偶發的跳點
-            if len(recent) == CFG["vowel_space"]["smooth_frames"] and not self.frozen_silent():
+            # 紅點是「現在嘴型在哪」；replay 沒有「現在」，不畫（否則它停在最後一個母音收尾的過渡段，三個母音都不像）
+            if self.mode != "replay" and len(recent) == CFG["vowel_space"]["smooth_frames"] and not self.frozen_silent():
                 self.dot.set_data([np.median(recent[:, 0])], [np.median(recent[:, 1])])
             else:
                 self.dot.set_data([], [])

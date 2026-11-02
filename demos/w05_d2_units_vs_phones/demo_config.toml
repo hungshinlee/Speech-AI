@@ -54,8 +54,10 @@ max_others = 3
 
 [extra]
 # 選配（鍵 4）：自己錄的 wav（16 kHz 單聲道），例如同一個華語音節的四個聲調。路徑相對於本資料夾；不上站（audio/ 在 .gitignore 與 sites.json 的 public_demos_exclude）。
-wavs = []
-labels = []
+# 2026-11-02：授課者自錄「媽、麻、馬、罵」——從 W2 Demo 1 的退路 tones.wav 切出來的四個音節（能量門檻、前後各留 80 ms）
+# 這四個檔不上站：沒有它們時 extract 會印「找不到」並略過、鍵 4 顯示沒有自錄。要試就錄自己的四聲、用同樣的檔名放進 audio/（Own recordings: put ma1.wav … ma4.wav, 16 kHz mono, in audio/; missing files are skipped.）
+wavs = ["audio/ma1.wav", "audio/ma2.wav", "audio/ma3.wav", "audio/ma4.wav"]
+labels = ["ma1", "ma2", "ma3", "ma4"]
 
 [display]
 digits = 3
