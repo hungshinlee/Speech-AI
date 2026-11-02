@@ -1,0 +1,126 @@
+# 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
+# W2 demo 3：前端定義不匹配——同一段音、同一個預訓練辨識模型，只換 log-mel 的配方，WER 動多少。換內容只改這裡。
+#
+# 設計（2026-11-02；理由見 README）：
+#   Whisper small 的輸入是 80 維 log-mel（25 ms Hann、10 ms hop、n_fft 400）。它自己的配方寫在 openai/whisper 的 audio.py
+#   （filterbank 是 librosa.filters.mel 的預設值：Slaney 尺度、面積正規化）；transformers 的 WhisperFeatureExtractor 照抄。
+#   這裡用 ../dsp.py 自己算同一份特徵，每個旋鈕寫成一個參數，然後一次只轉一個旋鈕、把特徵餵進同一個模型，量 WER。
+#   投影片 p64 列的七個分歧點（mel 尺度、濾波器正規化、power／magnitude、log 的 floor、dither、pre-emphasis、輸出正規化）各對應一個 recipe。
+
+[model]
+# 多語版 small（244 M），W4 Demo 3／W7 三個 demo 同一份權重；commit 沿它們的 model.lock（fetch 會寫進這裡的 model.lock）。
+repo = "openai/whisper-small"
+# transformers 5.17.0 的 generate 在 MPS 上會掛（W7 Demo 1 抓到），Whisper 一律放 CPU；small 對 30 s 的輸入在 M5 Max 上是秒級以下。
+device = "cpu"
+language = "en"
+task = "transcribe"
+max_new_tokens = 160
+num_beams = 1
+
+[audio]
+fs = 16000
+# 句子：LibriSpeech dev-clean（CC BY 4.0）每位說話人一句，共 40 句。fetch 從 ../_media/dev-clean.tar.gz（W3 Demo 3 下載的那一份）
+# 讀參考文字與長度、挑句、解出 16 kHz wav → ../_media/w02_d3/wav/（不進版控）；清單與參考文字 → data/sentences.json（進版控）。
+dev_clean_tar = "../_media/dev-clean.tar.gz"
+wav_dir = "../_media/w02_d3/wav"
+# 挑法：每位說話人，長度在 min_s–max_s 之間、最接近 target_s 的那一句（都不在範圍內就取最接近的）；40 位說話人 → 40 句。確定性。
+min_s = 4.0
+max_s = 10.0
+target_s = 7.0
+
+[frontend]
+# Whisper 的框架參數（openai/whisper audio.py：N_FFT 400、HOP_LENGTH 160、CHUNK_LENGTH 30、80 個 mel、0–8000 Hz）。這些不轉。
+n_fft = 400
+hop = 160
+n_mels = 80
+fmin = 0.0
+fmax = 8000.0
+chunk_s = 30
+
+[frontend.reference]
+# Whisper 自己的配方，七個旋鈕逐一寫出來（每一項都對過 openai/whisper audio.py 與 transformers 5.17.0 的 feature_extraction_whisper.py，2026-11-02）。
+mel_scale = "slaney"      # "slaney"（1 kHz 以下線性，librosa 預設）或 "htk"（2595·log10(1 + f/700)）
+filter_norm = "area"      # "area"：每個三角形除以自己的頻寬（librosa norm="slaney"）；"peak"：峰值為 1（HTK／Kaldi）
+power = 2.0               # 2.0 = 功率譜 |X|²；1.0 = magnitude |X|
+log = "log10"             # "log10" 或 "ln"
+floor = 1e-10             # log 之前 clamp 的下限
+dither = 0.0              # 加進波形的高斯雜訊標準差（波形在 ±1 的單位）；0 = 不加
+preemphasis = 0.0         # x[n] − coef·x[n−1]；0 = 不做
+output = "whisper"        # "whisper"：clamp 到 max − 8 之後 (x + 4) / 4；"cmvn"：每一維對有聲音的 frame 減均值除標準差（不 clamp、不做 affine）
+
+# 一次只轉一個旋鈕。key 是課堂上按的鍵；id 進 rehearsal.json 與 w02-metrics.json；名字照投影片的英文。
+[[recipe]]
+key = "0"
+id = "same"
+name = "same recipe, our own code"
+changes = {}
+
+[[recipe]]
+key = "1"
+id = "htk"
+name = "mel scale: HTK instead of Slaney"
+changes = { mel_scale = "htk" }
+
+[[recipe]]
+key = "2"
+id = "peak"
+name = "filter normalisation: peak = 1 instead of area"
+changes = { filter_norm = "peak" }
+
+[[recipe]]
+key = "3"
+id = "mag"
+name = "magnitude instead of power"
+changes = { power = 1.0 }
+
+[[recipe]]
+key = "4"
+id = "floor"
+name = "log floor 1e-5 instead of 1e-10"
+changes = { floor = 1e-5 }
+
+[[recipe]]
+key = "5"
+id = "dither"
+name = "dither: 1 LSB of 16-bit audio (Kaldi's default amount)"
+changes = { dither = 3.0517578125e-5 }
+
+[[recipe]]
+key = "6"
+id = "preemph"
+name = "pre-emphasis 0.97"
+changes = { preemphasis = 0.97 }
+
+[[recipe]]
+key = "7"
+id = "cmvn"
+name = "output: per-utterance CMVN instead of clamp + affine"
+changes = { output = "cmvn" }
+
+[[recipe]]
+key = "8"
+id = "kaldi_like"
+name = "five knobs at once: HTK, peak, pre-emphasis, ln, CMVN"
+changes = { mel_scale = "htk", filter_norm = "peak", preemphasis = 0.97, log = "ln", output = "cmvn" }
+
+[scoring]
+# WER：詞級 Levenshtein，分母是全部參考詞數（corpus WER）。參考與輸出都先過 Whisper 自己的 EnglishTextNormalizer
+# （小寫、去標點、數字與拼法標準化；tokenizer.normalize()），沒有它時退回「大寫、只留 A–Z 0–9 '」。
+normalizer = "whisper"
+# 畫面上每句一行；錯的詞標色；一個 recipe 跑完印最差的幾句
+worst_n = 3
+
+[display]
+fig_w = 15.0
+fig_h = 8.4
+cmap = "magma"
+digits = 2
+# 特徵圖只畫有聲音的 frame（不畫 30 s 的 padding），上下限用 Whisper 正規化後的單位
+feat_vmin = -1.0
+feat_vmax = 1.6
+diff_vmax = 0.5
+
+[fake]
+# 沒有模型時的演練：合成的「辨識器」——把參考文字裡的詞依特徵差異的大小隨機換掉幾個。畫面標明 FAKE，不是給學生看的。
+seed = 20261102
+errors_per_unit_diff = 6.0

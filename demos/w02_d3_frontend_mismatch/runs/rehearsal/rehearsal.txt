@@ -1,0 +1,541 @@
+
+────────────────────────────────────────────────────────────────────────
+彩排：基準加全部 recipe
+────────────────────────────────────────────────────────────────────────
+  openai/whisper-small @ 973afd24965f，242 M 參數，cpu，載入 1.4 s；normalizer：Whisper EnglishTextNormalizer
+  40 句、共 279 s 音訊
+
+────────────────────────────────────────────────────────────────────────
+r  Whisper's own front-end (transformers WhisperFeatureExtractor)
+────────────────────────────────────────────────────────────────────────
+  [ 1/40] ✗ 3   logP -0.29  VILLEFORT→VILLAFORTE  −I  −RAVE
+  [ 2/40] ✓     logP -0.06  
+  [ 3/40] ✓     logP -0.07  
+  [ 4/40] ✓     logP -0.17  
+  [ 5/40] ✗ 1   logP -0.21  SAUTERNE→SOTERN
+  [ 6/40] ✓     logP -0.04  
+  [ 7/40] ✓     logP -0.09  
+  [ 8/40] ✗ 3   logP -0.21  +MAIN  MAINHALL→HALL  WRY→RYE
+  [ 9/40] ✓     logP -0.04  
+  [10/40] ✓     logP -0.17  
+  [11/40] ✓     logP -0.03  
+  [12/40] ✗ 1   logP -0.23  JEM→GEM
+  [13/40] ✗ 1   logP -0.05  DOUGHNUTS→DONUTS
+  [14/40] ✓     logP -0.23  
+  [15/40] ✓     logP -0.03  
+  [16/40] ✗ 2   logP -0.10  CARRIE→CARRY  TINKLED→TINGLED
+  [17/40] ✓     logP -0.03  
+  [18/40] ✓     logP -0.08  
+  [19/40] ✓     logP -0.08  
+  [20/40] ✓     logP -0.06  
+  [21/40] ✓     logP -0.07  
+  [22/40] ✓     logP -0.03  
+  [23/40] ✓     logP -0.10  
+  [24/40] ✗ 2   logP -0.02  −HER  IS→HERS
+  [25/40] ✗ 1   logP -0.27  SANCHO→SANCHEZ
+  [26/40] ✓     logP -0.21  
+  [27/40] ✗ 1   logP -0.23  TOO→TO
+  [28/40] ✗ 3   logP -0.11  +BATTLE  BATTLEMENTED→MINTED  INCLOSURE→ENCLOSURE
+  [29/40] ✓     logP -0.08  
+  [30/40] ✓     logP -0.07  
+  [31/40] ✗ 2   logP -0.12  +MOUNTED  MOUNTEBANK→BANK
+  [32/40] ✓     logP -0.10  
+  [33/40] ✓     logP -0.10  
+  [34/40] ✗ 3   logP -0.10  −GREEN  FIELD→GREENFIELD  THE→TO
+  [35/40] ✓     logP -0.08  
+  [36/40] ✓     logP -0.14  
+  [37/40] ✓     logP -0.05  
+  [38/40] ✗ 3   logP -0.22  +FOR  4→A  PLANE→PLAN
+  [39/40] ✓     logP -0.02  
+  [40/40] ✓     logP -0.06  
+  WER 3.31 %  (S 18  D 4  I 4 / 786 words)   每句平均 log P -0.111
+  前端 0.1 s、辨識 34.6 s
+
+────────────────────────────────────────────────────────────────────────
+0  same recipe, our own code
+────────────────────────────────────────────────────────────────────────
+  （每個旋鈕都與基準相同）
+  [ 1/40] ✗ 3   logP -0.29  VILLEFORT→VILLAFORTE  −I  −RAVE
+  [ 2/40] ✓     logP -0.06  
+  [ 3/40] ✓     logP -0.07  
+  [ 4/40] ✓     logP -0.17  
+  [ 5/40] ✗ 1   logP -0.21  SAUTERNE→SOTERN
+  [ 6/40] ✓     logP -0.04  
+  [ 7/40] ✓     logP -0.09  
+  [ 8/40] ✗ 3   logP -0.21  +MAIN  MAINHALL→HALL  WRY→RYE
+  [ 9/40] ✓     logP -0.04  
+  [10/40] ✓     logP -0.17  
+  [11/40] ✓     logP -0.03  
+  [12/40] ✗ 1   logP -0.23  JEM→GEM
+  [13/40] ✗ 1   logP -0.05  DOUGHNUTS→DONUTS
+  [14/40] ✓     logP -0.23  
+  [15/40] ✓     logP -0.03  
+  [16/40] ✗ 2   logP -0.10  CARRIE→CARRY  TINKLED→TINGLED
+  [17/40] ✓     logP -0.03  
+  [18/40] ✓     logP -0.08  
+  [19/40] ✓     logP -0.08  
+  [20/40] ✓     logP -0.06  
+  [21/40] ✓     logP -0.07  
+  [22/40] ✓     logP -0.03  
+  [23/40] ✓     logP -0.10  
+  [24/40] ✗ 2   logP -0.02  −HER  IS→HERS
+  [25/40] ✗ 1   logP -0.27  SANCHO→SANCHEZ
+  [26/40] ✓     logP -0.21  
+  [27/40] ✗ 1   logP -0.23  TOO→TO
+  [28/40] ✗ 3   logP -0.11  +BATTLE  BATTLEMENTED→MINTED  INCLOSURE→ENCLOSURE
+  [29/40] ✓     logP -0.08  
+  [30/40] ✓     logP -0.07  
+  [31/40] ✗ 2   logP -0.12  +MOUNTED  MOUNTEBANK→BANK
+  [32/40] ✓     logP -0.10  
+  [33/40] ✓     logP -0.10  
+  [34/40] ✗ 3   logP -0.10  −GREEN  FIELD→GREENFIELD  THE→TO
+  [35/40] ✓     logP -0.08  
+  [36/40] ✓     logP -0.14  
+  [37/40] ✓     logP -0.05  
+  [38/40] ✗ 3   logP -0.22  +FOR  4→A  PLANE→PLAN
+  [39/40] ✓     logP -0.02  
+  [40/40] ✓     logP -0.06  
+  WER 3.31 %  (S 18  D 4  I 4 / 786 words)   Δ vs. ref +0.00 點   每句平均 log P -0.111（基準 -0.111）
+  特徵對基準：mean |Δ| 0.000   max |Δ| 0.00   cells changed 1.7 %   轉錄與基準不同：0 / 40 句
+  前端 0.2 s、辨識 34.4 s
+  沒有任何一句比基準多錯
+
+────────────────────────────────────────────────────────────────────────
+1  mel scale: HTK instead of Slaney
+────────────────────────────────────────────────────────────────────────
+  mel_scale = htk
+  filterbank 中心頻率差最大在第 64 個濾波器：4426.6 Hz 對 4164.4 Hz（差 +262.1 Hz）
+  [ 1/40] ✗ 3   logP -0.28  VILLEFORT→VILLAFORTE  −I  −RAVE
+  [ 2/40] ✓     logP -0.05  
+  [ 3/40] ✓     logP -0.07  
+  [ 4/40] ✓     logP -0.12  
+  [ 5/40] ✗ 1   logP -0.25  SAUTERNE→SOTERN
+  [ 6/40] ✓     logP -0.05  
+  [ 7/40] ✓     logP -0.08  
+  [ 8/40] ✗ 3   logP -0.22  +MAIN  MAINHALL→HALL  WRY→WRITHE  ≠ ref
+  [ 9/40] ✓     logP -0.05  
+  [10/40] ✓     logP -0.18  
+  [11/40] ✓     logP -0.03  
+  [12/40] ✗ 1   logP -0.19  JEM→JIM  ≠ ref
+  [13/40] ✗ 1   logP -0.06  DOUGHNUTS→DONUTS
+  [14/40] ✓     logP -0.18  
+  [15/40] ✓     logP -0.06  
+  [16/40] ✗ 2   logP -0.10  CARRIE→CARRY  TINKLED→TINGLED
+  [17/40] ✓     logP -0.03  
+  [18/40] ✓     logP -0.09  
+  [19/40] ✓     logP -0.11  
+  [20/40] ✓     logP -0.07  
+  [21/40] ✓     logP -0.07  
+  [22/40] ✓     logP -0.03  
+  [23/40] ✗ 1   logP -0.10  THEY→THERE  ≠ ref
+  [24/40] ✗ 2   logP -0.02  −HER  IS→HERS
+  [25/40] ✗ 1   logP -0.27  SANCHO→SANCHEZ
+  [26/40] ✓     logP -0.24  
+  [27/40] ✗ 1   logP -0.23  TOO→TO
+  [28/40] ✗ 3   logP -0.14  +BATTLE  BATTLEMENTED→MINTED  INCLOSURE→ENCLOSURE
+  [29/40] ✓     logP -0.09  
+  [30/40] ✓     logP -0.07  
+  [31/40] ✗ 2   logP -0.14  +MOUNTED  MOUNTEBANK→BANK
+  [32/40] ✓     logP -0.10  
+  [33/40] ✓     logP -0.09  
+  [34/40] ✗ 2   logP -0.08  −GREEN  FIELD→GREENFIELD  ≠ ref
+  [35/40] ✓     logP -0.11  
+  [36/40] ✓     logP -0.11  
+  [37/40] ✓     logP -0.05  
+  [38/40] ✗ 3   logP -0.21  +FOR  4→A  PLANE→PLAN
+  [39/40] ✓     logP -0.03  
+  [40/40] ✓     logP -0.05  
+  WER 3.31 %  (S 18  D 4  I 4 / 786 words)   Δ vs. ref +0.00 點   每句平均 log P -0.113（基準 -0.111）
+  特徵對基準：mean |Δ| 0.121   max |Δ| 1.62   cells changed 100.0 %   轉錄與基準不同：4 / 40 句
+  前端 0.2 s、辨識 34.4 s
+  比基準多錯最多的 1 句（⟨⟩ 刪、紅字替換或插入）：
+    3170-137482-0041  +1
+      ref  THEY WERE NOT ONLY GOOD CHRISTIANS AND FAITHFUL TO THE CHURCH BUT EVEN REAL DEVOTEES AND FULL OF SCRUPLES
+      hyp  THERE WERE NOT ONLY GOOD CHRISTIANS AND FAITHFUL TO THE CHURCH BUT EVEN REAL DEVOTEES AND FULL OF SCRUPLES
+
+────────────────────────────────────────────────────────────────────────
+2  filter normalisation: peak = 1 instead of area
+────────────────────────────────────────────────────────────────────────
+  filter_norm = peak
+  [ 1/40] ✗ 1   logP -0.30  VILLEFORT→VILLAFORTE  ≠ ref
+  [ 2/40] ✓     logP -0.05  
+  [ 3/40] ✓     logP -0.07  
+  [ 4/40] ✓     logP -0.16  
+  [ 5/40] ✗ 1   logP -0.21  SAUTERNE→SOTERN
+  [ 6/40] ✓     logP -0.04  
+  [ 7/40] ✓     logP -0.11  
+  [ 8/40] ✗ 3   logP -0.24  +MAIN  MAINHALL→HALL  WRY→RYE
+  [ 9/40] ✓     logP -0.05  
+  [10/40] ✓     logP -0.18  
+  [11/40] ✓     logP -0.04  
+  [12/40] ✗ 1   logP -0.21  JEM→GEM
+  [13/40] ✗ 1   logP -0.06  DOUGHNUTS→DONUTS
+  [14/40] ✓     logP -0.24  
+  [15/40] ✓     logP -0.03  
+  [16/40] ✗ 2   logP -0.11  CARRIE→CARRY  TINKLED→TINGLED
+  [17/40] ✓     logP -0.03  
+  [18/40] ✓     logP -0.08  
+  [19/40] ✓     logP -0.08  
+  [20/40] ✓     logP -0.06  
+  [21/40] ✓     logP -0.07  
+  [22/40] ✓     logP -0.02  
+  [23/40] ✓     logP -0.10  
+  [24/40] ✗ 2   logP -0.02  −HER  IS→HERS
+  [25/40] ✗ 2   logP -0.35  SANCHO→SANCHEZ  KERCHIEFS→KIRCHIFFS  ≠ ref
+  [26/40] ✓     logP -0.22  
+  [27/40] ✗ 1   logP -0.25  TOO→TO
+  [28/40] ✗ 3   logP -0.12  +BATTLE  BATTLEMENTED→MINTED  INCLOSURE→ENCLOSURE
+  [29/40] ✓     logP -0.08  
+  [30/40] ✓     logP -0.08  
+  [31/40] ✗ 2   logP -0.13  +MOUNTED  MOUNTEBANK→BANK
+  [32/40] ✓     logP -0.10  
+  [33/40] ✓     logP -0.10  
+  [34/40] ✗ 3   logP -0.12  −GREEN  FIELD→GREENFIELD  THE→TO
+  [35/40] ✓     logP -0.11  
+  [36/40] ✓     logP -0.13  
+  [37/40] ✓     logP -0.05  
+  [38/40] ✗ 3   logP -0.23  +FOR  4→A  PLANE→PLAN
+  [39/40] ✓     logP -0.03  
+  [40/40] ✓     logP -0.05  
+  WER 3.18 %  (S 19  D 2  I 4 / 786 words)   Δ vs. ref -0.13 點   每句平均 log P -0.118（基準 -0.111）
+  特徵對基準：mean |Δ| 0.460   max |Δ| 0.62   cells changed 100.0 %   轉錄與基準不同：2 / 40 句
+  前端 0.2 s、辨識 34.3 s
+  比基準多錯最多的 1 句（⟨⟩ 刪、紅字替換或插入）：
+    3576-138058-0030  +1
+      ref  SANCHO SAID THEY HAD BUT THAT 3 KERCHIEFS THAT WERE WORTH 3 CITIES WERE MISSING
+      hyp  SANCHEZ SAID THEY HAD BUT THAT 3 KIRCHIFFS THAT WERE WORTH 3 CITIES WERE MISSING
+
+────────────────────────────────────────────────────────────────────────
+3  magnitude instead of power
+────────────────────────────────────────────────────────────────────────
+  power = 1.0
+  [ 1/40] ✗ 3   logP -0.26  VILLEFORT→VILLAFORTE  −I  −RAVE
+  [ 2/40] ✓     logP -0.05  
+  [ 3/40] ✓     logP -0.07  
+  [ 4/40] ✓     logP -0.12  
+  [ 5/40] ✗ 1   logP -0.22  SAUTERNE→SOTERN
+  [ 6/40] ✓     logP -0.04  
+  [ 7/40] ✗ 1   logP -0.11  QUILTER→QUILDER  ≠ ref
+  [ 8/40] ✗ 3   logP -0.21  +MAIN  MAINHALL→HALL  WRY→RYE
+  [ 9/40] ✓     logP -0.05  
+  [10/40] ✓     logP -0.20  
+  [11/40] ✓     logP -0.04  
+  [12/40] ✗ 1   logP -0.20  JEM→JIM  ≠ ref
+  [13/40] ✗ 1   logP -0.05  DOUGHNUTS→DONUTS
+  [14/40] ✓     logP -0.27  
+  [15/40] ✓     logP -0.03  
+  [16/40] ✗ 2   logP -0.11  CARRIE→CARRY  TINKLED→TINGLED
+  [17/40] ✓     logP -0.04  
+  [18/40] ✓     logP -0.08  
+  [19/40] ✓     logP -0.12  
+  [20/40] ✓     logP -0.06  
+  [21/40] ✓     logP -0.08  
+  [22/40] ✓     logP -0.04  
+  [23/40] ✓     logP -0.10  
+  [24/40] ✗ 2   logP -0.02  −HER  IS→HERS
+  [25/40] ✗ 1   logP -0.28  SANCHO→SANCHEZ
+  [26/40] ✓     logP -0.18  
+  [27/40] ✗ 1   logP -0.22  TOO→TO
+  [28/40] ✗ 3   logP -0.11  +BATTLE  BATTLEMENTED→MINTED  INCLOSURE→ENCLOSURE
+  [29/40] ✓     logP -0.08  
+  [30/40] ✗ 3   logP -0.15  THE→THEY  ORDER→ORDERED  TO→A  ≠ ref
+  [31/40] ✗ 2   logP -0.15  +MOUNTED  MOUNTEBANK→BANK
+  [32/40] ✓     logP -0.10  
+  [33/40] ✓     logP -0.11  
+  [34/40] ✗ 2   logP -0.12  SURROUNDED→SURRENDERED  THE→TO  ≠ ref
+  [35/40] ✓     logP -0.10  
+  [36/40] ✓     logP -0.10  
+  [37/40] ✓     logP -0.05  
+  [38/40] ✗ 3   logP -0.24  +FOR  4→A  PLANE→PLAN
+  [39/40] ✓     logP -0.03  
+  [40/40] ✓     logP -0.06  
+  WER 3.69 %  (S 22  D 3  I 4 / 786 words)   Δ vs. ref +0.38 點   每句平均 log P -0.115（基準 -0.111）
+  特徵對基準：mean |Δ| 0.342   max |Δ| 0.90   cells changed 100.0 %   轉錄與基準不同：4 / 40 句
+  前端 0.2 s、辨識 34.3 s
+  比基準多錯最多的 2 句（⟨⟩ 刪、紅字替換或插入）：
+    5694-64025-0011  +3
+      ref  I HAD BEEN FEELING MEAN ALL THE MORNING AS IF I HAD STOLEN A SHEEP BUT WHEN THE ORDER TO CHARGE WAS GIVEN I GOT HAPPY
+      hyp  I HAD BEEN FEELING MEAN ALL THE MORNING AS IF I HAD STOLEN A SHEEP BUT WHEN THEY ORDERED A CHARGE WAS GIVEN I GOT HAPPY
+    1272-128104-0013  +1
+      ref  MISTER QUILTER HAS MISSED HIS CHANCE FOR HE HAS FAILED EVEN TO MAKE HIMSELF THE TUPPER OF PAINTING
+      hyp  MISTER QUILDER HAS MISSED HIS CHANCE FOR HE HAS FAILED EVEN TO MAKE HIMSELF THE TUPPER OF PAINTING
+
+────────────────────────────────────────────────────────────────────────
+4  log floor 1e-5 instead of 1e-10
+────────────────────────────────────────────────────────────────────────
+  floor = 1e-05
+  [ 1/40] ✗ 1   logP -0.29  VILLEFORT→VILLAFORTE  ≠ ref
+  [ 2/40] ✓     logP -0.05  
+  [ 3/40] ✓     logP -0.07  
+  [ 4/40] ✓     logP -0.17  
+  [ 5/40] ✗ 1   logP -0.22  SAUTERNE→SOTERN
+  [ 6/40] ✓     logP -0.04  
+  [ 7/40] ✓     logP -0.09  
+  [ 8/40] ✗ 3   logP -0.19  +MAIN  MAINHALL→HALL  WRY→RYE
+  [ 9/40] ✓     logP -0.05  
+  [10/40] ✓     logP -0.17  
+  [11/40] ✓     logP -0.04  
+  [12/40] ✗ 1   logP -0.22  JEM→GEM
+  [13/40] ✗ 1   logP -0.05  DOUGHNUTS→DONUTS
+  [14/40] ✓     logP -0.21  
+  [15/40] ✓     logP -0.04  
+  [16/40] ✗ 2   logP -0.13  CARRIE→CARRY  TINKLED→TINGLED
+  [17/40] ✓     logP -0.03  
+  [18/40] ✓     logP -0.08  
+  [19/40] ✓     logP -0.08  
+  [20/40] ✓     logP -0.05  
+  [21/40] ✓     logP -0.08  
+  [22/40] ✓     logP -0.03  
+  [23/40] ✓     logP -0.10  
+  [24/40] ✗ 2   logP -0.02  −HER  IS→HERS
+  [25/40] ✗ 1   logP -0.29  SANCHO→SANCHEZ
+  [26/40] ✓     logP -0.21  
+  [27/40] ✗ 1   logP -0.23  TOO→TO
+  [28/40] ✗ 3   logP -0.12  +BATTLE  BATTLEMENTED→MINTED  INCLOSURE→ENCLOSURE
+  [29/40] ✓     logP -0.08  
+  [30/40] ✓     logP -0.07  
+  [31/40] ✗ 2   logP -0.11  +MOUNTED  MOUNTEBANK→BANK
+  [32/40] ✓     logP -0.10  
+  [33/40] ✓     logP -0.14  
+  [34/40] ✗ 3   logP -0.11  −GREEN  FIELD→GREENFIELD  THE→TO
+  [35/40] ✓     logP -0.10  
+  [36/40] ✓     logP -0.12  
+  [37/40] ✓     logP -0.05  
+  [38/40] ✗ 3   logP -0.22  +FOR  4→A  PLANE→PLAN
+  [39/40] ✓     logP -0.02  
+  [40/40] ✓     logP -0.06  
+  WER 3.05 %  (S 18  D 2  I 4 / 786 words)   Δ vs. ref -0.25 點   每句平均 log P -0.114（基準 -0.111）
+  特徵對基準：mean |Δ| 0.112   max |Δ| 0.94   cells changed 39.5 %   轉錄與基準不同：1 / 40 句
+  前端 0.2 s、辨識 34.4 s
+  沒有任何一句比基準多錯
+
+────────────────────────────────────────────────────────────────────────
+5  dither: 1 LSB of 16-bit audio (Kaldi's default amount)
+────────────────────────────────────────────────────────────────────────
+  dither = 3.0517578125e-05
+  [ 1/40] ✗ 3   logP -0.29  VILLEFORT→VILLAFORTE  −I  −RAVE
+  [ 2/40] ✓     logP -0.06  
+  [ 3/40] ✓     logP -0.07  
+  [ 4/40] ✓     logP -0.17  
+  [ 5/40] ✗ 1   logP -0.21  SAUTERNE→SOTERN
+  [ 6/40] ✓     logP -0.04  
+  [ 7/40] ✓     logP -0.09  
+  [ 8/40] ✗ 3   logP -0.21  +MAIN  MAINHALL→HALL  WRY→RYE
+  [ 9/40] ✓     logP -0.04  
+  [10/40] ✓     logP -0.17  
+  [11/40] ✓     logP -0.03  
+  [12/40] ✗ 1   logP -0.21  JEM→GEM
+  [13/40] ✗ 1   logP -0.05  DOUGHNUTS→DONUTS
+  [14/40] ✓     logP -0.23  
+  [15/40] ✓     logP -0.03  
+  [16/40] ✗ 2   logP -0.11  CARRIE→CARRY  TINKLED→TINGLED
+  [17/40] ✓     logP -0.03  
+  [18/40] ✓     logP -0.08  
+  [19/40] ✓     logP -0.08  
+  [20/40] ✓     logP -0.06  
+  [21/40] ✓     logP -0.07  
+  [22/40] ✓     logP -0.03  
+  [23/40] ✓     logP -0.10  
+  [24/40] ✗ 2   logP -0.02  −HER  IS→HERS
+  [25/40] ✗ 1   logP -0.27  SANCHO→SANCHEZ
+  [26/40] ✓     logP -0.21  
+  [27/40] ✗ 1   logP -0.23  TOO→TO
+  [28/40] ✗ 3   logP -0.11  +BATTLE  BATTLEMENTED→MINTED  INCLOSURE→ENCLOSURE
+  [29/40] ✓     logP -0.08  
+  [30/40] ✓     logP -0.07  
+  [31/40] ✗ 2   logP -0.12  +MOUNTED  MOUNTEBANK→BANK
+  [32/40] ✓     logP -0.10  
+  [33/40] ✓     logP -0.10  
+  [34/40] ✗ 3   logP -0.10  −GREEN  FIELD→GREENFIELD  THE→TO
+  [35/40] ✓     logP -0.08  
+  [36/40] ✓     logP -0.14  
+  [37/40] ✓     logP -0.05  
+  [38/40] ✗ 3   logP -0.22  +FOR  4→A  PLANE→PLAN
+  [39/40] ✓     logP -0.02  
+  [40/40] ✓     logP -0.06  
+  WER 3.31 %  (S 18  D 4  I 4 / 786 words)   Δ vs. ref +0.00 點   每句平均 log P -0.111（基準 -0.111）
+  特徵對基準：mean |Δ| 0.002   max |Δ| 0.32   cells changed 96.7 %   轉錄與基準不同：0 / 40 句
+  前端 0.2 s、辨識 34.6 s
+  沒有任何一句比基準多錯
+
+────────────────────────────────────────────────────────────────────────
+6  pre-emphasis 0.97
+────────────────────────────────────────────────────────────────────────
+  preemphasis = 0.97
+  [ 1/40] ✗ 3   logP -0.27  VILLEFORT→VILLAFORTE  −I  −RAVE
+  [ 2/40] ✓     logP -0.06  
+  [ 3/40] ✓     logP -0.08  
+  [ 4/40] ✓     logP -0.15  
+  [ 5/40] ✗ 1   logP -0.20  SAUTERNE→SOTERN
+  [ 6/40] ✓     logP -0.04  
+  [ 7/40] ✓     logP -0.10  
+  [ 8/40] ✗ 3   logP -0.22  +MAIN  MAINHALL→HALL  WRY→WRITHE  ≠ ref
+  [ 9/40] ✓     logP -0.05  
+  [10/40] ✓     logP -0.18  
+  [11/40] ✓     logP -0.04  
+  [12/40] ✗ 1   logP -0.23  JEM→GEM
+  [13/40] ✗ 1   logP -0.06  DOUGHNUTS→DONUTS
+  [14/40] ✓     logP -0.24  
+  [15/40] ✓     logP -0.04  
+  [16/40] ✗ 2   logP -0.12  CARRIE→CARRY  TINKLED→TINGLED
+  [17/40] ✓     logP -0.03  
+  [18/40] ✓     logP -0.08  
+  [19/40] ✓     logP -0.09  
+  [20/40] ✓     logP -0.06  
+  [21/40] ✓     logP -0.07  
+  [22/40] ✓     logP -0.03  
+  [23/40] ✓     logP -0.11  
+  [24/40] ✗ 2   logP -0.02  −HER  IS→HERS
+  [25/40] ✗ 1   logP -0.28  SANCHO→SANCHEZ
+  [26/40] ✓     logP -0.22  
+  [27/40] ✗ 1   logP -0.22  TOO→TO
+  [28/40] ✗ 3   logP -0.11  +BATTLE  BATTLEMENTED→MINTED  INCLOSURE→ENCLOSURE
+  [29/40] ✓     logP -0.07  
+  [30/40] ✓     logP -0.09  
+  [31/40] ✗ 2   logP -0.13  +MOUNTED  MOUNTEBANK→BANK
+  [32/40] ✓     logP -0.09  
+  [33/40] ✓     logP -0.11  
+  [34/40] ✗ 3   logP -0.11  −GREEN  FIELD→GREENFIELD  THE→TO
+  [35/40] ✓     logP -0.09  
+  [36/40] ✓     logP -0.14  
+  [37/40] ✓     logP -0.05  
+  [38/40] ✗ 3   logP -0.23  +FOR  4→A  PLANE→PLAN
+  [39/40] ✓     logP -0.02  
+  [40/40] ✓     logP -0.07  
+  WER 3.31 %  (S 18  D 4  I 4 / 786 words)   Δ vs. ref +0.00 點   每句平均 log P -0.115（基準 -0.111）
+  特徵對基準：mean |Δ| 0.193   max |Δ| 1.41   cells changed 100.0 %   轉錄與基準不同：1 / 40 句
+  前端 0.2 s、辨識 34.6 s
+  沒有任何一句比基準多錯
+
+────────────────────────────────────────────────────────────────────────
+7  output: per-utterance CMVN instead of clamp + affine
+────────────────────────────────────────────────────────────────────────
+  output = cmvn
+  [ 1/40] ✗ 7   logP -0.50  +TO  +FEEL  VILLEFORT→AFFORD  …(+4)  ≠ ref
+  [ 2/40] ✓     logP -0.07  
+  [ 3/40] ✓     logP -0.07  
+  [ 4/40] ✓     logP -0.21  
+  [ 5/40] ✗ 70  logP -0.14  +SO  SAUTERNE→TAREN  +BEING  …(+67)  ≠ ref
+  [ 6/40] ✓     logP -0.09  
+  [ 7/40] ✓     logP -0.15  
+  [ 8/40] ✗ 3   logP -0.29  +MAN  MAINHALL→HALL  WRY→WRITHE  ≠ ref
+  [ 9/40] ✓     logP -0.09  
+  [10/40] ✓     logP -0.25  
+  [11/40] ✗ 26  logP -3.39  −WE  −WERE  −SO  …(+23)  ≠ ref
+  [12/40] ✗ 4   logP -0.43  −JEM  +WHISPER  WHISPERED→TO  …(+1)  ≠ ref
+  [13/40] ✗ 1   logP -0.09  DOUGHNUTS→DONUTS
+  [14/40] ✗ 80  logP -0.17  +SO  +SO  +SO  …(+77)  ≠ ref
+  [15/40] ✓     logP -0.04  
+  [16/40] ✗ 2   logP -0.46  TO→THE  CARRIE→CARRY  ≠ ref
+  [17/40] ✓     logP -0.03  
+  [18/40] ✓     logP -0.09  
+  [19/40] ✓     logP -0.30  
+  [20/40] ✗ 18  logP -1.31  −LENTILS  −AND  −RICE  …(+15)  ≠ ref
+  [21/40] ✓     logP -0.08  
+  [22/40] ✗ 19  logP -8.98  −THE  −SUGGESTION  −HE  …(+16)  ≠ ref
+  [23/40] ✗ 3   logP -0.26  THEY→THERE  +SCREW  SCRUPLES→PALS  ≠ ref
+  [24/40] ✗ 25  logP -2.43  −IT  −WAS  −NOT  …(+22)  ≠ ref
+  [25/40] ✗ 5   logP -0.58  +SAN  SANCHO→JOE  −THAT  …(+2)  ≠ ref
+  [26/40] ✗ 1   logP -0.26  BURGESS→BURGE  ≠ ref
+  [27/40] ✗ 103 logP -0.21  +WELL  +CAN  +I  …(+100)  ≠ ref
+  [28/40] ✗ 17  logP -1.61  −2  −BATTLEMENTED  −WALLS  …(+14)  ≠ ref
+  [29/40] ✗ 4   logP -0.24  OR→ARE  BEREAVED→BURIED  GASH→GAP  …(+1)  ≠ ref
+  [30/40] ✓     logP -0.10  
+  [31/40] ✗ 16  logP -11.71  −WITH  −THAT  −EXCEPTION  …(+13)  ≠ ref
+  [32/40] ✗ 2   logP -0.19  −OF  VALKYRIE→FALKERRY  ≠ ref
+  [33/40] ✓     logP -0.14  
+  [34/40] ✗ 7   logP -0.71  −FIELD  −SURROUNDED  ON→FILLED  …(+4)  ≠ ref
+  [35/40] ✗ 3   logP -0.29  +I  ECHOED→GO  TREMULOUSLY→CUMULOUSLY  ≠ ref
+  [36/40] ✗ 3   logP -0.26  I→TY  +IT  SAID→WAS  ≠ ref
+  [37/40] ✓     logP -0.06  
+  [38/40] ✗ 2   logP -0.21  4→FOR  PLANE→PLAN  ≠ ref
+  [39/40] ✓     logP -0.03  
+  [40/40] ✓     logP -0.12  
+  WER 53.56 %  (S 60  D 124  I 237 / 786 words)   Δ vs. ref +50.25 點   每句平均 log P -0.916（基準 -0.111）
+  特徵對基準：mean |Δ| 0.564   max |Δ| 8.93   cells changed 100.0 %   轉錄與基準不同：22 / 40 句
+  前端 0.2 s、辨識 39.9 s
+  比基準多錯最多的 3 句（⟨⟩ 刪、紅字替換或插入）：
+    3853-163249-0041  +102
+      ref  WE WILL WHAT CAN I DO FOR YOU DAVY ASKED CHRISTIE WONDERFULLY SUPPORTED BY THE THOUGHT THAT SHE WAS GOING TOO
+      hyp  +WELL +CAN +I +DO +FOR +YOU +DAVEY +CAN +I +DO +FOR +YOU +DAVEY +CAN +I +DO +FOR +YOU +DAVEY +CAN +I +DO +FOR +YOU +DAVEY +CAN +I +DO +FOR +YOU +DAVEY +CAN +I +DO +FOR +YOU +DAVEY +CAN +I +DO +FOR +YOU +DAVEY +CAN +I +DO +FOR +YOU +DAVEY +CAN +I +DO +FOR +YOU +DAVEY +CAN +I +DO +FOR +YOU +DAVEY +CAN +I +DO +FOR +YOU +DAVEY +CAN +I +DO +FOR +YOU +DAVEY +CAN +I +DO +FOR +YOU +DAVEY +CAN +I +DO FOR YOU DAVEY CAN I DO FOR YOU +DAVEY +CAN +I +DO +FOR YOU DAVEY CAN I DO FOR YOU DAVEY CAN I DO FOR YOU
+    2078-142845-0040  +80
+      ref  SUFFICIENT TO MAKE 12 BUNS SEASONABLE AT ANY TIME LIGHT BUNS
+      hyp  +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO +SO SO SO SO SO SO SO SO SO SO SO SO
+    652-130737-0010  +69
+      ref  SAUTERNE IS A WHITE BORDEAUX A STRONG LUSCIOUS WINE THE BEST KNOWN VARIETIES BEING
+      hyp  +SO TAREN IS A WHITE BORDEAUX A STRONG LUSCIOUS WINE THE BEST KNOWN VARIETIES +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING +BEING BEING
+
+────────────────────────────────────────────────────────────────────────
+8  five knobs at once: HTK, peak, pre-emphasis, ln, CMVN
+────────────────────────────────────────────────────────────────────────
+  mel_scale = htk  filter_norm = peak  log = ln  preemphasis = 0.97  output = cmvn
+  filterbank 中心頻率差最大在第 64 個濾波器：4426.6 Hz 對 4164.4 Hz（差 +262.1 Hz）
+  [ 1/40] ✗ 5   logP -0.41  VILLEFORT→PHILFORT  +AND  ENDEAVORING→DYING  …(+2)  ≠ ref
+  [ 2/40] ✓     logP -0.04  
+  [ 3/40] ✓     logP -0.08  
+  [ 4/40] ✓     logP -0.17  
+  [ 5/40] ✗ 3   logP -0.65  +SO  SAUTERNE→TARRANT  BORDEAUX→BARDO  ≠ ref
+  [ 6/40] ✓     logP -0.21  
+  [ 7/40] ✗ 2   logP -0.26  QUILTER→QUOTER  TUPPER→PROPER  ≠ ref
+  [ 8/40] ✗ 3   logP -0.24  +MAIN  MAINHALL→HALL  WRY→RYE
+  [ 9/40] ✗ 2   logP -0.15  +TO  SUPERSEDED→PROCEED  ≠ ref
+  [10/40] ✗ 2   logP -0.36  HARDIER→HARDER  CITRON→SENTRYN  ≠ ref
+  [11/40] ✗ 19  logP -0.69  −WE  −WERE  −SO  …(+16)  ≠ ref
+  [12/40] ✗ 19  logP -2.18  −DO  −NOT  −JEM  …(+16)  ≠ ref
+  [13/40] ✗ 1   logP -0.12  DOUGHNUTS→DONUTS
+  [14/40] ✗ 7   logP -0.92  +SO  SUFFICIENT→I  TO→FINISHED  …(+4)  ≠ ref
+  [15/40] ✓     logP -0.04  
+  [16/40] ✗ 4   logP -0.49  −TO  −CARRIE  −THE  …(+1)  ≠ ref
+  [17/40] ✓     logP -0.04  
+  [18/40] ✓     logP -0.07  
+  [19/40] ✗ 1   logP -0.38  HELENA→HALAMA  ≠ ref
+  [20/40] ✗ 4   logP -0.41  +THE  LENTILS→LENS  AND→ON  …(+1)  ≠ ref
+  [21/40] ✓     logP -0.12  
+  [22/40] ✗ 19  logP -10.70  −THE  −SUGGESTION  −HE  …(+16)  ≠ ref
+  [23/40] ✗ 4   logP -0.22  THEY→THERE  −FULL  OF→FOLLOWERS  …(+1)  ≠ ref
+  [24/40] ✗ 11  logP -1.12  −REAL  −CAUSE  −OF  …(+8)  ≠ ref
+  [25/40] ✗ 6   logP -0.66  +SAN  SANCHO→JOE  −BUT  …(+3)  ≠ ref
+  [26/40] ✗ 1   logP -0.29  BURGESS→BURGE  ≠ ref
+  [27/40] ✗ 133 logP -0.28  +WELL  +I  +CAN  …(+130)  ≠ ref
+  [28/40] ✗ 18  logP -1.44  −2  −BATTLEMENTED  −WALLS  …(+15)  ≠ ref
+  [29/40] ✗ 4   logP -0.26  OR→ARE  BEREAVED→BURIED  GASH→GAP  …(+1)  ≠ ref
+  [30/40] ✓     logP -0.13  
+  [31/40] ✗ 16  logP -10.43  −WITH  −THAT  −EXCEPTION  …(+13)  ≠ ref
+  [32/40] ✗ 2   logP -0.26  −OF  VALKYRIE→FALKER  ≠ ref
+  [33/40] ✓     logP -0.15  
+  [34/40] ✗ 9   logP -1.11  −GREEN  −FIELD  SURROUNDED→GREENFIELDS  …(+6)  ≠ ref
+  [35/40] ✗ 3   logP -0.27  +I  ECHOED→GOT  TREMULOUSLY→CUMULUSLY  ≠ ref
+  [36/40] ✗ 5   logP -0.36  I→THAT  WHO→YOU  +JUST  …(+2)  ≠ ref
+  [37/40] ✓     logP -0.06  
+  [38/40] ✗ 4   logP -0.28  −4  −DIE  OF→FORDIVE  …(+1)  ≠ ref
+  [39/40] ✓     logP -0.05  
+  [40/40] ✗ 5   logP -0.24  IT→AND  +THERE  THEREFORE→FOR  …(+2)  ≠ ref
+  WER 39.69 %  (S 73  D 111  I 128 / 786 words)   Δ vs. ref +36.39 點   每句平均 log P -0.909（基準 -0.111）
+  特徵對基準：mean |Δ| 0.602   max |Δ| 9.66   cells changed 100.0 %   轉錄與基準不同：26 / 40 句
+  前端 0.2 s、辨識 37.3 s
+  比基準多錯最多的 3 句（⟨⟩ 刪、紅字替換或插入）：
+    3853-163249-0041  +132
+      ref  WE WILL WHAT CAN I DO FOR YOU DAVY ASKED CHRISTIE WONDERFULLY SUPPORTED BY THE THOUGHT THAT SHE WAS GOING TOO
+      hyp  +WELL +I +CAN +NOT +SEE +HER +DAVEY +I +AM +SO +SURPRISED +TO +YOU +I +AM +SO +SURPRISED +TO +YOU +I +AM +SO +SURPRISED +TO +YOU +I +AM +SO +SURPRISED +TO +YOU +I +AM +SO +SURPRISED +TO +YOU +I +AM +SO +SURPRISED +TO +YOU +I +AM +SO +SURPRISED +TO +YOU +I +AM +SO +SURPRISED +TO +YOU +I +AM +SO +SURPRISED +TO +YOU +I +AM +SO +SURPRISED +TO +YOU +I +AM +SO +SURPRISED +TO +YOU +I +AM +SO +SURPRISED +TO +YOU +I +AM +SO +SURPRISED +TO +YOU +I +AM +SO +SURPRISED +TO +YOU +I +AM +SO +SURPRISED +TO +YOU +I +AM +SO +SURPRISED +TO +YOU +I +AM +SO +SURPRISED +TO +YOU +I +AM SO SURPRISED TO YOU I +AM +SO SURPRISED TO YOU +I AM SO SURPRISED TO YOU I AM SO SURPRISED TO YOU I AM
+    1988-147956-0026  +19
+      ref  WE WERE SO DEEP IN THE GRASS THAT WE COULD SEE NOTHING BUT THE BLUE SKY OVER US AND THE GOLD TREE IN FRONT OF US
+      hyp  ⟨WE⟩ ⟨WERE⟩ ⟨SO⟩ ⟨DEEP⟩ ⟨IN⟩ ⟨THE⟩ ⟨GRASS⟩ ⟨THAT⟩ ⟨WE⟩ ⟨COULD⟩ ⟨SEE⟩ ⟨NOTHING⟩ ⟨BUT⟩ ⟨THE⟩ ⟨BLUE⟩ ⟨SKY⟩ ⟨OVER⟩ ⟨US⟩ AND THE GOLD TRAY IN FRONT OF US
+    3081-166546-0029  +19
+      ref  THE SUGGESTION HE HAD LAUGHED AT WAS NOT SO ENTIRELY FOOLISH AS HE HAD BEEN PLEASED TO CONSIDER IT
+      hyp  ⟨THE⟩ ⟨SUGGESTION⟩ ⟨HE⟩ ⟨HAD⟩ ⟨LAUGHED⟩ ⟨AT⟩ ⟨WAS⟩ ⟨NOT⟩ ⟨SO⟩ ⟨ENTIRELY⟩ ⟨FOOLISH⟩ ⟨AS⟩ ⟨HE⟩ ⟨HAD⟩ ⟨BEEN⟩ ⟨PLEASED⟩ ⟨TO⟩ ⟨CONSIDER⟩ ⟨IT⟩
+
+────────────────────────────────────────────────────────────────────────
+到目前為止（投影片 p66 的表）
+────────────────────────────────────────────────────────────────────────
+  key recipe                                             mean |Δ|   WER %   Δ pts  changed  avg logP
+  r   Whisper's own front-end (transformers WhisperFeat     0.000    3.31                —    -0.111
+  0   same recipe, our own code                             0.000    3.31   +0.00     0/40    -0.111
+  1   mel scale: HTK instead of Slaney                      0.121    3.31   +0.00     4/40    -0.113
+  2   filter normalisation: peak = 1 instead of area        0.460    3.18   -0.13     2/40    -0.118
+  3   magnitude instead of power                            0.342    3.69   +0.38     4/40    -0.115
+  4   log floor 1e-5 instead of 1e-10                       0.112    3.05   -0.25     1/40    -0.114
+  5   dither: 1 LSB of 16-bit audio (Kaldi's default am     0.002    3.31   +0.00     0/40    -0.111
+  6   pre-emphasis 0.97                                     0.193    3.31   +0.00     1/40    -0.115
+  7   output: per-utterance CMVN instead of clamp + aff     0.564   53.56  +50.25    22/40    -0.916
+  8   five knobs at once: HTK, peak, pre-emphasis, ln,      0.602   39.69  +36.39    26/40    -0.909
+  40 句、786 個參考詞；WER 的分母都一樣。avg logP：每句輸出 token 的平均 log 機率，再對句子平均

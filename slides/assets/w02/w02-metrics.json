@@ -1,0 +1,228 @@
+{
+ "_about": "W2 投影片上來自 demo 彩排的數字；由各 demo 的 ./present.sh export 寫入",
+ "demo3": {
+  "kind": "measured",
+  "source": "demos/w02_d3_frontend_mismatch/runs/rehearsal/rehearsal.json",
+  "recorded": "2026-11-02T18:03:24",
+  "model": {
+   "repo": "openai/whisper-small",
+   "commit": "973afd24965f72e36ca33b3055d56a652f456b4d",
+   "device": "cpu",
+   "n_params": 241734912
+  },
+  "versions": {
+   "python": "3.12.14",
+   "platform": "macOS-27.2-arm64-arm-64bit",
+   "torch": "2.14.0",
+   "transformers": "5.17.0",
+   "numpy": "2.4.4"
+  },
+  "n_sentences": 40,
+  "n_words": 786,
+  "data": "LibriSpeech dev-clean, one sentence per speaker (CC BY 4.0)",
+  "normalizer": "Whisper EnglishTextNormalizer on both reference and hypothesis",
+  "recipes": [
+   {
+    "key": "r",
+    "id": "ref",
+    "name": "Whisper's own front-end (transformers WhisperFeatureExtractor)",
+    "changes": {},
+    "wer_pct": 3.31,
+    "S": 18,
+    "D": 4,
+    "I": 4,
+    "delta_wer_pts": 0.0,
+    "mean_avg_logprob": -0.111,
+    "delta_avg_logprob": 0.0,
+    "changed_sentences": 0,
+    "feature_mean_abs_diff": 0.0,
+    "feature_max_abs_diff": 0.0,
+    "cells_changed_pct": 0.0,
+    "asr_seconds": 34.6
+   },
+   {
+    "key": "0",
+    "id": "same",
+    "name": "same recipe, our own code",
+    "changes": {},
+    "wer_pct": 3.31,
+    "S": 18,
+    "D": 4,
+    "I": 4,
+    "delta_wer_pts": 0.0,
+    "mean_avg_logprob": -0.111,
+    "delta_avg_logprob": -0.0,
+    "changed_sentences": 0,
+    "feature_mean_abs_diff": 0.0,
+    "feature_max_abs_diff": 0.0,
+    "cells_changed_pct": 1.7,
+    "asr_seconds": 34.4
+   },
+   {
+    "key": "1",
+    "id": "htk",
+    "name": "mel scale: HTK instead of Slaney",
+    "changes": {
+     "mel_scale": "htk"
+    },
+    "wer_pct": 3.31,
+    "S": 18,
+    "D": 4,
+    "I": 4,
+    "delta_wer_pts": 0.0,
+    "mean_avg_logprob": -0.113,
+    "delta_avg_logprob": -0.002,
+    "changed_sentences": 4,
+    "feature_mean_abs_diff": 0.121,
+    "feature_max_abs_diff": 1.62,
+    "cells_changed_pct": 100.0,
+    "asr_seconds": 34.4
+   },
+   {
+    "key": "2",
+    "id": "peak",
+    "name": "filter normalisation: peak = 1 instead of area",
+    "changes": {
+     "filter_norm": "peak"
+    },
+    "wer_pct": 3.18,
+    "S": 19,
+    "D": 2,
+    "I": 4,
+    "delta_wer_pts": -0.13,
+    "mean_avg_logprob": -0.118,
+    "delta_avg_logprob": -0.007,
+    "changed_sentences": 2,
+    "feature_mean_abs_diff": 0.46,
+    "feature_max_abs_diff": 0.62,
+    "cells_changed_pct": 100.0,
+    "asr_seconds": 34.3
+   },
+   {
+    "key": "3",
+    "id": "mag",
+    "name": "magnitude instead of power",
+    "changes": {
+     "power": 1.0
+    },
+    "wer_pct": 3.69,
+    "S": 22,
+    "D": 3,
+    "I": 4,
+    "delta_wer_pts": 0.38,
+    "mean_avg_logprob": -0.115,
+    "delta_avg_logprob": -0.004,
+    "changed_sentences": 4,
+    "feature_mean_abs_diff": 0.342,
+    "feature_max_abs_diff": 0.9,
+    "cells_changed_pct": 100.0,
+    "asr_seconds": 34.3
+   },
+   {
+    "key": "4",
+    "id": "floor",
+    "name": "log floor 1e-5 instead of 1e-10",
+    "changes": {
+     "floor": 1e-05
+    },
+    "wer_pct": 3.05,
+    "S": 18,
+    "D": 2,
+    "I": 4,
+    "delta_wer_pts": -0.25,
+    "mean_avg_logprob": -0.114,
+    "delta_avg_logprob": -0.003,
+    "changed_sentences": 1,
+    "feature_mean_abs_diff": 0.112,
+    "feature_max_abs_diff": 0.94,
+    "cells_changed_pct": 39.5,
+    "asr_seconds": 34.4
+   },
+   {
+    "key": "5",
+    "id": "dither",
+    "name": "dither: 1 LSB of 16-bit audio (Kaldi's default amount)",
+    "changes": {
+     "dither": 3.0517578125e-05
+    },
+    "wer_pct": 3.31,
+    "S": 18,
+    "D": 4,
+    "I": 4,
+    "delta_wer_pts": 0.0,
+    "mean_avg_logprob": -0.111,
+    "delta_avg_logprob": 0.0,
+    "changed_sentences": 0,
+    "feature_mean_abs_diff": 0.002,
+    "feature_max_abs_diff": 0.32,
+    "cells_changed_pct": 96.7,
+    "asr_seconds": 34.6
+   },
+   {
+    "key": "6",
+    "id": "preemph",
+    "name": "pre-emphasis 0.97",
+    "changes": {
+     "preemphasis": 0.97
+    },
+    "wer_pct": 3.31,
+    "S": 18,
+    "D": 4,
+    "I": 4,
+    "delta_wer_pts": 0.0,
+    "mean_avg_logprob": -0.115,
+    "delta_avg_logprob": -0.004,
+    "changed_sentences": 1,
+    "feature_mean_abs_diff": 0.193,
+    "feature_max_abs_diff": 1.41,
+    "cells_changed_pct": 100.0,
+    "asr_seconds": 34.6
+   },
+   {
+    "key": "7",
+    "id": "cmvn",
+    "name": "output: per-utterance CMVN instead of clamp + affine",
+    "changes": {
+     "output": "cmvn"
+    },
+    "wer_pct": 53.56,
+    "S": 60,
+    "D": 124,
+    "I": 237,
+    "delta_wer_pts": 50.25,
+    "mean_avg_logprob": -0.916,
+    "delta_avg_logprob": -0.805,
+    "changed_sentences": 22,
+    "feature_mean_abs_diff": 0.564,
+    "feature_max_abs_diff": 8.93,
+    "cells_changed_pct": 100.0,
+    "asr_seconds": 39.9
+   },
+   {
+    "key": "8",
+    "id": "kaldi_like",
+    "name": "five knobs at once: HTK, peak, pre-emphasis, ln, CMVN",
+    "changes": {
+     "mel_scale": "htk",
+     "filter_norm": "peak",
+     "preemphasis": 0.97,
+     "log": "ln",
+     "output": "cmvn"
+    },
+    "wer_pct": 39.69,
+    "S": 73,
+    "D": 111,
+    "I": 128,
+    "delta_wer_pts": 36.39,
+    "mean_avg_logprob": -0.909,
+    "delta_avg_logprob": -0.798,
+    "changed_sentences": 26,
+    "feature_mean_abs_diff": 0.602,
+    "feature_max_abs_diff": 9.66,
+    "cells_changed_pct": 100.0,
+    "asr_seconds": 37.3
+   }
+  ],
+  "caveat": "40 sentences from one corpus, one model size; one error is 0.13 WER points"
+ }
+}

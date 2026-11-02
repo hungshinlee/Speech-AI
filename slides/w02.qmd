@@ -875,7 +875,7 @@ These are **predictions to check**, not established results. Each is a possible 
 Two "80-dim log-mel" front-ends can differ in the **mel scale** (HTK — the Hidden Markov Model Toolkit's formula — or Slaney, `librosa`'s default), the **filter normalisation**, power vs. magnitude, the log **floor**, **dither**, **pre-emphasis**, and how the result is **normalised**.
 
 ::: {.claim .warn}
-Feed a pretrained model features built with the wrong recipe and nothing crashes. It just gets quietly worse.
+Feed a pretrained model features built with the wrong recipe and nothing crashes — the dimensions still match. Whether the words still match is a measurement, not a guess.
 :::
 
 ::: {.footer}
@@ -888,7 +888,7 @@ Computed: 80 filters, 0–8 kHz · largest gap 262 Hz, at filter 64 · w02-data.
 | | |
 |:---|:-----------------|
 | **Why** | The last slide listed seven places where two "80-dim log-mel" front-ends can differ. Question 1 from Week 1 — *is the input the same?* — in its most concrete form: feed a pretrained recogniser features made with the wrong recipe, and measure. |
-| **What runs** | Forty dev-clean sentences, one per speaker, into Whisper small. The reference run uses Whisper's own front-end. Every other run recomputes the features in our own code (`demos/dsp.py`) with **one knob turned** — mel scale, filter normalisation, power vs. magnitude, log floor, dither, pre-emphasis, output normalisation — and feeds them to the same model. Each run prints the word error rate, the model's average log-probability per token, and how far the features moved. |
+| **What runs** | Forty dev-clean sentences, one per speaker, 786 words, into Whisper small. The reference run uses Whisper's own front-end. Every other run recomputes the features in our own code (`demos/dsp.py`) with **one knob turned** — mel scale, filter normalisation, power vs. magnitude, log floor, dither, pre-emphasis, output normalisation — and feeds them to the same model; one run is about 35 s on this laptop's CPU. Each run prints the word error rate, the model's average log-probability per token, how many of the 40 transcripts changed, and how far the features moved. |
 | **Watch for** | Which knobs move WER, which do not, and by how much. Whether the knob that moves the *features* most is the one that moves the *words* most. Whether the model's confidence moves before its words do. |
 :::
 
@@ -903,22 +903,22 @@ Demo 3 · code: `demos/w02_d3_frontend_mismatch` · Whisper small via `transform
 :::
 
 ::: {.fragment fragment-index=1}
-| | recipe | mean $\lvert\Delta\rvert$ | WER % | avg $\log P$ |
-|:--|:---|--:|--:|--:|
-| r | Whisper's own front-end | 0 | — | — |
-| 0 | same recipe, our own code | — | — | — |
-| 1 | mel scale: HTK instead of Slaney | — | — | — |
-| 2 | filter normalisation: peak 1 instead of area | — | — | — |
-| 3 | magnitude instead of power | — | — | — |
-| 4 | log floor $10^{-5}$ instead of $10^{-10}$ | — | — | — |
-| 5 | dither, one 16-bit step | — | — | — |
-| 6 | pre-emphasis 0.97 | — | — | — |
-| 7 | output: per-utterance CMVN | — | — | — |
-| 8 | five knobs at once | — | — | — |
+| | recipe | mean $\lvert\Delta\rvert$ | WER % | changed | avg $\log P$ |
+|:--|:---|--:|--:|--:|--:|
+| r | Whisper's own front-end | 0 | 3.31 | — | $-0.111$ |
+| 0 | same recipe, our own code | 0.000 | 3.31 | 0/40 | $-0.111$ |
+| 1 | mel scale: HTK instead of Slaney | 0.121 | 3.31 | 4/40 | $-0.113$ |
+| 2 | filter normalisation: peak 1 instead of area | 0.460 | 3.18 | 2/40 | $-0.118$ |
+| 3 | magnitude instead of power | 0.342 | 3.69 | 4/40 | $-0.115$ |
+| 4 | log floor $10^{-5}$ instead of $10^{-10}$ | 0.112 | 3.05 | 1/40 | $-0.114$ |
+| 5 | dither, one 16-bit step | 0.002 | 3.31 | 0/40 | $-0.111$ |
+| 6 | pre-emphasis 0.97 | 0.193 | 3.31 | 1/40 | $-0.115$ |
+| 7 | output: per-utterance CMVN | 0.564 | **53.56** | 22/40 | $-0.916$ |
+| 8 | five knobs at once | 0.602 | **39.69** | 26/40 | $-0.909$ |
 :::
 
 ::: {.footer}
-Demo 3 · 40 dev-clean sentences · not yet rehearsed · numbers: `w02-metrics.json → demo3`
+Demo 3 · 40 dev-clean sentences · rehearsed 2026-11-02 · `w02-metrics.json → demo3`
 :::
 
 ## SNR, and the metric W10 will use instead
