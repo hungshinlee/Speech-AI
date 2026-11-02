@@ -398,7 +398,11 @@ dev-other word error rate (WER) after fine-tuning, HuBERT Table V. $\mathcal{L}_
 Hsu et al., TASLP 2021, abstract and Table V · the ICASSP 2021 "bad teacher" paper
 :::
 
-## WavLM: same target, two more tasks, and more data
+## WavLM: HuBERT that hears through noise and other voices
+
+::: {.small}
+SSL had been judged on recognition — **what** is said. Speech also carries **who** says it and **how**; WavLM (Microsoft, 2022) wants one encoder for all of it — *full stack*, in its title.
+:::
 
 | | HuBERT | WavLM |
 |:--|:--|:--|
@@ -406,14 +410,13 @@ Hsu et al., TASLP 2021, abstract and Table V · the ICASSP 2021 "bad teacher" pa
 | input | clean utterance, masked | utterance **mixed with noise or another speaker**, masked — predict the clean target |
 | position | a convolutional relative positional embedding (wav2vec 2.0's) | adds a **gated relative position bias** inside attention |
 | pre-training data (LARGE) | 60k h Libri-light | **94k h** Libri-light + GigaSpeech + VoxPopuli |
-| what it buys | content | content, plus a representation that already separates speakers and ignores noise |
 
 ::: {.claim}
-Two things changed at once — the auxiliary task **and** the data. When WavLM wins a benchmark, you cannot tell which one paid. Keep that for p54.
+Three things changed at once — the task, the position bias **and** the data. When WavLM wins a benchmark, you cannot tell which one paid. Keep that for p54.
 :::
 
 ::: {.footer}
-Chen et al., IEEE JSTSP 2022 (abstract: denoising, gated position bias, 60k → 94k h)
+Chen et al., IEEE JSTSP 2022 (title and abstract: denoising, gated position bias, 60k → 94k h)
 :::
 
 ## data2vec: the teacher is the student, smoothed
