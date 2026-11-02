@@ -1,7 +1,7 @@
 {
  "demo1": {
   "source": "demos/w07_d1_hallucination/runs/rehearsal/rehearsal.json",
-  "time": "2026-11-01T20:43:03",
+  "time": "2026-11-02T16:15:33",
   "backend": "whisper",
   "device": {
    "whisper": "cpu",
@@ -1118,7 +1118,7 @@
  },
  "demo2": {
   "source": "demos/w07_d2_biasing/runs/rehearsal/rehearsal.json (+ the instructor's private Mandarin record, counts only)",
-  "time": "2026-11-01T22:01:28",
+  "time": "2026-11-02T16:32:59",
   "device": {
    "whisper": "cpu",
    "ctc": "mps",
@@ -1161,7 +1161,7 @@
      "n_ref": 8,
      "wer": 0.125
     },
-    "seconds": 2.491510833000575
+    "seconds": 0.49173358400003053
    },
    "list": {
     "text": "Think of Lady Glenarvan. Think of Mary Grant.",
@@ -1178,7 +1178,7 @@
      "n_ref": 8,
      "wer": 0.0
     },
-    "seconds": 0.6857047499997861
+    "seconds": 0.47964141600823496
    },
    "dialogue": {
     "text": "Think of Lady Glenarvin, think of Mary Grant.",
@@ -1195,7 +1195,7 @@
      "n_ref": 8,
      "wer": 0.125
     },
-    "seconds": 0.7886849169990455
+    "seconds": 0.4425107499992009
    }
   },
   "qwen_en": {
@@ -1214,7 +1214,7 @@
      "n_ref": 8,
      "wer": 0.0
     },
-    "seconds": 1.3698448330014799
+    "seconds": 0.5769729589956114
    },
    "list": {
     "text": "Think of Lady Glenarvan. Think of Mary Grant.",
@@ -1231,7 +1231,7 @@
      "n_ref": 8,
      "wer": 0.0
     },
-    "seconds": 1.177480291999018
+    "seconds": 0.3402662500011502
    },
    "dialogue": {
     "text": "Think of Lady Glenarvan. Think of Mary Grant.",
@@ -1248,7 +1248,7 @@
      "n_ref": 8,
      "wer": 0.0
     },
-    "seconds": 1.1949936250002793
+    "seconds": 0.23052783399180043
    }
   },
   "qwen_error": null,
@@ -1361,7 +1361,7 @@
     ],
     "echo_verbatim": true,
     "avg_logprob": -0.27853635511904334,
-    "seconds": 0.5748473340008786
+    "seconds": 0.4563165410072543
    },
    "whisper:zh": {
     "text": "謝謝大家，",
@@ -1370,7 +1370,7 @@
     ],
     "echo_verbatim": false,
     "avg_logprob": -0.6839438832054535,
-    "seconds": 0.565941875000135
+    "seconds": 0.3806894160079537
    },
    "whisper:zh-trad": {
     "text": "在臺北開的一場會議，用繁體中文記錄。",
@@ -1380,7 +1380,7 @@
     ],
     "echo_verbatim": false,
     "avg_logprob": -0.5184461153691586,
-    "seconds": 0.9157856250003533
+    "seconds": 0.5542918330029352
    },
    "qwen:en": {
     "text": "Thanks for watching, and don't forget to subscribe to the channel.",
@@ -1389,7 +1389,7 @@
     ],
     "echo_verbatim": true,
     "avg_logprob": null,
-    "seconds": 1.583272541000042
+    "seconds": 0.31616354099242017
    },
    "qwen:zh": {
     "text": "好，那我們今天的會議就先到這裡，謝謝大家，下次見。",
@@ -1399,7 +1399,7 @@
     ],
     "echo_verbatim": true,
     "avg_logprob": null,
-    "seconds": 1.6473959579998336
+    "seconds": 0.31813266599783674
    },
    "qwen:zh-trad": {
     "text": "以下是在臺北開的一場會議，用繁體中文記錄。",
@@ -1409,7 +1409,7 @@
     ],
     "echo_verbatim": true,
     "avg_logprob": null,
-    "seconds": 1.4080607920004695
+    "seconds": 0.27498274999379646
    }
   },
   "mandarin": {
@@ -1422,7 +1422,7 @@
      "leaked": false,
      "n_leak_fragments": 0,
      "n_chars": 23,
-     "seconds": 1.5125375839998014
+     "seconds": 0.549686540995026
     },
     "list": {
      "n_hit": 3,
@@ -1431,7 +1431,7 @@
      "leaked": false,
      "n_leak_fragments": 0,
      "n_chars": 23,
-     "seconds": 1.3374024580007244
+     "seconds": 0.5870548340026289
     },
     "traditional": {
      "n_hit": 2,
@@ -1440,7 +1440,7 @@
      "leaked": false,
      "n_leak_fragments": 0,
      "n_chars": 23,
-     "seconds": 1.4708623749993421
+     "seconds": 0.5851890409976477
     },
     "dialogue": {
      "n_hit": 2,
@@ -1449,7 +1449,7 @@
      "leaked": false,
      "n_leak_fragments": 0,
      "n_chars": 23,
-     "seconds": 1.0594637920003152
+     "seconds": 0.5676384580001468
     }
    },
    "qwen": {
@@ -1460,7 +1460,7 @@
      "leaked": false,
      "n_leak_fragments": 0,
      "n_chars": 23,
-     "seconds": 1.5480087910000293
+     "seconds": 0.3162184579996392
     },
     "list": {
      "n_hit": 3,
@@ -1469,7 +1469,7 @@
      "leaked": false,
      "n_leak_fragments": 0,
      "n_chars": 23,
-     "seconds": 1.5581621250003082
+     "seconds": 0.3164617920119781
     },
     "traditional": {
      "n_hit": 2,
@@ -1478,7 +1478,7 @@
      "leaked": false,
      "n_leak_fragments": 0,
      "n_chars": 23,
-     "seconds": 1.8713754579985107
+     "seconds": 0.3615302500111284
     },
     "dialogue": {
      "n_hit": 2,
@@ -1487,14 +1487,14 @@
      "leaked": false,
      "n_leak_fragments": 0,
      "n_chars": 23,
-     "seconds": 1.5463884589989902
+     "seconds": 0.30404862499563023
     }
    }
   }
  },
  "demo3": {
   "source": "demos/w07_d3_decoding/runs/rehearsal/rehearsal.json (Mandarin: counts, plus text only for the W1 ticket sentence)",
-  "time": "2026-11-02T00:55:37",
+  "time": "2026-11-02T16:33:50",
   "device": {
    "ctc": "mps",
    "mms": "mps",
@@ -1566,7 +1566,7 @@
      "S": 3,
      "D": 0,
      "I": 0,
-     "seconds": 0.3334373749967199
+     "seconds": 0.34866262499417644
     },
     {
      "eta": 0.5,
@@ -1575,7 +1575,7 @@
      "S": 3,
      "D": 0,
      "I": 0,
-     "seconds": 0.31974041600187775
+     "seconds": 0.3255426670075394
     },
     {
      "eta": 1.0,
@@ -1584,7 +1584,7 @@
      "S": 3,
      "D": 0,
      "I": 0,
-     "seconds": 0.31936420800047927
+     "seconds": 0.32759629099746235
     },
     {
      "eta": 1.5,
@@ -1593,7 +1593,7 @@
      "S": 3,
      "D": 0,
      "I": 0,
-     "seconds": 0.32046099999934086
+     "seconds": 0.32504183301352896
     },
     {
      "eta": 2.0,
@@ -1602,7 +1602,7 @@
      "S": 3,
      "D": 0,
      "I": 0,
-     "seconds": 0.31925991699972656
+     "seconds": 0.32366258300316986
     },
     {
      "eta": 3.0,
@@ -1611,7 +1611,7 @@
      "S": 4,
      "D": 0,
      "I": 2,
-     "seconds": 0.3198562920006225
+     "seconds": 0.3249369580007624
     },
     {
      "eta": 4.0,
@@ -1620,7 +1620,7 @@
      "S": 5,
      "D": 0,
      "I": 3,
-     "seconds": 0.3196172080024553
+     "seconds": 0.327582291996805
     },
     {
      "eta": 6.0,
@@ -1629,7 +1629,7 @@
      "S": 7,
      "D": 0,
      "I": 6,
-     "seconds": 0.31993695799974375
+     "seconds": 0.32762291601102334
     }
    ],
    "best_eta": 0.0,
@@ -1707,7 +1707,7 @@
    "best_lam": 0.2,
    "best_wer": 0.015985790408525755,
    "large_lam": 2.0,
-   "seconds": 9.10481908300062
+   "seconds": 9.303983000005246
   },
   "example_p32": {
    "greedy": "b",
@@ -1776,7 +1776,7 @@
    ],
    "results": {
     "zh:w1_ticket:mms": {
-     "seconds": 0.031635666000511264,
+     "seconds": 0.03271108299668413,
      "script": "繁",
      "cer": 0.15384615384615385,
      "S": 2,
@@ -1806,7 +1806,7 @@
      ]
     },
     "zh:w1_ticket:whisper": {
-     "seconds": 0.4797891249982058,
+     "seconds": 0.4719601669930853,
      "script": "繁",
      "cer": 0.0,
      "S": 0,
@@ -1825,7 +1825,7 @@
      "subs": []
     },
     "zh:w1_ticket:qwen": {
-     "seconds": 0.3373959589989681,
+     "seconds": 0.2723687920079101,
      "script": "簡",
      "cer": 0.0,
      "S": 0,
@@ -1844,7 +1844,7 @@
      "subs": []
     },
     "zh:w7_d2:mms": {
-     "seconds": 0.023994499999389518,
+     "seconds": 0.023839125002268702,
      "script": "繁",
      "cer": 0.4090909090909091,
      "S": 9,
@@ -1860,7 +1860,7 @@
      }
     },
     "zh:w7_d2:whisper": {
-     "seconds": 0.5287842079997063,
+     "seconds": 0.5272404579882277,
      "script": "繁",
      "cer": 0.045454545454545456,
      "S": 1,
@@ -1876,7 +1876,7 @@
      }
     },
     "zh:w7_d2:qwen": {
-     "seconds": 0.3212918749995879,
+     "seconds": 0.32629875000566244,
      "script": "簡",
      "cer": 0.09090909090909091,
      "S": 2,

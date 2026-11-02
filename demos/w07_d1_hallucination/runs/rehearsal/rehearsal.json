@@ -1,5 +1,5 @@
 {
- "time": "2026-11-01T20:43:03",
+ "time": "2026-11-02T16:15:33",
  "tag": "rehearsal",
  "backend": "whisper",
  "device": {
@@ -182,7 +182,7 @@
       "reasons": [],
       "is_silence": false
      },
-     "seconds": 0.7749115410006198
+     "seconds": 0.5537031249987194
     }
    ],
    "final_temperature": 0.0,
@@ -274,7 +274,7 @@
      "reasons": [],
      "is_silence": false
     },
-    "seconds": 0.7749115410006198
+    "seconds": 0.5537031249987194
    },
    "fallback": false,
    "language": "en",
@@ -316,7 +316,7 @@
       "reasons": [],
       "is_silence": false
      },
-     "seconds": 0.5444684160001998
+     "seconds": 0.33114620800188277
     }
    ],
    "final_temperature": 0.0,
@@ -345,7 +345,7 @@
      "reasons": [],
      "is_silence": false
     },
-    "seconds": 0.5444684160001998
+    "seconds": 0.33114620800188277
    },
    "fallback": false,
    "language": "en",
@@ -381,7 +381,7 @@
       ],
       "is_silence": true
      },
-     "seconds": 0.6853167499994015
+     "seconds": 0.32621337501041126
     }
    ],
    "final_temperature": 0.0,
@@ -412,7 +412,7 @@
      ],
      "is_silence": true
     },
-    "seconds": 0.6853167499994015
+    "seconds": 0.32621337501041126
    },
    "fallback": false,
    "language": "en",
@@ -448,7 +448,7 @@
       ],
       "is_silence": true
      },
-     "seconds": 0.9953436249998049
+     "seconds": 0.3287551249959506
     }
    ],
    "final_temperature": 0.0,
@@ -479,7 +479,7 @@
      ],
      "is_silence": true
     },
-    "seconds": 0.9953436249998049
+    "seconds": 0.3287551249959506
    },
    "fallback": false,
    "language": "en",
@@ -515,7 +515,7 @@
       ],
       "is_silence": true
      },
-     "seconds": 0.9487743749996298
+     "seconds": 0.32490045799931977
     }
    ],
    "final_temperature": 0.0,
@@ -546,7 +546,7 @@
      ],
      "is_silence": true
     },
-    "seconds": 0.9487743749996298
+    "seconds": 0.32490045799931977
    },
    "fallback": false,
    "language": "en",
@@ -645,7 +645,7 @@
         "reasons": [],
         "is_silence": false
        },
-       "seconds": 1.2833323750001
+       "seconds": 0.489757749994169
       }
      ],
      "final_temperature": 0.0,
@@ -737,7 +737,7 @@
        "reasons": [],
        "is_silence": false
       },
-      "seconds": 1.2833323750001
+      "seconds": 0.489757749994169
      },
      "fallback": false,
      "language": "en",
@@ -776,7 +776,7 @@
         ],
         "is_silence": true
        },
-       "seconds": 0.9490109170001233
+       "seconds": 0.3511025000043446
       }
      ],
      "final_temperature": 0.0,
@@ -807,7 +807,7 @@
        ],
        "is_silence": true
       },
-      "seconds": 0.9490109170001233
+      "seconds": 0.3511025000043446
      },
      "fallback": false,
      "language": "en",
@@ -915,7 +915,7 @@
         "reasons": [],
         "is_silence": false
        },
-       "seconds": 1.262580290999722
+       "seconds": 0.5271887499984587
       }
      ],
      "final_temperature": 0.0,
@@ -1007,7 +1007,7 @@
        "reasons": [],
        "is_silence": false
       },
-      "seconds": 1.262580290999722
+      "seconds": 0.5271887499984587
      },
      "fallback": false,
      "language": "en",
@@ -1044,7 +1044,7 @@
         "reasons": [],
         "is_silence": false
        },
-       "seconds": 0.7994079579993922
+       "seconds": 0.3429865000071004
       }
      ],
      "final_temperature": 0.0,
@@ -1073,7 +1073,7 @@
        "reasons": [],
        "is_silence": false
       },
-      "seconds": 0.7994079579993922
+      "seconds": 0.3429865000071004
      },
      "fallback": false,
      "language": "en",
@@ -1118,7 +1118,7 @@
       ],
       "is_silence": false
      },
-     "seconds": 0.9397174999994604
+     "seconds": 0.3394572499964852
     }
    ],
    "final_temperature": 0.0,
@@ -1149,7 +1149,7 @@
      ],
      "is_silence": false
     },
-    "seconds": 0.9397174999994604
+    "seconds": 0.3394572499964852
    },
    "fallback": false,
    "language": "en",
@@ -1335,7 +1335,7 @@
       "reasons": [],
       "is_silence": false
      },
-     "seconds": 1.6648603339999681
+     "seconds": 0.34692599999834783
     }
    ],
    "final_temperature": 0.0,
@@ -1364,7 +1364,7 @@
      "reasons": [],
      "is_silence": false
     },
-    "seconds": 1.6648603339999681
+    "seconds": 0.34692599999834783
    },
    "fallback": true,
    "language": "en",
@@ -1400,7 +1400,7 @@
       ],
       "is_silence": true
      },
-     "seconds": 1.1707752910006093
+     "seconds": 0.3481249169999501
     },
     {
      "temperature": 0.2,
@@ -1429,7 +1429,7 @@
       ],
       "is_silence": true
      },
-     "seconds": 1.1119845419998455
+     "seconds": 0.34642520899069495
     },
     {
      "temperature": 0.4,
@@ -1458,7 +1458,7 @@
       ],
       "is_silence": true
      },
-     "seconds": 0.8157993330005411
+     "seconds": 0.34525566699448973
     },
     {
      "temperature": 0.6,
@@ -1487,7 +1487,7 @@
       ],
       "is_silence": true
      },
-     "seconds": 1.020358457999464
+     "seconds": 0.3463106660055928
     },
     {
      "temperature": 0.8,
@@ -1516,7 +1516,7 @@
       ],
       "is_silence": true
      },
-     "seconds": 0.9168914579995544
+     "seconds": 0.3423275829991326
     },
     {
      "temperature": 1.0,
@@ -1563,7 +1563,7 @@
       ],
       "is_silence": true
      },
-     "seconds": 1.015558625000267
+     "seconds": 0.4001271250017453
     }
    ],
    "final_temperature": 1.0,
@@ -1612,7 +1612,7 @@
      ],
      "is_silence": true
     },
-    "seconds": 1.015558625000267
+    "seconds": 0.4001271250017453
    },
    "fallback": true,
    "language": "en",
@@ -1648,7 +1648,7 @@
       ],
       "is_silence": true
      },
-     "seconds": 0.7590453749999142
+     "seconds": 0.34297341700585093
     },
     {
      "temperature": 0.2,
@@ -1677,7 +1677,7 @@
       ],
       "is_silence": true
      },
-     "seconds": 0.9790191669999331
+     "seconds": 0.3498530840006424
     },
     {
      "temperature": 0.4,
@@ -1706,7 +1706,7 @@
       ],
       "is_silence": true
      },
-     "seconds": 1.0251705830005449
+     "seconds": 0.33966479200171307
     },
     {
      "temperature": 0.6,
@@ -1735,7 +1735,7 @@
       ],
       "is_silence": true
      },
-     "seconds": 1.0251912500007165
+     "seconds": 0.33521537500200793
     },
     {
      "temperature": 0.8,
@@ -1788,7 +1788,7 @@
       ],
       "is_silence": true
      },
-     "seconds": 1.4975308330003827
+     "seconds": 0.4063054580037715
     },
     {
      "temperature": 1.0,
@@ -1859,7 +1859,7 @@
       ],
       "is_silence": true
      },
-     "seconds": 0.9431311250000363
+     "seconds": 0.46621795900864527
     }
    ],
    "final_temperature": 1.0,
@@ -1932,7 +1932,7 @@
      ],
      "is_silence": true
     },
-    "seconds": 0.9431311250000363
+    "seconds": 0.46621795900864527
    },
    "fallback": true,
    "language": "en",
@@ -1968,7 +1968,7 @@
       ],
       "is_silence": true
      },
-     "seconds": 0.9975142499997673
+     "seconds": 0.3413189999992028
     },
     {
      "temperature": 0.2,
@@ -1997,7 +1997,7 @@
       ],
       "is_silence": true
      },
-     "seconds": 1.0695712919996367
+     "seconds": 0.33891654199396726
     },
     {
      "temperature": 0.4,
@@ -2026,7 +2026,7 @@
       ],
       "is_silence": true
      },
-     "seconds": 1.0196021670008122
+     "seconds": 0.3442777500022203
     },
     {
      "temperature": 0.6,
@@ -2055,7 +2055,7 @@
       ],
       "is_silence": true
      },
-     "seconds": 1.0002049159993476
+     "seconds": 0.33838808300788514
     },
     {
      "temperature": 0.8,
@@ -2084,7 +2084,7 @@
       ],
       "is_silence": true
      },
-     "seconds": 1.015478332999919
+     "seconds": 0.363524457992753
     },
     {
      "temperature": 1.0,
@@ -2113,7 +2113,7 @@
       ],
       "is_silence": true
      },
-     "seconds": 0.7019885839999915
+     "seconds": 0.3471236250043148
     }
    ],
    "final_temperature": 1.0,
@@ -2144,7 +2144,7 @@
      ],
      "is_silence": true
     },
-    "seconds": 0.7019885839999915
+    "seconds": 0.3471236250043148
    },
    "fallback": true,
    "language": "en",
@@ -2243,7 +2243,7 @@
         "reasons": [],
         "is_silence": false
        },
-       "seconds": 1.292757457999869
+       "seconds": 0.5212935410090722
       }
      ],
      "final_temperature": 0.0,
@@ -2335,7 +2335,7 @@
        "reasons": [],
        "is_silence": false
       },
-      "seconds": 1.292757457999869
+      "seconds": 0.5212935410090722
      },
      "fallback": true,
      "language": "en",
@@ -2374,7 +2374,7 @@
         ],
         "is_silence": true
        },
-       "seconds": 0.9881006249997881
+       "seconds": 0.3487800410075579
       },
       {
        "temperature": 0.2,
@@ -2403,7 +2403,7 @@
         ],
         "is_silence": true
        },
-       "seconds": 1.437043416999586
+       "seconds": 0.3428979169984814
       },
       {
        "temperature": 0.4,
@@ -2432,7 +2432,7 @@
         ],
         "is_silence": true
        },
-       "seconds": 0.7289177499997095
+       "seconds": 0.35057045800203923
       },
       {
        "temperature": 0.6,
@@ -2461,7 +2461,7 @@
         ],
         "is_silence": true
        },
-       "seconds": 0.9847527920001085
+       "seconds": 0.35761012499278877
       },
       {
        "temperature": 0.8,
@@ -2499,7 +2499,7 @@
         ],
         "is_silence": true
        },
-       "seconds": 1.178398125000058
+       "seconds": 0.36567604199808557
       },
       {
        "temperature": 1.0,
@@ -2528,7 +2528,7 @@
         ],
         "is_silence": true
        },
-       "seconds": 0.9996321250000619
+       "seconds": 0.34547887499502394
       }
      ],
      "final_temperature": 1.0,
@@ -2559,7 +2559,7 @@
        ],
        "is_silence": true
       },
-      "seconds": 0.9996321250000619
+      "seconds": 0.34547887499502394
      },
      "fallback": true,
      "language": "en",
@@ -2604,7 +2604,7 @@
       ],
       "is_silence": false
      },
-     "seconds": 0.7095165000000634
+     "seconds": 0.3464013329939917
     },
     {
      "temperature": 0.2,
@@ -2633,7 +2633,7 @@
       ],
       "is_silence": false
      },
-     "seconds": 1.0684456250000949
+     "seconds": 0.3456478329899255
     },
     {
      "temperature": 0.4,
@@ -2662,7 +2662,7 @@
       ],
       "is_silence": false
      },
-     "seconds": 0.9898310829994443
+     "seconds": 0.3428430830099387
     },
     {
      "temperature": 0.6,
@@ -2691,7 +2691,7 @@
       ],
       "is_silence": false
      },
-     "seconds": 0.9804754580000008
+     "seconds": 0.34192004198848736
     },
     {
      "temperature": 0.8,
@@ -2720,7 +2720,7 @@
       ],
       "is_silence": false
      },
-     "seconds": 1.0022367500005203
+     "seconds": 0.34577637500478886
     },
     {
      "temperature": 1.0,
@@ -2767,7 +2767,7 @@
       ],
       "is_silence": false
      },
-     "seconds": 0.78503258299952
+     "seconds": 0.39319170800445136
     }
    ],
    "final_temperature": 1.0,
@@ -2816,7 +2816,7 @@
      ],
      "is_silence": false
     },
-    "seconds": 0.78503258299952
+    "seconds": 0.39319170800445136
    },
    "fallback": true,
    "language": "en",
@@ -2864,7 +2864,7 @@
       ],
       "is_silence": true
      },
-     "seconds": 1.0890575409994199
+     "seconds": 0.4089004169945838
     }
    ],
    "final_temperature": 0.0,
@@ -2907,7 +2907,7 @@
      ],
      "is_silence": true
     },
-    "seconds": 1.0890575409994199
+    "seconds": 0.4089004169945838
    },
    "fallback": false,
    "language": "zh",
@@ -2955,7 +2955,7 @@
       ],
       "is_silence": true
      },
-     "seconds": 1.0662317080004868
+     "seconds": 0.37591620899911504
     }
    ],
    "final_temperature": 0.0,
@@ -2998,7 +2998,7 @@
      ],
      "is_silence": true
     },
-    "seconds": 1.0662317080004868
+    "seconds": 0.37591620899911504
    },
    "fallback": false,
    "language": "zh",

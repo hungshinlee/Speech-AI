@@ -2,7 +2,7 @@
 ────────────────────────────────────────────────────────────────────────
 英文 2803-154320-0011 → Whisper small（<|en|>），prompt 空
 ────────────────────────────────────────────────────────────────────────
-  轉錄：[31m'Think of Lady Glenarvin. Think of Mary Grant.'[0m   (2.49 s)
+  轉錄：[31m'Think of Lady Glenarvin. Think of Mary Grant.'[0m   (0.49 s)
   參考：'THINK OF LADY GLENARVAN THINK OF MARY GRANT'
   名字 1/2：Glenarvan ✗、Mary Grant ✓；平均 log 機率 -0.340；詞錯 1/8
 
@@ -10,7 +10,7 @@
 英文 2803-154320-0011 → Whisper small（<|en|>），prompt = 名單
 ────────────────────────────────────────────────────────────────────────
   prompt：[33m'Glenarvan, Mary Grant.'[0m
-  轉錄：[31m'Think of Lady Glenarvan. Think of Mary Grant.'[0m   (0.69 s)
+  轉錄：[31m'Think of Lady Glenarvan. Think of Mary Grant.'[0m   (0.48 s)
   參考：'THINK OF LADY GLENARVAN THINK OF MARY GRANT'
   名字 2/2：Glenarvan ✓、Mary Grant ✓；平均 log 機率 -0.116；詞錯 0/8
   prompt 洩漏：沒有
@@ -19,7 +19,7 @@
 英文 2803-154320-0011 → Whisper small（<|en|>），prompt = 一句台詞
 ────────────────────────────────────────────────────────────────────────
   prompt：[33m"Thanks for watching, and don't forget to subscribe to the channel."[0m
-  轉錄：[31m'Think of Lady Glenarvin, think of Mary Grant.'[0m   (0.79 s)
+  轉錄：[31m'Think of Lady Glenarvin, think of Mary Grant.'[0m   (0.44 s)
   參考：'THINK OF LADY GLENARVAN THINK OF MARY GRANT'
   名字 1/2：Glenarvan ✗、Mary Grant ✓；平均 log 機率 -0.395；詞錯 1/8
   prompt 洩漏：沒有
@@ -53,7 +53,7 @@
 ────────────────────────────────────────────────────────────────────────
 英文 2803-154320-0011 → Qwen3-ASR（Qwen3-ASR-1.7B-hf，language=English），context 空
 ────────────────────────────────────────────────────────────────────────
-  轉錄：[31m'Think of Lady Glenarvan. Think of Mary Grant.'[0m   (1.37 s)
+  轉錄：[31m'Think of Lady Glenarvan. Think of Mary Grant.'[0m   (0.58 s)
   參考：'THINK OF LADY GLENARVAN THINK OF MARY GRANT'
   名字 2/2：Glenarvan ✓、Mary Grant ✓；詞錯 0/8
   原始輸出：'Think of Lady Glenarvan. Think of Mary Grant.<|im_end|>'
@@ -62,7 +62,7 @@
 英文 2803-154320-0011 → Qwen3-ASR（Qwen3-ASR-1.7B-hf，language=English），context = 名單
 ────────────────────────────────────────────────────────────────────────
   context：[33m'Vocabulary: Glenarvan, Mary Grant.'[0m
-  轉錄：[31m'Think of Lady Glenarvan. Think of Mary Grant.'[0m   (1.18 s)
+  轉錄：[31m'Think of Lady Glenarvan. Think of Mary Grant.'[0m   (0.34 s)
   參考：'THINK OF LADY GLENARVAN THINK OF MARY GRANT'
   名字 2/2：Glenarvan ✓、Mary Grant ✓；詞錯 0/8
   prompt 洩漏：沒有
@@ -72,7 +72,7 @@
 英文 2803-154320-0011 → Qwen3-ASR（Qwen3-ASR-1.7B-hf，language=English），context = 一句台詞
 ────────────────────────────────────────────────────────────────────────
   context：[33m"Thanks for watching, and don't forget to subscribe to the channel."[0m
-  轉錄：[31m'Think of Lady Glenarvan. Think of Mary Grant.'[0m   (1.19 s)
+  轉錄：[31m'Think of Lady Glenarvan. Think of Mary Grant.'[0m   (0.23 s)
   參考：'THINK OF LADY GLENARVAN THINK OF MARY GRANT'
   名字 2/2：Glenarvan ✓、Mary Grant ✓；詞錯 0/8
   prompt 洩漏：沒有
@@ -83,33 +83,33 @@
 ────────────────────────────────────────────────────────────────────────
 
   [1mWhisper small，en，prompt：[0m[33m"Thanks for watching, and don't forget to subscribe to the channel."[0m
-  轉錄：[31m"Thanks for watching, and don't forget to subscribe to the channel."[0m   (0.57 s)；平均 log 機率 -0.279
+  轉錄：[31m"Thanks for watching, and don't forget to subscribe to the channel."[0m   (0.46 s)；平均 log 機率 -0.279
   prompt 洩漏：[31m"thanks for watching and don't forget to subscribe to the channel"[0m；**整張卡逐字念出**
 
   [1mWhisper small，zh，prompt：[0m[33m'好，那我們今天的會議就先到這裡，謝謝大家，下次見。'[0m
-  轉錄：[31m'謝謝大家，'[0m   (0.57 s)；平均 log 機率 -0.684
+  轉錄：[31m'謝謝大家，'[0m   (0.38 s)；平均 log 機率 -0.684
   prompt 洩漏：[31m'谢谢大家'[0m
 
   [1mWhisper small，zh，prompt：[0m[33m'以下是在臺北開的一場會議，用繁體中文記錄。'[0m
-  轉錄：[31m'在臺北開的一場會議，用繁體中文記錄。'[0m   (0.92 s)；平均 log 機率 -0.518
+  轉錄：[31m'在臺北開的一場會議，用繁體中文記錄。'[0m   (0.55 s)；平均 log 機率 -0.518
   prompt 洩漏：[31m'在台北开的一场会议'、'用繁体中文记录'[0m
 
   [1mQwen3-ASR，English，prompt：[0m[33m"Thanks for watching, and don't forget to subscribe to the channel."[0m
-  轉錄：[31m"Thanks for watching, and don't forget to subscribe to the channel."[0m   (1.58 s)
+  轉錄：[31m"Thanks for watching, and don't forget to subscribe to the channel."[0m   (0.32 s)
   prompt 洩漏：[31m"thanks for watching and don't forget to subscribe to the channel"[0m；**整張卡逐字念出**
 
   [1mQwen3-ASR，Chinese，prompt：[0m[33m'好，那我們今天的會議就先到這裡，謝謝大家，下次見。'[0m
-  轉錄：[31m'好，那我們今天的會議就先到這裡，謝謝大家，下次見。'[0m   (1.65 s)
+  轉錄：[31m'好，那我們今天的會議就先到這裡，謝謝大家，下次見。'[0m   (0.32 s)
   prompt 洩漏：[31m'那我们今天的会议就先到这里'、'谢谢大家'[0m；**整張卡逐字念出**
 
   [1mQwen3-ASR，Chinese，prompt：[0m[33m'以下是在臺北開的一場會議，用繁體中文記錄。'[0m
-  轉錄：[31m'以下是在臺北開的一場會議，用繁體中文記錄。'[0m   (1.41 s)
+  轉錄：[31m'以下是在臺北開的一場會議，用繁體中文記錄。'[0m   (0.27 s)
   prompt 洩漏：[31m'以下是在台北开的一场会议'、'用繁体中文记录'[0m；**整張卡逐字念出**
 
   （證據是平的時候，先驗就是輸出——Demo 1 看到的是訓練資料的先驗，這裡看到的是你剛塞進 prompt 槽的那一句）
 
 ────────────────────────────────────────────────────────────────────────
-投影片 p50 的表（名字對幾個／字體／洩漏）——華語那列只有數字，文字不上站
+投影片 p51 的表（名字對幾個／字體／洩漏）——華語那列只有數字，文字不上站
 ────────────────────────────────────────────────────────────────────────
             Whisper 無 prompt      Whisper + 名單          Whisper + 繁體句         Whisper + 台詞          Qwen3-ASR 無 context   Qwen3-ASR + 名單        
   英文        1/2                   2/2                   —                     1/2                   2/2                   2/2                   

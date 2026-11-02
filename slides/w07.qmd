@@ -935,12 +935,27 @@ The unit, the script and the language table are **part of the metric** — and D
 SEAME · whisper/tokenizer.py · MMS card · Qwen3-ASR TR · FSR: Liao 2020, 2025
 :::
 
-## Error-analysis workshop: seven kinds of error in one transcript
+## Error-analysis workshop: one transcript, as the systems wrote it
 
 ::: {.gen}
-[one page, handed out · assembled from Demo 1–3's outputs after rehearsal · reference on the back]{.n}
-(a transcript with all seven kinds of error below — to be built when the demos exist)
+[one page, handed out · ten segments assembled from Demo 1–3's rehearsal outputs (2026-11-02) · reference on the back]{.n}
+1 Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.<br>
+2 I am the one to go after Walt. If any one has top, I'll go down, Mister Thomas.<br>
+3 None might exert or confess or in any way meal with the religious experience of another.<br>
+4 Colonel Leonidas Talbot regarded the white flag with feelings which triumph and sadness were mingled strangely.<br>
+5 Think of Glenarvan Glenarvan. Think of Mary Grant.<br>
+6 我想定一張下周山去臺南的票<br>
+7 我想订一张下周三去台南的票。<br>
+8 I kind of took that picture, because the burnwasty was really fine<br>
+9 I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, …<br>
+10 Thanks for watching, and don't forget to subscribe to the channel.
 :::
+
+::: {.footer}
+front: this page · back: the reference for each segment · mark every error, name its kind, trace it to paradigm, decoding or data
+:::
+
+## Error-analysis workshop: seven kinds, how to spot them, where they come from
 
 | kind | how to spot it | trace it back to |
 |:---|:--------|:--------|

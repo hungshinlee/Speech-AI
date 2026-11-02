@@ -1,5 +1,5 @@
 {
- "time": "2026-11-01T22:01:28",
+ "time": "2026-11-02T16:32:59",
  "tag": "rehearsal",
  "backend": "whisper",
  "device": {
@@ -162,7 +162,7 @@
    "n_tokens": 12,
    "n_prompt_tokens": 0,
    "avg_logprob": -0.33999175796858394,
-   "seconds": 2.491510833000575,
+   "seconds": 0.49173358400003053,
    "hits": {
     "Glenarvan": false,
     "Mary Grant": true
@@ -182,7 +182,7 @@
    "n_tokens": 12,
    "n_prompt_tokens": 8,
    "avg_logprob": -0.11550309029049598,
-   "seconds": 0.6857047499997861,
+   "seconds": 0.47964141600823496,
    "hits": {
     "Glenarvan": true,
     "Mary Grant": true
@@ -202,7 +202,7 @@
    "n_tokens": 12,
    "n_prompt_tokens": 15,
    "avg_logprob": -0.3949517028119702,
-   "seconds": 0.7886849169990455,
+   "seconds": 0.4425107499992009,
    "hits": {
     "Glenarvan": false,
     "Mary Grant": true
@@ -244,7 +244,7 @@
      "text": "THINK OF LADY GLENARVIN THINK OF MARY GRANT",
      "logp": -0.48155869455291916,
      "bonus": 0.0,
-     "seconds": 0.04754779199902259,
+     "seconds": 0.01964100000623148,
      "hits": {
       "Glenarvan": false,
       "Mary Grant": true
@@ -263,7 +263,7 @@
      "text": "THINK OF LADY GLENARVAN THINK OF MARY GRANT",
      "logp": -2.2975406893441117,
      "bonus": 19.0,
-     "seconds": 0.04685841600075946,
+     "seconds": 0.02074962500773836,
      "hits": {
       "Glenarvan": true,
       "Mary Grant": true
@@ -290,7 +290,7 @@
      "text": "THINK OF LADY GLENARVAN THINK OF MARY GRANT",
      "logp": -2.2975381250358224,
      "bonus": 114.0,
-     "seconds": 0.04634183300004224,
+     "seconds": 0.020562250007060356,
      "hits": {
       "Glenarvan": true,
       "Mary Grant": true
@@ -317,7 +317,7 @@
      "text": "THINK OF GLENARVAN GLENARVAN THINK OF MARY GRANT",
      "logp": -216.67145661256112,
      "bonus": 672.0,
-     "seconds": 0.04713654199986195,
+     "seconds": 0.020692334001068957,
      "hits": {
       "Glenarvan": true,
       "Mary Grant": true
@@ -349,7 +349,7 @@
    "text": "Think of Lady Glenarvan. Think of Mary Grant.",
    "raw": "Think of Lady Glenarvan. Think of Mary Grant.<|im_end|>",
    "n_tokens": 13,
-   "seconds": 1.3698448330014799,
+   "seconds": 0.5769729589956114,
    "audio_as": "array",
    "hits": {
     "Glenarvan": true,
@@ -369,7 +369,7 @@
    "text": "Think of Lady Glenarvan. Think of Mary Grant.",
    "raw": "Think of Lady Glenarvan. Think of Mary Grant.<|im_end|>",
    "n_tokens": 13,
-   "seconds": 1.177480291999018,
+   "seconds": 0.3402662500011502,
    "audio_as": "array",
    "hits": {
     "Glenarvan": true,
@@ -389,7 +389,7 @@
    "text": "Think of Lady Glenarvan. Think of Mary Grant.",
    "raw": "Think of Lady Glenarvan. Think of Mary Grant.<|im_end|>",
    "n_tokens": 13,
-   "seconds": 1.1949936250002793,
+   "seconds": 0.23052783399180043,
    "audio_as": "array",
    "hits": {
     "Glenarvan": true,
@@ -410,7 +410,7 @@
    "n_tokens": 14,
    "n_prompt_tokens": 15,
    "avg_logprob": -0.27853635511904334,
-   "seconds": 0.5748473340008786,
+   "seconds": 0.4563165410072543,
    "leak": [
     "thanks for watching and don't forget to subscribe to the channel"
    ],
@@ -421,7 +421,7 @@
    "n_tokens": 5,
    "n_prompt_tokens": 24,
    "avg_logprob": -0.6839438832054535,
-   "seconds": 0.565941875000135,
+   "seconds": 0.3806894160079537,
    "leak": [
     "谢谢大家"
    ],
@@ -432,7 +432,7 @@
    "n_tokens": 23,
    "n_prompt_tokens": 28,
    "avg_logprob": -0.5184461153691586,
-   "seconds": 0.9157856250003533,
+   "seconds": 0.5542918330029352,
    "leak": [
     "在台北开的一场会议",
     "用繁体中文记录"
@@ -443,7 +443,7 @@
    "text": "Thanks for watching, and don't forget to subscribe to the channel.",
    "raw": "Thanks for watching, and don't forget to subscribe to the channel.<|im_end|>",
    "n_tokens": 15,
-   "seconds": 1.583272541000042,
+   "seconds": 0.31616354099242017,
    "audio_as": "array",
    "leak": [
     "thanks for watching and don't forget to subscribe to the channel"
@@ -454,7 +454,7 @@
    "text": "好，那我們今天的會議就先到這裡，謝謝大家，下次見。",
    "raw": "好，那我們今天的會議就先到這裡，謝謝大家，下次見。<|im_end|>",
    "n_tokens": 19,
-   "seconds": 1.6473959579998336,
+   "seconds": 0.31813266599783674,
    "audio_as": "array",
    "leak": [
     "那我们今天的会议就先到这里",
@@ -466,7 +466,7 @@
    "text": "以下是在臺北開的一場會議，用繁體中文記錄。",
    "raw": "以下是在臺北開的一場會議，用繁體中文記錄。<|im_end|>",
    "n_tokens": 16,
-   "seconds": 1.4080607920004695,
+   "seconds": 0.27498274999379646,
    "audio_as": "array",
    "leak": [
     "以下是在台北开的一场会议",
