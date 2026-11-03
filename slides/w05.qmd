@@ -233,7 +233,7 @@ vq-wav2vec, ICLR 2020 · BERT = Bidirectional Encoder Representations from Trans
 :::
 
 ::: {.footer}
-wav2vec, Interspeech 2019 · vq-wav2vec, ICLR 2020 · the ten-minute numbers: p53
+wav2vec, Interspeech 2019 · vq-wav2vec, ICLR 2020 · the ten-minute numbers: p54
 :::
 
 ## wav2vec 2.0: two paths that meet only at the masked steps
@@ -241,7 +241,7 @@ wav2vec, Interspeech 2019 · vq-wav2vec, ICLR 2020 · the ten-minute numbers: p5
 {{< include assets/w05/w2v2-arch.inline.qmd >}}
 
 ::: {.claim .fragment fragment-index=3}
-**The quantiser sees the latent before it is masked; the Transformer sees the hole.** They meet only at the masked steps — the loss on p24 writes exactly this.
+**The quantiser sees the latent before it is masked; the Transformer sees the hole.** They meet only at the masked steps — the loss on p25 writes exactly this.
 :::
 
 ::: {.footer}
@@ -266,6 +266,26 @@ $$\text{backward (soft):}\quad \hat{p}_{g,v} = \frac{\exp\big((l_{g,v} + n_{g,v}
 
 ::: {.footer}
 Jang, Gu & Poole 2017 · Bengio et al. 2013 · wav2vec 2.0 §4.2: $G = 2$, $V = 320$, $102{,}400$ codes
+:::
+
+## Why the noise goes outside the parameters
+
+{{< include assets/w05/reparam-paths.inline.qmd >}}
+
+::: {.fragment fragment-index=1}
+$$\text{(a) grade each draw:}\quad \nabla_{l_g}\,\mathbb{E}_{v \sim \mathrm{softmax}(l_g)}\big[\mathcal{L}(v)\big] = \mathbb{E}_{v}\big[\mathcal{L}(v)\,\nabla_{l_g}\ln \mathrm{softmax}(l_g)_v\big]$$
+:::
+
+::: {.fragment fragment-index=3}
+$$\text{(b) follow the slope:}\quad \nabla_{l_g}\,\mathbb{E}_{n_g}\big[\mathcal{L}(\hat{\mathbf{p}}_g)\big] = \mathbb{E}_{n_g}\big[\nabla_{l_g}\,\mathcal{L}(\hat{\mathbf{p}}_g)\big],\qquad \hat{\mathbf{p}}_g = \mathrm{softmax}\big((l_g + n_g)/\tau\big)$$
+:::
+
+::: {.claim .fragment fragment-index=3}
+**Fix the luck, and the choice is a function of $l_g$**: backprop can follow the loss's slope instead of grading each draw. A discrete choice is still a staircase — $\tau$ (p21) gives it a slope.
+:::
+
+::: {.footer}
+Jang, Gu & Poole 2017: §3.1 path derivative, §3.2 score function · Kingma & Welling 2014 §2.4
 :::
 
 ## The diversity loss is an entropy
@@ -353,7 +373,7 @@ LS-960 = LibriSpeech 960 h · LV-60k = Libri-light 60k h · wav2vec 2.0 App. B �
 | **The question** | What if the answer for each masked frame is written down before training starts, and never moves? |
 | **The idea** | Cluster frames with k-means; predict the cluster id of every masked frame (a $K$-way classification); then cluster a middle layer of the trained model and train again. |
 | **What it added** | No negatives and no collapse by construction; a target that improves by iteration; and a consistent teacher matters more than an accurate one. |
-| **What it leaves open** | How good must the first teacher be — and what does a "hidden unit" actually hold? The next two slides, and the units section from p44. |
+| **What it leaves open** | How good must the first teacher be — and what does a "hidden unit" actually hold? The next two slides, and the units section from p45. |
 :::
 
 ::: {.footer}
@@ -425,7 +445,7 @@ Chen et al., IEEE JSTSP 2022: §IV-B, Fig. 1 · 20% of utterances mixed (§V-A),
 | what it buys | content | content, plus a representation that already separates speakers and ignores noise |
 
 ::: {.claim}
-Three things changed at once — the task, the position bias **and** the data. When WavLM wins a benchmark, you cannot tell which one paid. Keep that for p55.
+Three things changed at once — the task, the position bias **and** the data. When WavLM wins a benchmark, you cannot tell which one paid. Keep that for p56.
 :::
 
 ::: {.footer}
@@ -848,7 +868,7 @@ W3 and W4 asked "where does the alignment come from"; today asked **"where does 
 
 - Mohamed et al., *Self-Supervised Speech Representation Learning: A Review*, IEEE JSTSP 2022 — the survey; read the taxonomy section, then re-sort it by target as we did today
 - Hsu et al., *HuBERT*, IEEE/ACM TASLP 2021 — §II for the loss, §IV-E for the three purities, Table V for the $\alpha$ ablation you saw
-- Baevski et al., *wav2vec 2.0*, NeurIPS 2020 — §2–3 and Appendix B; look at Table 1 with p53 in mind
+- Baevski et al., *wav2vec 2.0*, NeurIPS 2020 — §2–3 and Appendix B; look at Table 1 with p54 in mind
 
 **If one thing today was new to you, make it this one**
 
@@ -864,16 +884,16 @@ Today's unit was *predicted*; next week's token is *reconstructed*. What changes
 |:----|:----------------|
 | ASR | automatic speech recognition (W1) |
 | BERT | Bidirectional Encoder Representations from Transformers (p17) |
-| BEST-RQ | BERT-based Speech pre-Training with Random-projection Quantizer (p34) |
-| BYOL | Bootstrap Your Own Latent (p23) |
-| CCA, PWCCA | canonical correlation analysis; projection-weighted CCA (p39) |
+| BEST-RQ | BERT-based Speech pre-Training with Random-projection Quantizer (p35) |
+| BYOL | Bootstrap Your Own Latent (p24) |
+| CCA, PWCCA | canonical correlation analysis; projection-weighted CCA (p40) |
 | CNN | convolutional neural network (p9) |
 | CPC | Contrastive Predictive Coding (p10) |
 | CTC | connectionist temporal classification (W3) |
-| EMA | exponential moving average (p23) |
+| EMA | exponential moving average (p24) |
 | GRU | gated recurrent unit (p10) |
-| GSLM | generative spoken language modeling (p49) |
-| HuBERT | Hidden-Unit BERT (p27) |
+| GSLM | generative spoken language modeling (p50) |
+| HuBERT | Hidden-Unit BERT (p28) |
 | InfoNCE | CPC's loss, "based on NCE": noise-contrastive estimation (p10) |
 
 ## Acronyms in this deck, K–W
@@ -882,14 +902,14 @@ Today's unit was *predicted*; next week's token is *reconstructed*. What changes
 |:----|:----------------|
 | KV | key–value: the cache a Transformer keeps (W4) |
 | LM | language model |
-| LS-960, LV-60k | LibriSpeech, 960 h; Libri-light, 60k h (p25) |
+| LS-960, LV-60k | LibriSpeech, 960 h; Libri-light, 60k h (p26) |
 | MC | misconception: a belief that sounds right, and what breaks it |
-| MFA | Montreal Forced Aligner (p39) |
+| MFA | Montreal Forced Aligner (p40) |
 | MFCC | mel-frequency cepstral coefficients (W2) |
-| ML-SUPERB | multilingual SUPERB (p52) |
+| ML-SUPERB | multilingual SUPERB (p53) |
 | MPS | Metal Performance Shaders: Apple's GPU backend (W3) |
-| PNMI | phone-normalized mutual information (p29) |
+| PNMI | phone-normalized mutual information (p30) |
 | SSL | self-supervised learning |
-| SUPERB | Speech processing Universal PERformance Benchmark (p43) |
+| SUPERB | Speech processing Universal PERformance Benchmark (p44) |
 | VQ, VQ-VAE | vector quantisation (p19); vector-quantised variational autoencoder (p21) |
-| WER | word error rate (p30) |
+| WER | word error rate (p31) |

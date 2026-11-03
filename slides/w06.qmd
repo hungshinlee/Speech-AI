@@ -64,7 +64,7 @@ format:
 :::
 
 ::: {.footer}
-W5 p35 four targets in one row · W5 p63's last sentence
+W5 p36 four targets in one row · W5 p64's last sentence
 :::
 
 ## The problem this week handles, in one picture
@@ -382,7 +382,7 @@ Moshi §3.3.1, Table 4 · whether the released Mimi is that variant: not stated 
 :::
 
 ::: {.footer}
-SoundStream Fig. 2: transmitter / receiver · W5 p38 · W8, W11
+SoundStream Fig. 2: transmitter / receiver · W5 p39 · W8, W11
 :::
 
 ## MC 4 — "neural codecs beat Opus — their tables say so"
@@ -415,7 +415,7 @@ SoundStream abstract · EnCodec §4.5, Table 1 · RFC 6716 · EVS = Enhanced Voi
 |:---|:-----------------|
 | **Name** | **Mimi**, Kyutai's streaming codec: the tokenizer inside Moshi (Défossez et al., technical report, 2024, §3.3). Moshi itself is W11 and W13. |
 | **The question** | Can one tokenizer give an LM few tokens a second, hold the words, rebuild the voice — and stream? |
-| **The idea** | 24 kHz in, 12.5 Hz out; every convolution causal, a Transformer on each side of the bottleneck. Each 80 ms frame gets a plain VQ distilled toward WavLM (W5 p31), beside a 7-stage acoustic RVQ: 8 tokens, $V = 2048$. |
+| **The idea** | 24 kHz in, 12.5 Hz out; every convolution causal, a Transformer on each side of the bottleneck. Each 80 ms frame gets a plain VQ distilled toward WavLM (W5 p32), beside a 7-stage acoustic RVQ: 8 tokens, $V = 2048$. |
 | **What it added** | A frame rate six times below EnCodec's — 1.1 kbps, 100 tokens a second — with a *semantic* and an *acoustic* stream from one model. Moshi is trained on these tokens. |
 | **What it leaves open** | Does the distilled codebook alone hold the words? Demo 1, next. Why split, instead of distilling into stage 1 of one RVQ? p39. |
 :::
@@ -475,7 +475,7 @@ $F_0$ is a physical quantity, pitch is a percept (W2 p56): the plot is a referen
 :::
 
 ::: {.footer}
-prediction from the design · heard: rehearsal 2026-10-19, one sentence, one listener · W2 p56, p62 · W5 p50 · unit-level evidence: p42
+prediction from the design · heard: rehearsal 2026-10-19, one sentence, one listener · W2 p56, p62 · W5 p51 · unit-level evidence: p42
 :::
 
 ## Before Demo 2: what the letters look like
@@ -521,7 +521,7 @@ Acoustic tokens can rebuild the voice but entangle **who, where and what**; sema
 :::
 
 ::: {.footer}
-W5 p50 · AudioLM, TASLP 2023 · the alphabet's second failure: letters hold only content
+W5 p51 · AudioLM, TASLP 2023 · the alphabet's second failure: letters hold only content
 :::
 
 ## SpeechTokenizer and Mimi: W5's unit, back inside the codec
@@ -540,7 +540,7 @@ SpeechTokenizer §3.2, App. E · Moshi §3.3.2 · $\mathcal{L}_{\text{dist}}$: a
 
 | | W5 measured | this week adds |
 |:---|:----------|:---------------|
-| **the unit** | HuBERT units are not phonemes: one id per 20 ms, context-dependent, redundant (W5 p47) | Mimi's first codebook is a VQ trained to be **cosine-close to WavLM**, not a phone classifier |
+| **the unit** | HuBERT units are not phonemes: one id per 20 ms, context-dependent, redundant (W5 p48) | Mimi's first codebook is a VQ trained to be **cosine-close to WavLM**, not a phone classifier |
 | **the probe** | purity was measured, not assumed (Demo 2) | on TIMIT, segmental information is **not confined to codebook 1**, and its tokens correspond to **allophones**, not phonemes |
 
 ::: {.claim}
@@ -548,7 +548,7 @@ Demo 1 did **not** go as predicted: stage 1 alone kept neither the words nor the
 :::
 
 ::: {.footer}
-Saloev et al., ICNLSP 2026 (TIMIT) · W5 p46–p49 · "semantic" names a target, not a claim
+Saloev et al., ICNLSP 2026 (TIMIT) · W5 p47–p50 · "semantic" names a target, not a claim
 :::
 
 ## One codebook, no residual: WavTokenizer, BigCodec, TAAE
@@ -582,7 +582,7 @@ At the unit level this is **measured**; at the codec level it is a **prediction*
 :::
 
 ::: {.footer}
-Osakuade & King, Speech Prosody 2026 · Saloev et al. 2026 · W2 p62 · W5 p50
+Osakuade & King, Speech Prosody 2026 · Saloev et al. 2026 · W2 p62 · W5 p51
 :::
 
 # How many letters per second, and who pays {.section-title}
@@ -710,7 +710,7 @@ The rightmost slot is filled — and for the first time the clock was **chosen**
 :::
 
 ::: {.footer}
-W2 p68 · W5 p60 · Mimi: 12.5 Hz for the LM's sequence length, Moshi §3.3.1
+W2 p68 · W5 p61 · Mimi: 12.5 Hz for the LM's sequence length, Moshi §3.3.1
 :::
 
 ## Latency: the cell in W1's budget, filled in
