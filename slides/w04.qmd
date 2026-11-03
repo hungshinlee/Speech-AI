@@ -606,7 +606,7 @@ One softmax per lattice node means the joint's logits are a four-way tensor. Ord
 
 ::: {.metrics}
 ::: {.metric}
-<span class="num">$1.25 \times 10^8$</span><span class="lab">numbers for one utterance: $T = 500 \times U = 50 \times |\mathcal{V}'| = 5000$</span>
+<span class="num">$1.25 \times 10^8$</span><span class="lab">numbers for one utterance: $T = 500$, $U = 50$, $|\mathcal{V}'| = 5000$</span>
 :::
 ::: {.metric .bad}
 <span class="num">0.5 GB</span><span class="lab">in fp32, one utterance of logits</span>
