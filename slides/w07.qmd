@@ -64,7 +64,7 @@ format:
 :::
 
 ::: {.footer}
-W6 p54's last paragraph · W6 p20 RVQ · W6 p53 three axes
+W6 p56's last paragraph · W6 p22 RVQ · W6 p55 three axes
 :::
 
 ## The problem this week handles, in one picture
@@ -320,7 +320,7 @@ All three of W2's representations have now been ASR inputs. Units sit **between*
 :::
 
 ::: {.footer}
-Chang et al., ICASSP 2024, Table 1 (one recipe) · DASB, TMLR 2026 · W6 p38
+Chang et al., ICASSP 2024, Table 1 (one recipe) · DASB, TMLR 2026 · W6 p40
 :::
 
 # When the prior speaks on its own: hallucination {.section-title}
@@ -803,7 +803,7 @@ SLAM-ASR §3.1.3 · SALMONN §3.1 · Qwen3-ASR TR · p10's fourth column, drawn
 {{< include assets/w07/train-vs-use.inline.qmd >}}
 
 ::: {.footer}
-SLAM-ASR §3.1.3 · Fathullah 2024 (LoRA) · W5 p39 · W6 p28
+SLAM-ASR §3.1.3 · Fathullah 2024 (LoRA) · W5 p39 · W6 p30
 :::
 
 ## The token budget: $s \cdot s_{\text{a}}$, and who sets the frame rate now
@@ -811,7 +811,7 @@ SLAM-ASR §3.1.3 · Fathullah 2024 (LoRA) · W5 p39 · W6 p28
 {{< include assets/w07/token-budget.inline.qmd >}}
 
 ::: {.footer}
-arithmetic from the papers (`w07-data.json`) · W4 p14 · W6 p44
+arithmetic from the papers (`w07-data.json`) · W4 p14 · W6 p46
 :::
 
 ## MC 5 — "LLM-based ASR is Whisper with a bigger decoder"
@@ -987,7 +987,7 @@ All three slots have now served as input, and the clock moved one more time: W2 
 :::
 
 ::: {.footer}
-W2 p68 · W5 p61 · W6 p51 · this week: p22, p57
+W2 p68 · W5 p61 · W6 p53 · this week: p22, p57
 :::
 
 ## Latency: the ASR-tail cell in W1's budget, filled in
@@ -995,7 +995,7 @@ W2 p68 · W5 p61 · W6 p51 · this week: p22, p57
 {{< include assets/w07/latency-cell.inline.qmd >}}
 
 ::: {.footer}
-W1 p36 · W1 p41 · W4 Demo 2 · W1 Demo 2 · W6 p52 · W11, W12
+W1 p36 · W1 p41 · W4 Demo 2 · W1 Demo 2 · W6 p54 · W11, W12
 :::
 
 ## The three axes, and supervision's four answers

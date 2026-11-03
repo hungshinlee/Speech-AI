@@ -1,14 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 364" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
 <g class="fragment" data-fragment-index="0">
 <rect x="40.0" y="40.0" width="440.0" height="312.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
-<polygon points="200,170 300,160 355,235 335,310 230,320 180,245" fill="#f8fafc" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="4 3"/>
-<text x="362.0" y="178.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">its cell</text>
-<circle cx="130.0" cy="110.0" r="6.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
-<circle cx="360.0" cy="100.0" r="6.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
-<circle cx="110.0" cy="270.0" r="6.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
-<circle cx="270.0" cy="250.0" r="6.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
-<circle cx="410.0" cy="260.0" r="6.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
-<svg x="276" y="265.547" width="19.72" height="16.4528" viewBox="0 0 19.72 16.452813"><defs>
+<text x="260.0" y="62.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">latent plane: codewords and their cells</text>
+<polygon points="208.0,166.3 322.3,227.9 325.6,256.2 280.9,348.0 197.6,348.0 145.4,240.0" fill="#eef2f7" stroke="none"/>
+<line x1="208.0" y1="166.3" x2="322.3" y2="227.9" stroke="#94a3b8" stroke-width="1.0" stroke-dasharray="4 3"/>
+<line x1="322.3" y1="227.9" x2="325.6" y2="256.2" stroke="#94a3b8" stroke-width="1.0" stroke-dasharray="4 3"/>
+<line x1="325.6" y1="256.2" x2="280.9" y2="348.0" stroke="#94a3b8" stroke-width="1.0" stroke-dasharray="4 3"/>
+<line x1="197.6" y1="348.0" x2="145.4" y2="240.0" stroke="#94a3b8" stroke-width="1.0" stroke-dasharray="4 3"/>
+<line x1="145.4" y1="240.0" x2="208.0" y2="166.3" stroke="#94a3b8" stroke-width="1.0" stroke-dasharray="4 3"/>
+<line x1="455.4" y1="80.0" x2="322.3" y2="227.9" stroke="#94a3b8" stroke-width="1.0" stroke-dasharray="4 3"/>
+<line x1="208.0" y1="166.3" x2="195.3" y2="80.0" stroke="#94a3b8" stroke-width="1.0" stroke-dasharray="4 3"/>
+<line x1="145.4" y1="240.0" x2="44.0" y2="240.0" stroke="#94a3b8" stroke-width="1.0" stroke-dasharray="4 3"/>
+<line x1="476.0" y1="319.5" x2="325.6" y2="256.2" stroke="#94a3b8" stroke-width="1.0" stroke-dasharray="4 3"/>
+<line x1="145.3" y1="240.0" x2="197.6" y2="348.0" stroke="#94a3b8" stroke-width="1.0" stroke-dasharray="4 3"/>
+<line x1="44.0" y1="240.0" x2="145.3" y2="240.0" stroke="#94a3b8" stroke-width="1.0" stroke-dasharray="4 3"/>
+<circle cx="230.0" cy="262.0" r="6.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="300.0" cy="132.0" r="6.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="110.0" cy="160.0" r="6.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="420.0" cy="240.0" r="6.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="110.0" cy="320.0" r="6.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<circle cx="380.0" cy="335.0" r="6.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
+<text x="226.0" y="312.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">its cell</text>
+<svg x="240" y="275.547" width="19.72" height="16.4528" viewBox="0 0 19.72 16.452813"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t18-figure_1">
@@ -164,8 +177,9 @@ z
   </g>
  </g>
 </svg>
-<circle cx="228.0" cy="205.0" r="5.0" fill="#0b5cad" stroke="#0b5cad" stroke-width="1"/>
-<svg x="192.23" y="185.547" width="13.77" height="16.4528" viewBox="0 0 13.77 16.452813"><defs>
+<line x1="283.0" y1="238.0" x2="230.0" y2="262.0" stroke="#6b7280" stroke-width="1.2" stroke-dasharray="3 3"/>
+<circle cx="283.0" cy="238.0" r="5.0" fill="#0b5cad" stroke="#0b5cad" stroke-width="1"/>
+<svg x="293" y="247.547" width="13.77" height="16.4528" viewBox="0 0 13.77 16.452813"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t19-figure_1">
@@ -252,8 +266,6 @@ z
   </g>
  </g>
 </svg>
-<line x1="228.0" y1="205.0" x2="270.0" y2="250.0" stroke="#6b7280" stroke-width="1.2" stroke-dasharray="3 3"/>
-<text x="260.0" y="72.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">latent plane, codewords, nearest-neighbour cells</text>
 </g>
 <g class="fragment" data-fragment-index="1">
 <rect x="500.0" y="40.0" width="460.0" height="88.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
@@ -583,8 +595,8 @@ z
 </svg>
 <text x="518.0" y="92.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">almost everywhere: a small move changes no index,</text>
 <text x="518.0" y="112.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">so nothing reaches the encoder</text>
-<line x1="228.0" y1="205.0" x2="250.4" y2="197.5" stroke="#e5e7eb" stroke-width="2.0"/>
-<polygon points="258.0,195.0 252.0,202.3 248.8,192.8" fill="#e5e7eb"/>
+<line x1="283.0" y1="238.0" x2="299.6" y2="244.9" stroke="#e5e7eb" stroke-width="2.0"/>
+<polygon points="307.0,248.0 297.7,249.5 301.5,240.3" fill="#e5e7eb"/>
 </g>
 <g class="fragment" data-fragment-index="2">
 <rect x="500.0" y="136.0" width="460.0" height="112.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
@@ -927,8 +939,8 @@ z
   </g>
  </g>
 </svg>
-<text x="518.0" y="188.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">computed at the codeword, used at the latent —</text>
-<text x="518.0" y="208.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">as if quantising did nothing</text>
+<text x="518.0" y="188.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">read at the codeword, used at the latent —</text>
+<text x="518.0" y="208.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">as if quantising did nothing;</text>
 <text x="518.0" y="232.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">the error grows with the gap</text>
 <svg x="752" y="226.15" width="69.7" height="17.85" viewBox="0 0 69.7 17.85"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
@@ -1155,353 +1167,38 @@ z
   </g>
  </g>
 </svg>
-<line x1="270.0" y1="250.0" x2="293.6" y2="273.6" stroke="#dc2626" stroke-width="2.0"/>
-<polygon points="300.0,280.0 290.1,277.2 297.2,270.1" fill="#dc2626"/>
-<line x1="228.0" y1="205.0" x2="251.6" y2="228.6" stroke="#dc2626" stroke-width="2.0"/>
-<polygon points="258.0,235.0 248.1,232.2 255.2,225.1" fill="#dc2626"/>
-<text x="304.0" y="294.0" font-size="16" font-weight="400" fill="#dc2626" text-anchor="start" dominant-baseline="auto">copied</text>
+<line x1="230.0" y1="262.0" x2="236.6" y2="218.9" stroke="#dc2626" stroke-width="2.2"/>
+<polygon points="238.0,210.0 241.6,219.7 231.7,218.1" fill="#dc2626"/>
+<text x="222.0" y="234.0" font-size="16" font-weight="400" fill="#dc2626" text-anchor="end" dominant-baseline="middle">read here</text>
+<line x1="283.0" y1="238.0" x2="289.6" y2="194.9" stroke="#dc2626" stroke-width="2.2"/>
+<polygon points="291.0,186.0 294.6,195.7 284.7,194.1" fill="#dc2626"/>
+<text x="301.0" y="184.0" font-size="16" font-weight="400" fill="#dc2626" text-anchor="start" dominant-baseline="middle">used here</text>
 </g>
 <g class="fragment" data-fragment-index="3">
-<rect x="500.0" y="256.0" width="460.0" height="96.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
-<text x="518.0" y="278.0" font-size="17" font-weight="700" fill="#b45309" text-anchor="start" dominant-baseline="middle">commitment</text>
-<svg x="630" y="270.45" width="114.24" height="19.55" viewBox="0 0 114.24 19.55"><defs>
+<rect x="500.0" y="256.0" width="460.0" height="96.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="518.0" y="278.0" font-size="17" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="middle">what the copied arrow is for</text>
+<text x="518.0" y="304.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">it can push the latent over a border:</text>
+<text x="518.0" y="326.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">the next forward pass picks another codeword</text>
+<line x1="291.0" y1="186.0" x2="300.0" y2="132.0" stroke="#7c3aed" stroke-width="1.4" stroke-dasharray="3 3"/>
+<circle cx="291.0" cy="186.0" r="5.0" fill="#ffffff" stroke="#0b5cad" stroke-width="1.8"/>
+<text x="314.0" y="130.0" font-size="16" font-weight="400" fill="#0b5cad" text-anchor="start" dominant-baseline="middle">next pass: a new</text>
+<svg x="446" y="123.547" width="14.28" height="16.4528" viewBox="0 0 14.28 16.452813"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t23-figure_1">
   <g id="w6t23-patch_1">
-   <path d="M 0 19.55 
-L 114.24 19.55 
-L 114.24 0 
+   <path d="M 0 16.452813 
+L 14.28 16.452813 
+L 14.28 0 
 L 0 0 
-L 0 19.55 
+L 0 16.452813 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t23-text_1">
-   <!-- $\beta\,\|\mathbf{z}_t - \mathrm{sg}[\mathbf{e}_{k_t}]\|_2^2$ -->
-   <g style="fill: #b45309" transform="translate(0 14.45) scale(0.17 -0.17)">
+   <!-- $k_t$ -->
+   <g style="fill: #0b5cad" transform="translate(0 12.917344) scale(0.17 -0.17)">
     <defs>
-     <path id="w6t23-Cmmi10-af" d="M 172 -1241 
-Q 153 -1241 137 -1219 
-Q 122 -1197 122 -1178 
-L 1106 2778 
-Q 1191 3097 1353 3397 
-Q 1516 3697 1761 3955 
-Q 2006 4213 2300 4363 
-Q 2594 4513 2925 4513 
-Q 3163 4513 3355 4408 
-Q 3547 4303 3658 4114 
-Q 3769 3925 3769 3688 
-Q 3769 3459 3681 3251 
-Q 3594 3044 3437 2864 
-Q 3281 2684 3103 2572 
-Q 3206 2506 3287 2404 
-Q 3369 2303 3419 2192 
-Q 3469 2081 3497 1945 
-Q 3525 1809 3525 1691 
-Q 3525 1363 3384 1044 
-Q 3244 725 3001 465 
-Q 2759 206 2446 54 
-Q 2134 -97 1806 -97 
-Q 1447 -97 1159 100 
-Q 872 297 763 634 
-L 300 -1203 
-Q 300 -1241 250 -1241 
-L 172 -1241 
-z
-M 1819 78 
-Q 2106 78 2339 267 
-Q 2572 456 2723 742 
-Q 2875 1028 2954 1348 
-Q 3034 1669 3034 1931 
-Q 3034 2256 2847 2444 
-Q 2628 2363 2419 2363 
-Q 1913 2363 1913 2534 
-Q 1913 2759 2491 2759 
-Q 2697 2759 2869 2694 
-Q 3006 2800 3118 3006 
-Q 3231 3213 3289 3438 
-Q 3347 3663 3347 3859 
-Q 3347 4069 3236 4208 
-Q 3125 4347 2913 4347 
-Q 2522 4347 2186 4106 
-Q 1850 3866 1619 3498 
-Q 1388 3131 1288 2741 
-L 934 1325 
-Q 900 1178 891 997 
-Q 891 597 1153 337 
-Q 1416 78 1819 78 
-z
-M 2106 2553 
-Q 2203 2528 2425 2528 
-Q 2534 2528 2644 2566 
-Q 2638 2572 2619 2572 
-Q 2550 2591 2472 2591 
-Q 2181 2591 2106 2553 
-z
-" transform="scale(0.015625)"/>
-     <path id="w6t23-Cmsy10-6b" d="M 850 -1484 
-L 850 4684 
-Q 850 4734 890 4767 
-Q 931 4800 978 4800 
-Q 1031 4800 1068 4767 
-Q 1106 4734 1106 4684 
-L 1106 -1484 
-Q 1106 -1534 1068 -1567 
-Q 1031 -1600 978 -1600 
-Q 931 -1600 890 -1567 
-Q 850 -1534 850 -1484 
-z
-M 2094 -1484 
-L 2094 4684 
-Q 2094 4734 2131 4767 
-Q 2169 4800 2222 4800 
-Q 2269 4800 2309 4767 
-Q 2350 4734 2350 4684 
-L 2350 -1484 
-Q 2350 -1534 2309 -1567 
-Q 2269 -1600 2222 -1600 
-Q 2169 -1600 2131 -1567 
-Q 2094 -1534 2094 -1484 
-z
-" transform="scale(0.015625)"/>
-     <path id="w6t23-Cmb10-7a" d="M 294 0 
-Q 247 0 212 31 
-Q 178 63 178 116 
-L 178 184 
-Q 178 222 197 250 
-L 1684 2584 
-L 1409 2584 
-Q 947 2584 770 2376 
-Q 594 2169 594 1697 
-L 269 1697 
-L 347 2841 
-L 2438 2841 
-Q 2491 2841 2522 2809 
-Q 2553 2778 2553 2725 
-L 2553 2669 
-Q 2553 2634 2534 2606 
-L 1056 281 
-L 1363 281 
-Q 1806 281 2009 488 
-Q 2122 603 2169 814 
-Q 2216 1025 2241 1319 
-L 2566 1319 
-L 2450 0 
-L 294 0 
-z
-" transform="scale(0.015625)"/>
-     <path id="w6t23-Cmmi10-74" d="M 397 519 
-Q 397 613 416 697 
-L 878 2534 
-L 206 2534 
-Q 141 2534 141 2619 
-Q 166 2759 225 2759 
-L 934 2759 
-L 1191 3803 
-Q 1216 3888 1291 3947 
-Q 1366 4006 1459 4006 
-Q 1541 4006 1595 3957 
-Q 1650 3909 1650 3828 
-Q 1650 3809 1648 3798 
-Q 1647 3788 1644 3775 
-L 1388 2759 
-L 2047 2759 
-Q 2113 2759 2113 2675 
-Q 2109 2659 2100 2621 
-Q 2091 2584 2075 2559 
-Q 2059 2534 2028 2534 
-L 1331 2534 
-L 872 684 
-Q 825 503 825 372 
-Q 825 97 1013 97 
-Q 1294 97 1511 361 
-Q 1728 625 1844 941 
-Q 1869 978 1894 978 
-L 1972 978 
-Q 1997 978 2012 961 
-Q 2028 944 2028 922 
-Q 2028 909 2022 903 
-Q 1881 516 1612 222 
-Q 1344 -72 997 -72 
-Q 744 -72 570 93 
-Q 397 259 397 519 
-z
-" transform="scale(0.015625)"/>
-     <path id="w6t23-Cmsy10-a1" d="M 653 1472 
-Q 600 1472 565 1512 
-Q 531 1553 531 1600 
-Q 531 1647 565 1687 
-Q 600 1728 653 1728 
-L 4325 1728 
-Q 4375 1728 4408 1687 
-Q 4441 1647 4441 1600 
-Q 4441 1553 4408 1512 
-Q 4375 1472 4325 1472 
-L 653 1472 
-z
-" transform="scale(0.015625)"/>
-     <path id="w6t23-Cmr10-73" d="M 213 -19 
-L 213 1025 
-Q 213 1075 269 1075 
-L 347 1075 
-Q 384 1075 397 1025 
-Q 575 97 1259 97 
-Q 1563 97 1767 234 
-Q 1972 372 1972 659 
-Q 1972 866 1812 1011 
-Q 1653 1156 1434 1209 
-L 1006 1294 
-Q 791 1341 614 1437 
-Q 438 1534 325 1695 
-Q 213 1856 213 2069 
-Q 213 2350 361 2529 
-Q 509 2709 746 2789 
-Q 984 2869 1259 2869 
-Q 1588 2869 1831 2694 
-L 2016 2853 
-Q 2016 2869 2047 2869 
-L 2094 2869 
-Q 2113 2869 2128 2851 
-Q 2144 2834 2144 2816 
-L 2144 1978 
-Q 2144 1919 2094 1919 
-L 2016 1919 
-Q 1959 1919 1959 1978 
-Q 1959 2313 1773 2516 
-Q 1588 2719 1253 2719 
-Q 966 2719 755 2612 
-Q 544 2506 544 2247 
-Q 544 2069 695 1955 
-Q 847 1841 1050 1791 
-L 1484 1709 
-Q 1703 1659 1892 1540 
-Q 2081 1422 2192 1240 
-Q 2303 1059 2303 831 
-Q 2303 600 2223 429 
-Q 2144 259 2001 146 
-Q 1859 34 1665 -19 
-Q 1472 -72 1259 -72 
-Q 859 -72 575 197 
-L 341 -56 
-Q 341 -72 306 -72 
-L 269 -72 
-Q 213 -72 213 -19 
-z
-" transform="scale(0.015625)"/>
-     <path id="w6t23-Cmr10-67" d="M 178 -500 
-Q 178 -272 343 -101 
-Q 509 69 738 141 
-Q 609 238 542 384 
-Q 475 531 475 697 
-Q 475 997 666 1228 
-Q 372 1516 372 1888 
-Q 372 2088 458 2263 
-Q 544 2438 697 2566 
-Q 850 2694 1037 2761 
-Q 1225 2828 1422 2828 
-Q 1803 2828 2106 2606 
-Q 2238 2747 2417 2823 
-Q 2597 2900 2791 2900 
-Q 2928 2900 3015 2801 
-Q 3103 2703 3103 2566 
-Q 3103 2488 3043 2428 
-Q 2984 2369 2906 2369 
-Q 2825 2369 2765 2428 
-Q 2706 2488 2706 2566 
-Q 2706 2684 2784 2731 
-Q 2453 2731 2216 2503 
-Q 2331 2388 2401 2220 
-Q 2472 2053 2472 1888 
-Q 2472 1616 2322 1398 
-Q 2172 1181 1926 1061 
-Q 1681 941 1422 941 
-Q 1072 941 781 1131 
-Q 691 1006 691 850 
-Q 691 681 802 554 
-Q 913 428 1081 428 
-L 1606 428 
-Q 1988 428 2294 359 
-Q 2600 291 2808 84 
-Q 3016 -122 3016 -500 
-Q 3016 -781 2778 -967 
-Q 2541 -1153 2211 -1236 
-Q 1881 -1319 1600 -1319 
-Q 1316 -1319 984 -1236 
-Q 653 -1153 415 -967 
-Q 178 -781 178 -500 
-z
-M 538 -500 
-Q 538 -716 713 -861 
-Q 888 -1006 1134 -1076 
-Q 1381 -1147 1600 -1147 
-Q 1816 -1147 2062 -1076 
-Q 2309 -1006 2482 -861 
-Q 2656 -716 2656 -500 
-Q 2656 -166 2350 -67 
-Q 2044 31 1606 31 
-L 1081 31 
-Q 934 31 811 -39 
-Q 688 -109 613 -236 
-Q 538 -363 538 -500 
-z
-M 1422 1113 
-Q 1966 1113 1966 1888 
-Q 1966 2222 1850 2439 
-Q 1734 2656 1422 2656 
-Q 1109 2656 993 2439 
-Q 878 2222 878 1888 
-Q 878 1675 922 1503 
-Q 966 1331 1084 1222 
-Q 1203 1113 1422 1113 
-z
-" transform="scale(0.015625)"/>
-     <path id="w6t23-Cmr10-5b" d="M 756 -1600 
-L 756 4800 
-L 1631 4800 
-L 1631 4544 
-L 1013 4544 
-L 1013 -1344 
-L 1631 -1344 
-L 1631 -1600 
-L 756 -1600 
-z
-" transform="scale(0.015625)"/>
-     <path id="w6t23-Cmb10-65" d="M 178 1441 
-Q 178 1856 350 2189 
-Q 522 2522 842 2711 
-Q 1163 2900 1581 2900 
-Q 2003 2900 2275 2726 
-Q 2547 2553 2675 2242 
-Q 2803 1931 2803 1522 
-Q 2803 1428 2700 1394 
-L 1025 1394 
-Q 1025 1078 1070 829 
-Q 1116 581 1275 412 
-Q 1434 244 1741 244 
-Q 2000 244 2208 394 
-Q 2416 544 2484 788 
-Q 2519 847 2578 863 
-L 2700 863 
-Q 2803 841 2803 750 
-Q 2803 744 2797 709 
-Q 2722 475 2553 308 
-Q 2384 141 2150 51 
-Q 1916 -38 1672 -38 
-Q 1347 -38 1072 67 
-Q 797 172 597 367 
-Q 397 563 287 836 
-Q 178 1109 178 1441 
-z
-M 1025 1631 
-L 2169 1631 
-Q 2169 1869 2120 2095 
-Q 2072 2322 1940 2483 
-Q 1809 2644 1581 2644 
-Q 1250 2644 1137 2341 
-Q 1025 2038 1025 1631 
-z
-" transform="scale(0.015625)"/>
      <path id="w6t23-Cmmi10-6b" d="M 341 116 
 Q 341 153 347 172 
 L 1275 3872 
@@ -1561,81 +1258,49 @@ Q 456 -72 398 -17
 Q 341 38 341 116 
 z
 " transform="scale(0.015625)"/>
-     <path id="w6t23-Cmr10-5d" d="M 141 -1600 
-L 141 -1344 
-L 763 -1344 
-L 763 4544 
-L 141 4544 
-L 141 4800 
-L 1019 4800 
-L 1019 -1600 
-L 141 -1600 
-z
-" transform="scale(0.015625)"/>
-     <path id="w6t23-Cmr10-32" d="M 319 0 
-L 319 172 
-Q 319 188 331 206 
-L 1325 1306 
-Q 1550 1550 1690 1715 
-Q 1831 1881 1968 2097 
-Q 2106 2313 2186 2536 
-Q 2266 2759 2266 3009 
-Q 2266 3272 2169 3511 
-Q 2072 3750 1880 3894 
-Q 1688 4038 1416 4038 
-Q 1138 4038 916 3870 
-Q 694 3703 603 3438 
-Q 628 3444 672 3444 
-Q 816 3444 917 3347 
-Q 1019 3250 1019 3097 
-Q 1019 2950 917 2848 
-Q 816 2747 672 2747 
-Q 522 2747 420 2851 
-Q 319 2956 319 3097 
-Q 319 3338 409 3548 
-Q 500 3759 670 3923 
-Q 841 4088 1055 4175 
-Q 1269 4263 1509 4263 
-Q 1875 4263 2190 4108 
-Q 2506 3953 2690 3670 
-Q 2875 3388 2875 3009 
-Q 2875 2731 2753 2481 
-Q 2631 2231 2440 2026 
-Q 2250 1822 1953 1562 
-Q 1656 1303 1563 1216 
-L 838 519 
-L 1453 519 
-Q 1906 519 2211 526 
-Q 2516 534 2534 550 
-Q 2609 631 2688 1141 
-L 2875 1141 
-L 2694 0 
-L 319 0 
+     <path id="w6t23-Cmmi10-74" d="M 397 519 
+Q 397 613 416 697 
+L 878 2534 
+L 206 2534 
+Q 141 2534 141 2619 
+Q 166 2759 225 2759 
+L 934 2759 
+L 1191 3803 
+Q 1216 3888 1291 3947 
+Q 1366 4006 1459 4006 
+Q 1541 4006 1595 3957 
+Q 1650 3909 1650 3828 
+Q 1650 3809 1648 3798 
+Q 1647 3788 1644 3775 
+L 1388 2759 
+L 2047 2759 
+Q 2113 2759 2113 2675 
+Q 2109 2659 2100 2621 
+Q 2091 2584 2075 2559 
+Q 2059 2534 2028 2534 
+L 1331 2534 
+L 872 684 
+Q 825 503 825 372 
+Q 825 97 1013 97 
+Q 1294 97 1511 361 
+Q 1728 625 1844 941 
+Q 1869 978 1894 978 
+L 1972 978 
+Q 1997 978 2012 961 
+Q 2028 944 2028 922 
+Q 2028 909 2022 903 
+Q 1881 516 1612 222 
+Q 1344 -72 997 -72 
+Q 744 -72 570 93 
+Q 397 259 397 519 
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w6t23-Cmmi10-af" transform="translate(0 0.109375)"/>
-    <use xlink:href="#w6t23-Cmsy10-6b" transform="translate(71.126595 0.109375)"/>
-    <use xlink:href="#w6t23-Cmb10-7a" transform="translate(121.126595 0.109375)"/>
-    <use xlink:href="#w6t23-Cmmi10-74" transform="translate(169.975501 -16.896875) scale(0.7)"/>
-    <use xlink:href="#w6t23-Cmsy10-a1" transform="translate(219.170228 0.109375)"/>
-    <use xlink:href="#w6t23-Cmr10-73" transform="translate(314.414368 0.109375)"/>
-    <use xlink:href="#w6t23-Cmr10-67" transform="translate(353.818665 0.109375)"/>
-    <use xlink:href="#w6t23-Cmr10-5b" transform="translate(403.818665 0.109375)"/>
-    <use xlink:href="#w6t23-Cmb10-65" transform="translate(431.504212 0.109375)"/>
-    <use xlink:href="#w6t23-Cmmi10-6b" transform="translate(482.550384 -16.896875) scale(0.7)"/>
-    <use xlink:href="#w6t23-Cmmi10-74" transform="translate(518.951751 -28.80125) scale(0.49)"/>
-    <use xlink:href="#w6t23-Cmr10-5d" transform="translate(547.474388 0.109375)"/>
-    <use xlink:href="#w6t23-Cmsy10-6b" transform="translate(575.159935 0.109375)"/>
-    <use xlink:href="#w6t23-Cmr10-32" transform="translate(629.624075 38.373438) scale(0.7)"/>
-    <use xlink:href="#w6t23-Cmr10-32" transform="translate(629.624075 -25.4) scale(0.7)"/>
+    <use xlink:href="#w6t23-Cmmi10-6b" transform="translate(0 0.609375)"/>
+    <use xlink:href="#w6t23-Cmmi10-74" transform="translate(52.001953 -16.396875) scale(0.7)"/>
    </g>
   </g>
  </g>
 </svg>
-<text x="518.0" y="310.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">narrows the gap, so the pretence nearly holds;</text>
-<text x="518.0" y="332.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">without it the latent grows arbitrarily</text>
-<line x1="228.0" y1="205.0" x2="245.8" y2="223.5" stroke="#b45309" stroke-width="2.4"/>
-<polygon points="252.0,230.0 242.2,227.0 249.4,220.0" fill="#b45309"/>
 </g>
 </svg>

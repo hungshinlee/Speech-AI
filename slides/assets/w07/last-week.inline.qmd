@@ -68,7 +68,7 @@ z
 <polygon points="356.0,82.0 349.0,87.0 349.0,77.0" fill="#94a3b8"/>
 <rect x="360.0" y="52.0" width="170.0" height="60.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
 <text x="445.0" y="74.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">quantiser (RVQ)</text>
-<text x="445.0" y="98.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">W6 p20</text>
+<text x="445.0" y="98.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">W6 p22</text>
 <line x1="534.0" y1="82.0" x2="559.0" y2="82.0" stroke="#94a3b8" stroke-width="1.4"/>
 <polygon points="566.0,82.0 559.0,87.0 559.0,77.0" fill="#94a3b8"/>
 <rect x="570.0" y="52.0" width="190.0" height="60.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
@@ -461,12 +461,12 @@ z
 <rect x="20.0" y="128.0" width="960.0" height="40.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
 <text x="40.0" y="148.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">a token is</text>
 <text x="126.0" y="148.0" font-size="16" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="middle">reconstructed</text>
-<text x="252.0" y="148.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">· frame rate chosen for the LM · W5's unit came back as the first codebook · W6 p53</text>
+<text x="252.0" y="148.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">· frame rate chosen for the LM · W5's unit came back as the first codebook · W6 p55</text>
 </g>
 <g class="fragment" data-fragment-index="1">
 <line x1="500.0" y1="170.0" x2="500.0" y2="187.0" stroke="#dc2626" stroke-width="1.8"/>
 <polygon points="500.0,196.0 495.0,187.0 505.0,187.0" fill="#dc2626"/>
-<text x="20.0" y="216.0" font-size="17" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="auto">W7: back to a world with transcripts (W6 p54) — the encoder is W5's, the input is any of W2's three, the output is text</text>
+<text x="20.0" y="216.0" font-size="17" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="auto">W7: back to a world with transcripts (W6 p56) — the encoder is W5's, the input is any of W2's three, the output is text</text>
 <rect x="20.0" y="232.0" width="300.0" height="32.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
 <text x="170.0" y="248.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">log-mel (W2)</text>
 <text x="330.0" y="248.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">Whisper's encoder</text>
