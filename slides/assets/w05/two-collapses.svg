@@ -1905,8 +1905,8 @@ z
   </g>
  </g>
 </svg>
-<text x="540.0" y="256.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">wav2vec 2.0 has negatives and still needs this;</text>
-<text x="540.0" y="278.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">W6's codecs have none</text>
+<text x="540.0" y="256.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">wav2vec 2.0 has negatives and still needs this:</text>
+<text x="540.0" y="278.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">its code drops negatives equal to the answer</text>
 </g>
 <g class="fragment" data-fragment-index="2">
 <rect x="40.0" y="302.0" width="920.0" height="62.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>

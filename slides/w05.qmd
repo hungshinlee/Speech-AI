@@ -100,7 +100,7 @@ Logs are $\ln$ · two temperatures: $\kappa$ divides a similarity, $\tau$ a Gumb
 
 1. **InfoNCE is a lower bound on mutual information**: the best critic is a density ratio; substitute it back and $I(\mathbf{z};\mathbf{c}) \geq \ln N - \mathcal{L}_N$. The bound can never exceed $\ln N$ — and that decides what negatives can and cannot buy.
 2. **Four ways to build the target** — wav2vec 2.0, HuBERT, data2vec, BEST-RQ — and for each: who builds it, does it move, what stops collapse, how it fails.
-3. **Gumbel-softmax with a straight-through gradient**, and a diversity loss that is an entropy: the two pieces W6 will reuse under a harsher name, codebook collapse.
+3. **Gumbel-softmax with a straight-through gradient**, and a diversity loss that is an entropy: the two problems they answer come back in W6, harder.
 4. **Layers are not a ladder**: speaker low, phones in the middle, and a pre-trained top that can turn back toward the input. *Which layer* is a representation decision; a learned weighted sum tells you some of it.
 5. **How to read an SSL comparison**: data size, domain and model size confound every claim; frozen benchmarks favour a kind of model; and HuBERT's units are not phonemes.
 
@@ -299,7 +299,7 @@ $\bar{p}_{g,v}$ is the batch mean of $\mathrm{softmax}(l_g)_v$ over the raw logi
 :::
 
 ::: {.footer}
-wav2vec 2.0 eq. 4 · $\mathcal{L} = \mathcal{L}_m + \alpha\mathcal{L}_d$, $\alpha = 0.1$ · W6: the same disease, no contrast to help
+wav2vec 2.0 eq. 4 · $\mathcal{L} = \mathcal{L}_m + \alpha\mathcal{L}_d$, $\alpha = 0.1$ · W6: the same disease, other cures
 :::
 
 ## MC 2 — "no negatives means collapse"
@@ -324,14 +324,14 @@ $$\mathcal{L} = \mathcal{L}_m + \alpha\,\mathcal{L}_d, \qquad \mathcal{L}_m = -\
 | negatives $\mathcal{Z}_t \setminus \{\mathbf{q}_t\}$ | $N - 1 = 100$, **other masked steps of the same utterance** | same speaker, same channel: only content separates them |
 | temperatures | $\kappa = 0.1$ (contrast); $\tau\colon 2 \to 0.5$ (Gumbel) | two knobs, two jobs |
 | masking | spans of 10 steps, start prob. 0.065; $\approx 49\%$ of steps masked | long enough that interpolation fails |
-| regulariser | $\alpha = 0.1$ on $\mathcal{L}_d$ | keep the codebook in use |
+| regulariser | $\alpha = 0.1$ on $\mathcal{L}_d$ | the only guard against collapse |
 
 ::: {.ask}
 **Stop.** Why *must* the negatives come from the same utterance? What would the critic learn if they came from other speakers?
 :::
 
 ::: {.footer}
-wav2vec 2.0 §3.2–3.3, §4.2; App. F
+wav2vec 2.0 §3.2–3.3, §4.2; App. F · dropping negatives equal to $\mathbf{q}_t$: fairseq and HF code
 :::
 
 ## What it costs to build one

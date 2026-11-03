@@ -185,7 +185,7 @@ VQ-VAE App. A.1, eqs. 6–8 · VQ-VAE-2 §2.1 · "online k-means" is our reading
 | **init** | $V = 1024$, $d = 1024$, random | most codewords start **far from the data** and are never the nearest neighbour |
 | **update** | the codebook loss, or EMA | moves **only the codeword that was chosen** — an unchosen code never moves |
 | **size** | a bigger $V$ | more codes that are never chosen; the *effective* alphabet is the number of codes in use |
-| **W5's fix** | the diversity loss | needs a soft, contrastive setting to push against; we know of no codec that uses it |
+| **W5's fix** | the diversity loss | an entropy on soft selection probabilities, which a nearest-neighbour lookup does not have; we know of no codec that uses it |
 
 ::: {.claim}
 **Codebook collapse has two causes**: an initialisation outside the data's support, and an update rule that only touches winners. Capacity is the alphabet you *use*, not $V$.
