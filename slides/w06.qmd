@@ -191,6 +191,8 @@ VQ-VAE §3.2: commitment, so that "its output does not grow" · $\beta = 0.25$ �
 
 ## The EMA codebook update is online k-means
 
+Exponential moving average (EMA): keep $\mu$ of the old value, add $1-\mu$ of the new one.
+
 ::: {.fragment fragment-index=0}
 $$c_v^{(\tau)} = \mu\, c_v^{(\tau-1)} + (1-\mu)\, n_v^{(\tau)},\qquad \mathbf{m}_v^{(\tau)} = \mu\, \mathbf{m}_v^{(\tau-1)} + (1-\mu) \sum_{t:\,k_t = v} \mathbf{z}_t$$
 $$\mathbf{e}_v \leftarrow \mathbf{m}_v / c_v \qquad\text{— a decaying average of every latent assigned to } v$$
@@ -795,7 +797,7 @@ Back to a world with transcripts. The encoder is W5's; the input may be W2's log
 | CNN | convolutional neural network (W5) |
 | DAC | Descript Audio Codec: the release name of "Improved RVQGAN" (p16) |
 | DASB | Discrete Audio and Speech Benchmark (p31) |
-| EMA | exponential moving average (W5) |
+| EMA | exponential moving average (p15) |
 | EVS | Enhanced Voice Services: 3GPP's speech codec for LTE (p31) |
 | FSQ | finite scalar quantization (p19) |
 | HuBERT | Hidden-Unit BERT (W5) |
