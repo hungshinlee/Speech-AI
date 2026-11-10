@@ -143,6 +143,12 @@ $$\mathcal{L} = \underbrace{\mathcal{L}_{\text{rec}}(\mathbf{x}, \hat{\mathbf{x}
 $$\mathbf{q}_t = \mathbf{e}_{k_t},\qquad k_t = \arg\min_v \lVert \mathbf{z}_t - \mathbf{e}_v \rVert_2$$
 :::
 
+::: {.fragment fragment-index=2}
+::: {.small}
+$\mathrm{sg}[\cdot]$, stop-gradient: the same value going forward, no gradient coming back. In a distance, the side wrapped in $\mathrm{sg}$ stays put; only the other side is pulled.
+:::
+:::
+
 ::: {.footer}
 van den Oord et al. 2017 §3.2 · $\beta = 0.25$, insensitive from 0.1 to 2.0
 :::
