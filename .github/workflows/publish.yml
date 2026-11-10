@@ -17,9 +17,12 @@ permissions:
   pages: write
   id-token: write
 
+# 同 GitHub Pages 官方範本：不取消進行中的部署，後來的 run 排隊等前一個做完。
+# 2026-11-10：原本是 true，連續兩次 push（W8 開放、W6 p11）時第二個 run 的 deploy 撞上
+# 第一個還在進行的 Pages 部署，回 400 "due to in progress deployment"。
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
