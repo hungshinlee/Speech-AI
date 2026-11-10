@@ -1,0 +1,452 @@
+{
+ "time": "2026-11-08T11:15:38",
+ "versions": {
+  "python": "3.12.14",
+  "platform": "macOS-27.2-arm64-arm-64bit",
+  "numpy": "2.4.4",
+  "scipy": "1.17.1",
+  "matplotlib": "3.10.9",
+  "sounddevice": "0.5.6",
+  "torch": "2.14.0",
+  "torchaudio": "2.11.0",
+  "transformers": "5.17.0",
+  "huggingface_hub": "1.33.0",
+  "f5-tts": "1.1.22",
+  "vocos": "0.1.0",
+  "x-transformers": "2.31.18",
+  "torchdiffeq": "0.2.5",
+  "sentencepiece": "0.2.3",
+  "soundfile": "0.14.0"
+ },
+ "tag": "rehearsal",
+ "text": {
+  "target": "Mister Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+  "target_utt": "1272-128104-0000",
+  "prompt_utt": "1272-128104-0010",
+  "prompt_text": "Near the fire, and the ornaments Fred brought home from India on the mantel board."
+ },
+ "models": {
+  "speecht5": {
+   "repo": "microsoft/speecht5_tts",
+   "commit": "30fcde30f19b87502b8435427b5f5068e401d5f6",
+   "vocoder": "microsoft/speecht5_hifigan",
+   "vocoder_commit": "bb6f429406e86a9992357a972c0698b22043307d",
+   "device": "mps",
+   "vocoder_device": "mps",
+   "n_params": 144431684,
+   "reduction_factor": 2,
+   "prenet_dropout_at_inference": 0.5,
+   "xvector": {
+    "repo": "Matthijs/cmu-arctic-xvectors",
+    "commit": "5c1297a9eb6c91714ea77c0d4ac5aca9b6a952e5",
+    "speaker": "bdl",
+    "n_utterances_averaged": 1133
+   }
+  },
+  "f5": {
+   "repo": "SWivid/F5-TTS",
+   "commit": "84e5a410d9cead4de2f847e7c9369a6440bdfaca",
+   "ckpt": "F5TTS_v1_Base/model_1250000.safetensors",
+   "model": "F5TTS_v1_Base",
+   "vocoder": "charactr/vocos-mel-24khz",
+   "vocoder_commit": "0feb3fdd929bcd6649e0e7c5a688cf7dd012ef21",
+   "device": "mps",
+   "vocoder_device": "mps",
+   "n_params": 337096804,
+   "nfe": 32,
+   "cfg_strength_alpha": 2.0,
+   "w_slide": 3.0,
+   "sway_sampling_coef": -1.0,
+   "ode_method": "euler",
+   "arch": {
+    "dim": 1024,
+    "depth": 22,
+    "heads": 16,
+    "ff_mult": 2,
+    "text_dim": 512,
+    "text_mask_padding": true,
+    "qk_norm": null,
+    "conv_layers": 4,
+    "pe_attn_head": null,
+    "attn_backend": "torch",
+    "attn_mask_enabled": false,
+    "checkpoint_activations": false
+   },
+   "mps_fallback_env": {
+    "before_import": "1",
+    "after_import": "1"
+   }
+  }
+ },
+ "front_ends": {
+  "speecht5": {
+   "label": "SpeechT5's front end · 80 bins · 16 kHz · hop 16 ms",
+   "fs": 16000,
+   "hop": 256,
+   "fps": 62.5,
+   "n_bins": 80,
+   "max_center_hz": 7328.1,
+   "bin_spacing_hz": {
+    "500": 31.2,
+    "1000": 31.2,
+    "2000": 78.1,
+    "4000": 140.6,
+    "6000": 212.1
+   },
+   "harmonics_resolvable_below_hz": 1344.0
+  },
+  "f5": {
+   "label": "F5's front end · 100 bins · 24 kHz · hop 10.7 ms",
+   "fs": 24000,
+   "hop": 256,
+   "fps": 93.75,
+   "n_bins": 100,
+   "max_center_hz": 11648.4,
+   "bin_spacing_hz": {
+    "500": 39.1,
+    "1000": 46.9,
+    "2000": 72.3,
+    "4000": 132.8,
+    "6000": 187.5
+   },
+   "harmonics_resolvable_below_hz": 1148.0
+  }
+ },
+ "real": {
+  "utt": "1272-128104-0000",
+  "seconds": 5.855,
+  "f0_median_hz": 111.7,
+  "pauses": {
+   "speech_start_s": 0.55,
+   "speech_end_s": 5.41,
+   "n": 0,
+   "longest_start_s": null,
+   "longest_s": 0.0
+  },
+  "frames": {
+   "speecht5": 366,
+   "f5": 549
+  },
+  "detail_db": {
+   "speecht5": {
+    "0.08–1 kHz": 2.113558053970337,
+    "1–2 kHz": 1.563158392906189,
+    "2–6 kHz": 1.3613957166671753,
+    "6–7.6 kHz": 1.337074637413025
+   },
+   "f5": {
+    "0.08–1 kHz": 1.835270643234253,
+    "1–2 kHz": 1.462753415107727,
+    "2–6 kHz": 1.2752165794372559,
+    "6–7.6 kHz": 1.2109841108322144
+   }
+  }
+ },
+ "items": {
+  "speecht5_seed1": {
+   "fs": 16000,
+   "T": 330,
+   "seconds": 5.28,
+   "acoustic_s": 3.002,
+   "vocoder_s": 0.134,
+   "n_text_tokens": 93,
+   "how_T": "stop token: generation ends at the first step whose stop probability > 0.5 (2 frames per step)",
+   "model": "speecht5",
+   "seed": 1,
+   "detail_db": {
+    "0.08–1 kHz": 1.755,
+    "1–2 kHz": 0.921,
+    "2–6 kHz": 0.866,
+    "6–7.6 kHz": 0.958
+   },
+   "detail_pct": {
+    "0.08–1 kHz": 83.1,
+    "1–2 kHz": 58.9,
+    "2–6 kHz": 63.6,
+    "6–7.6 kHz": 71.6
+   },
+   "f0_median_hz": 112.7,
+   "f0_p10_p90_hz": [
+    95.0,
+    127.7
+   ],
+   "pauses": {
+    "speech_start_s": 0.05,
+    "speech_end_s": 5.15,
+    "n": 1,
+    "longest_start_s": 2.85,
+    "longest_s": 0.27
+   },
+   "wav": "runs/rehearsal/speecht5_seed1.wav",
+   "play_gain": 1.0093
+  },
+  "speecht5_seed2": {
+   "fs": 16000,
+   "T": 326,
+   "seconds": 5.216,
+   "acoustic_s": 1.745,
+   "vocoder_s": 0.13,
+   "n_text_tokens": 93,
+   "how_T": "stop token: generation ends at the first step whose stop probability > 0.5 (2 frames per step)",
+   "model": "speecht5",
+   "seed": 2,
+   "detail_db": {
+    "0.08–1 kHz": 1.873,
+    "1–2 kHz": 1.017,
+    "2–6 kHz": 0.935,
+    "6–7.6 kHz": 0.99
+   },
+   "detail_pct": {
+    "0.08–1 kHz": 88.6,
+    "1–2 kHz": 65.0,
+    "2–6 kHz": 68.7,
+    "6–7.6 kHz": 74.1
+   },
+   "f0_median_hz": 115.1,
+   "f0_p10_p90_hz": [
+    95.6,
+    131.4
+   ],
+   "pauses": {
+    "speech_start_s": 0.05,
+    "speech_end_s": 5.06,
+    "n": 1,
+    "longest_start_s": 2.86,
+    "longest_s": 0.28
+   },
+   "wav": "runs/rehearsal/speecht5_seed2.wav",
+   "play_gain": 1.1744
+  },
+  "speecht5_seed3": {
+   "fs": 16000,
+   "T": 342,
+   "seconds": 5.472,
+   "acoustic_s": 1.854,
+   "vocoder_s": 0.124,
+   "n_text_tokens": 93,
+   "how_T": "stop token: generation ends at the first step whose stop probability > 0.5 (2 frames per step)",
+   "model": "speecht5",
+   "seed": 3,
+   "detail_db": {
+    "0.08–1 kHz": 1.881,
+    "1–2 kHz": 1.011,
+    "2–6 kHz": 0.89,
+    "6–7.6 kHz": 0.945
+   },
+   "detail_pct": {
+    "0.08–1 kHz": 89.0,
+    "1–2 kHz": 64.7,
+    "2–6 kHz": 65.3,
+    "6–7.6 kHz": 70.7
+   },
+   "f0_median_hz": 114.2,
+   "f0_p10_p90_hz": [
+    83.3,
+    132.7
+   ],
+   "pauses": {
+    "speech_start_s": 0.05,
+    "speech_end_s": 5.35,
+    "n": 1,
+    "longest_start_s": 2.86,
+    "longest_s": 0.49
+   },
+   "wav": "runs/rehearsal/speecht5_seed3.wav",
+   "play_gain": 1.0284
+  },
+  "f5_seed1": {
+   "fs": 24000,
+   "T": 498,
+   "seconds": 5.312,
+   "acoustic_s": 6.324,
+   "vocoder_s": 0.02,
+   "nfe": 32,
+   "cfg_strength": 2.0,
+   "w_slide": 3.0,
+   "sway": -1.0,
+   "length": {
+    "ref_frames": 460,
+    "ref_bytes": 84,
+    "gen_bytes": 91,
+    "speed": 1.0,
+    "gen_frames": 498,
+    "ref_text_used": "Near the fire, and the ornaments Fred brought home from India on the mantel board.  "
+   },
+   "how_T": "from the character ratio: T = ⌊460 · 91 / 84⌋ = 498 (prompt frames × UTF-8 bytes of the text / bytes of the prompt's text)",
+   "model": "f5",
+   "seed": 1,
+   "detail_db": {
+    "0.08–1 kHz": 1.939,
+    "1–2 kHz": 1.485,
+    "2–6 kHz": 1.28,
+    "6–7.6 kHz": 1.198
+   },
+   "detail_pct": {
+    "0.08–1 kHz": 105.6,
+    "1–2 kHz": 101.5,
+    "2–6 kHz": 100.4,
+    "6–7.6 kHz": 98.9
+   },
+   "f0_median_hz": 117.7,
+   "f0_p10_p90_hz": [
+    89.6,
+    175.7
+   ],
+   "pauses": {
+    "speech_start_s": 0.64,
+    "speech_end_s": 5.22,
+    "n": 2,
+    "longest_start_s": 3.13,
+    "longest_s": 0.27
+   },
+   "wav": "runs/rehearsal/f5_seed1.wav",
+   "play_gain": 0.6719
+  },
+  "f5_seed2": {
+   "fs": 24000,
+   "T": 498,
+   "seconds": 5.312,
+   "acoustic_s": 6.472,
+   "vocoder_s": 0.007,
+   "nfe": 32,
+   "cfg_strength": 2.0,
+   "w_slide": 3.0,
+   "sway": -1.0,
+   "length": {
+    "ref_frames": 460,
+    "ref_bytes": 84,
+    "gen_bytes": 91,
+    "speed": 1.0,
+    "gen_frames": 498,
+    "ref_text_used": "Near the fire, and the ornaments Fred brought home from India on the mantel board.  "
+   },
+   "how_T": "from the character ratio: T = ⌊460 · 91 / 84⌋ = 498 (prompt frames × UTF-8 bytes of the text / bytes of the prompt's text)",
+   "model": "f5",
+   "seed": 2,
+   "detail_db": {
+    "0.08–1 kHz": 2.117,
+    "1–2 kHz": 1.584,
+    "2–6 kHz": 1.303,
+    "6–7.6 kHz": 1.194
+   },
+   "detail_pct": {
+    "0.08–1 kHz": 115.3,
+    "1–2 kHz": 108.3,
+    "2–6 kHz": 102.1,
+    "6–7.6 kHz": 98.6
+   },
+   "f0_median_hz": 120.2,
+   "f0_p10_p90_hz": [
+    90.3,
+    158.6
+   ],
+   "pauses": {
+    "speech_start_s": 0.81,
+    "speech_end_s": 5.25,
+    "n": 1,
+    "longest_start_s": 3.15,
+    "longest_s": 0.39
+   },
+   "wav": "runs/rehearsal/f5_seed2.wav",
+   "play_gain": 0.6041
+  },
+  "f5_seed3": {
+   "fs": 24000,
+   "T": 498,
+   "seconds": 5.312,
+   "acoustic_s": 6.321,
+   "vocoder_s": 0.007,
+   "nfe": 32,
+   "cfg_strength": 2.0,
+   "w_slide": 3.0,
+   "sway": -1.0,
+   "length": {
+    "ref_frames": 460,
+    "ref_bytes": 84,
+    "gen_bytes": 91,
+    "speed": 1.0,
+    "gen_frames": 498,
+    "ref_text_used": "Near the fire, and the ornaments Fred brought home from India on the mantel board.  "
+   },
+   "how_T": "from the character ratio: T = ⌊460 · 91 / 84⌋ = 498 (prompt frames × UTF-8 bytes of the text / bytes of the prompt's text)",
+   "model": "f5",
+   "seed": 3,
+   "detail_db": {
+    "0.08–1 kHz": 2.153,
+    "1–2 kHz": 1.619,
+    "2–6 kHz": 1.192,
+    "6–7.6 kHz": 1.22
+   },
+   "detail_pct": {
+    "0.08–1 kHz": 117.3,
+    "1–2 kHz": 110.7,
+    "2–6 kHz": 93.5,
+    "6–7.6 kHz": 100.7
+   },
+   "f0_median_hz": 124.3,
+   "f0_p10_p90_hz": [
+    92.8,
+    175.9
+   ],
+   "pauses": {
+    "speech_start_s": 0.65,
+    "speech_end_s": 5.29,
+    "n": 1,
+    "longest_start_s": 3.03,
+    "longest_s": 0.36
+   },
+   "wav": "runs/rehearsal/f5_seed3.wav",
+   "play_gain": 0.6024
+  }
+ },
+ "pairs": {
+  "f5_seed1|f5_seed2": {
+   "same_T": true,
+   "mel_mean_abs_db": 7.754,
+   "frames_voiced_both": 178,
+   "voicing_agree": 0.6,
+   "median_abs_cents": 316.911,
+   "rms_cents": 577.464
+  },
+  "f5_seed1|f5_seed3": {
+   "same_T": true,
+   "mel_mean_abs_db": 5.366,
+   "frames_voiced_both": 232,
+   "voicing_agree": 0.763,
+   "median_abs_cents": 286.81,
+   "rms_cents": 526.096
+  },
+  "f5_seed2|f5_seed3": {
+   "same_T": true,
+   "mel_mean_abs_db": 7.09,
+   "frames_voiced_both": 209,
+   "voicing_agree": 0.655,
+   "median_abs_cents": 243.9,
+   "rms_cents": 466.591
+  },
+  "real|f5_seed1": {
+   "mel_mean_abs_db_first_frames": 7.276
+  },
+  "speecht5_T_by_seed": [
+   330,
+   326,
+   342
+  ]
+ },
+ "played": [],
+ "f5_prompt": {
+  "utt": "1272-128104-0010",
+  "text": "Near the fire, and the ornaments Fred brought home from India on the mantel board.",
+  "seconds_after_trim_and_pad": 4.91,
+  "length": {
+   "ref_frames": 460,
+   "ref_bytes": 84,
+   "gen_bytes": 91,
+   "speed": 1.0,
+   "gen_frames": 498,
+   "ref_text_used": "Near the fire, and the ornaments Fred brought home from India on the mantel board.  "
+  },
+  "max_chars": 288,
+  "one_chunk": true
+ }
+}

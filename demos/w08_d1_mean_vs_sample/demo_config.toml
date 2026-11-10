@@ -1,0 +1,90 @@
+# 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
+# W8 demo 1：回歸的平均聲與抽樣的變異——同一句話，一個回歸 mel 的模型、一個從噪音抽 mel 的模型；後者抽三次。換內容只改這裡。
+
+[text]
+# 要念的句子：W3 那句（LibriSpeech dev-clean 1272-128104-0000，CC BY 4.0），W3–W7 的 demo 都用它。
+# LibriSpeech 的文字是全大寫、沒有標點；兩個 TTS 模型都吃一般大小寫與標點，所以這裡照書面寫法改寫（逗號是加的）。
+target = "Mister Quilter is the apostle of the middle classes, and we are glad to welcome his gospel."
+target_utt = "1272-128104-0000"
+# F5 的 prompt：同一位說話人、同一章的另一句（內容不重疊；語速與 target 最接近的一句，每秒約 14–15 個字元）。
+prompt_utt = "1272-128104-0010"
+prompt_text = "Near the fire, and the ornaments Fred brought home from India on the mantel board."
+
+[audio]
+# target 的真人錄音（對照組）：從 W3 Demo 3 複製（16 kHz），與 W6 Demo 1 同一個檔
+target_path = "audio/target.wav"
+target_source = "../w03_d3_blank_heatmap/audio/utterance.wav"
+# prompt：fetch 從 dev-clean.tar.gz（W3 Demo 3 下載的那一份，../_media/，不進版控）解出 flac → 16 kHz WAV
+prompt_path = "audio/prompt.wav"
+dev_clean_tar = "../_media/dev-clean.tar.gz"
+librispeech_url = "https://www.openslr.org/resources/12/dev-clean.tar.gz"
+# 播放用的檔：所有版本調到同一個 RMS（真人錄音的 RMS），響度差不要蓋過音質差；只改播放檔，量測一律用模型的原始輸出
+match_rms_to = "target"
+
+[speecht5]
+# 回歸 mel 的模型：SpeechT5 的 TTS（Ao et al., ACL 2022；LibriTTS 460 h 上以 L1＋stop token 的 BCE＋attention loss 微調，§3.3）。
+# 一步出 reduction_factor = 2 格 log10-mel（80 bins，16 kHz，hop 16 ms），長度由 stop token 決定（機率 > threshold 就停）。
+repo = "microsoft/speecht5_tts"
+vocoder = "microsoft/speecht5_hifigan"
+# 音色：x-vector（Snyder et al. 2018，512 維）。SpeechT5 不吃 prompt 音訊，要一個事先算好的向量；
+# 這裡用 CMU ARCTIC 的 bdl（美國男聲）全部 1,133 句 x-vector 的平均再正規化成單位長度——不是 target 那位說話人（要從他的錄音抽 x-vector 得裝 SpeechBrain，§6 第 6 項，沒測）。
+xvectors = "Matthijs/cmu-arctic-xvectors"
+xvector_zip = "spkrec-xvect.zip"
+arctic_speaker = "bdl"
+# transformers 的實作在推論時也保留 decoder pre-net 的 dropout（p = 0.5，程式註解指 Tacotron 2 §2.2「to introduce output variation at inference time」），
+# 所以 SpeechT5 也要給 seed。第一個是課堂上用的；其餘給鍵 s（問答用）。
+seeds = [1, 2, 3]
+threshold = 0.5
+minlenratio = 0.0
+maxlenratio = 20.0
+
+[f5]
+# 從噪音抽 mel 的模型：F5-TTS（Chen et al., ACL 2025），F5TTS_v1_Base（336 M），條件 flow matching，100 bins log-mel，24 kHz，hop 256。
+repo = "SWivid/F5-TTS"
+model = "F5TTS_v1_Base"
+ckpt = "F5TTS_v1_Base/model_1250000.safetensors"
+vocoder = "charactr/vocos-mel-24khz"
+nfe = 32
+# F5 的 cfg_strength 是原文 Eq. 4 的 α：v_CFG = v(c) + α (v(c) − v(∅))——Ho & Salimans 的寫法。
+# 投影片 p53 的寫法是 ṽ = v(∅) + w (v(c) − v(∅))，所以 w = α + 1：預設 α = 2 是投影片上的 w = 3。
+cfg_strength = 2.0
+sway_sampling_coef = -1.0
+speed = 1.0
+ode_method = "euler"
+seeds = [1, 2, 3]
+
+[infer]
+# auto = 有 MPS 就 mps，否則 cpu。三個模型可以分開指定（check 量完再決定；兩個 vocoder 的 ISTFT／轉置卷積在 MPS 上待實測）。
+speecht5_device = "auto"
+f5_device = "auto"
+vocoder_device = "auto"
+
+[display]
+fig_w = 13.0
+fig_h = 7.6
+# 兩個前端的頻率上限不同（SpeechT5 7.6 kHz、F5 12 kHz）；畫面一律只畫到 7.6 kHz，兩邊才比得了
+max_hz = 7600
+# 鍵 x：只看 2–6 kHz
+zoom_hz = [2000, 6000]
+db_range = 70.0
+
+[detail]
+# 「細紋理」：log-mel（dB）減掉它自己 3 × 3（頻帶 × frame）的區域平均，在一個頻帶裡取 RMS——把平滑的包絡拿掉之後還剩多少起伏。
+# 只算有聲音的 frame（frame 平均 dB 在最響那格以下 active_db 之內）。絕對值隨前端不同，**只比同一個前端裡、模型對真人錄音的比值**。
+size = [3, 3]
+active_db = 25.0
+bands = [[80, 1000], [1000, 2000], [2000, 6000], [6000, 7600]]
+main_band = [2000, 6000]
+
+[f0]
+# W2 dsp.f0_autocorr：40 ms frame、10 ms hop；兩個 voice 都是男聲
+frame_ms = 40.0
+hop_ms = 10.0
+floor_hz = 60.0
+ceiling_hz = 300.0
+voicing = 0.45
+
+[fake]
+# 沒有模型時的演練：用真人錄音的 mel 冒充——「回歸」= 3 × 9 的區域平均，「抽樣」= 原 mel 加上 seed 決定的紋理（畫面標明 FAKE）
+smooth = [3, 9]
+texture_db = 1.0

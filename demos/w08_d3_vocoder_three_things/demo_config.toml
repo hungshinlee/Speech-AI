@@ -1,0 +1,98 @@
+# 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
+# W8 demo 3：vocoder 的三件事——同一句真人語音、三個 vocoder；再換兩份預測出來的 mel；最後一段不經 mel 的台語與客語。換內容只改這裡。
+
+[audio]
+# 真人語音：W3 那句（LibriSpeech dev-clean 1272-128104-0000，CC BY 4.0，16 kHz）——Demo 1 的對照組，fetch 從 Demo 1 複製過來。
+# 24 kHz 的 vocoder 吃 24 kHz 的 mel，所以重取樣到 24 kHz；8 kHz 以上本來就沒有內容（錄音是 16 kHz），mel 的上面三分之一是底噪。
+real_path = "audio/real.wav"
+real_source = "../w08_d1_mean_vs_sample/audio/target.wav"
+real_utt = "1272-128104-0000"
+real_text = "Mister Quilter is the apostle of the middle classes, and we are glad to welcome his gospel."
+fs = 24000
+# 播放用的檔全部調到真人錄音的 RMS（與 Demo 1、Demo 2 同一個音量）；量測一律用 vocoder 的原始輸出
+match_rms_to = "real"
+
+[predicted]
+# 兩份預測出來的 mel，直接讀 Demo 1 彩排的紀錄（進版控）：SpeechT5 的回歸 mel（80 bins log10、16 kHz、hop 16 ms）與 F5 的抽樣 mel（100 bins ln、24 kHz、hop 256；Vocos 的定義）。
+# 同一句話、seed 1。Demo 1 重新彩排之後這兩份會跟著變，本 demo 要再 rehearse 一次。
+dir = "../w08_d1_mean_vs_sample/runs/rehearsal"
+speecht5_mel = "speecht5_seed1_mel.npy"
+f5_mel = "f5_seed1_mel.npy"
+# Demo 1 當時用各自的 vocoder 出的聲音（SpeechT5 → 它的 HiFi-GAN 16 kHz；F5 → Vocos）：鍵 n 當對照
+speecht5_wav = "speecht5_seed1.wav"
+f5_wav = "f5_seed1.wav"
+# 真人錄音經兩個前端的 mel（Demo 1 算的）：selftest／check 用來驗換算——同一段聲音在兩個前端各有一份 mel，換算對不對這裡看得到
+real_speecht5_mel = "real_speecht5_mel.npy"
+real_f5_mel = "real_f5_mel.npy"
+
+[speecht5_frontend]
+# 只要它的 filterbank（preprocessor_config.json，幾 KB），不載模型；用來把 SpeechT5 的 mel 換算到 24 kHz 的格子
+repo = "microsoft/speecht5_tts"
+
+[griffin_lim]
+# W2 Demo 2 的演算法（../dsp.py）：mel → pseudo-inverse → magnitude → Griffin-Lim。輸入給它 Vocos 定義的 mel（F5 原生的那一種）。
+# 64 輪是 W2 Demo 2 進入播放畫面時停的那一檔；n_fft／hop 跟 Vocos 一樣（1024／256 @ 24 kHz），GL 的 window 也是 1024。
+iters = 64
+seed = 0
+
+[vocos]
+# Vocos（Siuzdak, ICLR 2024）：ConvNeXt 骨幹在 frame rate 上預測 (A, cos φ, sin φ)，iSTFT 出聲；13.5 M 參數。前端：100 bins、HTK 尺度、不正規化、center、ln(clamp 1e-7)。
+repo = "charactr/vocos-mel-24khz"
+
+[bigvgan]
+# BigVGAN v2（Lee et al., ICLR 2023；v2 權重 2024）：HiFi-GAN 型的時域上採樣（4·4·2·2·2·2 = 256）＋ Snake 活化；112 M 參數。
+# 前端：100 bins、Slaney 尺度、Slaney 面積正規化、不 center（前後補 384）、ln(clamp 1e-5)——跟 Vocos 同樣叫「100-band log-mel 24 kHz」，矩陣不同（W2 Demo 3）。
+# 權重與程式碼都在這個 HF repo（bigvgan.py、meldataset.py、alias_free_activation/torch）；不裝 CUDA kernel（純 torch 路徑）。
+repo = "nvidia/bigvgan_v2_24khz_100band_256x"
+weights = "bigvgan_generator.pt"
+
+[convert]
+# 一個前端的 log-mel 換到另一個前端：對數域——先除掉來源 filterbank 的增益（每個 bin 的權重和；假設一個 bin 裡的頻譜是平的），
+# 沿頻率軸（bin 中心頻率，Hz）線性內插到目標的 bin 中心，再乘上目標的增益；frame rate 不同（SpeechT5 62.5 fps → 93.75 fps）就沿時間軸內插。
+# 來源沒有的頻帶（SpeechT5 的 7.6 kHz 以上）填來源那一格最安靜的值；最後夾在目標前端的 floor。
+# 為什麼不用 pseudo-inverse（W2 的做法）：pinv 會出負值、截成 0，log 之後是 −16 的洞，Vocos 對這種洞極度敏感（容器實測：fit 19 dB、幾乎無聲）；GL 那一欄照舊走 pinv。
+method = "interp"
+# 比較兩份 log-mel 的 floor（dB 以下不算）：ln 1e-4
+fit_floor_ln = -9.21
+
+[mms]
+# MMS-TTS（Pratap et al., JMLR 2024 §7）：每個語言一個 VITS，單一說話人、新約讀經、16 kHz、CC-BY-NC 4.0。輸入是字元；vocab 以外的字元 tokenizer 直接丟掉。
+nan = "facebook/mms-tts-nan"
+hak = "facebook/mms-tts-hak"
+eng = "facebook/mms-tts-eng"
+seed = 1
+# VITS 的兩個隨機尺度與語速用模型預設（0.667／0.8／1.0）；要換就在這裡加鍵（demo.py 的 Mms.__init__ 讀）
+
+[mms.text]
+# 台語（白話字，Pe̍h-ōe-jī，寫本調）：「你好，我是一個學生，我欲學講台語。」第八聲用 U+030D（chi̍t、ha̍k、o̍h），vocab 裡有這個組合符號。
+# **拼寫待使用者確認**（建置時寫的）；標點不在 vocab 裡會被丟掉（逗號、句號都是），停頓只能靠模型自己。
+nan_poj = "Lí hó, góa sī chi̍t ê ha̍k-seng, góa beh o̍h kóng Tâi-gí."
+nan_han = "你好，我是一個學生，我欲學講台語。"
+# 客語（客語白話字，Pha̍k-fa-sṳ，四縣腔拼法）：「你好，我是學生，我愛學講客話。」**拼寫待使用者確認**；是不是四縣腔要聽。
+hak_pfs = "Ngì hó, ngài he ho̍k-sâng, ngài oi ho̍k kóng Hak-fa."
+hak_han = "你好，我是學生，我愛學講客話。"
+# 退路：英文一定念得出來（W3 那句）
+eng = "Mister Quilter is the apostle of the middle classes, and we are glad to welcome his gospel."
+
+[infer]
+# auto = 有 MPS 就 mps，否則 cpu。三個網路可以分開指定（check 量完再決定）。Griffin-Lim 是 numpy，沒有裝置。
+vocos_device = "auto"
+bigvgan_device = "auto"
+mms_device = "auto"
+
+[display]
+fig_w = 14.0
+fig_h = 7.2
+db_range = 80.0
+# 畫面上四格 mel 一律用 Vocos 的前端重新分析（0–12 kHz），四格才在同一把尺上；輸入那格畫它原本的前端
+max_hz = 12000
+
+[lsd]
+# 對原音的 log-spectral distance（W2 Demo 2 的定義，../dsp.py）：25 ms Hann、10 ms hop、n_fft 1024，在 24 kHz
+win_ms = 25.0
+hop_ms = 10.0
+n_fft = 1024
+
+[fake]
+# 沒有模型時的演練：Vocos 與 BigVGAN 用 256 輪、不同 seed 的 Griffin-Lim 冒充（畫面標明 FAKE）；MMS 用合成母音冒充
+gl_iters = 256

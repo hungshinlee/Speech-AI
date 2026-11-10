@@ -15,6 +15,8 @@ demos/
   setup.sh                  builds the shared .venv (Python 3.12) and pins versions (see below)
   versions.lock             pinned versions of every package the demos import, and the mlx-lm git commit
   requirements.lock.txt     full `pip freeze` of the instructor's environment, for reference
+  versions-tts.lock         pinned versions of the second environment, .venv-tts, that the W8 demos use (built by w08_d1_mean_vs_sample/setup.sh)
+  requirements-tts.lock.txt full `pip freeze` of .venv-tts, for reference
   wNN_dK_<name>/            one demo per folder: week NN, demo K (the "Demo K" in the slide footers)
     demo.py                 the program
     present.sh              entry point; model demos run offline (HF_HUB_OFFLINE=1)
@@ -28,7 +30,7 @@ demos/
 
 ## The machine these were tested on
 
-**Everything here was run on one machine only: a MacBook Pro with an Apple M5 Max (64 GB unified memory, no CUDA), macOS 26.6 / 27.0, Python 3.12.** The per-demo READMEs say which demos are portable and which are not:
+**Everything here was run on one machine only: a MacBook Pro with an Apple M5 Max (64 GB unified memory, no CUDA), macOS 26.6–27.2, Python 3.12.** The per-demo READMEs say which demos are portable and which are not:
 
 | Needs | Demos | Runs on |
 |---|---|---|
@@ -38,8 +40,9 @@ demos/
 | `torch 2.14.0` + `torchaudio` + `transformers 5.17.0` + a small Hugging Face model | W3 demo 3 (wav2vec2-base-960h, CPU), W4 demo 3 (whisper-small, CPU), W5 demo 1 (hubert-base-ls960 and wav2vec2-base, `mps` when available; plus `pyarrow` for its `fetch`), W5 demo 2 (reuses demo 1's caches and model; numpy k-means), W6 demo 1 (`kyutai/mimi`, `facebook/encodec_24khz`, `descript/dac_24khz`, `mps` when available) | any laptop with a few GB free RAM and a network connection for the first download; for W3/W4 `mps` is measured by `check` but not used in class |
 | `sherpa-onnx` + an ONNX model | W4 demo 2 | any platform sherpa-onnx ships wheels for; tested on Apple silicon only |
 | `mlx` + `mlx-lm` + `mlx-audio` + `pywhispercpp`, ≈ 15 GB of models | W1 demo 2 | **Apple silicon only**, 32 GB or more |
+| `torch 2.14.0` + `transformers 5.17.0` + `f5-tts 1.1.22` + `vocos`, in a second environment `.venv-tts` | W8 demos 1–3 (SpeechT5, F5-TTS, Vocos, BigVGAN v2, MMS-TTS; `mps` when available); W8 demo 2 also runs Qwen3-TTS and Kokoro through the shared `.venv`'s `mlx-audio` | tested on Apple silicon only; on CPU one F5 sentence takes about half a minute; the MLX half of W8 demo 2 is **Apple silicon only** |
 
-Cross-folder dependencies to know about: W4 demos 2 and 3 read the LibriSpeech sentence and its CTC forced alignment from `w03_d3_blank_heatmap/runs/rehearsal/`; W3 demo 2 and W4 demo 1 check themselves against `slides/assets/w03/w03-data.json` and `slides/assets/w04/w04-data.json` at the repository root; W1 demo 2 reads `slides/assets/w01/w01-metrics.json`. Keep the folder layout as it is.
+Cross-folder dependencies to know about: W8 demos 2 and 3 use W8 demo 1's environment, prompt and (demo 3) rehearsal mels, so set up and rehearse demo 1 first; W4 demos 2 and 3 read the LibriSpeech sentence and its CTC forced alignment from `w03_d3_blank_heatmap/runs/rehearsal/`; W3 demo 2 and W4 demo 1 check themselves against `slides/assets/w03/w03-data.json` and `slides/assets/w04/w04-data.json` at the repository root; W1 demo 2 reads `slides/assets/w01/w01-metrics.json`. Keep the folder layout as it is.
 
 Nothing has been tested on Linux, Windows, or a CUDA GPU. Where a README says "should also work on …", read that as a statement of what the code *does not* depend on, not as something that was verified.
 
@@ -53,6 +56,8 @@ cd demos
 ```
 
 Then follow the per-demo README. Demos that need a model have their own `./setup.sh` (installs that demo's packages into the shared `.venv`) and a `./present.sh fetch` step.
+
+The W8 demos are the exception: `f5-tts` (through `cached-path`) needs older `rich` and `filelock` than the shared `.venv` pins, so `w08_d1_mean_vs_sample/setup.sh` builds a second environment, `demos/.venv-tts`, with the same Python, numpy, torch and transformers, pinned from `versions-tts.lock`.
 
 ### Anything else (Linux, Windows/WSL, Intel Mac)
 

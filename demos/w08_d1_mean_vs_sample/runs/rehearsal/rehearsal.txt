@@ -1,0 +1,37 @@
+
+────────────────────────────────────────────────────────────────────────
+W8 Demo 1：a regressed mel, a drawn mel, three draws
+────────────────────────────────────────────────────────────────────────
+  載入 SpeechT5   144.4 M 參數   mps / vocoder mps     1.5 s
+  載入 F5-TTS     337.1 M 參數   mps / vocoder mps     2.1 s
+
+Mister Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.
+  真人錄音 1272-128104-0000：5.855 s   F0 中位數 111.7 Hz   最長停頓 0.00 s @ None s
+    SpeechT5's front end · 80 bins · 16 kHz · hop 16 ms：366 frames；bin 間距 2 kHz 78.1 Hz、4 kHz 140.6 Hz → 這個聲音的個別諧波在 1.3 kHz 以上分不出來
+    F5's front end · 100 bins · 24 kHz · hop 10.7 ms：549 frames；bin 間距 2 kHz 72.3 Hz、4 kHz 132.8 Hz → 這個聲音的個別諧波在 1.1 kHz 以上分不出來
+  SpeechT5  seed 1   T =  330 frames =  5.28 s   細紋理 2–6 kHz =  63.6% of the real recording   F0 中位數 112.7 Hz   最長停頓 0.27 s @ 2.85 s   acoustic   3.00 s · vocoder  0.13 s
+  SpeechT5  seed 2   T =  326 frames =  5.22 s   細紋理 2–6 kHz =  68.7% of the real recording   F0 中位數 115.1 Hz   最長停頓 0.28 s @ 2.86 s   acoustic   1.75 s · vocoder  0.13 s
+  SpeechT5  seed 3   T =  342 frames =  5.47 s   細紋理 2–6 kHz =  65.3% of the real recording   F0 中位數 114.2 Hz   最長停頓 0.49 s @ 2.86 s   acoustic   1.85 s · vocoder  0.12 s
+  F5 prompt 1272-128104-0010：4.91 s（裁前後靜音、補 50 ms）；長度 T = ⌊460 · 91 / 84⌋ = 498 frames = 5.31 s
+  F5-TTS    seed 1   T =  498 frames =  5.31 s   細紋理 2–6 kHz = 100.4% of the real recording   F0 中位數 117.7 Hz   最長停頓 0.27 s @ 3.13 s   acoustic   6.32 s · vocoder  0.02 s
+  F5-TTS    seed 2   T =  498 frames =  5.31 s   細紋理 2–6 kHz = 102.1% of the real recording   F0 中位數 120.2 Hz   最長停頓 0.39 s @ 3.15 s   acoustic   6.47 s · vocoder  0.01 s
+  F5-TTS    seed 3   T =  498 frames =  5.31 s   細紋理 2–6 kHz =  93.5% of the real recording   F0 中位數 124.3 Hz   最長停頓 0.36 s @ 3.03 s   acoustic   6.32 s · vocoder  0.01 s
+
+Mister Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.
+                           T    sec      0.08–1 kHz      1–2 kHz      2–6 kHz    6–7.6 kHz  F0 med  pause  acoustic  vocoder   length decided by
+  real · SpeechT5 FE     366   5.86        2.11 dB      1.56 dB      1.36 dB      1.34 dB      112   0.00
+  SpeechT5 seed 1        330   5.28             83%          59%          64%          72%     113   0.27     3.00s    0.13s   stop token
+  SpeechT5 seed 2        326   5.22             89%          65%          69%          74%     115   0.28     1.75s    0.13s   stop token
+  SpeechT5 seed 3        342   5.47             89%          65%          65%          71%     114   0.49     1.85s    0.12s   stop token
+  real · F5 FE           549   5.86        1.84 dB      1.46 dB      1.28 dB      1.21 dB      112   0.00
+  F5-TTS seed 1          498   5.31            106%         102%         100%          99%     118   0.27     6.32s    0.02s   ⌊460·91/84⌋
+  F5-TTS seed 2          498   5.31            115%         108%         102%          99%     120   0.39     6.47s    0.01s   ⌊460·91/84⌋
+  F5-TTS seed 3          498   5.31            117%         111%          93%         101%     124   0.36     6.32s    0.01s   ⌊460·91/84⌋
+  細紋理：log-mel（dB）減掉自己 3 × 3 的區域平均，在頻帶內、有聲 frame 上的 RMS；模型那幾列是「÷ 同一個前端的真人錄音」。參考，不是判準。
+  F0 med：自相關 F0 的中位數（Hz）；pause：句子內部最長的停頓（s，10 ms 能量、門檻 max(峰值 − 35, 底噪 + 15) dB）。
+  個別諧波分得出來的上限（bin 間距 < F0/2，F0 = 真人錄音的中位數 111.7 Hz）：SpeechT5 前端 1.3 kHz、F5 前端 1.1 kHz
+  f5_seed1|f5_seed2: same T True · mel |Δ| 7.75 dB · voicing agree 0.60 · frame-wise F0 |Δ| median 317 cents (timing and pitch mixed)
+  f5_seed1|f5_seed3: same T True · mel |Δ| 5.37 dB · voicing agree 0.76 · frame-wise F0 |Δ| median 287 cents (timing and pitch mixed)
+  f5_seed2|f5_seed3: same T True · mel |Δ| 7.09 dB · voicing agree 0.66 · frame-wise F0 |Δ| median 244 cents (timing and pitch mixed)
+  SpeechT5 seeds [1, 2, 3]: T = [330, 326, 342] frames（pre-net dropout）
+  F5：NFE 32、cfg_strength α = 2（投影片的 w = α + 1 = 3）、sway -1；每一步兩次前向（有條件、無條件）

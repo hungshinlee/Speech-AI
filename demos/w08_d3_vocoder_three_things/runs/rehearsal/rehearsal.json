@@ -1,0 +1,427 @@
+{
+ "time": "2026-11-08T14:02:51",
+ "tag": "rehearsal",
+ "versions": {
+  "python": "3.12.14",
+  "platform": "macOS-27.2-arm64-arm-64bit",
+  "numpy": "2.4.4",
+  "scipy": "1.17.1",
+  "matplotlib": "3.10.9",
+  "sounddevice": "0.5.6",
+  "torch": "2.14.0",
+  "torchaudio": "2.11.0",
+  "transformers": "5.17.0",
+  "vocos": "0.1.0",
+  "librosa": "1.0.0",
+  "huggingface_hub": "1.33.0",
+  "PYTORCH_ENABLE_MPS_FALLBACK": "1"
+ },
+ "config": {
+  "audio": {
+   "real_path": "audio/real.wav",
+   "real_source": "../w08_d1_mean_vs_sample/audio/target.wav",
+   "real_utt": "1272-128104-0000",
+   "real_text": "Mister Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+   "fs": 24000,
+   "match_rms_to": "real"
+  },
+  "predicted": {
+   "dir": "../w08_d1_mean_vs_sample/runs/rehearsal",
+   "speecht5_mel": "speecht5_seed1_mel.npy",
+   "f5_mel": "f5_seed1_mel.npy",
+   "speecht5_wav": "speecht5_seed1.wav",
+   "f5_wav": "f5_seed1.wav",
+   "real_speecht5_mel": "real_speecht5_mel.npy",
+   "real_f5_mel": "real_f5_mel.npy"
+  },
+  "speecht5_frontend": {
+   "repo": "microsoft/speecht5_tts"
+  },
+  "griffin_lim": {
+   "iters": 64,
+   "seed": 0
+  },
+  "vocos": {
+   "repo": "charactr/vocos-mel-24khz"
+  },
+  "bigvgan": {
+   "repo": "nvidia/bigvgan_v2_24khz_100band_256x",
+   "weights": "bigvgan_generator.pt"
+  },
+  "convert": {
+   "method": "interp",
+   "fit_floor_ln": -9.21
+  },
+  "mms": {
+   "nan": "facebook/mms-tts-nan",
+   "hak": "facebook/mms-tts-hak",
+   "eng": "facebook/mms-tts-eng",
+   "seed": 1,
+   "text": {
+    "nan_poj": "Lí hó, góa sī chi̍t ê ha̍k-seng, góa beh o̍h kóng Tâi-gí.",
+    "nan_han": "你好，我是一個學生，我欲學講台語。",
+    "hak_pfs": "Ngì hó, ngài he ho̍k-sâng, ngài oi ho̍k kóng Hak-fa.",
+    "hak_han": "你好，我是學生，我愛學講客話。",
+    "eng": "Mister Quilter is the apostle of the middle classes, and we are glad to welcome his gospel."
+   }
+  },
+  "infer": {
+   "vocos_device": "auto",
+   "bigvgan_device": "auto",
+   "mms_device": "auto"
+  },
+  "display": {
+   "fig_w": 14.0,
+   "fig_h": 7.2,
+   "db_range": 80.0,
+   "max_hz": 12000
+  },
+  "lsd": {
+   "win_ms": 25.0,
+   "hop_ms": 10.0,
+   "n_fft": 1024
+  },
+  "fake": {
+   "gl_iters": 256
+  }
+ },
+ "ref_rms": 0.06177968935185795,
+ "real": {
+  "utt": "1272-128104-0000",
+  "seconds": 5.855,
+  "fs": 24000,
+  "source_fs": 16000
+ },
+ "front_ends": {
+  "vocos": {
+   "label": "Vocos front end · 100 bins · HTK · no norm · ln(clamp 1e-7)",
+   "fs": 24000,
+   "n_mels": 100,
+   "fmin": 0.0,
+   "fmax": 12000.0,
+   "floor_ln": -16.11809565095832
+  },
+  "bigvgan": {
+   "label": "BigVGAN front end · 100 bins · Slaney · area norm · ln(clamp 1e-5)",
+   "fs": 24000,
+   "n_mels": 100,
+   "fmin": 0.0,
+   "fmax": 12000.0,
+   "floor_ln": -11.512925464970229
+  },
+  "speecht5": {
+   "label": "SpeechT5 front end · 80 bins · 16 kHz · Slaney · log10",
+   "fs": 16000,
+   "n_mels": 80,
+   "fmin": 80.0,
+   "fmax": 7600.0,
+   "floor_ln": -23.025850929940457
+  }
+ },
+ "vocoders": {
+  "gl": {
+   "algorithm": "Griffin & Lim 1984 (dsp.griffin_lim, no momentum)",
+   "iters": 64,
+   "seed": 0,
+   "mel_inverse": "pinv",
+   "input": "Vocos-defined mel",
+   "n_fft": 1024,
+   "hop": 256
+  },
+  "vocos": {
+   "repo": "charactr/vocos-mel-24khz",
+   "commit": "0feb3fdd929bcd6649e0e7c5a688cf7dd012ef21",
+   "device": "mps",
+   "n_params": 13531650,
+   "head": "ISTFT (n_fft 1024, hop 256)",
+   "front_end": "Vocos front end · 100 bins · HTK · no norm · ln(clamp 1e-7)"
+  },
+  "bigvgan": {
+   "repo": "nvidia/bigvgan_v2_24khz_100band_256x",
+   "commit": "c329ede9e9bbc100ddf5c91e2330a61921262370",
+   "device": "mps",
+   "n_params": 112414512,
+   "upsample_rates": [
+    4,
+    4,
+    2,
+    2,
+    2,
+    2
+   ],
+   "activation": "snakebeta",
+   "cuda_kernel": false,
+   "front_end": "BigVGAN front end · 100 bins · Slaney · area norm · ln(clamp 1e-5)"
+  }
+ },
+ "cold_first_call_s": {
+  "vocos": 0.156226749997586,
+  "bigvgan": 1.0151145830750465
+ },
+ "cells": {
+  "real/gl": {
+   "seconds": 1.220049,
+   "T": 549,
+   "audio_s": 5.845333,
+   "rtf": 0.208722,
+   "fit_db": 1.466873,
+   "lsd_db": 6.76122,
+   "device": "numpy",
+   "fake": false
+  },
+  "real/vocos": {
+   "seconds": 0.025105,
+   "T": 549,
+   "audio_s": 5.845333,
+   "rtf": 0.004295,
+   "fit_db": 1.974394,
+   "lsd_db": 6.320267,
+   "device": "mps",
+   "fake": false
+  },
+  "real/bigvgan": {
+   "seconds": 0.54222,
+   "T": 548,
+   "audio_s": 5.845333,
+   "rtf": 0.092761,
+   "fit_db": 1.042827,
+   "lsd_db": 7.83699,
+   "device": "mps",
+   "fake": false
+  },
+  "real/bigvgan_mismatch": {
+   "seconds": 0.905746,
+   "T": 549,
+   "audio_s": 5.856,
+   "rtf": 0.15467,
+   "fit_db": 14.756762,
+   "lsd_db": 40.809249,
+   "device": "mps",
+   "fake": false,
+   "given_above_own_scale_db": 35.790412,
+   "clip_frac": 0.069103
+  },
+  "speecht5/gl": {
+   "seconds": 1.073379,
+   "T": 495,
+   "audio_s": 5.269333,
+   "rtf": 0.203703,
+   "fit_db": 1.146733,
+   "lsd_db": null,
+   "device": "numpy",
+   "fake": false
+  },
+  "speecht5/vocos": {
+   "seconds": 0.019985,
+   "T": 495,
+   "audio_s": 5.269333,
+   "rtf": 0.003793,
+   "fit_db": 1.763856,
+   "lsd_db": null,
+   "device": "mps",
+   "fake": false
+  },
+  "speecht5/bigvgan": {
+   "seconds": 0.466518,
+   "T": 495,
+   "audio_s": 5.28,
+   "rtf": 0.088356,
+   "fit_db": 3.872411,
+   "lsd_db": null,
+   "device": "mps",
+   "fake": false
+  },
+  "speecht5/bigvgan_mismatch": {
+   "seconds": 0.574022,
+   "T": 495,
+   "audio_s": 5.28,
+   "rtf": 0.108716,
+   "fit_db": 16.949476,
+   "lsd_db": null,
+   "device": "mps",
+   "fake": false,
+   "given_above_own_scale_db": 38.089353,
+   "clip_frac": 0.032757
+  },
+  "f5/gl": {
+   "seconds": 1.090952,
+   "T": 498,
+   "audio_s": 5.301333,
+   "rtf": 0.205788,
+   "fit_db": 2.150459,
+   "lsd_db": null,
+   "device": "numpy",
+   "fake": false
+  },
+  "f5/vocos": {
+   "seconds": 0.024514,
+   "T": 498,
+   "audio_s": 5.301333,
+   "rtf": 0.004624,
+   "fit_db": 2.228019,
+   "lsd_db": null,
+   "device": "mps",
+   "fake": false
+  },
+  "f5/bigvgan": {
+   "seconds": 0.470307,
+   "T": 498,
+   "audio_s": 5.312,
+   "rtf": 0.088537,
+   "fit_db": 1.813474,
+   "lsd_db": null,
+   "device": "mps",
+   "fake": false
+  },
+  "f5/bigvgan_mismatch": {
+   "seconds": 0.630583,
+   "T": 498,
+   "audio_s": 5.312,
+   "rtf": 0.118709,
+   "fit_db": 20.333785,
+   "lsd_db": null,
+   "device": "mps",
+   "fake": false,
+   "given_above_own_scale_db": 32.767177,
+   "clip_frac": 0.052852
+  }
+ },
+ "inputs": {
+  "real": {
+   "own_fe": "vocos",
+   "T_own": 549,
+   "T_vocos": 549,
+   "T_bigvgan": 548
+  },
+  "speecht5": {
+   "own_fe": "speecht5",
+   "T_own": 330,
+   "T_vocos": 495,
+   "T_bigvgan": 495
+  },
+  "f5": {
+   "own_fe": "vocos",
+   "T_own": 498,
+   "T_vocos": 498,
+   "T_bigvgan": 498
+  }
+ },
+ "mms": {
+  "nan": {
+   "text": "Lí hó, góa sī chi̍t ê ha̍k-seng, góa beh o̍h kóng Tâi-gí.",
+   "n_ids": 109,
+   "kept": "lí hó góa sī chi̍t ê ha̍k-seng góa beh o̍h kóng tâi-gí",
+   "dropped": [
+    ",",
+    "."
+   ],
+   "fs": 16000,
+   "seed": 1,
+   "seconds": 0.4094217079691589,
+   "audio_s": 3.904,
+   "lang": "nan",
+   "model": {
+    "repo": "facebook/mms-tts-nan",
+    "commit": "f28526a6caaf9dc55e030da83008c933f6a1978b",
+    "device": "mps",
+    "n_params": 36286512,
+    "fs": 16000,
+    "vocab_size": 49,
+    "noise_scale": 0.667,
+    "noise_scale_duration": 0.8,
+    "speaking_rate": 1.0
+   }
+  },
+  "nan_han": {
+   "text": "你好，我是一個學生，我欲學講台語。",
+   "n_ids": 0,
+   "kept": "",
+   "dropped": [
+    "。",
+    "一",
+    "你",
+    "個",
+    "台",
+    "好",
+    "學",
+    "我",
+    "是",
+    "欲",
+    "生",
+    "語",
+    "講",
+    "，"
+   ],
+   "fs": 16000,
+   "seed": 1,
+   "seconds": 0.0,
+   "error": "tokenizer kept nothing",
+   "lang": "nan",
+   "model": {
+    "repo": "facebook/mms-tts-nan",
+    "commit": "f28526a6caaf9dc55e030da83008c933f6a1978b",
+    "device": "mps",
+    "n_params": 36286512,
+    "fs": 16000,
+    "vocab_size": 49,
+    "noise_scale": 0.667,
+    "noise_scale_duration": 0.8,
+    "speaking_rate": 1.0
+   }
+  },
+  "hak": {
+   "text": "Ngì hó, ngài he ho̍k-sâng, ngài oi ho̍k kóng Hak-fa.",
+   "n_ids": 99,
+   "kept": "ngì hó ngài he ho̍k-sâng ngài oi ho̍k kóng hak-fa",
+   "dropped": [
+    ",",
+    "."
+   ],
+   "fs": 16000,
+   "seed": 1,
+   "seconds": 0.4796204169979319,
+   "audio_s": 3.264,
+   "lang": "hak",
+   "model": {
+    "repo": "facebook/mms-tts-hak",
+    "commit": "f7a38f4240b2d7163cf85a350a527e75416433df",
+    "device": "mps",
+    "n_params": 36285552,
+    "fs": 16000,
+    "vocab_size": 44,
+    "noise_scale": 0.667,
+    "noise_scale_duration": 0.8,
+    "speaking_rate": 1.0
+   }
+  },
+  "eng": {
+   "text": "Mister Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+   "n_ids": 179,
+   "kept": "mister quilter is the apostle of the middle classes and we are glad to welcome his gospel",
+   "dropped": [
+    ",",
+    "."
+   ],
+   "fs": 16000,
+   "seed": 1,
+   "seconds": 0.5932155000045896,
+   "audio_s": 5.296,
+   "lang": "eng",
+   "model": {
+    "repo": "facebook/mms-tts-eng",
+    "commit": "c71de0fe7204c83f1c10820a7d696d0b450048ba",
+    "device": "mps",
+    "n_params": 36284592,
+    "fs": 16000,
+    "vocab_size": 39,
+    "noise_scale": 0.667,
+    "noise_scale_duration": 0.8,
+    "speaking_rate": 1.0
+   }
+  }
+ },
+ "demo1_wavs": {
+  "speecht5": "w08_d1_mean_vs_sample/runs/rehearsal/speecht5_seed1.wav",
+  "f5": "w08_d1_mean_vs_sample/runs/rehearsal/f5_seed1.wav"
+ }
+}

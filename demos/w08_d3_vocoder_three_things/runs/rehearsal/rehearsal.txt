@@ -1,0 +1,29 @@
+
+== W8 Demo 3 · the same mel, three vocoders (rehearse) ==
+  Vocos 載好：13.5 M 參數，mps（0.8 s）
+  BigVGAN 載好：112.4 M 參數，mps（1.8 s）
+  MMS-TTS nan 載好：36.3 M，vocab 49，mps（1.7 s）
+  MMS-TTS hak 載好：36.3 M，vocab 44，mps（0.5 s）
+  MMS-TTS eng 載好：36.3 M，vocab 39，mps（0.5 s）
+  全部格子算好（9.9 s）：12 格 vocoder、4 句 MMS
+
+== Demo 3 · numbers (fit = RMS log-mel error of the output vs the mel given, dB; LSD vs the original, dB; wall-clock s / RTF) ==
+  input mel                                    Griffin-Lim (64 it)                         Vocos                    BigVGAN v2
+  real recording                         fit  1.5 LSD  6.8   1.22s     fit  2.0 LSD  6.3   0.03s     fit  1.0 LSD  7.8   0.54s
+  SpeechT5 mel (Demo 1, regressed)                fit  1.1   1.07s              fit  1.8   0.02s              fit  3.9   0.47s
+  F5 mel (Demo 1, sampled)                        fit  2.2   1.09s              fit  2.2   0.02s              fit  1.8   0.47s
+
+  real recording                     Vocos-defined mel fed to BigVGAN unconverted: fit 14.8 dB; handed a mel +35.8 dB above its own scale; 6.9% clipped
+  SpeechT5 mel (Demo 1, regressed)   Vocos-defined mel fed to BigVGAN unconverted: fit 16.9 dB; handed a mel +38.1 dB above its own scale; 3.3% clipped
+  F5 mel (Demo 1, sampled)           Vocos-defined mel fed to BigVGAN unconverted: fit 20.3 dB; handed a mel +32.8 dB above its own scale; 5.3% clipped
+
+  Vocos            13.5 M params ·   mps · real row 0.025 s = RTF 0.0043 · first call 0.16 s
+  BigVGAN v2      112.4 M params ·   mps · real row 0.542 s = RTF 0.0928 · first call 1.02 s
+  Griffin-Lim (64 it) numpy · pinv + 64 iterations · last inconsistency 0.0212
+
+  MMS nan  nan       109 ids  dropped , .          3.90 s audio / 0.41 s
+  MMS nan  nan_han     0 ids  dropped 。 一 你 個 台 好 學 我 是 欲 生 語 講 ， tokenizer kept nothing
+  MMS hak  hak        99 ids  dropped , .          3.26 s audio / 0.48 s
+  MMS eng  eng       179 ids  dropped , .          5.30 s audio / 0.59 s
+
+  fit and LSD are references, not the judge — the ear is. Row conversions: SpeechT5 (80 bins, 16 kHz, log10) and the F5 → BigVGAN cell go through [convert].

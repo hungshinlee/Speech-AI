@@ -1,0 +1,70 @@
+# 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
+# W8 demo 2：NFE、CFG 與第一包——品質–速度曲線的膝點，兩種範式的第一包。換內容只改這裡。
+# 模型、prompt、前端、F5 的載入都沿用 Demo 1（../w08_d1_mean_vs_sample/demo_config.toml），這裡只放 Demo 2 自己的參數。
+
+[d1]
+dir = "../w08_d1_mean_vs_sample"          # Demo 1 的程式（importlib 載）、它的 audio/prompt.wav 與 model.lock
+
+[text]
+# 前半（p60）用的句子：W1 的訂票句（demos/w01_d2_pipeline 的 suggested_sentence，去掉停頓的標記）。
+zh = "我想訂一張下週三去台南的票。"
+# 英文：W3 那句（Demo 1 的 target）。NFE 32、seed 1、w = 3、sway −1 的這一句應與 Demo 1 的 f5_seed1 逐格相同（selftest／check 對）。
+en = "Mister Quilter is the apostle of the middle classes, and we are glad to welcome his gospel."
+# 掃描（鍵 1／2／3）用哪一句：zh 或 en；鍵 e 是另一句的 NFE 掃描
+sweep = "zh"
+
+[first_packet]
+# 後半（p79）：同一個 prompt、三個長度的中文（10／30／90 個漢字；標點另計）。訂票助理的回覆，W1 Demo 2 的情境。
+# 90 字那句 294 bytes，剛超過 F5TTS.infer 切句的上限（prompt 4.91 s → 288 bytes）；本 demo 直接走 sample、不切，量的本來就是「整句」。
+texts = [
+  "已幫您訂好下週三的票。",
+  "已幫您訂好下週三早上九點台北到台南的高鐵票，請問還需要訂回程嗎？",
+  "已幫您訂好下週三早上九點台北到台南的高鐵票，座位靠窗，全票一張，票價一千三百五十元。取票時請出示訂位代號與身分證件；發車前三十分鐘可以免費改期一次，其他時間改票要收手續費。請問還需要訂回程的票嗎？",
+]
+
+[f5]
+# 掃描的設定。seed 固定；w 是投影片 p53 的尺度（加在無條件場上）：w = 0 完全不看文字與 prompt、w = 1 純條件、w = 3 是 F5 的預設（它的 cfg_strength α = w − 1 = 2）。
+seed = 1
+nfe_sweep = [1, 2, 4, 8, 16, 32]
+nfe_fixed = 16
+w_sweep = [0, 1, 2, 3, 4]
+w_default = 3
+sway = -1.0                                 # F5 Eq. 7 的 s；鍵 3 比 s = −1 對 s = 0
+# F5 1.1.22 的 sample() 預設對 NFE 5／6／7／10／12／16 用一張預先定好的時刻表（EPSS，get_epss_timesteps），其餘 NFE 等距。
+# 掃描要一次只變一件事，所以本 demo 一律等距（epss = false）再套 sway；鍵 p 另外放 F5 自己的 16 步（EPSS ＋ sway）當對照。
+epss = false
+first_packet_nfe = 32                       # 後半 F5 整句用的 NFE（F5 的預設）
+
+[qwen3]
+# 後半的 AR codec LM：Qwen3-TTS 12.5 Hz、0.6B Base（mlx-community 的 bf16 轉檔），`mlx-audio` 0.5.4（共用 ../.venv 裡的那一版就有 qwen3_tts）。
+# Base 版沒有內建 voice，用 ref_audio ＋ ref_text 做 ICL cloning——跟 F5 同一個 prompt（Demo 1 的 1272-128104-0010）。
+repo = "mlx-community/Qwen3-TTS-12Hz-0.6B-Base-bf16"
+# 串流的 chunk：mlx-audio 以 int(streaming_interval × 12.5) 個 token 一包；0.32 s = 4 個 token = Qwen3-TTS 原文 §3.4 報 97 ms 時的 C = 4。
+streaming_interval = 0.32
+temperature = 0.9
+seed = 1
+lang_code = "auto"
+
+[kokoro]
+# W1 Demo 2 的設定（第一週量到 first packet 124 ms 的那一列）：整句、非 AR、iSTFT 出聲。
+repo = "mlx-community/Kokoro-82M-bf16"
+voice = "zf_xiaobei"
+lang_code = "z"
+
+[audio]
+# 播放檔都調到 Demo 1 真人錄音的 RMS（兩個 demo 的喇叭音量一致）；量測一律用模型的原始輸出
+match_rms_to = "../w08_d1_mean_vs_sample/audio/target.wav"
+
+[infer]
+f5_device = "auto"                          # auto = 有 MPS 就 mps
+vocoder_device = "auto"
+
+[display]
+fig_w = 13.0
+fig_h = 7.6
+max_hz = 7600
+db_range = 70.0
+
+[fake]
+# 沒有模型時的演練：F5 用正弦波加噪音冒充（NFE 越大噪音越少）、mlx 的兩個模型由 mlx_worker.py --fake 用假的時間表冒充；畫面標 FAKE
+f5_seconds_per_pass = 0.05

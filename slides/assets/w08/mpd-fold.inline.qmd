@@ -1,0 +1,345 @@
+<!-- 由 scripts/make_figs_w08.py 產生，勿手改；投影片用 {{< include assets/w08/mpd-fold.inline.qmd >}} 貼入 -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 360" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
+<text x="20.0" y="28.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">the multi-period discriminator (MPD): fold the waveform into p rows, and the period becomes a column</text>
+<polyline points="60.0,92.0 84.0,59.7 108.0,72.0 132.0,112.0 156.0,124.3 180.0,92.0 204.0,59.7 228.0,72.0 252.0,112.0 276.0,124.3 300.0,92.0 324.0,59.7 348.0,72.0 372.0,112.0 396.0,124.3 420.0,92.0 444.0,59.7 468.0,72.0 492.0,112.0 516.0,124.3 540.0,92.0 564.0,59.7 588.0,72.0 612.0,112.0 636.0,124.3 660.0,92.0 684.0,59.7 708.0,72.0 732.0,112.0 756.0,124.3" fill="none" stroke="#94a3b8" stroke-width="1.6"/>
+<circle cx="60.0" cy="92.0" r="5.0" fill="#0b5cad" stroke="none" stroke-width="1.4"/>
+<circle cx="84.0" cy="59.7" r="5.0" fill="#7c3aed" stroke="none" stroke-width="1.4"/>
+<circle cx="108.0" cy="72.0" r="5.0" fill="#dc2626" stroke="none" stroke-width="1.4"/>
+<circle cx="132.0" cy="112.0" r="5.0" fill="#15803d" stroke="none" stroke-width="1.4"/>
+<circle cx="156.0" cy="124.3" r="5.0" fill="#b45309" stroke="none" stroke-width="1.4"/>
+<circle cx="180.0" cy="92.0" r="5.0" fill="#0b5cad" stroke="none" stroke-width="1.4"/>
+<circle cx="204.0" cy="59.7" r="5.0" fill="#7c3aed" stroke="none" stroke-width="1.4"/>
+<circle cx="228.0" cy="72.0" r="5.0" fill="#dc2626" stroke="none" stroke-width="1.4"/>
+<circle cx="252.0" cy="112.0" r="5.0" fill="#15803d" stroke="none" stroke-width="1.4"/>
+<circle cx="276.0" cy="124.3" r="5.0" fill="#b45309" stroke="none" stroke-width="1.4"/>
+<circle cx="300.0" cy="92.0" r="5.0" fill="#0b5cad" stroke="none" stroke-width="1.4"/>
+<circle cx="324.0" cy="59.7" r="5.0" fill="#7c3aed" stroke="none" stroke-width="1.4"/>
+<circle cx="348.0" cy="72.0" r="5.0" fill="#dc2626" stroke="none" stroke-width="1.4"/>
+<circle cx="372.0" cy="112.0" r="5.0" fill="#15803d" stroke="none" stroke-width="1.4"/>
+<circle cx="396.0" cy="124.3" r="5.0" fill="#b45309" stroke="none" stroke-width="1.4"/>
+<circle cx="420.0" cy="92.0" r="5.0" fill="#0b5cad" stroke="none" stroke-width="1.4"/>
+<circle cx="444.0" cy="59.7" r="5.0" fill="#7c3aed" stroke="none" stroke-width="1.4"/>
+<circle cx="468.0" cy="72.0" r="5.0" fill="#dc2626" stroke="none" stroke-width="1.4"/>
+<circle cx="492.0" cy="112.0" r="5.0" fill="#15803d" stroke="none" stroke-width="1.4"/>
+<circle cx="516.0" cy="124.3" r="5.0" fill="#b45309" stroke="none" stroke-width="1.4"/>
+<circle cx="540.0" cy="92.0" r="5.0" fill="#0b5cad" stroke="none" stroke-width="1.4"/>
+<circle cx="564.0" cy="59.7" r="5.0" fill="#7c3aed" stroke="none" stroke-width="1.4"/>
+<circle cx="588.0" cy="72.0" r="5.0" fill="#dc2626" stroke="none" stroke-width="1.4"/>
+<circle cx="612.0" cy="112.0" r="5.0" fill="#15803d" stroke="none" stroke-width="1.4"/>
+<circle cx="636.0" cy="124.3" r="5.0" fill="#b45309" stroke="none" stroke-width="1.4"/>
+<circle cx="660.0" cy="92.0" r="5.0" fill="#0b5cad" stroke="none" stroke-width="1.4"/>
+<circle cx="684.0" cy="59.7" r="5.0" fill="#7c3aed" stroke="none" stroke-width="1.4"/>
+<circle cx="708.0" cy="72.0" r="5.0" fill="#dc2626" stroke="none" stroke-width="1.4"/>
+<circle cx="732.0" cy="112.0" r="5.0" fill="#15803d" stroke="none" stroke-width="1.4"/>
+<circle cx="756.0" cy="124.3" r="5.0" fill="#b45309" stroke="none" stroke-width="1.4"/>
+<text x="60.0" y="152.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">a voiced stretch: the pattern repeats every p = 5 samples (one colour per phase); a short 1-D kernel never sees a whole cycle</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<rect x="130.0" y="180.0" width="28.0" height="22.0" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="1.6"/>
+<rect x="130.0" y="204.0" width="28.0" height="22.0" rx="2" fill="#ffffff" stroke="#7c3aed" stroke-width="1.6"/>
+<rect x="130.0" y="228.0" width="28.0" height="22.0" rx="2" fill="#ffffff" stroke="#dc2626" stroke-width="1.6"/>
+<rect x="130.0" y="252.0" width="28.0" height="22.0" rx="2" fill="#ffffff" stroke="#15803d" stroke-width="1.6"/>
+<rect x="130.0" y="276.0" width="28.0" height="22.0" rx="2" fill="#ffffff" stroke="#b45309" stroke-width="1.6"/>
+<rect x="160.0" y="180.0" width="28.0" height="22.0" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="1.6"/>
+<rect x="160.0" y="204.0" width="28.0" height="22.0" rx="2" fill="#ffffff" stroke="#7c3aed" stroke-width="1.6"/>
+<rect x="160.0" y="228.0" width="28.0" height="22.0" rx="2" fill="#ffffff" stroke="#dc2626" stroke-width="1.6"/>
+<rect x="160.0" y="252.0" width="28.0" height="22.0" rx="2" fill="#ffffff" stroke="#15803d" stroke-width="1.6"/>
+<rect x="160.0" y="276.0" width="28.0" height="22.0" rx="2" fill="#ffffff" stroke="#b45309" stroke-width="1.6"/>
+<rect x="190.0" y="180.0" width="28.0" height="22.0" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="1.6"/>
+<rect x="190.0" y="204.0" width="28.0" height="22.0" rx="2" fill="#ffffff" stroke="#7c3aed" stroke-width="1.6"/>
+<rect x="190.0" y="228.0" width="28.0" height="22.0" rx="2" fill="#ffffff" stroke="#dc2626" stroke-width="1.6"/>
+<rect x="190.0" y="252.0" width="28.0" height="22.0" rx="2" fill="#ffffff" stroke="#15803d" stroke-width="1.6"/>
+<rect x="190.0" y="276.0" width="28.0" height="22.0" rx="2" fill="#ffffff" stroke="#b45309" stroke-width="1.6"/>
+<rect x="220.0" y="180.0" width="28.0" height="22.0" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="1.6"/>
+<rect x="220.0" y="204.0" width="28.0" height="22.0" rx="2" fill="#ffffff" stroke="#7c3aed" stroke-width="1.6"/>
+<rect x="220.0" y="228.0" width="28.0" height="22.0" rx="2" fill="#ffffff" stroke="#dc2626" stroke-width="1.6"/>
+<rect x="220.0" y="252.0" width="28.0" height="22.0" rx="2" fill="#ffffff" stroke="#15803d" stroke-width="1.6"/>
+<rect x="220.0" y="276.0" width="28.0" height="22.0" rx="2" fill="#ffffff" stroke="#b45309" stroke-width="1.6"/>
+<rect x="250.0" y="180.0" width="28.0" height="22.0" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="1.6"/>
+<rect x="250.0" y="204.0" width="28.0" height="22.0" rx="2" fill="#ffffff" stroke="#7c3aed" stroke-width="1.6"/>
+<rect x="250.0" y="228.0" width="28.0" height="22.0" rx="2" fill="#ffffff" stroke="#dc2626" stroke-width="1.6"/>
+<rect x="250.0" y="252.0" width="28.0" height="22.0" rx="2" fill="#ffffff" stroke="#15803d" stroke-width="1.6"/>
+<rect x="250.0" y="276.0" width="28.0" height="22.0" rx="2" fill="#ffffff" stroke="#b45309" stroke-width="1.6"/>
+<rect x="280.0" y="180.0" width="28.0" height="22.0" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="1.6"/>
+<rect x="280.0" y="204.0" width="28.0" height="22.0" rx="2" fill="#ffffff" stroke="#7c3aed" stroke-width="1.6"/>
+<rect x="280.0" y="228.0" width="28.0" height="22.0" rx="2" fill="#ffffff" stroke="#dc2626" stroke-width="1.6"/>
+<rect x="280.0" y="252.0" width="28.0" height="22.0" rx="2" fill="#ffffff" stroke="#15803d" stroke-width="1.6"/>
+<rect x="280.0" y="276.0" width="28.0" height="22.0" rx="2" fill="#ffffff" stroke="#b45309" stroke-width="1.6"/>
+<svg x="48.56" y="234.515" width="69.44" height="15.485" viewBox="0 0 69.44 15.485"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w8t127-figure_1">
+  <g id="w8t127-patch_1">
+   <path d="M 0 15.485 
+L 69.44 15.485 
+L 69.44 0 
+L 0 0 
+L 0 15.485 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w8t127-text_1">
+   <!-- $p = 5\ \mathsf{rows}$ -->
+   <g style="fill: #6b7280" transform="translate(0 12.1575) scale(0.16 -0.16)">
+    <defs>
+     <path id="w8t127-Cmmi10-70" d="M -159 -1241 
+Q -219 -1241 -219 -1159 
+Q -197 -1019 -134 -1019 
+Q 66 -1019 145 -983 
+Q 225 -947 269 -800 
+L 991 2081 
+Q 1038 2200 1038 2388 
+Q 1038 2663 850 2663 
+Q 650 2663 553 2423 
+Q 456 2184 366 1819 
+Q 366 1778 313 1778 
+L 238 1778 
+Q 222 1778 203 1801 
+Q 184 1825 184 1844 
+Q 253 2122 317 2315 
+Q 381 2509 517 2668 
+Q 653 2828 856 2828 
+Q 1075 2828 1240 2704 
+Q 1406 2581 1453 2369 
+Q 1628 2572 1840 2700 
+Q 2053 2828 2278 2828 
+Q 2547 2828 2745 2684 
+Q 2944 2541 3044 2308 
+Q 3144 2075 3144 1806 
+Q 3144 1394 2933 953 
+Q 2722 513 2361 220 
+Q 2000 -72 1588 -72 
+Q 1400 -72 1248 34 
+Q 1097 141 1013 313 
+L 722 -825 
+Q 706 -919 703 -934 
+Q 703 -1019 1125 -1019 
+Q 1191 -1019 1191 -1100 
+Q 1169 -1184 1155 -1212 
+Q 1141 -1241 1081 -1241 
+L -159 -1241 
+z
+M 1594 97 
+Q 1816 97 2006 280 
+Q 2197 463 2316 691 
+Q 2403 863 2479 1111 
+Q 2556 1359 2612 1640 
+Q 2669 1922 2669 2088 
+Q 2669 2234 2630 2362 
+Q 2591 2491 2502 2577 
+Q 2413 2663 2266 2663 
+Q 2031 2663 1823 2495 
+Q 1616 2328 1447 2081 
+L 1447 2059 
+L 1094 647 
+Q 1138 419 1263 258 
+Q 1388 97 1594 97 
+z
+" transform="scale(0.015625)"/>
+     <path id="w8t127-Cmr10-3d" d="M 481 850 
+Q 428 850 393 890 
+Q 359 931 359 978 
+Q 359 1031 393 1068 
+Q 428 1106 481 1106 
+L 4500 1106 
+Q 4547 1106 4581 1068 
+Q 4616 1031 4616 978 
+Q 4616 931 4581 890 
+Q 4547 850 4500 850 
+L 481 850 
+z
+M 481 2094 
+Q 428 2094 393 2131 
+Q 359 2169 359 2222 
+Q 359 2269 393 2309 
+Q 428 2350 481 2350 
+L 4500 2350 
+Q 4547 2350 4581 2309 
+Q 4616 2269 4616 2222 
+Q 4616 2169 4581 2131 
+Q 4547 2094 4500 2094 
+L 481 2094 
+z
+" transform="scale(0.015625)"/>
+     <path id="w8t127-Cmr10-35" d="M 556 728 
+Q 622 541 758 387 
+Q 894 234 1080 148 
+Q 1266 63 1466 63 
+Q 1928 63 2103 422 
+Q 2278 781 2278 1294 
+Q 2278 1516 2270 1667 
+Q 2263 1819 2228 1959 
+Q 2169 2184 2020 2353 
+Q 1872 2522 1656 2522 
+Q 1441 2522 1286 2456 
+Q 1131 2391 1034 2303 
+Q 938 2216 863 2119 
+Q 788 2022 769 2016 
+L 697 2016 
+Q 681 2016 657 2036 
+Q 634 2056 634 2075 
+L 634 4213 
+Q 634 4228 654 4245 
+Q 675 4263 697 4263 
+L 716 4263 
+Q 1147 4056 1631 4056 
+Q 2106 4056 2547 4263 
+L 2566 4263 
+Q 2588 4263 2606 4247 
+Q 2625 4231 2625 4213 
+L 2625 4153 
+Q 2625 4122 2613 4122 
+Q 2394 3831 2064 3668 
+Q 1734 3506 1381 3506 
+Q 1125 3506 856 3578 
+L 856 2369 
+Q 1069 2541 1236 2614 
+Q 1403 2688 1663 2688 
+Q 2016 2688 2295 2484 
+Q 2575 2281 2725 1954 
+Q 2875 1628 2875 1288 
+Q 2875 903 2686 575 
+Q 2497 247 2172 53 
+Q 1847 -141 1466 -141 
+Q 1150 -141 886 21 
+Q 622 184 470 459 
+Q 319 734 319 1044 
+Q 319 1188 412 1278 
+Q 506 1369 647 1369 
+Q 788 1369 883 1276 
+Q 978 1184 978 1044 
+Q 978 906 883 811 
+Q 788 716 647 716 
+Q 625 716 597 720 
+Q 569 725 556 728 
+z
+" transform="scale(0.015625)"/>
+     <path id="w8t127-Cmss10-72" d="M 513 0 
+L 513 2881 
+L 984 2881 
+L 984 2328 
+Q 1109 2503 1287 2637 
+Q 1466 2772 1670 2842 
+Q 1875 2913 2094 2913 
+L 2094 2456 
+Q 1809 2456 1561 2315 
+Q 1313 2175 1166 1933 
+Q 1019 1691 1019 1403 
+L 1019 0 
+L 513 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w8t127-Cmss10-6f" d="M 1600 -72 
+Q 1203 -72 878 133 
+Q 553 338 365 680 
+Q 178 1022 178 1403 
+Q 178 1697 284 1976 
+Q 391 2256 580 2476 
+Q 769 2697 1033 2823 
+Q 1297 2950 1600 2950 
+Q 1900 2950 2161 2825 
+Q 2422 2700 2615 2476 
+Q 2809 2253 2912 1975 
+Q 3016 1697 3016 1403 
+Q 3016 1022 2830 680 
+Q 2644 338 2317 133 
+Q 1991 -72 1600 -72 
+z
+M 1600 366 
+Q 1894 366 2095 525 
+Q 2297 684 2394 940 
+Q 2491 1197 2491 1478 
+Q 2491 1753 2389 1995 
+Q 2288 2238 2086 2386 
+Q 1884 2534 1600 2534 
+Q 1313 2534 1111 2387 
+Q 909 2241 806 1997 
+Q 703 1753 703 1478 
+Q 703 1278 756 1079 
+Q 809 881 926 714 
+Q 1044 547 1214 456 
+Q 1384 366 1600 366 
+z
+" transform="scale(0.015625)"/>
+     <path id="w8t127-Cmss10-77" d="M 959 0 
+L 91 2841 
+L 603 2841 
+Q 897 1869 1078 1219 
+Q 1259 569 1259 347 
+Q 1263 463 1323 731 
+Q 1384 1000 1470 1308 
+Q 1556 1616 1670 1995 
+Q 1784 2375 1925 2841 
+L 2400 2841 
+Q 2641 2059 2755 1681 
+Q 2869 1303 2980 889 
+Q 3091 475 3091 347 
+Q 3094 509 3284 1179 
+Q 3475 1850 3781 2841 
+L 4275 2841 
+L 3406 0 
+L 2822 0 
+Q 2163 2122 2156 2497 
+Q 2156 2272 1964 1589 
+Q 1772 906 1491 0 
+L 959 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w8t127-Cmss10-73" d="M 178 213 
+L 263 672 
+Q 716 359 1259 359 
+Q 1494 359 1659 461 
+Q 1825 563 1825 781 
+Q 1825 947 1698 1053 
+Q 1572 1159 1403 1191 
+L 1013 1269 
+Q 688 1334 450 1559 
+Q 213 1784 213 2100 
+Q 213 2391 353 2583 
+Q 494 2775 731 2862 
+Q 969 2950 1259 2950 
+Q 1538 2950 1745 2904 
+Q 1953 2859 2194 2747 
+L 2119 2297 
+Q 1888 2434 1673 2490 
+Q 1459 2547 1191 2547 
+Q 981 2547 836 2455 
+Q 691 2363 691 2163 
+Q 691 2025 800 1926 
+Q 909 1828 1063 1791 
+L 1491 1709 
+Q 1709 1659 1895 1537 
+Q 2081 1416 2192 1233 
+Q 2303 1050 2303 831 
+Q 2303 525 2167 323 
+Q 2031 122 1798 25 
+Q 1566 -72 1259 -72 
+Q 684 -72 178 213 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w8t127-Cmmi10-70" transform="translate(0 0.390625)"/>
+    <use xlink:href="#w8t127-Cmr10-3d" transform="translate(67.851562 0.390625)"/>
+    <use xlink:href="#w8t127-Cmr10-35" transform="translate(163.095703 0.390625)"/>
+    <use xlink:href="#w8t127-Cmss10-72" transform="translate(242.359733 0.390625)"/>
+    <use xlink:href="#w8t127-Cmss10-6f" transform="translate(276.441765 0.390625)"/>
+    <use xlink:href="#w8t127-Cmss10-77" transform="translate(326.441765 0.390625)"/>
+    <use xlink:href="#w8t127-Cmss10-73" transform="translate(394.752312 0.390625)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<text x="130.0" y="322.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">columns = successive periods; each row = one phase of the cycle</text>
+</g>
+<g class="fragment" data-fragment-index="2">
+<rect x="187.0" y="177.0" width="92.0" height="122.0" rx="3" fill="none" stroke="#dc2626" stroke-width="2.4"/>
+<text x="340.0" y="198.0" font-size="16" font-weight="600" fill="#dc2626" text-anchor="start" dominant-baseline="auto">a 2-D kernel across a few columns sees whether the cycle really repeats:</text>
+<text x="340.0" y="220.0" font-size="16" font-weight="600" fill="#dc2626" text-anchor="start" dominant-baseline="auto">harmonics are periodicity, W2's source. Five of them, p = 2, 3, 5, 7, 11 —</text>
+<text x="340.0" y="242.0" font-size="16" font-weight="600" fill="#dc2626" text-anchor="start" dominant-baseline="auto">coprime, so they tile different fundamental frequencies without overlap</text>
+<text x="340.0" y="276.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">the MSD is the other family: 1-D, at ×1, ×2, ×4 downsampling — long-range continuity</text>
+<text x="340.0" y="300.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">in a tone language the period is lexical: this discriminator is checking our words</text>
+</g>
+</svg>
+```

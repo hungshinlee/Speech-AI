@@ -1,0 +1,65 @@
+<!-- 由 scripts/make_figs_w08.py 產生，勿手改；投影片用 {{< include assets/w08/tts-four-blocks.inline.qmd >}} 貼入 -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 340" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
+<rect x="20.0" y="40.0" width="225.0" height="56.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="132.5" y="68.0" font-size="18" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">front end</text>
+<line x1="249.0" y1="68.0" x2="254.0" y2="68.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="261.0,68.0 254.0,73.0 254.0,63.0" fill="#94a3b8"/>
+<rect x="20.0" y="108.0" width="225.0" height="30.0" rx="5" fill="#ffffff" stroke="#15803d" stroke-width="1.0"/>
+<text x="132.0" y="123.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">text normalisation</text>
+<rect x="20.0" y="144.0" width="225.0" height="30.0" rx="5" fill="#ffffff" stroke="#15803d" stroke-width="1.0"/>
+<text x="132.0" y="159.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">G2P — or none</text>
+<rect x="20.0" y="180.0" width="225.0" height="30.0" rx="5" fill="#ffffff" stroke="#15803d" stroke-width="1.0"/>
+<text x="132.0" y="195.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">sets the frame rate (W2)</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<rect x="265.0" y="40.0" width="225.0" height="56.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="377.5" y="68.0" font-size="18" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">alignment / length</text>
+<line x1="494.0" y1="68.0" x2="499.0" y2="68.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="506.0,68.0 499.0,73.0 499.0,63.0" fill="#94a3b8"/>
+<rect x="265.0" y="108.0" width="225.0" height="30.0" rx="5" fill="#ffffff" stroke="#7c3aed" stroke-width="1.0"/>
+<text x="377.0" y="123.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">attention</text>
+<rect x="265.0" y="144.0" width="225.0" height="30.0" rx="5" fill="#ffffff" stroke="#7c3aed" stroke-width="1.0"/>
+<text x="377.0" y="159.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">duration pred. + regulator</text>
+<rect x="265.0" y="180.0" width="225.0" height="30.0" rx="5" fill="#ffffff" stroke="#7c3aed" stroke-width="1.0"/>
+<text x="377.0" y="195.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">the AR stop symbol</text>
+<rect x="265.0" y="216.0" width="225.0" height="30.0" rx="5" fill="#ffffff" stroke="#7c3aed" stroke-width="1.0"/>
+<text x="377.0" y="231.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">given from outside</text>
+</g>
+<g class="fragment" data-fragment-index="2">
+<rect x="510.0" y="40.0" width="225.0" height="56.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+<text x="622.5" y="68.0" font-size="18" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">acoustic generation</text>
+<line x1="739.0" y1="68.0" x2="744.0" y2="68.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="751.0,68.0 744.0,73.0 744.0,63.0" fill="#94a3b8"/>
+<rect x="510.0" y="108.0" width="225.0" height="30.0" rx="5" fill="#ffffff" stroke="#dc2626" stroke-width="1.0"/>
+<text x="622.0" y="123.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">regress the mel</text>
+<rect x="510.0" y="144.0" width="225.0" height="30.0" rx="5" fill="#ffffff" stroke="#dc2626" stroke-width="1.0"/>
+<text x="622.0" y="159.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">AR over W6's tokens</text>
+<rect x="510.0" y="180.0" width="225.0" height="30.0" rx="5" fill="#ffffff" stroke="#dc2626" stroke-width="1.0"/>
+<text x="622.0" y="195.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">flow to mel or latents</text>
+<rect x="510.0" y="216.0" width="225.0" height="30.0" rx="5" fill="#ffffff" stroke="#dc2626" stroke-width="1.0"/>
+<text x="622.0" y="231.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">← the variation lives here</text>
+</g>
+<g class="fragment" data-fragment-index="3">
+<rect x="755.0" y="40.0" width="225.0" height="56.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="867.5" y="68.0" font-size="18" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">waveform</text>
+<rect x="755.0" y="108.0" width="225.0" height="30.0" rx="5" fill="#ffffff" stroke="#0b5cad" stroke-width="1.0"/>
+<text x="867.0" y="123.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">vocoder: mel in</text>
+<rect x="755.0" y="144.0" width="225.0" height="30.0" rx="5" fill="#ffffff" stroke="#0b5cad" stroke-width="1.0"/>
+<text x="867.0" y="159.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">codec decoder: tokens in</text>
+<rect x="755.0" y="180.0" width="225.0" height="30.0" rx="5" fill="#ffffff" stroke="#0b5cad" stroke-width="1.0"/>
+<text x="867.0" y="195.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">iSTFT: magnitude, phase in</text>
+<rect x="755.0" y="216.0" width="225.0" height="30.0" rx="5" fill="#ffffff" stroke="#0b5cad" stroke-width="1.0"/>
+<text x="867.0" y="231.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">W2's phase, W6's GAN losses</text>
+</g>
+<g class="fragment" data-fragment-index="0">
+<text x="20.0" y="24.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">every TTS system is a configuration of four blocks — the table of the week fills them in per system</text>
+</g>
+<g class="fragment" data-fragment-index="4">
+<rect x="510.0" y="268.0" width="470.0" height="56.0" rx="6" fill="#ffffff" stroke="#6b7280" stroke-width="1.2" stroke-dasharray="6 4"/>
+<text x="745.0" y="286.0" font-size="16" font-weight="600" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">VITS, MMS-TTS, Kokoro: the last two blocks</text>
+<text x="745.0" y="308.0" font-size="16" font-weight="600" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">are one end-to-end decoder — no mel in between</text>
+</g>
+</svg>
+```

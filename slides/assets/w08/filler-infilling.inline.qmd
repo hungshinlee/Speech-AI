@@ -1,0 +1,615 @@
+<!-- 由 scripts/make_figs_w08.py 產生，勿手改；投影片用 {{< include assets/w08/filler-infilling.inline.qmd >}} 貼入 -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 280" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
+<text x="20.0" y="28.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">E2 / F5: no phonemes, no durations — three equal-length tracks into one Transformer; alignment happens in attention</text>
+<svg x="116.11" y="61.5472" width="19.89" height="16.4528" viewBox="0 0 19.89 16.452813"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w8t124-figure_1">
+  <g id="w8t124-patch_1">
+   <path d="M 0 16.452813 
+L 19.89 16.452813 
+L 19.89 0 
+L 0 0 
+L 0 16.452813 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w8t124-text_1">
+   <!-- $\mathbf{X}_\tau$ -->
+   <g style="fill: #dc2626" transform="translate(0 12.917344) scale(0.17 -0.17)">
+    <defs>
+     <path id="w8t124-Cmb10-58" d="M 184 0 
+L 184 325 
+Q 856 325 909 384 
+L 2009 2106 
+L 825 4063 
+L 269 4063 
+L 269 4391 
+L 2291 4391 
+L 2291 4063 
+L 1838 4063 
+L 2528 2919 
+L 3225 4013 
+Q 3225 4028 3158 4036 
+Q 3091 4044 3053 4044 
+Q 2872 4063 2688 4063 
+L 2688 4391 
+L 4384 4391 
+L 4384 4063 
+Q 4159 4063 3925 4053 
+Q 3691 4044 3653 4006 
+L 2741 2572 
+L 4091 325 
+L 4653 325 
+L 4653 0 
+L 2625 0 
+L 2625 325 
+L 3084 325 
+L 2222 1759 
+L 1344 378 
+Q 1344 369 1411 358 
+Q 1478 347 1509 347 
+Q 1681 325 1881 325 
+L 1881 0 
+L 184 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w8t124-Cmmi10-bf" d="M 997 97 
+Q 997 141 1006 166 
+L 1678 2363 
+L 1100 2363 
+Q 866 2363 662 2216 
+Q 459 2069 325 1844 
+Q 313 1819 288 1819 
+L 213 1819 
+Q 153 1819 153 1881 
+Q 153 1894 166 1919 
+Q 375 2275 614 2517 
+Q 853 2759 1153 2759 
+L 3116 2759 
+Q 3184 2759 3231 2712 
+Q 3278 2666 3278 2597 
+Q 3278 2503 3211 2433 
+Q 3144 2363 3047 2363 
+L 1888 2363 
+L 1459 153 
+Q 1434 50 1365 -17 
+Q 1297 -84 1191 -84 
+Q 1109 -84 1053 -32 
+Q 997 19 997 97 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w8t124-Cmb10-58" transform="translate(0 0.390625)"/>
+    <use xlink:href="#w8t124-Cmmi10-bf" transform="translate(79.952422 -16.615625) scale(0.7)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<rect x="150.0" y="50.0" width="23.0" height="34.0" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="175.0" y="50.0" width="23.0" height="34.0" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="200.0" y="50.0" width="23.0" height="34.0" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="225.0" y="50.0" width="23.0" height="34.0" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="250.0" y="50.0" width="23.0" height="34.0" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="275.0" y="50.0" width="23.0" height="34.0" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="300.0" y="50.0" width="23.0" height="34.0" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="325.0" y="50.0" width="23.0" height="34.0" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="350.0" y="50.0" width="23.0" height="34.0" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="375.0" y="50.0" width="23.0" height="34.0" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="400.0" y="50.0" width="23.0" height="34.0" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="425.0" y="50.0" width="23.0" height="34.0" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="450.0" y="50.0" width="23.0" height="34.0" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="475.0" y="50.0" width="23.0" height="34.0" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="500.0" y="50.0" width="23.0" height="34.0" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="525.0" y="50.0" width="23.0" height="34.0" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="550.0" y="50.0" width="23.0" height="34.0" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="575.0" y="50.0" width="23.0" height="34.0" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="600.0" y="50.0" width="23.0" height="34.0" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="625.0" y="50.0" width="23.0" height="34.0" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="650.0" y="50.0" width="23.0" height="34.0" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="675.0" y="50.0" width="23.0" height="34.0" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="700.0" y="50.0" width="23.0" height="34.0" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="725.0" y="50.0" width="23.0" height="34.0" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<text x="762.0" y="67.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">noisy mel, all T frames</text>
+<svg x="53.04" y="102.547" width="82.96" height="16.4528" viewBox="0 0 82.96 16.452813"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w8t125-figure_1">
+  <g id="w8t125-patch_1">
+   <path d="M 0 16.452813 
+L 82.96 16.452813 
+L 82.96 0 
+L 0 0 
+L 0 16.452813 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w8t125-text_1">
+   <!-- $\mathsf{masked\ mel}$ -->
+   <g style="fill: #0b5cad" transform="translate(0 12.917344) scale(0.17 -0.17)">
+    <defs>
+     <path id="w8t125-Cmss10-6d" d="M 506 0 
+L 506 2881 
+L 991 2881 
+L 991 2444 
+Q 1163 2666 1403 2789 
+Q 1644 2913 1919 2913 
+Q 2563 2913 2731 2400 
+Q 2903 2638 3158 2775 
+Q 3413 2913 3694 2913 
+Q 4172 2913 4373 2644 
+Q 4575 2375 4575 1881 
+L 4575 0 
+L 4050 0 
+L 4050 1881 
+Q 4050 2497 3419 2497 
+Q 3206 2497 3065 2355 
+Q 2925 2213 2864 2005 
+Q 2803 1797 2803 1588 
+L 2803 0 
+L 2278 0 
+L 2278 1881 
+Q 2278 2203 2120 2350 
+Q 1963 2497 1644 2497 
+Q 1428 2497 1290 2355 
+Q 1153 2213 1092 2005 
+Q 1031 1797 1031 1588 
+L 1031 0 
+L 506 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w8t125-Cmss10-61" d="M 972 -72 
+Q 766 -72 605 48 
+Q 444 169 356 359 
+Q 269 550 269 763 
+Q 269 1072 580 1256 
+Q 891 1441 1305 1511 
+Q 1719 1581 2041 1581 
+L 2041 1881 
+Q 2041 2128 1900 2337 
+Q 1759 2547 1522 2547 
+Q 1225 2547 1000 2473 
+Q 775 2400 531 2222 
+L 494 2675 
+Q 753 2825 987 2887 
+Q 1222 2950 1522 2950 
+Q 1806 2950 2047 2801 
+Q 2288 2653 2427 2408 
+Q 2566 2163 2566 1881 
+L 2566 0 
+L 2059 0 
+L 2059 238 
+Q 1859 84 1576 6 
+Q 1294 -72 972 -72 
+z
+M 756 763 
+Q 756 566 937 456 
+Q 1119 347 1331 347 
+Q 1600 347 1820 467 
+Q 2041 588 2041 831 
+L 2041 1228 
+Q 1641 1228 1198 1125 
+Q 756 1022 756 763 
+z
+" transform="scale(0.015625)"/>
+     <path id="w8t125-Cmss10-73" d="M 178 213 
+L 263 672 
+Q 716 359 1259 359 
+Q 1494 359 1659 461 
+Q 1825 563 1825 781 
+Q 1825 947 1698 1053 
+Q 1572 1159 1403 1191 
+L 1013 1269 
+Q 688 1334 450 1559 
+Q 213 1784 213 2100 
+Q 213 2391 353 2583 
+Q 494 2775 731 2862 
+Q 969 2950 1259 2950 
+Q 1538 2950 1745 2904 
+Q 1953 2859 2194 2747 
+L 2119 2297 
+Q 1888 2434 1673 2490 
+Q 1459 2547 1191 2547 
+Q 981 2547 836 2455 
+Q 691 2363 691 2163 
+Q 691 2025 800 1926 
+Q 909 1828 1063 1791 
+L 1491 1709 
+Q 1709 1659 1895 1537 
+Q 2081 1416 2192 1233 
+Q 2303 1050 2303 831 
+Q 2303 525 2167 323 
+Q 2031 122 1798 25 
+Q 1566 -72 1259 -72 
+Q 684 -72 178 213 
+z
+" transform="scale(0.015625)"/>
+     <path id="w8t125-Cmss10-6b" d="M 525 0 
+L 525 4441 
+L 1013 4441 
+L 1013 1550 
+L 2266 2841 
+L 2875 2841 
+L 1806 1741 
+L 3016 0 
+L 2463 0 
+L 1484 1409 
+L 991 903 
+L 991 0 
+L 525 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w8t125-Cmss10-65" d="M 1594 -72 
+Q 1300 -72 1044 51 
+Q 788 175 602 390 
+Q 416 606 314 882 
+Q 213 1159 213 1441 
+Q 213 1806 373 2159 
+Q 534 2513 831 2731 
+Q 1128 2950 1503 2950 
+Q 2116 2950 2386 2500 
+Q 2656 2050 2656 1403 
+L 684 1403 
+Q 684 1150 801 904 
+Q 919 659 1130 503 
+Q 1341 347 1594 347 
+Q 2150 347 2584 691 
+L 2625 256 
+Q 2491 122 2162 25 
+Q 1834 -72 1594 -72 
+z
+M 722 1778 
+L 2259 1778 
+Q 2209 2103 2015 2318 
+Q 1822 2534 1503 2534 
+Q 1316 2534 1150 2426 
+Q 984 2319 876 2145 
+Q 769 1972 722 1778 
+z
+" transform="scale(0.015625)"/>
+     <path id="w8t125-Cmss10-64" d="M 1300 -72 
+Q 959 -72 712 161 
+Q 466 394 342 741 
+Q 219 1088 219 1422 
+Q 219 1675 291 1933 
+Q 363 2191 500 2414 
+Q 638 2638 847 2775 
+Q 1056 2913 1319 2913 
+Q 1591 2913 1842 2822 
+Q 2094 2731 2284 2572 
+L 2284 4441 
+L 2791 4441 
+L 2791 0 
+L 2266 0 
+L 2266 319 
+Q 2059 128 1818 28 
+Q 1578 -72 1300 -72 
+z
+M 1594 347 
+Q 1806 347 1984 465 
+Q 2163 584 2266 781 
+L 2266 2163 
+Q 2166 2316 2006 2406 
+Q 1847 2497 1672 2497 
+Q 1372 2497 1161 2350 
+Q 950 2203 847 1958 
+Q 744 1713 744 1422 
+Q 744 981 959 664 
+Q 1175 347 1594 347 
+z
+" transform="scale(0.015625)"/>
+     <path id="w8t125-Cmss10-6c" d="M 506 0 
+L 506 4441 
+L 1013 4441 
+L 1013 0 
+L 506 0 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w8t125-Cmss10-6d" transform="translate(0 0.609375)"/>
+    <use xlink:href="#w8t125-Cmss10-61" transform="translate(79.394531 0.609375)"/>
+    <use xlink:href="#w8t125-Cmss10-73" transform="translate(127.392578 0.609375)"/>
+    <use xlink:href="#w8t125-Cmss10-6b" transform="translate(165.673828 0.609375)"/>
+    <use xlink:href="#w8t125-Cmss10-65" transform="translate(214.453125 0.609375)"/>
+    <use xlink:href="#w8t125-Cmss10-64" transform="translate(258.837891 0.609375)"/>
+    <use xlink:href="#w8t125-Cmss10-6d" transform="translate(339.713249 0.609375)"/>
+    <use xlink:href="#w8t125-Cmss10-65" transform="translate(419.10778 0.609375)"/>
+    <use xlink:href="#w8t125-Cmss10-6c" transform="translate(463.492546 0.609375)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<rect x="150.0" y="94.0" width="23.0" height="34.0" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="175.0" y="94.0" width="23.0" height="34.0" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="200.0" y="94.0" width="23.0" height="34.0" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="225.0" y="94.0" width="23.0" height="34.0" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="250.0" y="94.0" width="23.0" height="34.0" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="275.0" y="94.0" width="23.0" height="34.0" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="300.0" y="94.0" width="23.0" height="34.0" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="325.0" y="94.0" width="23.0" height="34.0" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="350.0" y="94.0" width="23.0" height="34.0" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="375.0" y="94.0" width="23.0" height="34.0" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="0.8"/>
+<rect x="400.0" y="94.0" width="23.0" height="34.0" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="0.8"/>
+<text x="411.5" y="111.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">0</text>
+<rect x="425.0" y="94.0" width="23.0" height="34.0" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="0.8"/>
+<text x="436.5" y="111.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">0</text>
+<rect x="450.0" y="94.0" width="23.0" height="34.0" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="0.8"/>
+<text x="461.5" y="111.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">0</text>
+<rect x="475.0" y="94.0" width="23.0" height="34.0" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="0.8"/>
+<text x="486.5" y="111.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">0</text>
+<rect x="500.0" y="94.0" width="23.0" height="34.0" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="0.8"/>
+<text x="511.5" y="111.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">0</text>
+<rect x="525.0" y="94.0" width="23.0" height="34.0" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="0.8"/>
+<text x="536.5" y="111.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">0</text>
+<rect x="550.0" y="94.0" width="23.0" height="34.0" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="0.8"/>
+<text x="561.5" y="111.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">0</text>
+<rect x="575.0" y="94.0" width="23.0" height="34.0" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="0.8"/>
+<text x="586.5" y="111.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">0</text>
+<rect x="600.0" y="94.0" width="23.0" height="34.0" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="0.8"/>
+<text x="611.5" y="111.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">0</text>
+<rect x="625.0" y="94.0" width="23.0" height="34.0" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="0.8"/>
+<text x="636.5" y="111.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">0</text>
+<rect x="650.0" y="94.0" width="23.0" height="34.0" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="0.8"/>
+<text x="661.5" y="111.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">0</text>
+<rect x="675.0" y="94.0" width="23.0" height="34.0" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="0.8"/>
+<text x="686.5" y="111.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">0</text>
+<rect x="700.0" y="94.0" width="23.0" height="34.0" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="0.8"/>
+<text x="711.5" y="111.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">0</text>
+<rect x="725.0" y="94.0" width="23.0" height="34.0" rx="2" fill="#ffffff" stroke="#0b5cad" stroke-width="0.8"/>
+<text x="736.5" y="111.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">0</text>
+<text x="762.0" y="111.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">prompt kept, target zeroed</text>
+<svg x="79.05" y="147.547" width="56.95" height="16.4528" viewBox="0 0 56.95 16.452813"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w8t126-figure_1">
+  <g id="w8t126-patch_1">
+   <path d="M 0 16.452813 
+L 56.95 16.452813 
+L 56.95 0 
+L 0 0 
+L 0 16.452813 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w8t126-text_1">
+   <!-- $\ell \oplus \mathsf{filler}$ -->
+   <g style="fill: #15803d" transform="translate(0 12.917344) scale(0.17 -0.17)">
+    <defs>
+     <path id="w8t126-Cmmi10-60" d="M 153 475 
+Q 125 475 94 509 
+Q 63 544 63 575 
+Q 63 628 594 1113 
+Q 594 1141 592 1159 
+Q 591 1178 588 1197 
+Q 588 1472 631 1758 
+Q 675 2044 751 2328 
+Q 828 2613 943 2922 
+Q 1059 3231 1178 3463 
+Q 1384 3884 1628 4198 
+Q 1872 4513 2169 4513 
+Q 2372 4513 2459 4373 
+Q 2547 4234 2547 4025 
+Q 2547 2853 991 1269 
+Q 966 994 966 878 
+Q 966 78 1331 78 
+Q 1488 78 1642 161 
+Q 1797 244 1908 341 
+Q 2019 438 2216 628 
+Q 2228 641 2253 641 
+Q 2288 641 2319 603 
+Q 2350 566 2350 531 
+Q 2350 509 2322 488 
+Q 2038 209 1809 56 
+Q 1581 -97 1319 -97 
+Q 981 -97 817 193 
+Q 653 484 609 884 
+Q 438 713 191 488 
+Q 184 475 153 475 
+z
+M 1044 1575 
+Q 1384 1938 1681 2338 
+Q 1978 2738 2176 3180 
+Q 2375 3622 2375 4044 
+Q 2375 4347 2163 4347 
+Q 1934 4347 1696 3801 
+Q 1459 3256 1290 2622 
+Q 1122 1988 1044 1575 
+z
+" transform="scale(0.015625)"/>
+     <path id="w8t126-Cmsy10-a9" d="M 2491 -531 
+Q 2053 -531 1668 -365 
+Q 1284 -200 986 95 
+Q 688 391 523 780 
+Q 359 1169 359 1600 
+Q 359 2038 521 2422 
+Q 684 2806 984 3106 
+Q 1284 3406 1668 3568 
+Q 2053 3731 2491 3731 
+Q 2925 3731 3312 3565 
+Q 3700 3400 3994 3104 
+Q 4288 2809 4452 2421 
+Q 4616 2034 4616 1600 
+Q 4616 1172 4450 780 
+Q 4284 388 3992 95 
+Q 3700 -197 3312 -364 
+Q 2925 -531 2491 -531 
+z
+M 2394 -347 
+L 2394 1509 
+L 544 1509 
+Q 544 1047 806 617 
+Q 1069 188 1500 -79 
+Q 1931 -347 2394 -347 
+z
+M 2578 -347 
+Q 2928 -347 3259 -195 
+Q 3591 -44 3859 228 
+Q 4128 500 4278 831 
+Q 4428 1163 4428 1509 
+L 2578 1509 
+L 2578 -347 
+z
+M 544 1697 
+L 2394 1697 
+L 2394 3547 
+Q 1931 3547 1501 3283 
+Q 1072 3019 808 2589 
+Q 544 2159 544 1697 
+z
+M 2578 1697 
+L 4428 1697 
+Q 4428 2047 4279 2376 
+Q 4131 2706 3859 2978 
+Q 3588 3250 3258 3398 
+Q 2928 3547 2578 3547 
+L 2578 1697 
+z
+" transform="scale(0.015625)"/>
+     <path id="w8t126-Cmss10-66" d="M 634 0 
+L 634 2444 
+L 172 2444 
+L 172 2841 
+L 634 2841 
+L 634 3438 
+Q 634 3722 775 3969 
+Q 916 4216 1159 4364 
+Q 1403 4513 1684 4513 
+Q 1784 4513 1990 4491 
+Q 2197 4469 2222 4441 
+L 2222 3988 
+Q 2097 4044 1967 4070 
+Q 1838 4097 1684 4097 
+Q 1475 4097 1297 3976 
+Q 1119 3856 1119 3653 
+L 1119 2841 
+L 1831 2841 
+L 1831 2444 
+L 1141 2444 
+L 1141 0 
+L 634 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w8t126-Cmss10-69" d="M 506 0 
+L 506 2841 
+L 1013 2841 
+L 1013 0 
+L 506 0 
+z
+M 459 3756 
+L 459 4353 
+L 1056 4353 
+L 1056 3756 
+L 459 3756 
+z
+" transform="scale(0.015625)"/>
+     <path id="w8t126-Cmss10-6c" d="M 506 0 
+L 506 4441 
+L 1013 4441 
+L 1013 0 
+L 506 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w8t126-Cmss10-65" d="M 1594 -72 
+Q 1300 -72 1044 51 
+Q 788 175 602 390 
+Q 416 606 314 882 
+Q 213 1159 213 1441 
+Q 213 1806 373 2159 
+Q 534 2513 831 2731 
+Q 1128 2950 1503 2950 
+Q 2116 2950 2386 2500 
+Q 2656 2050 2656 1403 
+L 684 1403 
+Q 684 1150 801 904 
+Q 919 659 1130 503 
+Q 1341 347 1594 347 
+Q 2150 347 2584 691 
+L 2625 256 
+Q 2491 122 2162 25 
+Q 1834 -72 1594 -72 
+z
+M 722 1778 
+L 2259 1778 
+Q 2209 2103 2015 2318 
+Q 1822 2534 1503 2534 
+Q 1316 2534 1150 2426 
+Q 984 2319 876 2145 
+Q 769 1972 722 1778 
+z
+" transform="scale(0.015625)"/>
+     <path id="w8t126-Cmss10-72" d="M 513 0 
+L 513 2881 
+L 984 2881 
+L 984 2328 
+Q 1109 2503 1287 2637 
+Q 1466 2772 1670 2842 
+Q 1875 2913 2094 2913 
+L 2094 2456 
+Q 1809 2456 1561 2315 
+Q 1313 2175 1166 1933 
+Q 1019 1691 1019 1403 
+L 1019 0 
+L 513 0 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w8t126-Cmmi10-60" transform="translate(0 0.484375)"/>
+    <use xlink:href="#w8t126-Cmsy10-a9" transform="translate(59.160156 0.484375)"/>
+    <use xlink:href="#w8t126-Cmss10-66" transform="translate(154.404297 0.484375)"/>
+    <use xlink:href="#w8t126-Cmss10-69" transform="translate(184.921875 0.484375)"/>
+    <use xlink:href="#w8t126-Cmss10-6c" transform="translate(208.701172 0.484375)"/>
+    <use xlink:href="#w8t126-Cmss10-6c" transform="translate(232.480469 0.484375)"/>
+    <use xlink:href="#w8t126-Cmss10-65" transform="translate(256.259766 0.484375)"/>
+    <use xlink:href="#w8t126-Cmss10-72" transform="translate(300.644531 0.484375)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<rect x="150.0" y="138.0" width="23.0" height="34.0" rx="2" fill="#dcfce7" stroke="#15803d" stroke-width="0.8"/>
+<rect x="175.0" y="138.0" width="23.0" height="34.0" rx="2" fill="#dcfce7" stroke="#15803d" stroke-width="0.8"/>
+<rect x="200.0" y="138.0" width="23.0" height="34.0" rx="2" fill="#dcfce7" stroke="#15803d" stroke-width="0.8"/>
+<rect x="225.0" y="138.0" width="23.0" height="34.0" rx="2" fill="#dcfce7" stroke="#15803d" stroke-width="0.8"/>
+<rect x="250.0" y="138.0" width="23.0" height="34.0" rx="2" fill="#dcfce7" stroke="#15803d" stroke-width="0.8"/>
+<rect x="275.0" y="138.0" width="23.0" height="34.0" rx="2" fill="#dcfce7" stroke="#15803d" stroke-width="0.8"/>
+<rect x="300.0" y="138.0" width="23.0" height="34.0" rx="2" fill="#dcfce7" stroke="#15803d" stroke-width="0.8"/>
+<rect x="325.0" y="138.0" width="23.0" height="34.0" rx="2" fill="#dcfce7" stroke="#15803d" stroke-width="0.8"/>
+<rect x="350.0" y="138.0" width="23.0" height="34.0" rx="2" fill="#dcfce7" stroke="#15803d" stroke-width="0.8"/>
+<rect x="375.0" y="138.0" width="23.0" height="34.0" rx="2" fill="#dcfce7" stroke="#15803d" stroke-width="0.8"/>
+<rect x="400.0" y="138.0" width="23.0" height="34.0" rx="2" fill="#dcfce7" stroke="#15803d" stroke-width="0.8"/>
+<rect x="425.0" y="138.0" width="23.0" height="34.0" rx="2" fill="#dcfce7" stroke="#15803d" stroke-width="0.8"/>
+<rect x="450.0" y="138.0" width="23.0" height="34.0" rx="2" fill="#dcfce7" stroke="#15803d" stroke-width="0.8"/>
+<rect x="475.0" y="138.0" width="23.0" height="34.0" rx="2" fill="#dcfce7" stroke="#15803d" stroke-width="0.8"/>
+<rect x="500.0" y="138.0" width="23.0" height="34.0" rx="2" fill="#ffffff" stroke="#15803d" stroke-width="0.8"/>
+<text x="511.5" y="155.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">F</text>
+<rect x="525.0" y="138.0" width="23.0" height="34.0" rx="2" fill="#ffffff" stroke="#15803d" stroke-width="0.8"/>
+<text x="536.5" y="155.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">F</text>
+<rect x="550.0" y="138.0" width="23.0" height="34.0" rx="2" fill="#ffffff" stroke="#15803d" stroke-width="0.8"/>
+<text x="561.5" y="155.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">F</text>
+<rect x="575.0" y="138.0" width="23.0" height="34.0" rx="2" fill="#ffffff" stroke="#15803d" stroke-width="0.8"/>
+<text x="586.5" y="155.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">F</text>
+<rect x="600.0" y="138.0" width="23.0" height="34.0" rx="2" fill="#ffffff" stroke="#15803d" stroke-width="0.8"/>
+<text x="611.5" y="155.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">F</text>
+<rect x="625.0" y="138.0" width="23.0" height="34.0" rx="2" fill="#ffffff" stroke="#15803d" stroke-width="0.8"/>
+<text x="636.5" y="155.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">F</text>
+<rect x="650.0" y="138.0" width="23.0" height="34.0" rx="2" fill="#ffffff" stroke="#15803d" stroke-width="0.8"/>
+<text x="661.5" y="155.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">F</text>
+<rect x="675.0" y="138.0" width="23.0" height="34.0" rx="2" fill="#ffffff" stroke="#15803d" stroke-width="0.8"/>
+<text x="686.5" y="155.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">F</text>
+<rect x="700.0" y="138.0" width="23.0" height="34.0" rx="2" fill="#ffffff" stroke="#15803d" stroke-width="0.8"/>
+<text x="711.5" y="155.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">F</text>
+<rect x="725.0" y="138.0" width="23.0" height="34.0" rx="2" fill="#ffffff" stroke="#15803d" stroke-width="0.8"/>
+<text x="736.5" y="155.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">F</text>
+<text x="762.0" y="155.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">characters, then ⟨F⟩ to T</text>
+<text x="20.0" y="200.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">all three have length T, concatenated per frame → Transformer (F5: ConvNeXt on the text first); MSE on the masked frames only</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<rect x="398.0" y="92.0" width="350.0" height="36.0" rx="2" fill="none" stroke="#dc2626" stroke-width="2.6" stroke-dasharray="6 3"/>
+<text x="20.0" y="232.0" font-size="16" font-weight="600" fill="#dc2626" text-anchor="start" dominant-baseline="auto">training = infilling (Voicebox): mask a stretch of a real mel, generate it from the rest and all the text</text>
+</g>
+<g class="fragment" data-fragment-index="2">
+<text x="20.0" y="262.0" font-size="16" font-weight="600" fill="#7c3aed" text-anchor="start" dominant-baseline="auto">use: the same picture with the prompt's mel kept and the part to generate zeroed — but its length T must come from outside:</text>
+</g>
+</svg>
+```
