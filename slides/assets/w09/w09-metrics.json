@@ -1,0 +1,721 @@
+{
+ "_note": "量測數字（進版控的出處，speech_ai/CLAUDE.md 4.8）。w09-data.json 是 make_figs_w09.py 算出來的、每次重產；量測的放這裡。",
+ "demo1": {
+  "source": "demos/w09_d1_cloning_leak/runs/rehearsal/rehearsal.json",
+  "time": "2026-11-14T22:25:52",
+  "tag": "rehearsal",
+  "text": {
+   "target": "Mister Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+   "prompt_text": "Near the fire, and the ornaments Fred brought home from India on the mantel board.",
+   "prompt_utt": "1272-128104-0010",
+   "target_utt": "1272-128104-0000"
+  },
+  "models": {
+   "speecht5": {
+    "repo": "microsoft/speecht5_tts",
+    "commit": "30fcde30f19b87502b8435427b5f5068e401d5f6",
+    "vocoder": "microsoft/speecht5_hifigan",
+    "vocoder_commit": "bb6f429406e86a9992357a972c0698b22043307d",
+    "device": "mps",
+    "vocoder_device": "mps",
+    "n_params": 144431684,
+    "reduction_factor": 2,
+    "prenet_dropout_at_inference": 0.5,
+    "xvector": {
+     "from": "the prompt, through [xvector] (unit-normalised)"
+    }
+   },
+   "f5": {
+    "repo": "SWivid/F5-TTS",
+    "commit": "84e5a410d9cead4de2f847e7c9369a6440bdfaca",
+    "ckpt": "F5TTS_v1_Base/model_1250000.safetensors",
+    "model": "F5TTS_v1_Base",
+    "vocoder": "charactr/vocos-mel-24khz",
+    "vocoder_commit": "0feb3fdd929bcd6649e0e7c5a688cf7dd012ef21",
+    "device": "mps",
+    "vocoder_device": "mps",
+    "n_params": 337096804,
+    "nfe": 32,
+    "cfg_strength_alpha": 2.0,
+    "w_slide": 3.0,
+    "sway_sampling_coef": -1.0,
+    "ode_method": "euler",
+    "arch": {
+     "dim": 1024,
+     "depth": 22,
+     "heads": 16,
+     "ff_mult": 2,
+     "text_dim": 512,
+     "text_mask_padding": true,
+     "qk_norm": null,
+     "conv_layers": 4,
+     "pe_attn_head": null,
+     "attn_backend": "torch",
+     "attn_mask_enabled": false,
+     "checkpoint_activations": false
+    },
+    "mps_fallback_env": {
+     "before_import": "1",
+     "after_import": "1"
+    }
+   },
+   "xvector": {
+    "repo": "speechbrain/spkrec-xvect-voxceleb",
+    "commit": "56895a2df401be4150a159f3a1c653f00051d477",
+    "device": "cpu",
+    "n_params": 4211604,
+    "dim": 512
+   },
+   "qwen3": {
+    "repo": "mlx-community/Qwen3-TTS-12Hz-0.6B-Base-bf16",
+    "commit": "1eccf1cb2519b5a4e8a95b5f0544f3303568164f",
+    "mlx": {
+     "python": "3.12.14",
+     "mlx": "0.32.2",
+     "mlx-audio": "0.5.4",
+     "mlx-lm": "0.32.0",
+     "misaki": "0.9.4",
+     "numpy": "2.4.4",
+     "huggingface_hub": "1.32.0"
+    },
+    "loaded": {
+     "load_s": 4.82,
+     "sample_rate": 24000,
+     "tts_model_type": "base",
+     "n_params_M": 1085.2
+    },
+    "temperature": 0.9,
+    "streaming_interval": 0.32
+   }
+  },
+  "judges": {
+   "sim": {
+    "repo": "microsoft/wavlm-base-plus-sv",
+    "commit": "feb593a6c23c1cc3d9510425c29b0a14d2b07b1e",
+    "device": "mps",
+    "n_params": 101112153,
+    "threshold_from_card": 0.86
+   },
+   "sim2": {
+    "repo": "speechbrain/spkrec-xvect-voxceleb",
+    "commit": "56895a2df401be4150a159f3a1c653f00051d477",
+    "device": "cpu",
+    "n_params": 4211604,
+    "dim": 512
+   },
+   "asr": {
+    "repo": "openai/whisper-small",
+    "commit": "973afd24965f72e36ca33b3055d56a652f456b4d",
+    "device": "cpu",
+    "decoding": "greedy, temperature 0, no timestamps"
+   }
+  },
+  "prompt": {
+   "seconds": 4.86,
+   "versions": {
+    "clean": {
+     "how": "edges below −42 dBFS trimmed"
+    },
+    "noise": {
+     "how": "white Gaussian noise (numpy)",
+     "snr_db": 10.0,
+     "seed": 20261114
+    },
+    "music": {
+     "how": "background music",
+     "source": "synthesised in demo.py (C–G–Am–F, numpy)",
+     "snr_db": 10.0
+    },
+    "phone": {
+     "how": "zero-phase Butterworth low-pass (order 8) at 3400 Hz, then 16 → 8 → 16 kHz"
+    }
+   }
+  },
+  "prompts": {
+   "clean": {
+    "fs": 16000,
+    "seconds": 4.86,
+    "floor_db": -41.2,
+    "hf_db": -14.8,
+    "version": "clean",
+    "sim_clean": 1.0,
+    "sim2_clean": 1.0
+   },
+   "noise": {
+    "fs": 16000,
+    "seconds": 4.86,
+    "floor_db": -16.1,
+    "hf_db": -11.2,
+    "version": "noise",
+    "sim_clean": 0.936,
+    "sim2_clean": 0.949,
+    "snr_db_measured": 10.0
+   },
+   "music": {
+    "fs": 16000,
+    "seconds": 4.86,
+    "floor_db": -21.9,
+    "hf_db": -15.2,
+    "version": "music",
+    "sim_clean": 0.993,
+    "sim2_clean": 0.985,
+    "snr_db_measured": 10.0
+   },
+   "phone": {
+    "fs": 16000,
+    "seconds": 4.86,
+    "floor_db": -41.2,
+    "hf_db": -61.6,
+    "version": "phone",
+    "sim_clean": 0.953,
+    "sim2_clean": 0.956
+   }
+  },
+  "cells": {
+   "clean": {
+    "speecht5": {
+     "fs": 16000,
+     "seconds": 6.016,
+     "floor_db": -41.8,
+     "hf_db": -13.8,
+     "version": "clean",
+     "system": "speecht5",
+     "gen_s": 7.2,
+     "seed": 1,
+     "T": 376,
+     "xvector_norm_before_unit": 315.55,
+     "sim_clean": 0.933,
+     "sim_version": 0.933,
+     "sim2_clean": 0.944,
+     "sim2_version": 0.944,
+     "hyp": "Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+     "wer": {
+      "errors": 0,
+      "n_ref": 17,
+      "pct": 0.0,
+      "unit": "words"
+     }
+    },
+    "f5": {
+     "fs": 24000,
+     "seconds": 5.301,
+     "floor_db": -42.3,
+     "hf_db": -7.8,
+     "version": "clean",
+     "system": "f5",
+     "gen_s": 3.49,
+     "seed": 1,
+     "T": 498,
+     "nfe": 32,
+     "w_slide": 3.0,
+     "sway": -1.0,
+     "length": {
+      "ref_frames": 460,
+      "ref_bytes": 84,
+      "gen_bytes": 91,
+      "speed": 1.0,
+      "gen_frames": 498
+     },
+     "sim_clean": 0.919,
+     "sim_version": 0.919,
+     "sim2_clean": 0.944,
+     "sim2_version": 0.944,
+     "hyp": "Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+     "wer": {
+      "errors": 0,
+      "n_ref": 17,
+      "pct": 0.0,
+      "unit": "words"
+     }
+    },
+    "qwen3": {
+     "fs": 24000,
+     "seconds": 6.16,
+     "floor_db": -42.2,
+     "hf_db": -17.8,
+     "version": "clean",
+     "system": "qwen3",
+     "gen_s": 1.29,
+     "seed": 1,
+     "n_tokens": 77,
+     "temperature": 0.9,
+     "sim_clean": 0.957,
+     "sim_version": 0.957,
+     "sim2_clean": 0.97,
+     "sim2_version": 0.97,
+     "hyp": "Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+     "wer": {
+      "errors": 0,
+      "n_ref": 17,
+      "pct": 0.0,
+      "unit": "words"
+     }
+    }
+   },
+   "noise": {
+    "speecht5": {
+     "fs": 16000,
+     "seconds": 6.816,
+     "floor_db": -26.5,
+     "hf_db": -22.8,
+     "version": "noise",
+     "system": "speecht5",
+     "gen_s": 1.91,
+     "seed": 1,
+     "T": 426,
+     "xvector_norm_before_unit": 290.69,
+     "sim_clean": 0.864,
+     "sim_version": 0.893,
+     "sim2_clean": 0.892,
+     "sim2_version": 0.944,
+     "hyp": "Mr. Quilter is the apostle of the new classes, and we are to welcome his gospel.",
+     "wer": {
+      "errors": 2,
+      "n_ref": 17,
+      "pct": 11.8,
+      "unit": "words"
+     }
+    },
+    "f5": {
+     "fs": 24000,
+     "seconds": 5.301,
+     "floor_db": -33.2,
+     "hf_db": -6.8,
+     "version": "noise",
+     "system": "f5",
+     "gen_s": 2.98,
+     "seed": 1,
+     "T": 498,
+     "nfe": 32,
+     "w_slide": 3.0,
+     "sway": -1.0,
+     "length": {
+      "ref_frames": 460,
+      "ref_bytes": 84,
+      "gen_bytes": 91,
+      "speed": 1.0,
+      "gen_frames": 498
+     },
+     "sim_clean": 0.874,
+     "sim_version": 0.932,
+     "sim2_clean": 0.919,
+     "sim2_version": 0.909,
+     "hyp": "Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+     "wer": {
+      "errors": 0,
+      "n_ref": 17,
+      "pct": 0.0,
+      "unit": "words"
+     }
+    },
+    "qwen3": {
+     "fs": 24000,
+     "seconds": 5.6,
+     "floor_db": -31.5,
+     "hf_db": -25.5,
+     "version": "noise",
+     "system": "qwen3",
+     "gen_s": 1.17,
+     "seed": 1,
+     "n_tokens": 70,
+     "temperature": 0.9,
+     "sim_clean": 0.907,
+     "sim_version": 0.948,
+     "sim2_clean": 0.928,
+     "sim2_version": 0.952,
+     "hyp": "Mr. Quilter is the apostle of the middle classes and we are glad to welcome his gospel.",
+     "wer": {
+      "errors": 0,
+      "n_ref": 17,
+      "pct": 0.0,
+      "unit": "words"
+     }
+    }
+   },
+   "music": {
+    "speecht5": {
+     "fs": 16000,
+     "seconds": 5.664,
+     "floor_db": -28.3,
+     "hf_db": -10.5,
+     "version": "music",
+     "system": "speecht5",
+     "gen_s": 1.43,
+     "seed": 1,
+     "T": 354,
+     "xvector_norm_before_unit": 294.34,
+     "sim_clean": 0.922,
+     "sim_version": 0.93,
+     "sim2_clean": 0.934,
+     "sim2_version": 0.943,
+     "hyp": "Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+     "wer": {
+      "errors": 0,
+      "n_ref": 17,
+      "pct": 0.0,
+      "unit": "words"
+     }
+    },
+    "f5": {
+     "fs": 24000,
+     "seconds": 5.301,
+     "floor_db": -34.2,
+     "hf_db": -7.1,
+     "version": "music",
+     "system": "f5",
+     "gen_s": 2.99,
+     "seed": 1,
+     "T": 498,
+     "nfe": 32,
+     "w_slide": 3.0,
+     "sway": -1.0,
+     "length": {
+      "ref_frames": 460,
+      "ref_bytes": 84,
+      "gen_bytes": 91,
+      "speed": 1.0,
+      "gen_frames": 498
+     },
+     "sim_clean": 0.939,
+     "sim_version": 0.934,
+     "sim2_clean": 0.942,
+     "sim2_version": 0.932,
+     "hyp": "Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+     "wer": {
+      "errors": 0,
+      "n_ref": 17,
+      "pct": 0.0,
+      "unit": "words"
+     }
+    },
+    "qwen3": {
+     "fs": 24000,
+     "seconds": 5.12,
+     "floor_db": -26.7,
+     "hf_db": -15.7,
+     "version": "music",
+     "system": "qwen3",
+     "gen_s": 1.07,
+     "seed": 1,
+     "n_tokens": 64,
+     "temperature": 0.9,
+     "sim_clean": 0.942,
+     "sim_version": 0.933,
+     "sim2_clean": 0.956,
+     "sim2_version": 0.955,
+     "hyp": "Mr. Quilter is the apostle of the middle classes and we are glad to welcome his gospel.",
+     "wer": {
+      "errors": 0,
+      "n_ref": 17,
+      "pct": 0.0,
+      "unit": "words"
+     }
+    }
+   },
+   "phone": {
+    "speecht5": {
+     "fs": 16000,
+     "seconds": 6.304,
+     "floor_db": -48.0,
+     "hf_db": -41.5,
+     "version": "phone",
+     "system": "speecht5",
+     "gen_s": 1.58,
+     "seed": 1,
+     "T": 394,
+     "xvector_norm_before_unit": 302.78,
+     "sim_clean": 0.895,
+     "sim_version": 0.903,
+     "sim2_clean": 0.923,
+     "sim2_version": 0.963,
+     "hyp": "Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+     "wer": {
+      "errors": 0,
+      "n_ref": 17,
+      "pct": 0.0,
+      "unit": "words"
+     }
+    },
+    "f5": {
+     "fs": 24000,
+     "seconds": 5.301,
+     "floor_db": -40.0,
+     "hf_db": -52.0,
+     "version": "phone",
+     "system": "f5",
+     "gen_s": 2.99,
+     "seed": 1,
+     "T": 498,
+     "nfe": 32,
+     "w_slide": 3.0,
+     "sway": -1.0,
+     "length": {
+      "ref_frames": 460,
+      "ref_bytes": 84,
+      "gen_bytes": 91,
+      "speed": 1.0,
+      "gen_frames": 498
+     },
+     "sim_clean": 0.9,
+     "sim_version": 0.91,
+     "sim2_clean": 0.901,
+     "sim2_version": 0.946,
+     "hyp": "Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+     "wer": {
+      "errors": 0,
+      "n_ref": 17,
+      "pct": 0.0,
+      "unit": "words"
+     }
+    },
+    "qwen3": {
+     "fs": 24000,
+     "seconds": 5.44,
+     "floor_db": -42.9,
+     "hf_db": -45.8,
+     "version": "phone",
+     "system": "qwen3",
+     "gen_s": 1.14,
+     "seed": 1,
+     "n_tokens": 68,
+     "temperature": 0.9,
+     "sim_clean": 0.935,
+     "sim_version": 0.945,
+     "sim2_clean": 0.943,
+     "sim2_version": 0.963,
+     "hyp": "Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+     "wer": {
+      "errors": 0,
+      "n_ref": 17,
+      "pct": 0.0,
+      "unit": "words"
+     }
+    }
+   }
+  },
+  "references": {
+   "real_target": {
+    "fs": 16000,
+    "seconds": 5.855,
+    "floor_db": -35.5,
+    "hf_db": -9.9,
+    "what": "同一位說話人念這一句的真人錄音",
+    "sim_clean": 0.968,
+    "sim2_clean": 0.969,
+    "hyp": "Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+    "wer": {
+     "errors": 0,
+     "n_ref": 17,
+     "pct": 0.0,
+     "unit": "words"
+    }
+   },
+   "other_voice": {
+    "fs": 16000,
+    "seconds": 5.28,
+    "floor_db": -49.2,
+    "hf_db": -16.5,
+    "what": "上週 SpeechT5 用 ARCTIC bdl 的聲音念的同一句（另一個人）",
+    "sim_clean": 0.658,
+    "sim2_clean": 0.86,
+    "hyp": "Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+    "wer": {
+     "errors": 0,
+     "n_ref": 17,
+     "pct": 0.0,
+     "unit": "words"
+    }
+   }
+  },
+  "own": {
+   "mood": {
+    "texts": {
+     "prompt_text": "你怎麼又遲到了！我已經等了整整一個小時！",
+     "prompt_lang": "zh",
+     "target": "會議改到下週三下午兩點，地點不變。",
+     "target_lang": "zh"
+    },
+    "prompt": {
+     "fs": 16000,
+     "seconds": 3.47,
+     "floor_db": -37.2,
+     "hf_db": -22.6,
+     "own": "mood",
+     "private": true,
+     "f0_median_hz": 131.4,
+     "f0_p10_p90_hz": [
+      74.8,
+      202.7
+     ],
+     "f0_span_semitones": 17.26
+    },
+    "systems": {
+     "f5": {
+      "fs": 24000,
+      "seconds": 2.837,
+      "floor_db": -21.9,
+      "hf_db": -25.2,
+      "own": "mood",
+      "system": "f5",
+      "private": true,
+      "gen_s": 2.13,
+      "seed": 1,
+      "T": 267,
+      "nfe": 32,
+      "w_slide": 3.0,
+      "sway": -1.0,
+      "length": {
+       "ref_frames": 330,
+       "ref_bytes": 63,
+       "gen_bytes": 51,
+       "speed": 1.0,
+       "gen_frames": 267
+      },
+      "f0_median_hz": 122.2,
+      "f0_p10_p90_hz": [
+       92.9,
+       178.4
+      ],
+      "f0_span_semitones": 11.3,
+      "sim_prompt": 0.949,
+      "sim2_prompt": 0.931,
+      "hyp": "會議改到下週三下午兩點地點不變",
+      "wer": {
+       "errors": 0,
+       "n_ref": 15,
+       "pct": 0.0,
+       "unit": "tone-numbered pinyin syllables"
+      }
+     },
+     "qwen3": {
+      "fs": 24000,
+      "seconds": 4.56,
+      "floor_db": -39.2,
+      "hf_db": -29.3,
+      "own": "mood",
+      "system": "qwen3",
+      "private": true,
+      "gen_s": 0.97,
+      "seed": 1,
+      "n_tokens": 57,
+      "temperature": 0.9,
+      "f0_median_hz": 160.5,
+      "f0_p10_p90_hz": [
+       77.3,
+       208.0
+      ],
+      "f0_span_semitones": 17.14,
+      "sim_prompt": 0.952,
+      "sim2_prompt": 0.945,
+      "hyp": "匯域改到下週三下午兩點地點不變",
+      "wer": {
+       "errors": 1,
+       "n_ref": 15,
+       "pct": 6.7,
+       "unit": "tone-numbered pinyin syllables"
+      }
+     }
+    }
+   },
+   "accent": {
+    "texts": {
+     "prompt_text": "今天的天氣很好，我們下午去公園走一走吧。",
+     "prompt_lang": "zh",
+     "target": "The meeting has been moved to next Wednesday at two in the afternoon.",
+     "target_lang": "en"
+    },
+    "prompt": {
+     "fs": 16000,
+     "seconds": 3.99,
+     "floor_db": -34.4,
+     "hf_db": -22.2,
+     "own": "accent",
+     "private": true,
+     "f0_median_hz": 129.6,
+     "f0_p10_p90_hz": [
+      65.0,
+      198.1
+     ],
+     "f0_span_semitones": 19.28
+    },
+    "systems": {
+     "f5": {
+      "fs": 24000,
+      "seconds": 4.619,
+      "floor_db": -26.0,
+      "hf_db": -27.3,
+      "own": "accent",
+      "system": "f5",
+      "private": true,
+      "gen_s": 2.79,
+      "seed": 1,
+      "T": 434,
+      "nfe": 32,
+      "w_slide": 3.0,
+      "sway": -1.0,
+      "length": {
+       "ref_frames": 378,
+       "ref_bytes": 60,
+       "gen_bytes": 69,
+       "speed": 1.0,
+       "gen_frames": 434
+      },
+      "f0_median_hz": 128.2,
+      "f0_p10_p90_hz": [
+       98.4,
+       176.7
+      ],
+      "f0_span_semitones": 10.13,
+      "sim_prompt": 0.907,
+      "sim2_prompt": 0.951,
+      "hyp": "The meeting has been moved to next Wednesday at 2 in the afternoon.",
+      "wer": {
+       "errors": 0,
+       "n_ref": 13,
+       "pct": 0.0,
+       "unit": "words"
+      }
+     },
+     "qwen3": {
+      "fs": 24000,
+      "seconds": 6.0,
+      "floor_db": -31.7,
+      "hf_db": -30.0,
+      "own": "accent",
+      "system": "qwen3",
+      "private": true,
+      "gen_s": 1.25,
+      "seed": 1,
+      "n_tokens": 75,
+      "temperature": 0.9,
+      "f0_median_hz": 131.3,
+      "f0_p10_p90_hz": [
+       96.0,
+       203.7
+      ],
+      "f0_span_semitones": 13.03,
+      "sim_prompt": 0.963,
+      "sim2_prompt": 0.956,
+      "hyp": "The meeting has been moved to next Wednesday at 2 in the afternoon.",
+      "wer": {
+       "errors": 0,
+       "n_ref": 13,
+       "pct": 0.0,
+       "unit": "words"
+      }
+     }
+    }
+   }
+  },
+  "definitions": {
+   "floor_db": "noise floor in the pauses, dB re speech: 5th percentile minus 95th percentile of the 10 ms frame RMS levels (dB) of the raw output, taken between the first and the last frame within 30 dB of that 95th percentile (leading and trailing silence excluded); closer to 0 = noisier. This demo's own quantity.",
+   "hf_db": "energy above 4 kHz, dB re total: after resampling to 16 kHz, power in 4–8 kHz over power in 0–8 kHz. This demo's own quantity.",
+   "sim_clean / sim_version": "cosine between WavLM-SV (microsoft/wavlm-base-plus-sv) embeddings of the output and of the clean prompt / of that version of the prompt",
+   "sim2_*": "the same with a second encoder, the SpeechBrain x-vector that also conditions SpeechT5; not comparable with sim_*",
+   "wer": "Whisper small (greedy) against the text to read; English: words after Whisper's English normaliser; Mandarin: tone-numbered pinyin syllables",
+   "f0_span_semitones": "12 log2 (90th / 10th percentile of the autocorrelation F0 over voiced frames)",
+   "one draw": "each cell is a single sample (seed 1 per system)",
+   "what_we_heard": "filled by hand after the rehearsal (w09.qmd p14, p15)"
+  }
+ }
+}

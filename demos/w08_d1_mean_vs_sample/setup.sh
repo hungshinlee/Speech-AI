@@ -61,6 +61,8 @@ ver() { "${ENV}/bin/python" -c "from importlib.metadata import version; print(ve
     echo "VOCOS_VERSION=$(ver vocos)"
     echo "X_TRANSFORMERS_VERSION=$(ver x-transformers)"
     echo "TORCHDIFFEQ_VERSION=$(ver torchdiffeq)"
+    # W9 Demo 1 的 setup.sh 加進這個環境的 speechbrain：重寫鎖定檔時把它那一行留著（裝是那支 setup.sh 的事）
+    grep -E '^SPEECHBRAIN_VERSION=' "${LOCK}" 2>/dev/null || true
   } | LC_ALL=C sort
 } > "${LOCK}.tmp" && mv "${LOCK}.tmp" "${LOCK}"
 uv pip freeze --python "${ENV}/bin/python" > "${DEMOS}/requirements-tts.lock.txt"

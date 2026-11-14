@@ -157,7 +157,7 @@ NaturalSpeech 3, ICML 2024 (FACodec) · IndexTTS2, AAAI 2026 · W8 p32–p35
 | the bottleneck | a fixed-size vector | none | one per factor, by design |
 | timbre | kept, up to a ceiling | kept | kept |
 | manner: prosody, emotion, rate | not carried | **continued** | selectable |
-| channel, noise, music | dropped — it was trained to | **continued** | wherever the split puts them |
+| channel, noise, music | **?** — Demo 1 measures it | **continued** | wherever the split puts them |
 | what it promises | "this speaker" | "more of this recording" | "this from here, that from there" |
 
 ::: {.ask}
@@ -174,12 +174,12 @@ outline 〈關鍵數學 1〉 · Demo 1 measures (a) and (b)
 | | |
 |:---|:-----------------|
 | **Why** | p9–p12 argued from the architecture that a bottleneck filters and continuation does not. This measures it here: **one speaker's prompt in four versions, through three ways of conditioning.** |
-| **What runs** | A 5 s prompt of one LibriSpeech dev-clean speaker (W8 Demo 1's), made into four: clean, with noise (signal-to-noise ratio, SNR, $\approx 10$ dB), with background music, telephone band (low-passed at 3.4 kHz). The same sentence through SpeechT5 (an x-vector: **a bottleneck**), F5-TTS (prompt mel, a flow: **none**), Qwen3-TTS (prompt tokens, AR: **none**). Twelve outputs. For each: the noise floor in the pauses, the energy above 4 kHz, SIM against the clean prompt and against that version, WER by W7's Whisper. |
+| **What runs** | A 4.9 s prompt of one LibriSpeech dev-clean speaker (W8 Demo 1's), made into four: clean, with white noise (signal-to-noise ratio, SNR, $10$ dB), with music at the same SNR, telephone band (low-passed at 3.4 kHz). The same sentence through SpeechT5 (an x-vector: **a bottleneck**), F5-TTS (prompt mel, a flow: **none**), Qwen3-TTS (prompt tokens, AR: **none**). Twelve outputs. For each: the noise floor in the pauses, the energy above 4 kHz, SIM against the clean prompt and against that version, WER by W7's Whisper. |
 | **Watch for** | Before listening: which of the three carry the noise into the output? With a telephone-band prompt, do the high frequencies come back? After: which system scores the **higher** SIM against the noisy prompt — and is that a good thing? |
 :::
 
 ::: {.footer}
-Demo 1 · demos/w09_d1_* (not built yet, 2026-11-14) · planned: nothing is trained today
+Demo 1 · demos/w09_d1_cloning_leak · rehearsed 2026-11-14 · nothing is trained today
 :::
 
 ## Demo 1 — four prompts, three ways to condition
@@ -191,16 +191,16 @@ Demo 1 · demos/w09_d1_* (not built yet, 2026-11-14) · planned: nothing is trai
 ::: {.fragment .wrap1 fragment-index=1}
 | prompt version | SpeechT5 (x-vector) | F5-TTS (prompt mel) | Qwen3-TTS (prompt tokens) |
 |:---------|:-----|:-----|:-----|
-| clean — noise floor in pauses (dB re speech) | | | |
-| + noise | | | |
-| + music | | | |
-| telephone band — energy above 4 kHz | | | |
-| SIM vs the clean prompt / vs that version (+ noise row) | | | |
+| clean — noise floor in pauses (dB re speech) | $-41.8$ | $-42.3$ | $-42.2$ |
+| + noise | $-26.5$ | $-33.2$ | $-31.5$ |
+| + music | $-28.3$ | $-34.2$ | $-26.7$ |
+| telephone band — energy above 4 kHz (dB; clean) | $-41.5$ ($-13.8$) | $-52.0$ ($-7.8$) | $-45.8$ ($-17.8$) |
+| SIM vs the clean prompt / vs that version (+ noise row) | $0.864$ / $0.893$ | $0.874$ / $0.932$ | $0.907$ / $0.948$ |
 | what we heard | | | |
 :::
 
 ::: {.footer}
-Demo 1 · not built yet (2026-11-14): filled after rehearsal → w09-metrics.json → demo1
+Demo 1 · rehearsed 2026-11-14, M5 Max · one draw per cell · w09-metrics.json → demo1
 :::
 
 ## Demo 1 — a mood and an accent ride along
@@ -212,7 +212,7 @@ A prompt spoken with an obvious mood; the sentence to read is neutral. A Mandari
 ::: {.fragment .wrap1 fragment-index=1}
 | the prompt | the text to read | F5-TTS | Qwen3-TTS |
 |:---------|:-----|:----|:----|
-| one sentence in an obvious mood (the lecturer's own voice) | a neutral sentence | | |
+| one sentence in an obvious mood (the lecturer's own voice; $F_0$ span $17.3$ semitones) | a neutral sentence | span $11.3$ | span $17.1$ |
 | a Mandarin prompt (the lecturer's own voice) | an English sentence | | |
 :::
 
@@ -221,7 +221,7 @@ Continuation continues **that recording** — its mood, its rate, its speaker's 
 :::
 
 ::: {.footer}
-Demo 1, the extra row · not built yet (2026-11-14) · the lecturer's own recordings, not published
+Demo 1, the extra row · rehearsed 2026-11-14 · the lecturer's own voice, not published
 :::
 
 ## SIM: one speaker encoder, judging
@@ -247,13 +247,13 @@ Voicebox, NeurIPS 2023, §4 · Seed-TTS §3.1 · SMOS: similarity mean opinion s
 ## MC 1 — "voice cloning copies the timbre"
 
 ::: {.claim .warn}
-Prompt continuation has no bottleneck: it copies **everything in the prompt** — the room, the noise, the microphone, that sentence's mood and rate, the speaker's accent. "Only the timbre" is a promise only the speaker-embedding route can make, and it pays for it in similarity.
+Prompt continuation has no bottleneck: it copies **everything in the prompt** — the room, the noise, the microphone, that sentence's mood and rate, the speaker's accent. A speaker embedding narrows the reference to one vector — and in Demo 1 that vector still carried the noise and the bandwidth. **Neither route copies "only the timbre".**
 :::
 
 | | what is copied | the price |
 |:---|:---------|:---------|
 | prompt continuation | the recording | whatever came with it comes along |
-| a speaker embedding | what speaker verification kept | a ceiling on similarity; no manner |
+| a speaker embedding | what speaker verification kept — the channel too (Demo 1) | a ceiling on similarity; no manner |
 | a factorized codec | what you select | only as clean as the split |
 
 ::: {.footer}
@@ -271,7 +271,7 @@ SIM is one speaker encoder's cosine. Change the encoder and the number changes; 
 |:---------|:---------|
 | this $E_{\text{spk}}$ maps the two recordings close together | that a listener hears the same person (that is SMOS) |
 | the output shares what this encoder attends to | that the speech is natural, or says the right words |
-| — possibly including the prompt's channel (Demo 1) | that another paper's number, from another encoder, is comparable |
+| — including the prompt's noise (Demo 1: $0.932$ vs $0.874$) | that another paper's number, from another encoder, is comparable |
 :::
 
 ::: {.footer}
