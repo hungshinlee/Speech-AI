@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 400" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
+<text x="20.0" y="30.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">where the judge lives</text>
+<text x="330.0" y="30.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">the judge</text>
+<text x="690.0" y="30.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">what inference pays</text>
+</g>
+<g class="fragment" data-fragment-index="0">
+<rect x="20.0" y="48.0" width="960.0" height="98.0" rx="6" fill="#ffffff" stroke="#0b5cad" stroke-width="1.3"/>
+<rect x="20.0" y="48.0" width="8.0" height="98.0" rx="0" fill="#0b5cad" stroke="none" stroke-width="0"/>
+<text x="42.0" y="72.0" font-size="17" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="middle">classifier-free guidance</text>
+<text x="42.0" y="98.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">judge at inference</text>
+<rect x="42.0" y="112.0" width="40.0" height="24.0" rx="4" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="62.0" y="124.0" font-size="16" font-weight="600" fill="#0b5cad" text-anchor="middle" dominant-baseline="middle">gen</text>
+<rect x="88.0" y="112.0" width="40.0" height="24.0" rx="4" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="108.0" y="124.0" font-size="16" font-weight="600" fill="#0b5cad" text-anchor="middle" dominant-baseline="middle">gen</text>
+<text x="330.0" y="84.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">the model's own implicit classifier</text>
+<text x="690.0" y="84.0" font-size="16" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="middle">2 forward passes per step</text>
+<text x="690.0" y="110.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">streams</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<rect x="20.0" y="160.0" width="960.0" height="98.0" rx="6" fill="#ffffff" stroke="#b45309" stroke-width="1.3"/>
+<rect x="20.0" y="160.0" width="8.0" height="98.0" rx="0" fill="#b45309" stroke="none" stroke-width="0"/>
+<text x="42.0" y="184.0" font-size="17" font-weight="700" fill="#b45309" text-anchor="start" dominant-baseline="middle">best-of-N reranking</text>
+<text x="42.0" y="210.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">judge at inference</text>
+<rect x="42.0" y="224.0" width="40.0" height="24.0" rx="4" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="62.0" y="236.0" font-size="16" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="middle">gen</text>
+<rect x="88.0" y="224.0" width="40.0" height="24.0" rx="4" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="108.0" y="236.0" font-size="16" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="middle">gen</text>
+<rect x="134.0" y="224.0" width="40.0" height="24.0" rx="4" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="154.0" y="236.0" font-size="16" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="middle">gen</text>
+<rect x="180.0" y="224.0" width="40.0" height="24.0" rx="4" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="200.0" y="236.0" font-size="16" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="middle">gen</text>
+<rect x="226.0" y="224.0" width="40.0" height="24.0" rx="4" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="246.0" y="236.0" font-size="16" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="middle">gen</text>
+<text x="330.0" y="196.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">any judge: WER, SIM, a MOS predictor</text>
+<text x="330.0" y="222.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">it picks one of the N</text>
+<text x="690.0" y="196.0" font-size="16" font-weight="700" fill="#b45309" text-anchor="start" dominant-baseline="middle">N generations per sentence</text>
+<text x="690.0" y="222.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">no streaming: the judge needs it all</text>
+</g>
+<g class="fragment" data-fragment-index="2">
+<rect x="20.0" y="272.0" width="960.0" height="98.0" rx="6" fill="#ffffff" stroke="#15803d" stroke-width="1.3"/>
+<rect x="20.0" y="272.0" width="8.0" height="98.0" rx="0" fill="#15803d" stroke="none" stroke-width="0"/>
+<text x="42.0" y="296.0" font-size="17" font-weight="700" fill="#15803d" text-anchor="start" dominant-baseline="middle">post-training</text>
+<text x="42.0" y="322.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">judge in training only</text>
+<rect x="42.0" y="336.0" width="40.0" height="24.0" rx="4" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="62.0" y="348.0" font-size="16" font-weight="600" fill="#15803d" text-anchor="middle" dominant-baseline="middle">gen</text>
+<text x="330.0" y="308.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">it scored samples in training — and left</text>
+<text x="690.0" y="308.0" font-size="16" font-weight="700" fill="#15803d" text-anchor="start" dominant-baseline="middle">1 pass, as in W8</text>
+<text x="690.0" y="334.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">streams; first packet unchanged</text>
+</g>
+<g class="fragment" data-fragment-index="2">
+<text x="500.0" y="390.0" font-size="16" font-weight="700" fill="#15803d" text-anchor="middle" dominant-baseline="auto">moving the judge from inference into training is why post-training matters in a dialogue system</text>
+</g>
+</svg>

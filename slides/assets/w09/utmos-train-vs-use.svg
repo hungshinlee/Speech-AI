@@ -1,0 +1,282 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 400" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
+<rect x="10.0" y="10.0" width="980.0" height="196.0" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="26.0" y="34.0" font-size="17" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="auto">TRAINING (VoiceMOS Challenge 2022 data: BVCC, English, 187 systems)</text>
+<rect x="26.0" y="66.0" width="130.0" height="40.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.4"/>
+<polyline points="34.0,86.0 36.9,87.5 39.7,87.8 42.5,84.6 45.4,83.2 48.2,83.7 51.1,84.5 54.0,85.1 56.8,90.3 59.6,79.5 62.5,84.8 65.3,79.8 68.2,82.1 71.0,89.2 73.9,83.7 76.8,91.4 79.6,87.7 82.5,76.5 85.3,79.3 88.2,81.5 91.0,92.9 93.8,95.0 96.7,79.6 99.5,79.5 102.4,91.6 105.2,93.4 108.1,80.0 111.0,78.3 113.8,78.8 116.7,78.5 119.5,78.8 122.3,78.8 125.2,91.3 128.1,91.0 130.9,85.3 133.8,83.4 136.6,86.5 139.4,88.6 142.3,86.8 145.2,84.7 148.0,86.0" fill="none" stroke="#b45309" stroke-width="1.6"/>
+<text x="91.0" y="126.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">an utterance</text>
+<rect x="26.0" y="140.0" width="130.0" height="48.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="91.0" y="164.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">listener ID</text>
+<line x1="160.0" y1="86.0" x2="188.8" y2="100.4" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="196.0,104.0 186.6,104.9 191.1,96.0" fill="#94a3b8"/>
+<line x1="160.0" y1="164.0" x2="190.0" y2="137.3" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="196.0,132.0 193.3,141.1 186.7,133.6" fill="#94a3b8"/>
+<rect x="200.0" y="82.0" width="240.0" height="72.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="320.0" y="110.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">an SSL encoder, fine-tuned</text>
+<text x="320.0" y="134.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">+ a listener embedding</text>
+<line x1="444.0" y1="118.0" x2="472.0" y2="118.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="480.0,118.0 472.0,123.0 472.0,113.0" fill="#94a3b8"/>
+<rect x="484.0" y="88.0" width="170.0" height="60.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="569.0" y="110.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">predicted score</text>
+<text x="569.0" y="134.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">for that listener</text>
+<text x="672.0" y="118.0" font-size="20" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">↔</text>
+<rect x="692.0" y="88.0" width="172.0" height="60.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+<svg x="754.63" y="101.612" width="46.74" height="18.3884" viewBox="0 0 46.74 18.388437"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w9t55-figure_1">
+  <g id="w9t55-patch_1">
+   <path d="M 0 18.388437 
+L 46.74 18.388437 
+L 46.74 0 
+L 0 0 
+L 0 18.388437 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w9t55-text_1">
+   <!-- $o_{a,j,m}$ -->
+   <g style="fill: #1f2328" transform="translate(0 12.308437) scale(0.19 -0.19)">
+    <defs>
+     <path id="w9t55-Cmmi10-6f" d="M 1288 -72 
+Q 984 -72 748 72 
+Q 513 216 384 459 
+Q 256 703 256 1013 
+Q 256 1447 498 1872 
+Q 741 2297 1142 2562 
+Q 1544 2828 1984 2828 
+Q 2222 2828 2408 2747 
+Q 2594 2666 2731 2519 
+Q 2869 2372 2942 2175 
+Q 3016 1978 3016 1747 
+Q 3016 1413 2875 1089 
+Q 2734 766 2489 502 
+Q 2244 238 1928 83 
+Q 1613 -72 1288 -72 
+z
+M 1300 97 
+Q 1584 97 1820 290 
+Q 2056 484 2207 779 
+Q 2359 1075 2440 1403 
+Q 2522 1731 2522 1997 
+Q 2522 2275 2383 2469 
+Q 2244 2663 1972 2663 
+Q 1597 2663 1315 2342 
+Q 1034 2022 892 1576 
+Q 750 1131 750 763 
+Q 750 484 892 290 
+Q 1034 97 1300 97 
+z
+" transform="scale(0.015625)"/>
+     <path id="w9t55-Cmmi10-61" d="M 1113 -72 
+Q 709 -72 476 233 
+Q 244 538 244 953 
+Q 244 1363 456 1803 
+Q 669 2244 1030 2536 
+Q 1391 2828 1806 2828 
+Q 1997 2828 2147 2725 
+Q 2297 2622 2381 2444 
+Q 2453 2700 2663 2700 
+Q 2744 2700 2798 2651 
+Q 2853 2603 2853 2522 
+Q 2853 2503 2851 2493 
+Q 2850 2484 2847 2472 
+L 2400 684 
+Q 2356 494 2356 372 
+Q 2356 97 2541 97 
+Q 2741 97 2845 351 
+Q 2950 606 3022 941 
+Q 3034 978 3072 978 
+L 3150 978 
+Q 3175 978 3190 956 
+Q 3206 934 3206 916 
+Q 3094 469 2961 198 
+Q 2828 -72 2528 -72 
+Q 2313 -72 2147 54 
+Q 1981 181 1941 391 
+Q 1528 -72 1113 -72 
+z
+M 1119 97 
+Q 1350 97 1567 270 
+Q 1784 444 1941 678 
+Q 1947 684 1947 697 
+L 2291 2088 
+L 2297 2106 
+Q 2259 2334 2132 2498 
+Q 2006 2663 1791 2663 
+Q 1575 2663 1389 2486 
+Q 1203 2309 1075 2069 
+Q 950 1813 836 1366 
+Q 722 919 722 672 
+Q 722 450 817 273 
+Q 913 97 1119 97 
+z
+" transform="scale(0.015625)"/>
+     <path id="w9t55-Cmmi10-3b" d="M 634 -1153 
+Q 634 -1125 659 -1100 
+Q 891 -878 1019 -587 
+Q 1147 -297 1147 25 
+L 1147 103 
+Q 1044 0 891 0 
+Q 744 0 641 103 
+Q 538 206 538 353 
+Q 538 503 641 603 
+Q 744 703 891 703 
+Q 1119 703 1216 492 
+Q 1313 281 1313 25 
+Q 1313 -331 1170 -651 
+Q 1028 -972 769 -1228 
+Q 744 -1241 728 -1241 
+Q 697 -1241 665 -1212 
+Q 634 -1184 634 -1153 
+z
+" transform="scale(0.015625)"/>
+     <path id="w9t55-Cmmi10-6a" d="M -84 -909 
+Q -84 -753 23 -639 
+Q 131 -525 288 -525 
+Q 391 -525 461 -589 
+Q 531 -653 531 -756 
+Q 531 -878 454 -976 
+Q 378 -1075 263 -1106 
+Q 375 -1147 488 -1147 
+Q 759 -1147 959 -895 
+Q 1159 -644 1241 -331 
+L 1844 2075 
+Q 1888 2259 1888 2388 
+Q 1888 2663 1697 2663 
+Q 1416 2663 1205 2408 
+Q 994 2153 863 1819 
+Q 850 1778 813 1778 
+L 738 1778 
+Q 684 1778 684 1838 
+L 684 1856 
+Q 828 2241 1093 2534 
+Q 1359 2828 1709 2828 
+Q 1975 2828 2145 2662 
+Q 2316 2497 2316 2241 
+Q 2316 2150 2297 2059 
+L 1691 -372 
+Q 1625 -631 1440 -847 
+Q 1256 -1063 1000 -1188 
+Q 744 -1313 475 -1313 
+Q 259 -1313 87 -1209 
+Q -84 -1106 -84 -909 
+z
+M 1941 3878 
+Q 1941 4019 2050 4125 
+Q 2159 4231 2297 4231 
+Q 2406 4231 2476 4164 
+Q 2547 4097 2547 3994 
+Q 2547 3850 2433 3742 
+Q 2319 3634 2181 3634 
+Q 2078 3634 2009 3706 
+Q 1941 3778 1941 3878 
+z
+" transform="scale(0.015625)"/>
+     <path id="w9t55-Cmmi10-6d" d="M 494 109 
+Q 494 147 500 166 
+L 978 2075 
+Q 1025 2253 1025 2388 
+Q 1025 2663 838 2663 
+Q 638 2663 541 2423 
+Q 444 2184 353 1819 
+Q 353 1800 334 1789 
+Q 316 1778 300 1778 
+L 225 1778 
+Q 203 1778 187 1801 
+Q 172 1825 172 1844 
+Q 241 2122 305 2315 
+Q 369 2509 505 2668 
+Q 641 2828 844 2828 
+Q 1084 2828 1268 2676 
+Q 1453 2525 1453 2291 
+Q 1644 2541 1900 2684 
+Q 2156 2828 2444 2828 
+Q 2747 2828 2967 2673 
+Q 3188 2519 3188 2234 
+Q 3384 2513 3648 2670 
+Q 3913 2828 4225 2828 
+Q 4556 2828 4757 2648 
+Q 4959 2469 4959 2138 
+Q 4959 1875 4842 1503 
+Q 4725 1131 4550 672 
+Q 4459 450 4459 288 
+Q 4459 97 4609 97 
+Q 4859 97 5025 365 
+Q 5191 634 5259 941 
+Q 5278 978 5313 978 
+L 5388 978 
+Q 5413 978 5430 961 
+Q 5447 944 5447 922 
+Q 5447 916 5441 903 
+Q 5353 541 5136 234 
+Q 4919 -72 4594 -72 
+Q 4369 -72 4209 83 
+Q 4050 238 4050 459 
+Q 4050 572 4103 709 
+Q 4284 1191 4404 1569 
+Q 4525 1947 4525 2234 
+Q 4525 2413 4453 2538 
+Q 4381 2663 4213 2663 
+Q 3863 2663 3606 2448 
+Q 3350 2234 3163 1881 
+Q 3150 1819 3144 1784 
+L 2731 141 
+Q 2709 53 2632 -9 
+Q 2556 -72 2463 -72 
+Q 2388 -72 2330 -22 
+Q 2272 28 2272 109 
+Q 2272 147 2278 166 
+L 2688 1797 
+Q 2753 2059 2753 2234 
+Q 2753 2413 2679 2538 
+Q 2606 2663 2431 2663 
+Q 2197 2663 2000 2559 
+Q 1803 2456 1656 2286 
+Q 1509 2116 1388 1881 
+L 953 141 
+Q 931 53 854 -9 
+Q 778 -72 684 -72 
+Q 606 -72 550 -22 
+Q 494 28 494 109 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w9t55-Cmmi10-6f" transform="translate(0 0.8125)"/>
+    <use xlink:href="#w9t55-Cmmi10-61" transform="translate(48.388672 -16.19375) scale(0.7)"/>
+    <use xlink:href="#w9t55-Cmmi10-3b" transform="translate(85.336914 -16.19375) scale(0.7)"/>
+    <use xlink:href="#w9t55-Cmmi10-6a" transform="translate(117.007812 -16.19375) scale(0.7)"/>
+    <use xlink:href="#w9t55-Cmmi10-3b" transform="translate(145.787109 -16.19375) scale(0.7)"/>
+    <use xlink:href="#w9t55-Cmmi10-6d" transform="translate(177.458008 -16.19375) scale(0.7)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<text x="778.0" y="134.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">the score they gave</text>
+<text x="876.0" y="106.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">listener-</text>
+<text x="876.0" y="130.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">dependent</text>
+<text x="200.0" y="186.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">the model knows who is rating: each listener uses the scale differently</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<rect x="10.0" y="218.0" width="980.0" height="122.0" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="26.0" y="242.0" font-size="17" font-weight="700" fill="#15803d" text-anchor="start" dominant-baseline="auto">USE</text>
+<rect x="26.0" y="268.0" width="130.0" height="40.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.4"/>
+<polyline points="34.0,288.0 36.9,289.4 39.7,289.6 42.5,288.9 45.4,286.5 48.2,289.8 51.1,286.1 54.0,290.7 56.8,292.8 59.6,285.4 62.5,282.0 65.3,291.8 68.2,287.9 71.0,288.3 73.9,281.0 76.8,291.6 79.6,292.9 82.5,296.9 85.3,284.0 88.2,279.4 91.0,283.4 93.8,288.4 96.7,290.8 99.5,283.9 102.4,283.3 105.2,280.9 108.1,279.3 111.0,293.7 113.8,284.4 116.7,291.2 119.5,286.4 122.3,283.3 125.2,290.5 128.1,285.4 130.9,292.0 133.8,283.4 136.6,285.4 139.4,287.6 142.3,286.4 145.2,286.8 148.0,288.0" fill="none" stroke="#b45309" stroke-width="1.6"/>
+<text x="26.0" y="328.0" font-size="16" font-weight="400" fill="#dc2626" text-anchor="start" dominant-baseline="auto">a 2026 system, any language</text>
+<line x1="160.0" y1="288.0" x2="188.0" y2="288.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="196.0,288.0 188.0,293.0 188.0,283.0" fill="#94a3b8"/>
+<rect x="200.0" y="256.0" width="240.0" height="64.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="320.0" y="280.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">the same network</text>
+<text x="320.0" y="304.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">an average listener</text>
+<line x1="444.0" y1="288.0" x2="472.0" y2="288.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="480.0,288.0 472.0,293.0 472.0,283.0" fill="#94a3b8"/>
+<rect x="484.0" y="258.0" width="170.0" height="60.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="569.0" y="280.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">one number</text>
+<text x="569.0" y="304.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">per utterance</text>
+<text x="672.0" y="276.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">no listener · no other systems in the room</text>
+<text x="672.0" y="302.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">no test: nothing to be relative to</text>
+</g>
+<g class="fragment" data-fragment-index="2">
+<text x="500.0" y="376.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">it estimates what those listeners, in that test, would have said on average — elsewhere it is out of distribution</text>
+</g>
+</svg>
