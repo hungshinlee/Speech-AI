@@ -847,12 +847,12 @@ Seed-TTS §4.2 · Shin et al. and RRPO, ICASSP 2026 · FlowTTS-GRPO, Interspeech
 | | |
 |:---|:-----------------|
 | **Why** | p52's evidence took weeks of training. The same signal is visible without training: **draw the same sentence twelve times and let each judge pick its favourite.** If the judges disagree with each other — and with our ears — that disagreement is what a reward would be optimising. |
-| **What runs** | A sentence that is hard for an AR model (repeated words, a string of digits, a tongue-twister — one English, one Mandarin). Qwen3-TTS, the same prompt, $N_{\text{grp}} = 12$ draws. Each draw through three judges: WER (Whisper), SIM, a MOS predictor. Two descriptors that are **not** judges: syllables per second, and the standard deviation of log-$F_0$. A $12 \times 5$ table; then $\hat{A}_n$ per judge. |
+| **What runs** | A tongue-twister — the same few words, repeated in a new order: hard for an AR model (one English, one Mandarin). Qwen3-TTS, the same prompt, $N_{\text{grp}} = 12$ draws. Each draw through three judges: WER (Whisper), SIM, a MOS predictor. Two descriptors that are **not** judges: syllables per second, and the standard deviation of log-$F_0$. A $12 \times 5$ table; then $\hat{A}_n$ per judge. |
 | **Watch for** | Is there a long tail — a draw that drops words, repeats, or does not stop? Which column of $\hat{A}_n$ carries no signal? And the draw the WER judge ranks first: is it **faster or slower**, **flatter or livelier** than the rest? |
 :::
 
 ::: {.footer}
-Demo 2 · not built yet (2026-11-14) · not RL: $\pi^{*}$ at $\beta \to 0$, $N = 12$ (p32)
+Demo 2 · demos/w09_d2_judges_pick · not RL: $\pi^{*}$ at $\beta \to 0$, $N = 12$ (p32)
 :::
 
 ## Demo 2 — the table: twelve draws, three judges, two descriptors
@@ -870,7 +870,7 @@ Demo 2 · not built yet (2026-11-14) · not RL: $\pi^{*}$ at $\beta \to 0$, $N =
 :::
 
 ::: {.footer}
-Demo 2 · not built yet (2026-11-14) → w09-metrics.json → demo2 · last two columns: not judges
+Demo 2 · rehearsal pending (2026-11-14) → w09-metrics.json → demo2 · last two columns: not judges
 :::
 
 ## Demo 2 — who does each judge pick?
@@ -891,7 +891,7 @@ This is **not RL**: it is best-of-12, the judge kept in inference. Post-training
 :::
 
 ::: {.footer}
-Demo 2 · not built yet (2026-11-14) · planned plot: WER rank against rate and log-$F_0$ spread
+Demo 2 · rehearsal pending (2026-11-14) · on screen: each judge's rank against rate and $F_0$ spread
 :::
 
 ## Many judges watch each other; what none can see goes back to people
