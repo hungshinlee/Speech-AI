@@ -1151,7 +1151,7 @@ They defend against **different people**. And synthetic speech is not counterfei
 :::
 
 ::: {.footer}
-outline 〈直覺比喻〉 (c) · the full comparison closes this part (p85)
+outline 〈直覺比喻〉 (c) · the full comparison closes this part (p86)
 :::
 
 ## A countermeasure: trained on yesterday's generators
@@ -1243,7 +1243,7 @@ It recognises **the traces left by the generators it was trained on**. A codec-b
 :::
 
 ::: {.footer}
-p78 · Demo 3 (p83) · W10: enhancement makes speech sound better — and may make it look fake
+p78 · Demo 3 (p84) · W10: enhancement makes speech sound better — and may make it look fake
 :::
 
 ## AudioSeal: two halves, on two sides
@@ -1276,18 +1276,34 @@ Not "a codec washes it out": **which watermark, which codec, which bitrate** (W6
 AudioMarkBench, NeurIPS 2024 · AudioSeal Table 3 · Zhong et al., arXiv:2609.29040 · W6 p25
 :::
 
+## The missing control: unmarked audio, through the same damage
+
+| who measured | the threshold was fixed on | unmarked audio after EnCodec, AudioSeal's detector |
+|:------|:---------|:---------|
+| **AudioSeal**, Table 3 | each edit separately: the best-accuracy threshold on **edited** clips, marked and unmarked | FPR 0.01 at $n_q = 16$ — but after its high-pass filter, TPR / FPR is 0.82 / **0.60** |
+| **AudioMarkBench**, Fig. 3 | once, on **clean** audio: FPR and FNR both below 0.01 | FPR climbs to about **0.1** at 1.5 kbps (read off the figure); the other watermarks stay near 0 |
+| **KeyBound**, App. A.1 (2026 preprint) | 1% FPR on **clean** clips — then the FPR is measured again after every attack | 6 kbps, 1 s clips: FPR **0.58**. The reported TPR of 0.85 becomes **0.09** once the threshold is matched |
+
+::: {.claim}
+A TPR means something only next to the FPR **measured after the same processing**. The null hypothesis is "no watermark" — not "no watermark, and never touched".
+:::
+
+::: {.footer}
+AudioSeal Table 3 · AudioMarkBench Fig. 3 · Zhu et al., arXiv:2609.26235 (preprint), A.1
+:::
+
 ## Before Demo 3: where does each line of defence break?
 
 ::: {.prose}
 | | |
 |:---|:-----------------|
 | **Why** | p78 and p81 gave the literature's answers — which, for a watermark through a codec, disagree. Here: **the sounds this course has already made**, through a detector trained on 2019 data — and a watermark through W6's codec and W8's vocoder. |
-| **What runs** | (1) An AASIST trained on ASVspoof 2019 LA scores, one by one: real recordings (dev-clean; one sentence into the microphone), W2's Griffin-Lim, W8's outputs (SpeechT5 + HiFi-GAN, F5 + Vocos, Kokoro, Qwen3-TTS, MMS-TTS `nan`), and **real speech resynthesised** by Mimi and EnCodec (W6 Demo 1). (2) AudioSeal marks one F5 output: A / B listening, the per-sample curve, a splice into a real recording; then damage — resampling, noise, MP3 — and **regeneration**: EnCodec from high to low $n_q$, Mimi, Vocos. |
+| **What runs** | (1) An AASIST trained on ASVspoof 2019 LA scores, one by one: real recordings (dev-clean; one sentence into the microphone), W2's Griffin-Lim, W8–W9 outputs (SpeechT5 + HiFi-GAN, F5 + Vocos, Kokoro, Qwen3-TTS, MMS-TTS `nan`), and **real speech resynthesised** by Mimi and EnCodec (W6 Demo 1). (2) AudioSeal marks one F5 output: A / B, the per-sample curve, a splice into a real recording; then resampling, noise, MP3 — and **regeneration**: EnCodec from high to low $n_q$, Mimi, Vocos, each with an **unmarked control**. |
 | **Watch for** | Does a 2019 detector catch 2025–2026 generators? Is **real** speech that went through a codec called fake? After EnCodec, is the watermark still detected — and down to which $n_q$? That is the cell where published results disagree. |
 :::
 
 ::: {.footer}
-Demo 3 · not built yet (2026-11-14) · AASIST weights, `audioseal` 0.2.1: untested on this machine
+Demo 3 · demos/w09_d3_two_defences · rehearsal pending · AASIST (2019 LA weights), `audioseal` 0.2.1
 :::
 
 ## Demo 3 — the detector: a 2019 judge meets 2025 generators
@@ -1307,7 +1323,7 @@ Demo 3 · not built yet (2026-11-14) · AASIST weights, `audioseal` 0.2.1: untes
 :::
 
 ::: {.footer}
-Demo 3 · not built yet (2026-11-14) → w09-metrics.json → demo3 · threshold fixed in advance
+Demo 3 · w09_d3_two_defences · rehearsal pending → w09-metrics.json → demo3 · threshold fixed in advance
 :::
 
 ## Demo 3 — the watermark: localise, then regenerate
@@ -1317,13 +1333,13 @@ Demo 3 · not built yet (2026-11-14) → w09-metrics.json → demo3 · threshold
 :::
 
 ::: {.fragment .wrap1 fragment-index=1}
-| what happened to the watermarked audio | mean of $\mathrm{Det}$ | detected? |
-|:----------|:-----|:-----|
-| nothing; spliced into a real recording (the curve) | | |
-| resampling · added noise · MP3 | | |
-| EnCodec, high $n_q$ → low $n_q$ | | |
-| Mimi | | |
-| Vocos: mel, then back to a waveform | | |
+| what happened to the audio | marked: mean of $\mathrm{Det}$ | unmarked, same path | detected? |
+|:----------|:-----|:-----|:----|
+| nothing; spliced into a real recording (the curve) | | | |
+| resampling · added noise · MP3 | | | |
+| EnCodec, high $n_q$ → low $n_q$ | | | |
+| Mimi | | | |
+| Vocos: mel, then back to a waveform | | | |
 :::
 
 ::: {.claim}
@@ -1331,7 +1347,7 @@ The detector breaks on **what it has not seen**; the watermark breaks on **being
 :::
 
 ::: {.footer}
-Demo 3 · not built yet (2026-11-14) · EnCodec: published results disagree (p81) · Mimi: none found
+Demo 3 · w09_d3_two_defences · rehearsal pending · EnCodec: published results disagree (p81) · Mimi: none found
 :::
 
 ## Two defences, side by side
@@ -1369,7 +1385,7 @@ A watermark's threat model is **a cooperating generator, traced afterwards** —
 | anyone with the detector | gradient attack | removed, or **forged onto a real recording** |
 
 ::: {.footer}
-p81 · p85 · AudioSeal §6 · AudioMarkBench: removal at every access level; forgery white-box
+p81 · p86 · AudioSeal §6 · AudioMarkBench: removal at every access level; forgery white-box
 :::
 
 # Back to the three axes {.section-title}

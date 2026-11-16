@@ -114,6 +114,8 @@ Four concrete points on the local-language thread. (1) **The judges themselves a
 - Liu, Guo, Jiang, Wang & Gong, **AudioMarkBench: Benchmarking Robustness of Audio Watermarking**, NeurIPS 2024 Datasets and Benchmarks (arXiv:2406.06979) — three watermarks, 15 perturbations, removal and forgery under no-box, black-box and white-box access
 - Chen et al. (8 authors, National Taiwan University), **Latent-Mark: An Audio Watermark Robust to Neural Codec Compression**, Interspeech 2026, pp. 3052–3061 (DOI 10.21437/Interspeech.2026-1979; arXiv:2603.05310) — a watermark placed in the codec's latent space
 - Zhong et al. (7 authors), **The Vulnerability of Neural Audio Watermarks under Speech Enhancement**, arXiv:2609.29040 (2026; preprint) — speech enhancement as a removal attack, compared with codec and vocoder resynthesis
+
+- Zhu, Cao, Jin, Guo, Mo, Xue & Song, **KeyBound: Keyed and Host-Bound Learned Audio Watermarking for Speech Provenance**, arXiv:2609.26235 (2026; a preprint, not peer-reviewed) — its Appendix A.1 re-measures the false-positive rate on unmarked audio after every attack, with AudioSeal through EnCodec as one of the baselines
 - Tomashenko et al. (14 authors), **The VoicePrivacy 2020 Challenge: Results and findings**, Computer Speech & Language 74:101362, 2022 (DOI 10.1016/j.csl.2022.101362) — the task and metrics of voice anonymisation
 - Yu, Zhai & Zhang, **AntiFake: Using Adversarial Audio to Prevent Unauthorized Speech Synthesis**, ACM CCS 2023, pp. 460–474 (DOI 10.1145/3576915.3623209) — a proactive defence: perturb your own recordings so that cloning fails
 

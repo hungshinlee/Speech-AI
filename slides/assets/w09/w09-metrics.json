@@ -717,5 +717,1762 @@
    "one draw": "each cell is a single sample (seed 1 per system)",
    "what_we_heard": "filled by hand after the rehearsal (w09.qmd p14, p15)"
   }
+ },
+ "demo2": {
+  "source": "demos/w09_d2_judges_pick/runs/rehearsal/rehearsal.json",
+  "time": "2026-11-14T23:47:24",
+  "tag": "rehearsal",
+  "n": 12,
+  "sentences": {
+   "en": {
+    "text": "Peter Piper picked a peck of pickled peppers; a peck of pickled peppers Peter Piper picked. If Peter Piper picked a peck of pickled peppers, where's the peck of pickled peppers Peter Piper picked?",
+    "lang": "en",
+    "prompt_text": "Near the fire, and the ornaments Fred brought home from India on the mantel board.",
+    "prompt_what": "LibriSpeech dev-clean 1272-128104-0010",
+    "private": false,
+    "prompt_seconds": 4.86,
+    "syllables": 50
+   },
+   "zh": {
+    "text": "吃葡萄不吐葡萄皮，不吃葡萄倒吐葡萄皮。媽媽騎馬，馬慢，媽媽罵馬。",
+    "lang": "zh",
+    "prompt_text": "今天的天氣很好，我們下午去公園走一走吧。",
+    "prompt_what": "the lecturer's own recording (W9 Demo 1's extra row)",
+    "private": true,
+    "prompt_seconds": 3.99,
+    "syllables": 27
+   }
+  },
+  "models": {
+   "qwen3": {
+    "repo": "mlx-community/Qwen3-TTS-12Hz-0.6B-Base-bf16",
+    "commit": "1eccf1cb2519b5a4e8a95b5f0544f3303568164f",
+    "mlx": {
+     "python": "3.12.14",
+     "mlx": "0.32.2",
+     "mlx-audio": "0.5.4",
+     "mlx-lm": "0.32.0",
+     "misaki": "0.9.4",
+     "numpy": "2.4.4",
+     "huggingface_hub": "1.32.0"
+    },
+    "loaded": {
+     "load_s": 2.32,
+     "sample_rate": 24000,
+     "tts_model_type": "base",
+     "n_params_M": 1085.2
+    },
+    "temperature": 0.9,
+    "streaming_interval": 0.32
+   },
+   "f5": {
+    "repo": "SWivid/F5-TTS",
+    "commit": "84e5a410d9cead4de2f847e7c9369a6440bdfaca",
+    "ckpt": "F5TTS_v1_Base/model_1250000.safetensors",
+    "model": "F5TTS_v1_Base",
+    "vocoder": "charactr/vocos-mel-24khz",
+    "vocoder_commit": "0feb3fdd929bcd6649e0e7c5a688cf7dd012ef21",
+    "device": "mps",
+    "vocoder_device": "mps",
+    "n_params": 337096804,
+    "nfe": 32,
+    "cfg_strength_alpha": 2.0,
+    "w_slide": 3.0,
+    "sway_sampling_coef": -1.0,
+    "ode_method": "euler",
+    "arch": {
+     "dim": 1024,
+     "depth": 22,
+     "heads": 16,
+     "ff_mult": 2,
+     "text_dim": 512,
+     "text_mask_padding": true,
+     "qk_norm": null,
+     "conv_layers": 4,
+     "pe_attn_head": null,
+     "attn_backend": "torch",
+     "attn_mask_enabled": false,
+     "checkpoint_activations": false
+    },
+    "mps_fallback_env": {
+     "before_import": "1",
+     "after_import": "1"
+    }
+   }
+  },
+  "judges": {
+   "sim": {
+    "repo": "microsoft/wavlm-base-plus-sv",
+    "commit": "feb593a6c23c1cc3d9510425c29b0a14d2b07b1e",
+    "device": "mps",
+    "n_params": 101112153,
+    "threshold_from_card": 0.86
+   },
+   "mos": {
+    "model": "UTMOS22 strong learner",
+    "code": "https://github.com/tarepan/SpeechMOS.git",
+    "tag": "v1.2.0",
+    "commit": "ed25eacbfa42b99156c36ebec67a733b5dbb9b79",
+    "weights_sha256": "38aa51ab79e2a4e09a1449758a4b37e9cbb2e8235a49662a732d33a9ba1e9bff",
+    "device": "mps",
+    "n_params": 102772865,
+    "input": "16 kHz, scaled to RMS 0.05"
+   },
+   "asr": {
+    "repo": "openai/whisper-small",
+    "commit": "973afd24965f72e36ca33b3055d56a652f456b4d",
+    "device": "cpu",
+    "decoding": "greedy, temperature 0, no timestamps"
+   }
+  },
+  "groups": {
+   "en/qwen3": {
+    "draws": [
+     {
+      "fs": 24000,
+      "seconds": 13.2,
+      "private": false,
+      "gen_s": 2.73,
+      "seed": 1,
+      "n_tokens": 165,
+      "hyp": "Peter Piper picked a pick of pickled peppers.",
+      "wer": {
+       "S": 1,
+       "D": 27,
+       "I": 0,
+       "N": 35,
+       "errors": 28,
+       "pct": 80.0,
+       "unit": "words"
+      },
+      "sim": 0.938,
+      "mos": 3.856,
+      "speech_s": 12.96,
+      "rate": 3.86,
+      "f0_median_hz": 124.6,
+      "f0_sd_st": 5.21,
+      "voiced_frames": 531
+     },
+     {
+      "fs": 24000,
+      "seconds": 13.12,
+      "private": false,
+      "gen_s": 2.68,
+      "seed": 2,
+      "n_tokens": 164,
+      "hyp": "Peter Piper picked a peck of pickled peppers, a peck of pickled peppers, Peter Piper picked. If Peter Piper picked a peck of pickled peppers, where's the peck of pickled peppers Peter Piper picked?",
+      "wer": {
+       "S": 0,
+       "D": 0,
+       "I": 0,
+       "N": 35,
+       "errors": 0,
+       "pct": 0.0,
+       "unit": "words"
+      },
+      "sim": 0.935,
+      "mos": 4.262,
+      "speech_s": 12.83,
+      "rate": 3.9,
+      "f0_median_hz": 129.0,
+      "f0_sd_st": 5.81,
+      "voiced_frames": 546
+     },
+     {
+      "fs": 24000,
+      "seconds": 11.36,
+      "private": false,
+      "gen_s": 2.37,
+      "seed": 3,
+      "n_tokens": 142,
+      "hyp": "Peter Piper picked a pack of pickled peppers.",
+      "wer": {
+       "S": 1,
+       "D": 27,
+       "I": 0,
+       "N": 35,
+       "errors": 28,
+       "pct": 80.0,
+       "unit": "words"
+      },
+      "sim": 0.934,
+      "mos": 4.206,
+      "speech_s": 10.69,
+      "rate": 4.68,
+      "f0_median_hz": 149.6,
+      "f0_sd_st": 5.08,
+      "voiced_frames": 531
+     },
+     {
+      "fs": 24000,
+      "seconds": 12.48,
+      "private": false,
+      "gen_s": 2.56,
+      "seed": 4,
+      "n_tokens": 156,
+      "hyp": "Peter Piper picked a pack of pickled peppers. A pack of pickled peppers Peter Piper picked. If Peter Piper picked a pack of pickled peppers, where is the pack of pickled peppers Peter Piper picked?",
+      "wer": {
+       "S": 4,
+       "D": 0,
+       "I": 0,
+       "N": 35,
+       "errors": 4,
+       "pct": 11.4,
+       "unit": "words"
+      },
+      "sim": 0.945,
+      "mos": 4.198,
+      "speech_s": 11.56,
+      "rate": 4.33,
+      "f0_median_hz": 129.1,
+      "f0_sd_st": 4.82,
+      "voiced_frames": 549
+     },
+     {
+      "fs": 24000,
+      "seconds": 13.92,
+      "private": false,
+      "gen_s": 2.87,
+      "seed": 5,
+      "n_tokens": 174,
+      "hyp": "Peter Piper picked a peck of pickled peppers.",
+      "wer": {
+       "S": 0,
+       "D": 27,
+       "I": 0,
+       "N": 35,
+       "errors": 27,
+       "pct": 77.1,
+       "unit": "words"
+      },
+      "sim": 0.931,
+      "mos": 4.254,
+      "speech_s": 13.16,
+      "rate": 3.8,
+      "f0_median_hz": 115.8,
+      "f0_sd_st": 4.67,
+      "voiced_frames": 580
+     },
+     {
+      "fs": 24000,
+      "seconds": 11.76,
+      "private": false,
+      "gen_s": 2.41,
+      "seed": 6,
+      "n_tokens": 147,
+      "hyp": "Peter Piper picked a peck of pickled peppers. A peck of pickled peppers Peter Piper picked. If Peter Piper picked a peck of peppers, where is the peck of pickled peppers Peter Piper picked?",
+      "wer": {
+       "S": 0,
+       "D": 1,
+       "I": 0,
+       "N": 35,
+       "errors": 1,
+       "pct": 2.9,
+       "unit": "words"
+      },
+      "sim": 0.932,
+      "mos": 3.988,
+      "speech_s": 11.39,
+      "rate": 4.39,
+      "f0_median_hz": 131.4,
+      "f0_sd_st": 4.93,
+      "voiced_frames": 522
+     },
+     {
+      "fs": 24000,
+      "seconds": 14.08,
+      "private": false,
+      "gen_s": 2.89,
+      "seed": 7,
+      "n_tokens": 176,
+      "hyp": "Peter Piper picked a peck of pickled peppers. A peck of pickled peppers. Peter Piper picked. If Peter Piper picked a peck of pickled peppers, where's the peck of pickled peppers Peter Piper picked?",
+      "wer": {
+       "S": 0,
+       "D": 0,
+       "I": 0,
+       "N": 35,
+       "errors": 0,
+       "pct": 0.0,
+       "unit": "words"
+      },
+      "sim": 0.887,
+      "mos": 3.823,
+      "speech_s": 13.55,
+      "rate": 3.69,
+      "f0_median_hz": 136.3,
+      "f0_sd_st": 4.73,
+      "voiced_frames": 565
+     },
+     {
+      "fs": 24000,
+      "seconds": 12.16,
+      "private": false,
+      "gen_s": 2.52,
+      "seed": 8,
+      "n_tokens": 152,
+      "hyp": "Peter Piper picked a peck of pickled peppers. A peck of pickled peppers Peter Piper picked. If Peter Piper picked a peck of pickled peppers, where is the peck of pickled peppers Peter Piper picked?",
+      "wer": {
+       "S": 0,
+       "D": 0,
+       "I": 0,
+       "N": 35,
+       "errors": 0,
+       "pct": 0.0,
+       "unit": "words"
+      },
+      "sim": 0.947,
+      "mos": 4.095,
+      "speech_s": 11.86,
+      "rate": 4.22,
+      "f0_median_hz": 127.9,
+      "f0_sd_st": 5.19,
+      "voiced_frames": 517
+     },
+     {
+      "fs": 24000,
+      "seconds": 11.92,
+      "private": false,
+      "gen_s": 2.51,
+      "seed": 9,
+      "n_tokens": 149,
+      "hyp": "Peter Piper picked a peck of pickled peppers. A peck of pickled peppers Peter Piper picked. If Peter Piper picked a peck of pickled peppers, where is the peck of pickled peppers Peter Piper picked?",
+      "wer": {
+       "S": 0,
+       "D": 0,
+       "I": 0,
+       "N": 35,
+       "errors": 0,
+       "pct": 0.0,
+       "unit": "words"
+      },
+      "sim": 0.936,
+      "mos": 4.177,
+      "speech_s": 11.44,
+      "rate": 4.37,
+      "f0_median_hz": 138.8,
+      "f0_sd_st": 4.28,
+      "voiced_frames": 541
+     },
+     {
+      "fs": 24000,
+      "seconds": 11.84,
+      "private": false,
+      "gen_s": 2.45,
+      "seed": 10,
+      "n_tokens": 148,
+      "hyp": "Peter Piper picked a peck of pickled peppers.",
+      "wer": {
+       "S": 0,
+       "D": 27,
+       "I": 0,
+       "N": 35,
+       "errors": 27,
+       "pct": 77.1,
+       "unit": "words"
+      },
+      "sim": 0.902,
+      "mos": 4.216,
+      "speech_s": 11.44,
+      "rate": 4.37,
+      "f0_median_hz": 129.9,
+      "f0_sd_st": 4.18,
+      "voiced_frames": 475
+     },
+     {
+      "fs": 24000,
+      "seconds": 11.36,
+      "private": false,
+      "gen_s": 2.34,
+      "seed": 11,
+      "n_tokens": 142,
+      "hyp": "Peter Piper picked a peck of pickled peppers.",
+      "wer": {
+       "S": 0,
+       "D": 27,
+       "I": 0,
+       "N": 35,
+       "errors": 27,
+       "pct": 77.1,
+       "unit": "words"
+      },
+      "sim": 0.927,
+      "mos": 3.952,
+      "speech_s": 10.66,
+      "rate": 4.69,
+      "f0_median_hz": 115.4,
+      "f0_sd_st": 5.25,
+      "voiced_frames": 494
+     },
+     {
+      "fs": 24000,
+      "seconds": 12.72,
+      "private": false,
+      "gen_s": 2.61,
+      "seed": 12,
+      "n_tokens": 159,
+      "hyp": "Peter Piper picked a peck of pickled peppers. A peck of pickled peppers Peter Piper picked. If Peter Piper picked a peck of pickled peppers, where's the peck of pickled peppers Peter Piper picked?",
+      "wer": {
+       "S": 0,
+       "D": 0,
+       "I": 0,
+       "N": 35,
+       "errors": 0,
+       "pct": 0.0,
+       "unit": "words"
+      },
+      "sim": 0.941,
+      "mos": 3.894,
+      "speech_s": 11.98,
+      "rate": 4.17,
+      "f0_median_hz": 111.5,
+      "f0_sd_st": 4.65,
+      "voiced_frames": 531
+     }
+    ],
+    "stats": {
+     "n": 12,
+     "judges": {
+      "wer": {
+       "reward": [
+        -80.0,
+        -0.0,
+        -80.0,
+        -11.4,
+        -77.1,
+        -2.9,
+        -0.0,
+        -0.0,
+        -0.0,
+        -77.1,
+        -77.1,
+        -0.0
+       ],
+       "mean": -33.8,
+       "std": 37.7076,
+       "advantage": [
+        -1.23,
+        0.9,
+        -1.23,
+        0.59,
+        -1.15,
+        0.82,
+        0.9,
+        0.9,
+        0.9,
+        -1.15,
+        -1.15,
+        0.9
+       ],
+       "rank": [
+        11.5,
+        3.0,
+        11.5,
+        7.0,
+        9.0,
+        6.0,
+        3.0,
+        3.0,
+        3.0,
+        9.0,
+        9.0,
+        3.0
+       ],
+       "first": [
+        1,
+        6,
+        7,
+        8,
+        11
+       ],
+       "n_tied_first": 5,
+       "spearman": {
+        "rate": 0.29,
+        "f0_sd_st": 0.15
+       },
+       "first_rate": 4.07,
+       "rest_rate": 4.3,
+       "first_f0_sd_st": 4.93,
+       "rest_f0_sd_st": 4.88
+      },
+      "sim": {
+       "reward": [
+        0.938,
+        0.935,
+        0.934,
+        0.945,
+        0.931,
+        0.932,
+        0.887,
+        0.947,
+        0.936,
+        0.902,
+        0.927,
+        0.941
+       ],
+       "mean": 0.9296,
+       "std": 0.0169,
+       "advantage": [
+        0.5,
+        0.32,
+        0.26,
+        0.91,
+        0.08,
+        0.14,
+        -2.52,
+        1.03,
+        0.38,
+        -1.63,
+        -0.15,
+        0.68
+       ],
+       "rank": [
+        4.0,
+        6.0,
+        7.0,
+        2.0,
+        9.0,
+        8.0,
+        12.0,
+        1.0,
+        5.0,
+        11.0,
+        10.0,
+        3.0
+       ],
+       "first": [
+        7
+       ],
+       "n_tied_first": 1,
+       "spearman": {
+        "rate": 0.05,
+        "f0_sd_st": -0.18
+       },
+       "first_rate": 4.22,
+       "rest_rate": 4.2,
+       "first_f0_sd_st": 5.19,
+       "rest_f0_sd_st": 4.87
+      },
+      "mos": {
+       "reward": [
+        3.856,
+        4.262,
+        4.206,
+        4.198,
+        4.254,
+        3.988,
+        3.823,
+        4.095,
+        4.177,
+        4.216,
+        3.952,
+        3.894
+       ],
+       "mean": 4.0767,
+       "std": 0.1573,
+       "advantage": [
+        -1.4,
+        1.18,
+        0.82,
+        0.77,
+        1.13,
+        -0.56,
+        -1.61,
+        0.12,
+        0.64,
+        0.89,
+        -0.79,
+        -1.16
+       ],
+       "rank": [
+        11.0,
+        1.0,
+        4.0,
+        5.0,
+        2.0,
+        8.0,
+        12.0,
+        7.0,
+        6.0,
+        3.0,
+        9.0,
+        10.0
+       ],
+       "first": [
+        1
+       ],
+       "n_tied_first": 1,
+       "spearman": {
+        "rate": -0.13,
+        "f0_sd_st": 0.06
+       },
+       "first_rate": 3.9,
+       "rest_rate": 4.23,
+       "first_f0_sd_st": 5.81,
+       "rest_f0_sd_st": 4.82
+      }
+     },
+     "rate": {
+      "mean": 4.21,
+      "std": 0.32,
+      "min": 3.69,
+      "max": 4.69
+     },
+     "f0_sd_st": {
+      "mean": 4.9,
+      "std": 0.43,
+      "min": 4.18,
+      "max": 5.81
+     },
+     "min_errors": 0,
+     "tail": [
+      {
+       "i": 0,
+       "why": [
+        "27 dropped",
+        "1 wrong"
+       ]
+      },
+      {
+       "i": 2,
+       "why": [
+        "27 dropped",
+        "1 wrong"
+       ]
+      },
+      {
+       "i": 3,
+       "why": [
+        "4 wrong"
+       ]
+      },
+      {
+       "i": 4,
+       "why": [
+        "27 dropped"
+       ]
+      },
+      {
+       "i": 5,
+       "why": [
+        "1 dropped"
+       ]
+      },
+      {
+       "i": 9,
+       "why": [
+        "27 dropped"
+       ]
+      },
+      {
+       "i": 10,
+       "why": [
+        "27 dropped"
+       ]
+      }
+     ],
+     "median_speech_s": 11.71
+    }
+   },
+   "zh/qwen3": {
+    "draws": [
+     {
+      "fs": 24000,
+      "seconds": 11.6,
+      "private": true,
+      "gen_s": 2.44,
+      "seed": 1,
+      "n_tokens": 145,
+      "hyp": "吃葡萄不吐葡萄皮,不吃葡萄豆吐葡萄皮,妈妈骑马,嗯,马曼,妈,妈,妈,马。",
+      "wer": {
+       "S": 2,
+       "D": 0,
+       "I": 1,
+       "N": 27,
+       "errors": 3,
+       "pct": 11.1,
+       "unit": "tone-numbered pinyin syllables"
+      },
+      "sim": 0.935,
+      "mos": 3.257,
+      "speech_s": 11.01,
+      "rate": 2.45,
+      "f0_median_hz": 130.1,
+      "f0_sd_st": 4.7,
+      "voiced_frames": 849
+     },
+     {
+      "fs": 24000,
+      "seconds": 10.08,
+      "private": true,
+      "gen_s": 2.08,
+      "seed": 2,
+      "n_tokens": 126,
+      "hyp": "吃葡萄不吐葡萄皮,不吃葡萄倒吐葡萄皮,妈妈骑马,马慢,妈妈...妈妈",
+      "wer": {
+       "S": 2,
+       "D": 0,
+       "I": 0,
+       "N": 27,
+       "errors": 2,
+       "pct": 7.4,
+       "unit": "tone-numbered pinyin syllables"
+      },
+      "sim": 0.945,
+      "mos": 3.404,
+      "speech_s": 9.54,
+      "rate": 2.83,
+      "f0_median_hz": 137.6,
+      "f0_sd_st": 4.48,
+      "voiced_frames": 741
+     },
+     {
+      "fs": 24000,
+      "seconds": 9.52,
+      "private": true,
+      "gen_s": 1.98,
+      "seed": 3,
+      "n_tokens": 119,
+      "hyp": "吃葡萄不吐葡萄皮,不吃葡萄豆吐葡萄皮,媽媽騎馬,馬慢,媽媽媽馬。",
+      "wer": {
+       "S": 2,
+       "D": 0,
+       "I": 0,
+       "N": 27,
+       "errors": 2,
+       "pct": 7.4,
+       "unit": "tone-numbered pinyin syllables"
+      },
+      "sim": 0.962,
+      "mos": 3.397,
+      "speech_s": 9.26,
+      "rate": 2.92,
+      "f0_median_hz": 128.2,
+      "f0_sd_st": 4.15,
+      "voiced_frames": 757
+     },
+     {
+      "fs": 24000,
+      "seconds": 12.24,
+      "private": true,
+      "gen_s": 2.53,
+      "seed": 4,
+      "n_tokens": 153,
+      "hyp": "吃葡萄,不吐葡萄皮,不吃葡萄,倒吐葡萄皮,妈妈骑马,马,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈",
+      "wer": {
+       "S": 3,
+       "D": 0,
+       "I": 76,
+       "N": 27,
+       "errors": 79,
+       "pct": 292.6,
+       "unit": "tone-numbered pinyin syllables"
+      },
+      "sim": 0.912,
+      "mos": 2.975,
+      "speech_s": 12.11,
+      "rate": 2.23,
+      "f0_median_hz": 123.4,
+      "f0_sd_st": 4.65,
+      "voiced_frames": 965
+     },
+     {
+      "fs": 24000,
+      "seconds": 10.64,
+      "private": true,
+      "gen_s": 2.21,
+      "seed": 5,
+      "n_tokens": 133,
+      "hyp": "吃葡萄不吐葡萄皮不吃葡萄倒吐葡萄皮媽媽騎馬馬慢嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯",
+      "wer": {
+       "S": 4,
+       "D": 0,
+       "I": 162,
+       "N": 27,
+       "errors": 166,
+       "pct": 614.8,
+       "unit": "tone-numbered pinyin syllables"
+      },
+      "sim": 0.949,
+      "mos": 3.109,
+      "speech_s": 9.89,
+      "rate": 2.73,
+      "f0_median_hz": 139.0,
+      "f0_sd_st": 4.18,
+      "voiced_frames": 829
+     },
+     {
+      "fs": 24000,
+      "seconds": 10.4,
+      "private": true,
+      "gen_s": 2.16,
+      "seed": 6,
+      "n_tokens": 130,
+      "hyp": "吃葡萄不吐葡萄皮不吃葡萄倒吐葡萄皮媽媽騎馬馬慢媽媽馬馬",
+      "wer": {
+       "S": 1,
+       "D": 0,
+       "I": 0,
+       "N": 27,
+       "errors": 1,
+       "pct": 3.7,
+       "unit": "tone-numbered pinyin syllables"
+      },
+      "sim": 0.953,
+      "mos": 2.817,
+      "speech_s": 9.39,
+      "rate": 2.88,
+      "f0_median_hz": 146.9,
+      "f0_sd_st": 3.79,
+      "voiced_frames": 662
+     },
+     {
+      "fs": 24000,
+      "seconds": 11.76,
+      "private": true,
+      "gen_s": 2.42,
+      "seed": 7,
+      "n_tokens": 147,
+      "hyp": "吃葡萄不吐葡萄皮,不吃葡萄倒吐葡萄皮,妈妈骑马,妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈",
+      "wer": {
+       "S": 4,
+       "D": 0,
+       "I": 159,
+       "N": 27,
+       "errors": 163,
+       "pct": 603.7,
+       "unit": "tone-numbered pinyin syllables"
+      },
+      "sim": 0.946,
+      "mos": 2.961,
+      "speech_s": 11.73,
+      "rate": 2.3,
+      "f0_median_hz": 122.1,
+      "f0_sd_st": 5.25,
+      "voiced_frames": 895
+     },
+     {
+      "fs": 24000,
+      "seconds": 10.24,
+      "private": true,
+      "gen_s": 2.12,
+      "seed": 8,
+      "n_tokens": 128,
+      "hyp": "吃葡萄不吐葡萄皮不吃葡萄倒吐葡萄皮媽媽騎馬馬慢媽媽媽媽媽",
+      "wer": {
+       "S": 2,
+       "D": 0,
+       "I": 1,
+       "N": 27,
+       "errors": 3,
+       "pct": 11.1,
+       "unit": "tone-numbered pinyin syllables"
+      },
+      "sim": 0.946,
+      "mos": 3.403,
+      "speech_s": 9.77,
+      "rate": 2.76,
+      "f0_median_hz": 130.1,
+      "f0_sd_st": 4.99,
+      "voiced_frames": 726
+     },
+     {
+      "fs": 24000,
+      "seconds": 11.36,
+      "private": true,
+      "gen_s": 2.34,
+      "seed": 9,
+      "n_tokens": 142,
+      "hyp": "吃葡萄不吐葡萄皮不吃葡萄倒吐葡萄皮妈妈骑马马慢嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯",
+      "wer": {
+       "S": 4,
+       "D": 0,
+       "I": 162,
+       "N": 27,
+       "errors": 166,
+       "pct": 614.8,
+       "unit": "tone-numbered pinyin syllables"
+      },
+      "sim": 0.944,
+      "mos": 2.807,
+      "speech_s": 11.29,
+      "rate": 2.39,
+      "f0_median_hz": 132.6,
+      "f0_sd_st": 4.69,
+      "voiced_frames": 849
+     },
+     {
+      "fs": 24000,
+      "seconds": 9.68,
+      "private": true,
+      "gen_s": 2.02,
+      "seed": 10,
+      "n_tokens": 121,
+      "hyp": "吃葡萄不吐葡萄皮不吃葡萄倒吐葡萄皮妈妈骑马马马马马马马",
+      "wer": {
+       "S": 4,
+       "D": 0,
+       "I": 0,
+       "N": 27,
+       "errors": 4,
+       "pct": 14.8,
+       "unit": "tone-numbered pinyin syllables"
+      },
+      "sim": 0.937,
+      "mos": 3.535,
+      "speech_s": 9.12,
+      "rate": 2.96,
+      "f0_median_hz": 128.8,
+      "f0_sd_st": 4.65,
+      "voiced_frames": 670
+     },
+     {
+      "fs": 24000,
+      "seconds": 10.8,
+      "private": true,
+      "gen_s": 2.24,
+      "seed": 11,
+      "n_tokens": 135,
+      "hyp": "吃葡萄不吐葡萄皮不吃葡萄倒吐葡萄皮媽媽起馬馬慢媽媽媽",
+      "wer": {
+       "S": 2,
+       "D": 1,
+       "I": 0,
+       "N": 27,
+       "errors": 3,
+       "pct": 11.1,
+       "unit": "tone-numbered pinyin syllables"
+      },
+      "sim": 0.918,
+      "mos": 2.851,
+      "speech_s": 10.39,
+      "rate": 2.6,
+      "f0_median_hz": 128.6,
+      "f0_sd_st": 4.9,
+      "voiced_frames": 803
+     },
+     {
+      "fs": 24000,
+      "seconds": 11.12,
+      "private": true,
+      "gen_s": 2.31,
+      "seed": 12,
+      "n_tokens": 139,
+      "hyp": "吃葡萄不吐葡萄皮,不吃葡萄倒吐葡萄皮,妈妈骑马,嗯嗯嗯,马妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈",
+      "wer": {
+       "S": 3,
+       "D": 0,
+       "I": 105,
+       "N": 27,
+       "errors": 108,
+       "pct": 400.0,
+       "unit": "tone-numbered pinyin syllables"
+      },
+      "sim": 0.918,
+      "mos": 2.792,
+      "speech_s": 10.7,
+      "rate": 2.52,
+      "f0_median_hz": 130.6,
+      "f0_sd_st": 4.2,
+      "voiced_frames": 815
+     }
+    ],
+    "stats": {
+     "n": 12,
+     "judges": {
+      "wer": {
+       "reward": [
+        -11.1,
+        -7.4,
+        -7.4,
+        -292.6,
+        -614.8,
+        -3.7,
+        -603.7,
+        -11.1,
+        -614.8,
+        -14.8,
+        -11.1,
+        -400.0
+       ],
+       "mean": -216.0417,
+       "std": 259.2699,
+       "advantage": [
+        0.79,
+        0.8,
+        0.8,
+        -0.3,
+        -1.54,
+        0.82,
+        -1.5,
+        0.79,
+        -1.54,
+        0.78,
+        0.79,
+        -0.71
+       ],
+       "rank": [
+        5.0,
+        2.5,
+        2.5,
+        8.0,
+        11.5,
+        1.0,
+        10.0,
+        5.0,
+        11.5,
+        7.0,
+        5.0,
+        9.0
+       ],
+       "first": [
+        5
+       ],
+       "n_tied_first": 1,
+       "spearman": {
+        "rate": -0.6,
+        "f0_sd_st": 0.29
+       },
+       "first_rate": 2.88,
+       "rest_rate": 2.61,
+       "first_f0_sd_st": 3.79,
+       "rest_f0_sd_st": 4.62
+      },
+      "sim": {
+       "reward": [
+        0.935,
+        0.945,
+        0.962,
+        0.912,
+        0.949,
+        0.953,
+        0.946,
+        0.946,
+        0.944,
+        0.937,
+        0.918,
+        0.918
+       ],
+       "mean": 0.9387,
+       "std": 0.0148,
+       "advantage": [
+        -0.25,
+        0.42,
+        1.58,
+        -1.81,
+        0.69,
+        0.97,
+        0.49,
+        0.49,
+        0.36,
+        -0.12,
+        -1.41,
+        -1.41
+       ],
+       "rank": [
+        9.0,
+        6.0,
+        1.0,
+        12.0,
+        3.0,
+        2.0,
+        4.5,
+        4.5,
+        7.0,
+        8.0,
+        10.5,
+        10.5
+       ],
+       "first": [
+        2
+       ],
+       "n_tied_first": 1,
+       "spearman": {
+        "rate": -0.53,
+        "f0_sd_st": 0.38
+       },
+       "first_rate": 2.92,
+       "rest_rate": 2.6,
+       "first_f0_sd_st": 4.15,
+       "rest_f0_sd_st": 4.59
+      },
+      "mos": {
+       "reward": [
+        3.257,
+        3.404,
+        3.397,
+        2.975,
+        3.109,
+        2.817,
+        2.961,
+        3.403,
+        2.807,
+        3.535,
+        2.851,
+        2.792
+       ],
+       "mean": 3.109,
+       "std": 0.2651,
+       "advantage": [
+        0.56,
+        1.11,
+        1.09,
+        -0.51,
+        0.0,
+        -1.1,
+        -0.56,
+        1.11,
+        -1.14,
+        1.61,
+        -0.97,
+        -1.2
+       ],
+       "rank": [
+        5.0,
+        2.0,
+        4.0,
+        7.0,
+        6.0,
+        10.0,
+        8.0,
+        3.0,
+        11.0,
+        1.0,
+        9.0,
+        12.0
+       ],
+       "first": [
+        9
+       ],
+       "n_tied_first": 1,
+       "spearman": {
+        "rate": -0.54,
+        "f0_sd_st": -0.06
+       },
+       "first_rate": 2.96,
+       "rest_rate": 2.6,
+       "first_f0_sd_st": 4.65,
+       "rest_f0_sd_st": 4.54
+      }
+     },
+     "rate": {
+      "mean": 2.63,
+      "std": 0.24,
+      "min": 2.23,
+      "max": 2.96
+     },
+     "f0_sd_st": {
+      "mean": 4.55,
+      "std": 0.39,
+      "min": 3.79,
+      "max": 5.25
+     },
+     "min_errors": 1,
+     "tail": [
+      {
+       "i": 0,
+       "why": [
+        "1 extra",
+        "2 wrong"
+       ]
+      },
+      {
+       "i": 1,
+       "why": [
+        "2 wrong"
+       ]
+      },
+      {
+       "i": 2,
+       "why": [
+        "2 wrong"
+       ]
+      },
+      {
+       "i": 3,
+       "why": [
+        "76 extra",
+        "3 wrong"
+       ]
+      },
+      {
+       "i": 4,
+       "why": [
+        "162 extra",
+        "4 wrong"
+       ]
+      },
+      {
+       "i": 6,
+       "why": [
+        "159 extra",
+        "4 wrong"
+       ]
+      },
+      {
+       "i": 7,
+       "why": [
+        "1 extra",
+        "2 wrong"
+       ]
+      },
+      {
+       "i": 8,
+       "why": [
+        "162 extra",
+        "4 wrong"
+       ]
+      },
+      {
+       "i": 9,
+       "why": [
+        "4 wrong"
+       ]
+      },
+      {
+       "i": 10,
+       "why": [
+        "1 dropped",
+        "2 wrong"
+       ]
+      },
+      {
+       "i": 11,
+       "why": [
+        "105 extra",
+        "3 wrong"
+       ]
+      }
+     ],
+     "median_speech_s": 10.14
+    }
+   },
+   "en/f5": {
+    "draws": [
+     {
+      "fs": 24000,
+      "seconds": 11.43,
+      "private": false,
+      "gen_s": 6.04,
+      "seed": 1,
+      "T": 1073,
+      "nfe": 32,
+      "hyp": "Peter Piper picked a peck of pickled peppers, a peck of pickled peppers Peter Piper picked. If Peter Piper picked a peck of pickled peppers, where is the peck of pickled peppers Peter Piper picked?",
+      "wer": {
+       "S": 0,
+       "D": 0,
+       "I": 0,
+       "N": 35,
+       "errors": 0,
+       "pct": 0.0,
+       "unit": "words"
+      },
+      "sim": 0.909,
+      "mos": 3.723,
+      "speech_s": 10.68,
+      "rate": 4.68,
+      "f0_median_hz": 128.1,
+      "f0_sd_st": 4.38,
+      "voiced_frames": 416
+     },
+     {
+      "fs": 24000,
+      "seconds": 11.43,
+      "private": false,
+      "gen_s": 6.46,
+      "seed": 2,
+      "T": 1073,
+      "nfe": 32,
+      "hyp": "Peter Piper picked a peck of pickled peppers, a peck of pickled peppers Peter Piper picked. If Peter Piper picked a peck of pickled peppers, where's the peck of pickled peppers Peter Piper picked?",
+      "wer": {
+       "S": 0,
+       "D": 0,
+       "I": 0,
+       "N": 35,
+       "errors": 0,
+       "pct": 0.0,
+       "unit": "words"
+      },
+      "sim": 0.948,
+      "mos": 3.351,
+      "speech_s": 10.56,
+      "rate": 4.73,
+      "f0_median_hz": 115.4,
+      "f0_sd_st": 4.86,
+      "voiced_frames": 440
+     },
+     {
+      "fs": 24000,
+      "seconds": 11.43,
+      "private": false,
+      "gen_s": 6.65,
+      "seed": 3,
+      "T": 1073,
+      "nfe": 32,
+      "hyp": "Peter Piper picked a peck of pickled peppers, a peck of pickled peppers Peter Piper picked. If Peter Piper picked a peck of pickled peppers, where's the peck of pickled peppers Peter Piper picked?",
+      "wer": {
+       "S": 0,
+       "D": 0,
+       "I": 0,
+       "N": 35,
+       "errors": 0,
+       "pct": 0.0,
+       "unit": "words"
+      },
+      "sim": 0.94,
+      "mos": 3.68,
+      "speech_s": 10.72,
+      "rate": 4.66,
+      "f0_median_hz": 135.2,
+      "f0_sd_st": 4.49,
+      "voiced_frames": 450
+     },
+     {
+      "fs": 24000,
+      "seconds": 11.43,
+      "private": false,
+      "gen_s": 6.49,
+      "seed": 4,
+      "T": 1073,
+      "nfe": 32,
+      "hyp": "Peter Piper picked a peck of pickled peppers. A peck of pickled peppers Peter Piper picked. If Peter Piper picked a peck of pickled peppers, where's the peck of pickled peppers Peter Piper picked?",
+      "wer": {
+       "S": 0,
+       "D": 0,
+       "I": 0,
+       "N": 35,
+       "errors": 0,
+       "pct": 0.0,
+       "unit": "words"
+      },
+      "sim": 0.922,
+      "mos": 3.328,
+      "speech_s": 10.44,
+      "rate": 4.79,
+      "f0_median_hz": 130.6,
+      "f0_sd_st": 4.81,
+      "voiced_frames": 377
+     },
+     {
+      "fs": 24000,
+      "seconds": 11.43,
+      "private": false,
+      "gen_s": 6.56,
+      "seed": 5,
+      "T": 1073,
+      "nfe": 32,
+      "hyp": "Peter Piper picked a peck of pickled peppers. A peck of pickled peppers Peter Piper picked. If Peter Piper picked a peck of pickled peppers, where's the peck of pickled peppers Peter Piper picked?",
+      "wer": {
+       "S": 0,
+       "D": 0,
+       "I": 0,
+       "N": 35,
+       "errors": 0,
+       "pct": 0.0,
+       "unit": "words"
+      },
+      "sim": 0.941,
+      "mos": 3.411,
+      "speech_s": 10.62,
+      "rate": 4.71,
+      "f0_median_hz": 126.0,
+      "f0_sd_st": 4.79,
+      "voiced_frames": 422
+     },
+     {
+      "fs": 24000,
+      "seconds": 11.43,
+      "private": false,
+      "gen_s": 6.44,
+      "seed": 6,
+      "T": 1073,
+      "nfe": 32,
+      "hyp": "Peter Piper picked a peck of pickled peppers, a peck of pickled peppers Peter Piper picked. If Peter Piper picked a peck of pickled peppers, where's the peck of pickled peppers Peter Piper picked?",
+      "wer": {
+       "S": 0,
+       "D": 0,
+       "I": 0,
+       "N": 35,
+       "errors": 0,
+       "pct": 0.0,
+       "unit": "words"
+      },
+      "sim": 0.913,
+      "mos": 3.48,
+      "speech_s": 10.65,
+      "rate": 4.69,
+      "f0_median_hz": 124.3,
+      "f0_sd_st": 4.82,
+      "voiced_frames": 409
+     },
+     {
+      "fs": 24000,
+      "seconds": 11.43,
+      "private": false,
+      "gen_s": 6.58,
+      "seed": 7,
+      "T": 1073,
+      "nfe": 32,
+      "hyp": "Peter Piper picked a peck of pickled peppers. A peck of pickled peppers Peter Piper picked. If Peter Piper picked a peck of pickled peppers, where's the peck of pickled peppers Peter Piper picked?",
+      "wer": {
+       "S": 0,
+       "D": 0,
+       "I": 0,
+       "N": 35,
+       "errors": 0,
+       "pct": 0.0,
+       "unit": "words"
+      },
+      "sim": 0.927,
+      "mos": 3.717,
+      "speech_s": 10.48,
+      "rate": 4.77,
+      "f0_median_hz": 107.4,
+      "f0_sd_st": 4.8,
+      "voiced_frames": 424
+     },
+     {
+      "fs": 24000,
+      "seconds": 11.43,
+      "private": false,
+      "gen_s": 6.35,
+      "seed": 8,
+      "T": 1073,
+      "nfe": 32,
+      "hyp": "Peter Piper picked a peck of pickled peppers. A peck of pickled peppers Peter Piper picked. If Peter Piper picked a peck of pickled peppers, where's the peck of pickled peppers Peter Piper picked?",
+      "wer": {
+       "S": 0,
+       "D": 0,
+       "I": 0,
+       "N": 35,
+       "errors": 0,
+       "pct": 0.0,
+       "unit": "words"
+      },
+      "sim": 0.902,
+      "mos": 3.232,
+      "speech_s": 10.6,
+      "rate": 4.72,
+      "f0_median_hz": 156.3,
+      "f0_sd_st": 4.94,
+      "voiced_frames": 370
+     },
+     {
+      "fs": 24000,
+      "seconds": 11.43,
+      "private": false,
+      "gen_s": 6.36,
+      "seed": 9,
+      "T": 1073,
+      "nfe": 32,
+      "hyp": "Peter Piper picked a peck of pickled peppers. A peck of pickled peppers Peter Piper picked. If Peter Piper picked a peck of pickled peppers, where's the peck of pickled peppers Peter Piper picked?",
+      "wer": {
+       "S": 0,
+       "D": 0,
+       "I": 0,
+       "N": 35,
+       "errors": 0,
+       "pct": 0.0,
+       "unit": "words"
+      },
+      "sim": 0.937,
+      "mos": 3.508,
+      "speech_s": 10.54,
+      "rate": 4.74,
+      "f0_median_hz": 115.3,
+      "f0_sd_st": 4.77,
+      "voiced_frames": 412
+     },
+     {
+      "fs": 24000,
+      "seconds": 11.43,
+      "private": false,
+      "gen_s": 6.42,
+      "seed": 10,
+      "T": 1073,
+      "nfe": 32,
+      "hyp": "Peter Piper picked a peck of pickled peppers, a peck of pickled peppers Peter Piper picked. If Peter Piper picked a peck of pickled peppers, where is the peck of pickled peppers Peter Piper picked?",
+      "wer": {
+       "S": 0,
+       "D": 0,
+       "I": 0,
+       "N": 35,
+       "errors": 0,
+       "pct": 0.0,
+       "unit": "words"
+      },
+      "sim": 0.94,
+      "mos": 3.53,
+      "speech_s": 10.84,
+      "rate": 4.61,
+      "f0_median_hz": 104.6,
+      "f0_sd_st": 4.62,
+      "voiced_frames": 480
+     },
+     {
+      "fs": 24000,
+      "seconds": 11.43,
+      "private": false,
+      "gen_s": 6.51,
+      "seed": 11,
+      "T": 1073,
+      "nfe": 32,
+      "hyp": "Peter Piper picked a peck of pickled peppers. A peck of pickled peppers Peter Piper picked. If Peter Piper picked a peck of pickled peppers, where's the peck of pickled peppers Peter Piper picked?",
+      "wer": {
+       "S": 0,
+       "D": 0,
+       "I": 0,
+       "N": 35,
+       "errors": 0,
+       "pct": 0.0,
+       "unit": "words"
+      },
+      "sim": 0.922,
+      "mos": 3.424,
+      "speech_s": 10.62,
+      "rate": 4.71,
+      "f0_median_hz": 140.0,
+      "f0_sd_st": 4.34,
+      "voiced_frames": 408
+     },
+     {
+      "fs": 24000,
+      "seconds": 11.43,
+      "private": false,
+      "gen_s": 6.59,
+      "seed": 12,
+      "T": 1073,
+      "nfe": 32,
+      "hyp": "Peter Piper picked a peck of pickled peppers. A peck of pickled peppers Peter Piper picked. If Peter Piper picked a peck of pickled peppers, where's the peck of pickled peppers Peter Piper picked?",
+      "wer": {
+       "S": 0,
+       "D": 0,
+       "I": 0,
+       "N": 35,
+       "errors": 0,
+       "pct": 0.0,
+       "unit": "words"
+      },
+      "sim": 0.931,
+      "mos": 3.189,
+      "speech_s": 10.77,
+      "rate": 4.64,
+      "f0_median_hz": 132.3,
+      "f0_sd_st": 4.41,
+      "voiced_frames": 412
+     }
+    ],
+    "stats": {
+     "n": 12,
+     "judges": {
+      "wer": {
+       "reward": [
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0
+       ],
+       "mean": 0.0,
+       "std": 0.0,
+       "advantage": null,
+       "rank": [
+        6.5,
+        6.5,
+        6.5,
+        6.5,
+        6.5,
+        6.5,
+        6.5,
+        6.5,
+        6.5,
+        6.5,
+        6.5,
+        6.5
+       ],
+       "first": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+       ],
+       "n_tied_first": 12,
+       "spearman": {
+        "rate": null,
+        "f0_sd_st": null
+       },
+       "first_rate": 4.7,
+       "rest_rate": null,
+       "first_f0_sd_st": 4.67,
+       "rest_f0_sd_st": null
+      },
+      "sim": {
+       "reward": [
+        0.909,
+        0.948,
+        0.94,
+        0.922,
+        0.941,
+        0.913,
+        0.927,
+        0.902,
+        0.937,
+        0.94,
+        0.922,
+        0.931
+       ],
+       "mean": 0.9277,
+       "std": 0.0138,
+       "advantage": [
+        -1.35,
+        1.47,
+        0.89,
+        -0.41,
+        0.97,
+        -1.06,
+        -0.05,
+        -1.86,
+        0.68,
+        0.89,
+        -0.41,
+        0.24
+       ],
+       "rank": [
+        11.0,
+        1.0,
+        3.5,
+        8.5,
+        2.0,
+        10.0,
+        7.0,
+        12.0,
+        5.0,
+        3.5,
+        8.5,
+        6.0
+       ],
+       "first": [
+        1
+       ],
+       "n_tied_first": 1,
+       "spearman": {
+        "rate": 0.11,
+        "f0_sd_st": 0.03
+       },
+       "first_rate": 4.73,
+       "rest_rate": 4.7,
+       "first_f0_sd_st": 4.86,
+       "rest_f0_sd_st": 4.65
+      },
+      "mos": {
+       "reward": [
+        3.723,
+        3.351,
+        3.68,
+        3.328,
+        3.411,
+        3.48,
+        3.717,
+        3.232,
+        3.508,
+        3.53,
+        3.424,
+        3.189
+       ],
+       "mean": 3.4644,
+       "std": 0.1706,
+       "advantage": [
+        1.52,
+        -0.66,
+        1.26,
+        -0.8,
+        -0.31,
+        0.09,
+        1.48,
+        -1.36,
+        0.26,
+        0.38,
+        -0.24,
+        -1.61
+       ],
+       "rank": [
+        1.0,
+        9.0,
+        3.0,
+        10.0,
+        8.0,
+        6.0,
+        2.0,
+        11.0,
+        5.0,
+        4.0,
+        7.0,
+        12.0
+       ],
+       "first": [
+        0
+       ],
+       "n_tied_first": 1,
+       "spearman": {
+        "rate": 0.16,
+        "f0_sd_st": 0.37
+       },
+       "first_rate": 4.68,
+       "rest_rate": 4.71,
+       "first_f0_sd_st": 4.38,
+       "rest_f0_sd_st": 4.7
+      }
+     },
+     "rate": {
+      "mean": 4.7,
+      "std": 0.05,
+      "min": 4.61,
+      "max": 4.79
+     },
+     "f0_sd_st": {
+      "mean": 4.67,
+      "std": 0.2,
+      "min": 4.34,
+      "max": 4.94
+     },
+     "min_errors": 0,
+     "tail": [],
+     "median_speech_s": 10.62
+    }
+   }
+  },
+  "lecturer_pick": {
+   "draw": {
+    "en": 8,
+    "zh": 2
+   },
+   "how": "blind listening (./present.sh listen): shuffled order, no numbers or scores shown"
+  },
+  "definitions": {
+   "wer": "Whisper small (greedy) against the sentence; English: words after Whisper's English normaliser; Mandarin: tone-numbered pinyin syllables. S, D, I from a Levenshtein alignment. Reward = −WER.",
+   "sim": "cosine between WavLM-SV (microsoft/wavlm-base-plus-sv) embeddings of the draw and of the prompt",
+   "mos": "UTMOS22 strong learner (tarepan/SpeechMOS v1.2.0 port of the official checkpoint), 16 kHz input scaled to a fixed RMS; a prediction of a 1–5 naturalness score, trained on BVCC (English)",
+   "rate": "syllables of the sentence to read / seconds between the first and the last 10 ms frame within 30 dB of the 95th-percentile level (pauses inside the utterance included). The numerator is the reference sentence, not what was actually said. This demo's own descriptor.",
+   "f0_sd_st": "standard deviation of 12·log2(F0) over voiced frames (autocorrelation F0, 40 ms / 10 ms; frames more than a factor 1.8 from the median dropped as octave errors), in semitones. This demo's own descriptor.",
+   "advantage": "(r − group mean) / group standard deviation (population), per judge; null when the group's rewards are all equal",
+   "rank / first": "rank 1 = highest reward; ties share the average rank; 'first' lists every draw tied for the best reward (0-based indices)",
+   "spearman": "Spearman correlation between a judge's rank and a descriptor; positive = the draws the judge prefers have smaller values",
+   "tail": "draws with more word errors than the best draw of the group, or whose speech span exceeds 1.5 × the group median",
+   "what_we_heard": "filled by hand after the rehearsal (w09.qmd p54, p55)"
+  }
  }
 }
