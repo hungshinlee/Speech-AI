@@ -1303,7 +1303,7 @@ AudioSeal Table 3 · AudioMarkBench Fig. 3 · Zhu et al., arXiv:2609.26235 (prep
 :::
 
 ::: {.footer}
-Demo 3 · demos/w09_d3_two_defences · rehearsal pending · AASIST (2019 LA weights), `audioseal` 0.2.1
+Demo 3 · demos/w09_d3_two_defences · rehearsed 2026-11-16 · AASIST (2019 LA weights), `audioseal` 0.2.1
 :::
 
 ## Demo 3 — the detector: a 2019 judge meets 2025 generators
@@ -1315,15 +1315,15 @@ Demo 3 · demos/w09_d3_two_defences · rehearsal pending · AASIST (2019 LA weig
 ::: {.fragment .wrap1 fragment-index=1}
 | the audio | the score $s(\mathbf{x})$ | called |
 |:----------|:-----|:-----|
-| real: dev-clean; the lecturer, live | | |
-| W2 Demo 2: Griffin-Lim | | |
-| W8: SpeechT5 + HiFi-GAN · F5 + Vocos | | |
-| W8: Kokoro · Qwen3-TTS · MMS-TTS `nan` | | |
-| **real speech** through Mimi · through EnCodec (W6 Demo 1) | | |
+| real: dev-clean; the lecturer, live | $+1.90$ · rehearsal take: $-5.58$ | bona fide · **spoof** |
+| W2 Demo 2: Griffin-Lim | $-4.53$ | spoof |
+| W8: SpeechT5 + HiFi-GAN · F5 + Vocos | $-2.23$ · $-0.82$ | spoof · spoof |
+| W8: Kokoro · Qwen3-TTS · MMS-TTS `nan` | $+3.41$ · $+1.65$ · $-3.89$ | **bona fide · bona fide** · spoof |
+| **real speech** through Mimi · through EnCodec (W6 Demo 1) | $+3.46$ · $+0.33$ at $n_q = 8$ | bona fide · bona fide |
 :::
 
 ::: {.footer}
-Demo 3 · w09_d3_two_defences · rehearsal pending → w09-metrics.json → demo3 · threshold fixed in advance
+Demo 3 · rehearsed 2026-11-16 → w09-metrics.json → demo3 · threshold $0$, fixed in advance · 40 real speakers: 11 called spoof
 :::
 
 ## Demo 3 — the watermark: localise, then regenerate
@@ -1335,11 +1335,11 @@ Demo 3 · w09_d3_two_defences · rehearsal pending → w09-metrics.json → demo
 ::: {.fragment .wrap1 fragment-index=1}
 | what happened to the audio | marked: mean of $\mathrm{Det}$ | unmarked, same path | detected? |
 |:----------|:-----|:-----|:----|
-| nothing; spliced into a real recording (the curve) | | | |
-| resampling · added noise · MP3 | | | |
-| EnCodec, high $n_q$ → low $n_q$ | | | |
-| Mimi | | | |
-| Vocos: mel, then back to a waveform | | | |
+| nothing; spliced into a real recording (the curve) | $1.00$; inside $0.999$, outside $0.014$ | $0.006$ | yes; found $2.00$–$4.50$ s |
+| resampling · noise 30, 20, 10 dB · MP3 64, 16 kbps | $1.00$ · $0.82$, $0.38$, $0.17$ · $1.00$, $0.80$ | $\leq 0.01$ | yes · **30 dB only** · yes |
+| EnCodec, $n_q$ = 32, 16, 8, 4, 2 | $0.90$, $0.78$, $0.44$, $0.46$, $0.44$ | $0.17$, $0.24$, $0.28$, **$0.41$**, $0.32$ | at 32 and 16 only |
+| Mimi, $n_q$ = 32, 8 | $0.10$, $0.05$ | **$0.49$**, $0.19$ | no |
+| Vocos: mel, then back to a waveform | $0.03$ | $0.03$ | no |
 :::
 
 ::: {.claim}
@@ -1347,7 +1347,7 @@ The detector breaks on **what it has not seen**; the watermark breaks on **being
 :::
 
 ::: {.footer}
-Demo 3 · w09_d3_two_defences · rehearsal pending · EnCodec: published results disagree (p81) · Mimi: none found
+Demo 3 · rehearsed 2026-11-16 · one utterance, one run · EnCodec: published results disagree (p81) · Mimi: none found
 :::
 
 ## Two defences, side by side

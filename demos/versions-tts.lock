@@ -1,4 +1,5 @@
 # 由 demos/w08_d1_mean_vs_sample/setup.sh 產生（../.venv-tts）。與 versions.lock 相同的釘從那裡讀；要換版本就刪掉對應那一行再重跑。
+AUDIOSEAL_VERSION=0.2.1
 DATASETS_VERSION=5.1.0
 F5_TTS_VERSION=1.1.22
 MATPLOTLIB_VERSION=3.10.9

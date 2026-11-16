@@ -2474,5 +2474,688 @@
    "tail": "draws with more word errors than the best draw of the group, or whose speech span exceeds 1.5 × the group median",
    "what_we_heard": "filled by hand after the rehearsal (w09.qmd p54, p55)"
   }
+ },
+ "demo3": {
+  "source": "demos/w09_d3_two_defences/runs/rehearsal/rehearsal.json",
+  "time": "2026-11-16T21:38:09",
+  "tag": "",
+  "models": {
+   "detector": {
+    "repo": "https://github.com/clovaai/aasist.git",
+    "commit": "a04c9863f63d44471dde8a6abcb3b082b07cd1d1",
+    "weights": "models/weights/AASIST.pth",
+    "weights_sha256": "51d2d9cf0738172f61e2a384ec50a54a55363240f67c971ed55a92435bc1a1c0",
+    "trained_on": "ASVspoof 2019 LA (train partition)",
+    "device": "cpu",
+    "n_params": 297866,
+    "window": 64600,
+    "hop": 32300,
+    "input_rms": 0.05,
+    "threshold": 0.0
+   },
+   "watermark": {
+    "package": "audioseal 0.2.1",
+    "repo": "facebook/audioseal",
+    "commit": "3c19eba53390776cf2cc9ed5f6c9ac67ce72ecba",
+    "device": "cpu",
+    "generator": "generator_base.pth",
+    "detector": "detector_base.pth",
+    "nbits": 16,
+    "message": [
+     1,
+     0,
+     1,
+     1,
+     0,
+     0,
+     1,
+     0,
+     1,
+     1,
+     1,
+     0,
+     0,
+     1,
+     0,
+     1
+    ],
+    "sample_threshold": 0.5,
+    "detect_fraction": 0.5,
+    "n_params": {
+     "generator": 14675873,
+     "detector": 8647298
+    }
+   },
+   "regen": {
+    "mimi": {
+     "repo": "kyutai/mimi",
+     "commit": "89091b3e466eb6a9d11e537bf26b144f194978f7",
+     "device": "mps",
+     "n_params": 79308609,
+     "sampling_rate": 24000,
+     "frame_rate_cfg": 12.5,
+     "codebook_size": 2048,
+     "n_q_cfg": 32,
+     "n_semantic_quantizers": 1
+    },
+    "encodec": {
+     "repo": "facebook/encodec_24khz",
+     "commit": "c1dbe2ae3f1de713481a3b3e7c47f357092ee040",
+     "device": "mps",
+     "n_params": 14851810,
+     "sampling_rate": 24000,
+     "frame_rate_cfg": 75.0,
+     "codebook_size": 1024,
+     "n_q_cfg": 32,
+     "n_semantic_quantizers": 0
+    },
+    "vocos": {
+     "repo": "charactr/vocos-mel-24khz",
+     "commit": "0feb3fdd929bcd6649e0e7c5a688cf7dd012ef21",
+     "device": "mps"
+    }
+   }
+  },
+  "versions": {
+   "python": "3.12.14",
+   "platform": "macOS-27.2.1-arm64-arm-64bit",
+   "numpy": "2.4.4",
+   "scipy": "1.17.1",
+   "matplotlib": "3.10.9",
+   "sounddevice": "0.5.6",
+   "torch": "2.14.0",
+   "torchaudio": "2.11.0",
+   "transformers": "5.17.0",
+   "audioseal": "0.2.1",
+   "vocos": "0.1.0",
+   "huggingface_hub": "1.33.0",
+   "ffmpeg": true
+  },
+  "detector": {
+   "threshold": 0.0,
+   "order": [
+    "real",
+    "own",
+    "gl",
+    "speecht5",
+    "f5",
+    "kokoro",
+    "qwen3",
+    "mms_nan",
+    "real_mimi08",
+    "real_encodec08",
+    "real_vocos",
+    "real_bigvgan",
+    "real_mimi32",
+    "real_encodec32",
+    "real_encodec02"
+   ],
+   "items": {
+    "real": {
+     "label": "real · dev-clean 1272-128104-0000",
+     "kind": "real",
+     "key": "r",
+     "s": 1.8951411247253418,
+     "windows": [
+      7.028780460357666,
+      -3.2384982109069824
+     ],
+     "bonafide_logit_first": 2.7054781913757324,
+     "called": "bona fide",
+     "dur_s": 5.855
+    },
+    "own": {
+     "label": "the lecturer (recorded for the rehearsal)",
+     "kind": "real",
+     "key": " ",
+     "s": -5.580478191375732,
+     "windows": [
+      -6.883731842041016,
+      -4.277224540710449
+     ],
+     "bonafide_logit_first": -3.719348430633545,
+     "called": "spoof",
+     "dur_s": 5.0,
+     "private": true
+    },
+    "gl": {
+     "label": "W2: Griffin-Lim (real mel → 64 it.)",
+     "kind": "resynth",
+     "key": "1",
+     "s": -4.529457092285156,
+     "windows": [
+      -4.004528999328613,
+      -5.054385662078857
+     ],
+     "bonafide_logit_first": -2.078965425491333,
+     "called": "spoof",
+     "dur_s": 5.845375,
+     "source": "../w08_d3_vocoder_three_things/runs/rehearsal/real_gl.wav"
+    },
+    "speecht5": {
+     "label": "W8: SpeechT5 + HiFi-GAN",
+     "kind": "synth",
+     "key": "2",
+     "s": -2.23264479637146,
+     "windows": [
+      -2.783177375793457,
+      -1.682112216949463
+     ],
+     "bonafide_logit_first": -1.6043322086334229,
+     "called": "spoof",
+     "dur_s": 5.28,
+     "source": "../w08_d1_mean_vs_sample/runs/rehearsal/speecht5_seed1.wav"
+    },
+    "f5": {
+     "label": "W8: F5-TTS + Vocos",
+     "kind": "synth",
+     "key": "3",
+     "s": -0.8181706666946411,
+     "windows": [
+      3.1418607234954834,
+      -4.778202056884766
+     ],
+     "bonafide_logit_first": 1.0894501209259033,
+     "called": "spoof",
+     "dur_s": 5.301375,
+     "source": "../w08_d1_mean_vs_sample/runs/rehearsal/f5_seed1.wav"
+    },
+    "kokoro": {
+     "label": "W8: Kokoro (Mandarin)",
+     "kind": "synth",
+     "key": "4",
+     "s": 3.4118595123291016,
+     "windows": [
+      0.32640719413757324,
+      -0.4310551881790161,
+      7.135003089904785,
+      6.617083549499512
+     ],
+     "bonafide_logit_first": -0.3837999701499939,
+     "called": "bona fide",
+     "dur_s": 8.175,
+     "source": "../w08_d2_nfe_cfg_first_packet/runs/rehearsal/fp_kokoro_1.wav"
+    },
+    "qwen3": {
+     "label": "W9: Qwen3-TTS (cloned)",
+     "kind": "synth",
+     "key": "5",
+     "s": 1.6504950523376465,
+     "windows": [
+      7.2490997314453125,
+      -1.7637356519699097,
+      -0.5338789820671082
+     ],
+     "bonafide_logit_first": 2.7865498065948486,
+     "called": "bona fide",
+     "dur_s": 6.16,
+     "source": "../w09_d1_cloning_leak/runs/rehearsal/clean_qwen3.wav"
+    },
+    "mms_nan": {
+     "label": "W8: MMS-TTS nan (VITS)",
+     "kind": "synth",
+     "key": "6",
+     "s": -3.8890204429626465,
+     "windows": [
+      -3.8890204429626465
+     ],
+     "bonafide_logit_first": -2.4876809120178223,
+     "called": "spoof",
+     "dur_s": 3.904,
+     "source": "../w08_d3_vocoder_three_things/runs/rehearsal/mms_nan.wav"
+    },
+    "real_mimi08": {
+     "label": "real → Mimi, n_q = 8",
+     "kind": "resynth",
+     "key": "c",
+     "s": 3.459819793701172,
+     "windows": [
+      6.407863140106201,
+      0.5117765665054321
+     ],
+     "bonafide_logit_first": 2.4220378398895264,
+     "called": "bona fide",
+     "dur_s": 5.855,
+     "codec": "mimi",
+     "n_q": 8
+    },
+    "real_encodec08": {
+     "label": "real → EnCodec, n_q = 8",
+     "kind": "resynth",
+     "key": "c",
+     "s": 0.334531307220459,
+     "windows": [
+      3.8153562545776367,
+      -3.1462936401367188
+     ],
+     "bonafide_logit_first": 1.3579328060150146,
+     "called": "bona fide",
+     "dur_s": 5.855,
+     "codec": "encodec",
+     "n_q": 8
+    },
+    "real_vocos": {
+     "label": "real → mel → Vocos (W8 Demo 3)",
+     "kind": "resynth",
+     "key": "x",
+     "s": 2.1135313510894775,
+     "windows": [
+      7.016561031341553,
+      -2.7894983291625977
+     ],
+     "bonafide_logit_first": 2.6907005310058594,
+     "called": "bona fide",
+     "dur_s": 5.845375,
+     "source": "../w08_d3_vocoder_three_things/runs/rehearsal/real_vocos.wav"
+    },
+    "real_bigvgan": {
+     "label": "real → mel → BigVGAN v2 (W8 Demo 3)",
+     "kind": "resynth",
+     "key": "x",
+     "s": 2.67739200592041,
+     "windows": [
+      7.266422748565674,
+      -1.9116387367248535
+     ],
+     "bonafide_logit_first": 2.8004794120788574,
+     "called": "bona fide",
+     "dur_s": 5.845375,
+     "source": "../w08_d3_vocoder_three_things/runs/rehearsal/real_bigvgan.wav"
+    },
+    "real_mimi32": {
+     "label": "real → Mimi, n_q = 32",
+     "kind": "resynth",
+     "key": "x",
+     "s": 4.184903144836426,
+     "windows": [
+      8.453919410705566,
+      -0.08411350846290588
+     ],
+     "bonafide_logit_first": 3.2752513885498047,
+     "called": "bona fide",
+     "dur_s": 5.855,
+     "codec": "mimi",
+     "n_q": 32
+    },
+    "real_encodec32": {
+     "label": "real → EnCodec, n_q = 32",
+     "kind": "resynth",
+     "key": "x",
+     "s": 1.1688728332519531,
+     "windows": [
+      6.421820163726807,
+      -4.0840744972229
+     ],
+     "bonafide_logit_first": 2.444704055786133,
+     "called": "bona fide",
+     "dur_s": 5.855,
+     "codec": "encodec",
+     "n_q": 32
+    },
+    "real_encodec02": {
+     "label": "real → EnCodec, n_q = 2",
+     "kind": "resynth",
+     "key": "x",
+     "s": -4.975855350494385,
+     "windows": [
+      -4.347949504852295,
+      -5.603761196136475
+     ],
+     "bonafide_logit_first": -2.2186336517333984,
+     "called": "spoof",
+     "dur_s": 5.855,
+     "codec": "encodec",
+     "n_q": 2
+    }
+   },
+   "reference": {
+    "dir": "../_media/w02_d3/wav",
+    "n": 40,
+    "n_bonafide": 29,
+    "median": 1.9083184599876404,
+    "min": -3.6935720443725586,
+    "max": 8.348759651184082
+   }
+  },
+  "watermark": {
+   "carrier": {
+    "carrier": "W8: F5-TTS + Vocos",
+    "dur_s": 5.301375,
+    "snr_db": 26.255251664415074,
+    "peak_wm": 0.030732978135347366,
+    "peak_carrier": 0.5266978028058074
+   },
+   "splice": {
+    "true_start_s": 2.0,
+    "true_end_s": 4.5,
+    "found_start_s": 1.9993125,
+    "found_end_s": 4.499,
+    "mean_inside": 0.9990496191769839,
+    "mean_outside": 0.013822746554185293,
+    "frac_inside": 0.999675,
+    "frac_outside": 7.472245943637917e-05
+   },
+   "order": [
+    "none",
+    "splice",
+    "resample8000",
+    "resample24000",
+    "noise30",
+    "noise20",
+    "noise10",
+    "mp3_64",
+    "mp3_16",
+    "encodec32",
+    "encodec16",
+    "encodec08",
+    "encodec04",
+    "encodec02",
+    "mimi32",
+    "mimi08",
+    "vocos"
+   ],
+   "conds": {
+    "none": {
+     "label": "watermarked, nothing done",
+     "group": "none",
+     "marked": {
+      "mean": 0.9999595865154369,
+      "frac": 1.0,
+      "detected": true,
+      "bit_acc": 1.0
+     },
+     "control": {
+      "mean": 0.005847066857640806,
+      "frac": 0.0,
+      "detected": false,
+      "bit_acc": 0.4375
+     }
+    },
+    "splice": {
+     "label": "spliced into a real recording (2–4.5 s)",
+     "group": "splice",
+     "marked": {
+      "mean": 0.3086243242390442,
+      "frac": 0.2991771394374626,
+      "detected": false,
+      "bit_acc": 1.0
+     },
+     "control": {
+      "mean": 0.008342468350261784,
+      "frac": 0.0,
+      "detected": false,
+      "bit_acc": 0.375
+     }
+    },
+    "resample8000": {
+     "label": "16 → 8 → 16 kHz",
+     "group": "resample",
+     "marked": {
+      "mean": 0.9999569965516053,
+      "frac": 1.0,
+      "detected": true,
+      "bit_acc": 1.0
+     },
+     "control": {
+      "mean": 0.0034719395845582476,
+      "frac": 0.0,
+      "detected": false,
+      "bit_acc": 0.5
+     },
+     "hz": 8000
+    },
+    "resample24000": {
+     "label": "16 → 24 → 16 kHz",
+     "group": "resample",
+     "marked": {
+      "mean": 0.9999595975710579,
+      "frac": 1.0,
+      "detected": true,
+      "bit_acc": 1.0
+     },
+     "control": {
+      "mean": 0.005848224209077181,
+      "frac": 0.0,
+      "detected": false,
+      "bit_acc": 0.4375
+     },
+     "hz": 24000
+    },
+    "noise30": {
+     "label": "white noise, SNR 30 dB",
+     "group": "noise",
+     "marked": {
+      "mean": 0.82184877279247,
+      "frac": 0.838591403173705,
+      "detected": true,
+      "bit_acc": 1.0
+     },
+     "control": {
+      "mean": 0.0073098283793276465,
+      "frac": 0.0,
+      "detected": false,
+      "bit_acc": 0.5
+     },
+     "snr_db": 30
+    },
+    "noise20": {
+     "label": "white noise, SNR 20 dB",
+     "group": "noise",
+     "marked": {
+      "mean": 0.38170861023492214,
+      "frac": 0.38096248614746175,
+      "detected": false,
+      "bit_acc": 0.875
+     },
+     "control": {
+      "mean": 0.006733875749147133,
+      "frac": 0.0,
+      "detected": false,
+      "bit_acc": 0.4375
+     },
+     "snr_db": 20
+    },
+    "noise10": {
+     "label": "white noise, SNR 10 dB",
+     "group": "noise",
+     "marked": {
+      "mean": 0.17119453675626944,
+      "frac": 0.1678573954870199,
+      "detected": false,
+      "bit_acc": 0.8125
+     },
+     "control": {
+      "mean": 0.0038182073776803546,
+      "frac": 0.0,
+      "detected": false,
+      "bit_acc": 0.4375
+     },
+     "snr_db": 10
+    },
+    "mp3_64": {
+     "label": "MP3, 64 kbps",
+     "group": "mp3",
+     "marked": {
+      "mean": 0.9999858036109225,
+      "frac": 1.0,
+      "detected": true,
+      "bit_acc": 1.0
+     },
+     "control": {
+      "mean": 0.004840417635931194,
+      "frac": 0.0,
+      "detected": false,
+      "bit_acc": 0.4375
+     },
+     "kbps": 64
+    },
+    "mp3_16": {
+     "label": "MP3, 16 kbps",
+     "group": "mp3",
+     "marked": {
+      "mean": 0.8012377246475016,
+      "frac": 0.7967272641531679,
+      "detected": true,
+      "bit_acc": 1.0
+     },
+     "control": {
+      "mean": 0.009869332057481714,
+      "frac": 0.001874513687486737,
+      "detected": false,
+      "bit_acc": 0.4375
+     },
+     "kbps": 16
+    },
+    "encodec32": {
+     "label": "EnCodec, n_q = 32 (24 kbps)",
+     "group": "encodec",
+     "marked": {
+      "mean": 0.8991199330870795,
+      "frac": 0.9586428049326826,
+      "detected": true,
+      "bit_acc": 0.9375
+     },
+     "control": {
+      "mean": 0.16815243707789304,
+      "frac": 0.14528070547735258,
+      "detected": false,
+      "bit_acc": 0.5625
+     },
+     "n_q": 32
+    },
+    "encodec16": {
+     "label": "EnCodec, n_q = 16 (12 kbps)",
+     "group": "encodec",
+     "marked": {
+      "mean": 0.7834923744295383,
+      "frac": 0.8694678267430619,
+      "detected": true,
+      "bit_acc": 0.8125
+     },
+     "control": {
+      "mean": 0.2383967768508447,
+      "frac": 0.21466129070288367,
+      "detected": false,
+      "bit_acc": 0.375
+     },
+     "n_q": 16
+    },
+    "encodec08": {
+     "label": "EnCodec, n_q = 8 (6 kbps)",
+     "group": "encodec",
+     "marked": {
+      "mean": 0.4401805179141748,
+      "frac": 0.3725684374336847,
+      "detected": false,
+      "bit_acc": 0.5
+     },
+     "control": {
+      "mean": 0.28324480428131127,
+      "frac": 0.18147414585838578,
+      "detected": false,
+      "bit_acc": 0.4375
+     },
+     "n_q": 8
+    },
+    "encodec04": {
+     "label": "EnCodec, n_q = 4 (3 kbps)",
+     "group": "encodec",
+     "marked": {
+      "mean": 0.46114363031739314,
+      "frac": 0.46741411426280915,
+      "detected": false,
+      "bit_acc": 0.625
+     },
+     "control": {
+      "mean": 0.411478546288887,
+      "frac": 0.3729456980500342,
+      "detected": false,
+      "bit_acc": 0.5
+     },
+     "n_q": 4
+    },
+    "encodec02": {
+     "label": "EnCodec, n_q = 2 (1.5 kbps)",
+     "group": "encodec",
+     "marked": {
+      "mean": 0.44001929880834884,
+      "frac": 0.3883072787720167,
+      "detected": false,
+      "bit_acc": 0.4375
+     },
+     "control": {
+      "mean": 0.31922783501711705,
+      "frac": 0.15310886326660536,
+      "detected": false,
+      "bit_acc": 0.4375
+     },
+     "n_q": 2
+    },
+    "mimi32": {
+     "label": "Mimi, n_q = 32",
+     "group": "mimi",
+     "marked": {
+      "mean": 0.09949833976309574,
+      "frac": 0.06528966541699087,
+      "detected": false,
+      "bit_acc": 0.6875
+     },
+     "control": {
+      "mean": 0.4877469006795693,
+      "frac": 0.4772111008936361,
+      "detected": false,
+      "bit_acc": 0.625
+     },
+     "n_q": 32
+    },
+    "mimi08": {
+     "label": "Mimi, n_q = 8",
+     "group": "mimi",
+     "marked": {
+      "mean": 0.05116908527890028,
+      "frac": 0.02867180684256443,
+      "detected": false,
+      "bit_acc": 0.5625
+     },
+     "control": {
+      "mean": 0.1904609754109297,
+      "frac": 0.13429299002617245,
+      "detected": false,
+      "bit_acc": 0.6875
+     },
+     "n_q": 8
+    },
+    "vocos": {
+     "label": "Vocos: mel, then back to a waveform",
+     "group": "vocos",
+     "marked": {
+      "mean": 0.03029774780368449,
+      "frac": 0.005623541062460211,
+      "detected": false,
+      "bit_acc": 0.5625
+     },
+     "control": {
+      "mean": 0.026620980350084218,
+      "frac": 0.0005069439532196836,
+      "detected": false,
+      "bit_acc": 0.5
+     }
+    }
+   }
+  },
+  "skipped": [],
+  "definitions": {
+   "s": "AASIST's bona fide logit minus its spoof logit (log-odds), averaged over windows of 64600 samples (hop 32300, last window flush with the end; shorter audio is tiled). Input scaled to a fixed RMS first.",
+   "threshold": "0 = the model's own two-class decision boundary, fixed before looking at any result. Not the EER threshold on ASVspoof 2019 LA (that needs the dataset).",
+   "called": "'bona fide' if s > threshold, else 'spoof'",
+   "reference": "one utterance per LibriSpeech dev-clean speaker (the 40 sentences of W2 Demo 3), scored the same way",
+   "marked / control": "the watermarked audio, and the same audio without the watermark, sent through the same processing",
+   "mean": "mean over samples of the AudioSeal detector's per-sample probability",
+   "frac": "fraction of samples whose probability exceeds 0.5 (what audioseal's detect_watermark() returns)",
+   "detected": "frac > 0.5",
+   "bit_acc": "fraction of the 16 message bits decoded correctly (0.5 = chance)",
+   "regeneration": "16 kHz → 24 kHz → codec (encode once, decode the first n_q codebooks) → 16 kHz; Vocos: 16 → 24 kHz → its own mel front end → waveform → 16 kHz",
+   "what_we_heard": "filled by hand after the rehearsal (w09.qmd p84, p85)"
+  }
  }
 }
