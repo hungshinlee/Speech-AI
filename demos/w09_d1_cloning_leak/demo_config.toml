@@ -1,0 +1,124 @@
+# 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
+# W9 demo 1：cloning 的三種條件與洩漏——同一位說話人的 prompt 做成四版，過三種給條件的方式。換內容只改這裡。
+# 模型的載入沿用 W8：SpeechT5 與 F5-TTS 用 W8 Demo 1 的程式（importlib 載），Qwen3-TTS 用 W8 Demo 2 的 mlx_worker.py。
+
+[d1]
+dir = "../w08_d1_mean_vs_sample"          # SpeechT5、F5 的類別與 model.lock；prompt.wav、target.wav 也在它的 audio/
+
+[d2]
+dir = "../w08_d2_nfe_cfg_first_packet"    # mlx_worker.py 與 Qwen3-TTS 的 repo、commit（它的 demo_config.toml、model.lock）
+
+[text]
+# prompt 與要念的句子都沿用 W8 Demo 1（[d1] 的 demo_config.toml）：prompt 是 1272-128104-0010、句子是 W3 那句（同一位說話人有真人錄音）。
+# 這裡不重複寫；要換就改 W8 Demo 1 的設定，或在下面兩行蓋過（留空字串 = 沿用）。
+target = ""
+prompt_text = ""
+
+[versions]
+# 四版 prompt 都從「裁過前後靜音的乾淨 prompt」算出來（裁一次，四版一樣長），16 kHz。
+order = ["clean", "noise", "music", "phone"]
+# 加噪：白噪音（numpy，seed 固定），對整段 prompt 的 RMS 取 SNR
+noise_snr_db = 10.0
+noise_seed = 20261114
+# 加音樂：預設是本程式用 numpy 合成的一段和弦（C–G–Am–F，沒有授權問題）。
+# 要換成真的音樂：把檔案放在 music_path（相對這個資料夾；16-bit WAV），它會被裁／循環成 prompt 的長度。
+# **彩排的輸出會上站**，所以只能放你有權再散布的音樂。
+music_path = "audio/music.wav"
+music_snr_db = 10.0
+# 電話頻寬：8 階 Butterworth 零相位低通到 3.4 kHz，再降到 8 kHz 取樣、升回 16 kHz
+phone_lowpass_hz = 3400.0
+phone_order = 8
+
+[speecht5]
+# (a) 瓶頸：參考音 → x-vector（512 維）→ SpeechT5。x-vector 用 SpeechT5 訓練時的那個 encoder（HF 文件的做法）：
+# SpeechBrain 的 spkrec-xvect-voxceleb（TDNN ＋ statistics pooling，VoxCeleb 上訓的 speaker classifier），取出來再正規化成單位長度。
+seed = 1
+
+[xvector]
+repo = "speechbrain/spkrec-xvect-voxceleb"
+
+[f5]
+# (b) 無瓶頸、flow：prompt 的 mel 整段放進去 infilling。設定同 W8 Demo 1（NFE 32、w = 3、sway −1）。
+seed = 1
+
+[qwen3]
+# (b) 無瓶頸、AR：prompt 的 token 整段放進去續寫。Qwen3-TTS 0.6B Base（mlx-audio），W8 Demo 2 的那一份權重。
+seed = 1
+temperature = 0.9
+streaming_interval = 0.32                  # 沿用 W8 Demo 2 測過的呼叫方式（串流、4 個 token 一包）；這裡只用合起來的整句
+lang_code = "auto"
+
+[sim]
+# 裁判：SIM = 兩段聲音經同一個 speaker-verification encoder 的向量的 cosine。
+# 主要的：WavLM Base+ 接 x-vector head（transformers 的 WavLMForXVector），VoxCeleb1 上訓；model card 給的判定門檻是 0.86。
+repo = "microsoft/wavlm-base-plus-sv"
+threshold_from_card = 0.86
+# 第二個 encoder（只印在 t 的表與 json，給「SIM 取決於 encoder」那一張用）：上面 [xvector] 的那一個，不另外下載。
+second = "xvector"
+
+[whisper]
+# WER 的裁判：W7 的 Whisper small（transformers；commit 讀 W7 Demo 1 的 model.lock）。5.17.0 的 generate 在 MPS 上會掛，固定 CPU。
+repo = "openai/whisper-small"
+sibling_lock = "../w07_d1_hallucination/model.lock"
+max_new_tokens = 200
+
+[measure]
+# 兩個自己定的量（不是文獻指標）：
+# 停頓處的噪音底 = 10 ms 一格的 RMS 位準（dB）的第 5 百分位 − 第 95 百分位：最安靜的那些格子比最響的那些格子低多少。
+# 只看第一格到最後一格「有聲音」的 frame 之間（位準在第 95 百分位以下 floor_active_db 之內）：句子前後的靜音不算。
+# （F5 的輸出開頭有約 0.6 s 幾乎是數位靜音，不排除的話四版都量到同一個數。）
+floor_low_pct = 5.0
+floor_high_pct = 95.0
+floor_active_db = 30.0
+level_floor_dbfs = -100.0
+# 4 kHz 以上的能量 = 重取樣到 16 kHz 後，4–8 kHz 的能量 ÷ 0–8 kHz 的能量（dB）
+hf_split_hz = 4000.0
+
+[own]
+# 加一格（p15）：兩段授課者自錄的 prompt。`./present.sh record mood`／`record accent` 照下面的 prompt_text 念、錄成 audio/own_<名字>.wav。
+# 錄音與它們的輸出（runs/rehearsal/own_*.wav）**不上站**（W9 開放那天加進 sites.json 的 public_demos_exclude）。
+record_s = 6.0
+
+[own.mood]
+# 一句語氣明顯的話（照你要的語氣念；文字要與實際念的一致，F5 與 Qwen3-TTS 都要 prompt 的文字）→ 念一句中性的句子
+prompt_text = "你怎麼又遲到了！我已經等了整整一個小時！"
+prompt_lang = "zh"
+target = "會議改到下週三下午兩點，地點不變。"
+target_lang = "zh"
+
+[own.accent]
+# 一段華語的 prompt → 念英文（W8 Demo 2 留下的那一格）
+prompt_text = "今天的天氣很好，我們下午去公園走一走吧。"
+prompt_lang = "zh"
+target = "The meeting has been moved to next Wednesday at two in the afternoon."
+target_lang = "en"
+
+[f0]
+# W2 dsp.f0_autocorr：40 ms frame、10 ms hop。加一格用（語氣有沒有被帶過去，看 F0 的中位數與起伏）。
+frame_ms = 40.0
+hop_ms = 10.0
+floor_hz = 60.0
+ceiling_hz = 400.0
+voicing = 0.45
+
+[infer]
+# auto = 有 MPS 就 mps。x-vector 很小，放 CPU（check 另外在 mps 上跑一次，記差——speech_ai/CLAUDE.md §6 第 6 項）。
+speecht5_device = "auto"
+f5_device = "auto"
+vocoder_device = "auto"
+sim_device = "auto"
+xvector_device = "cpu"
+whisper_device = "cpu"
+
+[audio]
+# 播放檔都調到這一段的 RMS（W8 Demo 1 的真人錄音）；量測一律用原始輸出
+match_rms_to = "../w08_d1_mean_vs_sample/audio/target.wav"
+# 對照用的兩段：同一位說話人的另一句真人錄音（SIM 的上限）、上週 SpeechT5 用 ARCTIC bdl 的聲音念的同一句（「不是他」的聲音）
+real_target = "../w08_d1_mean_vs_sample/audio/target.wav"
+other_voice = "../w08_d1_mean_vs_sample/runs/rehearsal/speecht5_seed1.wav"
+
+[display]
+fig_w = 13.0
+fig_h = 7.6
+db_range = 70.0
+n_mels = 80

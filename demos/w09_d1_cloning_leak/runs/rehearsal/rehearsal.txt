@@ -1,0 +1,86 @@
+
+────────────────────────────────────────────────────────────────────────
+W9 Demo 1：four prompts, three ways to condition
+────────────────────────────────────────────────────────────────────────
+  載入 x-vector encoder     4.2 M 參數   cpu     0.1 s
+  載入 SpeechT5           144.4 M 參數   mps / vocoder mps     1.2 s
+  載入 F5-TTS             337.1 M 參數   mps / vocoder mps     3.6 s
+  載入 Qwen3-TTS         1085.2 M 參數   MLX（mlx-audio 0.5.4）     5.0 s
+  載入 SIM 的裁判         101.1 M 參數   mps     0.3 s   （microsoft/wavlm-base-plus-sv）
+  載入 WER 的裁判        Whisper small   cpu     0.1 s
+
+prompt  1272-128104-0010  「Near the fire, and the ornaments Fred brought home from India on the mantel board.」  4.86 s（裁過前後靜音）
+要念的句子  「Mister Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.」
+  prompt · clean           噪音底  -41.2 dB   4 kHz 以上  -14.8 dB   SIM 對乾淨的 prompt 1.000
+  prompt · + noise         噪音底  -16.1 dB   4 kHz 以上  -11.2 dB   SIM 對乾淨的 prompt 0.936
+  prompt · + music         噪音底  -21.9 dB   4 kHz 以上  -15.2 dB   SIM 對乾淨的 prompt 0.993
+  prompt · telephone band  噪音底  -41.2 dB   4 kHz 以上  -61.6 dB   SIM 對乾淨的 prompt 0.953
+  參考 · 同一位說話人念這一句的真人錄音：SIM 對乾淨的 prompt 0.968   WER 0.0%
+  參考 · 上週 SpeechT5 用 ARCTIC bdl 的聲音念的同一句（另一個人）：SIM 對乾淨的 prompt 0.658   WER 0.0%
+  clean           → SpeechT5    6.02 s   噪音底  -41.8 dB   4 kHz 以上  -13.8 dB   SIM 0.933 / 0.933   WER  0.0%   生成   7.2 s
+  clean           → F5-TTS      5.30 s   噪音底  -42.3 dB   4 kHz 以上   -7.8 dB   SIM 0.919 / 0.919   WER  0.0%   生成   3.5 s
+  clean           → Qwen3-TTS   6.16 s   噪音底  -42.2 dB   4 kHz 以上  -17.8 dB   SIM 0.957 / 0.957   WER  0.0%   生成   1.3 s
+  + noise         → SpeechT5    6.82 s   噪音底  -26.5 dB   4 kHz 以上  -22.8 dB   SIM 0.864 / 0.893   WER 11.8%   生成   1.9 s
+  + noise         → F5-TTS      5.30 s   噪音底  -33.2 dB   4 kHz 以上   -6.8 dB   SIM 0.874 / 0.932   WER  0.0%   生成   3.0 s
+  + noise         → Qwen3-TTS   5.60 s   噪音底  -31.5 dB   4 kHz 以上  -25.5 dB   SIM 0.907 / 0.948   WER  0.0%   生成   1.2 s
+  + music         → SpeechT5    5.66 s   噪音底  -28.3 dB   4 kHz 以上  -10.5 dB   SIM 0.922 / 0.930   WER  0.0%   生成   1.4 s
+  + music         → F5-TTS      5.30 s   噪音底  -34.2 dB   4 kHz 以上   -7.1 dB   SIM 0.939 / 0.934   WER  0.0%   生成   3.0 s
+  + music         → Qwen3-TTS   5.12 s   噪音底  -26.7 dB   4 kHz 以上  -15.7 dB   SIM 0.942 / 0.933   WER  0.0%   生成   1.1 s
+  telephone band  → SpeechT5    6.30 s   噪音底  -48.0 dB   4 kHz 以上  -41.5 dB   SIM 0.895 / 0.903   WER  0.0%   生成   1.6 s
+  telephone band  → F5-TTS      5.30 s   噪音底  -40.0 dB   4 kHz 以上  -52.0 dB   SIM 0.900 / 0.910   WER  0.0%   生成   3.0 s
+  telephone band  → Qwen3-TTS   5.44 s   噪音底  -42.9 dB   4 kHz 以上  -45.8 dB   SIM 0.935 / 0.945   WER  0.0%   生成   1.1 s
+
+加一格 · mood  prompt「你怎麼又遲到了！我已經等了整整一個小時！」3.47 s  F0 中位數 131.4 Hz、起伏 17.26 半音   →  「會議改到下週三下午兩點，地點不變。」
+  F5-TTS      2.84 s   F0 中位數 122.2 Hz、起伏 11.3 半音   SIM 對這段 prompt 0.949   錯誤率 0.0%（tone-numbered pinyin syllables）
+  Qwen3-TTS   4.56 s   F0 中位數 160.5 Hz、起伏 17.14 半音   SIM 對這段 prompt 0.952   錯誤率 6.7%（tone-numbered pinyin syllables）
+
+加一格 · accent  prompt「今天的天氣很好，我們下午去公園走一走吧。」3.99 s  F0 中位數 129.6 Hz、起伏 19.28 半音   →  「The meeting has been moved to next Wednesday at two in the afternoon.」
+  F5-TTS      4.62 s   F0 中位數 128.2 Hz、起伏 10.13 半音   SIM 對這段 prompt 0.907   錯誤率 0.0%（words）
+  Qwen3-TTS   6.00 s   F0 中位數 131.3 Hz、起伏 13.03 半音   SIM 對這段 prompt 0.963   錯誤率 0.0%（words）
+
+W9 Demo 1 — numbers   prompt 1272-128104-0010（4.86 s）  「Mister Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.」
+  noise floor in the pauses (dB re speech: 5th − 95th percentile of 10 ms frame levels inside the utterance; closer to 0 = noisier)
+    prompt version        the prompt        SpeechT5          F5-TTS       Qwen3-TTS
+    clean                      -41.2           -41.8           -42.3           -42.2
+    + noise                    -16.1           -26.5           -33.2           -31.5
+    + music                    -21.9           -28.3           -34.2           -26.7
+    telephone band             -41.2           -48.0           -40.0           -42.9
+  energy above 4 kHz (dB re total, at 16 kHz)
+    prompt version        the prompt        SpeechT5          F5-TTS       Qwen3-TTS
+    clean                      -14.8           -13.8            -7.8           -17.8
+    + noise                    -11.2           -22.8            -6.8           -25.5
+    + music                    -15.2           -10.5            -7.1           -15.7
+    telephone band             -61.6           -41.5           -52.0           -45.8
+  SIM — WavLM-SV cosine: vs the clean prompt / vs that version of the prompt
+    prompt version        the prompt        SpeechT5          F5-TTS       Qwen3-TTS
+    clean              1.000 / 1.000   0.933 / 0.933   0.919 / 0.919   0.957 / 0.957
+    + noise            0.936 / 1.000   0.864 / 0.893   0.874 / 0.932   0.907 / 0.948
+    + music            0.993 / 1.000   0.922 / 0.930   0.939 / 0.934   0.942 / 0.933
+    telephone band     0.953 / 1.000   0.895 / 0.903   0.900 / 0.910   0.935 / 0.945
+    reference · 同一位說話人念這一句的真人錄音：0.968
+    reference · 上週 SpeechT5 用 ARCTIC bdl 的聲音念的同一句（另一個人）：0.658
+  SIM — x-vector (SpeechBrain, VoxCeleb) cosine: vs the clean prompt / vs that version of the prompt   (a second encoder: the numbers are not comparable with the first)
+    prompt version        the prompt        SpeechT5          F5-TTS       Qwen3-TTS
+    clean              1.000 / 1.000   0.944 / 0.944   0.944 / 0.944   0.970 / 0.970
+    + noise            0.949 / 1.000   0.892 / 0.944   0.919 / 0.909   0.928 / 0.952
+    + music            0.985 / 1.000   0.934 / 0.943   0.942 / 0.932   0.956 / 0.955
+    telephone band     0.956 / 1.000   0.923 / 0.963   0.901 / 0.946   0.943 / 0.963
+    reference · 同一位說話人念這一句的真人錄音：0.969
+    reference · 上週 SpeechT5 用 ARCTIC bdl 的聲音念的同一句（另一個人）：0.860
+    （WavLM-SV 的 model card 給的同一人門檻：0.86——在 VoxCeleb1 的真人錄音上定的）
+  WER % — Whisper small, both sides through Whisper's English normaliser
+    prompt version        the prompt        SpeechT5          F5-TTS       Qwen3-TTS
+    clean                          —             0.0             0.0             0.0
+    + noise                        —            11.8             0.0             0.0
+    + music                        —             0.0             0.0             0.0
+    telephone band                 —             0.0             0.0             0.0
+    noise_speecht5: heard “Mr. Quilter is the apostle of the new classes, and we are to welcome his gospel.”
+  One draw per cell (seed 1 for each system). The first two quantities are this demo's own, not standard metrics.
+                  seconds  F0 median  F0 span (st)  SIM vs prompt  error %
+    the prompt       3.47      131.4         17.26              —        —
+    F5-TTS           2.84      122.2          11.3          0.949      0.0
+    Qwen3-TTS        4.56      160.5         17.14          0.952      6.7
+                  seconds  F0 median  F0 span (st)  SIM vs prompt  error %
+    the prompt       3.99      129.6         19.28              —        —
+    F5-TTS           4.62      128.2         10.13          0.907      0.0
+    Qwen3-TTS        6.00      131.3         13.03          0.963      0.0

@@ -1,0 +1,146 @@
+# 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
+# W9 demo 3：兩道防線各自在哪裡破。換內容只改這裡。
+# 聲音都是前幾週的 demo 已經做出來的（讀它們的 runs/rehearsal/）；codec 用 W6 Demo 1 的類別與它的 model.lock，
+# Vocos 用 W8 Demo 3 的 model.lock。新的只有兩樣：偵測器（AASIST）與 watermark（AudioSeal）。
+
+[audio]
+fs = 16000                                  # 偵測器與 watermark 都是 16 kHz；24 kHz 的來源先降下來
+real = "../w03_d3_blank_heatmap/audio/utterance.wav"     # W3 那句：LibriSpeech dev-clean 1272-128104-0000（真人，16 kHz）
+real_label = "real · dev-clean 1272-128104-0000"
+
+[detector]
+# AASIST（Jung et al., ICASSP 2022）官方 repo 附的權重：ASVspoof 2019 LA 的訓練集上訓的（2019 年以前的 TTS／VC 系統，語料是 VCTK）。
+# 刻意選它：它沒見過那之後的任何生成器。MIT。純 PyTorch、直接吃波形，29.8 萬個參數。
+# fetch 把 repo clone 到 ../_media/w09_d3/aasist（不進版控）、對 commit；權重在 repo 裡、對 sha256；載入用 weights_only。
+repo = "https://github.com/clovaai/aasist.git"
+commit = "a04c9863f63d44471dde8a6abcb3b082b07cd1d1"
+weights = "models/weights/AASIST.pth"
+weights_sha256 = "51d2d9cf0738172f61e2a384ec50a54a55363240f67c971ed55a92435bc1a1c0"
+config = "config/AASIST.conf"
+dir = "../_media/w09_d3"
+# 它訓練時每段取 64600 個取樣點（約 4 秒）；短的重複接長。這裡每 hop 個取樣點取一窗、最後一窗貼齊句尾，分數取各窗的平均。
+window = 64600
+hop = 32300
+# 分數 s(x) = bona fide 的 logit − spoof 的 logit（log-odds）。門檻 0 = 模型自己兩類輸出的分界（P(bona fide) = 0.5）——
+# 寫在這裡、看結果之前就定了。它不是 ASVspoof 2019 LA 上的 EER 門檻（那要那份資料集，這台機器上沒有）。
+threshold = 0.0
+# 分數會隨音量變（建置時量到同一段聲音 ×0.1 到 ×2，log-odds 從 6.1 到 10.3），所以每一段先調到同一個 RMS。
+input_rms = 0.05
+device = "cpu"                              # 很小，CPU 一段約 0.3 s；check 另外測 MPS
+
+[reference]
+# 真人錄音的參考組：W2 Demo 3 解出來的 dev-clean 每位說話人一句（40 句）。沒有那個資料夾就略過。
+dir = "../_media/w02_d3/wav"
+
+[own]
+# 授課者自己的一句（record 錄的；彩排時當「現場對麥克風」那一格的預演）。放 _media，不進版控、不上站；彩排紀錄只留分數。
+path = "../_media/w09_d3/own.wav"
+seconds = 5.0
+
+# 逐段給分的聲音。key = 課堂上按的鍵；path 相對於這個資料夾。kind：synth = 合成；resynth = 真人錄音經某個東西重新合成。
+[[items]]
+key = "1"
+name = "gl"
+kind = "resynth"
+label = "W2: Griffin-Lim (real mel → 64 it.)"
+path = "../w08_d3_vocoder_three_things/runs/rehearsal/real_gl.wav"
+
+[[items]]
+key = "2"
+name = "speecht5"
+kind = "synth"
+label = "W8: SpeechT5 + HiFi-GAN"
+path = "../w08_d1_mean_vs_sample/runs/rehearsal/speecht5_seed1.wav"
+
+[[items]]
+key = "3"
+name = "f5"
+kind = "synth"
+label = "W8: F5-TTS + Vocos"
+path = "../w08_d1_mean_vs_sample/runs/rehearsal/f5_seed1.wav"
+
+[[items]]
+key = "4"
+name = "kokoro"
+kind = "synth"
+label = "W8: Kokoro (Mandarin)"
+path = "../w08_d2_nfe_cfg_first_packet/runs/rehearsal/fp_kokoro_1.wav"
+
+[[items]]
+key = "5"
+name = "qwen3"
+kind = "synth"
+label = "W9: Qwen3-TTS (cloned)"
+path = "../w09_d1_cloning_leak/runs/rehearsal/clean_qwen3.wav"
+
+[[items]]
+key = "6"
+name = "mms_nan"
+kind = "synth"
+label = "W8: MMS-TTS nan (VITS)"
+path = "../w08_d3_vocoder_three_things/runs/rehearsal/mms_nan.wav"
+
+[[items]]
+key = "x"
+name = "real_vocos"
+kind = "resynth"
+label = "real → mel → Vocos (W8 Demo 3)"
+path = "../w08_d3_vocoder_three_things/runs/rehearsal/real_vocos.wav"
+
+[[items]]
+key = "x"
+name = "real_bigvgan"
+kind = "resynth"
+label = "real → mel → BigVGAN v2 (W8 Demo 3)"
+path = "../w08_d3_vocoder_three_things/runs/rehearsal/real_bigvgan.wav"
+
+[codecs]
+# W6 Demo 1 的程式（importlib 載，用它的 Codec 類別與 model.lock）。真人錄音過 codec：鍵 c 是主要的兩格，鍵 x 是加映。
+prev = "../w06_d1_layer_listen"
+device = "auto"
+real_main = [["mimi", 8], ["encodec", 8]]            # Mimi 8 層（Moshi 用的設定，1.1 kbps）、EnCodec 8 層（6 kbps）
+real_extra = [["mimi", 32], ["encodec", 32], ["encodec", 2]]
+
+[watermark]
+# AudioSeal（San Roman et al., ICML 2024）：generator 加一段聽不見的訊號，detector 逐取樣點給「有 watermark」的機率，另解出 16 bit 的訊息。
+# 套件 audioseal（setup.sh 裝進 ../.venv-tts）；權重在 HF 的 facebook/audioseal（MIT），fetch 抓這兩個檔、對 sha256，commit 寫進 model.lock。
+repo = "facebook/audioseal"
+generator = "generator_base.pth"
+generator_sha256 = "7a845b5fbe9364a63a3909d8ab3fe064d13a76ae4c2e983573e08c69b7b51748"
+detector = "detector_base.pth"
+detector_sha256 = "8a78e8a83584113523e161fc599fcab10fd0e94c04d2eb9d2fa1e9ec91ab69d9"
+device = "cpu"
+# 被加 watermark 的那一段：上面 items 裡的哪一個（F5 的輸出）
+carrier = "f5"
+# 藏進去的 16 bit（固定，每次一樣）
+message = [1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1]
+# 判定：detector 逐取樣點的機率超過 sample_threshold 的比例 > detect_fraction 就算「偵測到」。
+# 這是 audioseal 的 detect_watermark() 回傳的那個數（預設門檻 0.5）再取過半；看結果之前定的。
+sample_threshold = 0.5
+detect_fraction = 0.5
+# 接進真人錄音中間的那一截（秒，取自加了 watermark 的那一段），接在真人錄音的 splice_at 處
+splice_from = 1.0
+splice_len = 2.5
+splice_at = 2.0
+
+[attacks]
+# 重取樣：降到這個取樣率再升回 16 kHz。24000 那一格是「codec 那條路本身要做的重取樣」的對照。
+resample_hz = [8000, 24000]
+# 加白噪音（numpy，seed 固定）
+noise_snr_db = [30, 20, 10]
+noise_seed = 20261114
+# MP3（要 ffmpeg；沒有就跳過）
+mp3_kbps = [64, 16]
+# 重新生成：16 kHz → 24 kHz → codec（只留前 n_q 層）→ 16 kHz。EnCodec 24 kHz 每層 0.75 kbps：32 層 = 24 kbps、2 層 = 1.5 kbps。
+encodec_nq = [32, 16, 8, 4, 2]
+mimi_nq = [32, 8]
+vocos = true
+
+[vocos]
+repo = "charactr/vocos-mel-24khz"
+lock = "../w08_d3_vocoder_three_things/model.lock"
+device = "auto"
+
+[display]
+fig_w = 13.0
+fig_h = 7.4

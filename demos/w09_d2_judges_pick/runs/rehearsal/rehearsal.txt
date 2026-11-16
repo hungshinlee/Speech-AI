@@ -1,0 +1,208 @@
+
+────────────────────────────────────────────────────────────────────────
+W9 Demo 2：one sentence, twelve draws, three judges
+────────────────────────────────────────────────────────────────────────
+  載入 F5-TTS             337.1 M 參數   mps / vocoder mps     2.9 s
+  載入 Qwen3-TTS         1085.2 M 參數   MLX（mlx-audio 0.5.4）     2.5 s
+  載入 SIM 的裁判         101.1 M 參數   mps     0.3 s   （microsoft/wavlm-base-plus-sv）
+  載入 MOS predictor      102.8 M 參數   mps     0.2 s   （UTMOS22 strong，SpeechMOS v1.2.0）
+  載入 WER 的裁判        Whisper small   cpu     0.1 s
+
+en  「Peter Piper picked a peck of pickled peppers; a peck of pickled peppers Peter Piper picked. If Peter Piper picked a peck of pickled peppers, where's the peck of pickled peppers Peter Piper picked?」（50 個音節）
+  prompt：LibriSpeech dev-clean 1272-128104-0010  「Near the fire, and the ornaments Fred brought home from India on the mantel board.」  4.86 s   predicted MOS 3.77
+
+zh  「吃葡萄不吐葡萄皮，不吃葡萄倒吐葡萄皮。媽媽騎馬，馬慢，媽媽罵馬。」（27 個音節）
+  prompt：the lecturer's own recording (W9 Demo 1's extra row)  「今天的天氣很好，我們下午去公園走一走吧。」  3.99 s   predicted MOS 2.86
+
+Qwen3-TTS · en  12 draws, seeds 1–12
+  draw  seconds   WER %   S  D  I     SIM     MOS  │  syl/s   F0 sd (st)
+     1   13.20    80.0   1 27  0   0.938    3.86  │   3.86     5.21    生成 2.7 s
+     2   13.12     0.0   0  0  0   0.935    4.26  │   3.90     5.81    生成 2.7 s
+     3   11.36    80.0   1 27  0   0.934    4.21  │   4.68     5.08    生成 2.4 s
+     4   12.48    11.4   4  0  0   0.945    4.20  │   4.33     4.82    生成 2.6 s
+     5   13.92    77.1   0 27  0   0.931    4.25  │   3.80     4.67    生成 2.9 s
+     6   11.76     2.9   0  1  0   0.932    3.99  │   4.39     4.93    生成 2.4 s
+     7   14.08     0.0   0  0  0   0.887    3.82  │   3.69     4.73    生成 2.9 s
+     8   12.16     0.0   0  0  0   0.947    4.09  │   4.22     5.19    生成 2.5 s
+     9   11.92     0.0   0  0  0   0.936    4.18  │   4.37     4.28    生成 2.5 s
+    10   11.84    77.1   0 27  0   0.902    4.22  │   4.37     4.18    生成 2.4 s
+    11   11.36    77.1   0 27  0   0.927    3.95  │   4.69     5.25    生成 2.3 s
+    12   12.72     0.0   0  0  0   0.941    3.89  │   4.17     4.65    生成 2.6 s
+
+Qwen3-TTS · zh  12 draws, seeds 1–12
+  draw  seconds   WER %   S  D  I     SIM     MOS  │  syl/s   F0 sd (st)
+     1   11.60    11.1   2  0  1   0.935    3.26  │   2.45     4.70    生成 2.4 s
+     2   10.08     7.4   2  0  0   0.945    3.40  │   2.83     4.48    生成 2.1 s
+     3    9.52     7.4   2  0  0   0.962    3.40  │   2.92     4.15    生成 2.0 s
+     4   12.24   292.6   3  0 76   0.912    2.98  │   2.23     4.65    生成 2.5 s
+     5   10.64   614.8   4  0 162   0.949    3.11  │   2.73     4.18    生成 2.2 s
+     6   10.40     3.7   1  0  0   0.953    2.82  │   2.88     3.79    生成 2.2 s
+     7   11.76   603.7   4  0 159   0.946    2.96  │   2.30     5.25    生成 2.4 s
+     8   10.24    11.1   2  0  1   0.946    3.40  │   2.76     4.99    生成 2.1 s
+     9   11.36   614.8   4  0 162   0.944    2.81  │   2.39     4.69    生成 2.3 s
+    10    9.68    14.8   4  0  0   0.937    3.54  │   2.96     4.65    生成 2.0 s
+    11   10.80    11.1   2  1  0   0.918    2.85  │   2.60     4.90    生成 2.2 s
+    12   11.12   400.0   3  0 105   0.918    2.79  │   2.52     4.20    生成 2.3 s
+
+F5-TTS (control) · en  12 draws, seeds 1–12
+  draw  seconds   WER %   S  D  I     SIM     MOS  │  syl/s   F0 sd (st)
+     1   11.43     0.0   0  0  0   0.909    3.72  │   4.68     4.38    生成 6.0 s
+     2   11.43     0.0   0  0  0   0.948    3.35  │   4.73     4.86    生成 6.5 s
+     3   11.43     0.0   0  0  0   0.940    3.68  │   4.66     4.49    生成 6.6 s
+     4   11.43     0.0   0  0  0   0.922    3.33  │   4.79     4.81    生成 6.5 s
+     5   11.43     0.0   0  0  0   0.941    3.41  │   4.71     4.79    生成 6.6 s
+     6   11.43     0.0   0  0  0   0.913    3.48  │   4.69     4.82    生成 6.4 s
+     7   11.43     0.0   0  0  0   0.927    3.72  │   4.77     4.80    生成 6.6 s
+     8   11.43     0.0   0  0  0   0.902    3.23  │   4.72     4.94    生成 6.3 s
+     9   11.43     0.0   0  0  0   0.937    3.51  │   4.74     4.77    生成 6.4 s
+    10   11.43     0.0   0  0  0   0.940    3.53  │   4.61     4.62    生成 6.4 s
+    11   11.43     0.0   0  0  0   0.922    3.42  │   4.71     4.34    生成 6.5 s
+    12   11.43     0.0   0  0  0   0.931    3.19  │   4.64     4.41    生成 6.6 s
+
+Qwen3-TTS · en  「Peter Piper picked a peck of pickled peppers; a peck of pickled peppers Peter Piper picked. If Peter Piper picked a peck of pickled peppers, where's the peck of pickled peppers Peter Piper picked?」
+  draw  seconds   WER %   S  D  I     SIM     MOS  │  syl/s   F0 sd (st)     Â WER   Â SIM   Â MOS
+     1   13.20    80.0   1 27  0   0.938    3.86  │   3.86     5.21    -1.23    +0.50    -1.40
+     2   13.12     0.0   0  0  0   0.935    4.26  │   3.90     5.81    +0.90    +0.32    +1.18
+     3   11.36    80.0   1 27  0   0.934    4.21  │   4.68     5.08    -1.23    +0.26    +0.82
+     4   12.48    11.4   4  0  0   0.945    4.20  │   4.33     4.82    +0.59    +0.91    +0.77
+     5   13.92    77.1   0 27  0   0.931    4.25  │   3.80     4.67    -1.15    +0.08    +1.13
+     6   11.76     2.9   0  1  0   0.932    3.99  │   4.39     4.93    +0.82    +0.14    -0.56
+     7   14.08     0.0   0  0  0   0.887    3.82  │   3.69     4.73    +0.90    -2.52    -1.61
+     8   12.16     0.0   0  0  0   0.947    4.09  │   4.22     5.19    +0.90    +1.03    +0.12
+     9   11.92     0.0   0  0  0   0.936    4.18  │   4.37     4.28    +0.90    +0.38    +0.64
+    10   11.84    77.1   0 27  0   0.902    4.22  │   4.37     4.18    -1.15    -1.63    +0.89
+    11   11.36    77.1   0 27  0   0.927    3.95  │   4.69     5.25    -1.15    -0.15    -0.79
+    12   12.72     0.0   0  0  0   0.941    3.89  │   4.17     4.65    +0.90    +0.68    -1.16
+  mean   12.49    33.8             0.930    4.08  │   4.21     4.90
+  std     0.89    37.7             0.017    0.16  │   0.32     0.43
+    WER (Whisper)    reward 平均 -33.800、標準差 37.708；advantage 最高 draw 2（+0.90）、最低 draw 1（-1.23）
+    SIM              reward 平均 0.930、標準差 0.017；advantage 最高 draw 8（+1.03）、最低 draw 7（-2.52）
+    predicted MOS    reward 平均 4.077、標準差 0.157；advantage 最高 draw 2（+1.18）、最低 draw 7（-1.61）
+
+長尾  7 / 12 段：
+    draw  1: 27 dropped, 1 wrong   → “Peter Piper picked a pick of pickled peppers.”
+    draw  3: 27 dropped, 1 wrong   → “Peter Piper picked a pack of pickled peppers.”
+    draw  4: 4 wrong   → “Peter Piper picked a pack of pickled peppers. A pack of pickled peppers Peter Piper picked. If Peter Piper picked a pack of pickled peppers, where is the pack of pickled peppers Peter Piper picked?”
+    draw  5: 27 dropped   → “Peter Piper picked a peck of pickled peppers.”
+    draw  6: 1 dropped   → “Peter Piper picked a peck of pickled peppers. A peck of pickled peppers Peter Piper picked. If Peter Piper picked a peck of peppers, where is the peck of pickled peppers Peter Piper picked?”
+    draw 10: 27 dropped   → “Peter Piper picked a peck of pickled peppers.”
+    draw 11: 27 dropped   → “Peter Piper picked a peck of pickled peppers.”
+  ▶ the long tail · draw 1   WER 80.0%  SIM 0.938  MOS 3.86  │  3.86 syl/s  F0 spread 5.21 st
+      Whisper 聽到：Peter Piper picked a pick of pickled peppers.
+
+名次 × 描述量  Spearman ρ（名次 1 = 那位裁判最喜歡的；ρ > 0 = 它越喜歡的段，這個量越小）   n = 12
+    judge                syl/s   F0 spread     first choice(s): syl/s, F0 spread  ｜ the rest
+    WER (Whisper)        +0.29       +0.15     4.07 , 4.93  ｜ 4.30 , 4.88   （5 段平手）
+    SIM                  +0.05       -0.18     4.22 , 5.19  ｜ 4.20 , 4.87
+    predicted MOS        -0.13       +0.06     3.90 , 5.81  ｜ 4.23 , 4.82
+    一組只有 12 段：|ρ| 要到約 0.59 才過 5% 的雙尾檢定（n = 12）。這是挑選，不是訓練。
+
+for the slides  Qwen3-TTS · en · 12 draws
+    WER %: 0.0–80.0, 5 of 12 at 0   SIM: 0.887–0.947   MOS: 3.82–4.26   syl/s: 3.69–4.69   F0 spread: 4.18–5.81 st
+    group mean; std   WER 33.8; 37.7   SIM 0.930; 0.017   MOS 4.08; 0.16   syl/s 4.21; 0.32   F0 4.90; 0.43
+    long tail · draw 1: 27 dropped, 1 wrong   WER 80.0  SIM 0.938  MOS 3.86  3.86 syl/s  5.21 st
+    long tail · draw 3: 27 dropped, 1 wrong   WER 80.0  SIM 0.934  MOS 4.21  4.68 syl/s  5.08 st
+    long tail · draw 4: 4 wrong   WER 11.4  SIM 0.945  MOS 4.20  4.33 syl/s  4.82 st
+    long tail · draw 5: 27 dropped   WER 77.1  SIM 0.931  MOS 4.25  3.80 syl/s  4.67 st
+    long tail · draw 6: 1 dropped   WER 2.9  SIM 0.932  MOS 3.99  4.39 syl/s  4.93 st
+    long tail · draw 10: 27 dropped   WER 77.1  SIM 0.902  MOS 4.22  4.37 syl/s  4.18 st
+    long tail · draw 11: 27 dropped   WER 77.1  SIM 0.927  MOS 3.95  4.69 syl/s  5.25 st
+    first choice · WER (Whisper)          draw 2 (tied with 4 others: draws 2, 7, 8, 9, 12)   3.90 syl/s   5.81 st
+    first choice · SIM                    draw 8   4.22 syl/s   5.19 st
+    first choice · predicted MOS          draw 2   3.90 syl/s   5.81 st
+
+Qwen3-TTS · zh  「吃葡萄不吐葡萄皮，不吃葡萄倒吐葡萄皮。媽媽騎馬，馬慢，媽媽罵馬。」
+  draw  seconds   WER %   S  D  I     SIM     MOS  │  syl/s   F0 sd (st)     Â WER   Â SIM   Â MOS
+     1   11.60    11.1   2  0  1   0.935    3.26  │   2.45     4.70    +0.79    -0.25    +0.56
+     2   10.08     7.4   2  0  0   0.945    3.40  │   2.83     4.48    +0.80    +0.42    +1.11
+     3    9.52     7.4   2  0  0   0.962    3.40  │   2.92     4.15    +0.80    +1.58    +1.09
+     4   12.24   292.6   3  0 76   0.912    2.98  │   2.23     4.65    -0.30    -1.81    -0.51
+     5   10.64   614.8   4  0 162   0.949    3.11  │   2.73     4.18    -1.54    +0.69    +0.00
+     6   10.40     3.7   1  0  0   0.953    2.82  │   2.88     3.79    +0.82    +0.97    -1.10
+     7   11.76   603.7   4  0 159   0.946    2.96  │   2.30     5.25    -1.50    +0.49    -0.56
+     8   10.24    11.1   2  0  1   0.946    3.40  │   2.76     4.99    +0.79    +0.49    +1.11
+     9   11.36   614.8   4  0 162   0.944    2.81  │   2.39     4.69    -1.54    +0.36    -1.14
+    10    9.68    14.8   4  0  0   0.937    3.54  │   2.96     4.65    +0.78    -0.12    +1.61
+    11   10.80    11.1   2  1  0   0.918    2.85  │   2.60     4.90    +0.79    -1.41    -0.97
+    12   11.12   400.0   3  0 105   0.918    2.79  │   2.52     4.20    -0.71    -1.41    -1.20
+  mean   10.79   216.0             0.939    3.11  │   2.63     4.55
+  std     0.81   259.3             0.015    0.27  │   0.24     0.39
+    WER (Whisper)    reward 平均 -216.042、標準差 259.270；advantage 最高 draw 6（+0.82）、最低 draw 5（-1.54）
+    SIM              reward 平均 0.939、標準差 0.015；advantage 最高 draw 3（+1.58）、最低 draw 4（-1.81）
+    predicted MOS    reward 平均 3.109、標準差 0.265；advantage 最高 draw 10（+1.61）、最低 draw 12（-1.20）
+
+長尾  11 / 12 段：
+    draw  1: 1 extra, 2 wrong   → “吃葡萄不吐葡萄皮,不吃葡萄豆吐葡萄皮,妈妈骑马,嗯,马曼,妈,妈,妈,马。”
+    draw  2: 2 wrong   → “吃葡萄不吐葡萄皮,不吃葡萄倒吐葡萄皮,妈妈骑马,马慢,妈妈...妈妈”
+    draw  3: 2 wrong   → “吃葡萄不吐葡萄皮,不吃葡萄豆吐葡萄皮,媽媽騎馬,馬慢,媽媽媽馬。”
+    draw  4: 76 extra, 3 wrong   → “吃葡萄,不吐葡萄皮,不吃葡萄,倒吐葡萄皮,妈妈骑马,马,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈,妈”
+    draw  5: 162 extra, 4 wrong   → “吃葡萄不吐葡萄皮不吃葡萄倒吐葡萄皮媽媽騎馬馬慢嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯”
+    draw  7: 159 extra, 4 wrong   → “吃葡萄不吐葡萄皮,不吃葡萄倒吐葡萄皮,妈妈骑马,妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈妈”
+    draw  8: 1 extra, 2 wrong   → “吃葡萄不吐葡萄皮不吃葡萄倒吐葡萄皮媽媽騎馬馬慢媽媽媽媽媽”
+    draw  9: 162 extra, 4 wrong   → “吃葡萄不吐葡萄皮不吃葡萄倒吐葡萄皮妈妈骑马马慢嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯”
+    draw 10: 4 wrong   → “吃葡萄不吐葡萄皮不吃葡萄倒吐葡萄皮妈妈骑马马马马马马马”
+    draw 11: 1 dropped, 2 wrong   → “吃葡萄不吐葡萄皮不吃葡萄倒吐葡萄皮媽媽起馬馬慢媽媽媽”
+    draw 12: 105 extra, 3 wrong   → “吃葡萄不吐葡萄皮,不吃葡萄倒吐葡萄皮,妈妈骑马,嗯嗯嗯,马妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈,妈妈”
+  ▶ the long tail · draw 9   WER 614.8%  SIM 0.944  MOS 2.81  │  2.39 syl/s  F0 spread 4.69 st
+      Whisper 聽到：吃葡萄不吐葡萄皮不吃葡萄倒吐葡萄皮妈妈骑马马慢嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯嗯
+
+名次 × 描述量  Spearman ρ（名次 1 = 那位裁判最喜歡的；ρ > 0 = 它越喜歡的段，這個量越小）   n = 12
+    judge                syl/s   F0 spread     first choice(s): syl/s, F0 spread  ｜ the rest
+    WER (Whisper)        -0.60       +0.29     2.88 , 3.79  ｜ 2.61 , 4.62
+    SIM                  -0.53       +0.38     2.92 , 4.15  ｜ 2.60 , 4.59
+    predicted MOS        -0.54       -0.06     2.96 , 4.65  ｜ 2.60 , 4.54
+    一組只有 12 段：|ρ| 要到約 0.59 才過 5% 的雙尾檢定（n = 12）。這是挑選，不是訓練。
+
+for the slides  Qwen3-TTS · zh · 12 draws
+    WER %: 3.7–614.8, 0 of 12 at 0   SIM: 0.912–0.962   MOS: 2.79–3.54   syl/s: 2.23–2.96   F0 spread: 3.79–5.25 st
+    group mean; std   WER 216.0; 259.3   SIM 0.939; 0.015   MOS 3.11; 0.27   syl/s 2.63; 0.24   F0 4.55; 0.39
+    long tail · draw 1: 1 extra, 2 wrong   WER 11.1  SIM 0.935  MOS 3.26  2.45 syl/s  4.70 st
+    long tail · draw 2: 2 wrong   WER 7.4  SIM 0.945  MOS 3.40  2.83 syl/s  4.48 st
+    long tail · draw 3: 2 wrong   WER 7.4  SIM 0.962  MOS 3.40  2.92 syl/s  4.15 st
+    long tail · draw 4: 76 extra, 3 wrong   WER 292.6  SIM 0.912  MOS 2.98  2.23 syl/s  4.65 st
+    long tail · draw 5: 162 extra, 4 wrong   WER 614.8  SIM 0.949  MOS 3.11  2.73 syl/s  4.18 st
+    long tail · draw 7: 159 extra, 4 wrong   WER 603.7  SIM 0.946  MOS 2.96  2.30 syl/s  5.25 st
+    long tail · draw 8: 1 extra, 2 wrong   WER 11.1  SIM 0.946  MOS 3.40  2.76 syl/s  4.99 st
+    long tail · draw 9: 162 extra, 4 wrong   WER 614.8  SIM 0.944  MOS 2.81  2.39 syl/s  4.69 st
+    long tail · draw 10: 4 wrong   WER 14.8  SIM 0.937  MOS 3.54  2.96 syl/s  4.65 st
+    long tail · draw 11: 1 dropped, 2 wrong   WER 11.1  SIM 0.918  MOS 2.85  2.60 syl/s  4.90 st
+    long tail · draw 12: 105 extra, 3 wrong   WER 400.0  SIM 0.918  MOS 2.79  2.52 syl/s  4.20 st
+    first choice · WER (Whisper)          draw 6   2.88 syl/s   3.79 st
+    first choice · SIM                    draw 3   2.92 syl/s   4.15 st
+    first choice · predicted MOS          draw 10   2.96 syl/s   4.65 st
+
+F5-TTS (control) · en  「Peter Piper picked a peck of pickled peppers; a peck of pickled peppers Peter Piper picked. If Peter Piper picked a peck of pickled peppers, where's the peck of pickled peppers Peter Piper picked?」
+  draw  seconds   WER %   S  D  I     SIM     MOS  │  syl/s   F0 sd (st)     Â WER   Â SIM   Â MOS
+     1   11.43     0.0   0  0  0   0.909    3.72  │   4.68     4.38       —    -1.35    +1.52
+     2   11.43     0.0   0  0  0   0.948    3.35  │   4.73     4.86       —    +1.47    -0.66
+     3   11.43     0.0   0  0  0   0.940    3.68  │   4.66     4.49       —    +0.89    +1.26
+     4   11.43     0.0   0  0  0   0.922    3.33  │   4.79     4.81       —    -0.41    -0.80
+     5   11.43     0.0   0  0  0   0.941    3.41  │   4.71     4.79       —    +0.97    -0.31
+     6   11.43     0.0   0  0  0   0.913    3.48  │   4.69     4.82       —    -1.06    +0.09
+     7   11.43     0.0   0  0  0   0.927    3.72  │   4.77     4.80       —    -0.05    +1.48
+     8   11.43     0.0   0  0  0   0.902    3.23  │   4.72     4.94       —    -1.86    -1.36
+     9   11.43     0.0   0  0  0   0.937    3.51  │   4.74     4.77       —    +0.68    +0.26
+    10   11.43     0.0   0  0  0   0.940    3.53  │   4.61     4.62       —    +0.89    +0.38
+    11   11.43     0.0   0  0  0   0.922    3.42  │   4.71     4.34       —    -0.41    -0.24
+    12   11.43     0.0   0  0  0   0.931    3.19  │   4.64     4.41       —    +0.24    -1.61
+  mean   11.43     0.0             0.928    3.46  │   4.70     4.67
+  std     0.00     0.0             0.014    0.17  │   0.05     0.20
+    WER (Whisper)    reward 全部相同（std = 0）→ advantage 沒有定義：這一組對這位裁判沒有訊號
+    SIM              reward 平均 0.928、標準差 0.014；advantage 最高 draw 2（+1.47）、最低 draw 8（-1.86）
+    predicted MOS    reward 平均 3.464、標準差 0.171；advantage 最高 draw 1（+1.52）、最低 draw 12（-1.61）
+
+  長尾：這 12 段沒有哪一段比最好的那一段多錯（每段 0 個錯）、也沒有長度離群的（中位數 10.62 s）。
+
+名次 × 描述量  Spearman ρ（名次 1 = 那位裁判最喜歡的；ρ > 0 = 它越喜歡的段，這個量越小）   n = 12
+    judge                syl/s   F0 spread     first choice(s): syl/s, F0 spread  ｜ the rest
+    WER (Whisper)      — (tied)    — (tied)     4.70 , 4.67  ｜ — , —   （12 段平手）
+    SIM                  +0.11       +0.03     4.73 , 4.86  ｜ 4.70 , 4.65
+    predicted MOS        +0.16       +0.37     4.68 , 4.38  ｜ 4.71 , 4.70
+    一組只有 12 段：|ρ| 要到約 0.59 才過 5% 的雙尾檢定（n = 12）。這是挑選，不是訓練。
+
+for the slides  F5-TTS (control) · en · 12 draws
+    WER %: 0.0–0.0, 12 of 12 at 0   SIM: 0.902–0.948   MOS: 3.19–3.72   syl/s: 4.61–4.79   F0 spread: 4.34–4.94 st
+    group mean; std   WER 0.0; 0.0   SIM 0.928; 0.014   MOS 3.46; 0.17   syl/s 4.70; 0.05   F0 4.67; 0.20
+    first choice · WER (Whisper)          draw 1 (tied with 11 others: draws 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)   4.68 syl/s   4.38 st
+    first choice · SIM                    draw 2   4.73 syl/s   4.86 st
+    first choice · predicted MOS          draw 1   4.68 syl/s   4.38 st

@@ -1,0 +1,85 @@
+# 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
+# W9 demo 2：同一句抽十二次，三位裁判各自挑誰。換內容只改這裡。
+# 模型的載入沿用前面的 demo：Qwen3-TTS 用 W8 Demo 2 的 mlx_worker.py，F5-TTS 用 W8 Demo 1 的類別，
+# SIM 與 WER 的裁判用 W9 Demo 1 的類別與它的 model.lock（同一份權重、同一個 commit）。新的只有 MOS predictor。
+
+[prev]
+dir = "../w09_d1_cloning_leak"            # W9 Demo 1 的程式（importlib 載）；它再去載 W8 Demo 1、找 W8 Demo 2 的 worker
+
+[group]
+# 一組抽幾段。12 與 Multi-Reward GRPO 的 group 大小相同（投影片 p40）。seed 就是 1 … n。
+n = 12
+
+[sentences]
+order = ["en", "zh"]
+
+[sentences.en]
+# 英文：一段傳統的繞口令（18–19 世紀的童謠，公有領域）。同樣的詞換順序重複四次——AR 模型容易漏一段、多念一段、或停不下來。
+# 刻意不放數字串：Whisper 的 normalizer 對「five five five」與「555」的處理不一致，WER 會因為裁判的正規化而吵，不是因為念錯。
+text = "Peter Piper picked a peck of pickled peppers; a peck of pickled peppers Peter Piper picked. If Peter Piper picked a peck of pickled peppers, where's the peck of pickled peppers Peter Piper picked?"
+lang = "en"
+# 音節數（語速的分子）：手數的，selftest 用一個母音群的啟發式對（差不超過 2）。
+syllables = 50
+prompt = "d1"                              # W8 Demo 1 的 prompt（LibriSpeech dev-clean 1272-128104-0010，裁靜音後 4.86 s）
+
+[sentences.zh]
+# 華語：兩段常見的繞口令接起來。前半是重複的詞（葡萄），後半四個音節只差聲調（媽、馬、罵）——選配 (c) 的聲調那條線順手看。
+text = "吃葡萄不吐葡萄皮，不吃葡萄倒吐葡萄皮。媽媽騎馬，馬慢，媽媽罵馬。"
+lang = "zh"
+# 音節數 = 漢字數（程式自己數）。
+# prompt：W9 Demo 1「加一格」錄的那段華語（授課者自己的聲音；文字讀它的 demo_config.toml [own.accent]）。
+# 沒有那個檔時退到 d1 的英文 prompt（英文的聲音念華語——那時腔與聲調的觀察要打折）。
+prompt = "own_accent"
+
+[qwen3]
+# 主角：Qwen3-TTS 0.6B Base（AR codec LM，mlx-audio；W8 Demo 2 的那一份權重與 worker）。它本來就在抽樣，seed 換了念法就換。
+temperature = 0.9
+streaming_interval = 0.32                  # 沿用 W8 Demo 2 測過的呼叫方式；這裡只用合起來的整句
+lang_code = "auto"
+
+[f5]
+# 對照（鍵 f，只做英文那一句）：F5-TTS 換 seed 抽同樣多段。設定同 W8 Demo 1（NFE 32、w = 3、sway −1）。
+# F5 的長度是 prompt 的字元比算出來的，十二段一樣長——語速那一欄不會動；這本身就是要看的對照。
+enabled = true
+sentence = "en"
+
+[mos]
+# MOS predictor：UTMOS22 的 strong learner（Saeki et al., Interspeech 2022）——wav2vec 2.0 ＋ BLSTM，BVCC（英語 TTS／VC 的聽測）上訓的。
+# 用的是 tarepan/SpeechMOS v1.2.0 的重寫版（MIT；只需要 torch 與 torchaudio，不裝 fairseq），權重由官方 checkpoint 轉來。
+# 不走 torch.hub：fetch 把那個 tag clone 到 ../_media/w09_d2/（不進版控）、對 commit；權重另外下載、對 sha256；載入用 weights_only。
+repo = "https://github.com/tarepan/SpeechMOS.git"
+tag = "v1.2.0"
+commit = "ed25eacbfa42b99156c36ebec67a733b5dbb9b79"
+weights_url = "https://github.com/tarepan/SpeechMOS/releases/download/v1.0.0/utmos22_strong_step7459_v1.pt"
+weights_sha256 = "38aa51ab79e2a4e09a1449758a4b37e9cbb2e8235a49662a732d33a9ba1e9bff"
+dir = "../_media/w09_d2"
+# 分數會隨音量小幅變動（建置時量到 0.01–0.14 分），所以每一段先調到同一個 RMS 再給它。
+input_rms = 0.05
+
+[measure]
+# 語速 = 句子的音節數 ÷ 說話的時間。說話的時間 = 第一格到最後一格「有聲音」的 10 ms frame 之間（位準在第 95 百分位以下 active_db 之內），
+# 句中的停頓算在內、句子前後的靜音不算。分子是「要念的句子」的音節數，不是實際念出來的——漏念的那一段語速會偏高，表上另外標 WER。
+active_db = 30.0
+# 「停不下來」的旗子：說話的時間超過這一組中位數的幾倍
+long_ratio = 1.5
+
+[f0]
+# W2 dsp.f0_autocorr：40 ms frame、10 ms hop。音高的起伏 = 有聲 frame 的 log F0 的標準差，以半音為單位（12·log2）。
+frame_ms = 40.0
+hop_ms = 10.0
+floor_hz = 60.0
+ceiling_hz = 400.0
+voicing = 0.45
+
+[infer]
+# auto = 有 MPS 就 mps。Whisper 固定 CPU（transformers 5.17.0 的 generate 在 MPS 上會掛，W7 Demo 1）。
+f5_device = "auto"
+vocoder_device = "auto"
+sim_device = "auto"
+mos_device = "auto"
+whisper_device = "cpu"
+whisper_max_new_tokens = 200
+
+[display]
+fig_w = 13.0
+fig_h = 7.6

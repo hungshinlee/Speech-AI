@@ -12,7 +12,7 @@
 | [W6](weeks/w06.qmd) | Codec / tokenization | Défossez et al., *Moshi* (the Mimi codec section) |
 | [W7](weeks/w07.qmd) | ASR | Radford et al., *Whisper*, ICML 2023 |
 | [W8](weeks/w08.qmd) | TTS I | Lipman et al., *Flow Matching for Generative Modeling*, ICLR 2023 |
-| W9 | TTS II | Rafailov et al., *DPO*, NeurIPS 2023 + ITU-T P.808 |
+| [W9](weeks/w09.qmd) | TTS II | Rafailov et al., *DPO*, NeurIPS 2023 + ITU-T P.808 |
 | W10 | Acoustic front end | Wang & Chen, *Supervised Speech Separation: An Overview*, TASLP 2018 |
 | W11 | Audio-native LM | Défossez et al., *Moshi*, arXiv:2410.00037 |
 | W12 | Turn-taking | Skantze, *Turn-Taking in Conversational Systems: A Review*, CSL 2021 |
