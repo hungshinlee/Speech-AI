@@ -862,25 +862,25 @@ Demo 2 · demos/w09_d2_judges_pick · not RL: $\pi^{*}$ at $\beta \to 0$, $N = 1
 :::
 
 ::: {.fragment .wrap1 fragment-index=1}
-| draw | WER | SIM | predicted MOS | syllables / s | std of log-$F_0$ |
+| draw | WER | SIM | predicted MOS | syllables / s | std of log-$F_0$, semitones |
 |:----------|:---|:---|:---|:---|:---|
-| $\mathbf{k}_1$ … $\mathbf{k}_{12}$ (the screen shows all twelve) | | | | | |
-| the long tail: a draw that drops, repeats, or does not stop | | | | | |
-| group mean; group std | | | | | |
+| $\mathbf{k}_1$ … $\mathbf{k}_{12}$ (the screen shows all twelve) | $0$–$80\%$; five at $0$ | $0.887$–$0.947$ | $3.82$–$4.26$ | $3.69$–$4.69$ | $4.18$–$5.81$ |
+| the long tail, by WER: draw 1 — Whisper wrote one sentence of four | $80\%$ | $0.938$ | $3.86$ | $3.86$ | $5.21$ |
+| group mean; group std | $33.8$; $37.7$ | $0.930$; $0.017$ | $4.08$; $0.16$ | $4.21$; $0.32$ | $4.90$; $0.43$ |
 :::
 
 ::: {.footer}
-Demo 2 · rehearsal pending (2026-11-14) → w09-metrics.json → demo2 · last two columns: not judges
+Demo 2 · rehearsed 2026-11-14, M5 Max → w09-metrics.json → demo2 · last two columns: not judges
 :::
 
 ## Demo 2 — who does each judge pick?
 
-| the judge | its first choice | syllables / s | std of log-$F_0$ | what we heard |
+| the judge | its first choice | syllables / s | std of log-$F_0$, semitones | what we heard |
 |:---|:---|:---|:---|:---|
-| WER (Whisper) | | | | |
-| SIM | | | | |
-| predicted MOS | | | | |
-| the lecturer, by ear | | | | |
+| WER (Whisper) | draw 2 — tied with 7, 8, 9, 12 | $3.90$ (the five: $4.07$) | $5.81$ (the five: $4.93$) | |
+| SIM | draw 8 | $4.22$ | $5.19$ | |
+| predicted MOS | draw 2 | $3.90$ | $5.81$ | |
+| the lecturer, by ear (blind) | draw 8 | $4.22$ | $5.19$ | |
 
 ::: {.ask}
 Are the four first choices the same draw?
@@ -891,7 +891,7 @@ This is **not RL**: it is best-of-12, the judge kept in inference. Post-training
 :::
 
 ::: {.footer}
-Demo 2 · rehearsal pending (2026-11-14) · on screen: each judge's rank against rate and $F_0$ spread
+Demo 2 · rehearsed 2026-11-14; blind pick 2026-11-16 · group mean $4.21$, $4.90$ · on screen: rank against rate and $F_0$ spread
 :::
 
 ## Many judges watch each other; what none can see goes back to people
@@ -925,7 +925,7 @@ It pushes the model **toward the reward**; the dimensions the reward cannot see 
 | emotion-classifier accuracy up | artefacts that fool the classifier |
 
 ::: {.footer}
-p52 · Demo 2 (p54–p55) shows the same signal without training
+p52 · Demo 2 (p54–p55): the same question, asked without training
 :::
 
 # Judging the judges: people and machines {.section-title}
