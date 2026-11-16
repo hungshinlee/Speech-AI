@@ -14,7 +14,7 @@
 #                              從 dev-clean.tar.gz 讀參考文字 → data/sentences.json；要網路
 #   ./present.sh record        錄一句自己的華語 → ../_media/w07_d3/mandarin.wav，接著輸入參考文字
 #   ./present.sh fake          沒有模型也能演練流程（合成 log 機率 + 小 LM，畫面標明 FAKE）
-#   ./present.sh selftest      不需要模型：ARPA 與 backoff 對手算、LMBonus、p32 的窮舉對 json、WER／字元對齊、同音判定、fake 整條流程
+#   ./present.sh selftest      不需要模型：ARPA 與 backoff 對手算、LMBonus、p35 的窮舉對 json、WER／字元對齊、同音判定、fake 整條流程
 #   ./present.sh export        彩排紀錄的摘要 → slides/assets/w07/w07-metrics.json（demo3）
 #
 # 模型套件（torch 2.14.0、transformers 5.17.0）已由 w03_d3_blank_heatmap/setup.sh 裝進共用 .venv；pypinyin 0.55.0 也已在 requirements.lock.txt。
