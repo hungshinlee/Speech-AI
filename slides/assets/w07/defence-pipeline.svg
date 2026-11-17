@@ -47,7 +47,7 @@
 <g class="fragment" data-fragment-index="5">
 <rect x="20.0" y="236.0" width="960.0" height="50.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
 <text x="36.0" y="252.0" font-size="17" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="middle">5  in training: teach the empty answer</text>
-<text x="36.0" y="274.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">noise clips paired with empty transcripts (1% of the data) · distillation · RL that calibrates when to stop (p68)</text>
+<text x="36.0" y="274.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">noise clips paired with empty transcripts (1% of the data) · distillation · RL that calibrates when to stop (p70)</text>
 <rect x="20.0" y="298.0" width="960.0" height="40.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.0"/>
 <text x="500.0" y="318.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">1 removes the cause · 2 stops the spread · 3 judges what is already written · 4 and 5 fix what the first three cannot</text>
 </g>

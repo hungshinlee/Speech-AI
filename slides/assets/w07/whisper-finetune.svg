@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 392" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
+<text x="20.0" y="24.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">the same line and the same loss as p20 — only the starting point and the data change</text>
+<rect x="20.0" y="40.0" width="190.0" height="64.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="115.0" y="64.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">released weights</text>
+<text x="115.0" y="88.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">trained on 680,000 h</text>
+<text x="224.0" y="73.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">+</text>
+<rect x="238.0" y="40.0" width="240.0" height="64.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="358.0" y="64.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">your pairs: hours</text>
+<text x="358.0" y="88.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">clips padded or cut to 30 s</text>
+<line x1="481.0" y1="72.0" x2="495.0" y2="72.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="503.0,72.0 495.0,77.0 495.0,67.0" fill="#94a3b8"/>
+<rect x="506.0" y="40.0" width="215.0" height="64.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="613.5" y="64.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">keep training</text>
+<text x="613.5" y="88.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">p19's line, cross-entropy</text>
+<line x1="724.0" y1="72.0" x2="738.0" y2="72.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="746.0,72.0 738.0,77.0 738.0,67.0" fill="#94a3b8"/>
+<rect x="749.0" y="40.0" width="231.0" height="64.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="864.5" y="64.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">your Whisper</text>
+<text x="864.5" y="88.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">it writes like your labels</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<rect x="20.0" y="122.0" width="472.0" height="78.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="36.0" y="142.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="middle">full fine-tuning</text>
+<text x="36.0" y="164.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">every weight moves, slowly: learning rate 1e-5,</text>
+<text x="36.0" y="186.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">a few thousand steps (the tutorial's recipe)</text>
+<rect x="508.0" y="122.0" width="472.0" height="78.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="524.0" y="142.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="middle">LoRA</text>
+<text x="524.0" y="164.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">the weights stay frozen; small low-rank matrices</text>
+<text x="524.0" y="186.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">are added and trained (LoRA-Whisper)</text>
+</g>
+<g class="fragment" data-fragment-index="2">
+<rect x="20.0" y="214.0" width="960.0" height="44.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="500.0" y="236.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Hindi, 8 h of Common Voice, whisper-small: WER 63.5% → 32.0% — a tutorial's single run, not a paper</text>
+</g>
+<g class="fragment" data-fragment-index="3">
+<rect x="20.0" y="272.0" width="960.0" height="110.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+<text x="36.0" y="292.0" font-size="17" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="middle">the price: the model becomes its labels</text>
+<text x="36.0" y="316.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">· other languages and tasks can get worse — the problem LoRA-Whisper sets out to avoid</text>
+<text x="36.0" y="340.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">· labels without punctuation or timestamps: output without them</text>
+<text x="36.0" y="364.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">· it still hallucinates: silence paired with an empty transcript has to be in your data too (p37)</text>
+</g>
+</svg>
