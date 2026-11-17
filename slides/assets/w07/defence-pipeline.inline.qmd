@@ -1,0 +1,57 @@
+<!-- 由 scripts/make_figs_w07.py 產生，勿手改；投影片用 {{< include assets/w07/defence-pipeline.inline.qmd >}} 貼入 -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 348" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
+<text x="20.0" y="24.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">audio in on the left, text out on the right — each station closes one way for the prior to speak alone</text>
+<rect x="20.0" y="40.0" width="225.0" height="64.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="132.5" y="64.0" font-size="18" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">1  before: cut</text>
+<text x="132.5" y="88.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">a VAD keeps the speech</text>
+<line x1="247.0" y1="72.0" x2="255.0" y2="72.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="263.0,72.0 255.0,77.0 255.0,67.0" fill="#94a3b8"/>
+<rect x="265.0" y="40.0" width="225.0" height="64.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="377.5" y="64.0" font-size="18" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">2  during: decode</text>
+<text x="377.5" y="88.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">one segment at a time</text>
+<line x1="492.0" y1="72.0" x2="500.0" y2="72.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="508.0,72.0 500.0,77.0 500.0,67.0" fill="#94a3b8"/>
+<rect x="510.0" y="40.0" width="225.0" height="64.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="622.5" y="64.0" font-size="18" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">3  after: check</text>
+<text x="622.5" y="88.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">accept · retry · drop</text>
+<line x1="737.0" y1="72.0" x2="745.0" y2="72.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="753.0,72.0 745.0,77.0 745.0,67.0" fill="#94a3b8"/>
+<rect x="755.0" y="40.0" width="225.0" height="64.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="867.5" y="64.0" font-size="18" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">4  times: align</text>
+<text x="867.5" y="88.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">a second, small model</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<text x="24.0" y="134.0" font-size="17" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="auto">remove the flat evidence</text>
+<text x="24.0" y="160.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">silence, music and noise</text>
+<text x="24.0" y="184.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">never reach the decoder;</text>
+<text x="24.0" y="208.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">segments of at most 30 s</text>
+</g>
+<g class="fragment" data-fragment-index="2">
+<text x="269.0" y="134.0" font-size="17" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="auto">cut the road</text>
+<text x="269.0" y="160.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">previous text: off, or only</text>
+<text x="269.0" y="184.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">below temperature 0.5;</text>
+<text x="269.0" y="208.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">beam search, 5 beams</text>
+</g>
+<g class="fragment" data-fragment-index="3">
+<text x="514.0" y="134.0" font-size="17" font-weight="700" fill="#b45309" text-anchor="start" dominant-baseline="auto">read what was written</text>
+<text x="514.0" y="160.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">gzip ratio &gt; 2.4, or mean</text>
+<text x="514.0" y="184.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">log-prob &lt; −1: retry hotter;</text>
+<text x="514.0" y="208.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">no-speech &gt; 0.6 too: drop</text>
+</g>
+<g class="fragment" data-fragment-index="4">
+<text x="759.0" y="134.0" font-size="17" font-weight="700" fill="#15803d" text-anchor="start" dominant-baseline="auto">ask someone else when</text>
+<text x="759.0" y="160.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">word times from an aligner,</text>
+<text x="759.0" y="184.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">not from the decoder;</text>
+<text x="759.0" y="208.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">drop tokens under 50 ms</text>
+</g>
+<g class="fragment" data-fragment-index="5">
+<rect x="20.0" y="236.0" width="960.0" height="50.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+<text x="36.0" y="252.0" font-size="17" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="middle">5  in training: teach the empty answer</text>
+<text x="36.0" y="274.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">noise clips paired with empty transcripts (1% of the data) · distillation · RL that calibrates when to stop (p68)</text>
+<rect x="20.0" y="298.0" width="960.0" height="40.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="500.0" y="318.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">1 removes the cause · 2 stops the spread · 3 judges what is already written · 4 and 5 fix what the first three cannot</text>
+</g>
+</svg>
+```

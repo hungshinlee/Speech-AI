@@ -624,11 +624,11 @@ z
 <rect x="265.0" y="144.0" width="140.0" height="36.0" rx="5" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
 <text x="335.0" y="162.0" font-size="16" font-weight="600" fill="#0b5cad" text-anchor="middle" dominant-baseline="middle">&lt;|nospeech|&gt;</text>
 <text x="419.0" y="154.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">the other branch: VAD-labelled non-speech in training —</text>
-<text x="419.0" y="174.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">the empty output exists, it just has to win (p26)</text>
+<text x="419.0" y="174.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">the empty output exists, it just has to win (p28)</text>
 </g>
 <g class="fragment" data-fragment-index="1">
 <rect x="16.0" y="66.0" width="126.0" height="54.0" rx="7" fill="none" stroke="#dc2626" stroke-width="2.0" stroke-dasharray="6 4"/>
 <text x="20.0" y="216.0" font-size="16" font-weight="400" fill="#dc2626" text-anchor="start" dominant-baseline="auto">the slot in front: the previous window's output text, added 'with some probability' in training (§2.3)</text>
-<text x="20.0" y="240.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="auto">= the first prompt-based biasing (p50) — and the road a hallucination travels into the next window (p31)</text>
+<text x="20.0" y="240.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="auto">= the first prompt-based biasing (p54) — and the road a hallucination travels into the next window (p33)</text>
 </g>
 </svg>

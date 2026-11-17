@@ -17,7 +17,7 @@
   selftest   不需要模型：壓縮比、fallback 判定、噪音的 SNR、CTC 摺疊、平均 log 機率、fake 整條流程
   export     runs/rehearsal/rehearsal.json 的摘要 → slides/assets/w07/w07-metrics.json（鍵 demo1；投影片數字進版控的出處）
 
-畫面上的鍵（順序照投影片 p29 講稿的【操作】）：
+畫面上的鍵（順序照投影片 p31 講稿的【操作】）：
   1  十秒靜音 → Whisper small：轉錄、逐 token log 機率、no_speech_prob、壓縮比；fallback 照目前的開關
   2  十秒白噪音，三個 SNR 各一次（同上）
   3  W3 那句 + 長靜音：固定 30 s 視窗，第二個視窗全是靜音；prompt 槽裡帶不帶第一個視窗的文字照 c 的狀態
@@ -1043,7 +1043,7 @@ def main() -> None:
     if args.cmd == "rehearse":
         d.run_all()
         d.save(HERE / "runs" / "rehearsal")
-        print("\n下一步：./present.sh 自己按一遍 1 2 3 c 3 4 w z f 1 2；把 rehearsal.json 的數字填進 p29 的表與 p30 的 .gen 區塊、p26／p31 圖裡的例句；"
+        print("\n下一步：./present.sh 自己按一遍 1 2 3 c 3 4 w z f 1 2；把 rehearsal.json 的數字填進 p31 的表與 p32 的 .gen 區塊、p28／p33 圖裡的例句；"
               "./present.sh export 寫進 w07-metrics.json。")
         return
     out.banner("W7 Demo 1：幻覺——證據歸零時先驗長什麼樣" + (f"   [{d.tag}]" if d.tag else ""))

@@ -64,7 +64,7 @@ format:
 :::
 
 ::: {.footer}
-W7 p5 · W7 p75's last paragraph · W6 p22 RVQ · W6 p56
+W7 p5 · W7 p79's last paragraph · W6 p22 RVQ · W6 p56
 :::
 
 ## The problem this week handles, in one picture
@@ -348,7 +348,7 @@ a design trade, not a generation gap · W4 p58 · p57: the three systems in a ro
 :::
 
 ::: {.footer}
-Wang et al., arXiv:2301.02111 · W6 p22 RVQ, p24 first level · W7 p58: the prompt, the other way
+Wang et al., arXiv:2301.02111 · W6 p22 RVQ, p24 first level · W7 p62: the prompt, the other way
 :::
 
 ## AR + NAR: the first level decides, the other seven correct
@@ -372,7 +372,7 @@ Zero-shot cloning is not an extra ability: it is what a continuation model does 
 :::
 
 ::: {.footer}
-Wang et al. 2023 §4.3 ("in-context learning") · W7 p58 · "continuation": this course's bridge
+Wang et al. 2023 §4.3 ("in-context learning") · W7 p62 · "continuation": this course's bridge
 :::
 
 ## Why continuation clones: a prior large enough to resemble
@@ -408,7 +408,7 @@ W7's AED again: weak evidence stops early, a loop never stops.
 | stops early, drops words | $\langle\text{eos}\rangle$ drawn where the evidence is weak (long tails, a prompt whose style differs from the text) | not listed as a problem in the paper; addressed by CFG, repetition penalties, and W9's RL with a WER reward |
 
 ::: {.footer}
-Chen et al., VALL-E 2, arXiv:2406.05370 §1 · W7 p41: the length reward · nothing ties $T$ to $\lvert\ell\rvert$
+Chen et al., VALL-E 2, arXiv:2406.05370 §1 · W7 p45: the length reward · nothing ties $T$ to $\lvert\ell\rvert$
 :::
 
 ## Parallel instead of autoregressive: SoundStorm, MaskGCT
@@ -478,7 +478,7 @@ Three things differ: **(a)** the length comes from a learned $\langle\text{eos}\
 | next-token cross-entropy, sampling, repetition penalties, CFG | the **unit of a step**: 12.5–75 per second of output, not per word (W6 p46) |
 
 ::: {.footer}
-W6 p52 · W7 p26 (the prior speaks on its own) · the 2026 configurations differ in (b)
+W6 p52 · W7 p28 (the prior speaks on its own) · the 2026 configurations differ in (b)
 :::
 
 ## MC 4 — "zero-shot cloning extracts a speaker embedding"
@@ -711,7 +711,7 @@ Liu et al. 2023 Thm 3.7 · Geng et al. 2025 Eq. 3, Eq. 6 · Xie et al. 2026 · D
 :::
 
 ::: {.footer}
-the fourth shape: W5 p39 · W6 p30 · W7 p58 · W8: the data and the line disappear
+the fourth shape: W5 p39 · W6 p30 · W7 p62 · W8: the data and the line disappear
 :::
 
 ## Diffusion is the same family: a bent path, a score for a velocity
@@ -1149,7 +1149,7 @@ Demo 2 · demos/w08_d2_nfe_cfg_first_packet · rehearsed 2026-11-09 on this lapt
 {{< include assets/w08/latency-cell.inline.qmd >}}
 
 ::: {.footer}
-W1 p36 · W1 p46–p47 (Kokoro 124 ms) · W6 p54 (the floor) · W7 p73 (the ASR-tail cell) · W11
+W1 p36 · W1 p46–p47 (Kokoro 124 ms) · W6 p54 (the floor) · W7 p77 (the ASR-tail cell) · W11
 :::
 
 ## MC 10 — "streaming TTS is just cutting the sentence short"
@@ -1185,7 +1185,7 @@ Every representation of W2–W6 has now been a TTS **output**. The clock: W2 the
 :::
 
 ::: {.footer}
-W2 p68 · W5 p61 · W6 p53 · W7 p72 · W6 p46: $R_{\text{tok}}$
+W2 p68 · W5 p61 · W6 p53 · W7 p76 · W6 p46: $R_{\text{tok}}$
 :::
 
 ## Supervision: three data scales, and the three axes
@@ -1204,7 +1204,7 @@ W2 p68 · W5 p61 · W6 p53 · W7 p72 · W6 p46: $R_{\text{tok}}$
 | supervision | paired (text, speech) is the only supervision — at three scales; the fourth answer is W9's |
 
 ::: {.footer}
-outline 〈定位〉 three axes · W5 p62 · W6 p55 · W7 p74
+outline 〈定位〉 three axes · W5 p62 · W6 p55 · W7 p78
 :::
 
 ## Local languages: orthography, MMS-TTS's input, tone in the token
