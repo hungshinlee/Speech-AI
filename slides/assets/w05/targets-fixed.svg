@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 96" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
+<text x="500.0" y="24.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">←  who builds the answer, and does it change?  →</text>
+<text x="20.0" y="58.0" font-size="19" font-weight="700" fill="#15803d" text-anchor="start" dominant-baseline="auto">target FIXED (built before training)</text>
+<text x="980.0" y="58.0" font-size="19" font-weight="700" fill="#94a3b8" text-anchor="end" dominant-baseline="auto">target MOVES (built by the model, online)</text>
+<line x1="20.0" y1="78.0" x2="980.0" y2="78.0" stroke="#94a3b8" stroke-width="1.6"/>
+<circle cx="140.0" cy="78.0" r="8.0" fill="#b45309" stroke="#b45309" stroke-width="1.4"/>
+<circle cx="380.0" cy="78.0" r="8.0" fill="#15803d" stroke="#15803d" stroke-width="1.4"/>
+<circle cx="620.0" cy="78.0" r="8.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<circle cx="860.0" cy="78.0" r="8.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+</g>
+</svg>

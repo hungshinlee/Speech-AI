@@ -229,7 +229,7 @@ WhisperX §2.4 · Watanabe 2017 Eq. 45, 48 · OWSM v4 §2.1 · Qwen3-ASR TR
 :::
 
 ::: {.footer}
-Radford et al., ICML 2023 · W4 Demo 3 used it · W5 p59: Whisper is not SSL
+Radford et al., ICML 2023 · W4 Demo 3 used it · W5 p65: Whisper is not SSL
 :::
 
 ## Whisper, the whole model: 30 s in, one token out
@@ -414,7 +414,7 @@ Two things in one table: **W5's encoder makes the labelled data almost optional*
 :::
 
 ::: {.footer}
-wav2vec 2.0 Tables 1, 2, 9 · LibriSpeech, WER % · W5 p19
+wav2vec 2.0 Tables 1, 2, 9 · LibriSpeech, WER % · W5 p21
 :::
 
 ## Two roads, one table
@@ -427,7 +427,7 @@ wav2vec 2.0 Tables 1, 2, 9 · LibriSpeech, WER % · W5 p19
 | **where the prior lives** | the decoder, inside the model | outside: an LM in shallow fusion, or none |
 | **strength** | robust across datasets; many languages and tasks in one model | data-efficient; **domain-adaptable** with a hundred hours; an order of magnitude cheaper to run |
 | **failure mode** | **hallucination**, loops, wrong language (p31–p40) | spelling and **homophones**: little or no prior (W3) |
-| **is it SSL?** | **no** (W5 p59) | yes (W5) |
+| **is it SSL?** | **no** (W5 p65) | yes (W5) |
 :::
 
 ::: {.footer}
@@ -1035,12 +1035,12 @@ SLAM-ASR §3.1.3 · SALMONN §3.1 · Qwen3-ASR TR · p11's fourth column, drawn
 
 ::: {.fragment fragment-index=2}
 ::: {.small}
-Three shapes so far: W5 half the model disappears (W5 p39) · W6 both halves stay, at opposite ends (W6 p31) · **W7 one picture, two uses.**
+Three shapes so far: W5 half the model disappears (W5 p45) · W6 both halves stay, at opposite ends (W6 p31) · **W7 one picture, two uses.**
 :::
 :::
 
 ::: {.footer}
-SLAM-ASR §3.1.3 · Fathullah 2024 (LoRA) · W5 p39 · W6 p31
+SLAM-ASR §3.1.3 · Fathullah 2024 (LoRA) · W5 p45 · W6 p31
 :::
 
 ## The token budget: $s \cdot s_{\text{a}}$, and who sets the frame rate now
@@ -1230,7 +1230,7 @@ All three slots have now served as input, and the clock moved one more time: W2 
 :::
 
 ::: {.footer}
-W2 p68 · W5 p61 · W6 p55 · this week: p29, p67
+W2 p68 · W5 p67 · W6 p55 · this week: p29, p67
 :::
 
 ## Latency: the ASR-tail cell in W1's budget, filled in

@@ -30,6 +30,14 @@ format:
     # 講稿（notes 區塊）裡的數學只輸出 MathML（與 w02.qmd／w03.qmd／w04.qmd 相同的做法）。
     # presenter view 是另一個視窗，沒有 KaTeX 的 CSS；KaTeX 預設同時輸出 HTML 與 MathML，
     # 沒有 CSS 時兩份都會顯示，符號就重複了（例如 ℓℓ）。MathML 由瀏覽器原生排版，不需要 CSS。
+    # 2026-11-18：一列（或一欄）一個 fragment 的表格是 raw HTML（pipe table 的列不能當 fragment）；撐滿寬度、首欄可折行。
+    include-in-header:
+      - text: |
+          <style>
+          .reveal table.ft { width: 100%; }
+          .reveal table.ft td:first-child, .reveal table.ft th:first-child { white-space: normal; }
+          .reveal table.ft.big th, .reveal table.ft.big td { font-size: 24px; line-height: 1.3; }
+          </style>
     include-after-body:
       - text: |
           <script>
@@ -59,6 +67,12 @@ format:
 
 {{< include assets/w05/last-week.inline.qmd >}}
 
+::: {.fragment fragment-index=2}
+::: {.small}
+**No transcript.** What should the encoder's output approximate — and who writes that answer down? This week the output is called $\mathbf{c}_t$; the four answers are the four methods.
+:::
+:::
+
 ::: {.claim}
 **Week 4 opened the box.** It never said where the box's ability comes from — and every loss it used read a transcript.
 :::
@@ -76,7 +90,38 @@ One pipeline, one question: **what is the answer for the masked frame — and wh
 :::
 
 ::: {.footer}
-Route: contrast → a teacher → the layers → the units → what the target does not decide
+the four answers: next slide · the pipeline with its numbers: p11
+:::
+
+## The problem this week handles: four answers
+
+```{=html}
+<table class="ft big">
+<colgroup><col style="width:4%"><col style="width:31%"><col style="width:43%"><col style="width:22%"></colgroup>
+<thead><tr><th></th><th>The answer for the masked frame</th><th>Who writes it</th><th>Fixed or online?</th></tr></thead>
+<tbody>
+<tr class="fragment" data-fragment-index="0"><td><strong>1</strong></td><td>a latent the model quantises itself</td><td><strong>wav2vec 2.0</strong> — the model; contrasted against negatives from the same utterance</td><td>online · discrete</td></tr>
+<tr class="fragment" data-fragment-index="1"><td><strong>2</strong></td><td>a cluster id from an offline k-means</td><td><strong>HuBERT</strong> — a teacher that never moves, then becomes the next teacher</td><td>fixed · discrete · iterates</td></tr>
+<tr class="fragment" data-fragment-index="2"><td><strong>3</strong></td><td>a continuous target from an EMA teacher</td><td><strong>data2vec</strong> — the teacher is the student, smoothed in time</td><td>online · continuous</td></tr>
+<tr class="fragment" data-fragment-index="3"><td><strong>4</strong></td><td>a random projection and a random codebook</td><td><strong>BEST-RQ</strong> — frozen at initialisation; consistency without meaning</td><td>fixed · discrete · random</td></tr>
+</tbody>
+</table>
+```
+
+::: {.footer}
+1: p12–p29 · 2: p30–p37 · 3: p38 · 4: p39 · all four in one row: p40–p41
+:::
+
+## Today's route: six stops, in two parts
+
+{{< include assets/w05/route.inline.qmd >}}
+
+::: {.claim}
+**Part 1:** who writes the answer — the model itself, or a teacher. **Part 2:** what that choice does to the layers and the units, and what it cannot decide.
+:::
+
+::: {.footer}
+six stops = the six section pages · the same map, half filled in, returns at p43
 :::
 
 ## Notation for today
@@ -114,6 +159,10 @@ Logs are $\ln$ · two temperatures: $\kappa$ divides a similarity, $\tau$ a Gumb
 **A learned filterbank on W2's clock — 25 ms window, 20 ms hop — fixed at pre-training, before any downstream task exists.**
 :::
 
+::: {.small}
+[A masked $\mathbf{z}_t$ is replaced by a learned vector; the Transformer must fill the hole from both sides.]{.fragment fragment-index=2}
+:::
+
 ::: {.footer}
 CNN = convolutional neural network · wav2vec 2.0 §2, §3.3 · same front end: HuBERT, data2vec
 :::
@@ -127,16 +176,20 @@ CNN = convolutional neural network · wav2vec 2.0 §2, §3.3 · same front end: 
 | **The question** | With no transcript, what can a model be asked to predict about speech? |
 | **The idea** | Fold the past into $\mathbf{c}_t$ with a causal GRU (gated recurrent unit), then pick the true future latent $\mathbf{z}_{t+k}$ out of a set of distractors — a classification, not a reconstruction. |
 | **What it added** | No labels, and no model of the waveform itself: the best classifier learns a density ratio, and its loss bounds the mutual information $I(\mathbf{z};\mathbf{c})$ from below. |
-| **What it leaves open** | The context sees only the past, and only a narrow band of $k$ is useful; wav2vec 2.0 fills a hole instead (p17). |
+| **What it leaves open** | The context sees only the past, and only a narrow band of $k$ is useful; wav2vec 2.0 fills a hole instead (p19). |
 :::
 
 ::: {.footer}
-CPC §2.3: "a loss based on NCE, which we will call InfoNCE" · the mechanism: p11–p13
+CPC §2.3: "a loss based on NCE, which we will call InfoNCE" · the mechanism: p13–p15
 :::
 
 ## CPC: predict the future, against negatives
 
 {{< include assets/w05/cpc-setup.inline.qmd >}}
+
+::: {.small}
+[The critic in CPC itself is bilinear, $\exp(\mathbf{z}_{t+k}^{\top}\mathbf{W}_k\mathbf{c}_t)$: same structure, no $\kappa$.]{.fragment fragment-index=1} [Negatives: CPC draws them from the minibatch, wav2vec 2.0 from the same utterance; the loss is a softmax over who is the positive.]{.fragment fragment-index=2}
+:::
 
 $$\mathcal{L}_N = -\mathbb{E}\!\left[\ln \frac{\exp(\mathrm{sim}(\mathbf{c}_t, \mathbf{z}_{t+k})/\kappa)}{\sum_{\tilde{\mathbf{z}} \in \mathcal{Z}} \exp(\mathrm{sim}(\mathbf{c}_t, \tilde{\mathbf{z}})/\kappa)}\right], \qquad \lvert\mathcal{Z}\rvert = N:\ \text{one positive, } N - 1 \text{ negatives}$$
 
@@ -186,6 +239,12 @@ Demo 3 · code: `demos/w05_d3_infonce_bound` · numpy only, CPU
 
 {{< include assets/w05/infonce-ceiling.inline.qmd >}}
 
+::: {.fragment fragment-index=2}
+::: {.small}
+Small $N$: the estimate stays under the ceiling, far below the truth.
+:::
+:::
+
 ::: {.footer}
 Demo 3 · `demos/w05_d3_infonce_bound` recomputes this curve live (seed 20261011) · numbers: w05-data.json
 :::
@@ -210,6 +269,10 @@ wav2vec 2.0 §4.2, App. F (whole-batch negatives hurt) · Poole et al. 2019 §2.
 
 {{< include assets/w05/predict-vs-mask.inline.qmd >}}
 
+::: {.small}
+[CPC: only one direction of context, and the useful $k$ is a narrow band (CPC trains $k = 1, \dots, 12$).]{.fragment fragment-index=0} [Masking is the BERT move, applied to $\mathbf{z}$: predict the masked steps from everything around them.]{.fragment fragment-index=1}
+:::
+
 ::: {.claim}
 Two moves from CPC to wav2vec 2.0: **predict the masked, not the future** — and **quantise the target**, so the model cannot make the contrast easy by moving both sides.
 :::
@@ -233,7 +296,7 @@ vq-wav2vec, ICLR 2020 · BERT = Bidirectional Encoder Representations from Trans
 :::
 
 ::: {.footer}
-wav2vec, Interspeech 2019 · vq-wav2vec, ICLR 2020 · the ten-minute numbers: p54
+wav2vec, Interspeech 2019 · vq-wav2vec, ICLR 2020 · the ten-minute numbers: p60
 :::
 
 ## wav2vec 2.0: two paths that meet only at the masked steps
@@ -241,7 +304,7 @@ wav2vec, Interspeech 2019 · vq-wav2vec, ICLR 2020 · the ten-minute numbers: p5
 {{< include assets/w05/w2v2-arch.inline.qmd >}}
 
 ::: {.claim .fragment fragment-index=3}
-**The quantiser sees the latent before it is masked; the Transformer sees the hole.** They meet only at the masked steps — the loss on p25 writes exactly this.
+**The quantiser sees the latent before it is masked; the Transformer sees the hole.** They meet only at the masked steps — the loss on p28 writes exactly this.
 :::
 
 ::: {.footer}
@@ -272,6 +335,10 @@ Jang, Gu & Poole 2017 · Bengio et al. 2013 · wav2vec 2.0 §4.2: $G = 2$, $V = 
 
 {{< include assets/w05/reparam-paths.inline.qmd >}}
 
+::: {.small}
+[(a) Same $l_g$, a different $v$ on every draw: $v$ is not a function of $l_g$, so backprop stops at the die.]{.fragment fragment-index=0} [(b) $n_g$ is a leaf, like the waveform: nothing to learn.]{.fragment fragment-index=2}
+:::
+
 ::: {.fragment fragment-index=1}
 $$\text{(a) grade each draw:}\quad \nabla_{l_g}\,\mathbb{E}_{v \sim \mathrm{softmax}(l_g)}\big[\mathcal{L}(v)\big] = \mathbb{E}_{v}\big[\mathcal{L}(v)\,\nabla_{l_g}\ln \mathrm{softmax}(l_g)_v\big]$$
 :::
@@ -281,7 +348,7 @@ $$\text{(b) follow the slope:}\quad \nabla_{l_g}\,\mathbb{E}_{n_g}\big[\mathcal{
 :::
 
 ::: {.claim .fragment fragment-index=3}
-**Fix the luck, and the choice is a function of $l_g$**: backprop can follow the loss's slope instead of grading each draw. A discrete choice is still a staircase — $\tau$ (p21) gives it a slope.
+**Fix the luck, and the choice is a function of $l_g$**: backprop can follow the loss's slope instead of grading each draw. A discrete choice is still a staircase — $\tau$ (p23) gives it a slope.
 :::
 
 ::: {.footer}
@@ -291,6 +358,10 @@ Jang, Gu & Poole 2017: §3.1 path derivative, §3.2 score function · Kingma & W
 ## The diversity loss is an entropy
 
 {{< include assets/w05/codebook-usage.inline.qmd >}}
+
+::: {.small}
+[Collapse: the contrastive task is easy, and $\mathbf{q}$ carries little.]{.fragment fragment-index=0} [$-H(\bar{p}_g)$ is what $\mathcal{L}_d$ minimises — smallest when $\bar{p}_g$ is uniform.]{.fragment fragment-index=1}
+:::
 
 $$\mathcal{L}_d = \frac{1}{GV}\sum_{g=1}^{G}\big(-H(\bar{p}_g)\big) = \frac{1}{GV}\sum_{g=1}^{G}\sum_{v=1}^{V}\bar{p}_{g,v}\ln\bar{p}_{g,v}$$
 
@@ -306,12 +377,42 @@ wav2vec 2.0 eq. 4 · $\mathcal{L} = \mathcal{L}_m + \alpha\mathcal{L}_d$, $\alph
 
 {{< include assets/w05/two-collapses.inline.qmd >}}
 
+:::: {.columns}
+::: {.column width="50%"}
+::: {.fragment fragment-index=0}
+::: {.small}
+data2vec / BYOL: an EMA teacher + stop-gradient avoids it in practice.
+:::
+:::
+:::
+::: {.column width="50%"}
+::: {.fragment fragment-index=1}
+::: {.small}
+The contrast becomes trivial; $\mathcal{L}_d$ pushes $\bar{p}_g$ to uniform. wav2vec 2.0 has negatives and still needs this: its code drops negatives equal to the answer.
+:::
+:::
+:::
+::::
+
+::: {.footer}
+BYOL = Bootstrap Your Own Latent (Grill et al., NeurIPS 2020) · EMA = exponential moving average
+:::
+
+## MC 2 — who can collapse: ask whether the target moves
+
+::: {.prose}
+| the target… | methods | can it collapse? |
+|:----|:-----|:---------|
+| **moves** — built online | wav2vec 2.0 · data2vec | **yes** — wav2vec 2.0: codebook (b) · data2vec: representation (a) |
+| **is fixed** — built before training | HuBERT · BEST-RQ | **no** — and no negatives needed |
+:::
+
 ::: {.claim}
 Collapse is a property of **online targets**, not of "non-contrastive". A fixed target cannot collapse and needs no negatives; a moving target can — with or without them.
 :::
 
 ::: {.footer}
-BYOL = Bootstrap Your Own Latent (Grill et al., NeurIPS 2020) · EMA = exponential moving average
+(a), (b): the two collapses on p26 · the four targets in one row: p40–p41
 :::
 
 ## The whole loss, and where the negatives come from
@@ -320,7 +421,7 @@ $$\mathcal{L} = \mathcal{L}_m + \alpha\,\mathcal{L}_d, \qquad \mathcal{L}_m = -\
 
 | piece | wav2vec 2.0 BASE | why |
 |:--|:--|:--|
-| target | $\mathbf{q}_t = \mathrm{VQ}(\mathbf{z}_t)$ at masked $t$; $G = 2$, $V = 320$ | discrete, finite freedom (p17) |
+| target | $\mathbf{q}_t = \mathrm{VQ}(\mathbf{z}_t)$ at masked $t$; $G = 2$, $V = 320$ | discrete, finite freedom (p19) |
 | negatives $\mathcal{Z}_t \setminus \{\mathbf{q}_t\}$ | $N - 1 = 100$, **other masked steps of the same utterance** | same speaker, same channel: only content separates them |
 | temperatures | $\kappa = 0.1$ (contrast); $\tau\colon 2 \to 0.5$ (Gumbel) | two knobs, two jobs |
 | masking | spans of 10 steps, start prob. 0.065; $\approx 49\%$ of steps masked | long enough that interpolation fails |
@@ -373,7 +474,7 @@ LS-960 = LibriSpeech 960 h · LV-60k = Libri-light 60k h · wav2vec 2.0 App. B �
 | **The question** | What if the answer for each masked frame is written down before training starts, and never moves? |
 | **The idea** | Cluster frames with k-means; predict the cluster id of every masked frame (a $K$-way classification); then cluster a middle layer of the trained model and train again. |
 | **What it added** | No negatives and no collapse by construction; a target that improves by iteration; and a consistent teacher matters more than an accurate one. |
-| **What it leaves open** | How good must the first teacher be — and what does a "hidden unit" actually hold? The next two slides, and the units section from p45. |
+| **What it leaves open** | How good must the first teacher be — and what does a "hidden unit" actually hold? The next two slides, and the units section from p51. |
 :::
 
 ::: {.footer}
@@ -384,15 +485,76 @@ Hsu et al., arXiv abstract: "the Hidden-Unit BERT (HuBERT) approach" · TASLP 29
 
 {{< include assets/w05/hubert-loop.inline.qmd >}}
 
+::: {.fragment fragment-index=0}
+::: {.small}
+Teacher 1 is consistent, not correct — MFCC k-means, 100 clusters: phone purity 0.335, PNMI 0.255 (arXiv v1 §V-C).
+:::
+:::
+
 $$\mathcal{L}_m = -\sum_{t \in M}\ln p(k_t \mid \tilde{\mathbf{X}}, t), \qquad p(k \mid \tilde{\mathbf{X}}, t) = \frac{\exp(\mathrm{sim}(\mathbf{A}\mathbf{c}_t, \mathbf{e}_k)/\kappa)}{\sum_{k'=1}^{K}\exp(\mathrm{sim}(\mathbf{A}\mathbf{c}_t, \mathbf{e}_{k'})/\kappa)}$$
 
 ::: {.footer}
-Hsu et al., TASLP 2021, eq. 3 ($\kappa = 0.1$; $\tau$ there) · §IV-C: layer 6, then 9 · v1 §V-C Fig. 2: why 6
+Hsu et al., TASLP 2021, eq. 3 ($\kappa = 0.1$; $\tau$ there) · iteration 2 and LARGE: next slide
+:::
+
+## HuBERT, iteration 2: the student becomes the teacher
+
+{{< include assets/w05/hubert-loop-2.inline.qmd >}}
+
+::: {.fragment fragment-index=0}
+::: {.small}
+Layer 6, not the top: the clusters of iteration 1 are best there (v1 §V-C, Fig. 2).
+:::
+:::
+
+::: {.fragment fragment-index=0}
+::: {.claim .warn}
+The student learns what the teacher clusters **consistently** — speaker too, if the teacher does.
+:::
+:::
+
+::: {.fragment fragment-index=1}
+::: {.small}
+Each round, the teacher never moves during training.
+:::
+:::
+
+::: {.footer}
+Hsu et al., TASLP 2021, §IV-C: layer 6, then 9 · v1 §V-C Fig. 2: why 6
 :::
 
 ## How good is a teacher? Three purities
 
+:::: {.columns}
+::: {.column width="40%"}
 {{< include assets/w05/purity.inline.qmd >}}
+:::
+::: {.column width="60%"}
+::: {.fragment fragment-index=1}
+**Phone purity** · rows: one phone per cluster?
+
+$$\mathbb{E}_{p_z(j)}\big[\,p_{y \mid z}(y^{*}(j) \mid j)\,\big]$$
+
+::: {.small}
+$y^{*}(j) = \arg\max_i\, p_{y \mid z}(i \mid j)$, the majority phone of cluster $j$; weighted by cluster size. Here $180/253 = 0.71$.
+:::
+:::
+
+::: {.fragment fragment-index=2}
+**Cluster purity** · columns: one cluster per phone?
+
+$$\mathbb{E}_{p_y(i)}\big[\,p_{z \mid y}(z^{*}(i) \mid i)\,\big]$$
+
+::: {.small}
+$z^{*}(i) = \arg\max_j\, p_{z \mid y}(j \mid i)$, the favourite cluster of phone $i$; weighted by its frequency. Here $161/253 = 0.64$.
+:::
+
+**PNMI** · share of phone entropy the clusters explain
+
+$$\mathrm{PNMI} = \frac{I(y; z)}{H(y)} = 1 - \frac{H(y \mid z)}{H(y)}$$
+:::
+:::
+::::
 
 ::: {.footer}
 PNMI = phone-normalized mutual information (HuBERT §IV-E) · MFCC teacher, $K = 100$: 0.099 · 0.335 · 0.255 (v1 §V-C)
@@ -445,7 +607,7 @@ Chen et al., IEEE JSTSP 2022: §IV-B, Fig. 1 · 20% of utterances mixed (§V-A),
 | what it buys | content | content, plus a representation that already separates speakers and ignores noise |
 
 ::: {.claim}
-Three things changed at once — the task, the position bias **and** the data. When WavLM wins a benchmark, you cannot tell which one paid. Keep that for p56.
+Three things changed at once — the task, the position bias **and** the data. When WavLM wins a benchmark, you cannot tell which one paid. Keep that for p62.
 :::
 
 ::: {.footer}
@@ -464,13 +626,41 @@ $$\mathbf{y}_t = \frac{1}{K_{\ell}}\sum_{l = n_{\text{layer}} - K_{\ell} + 1}^{n
 $$\boldsymbol{\theta}_{\text{teacher}} \leftarrow \tau_{\text{ema}}\,\boldsymbol{\theta}_{\text{teacher}} + (1 - \tau_{\text{ema}})\,\boldsymbol{\theta}_{\text{student}},\qquad \tau_{\text{ema}}\colon 0.999 \to 0.9999$$
 :::
 
+::: {.fragment fragment-index=2}
+::: {.small}
+The answer is built by the model itself and moves — collapse is possible; BYOL's recipe avoids it empirically.
+:::
+:::
+
 ::: {.footer}
 Baevski et al. 2022 §4.2 · BASE: $K_{\ell} = 8$, instance norm, L2 at $t \in M$ · $\tau_{\text{ema}}$ rises over 30k updates, then fixed
 :::
 
 ## BEST-RQ: a teacher that knows nothing
 
+::: {.small}
+BEST-RQ = BERT-based Speech pre-Training with Random-projection Quantizer (Chiu et al. 2022)
+:::
+
 {{< include assets/w05/bestrq.inline.qmd >}}
+
+::: {.fragment fragment-index=0}
+::: {.small}
+“Neither the matrix nor the codebook is updated during self-supervised learning.” Normalising the input first is what keeps the projection from collapsing onto a few codes (the paper says so).
+:::
+:::
+
+::: {.fragment fragment-index=1}
+::: {.small}
+The quantiser is decoupled from the model: any encoder, streaming or not (the paper evaluates both).
+:::
+:::
+
+::: {.fragment fragment-index=2}
+::: {.small}
+**“Consistency over correctness”, taken to the limit:** the teacher knows nothing about phones; it only answers the same way twice.
+:::
+:::
 
 ::: {.claim}
 **A target has to be consistent, not meaningful.** The quantiser is frozen noise; the encoder learns to predict that noise from context — HuBERT's student's job, with a teacher who knows even less.
@@ -480,16 +670,52 @@ Baevski et al. 2022 §4.2 · BASE: $K_{\ell} = 8$, instance norm, L2 at $t \in M
 Chiu et al., ICML 2022 · codebook $8192 \times 16$ · a streaming variant is evaluated (§4)
 :::
 
-## Four targets in one row
+## Four targets in one row: the two that are fixed
 
-{{< include assets/w05/four-targets.inline.qmd >}}
+{{< include assets/w05/targets-fixed.inline.qmd >}}
+
+```{=html}
+<table class="ft big">
+<colgroup><col style="width:16%"><col style="width:42%"><col style="width:42%"></colgroup>
+<thead><tr><th></th><th class="fragment" data-fragment-index="1"><strong>HuBERT (it. 2)</strong> — fixed · discrete</th><th class="fragment" data-fragment-index="2"><strong>BEST-RQ</strong> — fixed · discrete · random</th></tr></thead>
+<tbody>
+<tr><td>target</td><td class="fragment" data-fragment-index="1">meaningful k-means ids, from a previous model</td><td class="fragment" data-fragment-index="2">a random projection + a random codebook</td></tr>
+<tr><td>collapse</td><td class="fragment" data-fragment-index="1">impossible</td><td class="fragment" data-fragment-index="2">impossible</td></tr>
+<tr><td>negatives</td><td class="fragment" data-fragment-index="1">none</td><td class="fragment" data-fragment-index="2">none</td></tr>
+<tr><td>iterate</td><td class="fragment" data-fragment-index="1">yes: teacher ← student</td><td class="fragment" data-fragment-index="2">nothing to iterate</td></tr>
+<tr><td>fails when</td><td class="fragment" data-fragment-index="1">the teacher's biases are copied</td><td class="fragment" data-fragment-index="2">the input is not normalised</td></tr>
+</tbody>
+</table>
+```
+
+::: {.footer}
+Mohamed et al. 2022 sort by objective; today sorts by target · the two that move: next slide
+:::
+
+## Four targets in one row: the two that move
+
+{{< include assets/w05/targets-moves.inline.qmd >}}
+
+```{=html}
+<table class="ft big">
+<colgroup><col style="width:16%"><col style="width:42%"><col style="width:42%"></colgroup>
+<thead><tr><th></th><th class="fragment" data-fragment-index="0"><strong>wav2vec 2.0</strong> — online · discrete</th><th class="fragment" data-fragment-index="1"><strong>data2vec</strong> — online · continuous</th></tr></thead>
+<tbody>
+<tr><td>target</td><td class="fragment" data-fragment-index="0">Gumbel VQ of its own <span class="math inline">\mathbf{z}</span></td><td class="fragment" data-fragment-index="1">an EMA teacher, top <span class="math inline">K_{\ell}</span> layers</td></tr>
+<tr><td>collapse</td><td class="fragment" data-fragment-index="0">codebook — guarded by the diversity loss</td><td class="fragment" data-fragment-index="1">representation — avoided with the EMA teacher</td></tr>
+<tr><td>negatives</td><td class="fragment" data-fragment-index="0">100, same utterance</td><td class="fragment" data-fragment-index="1">none</td></tr>
+<tr><td>iterate</td><td class="fragment" data-fragment-index="0">no</td><td class="fragment" data-fragment-index="1">continuous</td></tr>
+<tr><td>fails when</td><td class="fragment" data-fragment-index="0"><span class="math inline">\tau</span>, codebook usage; the target is local</td><td class="fragment" data-fragment-index="1">no guarantee; recipe-sensitive</td></tr>
+</tbody>
+</table>
+```
 
 ::: {.claim}
 Who builds the target and whether it moves decide three things at once: **can it collapse, does it need negatives, can it be iterated.** The objective's name — contrastive, predictive — is downstream of that.
 :::
 
 ::: {.footer}
-Mohamed et al. 2022 sort by objective; today sorts by target
+the fixed two: p40 · the two collapses: p26–p27
 :::
 
 ## MC 4 — "self-supervised means no labels"
@@ -506,6 +732,18 @@ SSL moved the labels from the loss to the **fine-tuning and the evaluation**. It
 
 ::: {.footer}
 wav2vec 2.0 Table 1 (10 min → 960 h) · "pseudo-labels" is our word; HuBERT says "cluster assignments"
+:::
+
+## Half-time: the answer is written — what does that choice do?
+
+{{< include assets/w05/half-time.inline.qmd >}}
+
+::: {.claim}
+None of the four used a transcript; the labels moved downstream. **The first downstream decision: which layer to read.**
+:::
+
+::: {.footer}
+the answers: p15, p18 · p28 · p35, p40–p41 · the route: p7
 :::
 
 # What the target does to the layers {.section-title}
@@ -597,6 +835,12 @@ $$\mathbf{h}_t = \sum_{l=0}^{n_{\text{layer}}} w_l\,\mathbf{h}^{(l)}_t, \qquad \
 SUPERB = Speech processing Universal PERformance Benchmark. $\boldsymbol{\theta}$ is learned with the downstream head; the upstream stays frozen.
 :::
 
+::: {.fragment fragment-index=2}
+::: {.small}
+What $\mathbf{w}$ cannot see: layer scales mix into $\mathbf{w}$ · all layers are assumed at one frame rate · linearly readable information is favoured. And the best single layer often matches or beats the sum.
+:::
+:::
+
 ::: {.footer}
 Yang et al., Interspeech 2021 · Pasad et al. 2023: best single layer beats the sum by 4–9% (ASR)
 :::
@@ -642,6 +886,18 @@ Demo 2 · demos/w05_d2_units_vs_phones · $K = 100$, numpy k-means · phone labe
 ## A sentence, in phones and in units
 
 {{< include assets/w05/units-vs-phones.inline.qmd >}}
+
+::: {.fragment fragment-index=1}
+::: {.small}
+One phone ↔ several units (first IH: 12, 88) · unit edges mostly miss phone edges (M | IH, pause | K).
+:::
+:::
+
+::: {.fragment fragment-index=2}
+::: {.small}
+The same string in part (content), other units differ (red) — Demo 2: about half the runs shared; speaker reduced, not gone.
+:::
+:::
 
 ::: {.claim}
 **One phone, several units; one unit, several contexts; two speakers, about half the runs in common.** The next slide puts Demo 2's numbers on each.
@@ -705,6 +961,18 @@ Polyak et al., Interspeech 2021 (abstract: content, prosody, speaker extracted s
 ## Three confounders under every leaderboard
 
 {{< include assets/w05/confound.inline.qmd >}}
+
+```{=html}
+<table class="ft">
+<colgroup><col style="width:19%"><col style="width:33%"><col style="width:48%"></colgroup>
+<thead><tr><th>hidden axis</th><th>what differs</th><th>evidence</th></tr></thead>
+<tbody>
+<tr class="fragment" data-fragment-index="1"><td><strong>pre-training hours</strong></td><td>960 h vs 60k h vs 94k h</td><td>wav2vec 2.0 Table 1: the same LARGE on LS-960 and on LV-60k, 10 min of labels, test-other: 10.8 → 8.2 — nothing changed but the data</td></tr>
+<tr class="fragment" data-fragment-index="2"><td><strong>domain</strong></td><td>read audiobooks vs conversation, far-field, 143 languages</td><td>Robust wav2vec 2.0 (Interspeech 2021), ML-SUPERB (Interspeech 2023)</td></tr>
+<tr class="fragment" data-fragment-index="3"><td><strong>model size</strong></td><td>BASE (12 layers, 768-d) vs LARGE (24 layers, 1024-d)</td><td>HuBERT's LARGE is also a 60k-hour model: size and data move together</td></tr>
+</tbody>
+</table>
+```
 
 ::: {.claim .fragment fragment-index=4}
 **Match all three before reading the row** — and multilingual does not even guarantee a win (ML-SUPERB, the multilingual SUPERB).
@@ -868,7 +1136,7 @@ W3 and W4 asked "where does the alignment come from"; today asked **"where does 
 
 - Mohamed et al., *Self-Supervised Speech Representation Learning: A Review*, IEEE JSTSP 2022 — the survey; read the taxonomy section, then re-sort it by target as we did today
 - Hsu et al., *HuBERT*, IEEE/ACM TASLP 2021 — §II for the loss, §IV-E for the three purities, Table V for the $\alpha$ ablation you saw
-- Baevski et al., *wav2vec 2.0*, NeurIPS 2020 — §2–3 and Appendix B; look at Table 1 with p54 in mind
+- Baevski et al., *wav2vec 2.0*, NeurIPS 2020 — §2–3 and Appendix B; look at Table 1 with p60 in mind
 
 **If one thing today was new to you, make it this one**
 
@@ -883,18 +1151,18 @@ Today's unit was *predicted*; next week's token is *reconstructed*. What changes
 | | |
 |:----|:----------------|
 | ASR | automatic speech recognition (W1) |
-| BERT | Bidirectional Encoder Representations from Transformers (p17) |
-| BEST-RQ | BERT-based Speech pre-Training with Random-projection Quantizer (p35) |
-| BYOL | Bootstrap Your Own Latent (p24) |
-| CCA, PWCCA | canonical correlation analysis; projection-weighted CCA (p40) |
-| CNN | convolutional neural network (p9) |
-| CPC | Contrastive Predictive Coding (p10) |
+| BERT | Bidirectional Encoder Representations from Transformers (p19) |
+| BEST-RQ | BERT-based Speech pre-Training with Random-projection Quantizer (p39) |
+| BYOL | Bootstrap Your Own Latent (p26) |
+| CCA, PWCCA | canonical correlation analysis; projection-weighted CCA (p46) |
+| CNN | convolutional neural network (p11) |
+| CPC | Contrastive Predictive Coding (p12) |
 | CTC | connectionist temporal classification (W3) |
-| EMA | exponential moving average (p24) |
-| GRU | gated recurrent unit (p10) |
-| GSLM | generative spoken language modeling (p50) |
-| HuBERT | Hidden-Unit BERT (p28) |
-| InfoNCE | CPC's loss, "based on NCE": noise-contrastive estimation (p10) |
+| EMA | exponential moving average (p26) |
+| GRU | gated recurrent unit (p12) |
+| GSLM | generative spoken language modeling (p56) |
+| HuBERT | Hidden-Unit BERT (p31) |
+| InfoNCE | CPC's loss, "based on NCE": noise-contrastive estimation (p12) |
 
 ## Acronyms in this deck, K–W
 
@@ -902,14 +1170,14 @@ Today's unit was *predicted*; next week's token is *reconstructed*. What changes
 |:----|:----------------|
 | KV | key–value: the cache a Transformer keeps (W4) |
 | LM | language model |
-| LS-960, LV-60k | LibriSpeech, 960 h; Libri-light, 60k h (p26) |
+| LS-960, LV-60k | LibriSpeech, 960 h; Libri-light, 60k h (p29) |
 | MC | misconception: a belief that sounds right, and what breaks it |
-| MFA | Montreal Forced Aligner (p40) |
+| MFA | Montreal Forced Aligner (p46) |
 | MFCC | mel-frequency cepstral coefficients (W2) |
-| ML-SUPERB | multilingual SUPERB (p53) |
+| ML-SUPERB | multilingual SUPERB (p59) |
 | MPS | Metal Performance Shaders: Apple's GPU backend (W3) |
-| PNMI | phone-normalized mutual information (p30) |
+| PNMI | phone-normalized mutual information (p34) |
 | SSL | self-supervised learning |
-| SUPERB | Speech processing Universal PERformance Benchmark (p44) |
-| VQ, VQ-VAE | vector quantisation (p19); vector-quantised variational autoencoder (p21) |
-| WER | word error rate (p31) |
+| SUPERB | Speech processing Universal PERformance Benchmark (p50) |
+| VQ, VQ-VAE | vector quantisation (p21); vector-quantised variational autoencoder (p23) |
+| WER | word error rate (p35) |

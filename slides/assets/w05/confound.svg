@@ -1,24 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 342" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 92" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
 <g class="fragment" data-fragment-index="0">
-<rect x="60.0" y="50.0" width="880.0" height="56.0" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
-<text x="500.0" y="78.0" font-size="18" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">“model A gets a lower WER than model B — so A's objective / architecture is better”</text>
-</g>
-<g class="fragment" data-fragment-index="1">
-<rect x="60.0" y="124.0" width="880.0" height="62.0" rx="6" fill="#ffffff" stroke="#dc2626" stroke-width="1.2" stroke-dasharray="5 3"/>
-<text x="80.0" y="155.0" font-size="17" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="middle">pre-training hours</text>
-<text x="262.0" y="146.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">960 h vs 60k h vs 94k h — wav2vec 2.0 Table 1: same LARGE on LS-960 and on LV-60k,</text>
-<text x="262.0" y="169.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">10 min of labels, test-other: 10.8 → 8.2 — nothing changed but the data</text>
-</g>
-<g class="fragment" data-fragment-index="2">
-<rect x="60.0" y="194.0" width="880.0" height="62.0" rx="6" fill="#ffffff" stroke="#b45309" stroke-width="1.2" stroke-dasharray="5 3"/>
-<text x="80.0" y="225.0" font-size="17" font-weight="700" fill="#b45309" text-anchor="start" dominant-baseline="middle">domain</text>
-<text x="262.0" y="216.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">read audiobooks vs conversation, far-field, 143 languages</text>
-<text x="262.0" y="239.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">Robust wav2vec 2.0 (Interspeech 2021), ML-SUPERB (Interspeech 2023)</text>
-</g>
-<g class="fragment" data-fragment-index="3">
-<rect x="60.0" y="264.0" width="880.0" height="62.0" rx="6" fill="#ffffff" stroke="#7c3aed" stroke-width="1.2" stroke-dasharray="5 3"/>
-<text x="80.0" y="295.0" font-size="17" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="middle">model size</text>
-<text x="262.0" y="286.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">BASE (12 layers, 768-d) vs LARGE (24 layers, 1024-d)</text>
-<text x="262.0" y="309.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">and HuBERT's LARGE is also a 60k-hour model: size and data move together</text>
+<rect x="20.0" y="4.0" width="960.0" height="84.0" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="500.0" y="36.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">“model A gets a lower WER than model B —</text>
+<text x="500.0" y="68.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">so A's objective / architecture is better”</text>
 </g>
 </svg>
