@@ -1,46 +1,47 @@
 <!-- 由 scripts/make_figs_w09.py 產生，勿手改；投影片用 {{< include assets/w09/utmos-train-vs-use.inline.qmd >}} 貼入 -->
 ```{=html}
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 400" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 388" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
 <g class="fragment" data-fragment-index="0">
-<rect x="10.0" y="10.0" width="980.0" height="196.0" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="26.0" y="34.0" font-size="17" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="auto">TRAINING (VoiceMOS Challenge 2022 data: BVCC, English, 187 systems)</text>
-<rect x="26.0" y="66.0" width="130.0" height="40.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.4"/>
-<polyline points="34.0,86.0 36.9,87.5 39.7,87.8 42.5,84.6 45.4,83.2 48.2,83.7 51.1,84.5 54.0,85.1 56.8,90.3 59.6,79.5 62.5,84.8 65.3,79.8 68.2,82.1 71.0,89.2 73.9,83.7 76.8,91.4 79.6,87.7 82.5,76.5 85.3,79.3 88.2,81.5 91.0,92.9 93.8,95.0 96.7,79.6 99.5,79.5 102.4,91.6 105.2,93.4 108.1,80.0 111.0,78.3 113.8,78.8 116.7,78.5 119.5,78.8 122.3,78.8 125.2,91.3 128.1,91.0 130.9,85.3 133.8,83.4 136.6,86.5 139.4,88.6 142.3,86.8 145.2,84.7 148.0,86.0" fill="none" stroke="#b45309" stroke-width="1.6"/>
-<text x="91.0" y="126.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">an utterance</text>
-<rect x="26.0" y="140.0" width="130.0" height="48.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<text x="91.0" y="164.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">listener ID</text>
-<line x1="160.0" y1="86.0" x2="188.8" y2="100.4" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="196.0,104.0 186.6,104.9 191.1,96.0" fill="#94a3b8"/>
-<line x1="160.0" y1="164.0" x2="190.0" y2="137.3" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="196.0,132.0 193.3,141.1 186.7,133.6" fill="#94a3b8"/>
-<rect x="200.0" y="82.0" width="240.0" height="72.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="320.0" y="110.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">an SSL encoder, fine-tuned</text>
-<text x="320.0" y="134.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">+ a listener embedding</text>
-<line x1="444.0" y1="118.0" x2="472.0" y2="118.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="480.0,118.0 472.0,123.0 472.0,113.0" fill="#94a3b8"/>
-<rect x="484.0" y="88.0" width="170.0" height="60.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="569.0" y="110.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">predicted score</text>
-<text x="569.0" y="134.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">for that listener</text>
-<text x="672.0" y="118.0" font-size="20" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">↔</text>
-<rect x="692.0" y="88.0" width="172.0" height="60.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
-<svg x="754.63" y="101.612" width="46.74" height="18.3884" viewBox="0 0 46.74 18.388437"><defs>
+<rect x="10.0" y="10.0" width="980.0" height="212.0" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="26.0" y="40.0" font-size="22" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="auto">TRAINING</text>
+<text x="156.0" y="40.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">VoiceMOS Challenge 2022 data: BVCC, English, 187 systems</text>
+<rect x="26.0" y="68.0" width="130.0" height="40.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.4"/>
+<polyline points="34.0,88.0 36.9,89.5 39.7,89.8 42.5,86.6 45.4,85.2 48.2,85.7 51.1,86.5 54.0,87.1 56.8,92.3 59.6,81.5 62.5,86.8 65.3,81.8 68.2,84.1 71.0,91.2 73.9,85.7 76.8,93.4 79.6,89.7 82.5,78.5 85.3,81.3 88.2,83.5 91.0,94.9 93.8,97.0 96.7,81.6 99.5,81.5 102.4,93.6 105.2,95.4 108.1,82.0 111.0,80.3 113.8,80.8 116.7,80.5 119.5,80.8 122.3,80.8 125.2,93.3 128.1,93.0 130.9,87.3 133.8,85.4 136.6,88.5 139.4,90.6 142.3,88.8 145.2,86.7 148.0,88.0" fill="none" stroke="#b45309" stroke-width="1.6"/>
+<text x="91.0" y="130.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">an utterance</text>
+<rect x="26.0" y="144.0" width="130.0" height="44.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="91.0" y="166.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">listener ID</text>
+<line x1="160.0" y1="88.0" x2="185.0" y2="102.1" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="192.0,106.0 182.6,106.4 187.5,97.7" fill="#94a3b8"/>
+<line x1="160.0" y1="166.0" x2="186.2" y2="141.5" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="192.0,136.0 189.6,145.1 182.7,137.8" fill="#94a3b8"/>
+<rect x="196.0" y="84.0" width="290.0" height="76.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="341.0" y="109.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">an SSL encoder, fine-tuned</text>
+<text x="341.0" y="136.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">+ a listener embedding</text>
+<line x1="490.0" y1="122.0" x2="506.0" y2="122.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="514.0,122.0 506.0,127.0 506.0,117.0" fill="#94a3b8"/>
+<rect x="518.0" y="86.0" width="184.0" height="72.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="610.0" y="109.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">predicted score</text>
+<text x="610.0" y="136.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">for that listener</text>
+<text x="724.0" y="122.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">↔</text>
+<rect x="746.0" y="86.0" width="216.0" height="72.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+<svg x="821.528" y="99.8178" width="64.944" height="25.5502" viewBox="0 0 64.944 25.55025"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w9t55-figure_1">
-  <g id="w9t55-patch_1">
-   <path d="M 0 18.388437 
-L 46.74 18.388437 
-L 46.74 0 
+ <g id="w9t64-figure_1">
+  <g id="w9t64-patch_1">
+   <path d="M 0 25.55025 
+L 64.944 25.55025 
+L 64.944 0 
 L 0 0 
-L 0 18.388437 
+L 0 25.55025 
 z
 " style="fill: none"/>
   </g>
-  <g id="w9t55-text_1">
+  <g id="w9t64-text_1">
    <!-- $o_{a,j,m}$ -->
-   <g style="fill: #1f2328" transform="translate(0 12.308437) scale(0.19 -0.19)">
+   <g style="fill: #1f2328" transform="translate(0 17.10225) scale(0.264 -0.264)">
     <defs>
-     <path id="w9t55-Cmmi10-6f" d="M 1288 -72 
+     <path id="w9t64-Cmmi10-6f" d="M 1288 -72 
 Q 984 -72 748 72 
 Q 513 216 384 459 
 Q 256 703 256 1013 
@@ -70,7 +71,7 @@ Q 750 484 892 290
 Q 1034 97 1300 97 
 z
 " transform="scale(0.015625)"/>
-     <path id="w9t55-Cmmi10-61" d="M 1113 -72 
+     <path id="w9t64-Cmmi10-61" d="M 1113 -72 
 Q 709 -72 476 233 
 Q 244 538 244 953 
 Q 244 1363 456 1803 
@@ -114,7 +115,7 @@ Q 722 450 817 273
 Q 913 97 1119 97 
 z
 " transform="scale(0.015625)"/>
-     <path id="w9t55-Cmmi10-3b" d="M 634 -1153 
+     <path id="w9t64-Cmmi10-3b" d="M 634 -1153 
 Q 634 -1125 659 -1100 
 Q 891 -878 1019 -587 
 Q 1147 -297 1147 25 
@@ -133,7 +134,7 @@ Q 697 -1241 665 -1212
 Q 634 -1184 634 -1153 
 z
 " transform="scale(0.015625)"/>
-     <path id="w9t55-Cmmi10-6a" d="M -84 -909 
+     <path id="w9t64-Cmmi10-6a" d="M -84 -909 
 Q -84 -753 23 -639 
 Q 131 -525 288 -525 
 Q 391 -525 461 -589 
@@ -175,7 +176,7 @@ Q 2078 3634 2009 3706
 Q 1941 3778 1941 3878 
 z
 " transform="scale(0.015625)"/>
-     <path id="w9t55-Cmmi10-6d" d="M 494 109 
+     <path id="w9t64-Cmmi10-6d" d="M 494 109 
 Q 494 147 500 166 
 L 978 2075 
 Q 1025 2253 1025 2388 
@@ -244,42 +245,38 @@ Q 494 28 494 109
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w9t55-Cmmi10-6f" transform="translate(0 0.8125)"/>
-    <use xlink:href="#w9t55-Cmmi10-61" transform="translate(48.388672 -16.19375) scale(0.7)"/>
-    <use xlink:href="#w9t55-Cmmi10-3b" transform="translate(85.336914 -16.19375) scale(0.7)"/>
-    <use xlink:href="#w9t55-Cmmi10-6a" transform="translate(117.007812 -16.19375) scale(0.7)"/>
-    <use xlink:href="#w9t55-Cmmi10-3b" transform="translate(145.787109 -16.19375) scale(0.7)"/>
-    <use xlink:href="#w9t55-Cmmi10-6d" transform="translate(177.458008 -16.19375) scale(0.7)"/>
+    <use xlink:href="#w9t64-Cmmi10-6f" transform="translate(0 0.8125)"/>
+    <use xlink:href="#w9t64-Cmmi10-61" transform="translate(48.388672 -16.19375) scale(0.7)"/>
+    <use xlink:href="#w9t64-Cmmi10-3b" transform="translate(85.336914 -16.19375) scale(0.7)"/>
+    <use xlink:href="#w9t64-Cmmi10-6a" transform="translate(117.007812 -16.19375) scale(0.7)"/>
+    <use xlink:href="#w9t64-Cmmi10-3b" transform="translate(145.787109 -16.19375) scale(0.7)"/>
+    <use xlink:href="#w9t64-Cmmi10-6d" transform="translate(177.458008 -16.19375) scale(0.7)"/>
    </g>
   </g>
  </g>
 </svg>
-<text x="778.0" y="134.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">the score they gave</text>
-<text x="876.0" y="106.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">listener-</text>
-<text x="876.0" y="130.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">dependent</text>
-<text x="200.0" y="186.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">the model knows who is rating: each listener uses the scale differently</text>
+<text x="854.0" y="136.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">the score they gave</text>
+<text x="196.0" y="206.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">the model knows who is rating: each listener uses the scale differently</text>
 </g>
 <g class="fragment" data-fragment-index="1">
-<rect x="10.0" y="218.0" width="980.0" height="122.0" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="26.0" y="242.0" font-size="17" font-weight="700" fill="#15803d" text-anchor="start" dominant-baseline="auto">USE</text>
-<rect x="26.0" y="268.0" width="130.0" height="40.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.4"/>
-<polyline points="34.0,288.0 36.9,289.4 39.7,289.6 42.5,288.9 45.4,286.5 48.2,289.8 51.1,286.1 54.0,290.7 56.8,292.8 59.6,285.4 62.5,282.0 65.3,291.8 68.2,287.9 71.0,288.3 73.9,281.0 76.8,291.6 79.6,292.9 82.5,296.9 85.3,284.0 88.2,279.4 91.0,283.4 93.8,288.4 96.7,290.8 99.5,283.9 102.4,283.3 105.2,280.9 108.1,279.3 111.0,293.7 113.8,284.4 116.7,291.2 119.5,286.4 122.3,283.3 125.2,290.5 128.1,285.4 130.9,292.0 133.8,283.4 136.6,285.4 139.4,287.6 142.3,286.4 145.2,286.8 148.0,288.0" fill="none" stroke="#b45309" stroke-width="1.6"/>
-<text x="26.0" y="328.0" font-size="16" font-weight="400" fill="#dc2626" text-anchor="start" dominant-baseline="auto">a 2026 system, any language</text>
-<line x1="160.0" y1="288.0" x2="188.0" y2="288.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="196.0,288.0 188.0,293.0 188.0,283.0" fill="#94a3b8"/>
-<rect x="200.0" y="256.0" width="240.0" height="64.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="320.0" y="280.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">the same network</text>
-<text x="320.0" y="304.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">an average listener</text>
-<line x1="444.0" y1="288.0" x2="472.0" y2="288.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="480.0,288.0 472.0,293.0 472.0,283.0" fill="#94a3b8"/>
-<rect x="484.0" y="258.0" width="170.0" height="60.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="569.0" y="280.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">one number</text>
-<text x="569.0" y="304.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">per utterance</text>
-<text x="672.0" y="276.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">no listener · no other systems in the room</text>
-<text x="672.0" y="302.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">no test: nothing to be relative to</text>
-</g>
-<g class="fragment" data-fragment-index="2">
-<text x="500.0" y="376.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">it estimates what those listeners, in that test, would have said on average — elsewhere it is out of distribution</text>
+<rect x="10.0" y="234.0" width="980.0" height="144.0" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="26.0" y="264.0" font-size="22" font-weight="700" fill="#15803d" text-anchor="start" dominant-baseline="auto">USE</text>
+<rect x="26.0" y="284.0" width="130.0" height="40.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.4"/>
+<polyline points="34.0,304.0 36.9,305.4 39.7,305.6 42.5,304.9 45.4,302.5 48.2,305.8 51.1,302.1 54.0,306.7 56.8,308.8 59.6,301.4 62.5,298.0 65.3,307.8 68.2,303.9 71.0,304.3 73.9,297.0 76.8,307.6 79.6,308.9 82.5,312.9 85.3,300.0 88.2,295.4 91.0,299.4 93.8,304.4 96.7,306.8 99.5,299.9 102.4,299.3 105.2,296.9 108.1,295.3 111.0,309.7 113.8,300.4 116.7,307.2 119.5,302.4 122.3,299.3 125.2,306.5 128.1,301.4 130.9,308.0 133.8,299.4 136.6,301.4 139.4,303.6 142.3,302.4 145.2,302.8 148.0,304.0" fill="none" stroke="#b45309" stroke-width="1.6"/>
+<text x="26.0" y="356.0" font-size="19" font-weight="400" fill="#dc2626" text-anchor="start" dominant-baseline="auto">a 2026 system, any language</text>
+<line x1="160.0" y1="304.0" x2="184.0" y2="304.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="192.0,304.0 184.0,309.0 184.0,299.0" fill="#94a3b8"/>
+<rect x="196.0" y="268.0" width="290.0" height="72.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="341.0" y="291.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">the same network</text>
+<text x="341.0" y="318.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">an average listener</text>
+<line x1="490.0" y1="304.0" x2="506.0" y2="304.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="514.0,304.0 506.0,309.0 506.0,299.0" fill="#94a3b8"/>
+<rect x="518.0" y="268.0" width="184.0" height="72.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="610.0" y="291.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">one number</text>
+<text x="610.0" y="318.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">per utterance</text>
+<text x="720.0" y="278.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">no listener</text>
+<text x="720.0" y="306.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">no other systems in the room</text>
+<text x="720.0" y="334.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">no test to be relative to</text>
 </g>
 </svg>
 ```

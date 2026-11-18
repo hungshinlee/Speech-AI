@@ -75,7 +75,7 @@ level_floor_dbfs = -100.0
 hf_split_hz = 4000.0
 
 [own]
-# 加一格（p15）：兩段授課者自錄的 prompt。`./present.sh record mood`／`record accent` 照下面的 prompt_text 念、錄成 audio/own_<名字>.wav。
+# 加一格（p16）：兩段授課者自錄的 prompt。`./present.sh record mood`／`record accent` 照下面的 prompt_text 念、錄成 audio/own_<名字>.wav。
 # 錄音與它們的輸出（runs/rehearsal/own_*.wav）**不上站**（W9 開放那天加進 sites.json 的 public_demos_exclude）。
 record_s = 6.0
 

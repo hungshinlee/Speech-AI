@@ -16,7 +16,7 @@
   selftest   不開視窗、不需要模型：對齊與 S／D／I、音節數、語速、F0 起伏、advantage、名次、fake 流程；有彩排紀錄時對 w09-metrics.json
   export     只重寫 w09-metrics.json → demo2（從 runs/rehearsal/rehearsal.json 與 picks.json）
 
-畫面上的鍵（順序照投影片 p54、p55 講稿的【操作】）：
+畫面上的鍵（順序照投影片 p56、p57 講稿的【操作】）：
   g  這一組的表：十二段 × （WER、SIM、predicted MOS ｜ 語速、F0 起伏）
   l  長尾：有錯字或長度離群的段標出來，播最糟的那一段
   a  每位裁判多一欄 advantage：(r − 組平均) ÷ 組標準差；標準差是 0 的那一欄沒有訊號
@@ -26,7 +26,7 @@
   n  現場再抽一組（只有 show）   1–9 0 - =  播第 1–12 段     o  播 prompt
   t  投影片上那兩張表要的摘要     r  再播一次     ?  選單     q  離開
 
-三位裁判（投影片 p53–p55）：
+三位裁判（投影片 p55–p57）：
   WER   Whisper small 聽寫後對要念的句子。英文：詞，兩邊過 Whisper 的 English normalizer；華語：帶調拼音的音節。reward = −WER
   SIM   輸出與 prompt 經同一個 speaker encoder（WavLM-SV）的向量的 cosine
   MOS   UTMOS22 strong learner 預測的 1–5 分（BVCC 上訓的：英語、2022 年以前的系統）
@@ -800,7 +800,7 @@ class Demo:
         self.draw_fig()
 
     def summary(self) -> None:
-        """投影片 p54、p55 兩張表要的列（英文，直接抄）。"""
+        """投影片 p56、p57 兩張表要的列（英文，直接抄）。"""
         o, st, rows = self.out, self.stats(), self.rows()
         if not st:
             return
@@ -853,8 +853,8 @@ class Demo:
         self.draw_fig()
 
     def menu(self) -> None:
-        self.out(f"\n{C.BOLD}p54{C.RESET}  g 表   l 長尾   a advantage   z 換另一句   f F5 對照 ↔ Qwen3   n 現場再抽一組     "
-                 f"{C.BOLD}p55{C.RESET}  w s m 三位裁判的第一名   h 我挑的   p 散點圖（再按換裁判）\n"
+        self.out(f"\n{C.BOLD}p56{C.RESET}  g 表   l 長尾   a advantage   z 換另一句   f F5 對照 ↔ Qwen3   n 現場再抽一組     "
+                 f"{C.BOLD}p57{C.RESET}  w s m 三位裁判的第一名   h 我挑的   p 散點圖（再按換裁判）\n"
                  f"     1–9 0 - = 播第 1–12 段   o prompt   t 摘要   r 再播   ? 選單   q 離開")
 
     def dispatch(self, k: str) -> bool:
@@ -1219,7 +1219,7 @@ def export(rec_path: Path) -> None:
                                   "rank / first": "rank 1 = highest reward; ties share the average rank; 'first' lists every draw tied for the best reward (0-based indices)",
                                   "spearman": "Spearman correlation between a judge's rank and a descriptor; positive = the draws the judge prefers have smaller values",
                                   "tail": "draws with more word errors than the best draw of the group, or whose speech span exceeds 1.5 × the group median",
-                                  "what_we_heard": "filled by hand after the rehearsal (w09.qmd p54, p55)"}}
+                                  "what_we_heard": "filled by hand after the rehearsal (w09.qmd p56, p57)"}}
     METRICS_JSON.parent.mkdir(parents=True, exist_ok=True)
     METRICS_JSON.write_text(json.dumps(d, ensure_ascii=False, indent=1, default=float), encoding="utf-8")
     print(f"  → {os.path.relpath(METRICS_JSON, HERE)}（demo2）")

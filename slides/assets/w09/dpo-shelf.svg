@@ -1,42 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 400" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 362" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
 <g class="fragment" data-fragment-index="0">
 <rect x="10.0" y="10.0" width="980.0" height="212.0" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="26.0" y="34.0" font-size="17" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="auto">TRAINING (DPO): no sampling and no judge inside the loop</text>
-<rect x="26.0" y="56.0" width="300.0" height="132.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="176.0" y="76.0" font-size="16" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">pairs, collected beforehand</text>
-<rect x="40.0" y="92.0" width="126.0" height="24.0" rx="4" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
-<polyline points="46.0,104.0 48.9,104.7 51.7,105.5 54.5,103.2 57.4,101.6 60.2,105.3 63.1,107.7 66.0,105.4 68.8,99.8 71.7,103.5 74.5,102.6 77.3,100.3 80.2,107.6 83.0,100.4 85.9,102.1 88.8,107.9 91.6,106.1 94.5,99.8 97.3,100.2 100.2,107.3 103.0,98.2 105.8,100.5 108.7,102.1 111.5,106.1 114.4,99.0 117.2,109.4 120.1,100.0 123.0,104.6 125.8,105.6 128.7,99.9 131.5,106.2 134.3,99.5 137.2,99.9 140.1,100.4 142.9,107.7 145.8,106.3 148.6,106.5 151.4,103.8 154.3,105.2 157.2,104.7 160.0,104.0" fill="none" stroke="#15803d" stroke-width="1.2"/>
-<text x="176.0" y="104.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">≻</text>
-<rect x="188.0" y="92.0" width="126.0" height="24.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
-<polyline points="194.0,104.0 196.8,104.8 199.7,104.7 202.6,102.5 205.4,102.3 208.2,102.1 211.1,105.5 213.9,108.1 216.8,106.1 219.7,103.6 222.5,104.1 225.3,107.8 228.2,102.3 231.1,98.9 233.9,106.3 236.8,104.5 239.6,103.1 242.4,100.4 245.3,108.7 248.2,107.2 251.0,109.7 253.8,102.8 256.7,100.5 259.6,104.8 262.4,99.5 265.2,106.1 268.1,101.0 270.9,107.8 273.8,103.3 276.6,100.5 279.5,103.3 282.4,100.4 285.2,106.4 288.1,106.5 290.9,107.3 293.8,104.9 296.6,101.8 299.4,104.7 302.3,104.6 305.1,104.1 308.0,104.0" fill="none" stroke="#dc2626" stroke-width="1.2"/>
-<rect x="40.0" y="122.0" width="126.0" height="24.0" rx="4" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
-<polyline points="46.0,134.0 48.9,134.8 51.7,134.8 54.5,134.7 57.4,131.2 60.2,131.7 63.1,137.5 66.0,137.6 68.8,129.4 71.7,130.9 74.5,137.1 77.3,137.2 80.2,133.8 83.0,135.5 85.9,129.0 88.8,129.7 91.6,136.9 94.5,129.1 97.3,129.4 100.2,132.2 103.0,139.7 105.8,130.7 108.7,130.7 111.5,133.0 114.4,136.3 117.2,130.4 120.1,128.9 123.0,134.9 125.8,139.0 128.7,135.4 131.5,132.3 134.3,129.2 137.2,132.6 140.1,132.8 142.9,135.9 145.8,137.6 148.6,136.1 151.4,135.6 154.3,133.8 157.2,135.1 160.0,134.0" fill="none" stroke="#15803d" stroke-width="1.2"/>
-<text x="176.0" y="134.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">≻</text>
-<rect x="188.0" y="122.0" width="126.0" height="24.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
-<polyline points="194.0,134.0 196.8,134.9 199.7,135.4 202.6,133.9 205.4,131.6 208.2,135.6 211.1,135.3 213.9,136.4 216.8,134.5 219.7,129.1 222.5,135.1 225.3,136.8 228.2,129.1 231.1,136.4 233.9,129.5 236.8,133.2 239.6,131.9 242.4,128.1 245.3,134.0 248.2,132.1 251.0,128.7 253.8,138.7 256.7,129.8 259.6,131.7 262.4,138.2 265.2,134.9 268.1,129.5 270.9,130.3 273.8,135.5 276.6,131.7 279.5,130.4 282.4,130.1 285.2,130.4 288.1,131.3 290.9,131.3 293.8,133.3 296.6,133.8 299.4,136.3 302.3,134.1 305.1,133.9 308.0,134.0" fill="none" stroke="#dc2626" stroke-width="1.2"/>
-<rect x="40.0" y="152.0" width="126.0" height="24.0" rx="4" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
-<polyline points="46.0,164.0 48.9,164.8 51.7,165.0 54.5,163.6 57.4,161.5 60.2,165.0 63.1,167.3 66.0,166.4 68.8,168.7 71.7,162.5 74.5,161.3 77.3,165.4 80.2,160.2 83.0,164.8 85.9,163.4 88.8,168.8 91.6,169.2 94.5,168.1 97.3,167.0 100.2,158.1 103.0,166.0 105.8,168.2 108.7,162.2 111.5,158.5 114.4,163.2 117.2,164.3 120.1,159.4 123.0,161.0 125.8,167.2 128.7,168.1 131.5,166.4 134.3,158.9 137.2,160.1 140.1,161.1 142.9,161.2 145.8,166.4 148.6,164.1 151.4,165.1 154.3,163.4 157.2,165.0 160.0,164.0" fill="none" stroke="#15803d" stroke-width="1.2"/>
-<text x="176.0" y="164.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">≻</text>
-<rect x="188.0" y="152.0" width="126.0" height="24.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
-<polyline points="194.0,164.0 196.8,164.9 199.7,165.5 202.6,162.8 205.4,162.2 208.2,162.1 211.1,165.0 213.9,164.2 216.8,162.6 219.7,162.3 222.5,159.2 225.3,158.5 228.2,160.3 231.1,164.5 233.9,160.6 236.8,168.1 239.6,159.6 242.4,169.2 245.3,157.6 248.2,159.3 251.0,167.8 253.8,169.5 256.7,164.1 259.6,160.7 262.4,161.3 265.2,159.1 268.1,160.1 270.9,166.7 273.8,168.2 276.6,167.4 279.5,169.2 282.4,159.8 285.2,164.7 288.1,162.0 290.9,165.1 293.8,165.4 296.6,163.9 299.4,164.6 302.3,162.8 305.1,163.7 308.0,164.0" fill="none" stroke="#dc2626" stroke-width="1.2"/>
-<svg x="92.38" y="192.579" width="21.24" height="17.4206" viewBox="0 0 21.24 17.420625"><defs>
+<text x="26.0" y="40.0" font-size="22" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="auto">TRAINING (DPO)</text>
+<text x="226.0" y="40.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">no sampling, no judge inside the loop</text>
+<rect x="24.0" y="56.0" width="310.0" height="128.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="179.0" y="76.0" font-size="19" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">pairs, collected beforehand</text>
+<rect x="38.0" y="92.0" width="128.0" height="26.0" rx="4" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<polyline points="44.0,105.0 46.9,105.7 49.8,106.5 52.7,104.2 55.6,102.6 58.5,106.3 61.4,108.7 64.3,106.4 67.2,100.8 70.1,104.5 73.0,103.6 75.9,101.3 78.8,108.6 81.7,101.4 84.6,103.1 87.5,108.9 90.4,107.1 93.3,100.8 96.2,101.2 99.1,108.3 102.0,99.2 104.9,101.5 107.8,103.1 110.7,107.1 113.6,100.0 116.5,110.4 119.4,101.0 122.3,105.6 125.2,106.6 128.1,100.9 131.0,107.2 133.9,100.5 136.8,100.9 139.7,101.4 142.6,108.7 145.5,107.3 148.4,107.5 151.3,104.8 154.2,106.2 157.1,105.7 160.0,105.0" fill="none" stroke="#15803d" stroke-width="1.2"/>
+<text x="179.0" y="105.0" font-size="19" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">≻</text>
+<rect x="192.0" y="92.0" width="128.0" height="26.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+<polyline points="198.0,105.0 200.9,105.8 203.8,105.7 206.7,103.5 209.6,103.3 212.5,103.1 215.4,106.5 218.3,109.1 221.2,107.1 224.1,104.6 227.0,105.1 229.9,108.8 232.8,103.3 235.7,99.9 238.6,107.3 241.5,105.5 244.4,104.1 247.3,101.4 250.2,109.7 253.1,108.2 256.0,110.7 258.9,103.8 261.8,101.5 264.7,105.8 267.6,100.5 270.5,107.1 273.4,102.0 276.3,108.8 279.2,104.3 282.1,101.5 285.0,104.3 287.9,101.4 290.8,107.4 293.7,107.5 296.6,108.3 299.5,105.9 302.4,102.8 305.3,105.7 308.2,105.6 311.1,105.1 314.0,105.0" fill="none" stroke="#dc2626" stroke-width="1.2"/>
+<rect x="38.0" y="122.0" width="128.0" height="26.0" rx="4" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<polyline points="44.0,135.0 46.9,135.8 49.8,135.8 52.7,135.7 55.6,132.2 58.5,132.7 61.4,138.5 64.3,138.6 67.2,130.4 70.1,131.9 73.0,138.1 75.9,138.2 78.8,134.8 81.7,136.5 84.6,130.0 87.5,130.7 90.4,137.9 93.3,130.1 96.2,130.4 99.1,133.2 102.0,140.7 104.9,131.7 107.8,131.7 110.7,134.0 113.6,137.3 116.5,131.4 119.4,129.9 122.3,135.9 125.2,140.0 128.1,136.4 131.0,133.3 133.9,130.2 136.8,133.6 139.7,133.8 142.6,136.9 145.5,138.6 148.4,137.1 151.3,136.6 154.2,134.8 157.1,136.1 160.0,135.0" fill="none" stroke="#15803d" stroke-width="1.2"/>
+<text x="179.0" y="135.0" font-size="19" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">≻</text>
+<rect x="192.0" y="122.0" width="128.0" height="26.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+<polyline points="198.0,135.0 200.9,135.9 203.8,136.4 206.7,134.9 209.6,132.6 212.5,136.6 215.4,136.3 218.3,137.4 221.2,135.5 224.1,130.1 227.0,136.1 229.9,137.8 232.8,130.1 235.7,137.4 238.6,130.5 241.5,134.2 244.4,132.9 247.3,129.1 250.2,135.0 253.1,133.1 256.0,129.7 258.9,139.7 261.8,130.8 264.7,132.7 267.6,139.2 270.5,135.9 273.4,130.5 276.3,131.3 279.2,136.5 282.1,132.7 285.0,131.4 287.9,131.1 290.8,131.4 293.7,132.3 296.6,132.3 299.5,134.3 302.4,134.8 305.3,137.3 308.2,135.1 311.1,134.9 314.0,135.0" fill="none" stroke="#dc2626" stroke-width="1.2"/>
+<rect x="38.0" y="152.0" width="128.0" height="26.0" rx="4" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<polyline points="44.0,165.0 46.9,165.8 49.8,166.0 52.7,164.6 55.6,162.5 58.5,166.0 61.4,168.3 64.3,167.4 67.2,169.7 70.1,163.5 73.0,162.3 75.9,166.4 78.8,161.2 81.7,165.8 84.6,164.4 87.5,169.8 90.4,170.2 93.3,169.1 96.2,168.0 99.1,159.1 102.0,167.0 104.9,169.2 107.8,163.2 110.7,159.5 113.6,164.2 116.5,165.3 119.4,160.4 122.3,162.0 125.2,168.2 128.1,169.1 131.0,167.4 133.9,159.9 136.8,161.1 139.7,162.1 142.6,162.2 145.5,167.4 148.4,165.1 151.3,166.1 154.2,164.4 157.1,166.0 160.0,165.0" fill="none" stroke="#15803d" stroke-width="1.2"/>
+<text x="179.0" y="165.0" font-size="19" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">≻</text>
+<rect x="192.0" y="152.0" width="128.0" height="26.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+<polyline points="198.0,165.0 200.9,165.9 203.8,166.5 206.7,163.8 209.6,163.2 212.5,163.1 215.4,166.0 218.3,165.2 221.2,163.6 224.1,163.3 227.0,160.2 229.9,159.5 232.8,161.3 235.7,165.5 238.6,161.6 241.5,169.1 244.4,160.6 247.3,170.2 250.2,158.6 253.1,160.3 256.0,168.8 258.9,170.5 261.8,165.1 264.7,161.7 267.6,162.3 270.5,160.1 273.4,161.1 276.3,167.7 279.2,169.2 282.1,168.4 285.0,170.2 287.9,160.8 290.8,165.7 293.7,163.0 296.6,166.1 299.5,166.4 302.4,164.9 305.3,165.6 308.2,163.8 311.1,164.7 314.0,165.0" fill="none" stroke="#dc2626" stroke-width="1.2"/>
+<svg x="88.548" y="186.976" width="26.904" height="27.7661" viewBox="0 -5.7 26.904 27.7661"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w9t41-figure_1">
-  <g id="w9t41-patch_1">
-   <path d="M 0 17.420625 
-L 21.24 17.420625 
-L 21.24 0 
+ <g id="w9t43-figure_1">
+  <g id="w9t43-patch_1">
+   <path d="M 0 22.066125 
+L 26.904 22.066125 
+L 26.904 0 
 L 0 0 
-L 0 17.420625 
+L 0 22.066125 
 z
 " style="fill: none"/>
   </g>
-  <g id="w9t41-text_1">
+  <g id="w9t43-text_1">
    <!-- $\mathbf{k}^{+}$ -->
-   <g style="fill: #15803d" transform="translate(0 13.677187) scale(0.18 -0.18)">
+   <g style="fill: #15803d" transform="translate(0 17.324437) scale(0.228 -0.228)">
     <defs>
-     <path id="w9t41-Cmb10-6b" d="M 91 0 
+     <path id="w9t43-Cmb10-6b" d="M 91 0 
 L 91 325 
 L 531 325 
 L 531 3884 
@@ -67,7 +68,7 @@ L 1650 0
 L 91 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w9t41-Cmr10-2b" d="M 481 1472 
+     <path id="w9t43-Cmr10-2b" d="M 481 1472 
 Q 428 1472 393 1512 
 Q 359 1553 359 1600 
 Q 359 1647 393 1687 
@@ -95,30 +96,30 @@ L 481 1472
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w9t41-Cmb10-6b" transform="translate(0 0.928125)"/>
-    <use xlink:href="#w9t41-Cmr10-2b" transform="translate(57.149687 39.192187) scale(0.7)"/>
+    <use xlink:href="#w9t43-Cmb10-6b" transform="translate(0 0.928125)"/>
+    <use xlink:href="#w9t43-Cmr10-2b" transform="translate(57.149687 39.192187) scale(0.7)"/>
    </g>
   </g>
  </g>
 </svg>
-<svg x="240.38" y="192.579" width="21.24" height="17.4206" viewBox="0 0 21.24 17.420625"><defs>
+<svg x="242.548" y="186.976" width="26.904" height="27.7661" viewBox="0 -5.7 26.904 27.7661"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w9t42-figure_1">
-  <g id="w9t42-patch_1">
-   <path d="M 0 17.420625 
-L 21.24 17.420625 
-L 21.24 0 
+ <g id="w9t44-figure_1">
+  <g id="w9t44-patch_1">
+   <path d="M 0 22.066125 
+L 26.904 22.066125 
+L 26.904 0 
 L 0 0 
-L 0 17.420625 
+L 0 22.066125 
 z
 " style="fill: none"/>
   </g>
-  <g id="w9t42-text_1">
+  <g id="w9t44-text_1">
    <!-- $\mathbf{k}^{-}$ -->
-   <g style="fill: #dc2626" transform="translate(0 13.677187) scale(0.18 -0.18)">
+   <g style="fill: #dc2626" transform="translate(0 17.324437) scale(0.228 -0.228)">
     <defs>
-     <path id="w9t42-Cmb10-6b" d="M 91 0 
+     <path id="w9t44-Cmb10-6b" d="M 91 0 
 L 91 325 
 L 531 325 
 L 531 3884 
@@ -149,7 +150,7 @@ L 1650 0
 L 91 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w9t42-Cmsy10-a1" d="M 653 1472 
+     <path id="w9t44-Cmsy10-a1" d="M 653 1472 
 Q 600 1472 565 1512 
 Q 531 1553 531 1600 
 Q 531 1647 565 1687 
@@ -163,33 +164,33 @@ L 653 1472
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w9t42-Cmb10-6b" transform="translate(0 0.609375)"/>
-    <use xlink:href="#w9t42-Cmsy10-a1" transform="translate(57.149687 38.873438) scale(0.7)"/>
+    <use xlink:href="#w9t44-Cmb10-6b" transform="translate(0 0.609375)"/>
+    <use xlink:href="#w9t44-Cmsy10-a1" transform="translate(57.149687 38.873438) scale(0.7)"/>
    </g>
   </g>
  </g>
 </svg>
-<line x1="330.0" y1="122.0" x2="358.0" y2="122.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="366.0,122.0 358.0,127.0 358.0,117.0" fill="#94a3b8"/>
-<rect x="370.0" y="66.0" width="200.0" height="52.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<svg x="425.27" y="83.2" width="89.46" height="19.8" viewBox="0 0 89.46 19.8"><defs>
+<line x1="338.0" y1="120.0" x2="354.0" y2="120.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="362.0,120.0 354.0,125.0 354.0,115.0" fill="#94a3b8"/>
+<rect x="366.0" y="58.0" width="204.0" height="52.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<svg x="411.342" y="65.76" width="113.316" height="30.78" viewBox="0 -5.7 113.316 30.78"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w9t43-figure_1">
-  <g id="w9t43-patch_1">
-   <path d="M 0 19.8 
-L 89.46 19.8 
-L 89.46 0 
+ <g id="w9t45-figure_1">
+  <g id="w9t45-patch_1">
+   <path d="M 0 25.08 
+L 113.316 25.08 
+L 113.316 0 
 L 0 0 
-L 0 19.8 
+L 0 25.08 
 z
 " style="fill: none"/>
   </g>
-  <g id="w9t43-text_1">
+  <g id="w9t45-text_1">
    <!-- $\ln \pi_\theta(\mathbf{k}^{\pm} \mid \mathbf{c})$ -->
-   <g style="fill: #1f2328" transform="translate(0 15.3) scale(0.18 -0.18)">
+   <g style="fill: #1f2328" transform="translate(0 19.38) scale(0.228 -0.228)">
     <defs>
-     <path id="w9t43-Cmr10-6c" d="M 197 0 
+     <path id="w9t45-Cmr10-6c" d="M 197 0 
 L 197 225 
 Q 416 225 556 259 
 Q 697 294 697 428 
@@ -206,7 +207,7 @@ L 1644 0
 L 197 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w9t43-Cmr10-6e" d="M 191 0 
+     <path id="w9t45-Cmr10-6e" d="M 191 0 
 L 191 225 
 Q 409 225 550 259 
 Q 691 294 691 428 
@@ -241,7 +242,7 @@ L 1656 0
 L 191 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w9t43-Cmmi10-bc" d="M 647 109 
+     <path id="w9t45-Cmmi10-bc" d="M 647 109 
 Q 647 144 672 213 
 Q 850 584 1004 942 
 Q 1159 1300 1282 1639 
@@ -278,7 +279,7 @@ Q 766 -72 706 -20
 Q 647 31 647 109 
 z
 " transform="scale(0.015625)"/>
-     <path id="w9t43-Cmmi10-b5" d="M 1031 -72 
+     <path id="w9t45-Cmmi10-b5" d="M 1031 -72 
 Q 741 -72 566 140 
 Q 391 353 323 653 
 Q 256 953 256 1247 
@@ -323,7 +324,7 @@ Q 1731 4347 1436 3692
 Q 1141 3038 959 2338 
 z
 " transform="scale(0.015625)"/>
-     <path id="w9t43-Cmr10-28" d="M 1984 -1588 
+     <path id="w9t45-Cmr10-28" d="M 1984 -1588 
 Q 1628 -1306 1370 -942 
 Q 1113 -578 948 -165 
 Q 784 247 703 697 
@@ -349,7 +350,7 @@ L 2016 -1600
 Q 1984 -1600 1984 -1588 
 z
 " transform="scale(0.015625)"/>
-     <path id="w9t43-Cmb10-6b" d="M 91 0 
+     <path id="w9t45-Cmb10-6b" d="M 91 0 
 L 91 325 
 L 531 325 
 L 531 3884 
@@ -380,7 +381,7 @@ L 1650 0
 L 91 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w9t43-Cmsy10-a7" d="M 481 0 
+     <path id="w9t45-Cmsy10-a7" d="M 481 0 
 Q 428 0 393 37 
 Q 359 75 359 128 
 Q 359 175 393 215 
@@ -414,7 +415,7 @@ Q 4547 0 4500 0
 L 481 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w9t43-Cmsy10-6a" d="M 763 -1484 
+     <path id="w9t45-Cmsy10-6a" d="M 763 -1484 
 L 763 4684 
 Q 763 4734 800 4767 
 Q 838 4800 891 4800 
@@ -427,7 +428,7 @@ Q 838 -1600 800 -1567
 Q 763 -1534 763 -1484 
 z
 " transform="scale(0.015625)"/>
-     <path id="w9t43-Cmb10-63" d="M 1594 -38 
+     <path id="w9t45-Cmb10-63" d="M 1594 -38 
 Q 1172 -38 858 150 
 Q 544 338 378 667 
 Q 213 997 213 1422 
@@ -460,7 +461,7 @@ Q 2553 363 2261 162
 Q 1969 -38 1594 -38 
 z
 " transform="scale(0.015625)"/>
-     <path id="w9t43-Cmr10-29" d="M 416 -1600 
+     <path id="w9t45-Cmr10-29" d="M 416 -1600 
 Q 359 -1600 359 -1544 
 Q 359 -1516 372 -1503 
 Q 1466 -434 1466 1600 
@@ -482,39 +483,39 @@ L 416 -1600
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w9t43-Cmr10-6c" transform="translate(0 0.109375)"/>
-    <use xlink:href="#w9t43-Cmr10-6e" transform="translate(27.685547 0.109375)"/>
-    <use xlink:href="#w9t43-Cmmi10-bc" transform="translate(97.835579 0.109375)"/>
-    <use xlink:href="#w9t43-Cmmi10-b5" transform="translate(154.818001 -16.896875) scale(0.7)"/>
-    <use xlink:href="#w9t43-Cmr10-28" transform="translate(194.042024 0.109375)"/>
-    <use xlink:href="#w9t43-Cmb10-6b" transform="translate(232.860384 0.109375)"/>
-    <use xlink:href="#w9t43-Cmsy10-a7" transform="translate(290.010071 38.373438) scale(0.7)"/>
-    <use xlink:href="#w9t43-Cmsy10-6a" transform="translate(368.325892 0.109375)"/>
-    <use xlink:href="#w9t43-Cmb10-63" transform="translate(413.570032 0.109375)"/>
-    <use xlink:href="#w9t43-Cmr10-29" transform="translate(457.954798 0.109375)"/>
+    <use xlink:href="#w9t45-Cmr10-6c" transform="translate(0 0.109375)"/>
+    <use xlink:href="#w9t45-Cmr10-6e" transform="translate(27.685547 0.109375)"/>
+    <use xlink:href="#w9t45-Cmmi10-bc" transform="translate(97.835579 0.109375)"/>
+    <use xlink:href="#w9t45-Cmmi10-b5" transform="translate(154.818001 -16.896875) scale(0.7)"/>
+    <use xlink:href="#w9t45-Cmr10-28" transform="translate(194.042024 0.109375)"/>
+    <use xlink:href="#w9t45-Cmb10-6b" transform="translate(232.860384 0.109375)"/>
+    <use xlink:href="#w9t45-Cmsy10-a7" transform="translate(290.010071 38.373438) scale(0.7)"/>
+    <use xlink:href="#w9t45-Cmsy10-6a" transform="translate(368.325892 0.109375)"/>
+    <use xlink:href="#w9t45-Cmb10-63" transform="translate(413.570032 0.109375)"/>
+    <use xlink:href="#w9t45-Cmr10-29" transform="translate(457.954798 0.109375)"/>
    </g>
   </g>
  </g>
 </svg>
-<rect x="370.0" y="126.0" width="200.0" height="52.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
-<svg x="421.31" y="143.2" width="97.38" height="19.8" viewBox="0 0 97.38 19.8"><defs>
+<rect x="366.0" y="118.0" width="204.0" height="52.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<svg x="406.326" y="125.76" width="123.348" height="30.78" viewBox="0 -5.7 123.348 30.78"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w9t44-figure_1">
-  <g id="w9t44-patch_1">
-   <path d="M 0 19.8 
-L 97.38 19.8 
-L 97.38 0 
+ <g id="w9t46-figure_1">
+  <g id="w9t46-patch_1">
+   <path d="M 0 25.08 
+L 123.348 25.08 
+L 123.348 0 
 L 0 0 
-L 0 19.8 
+L 0 25.08 
 z
 " style="fill: none"/>
   </g>
-  <g id="w9t44-text_1">
+  <g id="w9t46-text_1">
    <!-- $\ln \pi_{\mathsf{ref}}(\mathbf{k}^{\pm} \mid \mathbf{c})$ -->
-   <g style="fill: #1f2328" transform="translate(0 15.3) scale(0.18 -0.18)">
+   <g style="fill: #1f2328" transform="translate(0 19.38) scale(0.228 -0.228)">
     <defs>
-     <path id="w9t44-Cmr10-6c" d="M 197 0 
+     <path id="w9t46-Cmr10-6c" d="M 197 0 
 L 197 225 
 Q 416 225 556 259 
 Q 697 294 697 428 
@@ -531,7 +532,7 @@ L 1644 0
 L 197 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w9t44-Cmr10-6e" d="M 191 0 
+     <path id="w9t46-Cmr10-6e" d="M 191 0 
 L 191 225 
 Q 409 225 550 259 
 Q 691 294 691 428 
@@ -566,7 +567,7 @@ L 1656 0
 L 191 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w9t44-Cmmi10-bc" d="M 647 109 
+     <path id="w9t46-Cmmi10-bc" d="M 647 109 
 Q 647 144 672 213 
 Q 850 584 1004 942 
 Q 1159 1300 1282 1639 
@@ -603,7 +604,7 @@ Q 766 -72 706 -20
 Q 647 31 647 109 
 z
 " transform="scale(0.015625)"/>
-     <path id="w9t44-Cmss10-72" d="M 513 0 
+     <path id="w9t46-Cmss10-72" d="M 513 0 
 L 513 2881 
 L 984 2881 
 L 984 2328 
@@ -618,7 +619,7 @@ L 1019 0
 L 513 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w9t44-Cmss10-65" d="M 1594 -72 
+     <path id="w9t46-Cmss10-65" d="M 1594 -72 
 Q 1300 -72 1044 51 
 Q 788 175 602 390 
 Q 416 606 314 882 
@@ -646,7 +647,7 @@ Q 984 2319 876 2145
 Q 769 1972 722 1778 
 z
 " transform="scale(0.015625)"/>
-     <path id="w9t44-Cmss10-66" d="M 634 0 
+     <path id="w9t46-Cmss10-66" d="M 634 0 
 L 634 2444 
 L 172 2444 
 L 172 2841 
@@ -670,7 +671,7 @@ L 1141 0
 L 634 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w9t44-Cmr10-28" d="M 1984 -1588 
+     <path id="w9t46-Cmr10-28" d="M 1984 -1588 
 Q 1628 -1306 1370 -942 
 Q 1113 -578 948 -165 
 Q 784 247 703 697 
@@ -696,7 +697,7 @@ L 2016 -1600
 Q 1984 -1600 1984 -1588 
 z
 " transform="scale(0.015625)"/>
-     <path id="w9t44-Cmb10-6b" d="M 91 0 
+     <path id="w9t46-Cmb10-6b" d="M 91 0 
 L 91 325 
 L 531 325 
 L 531 3884 
@@ -727,7 +728,7 @@ L 1650 0
 L 91 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w9t44-Cmsy10-a7" d="M 481 0 
+     <path id="w9t46-Cmsy10-a7" d="M 481 0 
 Q 428 0 393 37 
 Q 359 75 359 128 
 Q 359 175 393 215 
@@ -761,7 +762,7 @@ Q 4547 0 4500 0
 L 481 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w9t44-Cmsy10-6a" d="M 763 -1484 
+     <path id="w9t46-Cmsy10-6a" d="M 763 -1484 
 L 763 4684 
 Q 763 4734 800 4767 
 Q 838 4800 891 4800 
@@ -774,7 +775,7 @@ Q 838 -1600 800 -1567
 Q 763 -1534 763 -1484 
 z
 " transform="scale(0.015625)"/>
-     <path id="w9t44-Cmb10-63" d="M 1594 -38 
+     <path id="w9t46-Cmb10-63" d="M 1594 -38 
 Q 1172 -38 858 150 
 Q 544 338 378 667 
 Q 213 997 213 1422 
@@ -807,7 +808,7 @@ Q 2553 363 2261 162
 Q 1969 -38 1594 -38 
 z
 " transform="scale(0.015625)"/>
-     <path id="w9t44-Cmr10-29" d="M 416 -1600 
+     <path id="w9t46-Cmr10-29" d="M 416 -1600 
 Q 359 -1600 359 -1544 
 Q 359 -1516 372 -1503 
 Q 1466 -434 1466 1600 
@@ -829,44 +830,44 @@ L 416 -1600
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w9t44-Cmr10-6c" transform="translate(0 0.109375)"/>
-    <use xlink:href="#w9t44-Cmr10-6e" transform="translate(27.685547 0.109375)"/>
-    <use xlink:href="#w9t44-Cmmi10-bc" transform="translate(97.835579 0.109375)"/>
-    <use xlink:href="#w9t44-Cmss10-72" transform="translate(154.818001 -16.896875) scale(0.7)"/>
-    <use xlink:href="#w9t44-Cmss10-65" transform="translate(178.675423 -16.896875) scale(0.7)"/>
-    <use xlink:href="#w9t44-Cmss10-66" transform="translate(209.744759 -16.896875) scale(0.7)"/>
-    <use xlink:href="#w9t44-Cmr10-28" transform="translate(237.484407 0.109375)"/>
-    <use xlink:href="#w9t44-Cmb10-6b" transform="translate(276.302767 0.109375)"/>
-    <use xlink:href="#w9t44-Cmsy10-a7" transform="translate(333.452454 38.373438) scale(0.7)"/>
-    <use xlink:href="#w9t44-Cmsy10-6a" transform="translate(411.768274 0.109375)"/>
-    <use xlink:href="#w9t44-Cmb10-63" transform="translate(457.012415 0.109375)"/>
-    <use xlink:href="#w9t44-Cmr10-29" transform="translate(501.397181 0.109375)"/>
+    <use xlink:href="#w9t46-Cmr10-6c" transform="translate(0 0.109375)"/>
+    <use xlink:href="#w9t46-Cmr10-6e" transform="translate(27.685547 0.109375)"/>
+    <use xlink:href="#w9t46-Cmmi10-bc" transform="translate(97.835579 0.109375)"/>
+    <use xlink:href="#w9t46-Cmss10-72" transform="translate(154.818001 -16.896875) scale(0.7)"/>
+    <use xlink:href="#w9t46-Cmss10-65" transform="translate(178.675423 -16.896875) scale(0.7)"/>
+    <use xlink:href="#w9t46-Cmss10-66" transform="translate(209.744759 -16.896875) scale(0.7)"/>
+    <use xlink:href="#w9t46-Cmr10-28" transform="translate(237.484407 0.109375)"/>
+    <use xlink:href="#w9t46-Cmb10-6b" transform="translate(276.302767 0.109375)"/>
+    <use xlink:href="#w9t46-Cmsy10-a7" transform="translate(333.452454 38.373438) scale(0.7)"/>
+    <use xlink:href="#w9t46-Cmsy10-6a" transform="translate(411.768274 0.109375)"/>
+    <use xlink:href="#w9t46-Cmb10-63" transform="translate(457.012415 0.109375)"/>
+    <use xlink:href="#w9t46-Cmr10-29" transform="translate(501.397181 0.109375)"/>
    </g>
   </g>
  </g>
 </svg>
-<text x="470.0" y="196.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">W8's cross-entropy, summed</text>
-<line x1="574.0" y1="122.0" x2="602.0" y2="122.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="610.0,122.0 602.0,127.0 602.0,117.0" fill="#94a3b8"/>
-<rect x="614.0" y="90.0" width="160.0" height="64.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<svg x="671.3" y="102.644" width="45.4" height="19.3562" viewBox="0 0 45.4 19.35625"><defs>
+<text x="468.0" y="200.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">W8's cross-entropy, summed</text>
+<line x1="574.0" y1="120.0" x2="590.0" y2="120.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="598.0,120.0 590.0,125.0 590.0,115.0" fill="#94a3b8"/>
+<rect x="602.0" y="84.0" width="180.0" height="72.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<svg x="662.036" y="94.8601" width="59.928" height="25.5502" viewBox="0 0 59.928 25.55025"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w9t45-figure_1">
-  <g id="w9t45-patch_1">
-   <path d="M 0 19.35625 
-L 45.4 19.35625 
-L 45.4 0 
+ <g id="w9t47-figure_1">
+  <g id="w9t47-patch_1">
+   <path d="M 0 25.55025 
+L 59.928 25.55025 
+L 59.928 0 
 L 0 0 
-L 0 19.35625 
+L 0 25.55025 
 z
 " style="fill: none"/>
   </g>
-  <g id="w9t45-text_1">
+  <g id="w9t47-text_1">
    <!-- $\mathcal{L}_{\mathsf{DPO}}$ -->
-   <g style="fill: #1f2328" transform="translate(0 15.196875) scale(0.2 -0.2)">
+   <g style="fill: #1f2328" transform="translate(0 20.059875) scale(0.264 -0.264)">
     <defs>
-     <path id="w9t45-Cmsy10-4c" d="M 238 -141 
+     <path id="w9t47-Cmsy10-4c" d="M 238 -141 
 Q 197 -141 197 -97 
 Q 197 -72 219 -38 
 Q 266 38 359 130 
@@ -924,7 +925,7 @@ Q 578 -100 275 -141
 L 238 -141 
 z
 " transform="scale(0.015625)"/>
-     <path id="w9t45-Cmss10-44" d="M 603 0 
+     <path id="w9t47-Cmss10-44" d="M 603 0 
 L 603 4441 
 L 2303 4441 
 Q 2738 4441 3102 4250 
@@ -950,7 +951,7 @@ L 1178 4056
 L 1178 384 
 z
 " transform="scale(0.015625)"/>
-     <path id="w9t45-Cmss10-50" d="M 603 0 
+     <path id="w9t47-Cmss10-50" d="M 603 0 
 L 603 4441 
 L 2222 4441 
 Q 2500 4441 2769 4348 
@@ -976,7 +977,7 @@ L 1178 4056
 L 1178 2222 
 z
 " transform="scale(0.015625)"/>
-     <path id="w9t45-Cmss10-4f" d="M 2356 -141 
+     <path id="w9t47-Cmss10-4f" d="M 2356 -141 
 Q 1769 -141 1311 198 
 Q 853 538 606 1081 
 Q 359 1625 359 2203 
@@ -1011,42 +1012,42 @@ Q 2006 300 2356 300
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w9t45-Cmsy10-4c" transform="translate(0 0.484375)"/>
-    <use xlink:href="#w9t45-Cmss10-44" transform="translate(73.360625 -16.521875) scale(0.7)"/>
-    <use xlink:href="#w9t45-Cmss10-50" transform="translate(123.912383 -16.521875) scale(0.7)"/>
-    <use xlink:href="#w9t45-Cmss10-4f" transform="translate(168.585234 -16.521875) scale(0.7)"/>
+    <use xlink:href="#w9t47-Cmsy10-4c" transform="translate(0 0.484375)"/>
+    <use xlink:href="#w9t47-Cmss10-44" transform="translate(73.360625 -16.521875) scale(0.7)"/>
+    <use xlink:href="#w9t47-Cmss10-50" transform="translate(123.912383 -16.521875) scale(0.7)"/>
+    <use xlink:href="#w9t47-Cmss10-4f" transform="translate(168.585234 -16.521875) scale(0.7)"/>
    </g>
   </g>
  </g>
 </svg>
-<text x="694.0" y="138.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">a classifier's loss</text>
-<text x="790.0" y="84.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="middle">who made the pairs?</text>
-<text x="790.0" y="110.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">people</text>
-<text x="790.0" y="134.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">real vs. generated</text>
-<text x="790.0" y="158.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">WER / SIM, automatic</text>
+<text x="692.0" y="134.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">a classifier's loss</text>
+<text x="790.0" y="76.0" font-size="19" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="middle">who made the pairs?</text>
+<text x="790.0" y="106.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">people</text>
+<text x="790.0" y="134.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">real vs. generated</text>
+<text x="790.0" y="162.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">WER / SIM, automatic</text>
 </g>
 <g class="fragment" data-fragment-index="1">
-<text x="20.0" y="250.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">training versus use — the fifth shape</text>
-<rect x="20.0" y="264.0" width="184.0" height="96.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.1"/>
-<text x="112.0" y="286.0" font-size="16" font-weight="700" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">W5 p39</text>
-<text x="112.0" y="314.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">half the model</text>
-<text x="112.0" y="338.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">disappears</text>
-<rect x="216.0" y="264.0" width="184.0" height="96.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.1"/>
-<text x="308.0" y="286.0" font-size="16" font-weight="700" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">W6 p30</text>
-<text x="308.0" y="314.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">two halves, on</text>
-<text x="308.0" y="338.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">two ends</text>
-<rect x="412.0" y="264.0" width="184.0" height="96.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.1"/>
-<text x="504.0" y="286.0" font-size="16" font-weight="700" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">W7 p64</text>
-<text x="504.0" y="314.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">one picture,</text>
-<text x="504.0" y="338.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">two uses</text>
-<rect x="608.0" y="264.0" width="184.0" height="96.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.1"/>
-<text x="700.0" y="286.0" font-size="16" font-weight="700" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">W8 p51</text>
-<text x="700.0" y="314.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">training has an end-</text>
-<text x="700.0" y="338.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">point; use, a start</text>
-<rect x="804.0" y="264.0" width="184.0" height="96.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.4"/>
-<text x="896.0" y="286.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">W9</text>
-<text x="896.0" y="314.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">training has</text>
-<text x="896.0" y="338.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">a judge; use does not</text>
-<text x="500.0" y="390.0" font-size="16" font-weight="700" fill="#15803d" text-anchor="middle" dominant-baseline="auto">use is W8's graph in both cases: the inference cost does not change</text>
+<rect x="20.0" y="242.0" width="184.0" height="110.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.1"/>
+<text x="112.0" y="260.0" font-size="19" font-weight="700" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">W5 p39</text>
+<text x="112.0" y="286.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">half the model</text>
+<text x="112.0" y="311.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">disappears</text>
+<rect x="214.0" y="242.0" width="184.0" height="110.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.1"/>
+<text x="306.0" y="260.0" font-size="19" font-weight="700" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">W6 p30</text>
+<text x="306.0" y="286.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">two halves,</text>
+<text x="306.0" y="311.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">on two ends</text>
+<rect x="408.0" y="242.0" width="184.0" height="110.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.1"/>
+<text x="500.0" y="260.0" font-size="19" font-weight="700" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">W7 p64</text>
+<text x="500.0" y="286.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">one picture,</text>
+<text x="500.0" y="311.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">two uses</text>
+<rect x="602.0" y="242.0" width="184.0" height="110.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.1"/>
+<text x="694.0" y="260.0" font-size="19" font-weight="700" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">W8 p51</text>
+<text x="694.0" y="286.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">training has an</text>
+<text x="694.0" y="311.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">endpoint; use,</text>
+<text x="694.0" y="336.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">a start</text>
+<rect x="796.0" y="242.0" width="184.0" height="110.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.4"/>
+<text x="888.0" y="260.0" font-size="19" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">W9</text>
+<text x="888.0" y="286.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">training has</text>
+<text x="888.0" y="311.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">a judge;</text>
+<text x="888.0" y="336.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">use does not</text>
 </g>
 </svg>

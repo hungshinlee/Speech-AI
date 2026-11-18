@@ -1,26 +1,25 @@
 <!-- 由 scripts/make_figs_w09.py 產生，勿手改；投影片用 {{< include assets/w09/cond-embedding.inline.qmd >}} 貼入 -->
 ```{=html}
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 360" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 286" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
 <g class="fragment" data-fragment-index="0">
-<text x="20.0" y="30.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">(a) a speaker embedding: the reference passes through a bottleneck first</text>
-<rect x="20.0" y="70.0" width="190.0" height="40.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.4"/>
-<polyline points="28.0,90.0 32.4,91.6 36.7,92.3 41.0,88.5 45.4,87.8 49.8,84.9 54.1,93.9 58.5,94.4 62.8,95.6 67.2,90.4 71.5,86.7 75.8,87.2 80.2,93.2 84.5,81.7 88.9,89.3 93.2,98.2 97.6,84.9 102.0,82.5 106.3,82.0 110.7,83.4 115.0,87.7 119.3,91.8 123.7,82.9 128.1,81.5 132.4,81.5 136.8,90.2 141.1,81.9 145.4,80.8 149.8,83.8 154.2,95.3 158.5,88.1 162.8,82.5 167.2,84.8 171.6,88.2 175.9,93.5 180.2,94.3 184.6,93.5 188.9,91.6 193.3,90.2 197.7,90.6 202.0,90.0" fill="none" stroke="#b45309" stroke-width="1.6"/>
-<svg x="105" y="116.644" width="20" height="19.3562" viewBox="0 0 20 19.35625"><defs>
+<rect x="20.0" y="50.0" width="190.0" height="40.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.4"/>
+<polyline points="28.0,70.0 32.4,71.6 36.7,72.3 41.0,68.5 45.4,67.8 49.8,64.9 54.1,73.9 58.5,74.4 62.8,75.6 67.2,70.4 71.5,66.7 75.8,67.2 80.2,73.2 84.5,61.7 88.9,69.3 93.2,78.2 97.6,64.9 102.0,62.5 106.3,62.0 110.7,63.4 115.0,67.7 119.3,71.8 123.7,62.9 128.1,61.5 132.4,61.5 136.8,70.2 141.1,61.9 145.4,60.8 149.8,63.8 154.2,75.3 158.5,68.1 162.8,62.5 167.2,64.8 171.6,68.2 175.9,73.5 180.2,74.3 184.6,73.5 188.9,71.6 193.3,70.2 197.7,70.6 202.0,70.0" fill="none" stroke="#b45309" stroke-width="1.6"/>
+<svg x="101.8" y="95.3401" width="26.4" height="32.1502" viewBox="0 -6.6 26.4 32.1502"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w9t5-figure_1">
   <g id="w9t5-patch_1">
-   <path d="M 0 19.35625 
-L 20 19.35625 
-L 20 0 
+   <path d="M 0 25.55025 
+L 26.4 25.55025 
+L 26.4 0 
 L 0 0 
-L 0 19.35625 
+L 0 25.55025 
 z
 " style="fill: none"/>
   </g>
   <g id="w9t5-text_1">
    <!-- $\mathbf{x}^{\mathsf{p}}$ -->
-   <g style="fill: #b45309" transform="translate(0 15.196875) scale(0.2 -0.2)">
+   <g style="fill: #b45309" transform="translate(0 20.059875) scale(0.264 -0.264)">
     <defs>
      <path id="w9t5-Cmb10-78" d="M 109 0 
 L 109 325 
@@ -92,26 +91,26 @@ z
   </g>
  </g>
 </svg>
-<text x="115.0" y="160.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">the reference recording</text>
-<line x1="214.0" y1="90.0" x2="232.0" y2="90.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="240.0,90.0 232.0,95.0 232.0,85.0" fill="#94a3b8"/>
-<rect x="244.0" y="56.0" width="226.0" height="68.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<svg x="339.2" y="73" width="35.6" height="20" viewBox="0 0 35.6 20"><defs>
+<text x="20.0" y="150.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">the reference recording</text>
+<line x1="214.0" y1="70.0" x2="232.0" y2="70.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="240.0,70.0 232.0,75.0 232.0,65.0" fill="#94a3b8"/>
+<rect x="244.0" y="34.0" width="236.0" height="72.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<svg x="338.504" y="46.704" width="46.992" height="26.4" viewBox="0 0 46.992 26.4"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w9t6-figure_1">
   <g id="w9t6-patch_1">
-   <path d="M 0 20 
-L 35.6 20 
-L 35.6 0 
+   <path d="M 0 26.4 
+L 46.992 26.4 
+L 46.992 0 
 L 0 0 
-L 0 20 
+L 0 26.4 
 z
 " style="fill: none"/>
   </g>
   <g id="w9t6-text_1">
    <!-- $E_{\mathsf{spk}}$ -->
-   <g style="fill: #1f2328" transform="translate(0 13.8) scale(0.2 -0.2)">
+   <g style="fill: #1f2328" transform="translate(0 18.216) scale(0.264 -0.264)">
     <defs>
      <path id="w9t6-Cmmi10-45" d="M 300 0 
 Q 238 0 238 84 
@@ -264,31 +263,31 @@ z
   </g>
  </g>
 </svg>
-<text x="357.0" y="106.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">frozen; trained to verify</text>
-<line x1="474.0" y1="90.0" x2="492.0" y2="90.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="500.0,90.0 492.0,95.0 492.0,85.0" fill="#94a3b8"/>
-<rect x="504.0" y="70.0" width="70.0" height="40.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.6"/>
-<rect x="512.0" y="78.0" width="8.0" height="24.0" rx="1" fill="#7c3aed" stroke="none" stroke-width="0"/>
-<rect x="523.0" y="85.0" width="8.0" height="17.0" rx="1" fill="#7c3aed" stroke="none" stroke-width="0"/>
-<rect x="534.0" y="80.0" width="8.0" height="22.0" rx="1" fill="#7c3aed" stroke="none" stroke-width="0"/>
-<rect x="545.0" y="87.0" width="8.0" height="15.0" rx="1" fill="#7c3aed" stroke="none" stroke-width="0"/>
-<rect x="556.0" y="82.0" width="8.0" height="20.0" rx="1" fill="#7c3aed" stroke="none" stroke-width="0"/>
-<svg x="512.1" y="117.644" width="53.8" height="19.3562" viewBox="0 0 53.8 19.35625"><defs>
+<text x="362.0" y="84.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">frozen; trained to verify</text>
+<line x1="484.0" y1="70.0" x2="502.0" y2="70.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="510.0,70.0 502.0,75.0 502.0,65.0" fill="#94a3b8"/>
+<rect x="514.0" y="50.0" width="70.0" height="40.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.6"/>
+<rect x="522.0" y="58.0" width="8.0" height="24.0" rx="1" fill="#7c3aed" stroke="none" stroke-width="0"/>
+<rect x="533.0" y="65.0" width="8.0" height="17.0" rx="1" fill="#7c3aed" stroke="none" stroke-width="0"/>
+<rect x="544.0" y="60.0" width="8.0" height="22.0" rx="1" fill="#7c3aed" stroke="none" stroke-width="0"/>
+<rect x="555.0" y="67.0" width="8.0" height="15.0" rx="1" fill="#7c3aed" stroke="none" stroke-width="0"/>
+<rect x="566.0" y="62.0" width="8.0" height="20.0" rx="1" fill="#7c3aed" stroke="none" stroke-width="0"/>
+<svg x="513.492" y="95.3401" width="71.016" height="32.1502" viewBox="0 -6.6 71.016 32.1502"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w9t7-figure_1">
   <g id="w9t7-patch_1">
-   <path d="M 0 19.35625 
-L 53.8 19.35625 
-L 53.8 0 
+   <path d="M 0 25.55025 
+L 71.016 25.55025 
+L 71.016 0 
 L 0 0 
-L 0 19.35625 
+L 0 25.55025 
 z
 " style="fill: none"/>
   </g>
   <g id="w9t7-text_1">
    <!-- $\mathbf{c} \in \mathbb{R}^{d}$ -->
-   <g style="fill: #7c3aed" transform="translate(0 15.196875) scale(0.2 -0.2)">
+   <g style="fill: #7c3aed" transform="translate(0 20.059875) scale(0.264 -0.264)">
     <defs>
      <path id="w9t7-Cmb10-63" d="M 1594 -38 
 Q 1172 -38 858 150 
@@ -456,29 +455,29 @@ z
   </g>
  </g>
 </svg>
-<line x1="578.0" y1="90.0" x2="638.0" y2="90.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="646.0,90.0 638.0,95.0 638.0,85.0" fill="#94a3b8"/>
-<rect x="650.0" y="55.0" width="210.0" height="70.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="755.0" y="82.0" font-size="18" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">the generator</text>
-<text x="755.0" y="106.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">W8's model</text>
-<line x1="864.0" y1="90.0" x2="888.0" y2="90.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="896.0,90.0 888.0,95.0 888.0,85.0" fill="#94a3b8"/>
-<svg x="934.17" y="70.7081" width="11.66" height="25.2919" viewBox="0 -4 11.66 25.2919"><defs>
+<line x1="588.0" y1="70.0" x2="638.0" y2="70.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="646.0,70.0 638.0,75.0 638.0,65.0" fill="#94a3b8"/>
+<rect x="650.0" y="34.0" width="210.0" height="72.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="755.0" y="57.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">the generator</text>
+<text x="755.0" y="84.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">W8's model</text>
+<line x1="864.0" y1="70.0" x2="888.0" y2="70.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="896.0,70.0 888.0,75.0 888.0,65.0" fill="#94a3b8"/>
+<svg x="933.004" y="51.3401" width="13.992" height="32.1502" viewBox="0 -6.6 13.992 32.1502"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w9t8-figure_1">
   <g id="w9t8-patch_1">
-   <path d="M 0 21.291875 
-L 11.66 21.291875 
-L 11.66 0 
+   <path d="M 0 25.55025 
+L 13.992 25.55025 
+L 13.992 0 
 L 0 0 
-L 0 21.291875 
+L 0 25.55025 
 z
 " style="fill: none"/>
   </g>
   <g id="w9t8-text_1">
    <!-- $\hat{\mathbf{x}}$ -->
-   <g style="fill: #b45309" transform="translate(0 16.716563) scale(0.22 -0.22)">
+   <g style="fill: #b45309" transform="translate(0 20.059875) scale(0.264 -0.264)">
     <defs>
      <path id="w9t8-Cmr10-5e" d="M 863 3444 
 L 738 3578 
@@ -529,22 +528,22 @@ z
   </g>
  </g>
 </svg>
-<svg x="750.8" y="15.6438" width="8.4" height="19.3562" viewBox="0 0 8.4 19.35625"><defs>
+<svg x="750.212" y="0.675563" width="9.576" height="22.0661" viewBox="0 0 9.576 22.066125"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w9t9-figure_1">
   <g id="w9t9-patch_1">
-   <path d="M 0 19.35625 
-L 8.4 19.35625 
-L 8.4 0 
+   <path d="M 0 22.066125 
+L 9.576 22.066125 
+L 9.576 0 
 L 0 0 
-L 0 19.35625 
+L 0 22.066125 
 z
 " style="fill: none"/>
   </g>
   <g id="w9t9-text_1">
    <!-- $\ell$ -->
-   <g style="fill: #15803d" transform="translate(0 15.196875) scale(0.2 -0.2)">
+   <g style="fill: #15803d" transform="translate(0 17.324437) scale(0.228 -0.228)">
     <defs>
      <path id="w9t9-Cmmi10-60" d="M 153 475 
 Q 125 475 94 509 
@@ -593,25 +592,22 @@ z
   </g>
  </g>
 </svg>
-<line x1="755.0" y1="38.0" x2="755.0" y2="46.0" stroke="#94a3b8" stroke-width="1.4"/>
-<polygon points="755.0,53.0 750.0,46.0 760.0,46.0" fill="#94a3b8"/>
-<text x="755.0" y="148.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">never sees the recording itself</text>
+<line x1="755.0" y1="22.0" x2="755.0" y2="26.0" stroke="#94a3b8" stroke-width="1.4"/>
+<polygon points="755.0,32.0 750.0,26.0 760.0,26.0" fill="#94a3b8"/>
+<text x="755.0" y="136.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">never sees the recording itself</text>
 </g>
 <g class="fragment" data-fragment-index="1">
-<text x="20.0" y="214.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">what is in the reference — and what gets through the bottleneck</text>
-<rect x="20.0" y="230.0" width="184.0" height="30.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
-<text x="112.0" y="245.0" font-size="16" font-weight="600" fill="#15803d" text-anchor="middle" dominant-baseline="middle">timbre</text>
-<rect x="212.0" y="230.0" width="184.0" height="30.0" rx="6" fill="#ffffff" stroke="#6b7280" stroke-width="1.2"/>
-<text x="304.0" y="245.0" font-size="16" font-weight="600" fill="#6b7280" text-anchor="middle" dominant-baseline="middle" text-decoration="line-through">prosody, emotion</text>
-<rect x="404.0" y="230.0" width="184.0" height="30.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
-<text x="496.0" y="245.0" font-size="16" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="middle">accent</text>
-<rect x="596.0" y="230.0" width="184.0" height="30.0" rx="6" fill="#ffffff" stroke="#6b7280" stroke-width="1.2"/>
-<text x="688.0" y="245.0" font-size="16" font-weight="600" fill="#6b7280" text-anchor="middle" dominant-baseline="middle" text-decoration="line-through">room, microphone</text>
-<rect x="788.0" y="230.0" width="184.0" height="30.0" rx="6" fill="#ffffff" stroke="#6b7280" stroke-width="1.2"/>
-<text x="880.0" y="245.0" font-size="16" font-weight="600" fill="#6b7280" text-anchor="middle" dominant-baseline="middle" text-decoration="line-through">noise, music</text>
-<text x="20.0" y="292.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">the encoder was trained to recognise one person across recording conditions: channel and noise are what it was asked to drop</text>
-<text x="20.0" y="318.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">Jia et al. 2018 · YourTTS · W8 Demo 1's SpeechT5 (an x-vector)</text>
-<text x="20.0" y="346.0" font-size="16" font-weight="700" fill="#b45309" text-anchor="start" dominant-baseline="auto">price: a lower ceiling on similarity; the manner of the reference does not come along</text>
+<text x="20.0" y="216.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">what is in the reference — and what gets through the bottleneck</text>
+<rect x="20.0" y="234.0" width="186.0" height="38.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="113.0" y="253.0" font-size="19" font-weight="600" fill="#15803d" text-anchor="middle" dominant-baseline="middle">timbre</text>
+<rect x="213.0" y="234.0" width="186.0" height="38.0" rx="6" fill="#ffffff" stroke="#6b7280" stroke-width="1.2"/>
+<text x="306.0" y="253.0" font-size="19" font-weight="600" fill="#6b7280" text-anchor="middle" dominant-baseline="middle" text-decoration="line-through">prosody, emotion</text>
+<rect x="406.0" y="234.0" width="186.0" height="38.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="499.0" y="253.0" font-size="19" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="middle">accent</text>
+<rect x="599.0" y="234.0" width="186.0" height="38.0" rx="6" fill="#ffffff" stroke="#6b7280" stroke-width="1.2"/>
+<text x="692.0" y="253.0" font-size="19" font-weight="600" fill="#6b7280" text-anchor="middle" dominant-baseline="middle" text-decoration="line-through">room, microphone</text>
+<rect x="792.0" y="234.0" width="186.0" height="38.0" rx="6" fill="#ffffff" stroke="#6b7280" stroke-width="1.2"/>
+<text x="885.0" y="253.0" font-size="19" font-weight="600" fill="#6b7280" text-anchor="middle" dominant-baseline="middle" text-decoration="line-through">noise, music</text>
 </g>
 </svg>
 ```

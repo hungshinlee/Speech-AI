@@ -69,6 +69,12 @@ format:
 W8 answered **how one reading gets drawn**. Nothing in W8 says whether the one that was drawn is **a good one** — that takes a second party.
 :::
 
+::: {.fragment fragment-index=1}
+::: {.small}
+Four questions, one structure: a generator, and a judge that scores it — **the fourth supervision is the judge's score.**
+:::
+:::
+
 ::: {.footer}
 W8 p9 one-to-many · W8 p84: the fourth supervision, previewed only · W8 p87: WER as a judge
 :::
@@ -77,8 +83,26 @@ W8 p9 one-to-many · W8 p84: the fourth supervision, previewed only · W8 p87: W
 
 {{< include assets/w09/problem-map.inline.qmd >}}
 
+::: {.fragment fragment-index=2}
+::: {.claim .warn}
+The question in every part: **who is the judge, what can it not see — and does the generator learn exactly that?**
+:::
+:::
+
 ::: {.footer}
 whose voice → in what manner → a reward → its blind spots → judging the judges → the adversary
+:::
+
+## Today's route: six stops, in two halves
+
+{{< include assets/w09/route.inline.qmd >}}
+
+::: {.claim}
+**First half:** the judge moves into training. **Second half:** what it cannot see.
+:::
+
+::: {.footer}
+six stops = the six section pages · the same map, half filled in, returns at p51
 :::
 
 ## Notation for today
@@ -121,6 +145,12 @@ outline 〈Learning objectives〉 1–6 · derivations stay on the slides, revea
 $\mathbf{c} = E_{\text{spk}}(\mathbf{x}^{\text{p}}) \in \mathbb{R}^{d}$: the generator sees **a vector, never the recording**. What the vector keeps was decided when $E_{\text{spk}}$ was trained.
 :::
 
+::: {.fragment fragment-index=1}
+::: {.small}
+$E_{\text{spk}}$ was trained to recognise one person across recording conditions: channel and noise are what it was **asked to drop**. The price: a lower ceiling on similarity, and the manner of the reference does not come along.
+:::
+:::
+
 ::: {.footer}
 Jia et al., NeurIPS 2018 · x-vector: Snyder et al. 2018 · YourTTS, ICML 2022 · W8 p11, p37
 :::
@@ -133,6 +163,12 @@ Jia et al., NeurIPS 2018 · x-vector: Snyder et al. 2018 · YourTTS, ICML 2022 �
 $\mathbf{c} = (\mathbf{k}^{\text{p}}, \ell^{\text{p}})$: $P_\theta(\mathbf{k} \mid \ell, \mathbf{k}^{\text{p}}, \ell^{\text{p}})$ — every frame of the prompt is in the context. **No bottleneck, so nothing is filtered.**
 :::
 
+::: {.fragment fragment-index=1}
+::: {.small}
+W8 p29: a prior large enough to resemble — the same mechanism copies the room, the hum, the mood of that one sentence. **"Copy only the timbre" is not a promise this scheme can make.**
+:::
+:::
+
 ::: {.footer}
 VALL-E (W8 p26–p29) · F5 (W8 p56) · Wang et al., Interspeech 2024 · Lu et al., Interspeech 2025
 :::
@@ -143,6 +179,12 @@ VALL-E (W8 p26–p29) · F5 (W8 p56) · Wang et al., Interspeech 2024 · Lu et a
 
 ::: {.claim}
 $\mathbf{c} = (\mathbf{k}^{\text{p}}_{\text{timbre}}, \mathbf{k}^{\text{p}}_{\text{prosody}}, \dots)$: each group can come from a **different** reference. The bottleneck is designed, not inherited.
+:::
+
+::: {.fragment fragment-index=1}
+::: {.small}
+Splitting them is an admission: **by default they arrive glued together.**
+:::
 :::
 
 ::: {.footer}
@@ -173,7 +215,7 @@ outline 〈關鍵數學 1〉 · Demo 1 measures (a) and (b)
 ::: {.prose}
 | | |
 |:---|:-----------------|
-| **Why** | p9–p12 argued from the architecture that a bottleneck filters and continuation does not. This measures it here: **one speaker's prompt in four versions, through three ways of conditioning.** |
+| **Why** | p10–p13 argued from the architecture that a bottleneck filters and continuation does not. This measures it here: **one speaker's prompt in four versions, through three ways of conditioning.** |
 | **What runs** | A 4.9 s prompt of one LibriSpeech dev-clean speaker (W8 Demo 1's), made into four: clean, with white noise (signal-to-noise ratio, SNR, $10$ dB), with music at the same SNR, telephone band (low-passed at 3.4 kHz). The same sentence through SpeechT5 (an x-vector: **a bottleneck**), F5-TTS (prompt mel, a flow: **none**), Qwen3-TTS (prompt tokens, AR: **none**). Twelve outputs. For each: the noise floor in the pauses, the energy above 4 kHz, SIM against the clean prompt and against that version, WER by W7's Whisper. |
 | **Watch for** | Before listening: which of the three carry the noise into the output? With a telephone-band prompt, do the high frequencies come back? After: which system scores the **higher** SIM against the noisy prompt — and is that a good thing? |
 :::
@@ -241,7 +283,7 @@ The one measuring and the thing measured are **the same kind of network**. SIM i
 :::
 
 ::: {.footer}
-Voicebox, NeurIPS 2023, §4 · Seed-TTS §3.1 · SMOS: similarity mean opinion score (p59)
+Voicebox, NeurIPS 2023, §4 · Seed-TTS §3.1 · SMOS: similarity mean opinion score (p61)
 :::
 
 ## MC 1 — "voice cloning copies the timbre"
@@ -257,7 +299,7 @@ Prompt continuation has no bottleneck: it copies **everything in the prompt** �
 | a factorized codec | what you select | only as clean as the split |
 
 ::: {.footer}
-W8 MC 4 (W8 p37), one step further · Demo 1 (p14–p15)
+W8 MC 4 (W8 p37), one step further · Demo 1 (p15–p16)
 :::
 
 ## MC 2 — "a high SIM means it sounds like them"
@@ -275,7 +317,7 @@ SIM is one speaker encoder's cosine. Change the encoder and the number changes; 
 :::
 
 ::: {.footer}
-Voicebox: SIM-o / SIM-r · Shin et al., ICASSP 2026, §4.4 (SIM as a reward) · p52
+Voicebox: SIM-o / SIM-r · Shin et al., ICASSP 2026, §4.4 (SIM as a reward) · p54
 :::
 
 # In what manner: style, emotion, an instruction {.section-title}
@@ -355,8 +397,14 @@ W8 p53 · W8 p60: the $w$ sweep · FlowTTS-GRPO: RL converges faster with CFG of
 
 {{< include assets/w09/judge-places.inline.qmd >}}
 
+::: {.fragment fragment-index=2}
+::: {.claim}
+Moving the judge **from inference into training** is why post-training matters in a dialogue system.
+:::
+:::
+
 ::: {.footer}
-best-of-$N$: generate $N$, a judge picks one · W8 p80: the first-packet cell · p32: why picking works
+best-of-$N$: generate $N$, a judge picks one · W8 p80: the first-packet cell · p33: why picking works
 :::
 
 ## MC 3 — "emotion control is one emotion embedding"
@@ -374,7 +422,7 @@ Emotion is entangled with rate, loudness, the range of $F_0$ and voice quality; 
 :::
 
 ::: {.footer}
-p21 · IndexTTS2 · W2: $F_0$ and pitch; source and filter in a tone language
+p22 · IndexTTS2 · W2: $F_0$ and pitch; source and filter in a tone language
 :::
 
 ## MC 4 — "the more detailed the instruction, the finer the control"
@@ -391,7 +439,7 @@ A sentence has fewer degrees of freedom than prosody does — and **whether it w
 :::
 
 ::: {.footer}
-p22 · Huang et al., InstructTTSEval, arXiv:2506.16381 (abstract)
+p23 · Huang et al., InstructTTSEval, arXiv:2506.16381 (abstract)
 :::
 
 # Turning the judge into a reward {.section-title}
@@ -431,7 +479,7 @@ W8 p30: the stop symbol, length instability · W7 p70: GRPO with WER as the rewa
 | **The question** | All we have is pairs — "this output is preferred to that one". Must we first train a reward model on the pairs and then run RL against it? |
 | **The idea** | Under a KL constraint the best policy has a **closed form** in terms of the reward — so the reward can be written in terms of policies. Substitute that into a model of pairwise preference and fit the policy directly. |
 | **What it added** | A loss that looks like classification, on pairs collected beforehand: **no reward model, no sampling inside the training loop.** |
-| **What it leaves open** | Who made the pairs (p36) — and whether "no reward model" means "no reward hacking" (p37). The derivation is the next six slides (p30–p35). |
+| **What it leaves open** | Who made the pairs (p37) — and whether "no reward model" means "no reward hacking" (p38). The derivation is the next six slides (p31–p36). |
 :::
 
 ::: {.footer}
@@ -455,7 +503,7 @@ $$
 | $\beta \to 0$ | no leash: all the probability goes to the highest-reward output |
 
 ::: {.footer}
-DPO Eq. 3 · the same objective, with the same $\beta$, returns inside GRPO (p41)
+DPO Eq. 3 · the same objective, with the same $\beta$, returns inside GRPO (p42)
 :::
 
 ## Step 2 — complete it into one KL: the optimal policy
@@ -487,7 +535,7 @@ DPO Eq. 4 · $Z(\mathbf{c})$: the partition function — it only makes $\pi^{*}$
 {{< include assets/w09/pi-star.inline.qmd >}}
 
 ::: {.claim}
-**Best-of-$N$** is a draw from $\pi^{*}$ at $\beta \to 0$: the judge stays in inference (p24).
+**Best-of-$N$** is a draw from $\pi^{*}$ at $\beta \to 0$: the judge stays in inference (p25).
 :::
 
 ::: {.footer}
@@ -590,7 +638,7 @@ DPO has a reward — implicit in the ratio of policies, and **defined by the pai
 | people, A / B | human preference — a different judge, with its own costs (§5) |
 
 ::: {.footer}
-p35–p36 · Shin et al., ICASSP 2026, §4.5: 200 human pairs per round
+p36–p37 · Shin et al., ICASSP 2026, §4.5: 200 human pairs per round
 :::
 
 ## At a glance: Group Relative Policy Optimization (GRPO)
@@ -602,7 +650,7 @@ p35–p36 · Shin et al., ICASSP 2026, §4.5: 200 human pairs per round
 | **The question** | The judge gives **a number** to any sample — not a pair. To learn from it we must know whether a sample did better than *usual*. Must a second network be trained just to estimate "usual"? |
 | **The idea** | Draw a **group** of $N_{\text{grp}}$ samples for the same condition. The group's own mean is "usual"; divide by the group's standard deviation. Put that into PPO's clipped objective, plus a KL term to $\pi_{\text{ref}}$. |
 | **What it added** | No value network; rewards on different scales (WER, SIM, a predicted MOS) become comparable after normalisation. |
-| **What it leaves open** | $N_{\text{grp}}$ generations per condition; a group whose samples all tie carries no signal (p40); and everything the judge cannot see (§4). W7 p70 used it with WER on the ASR side. |
+| **What it leaves open** | $N_{\text{grp}}$ generations per condition; a group whose samples all tie carries no signal (p41); and everything the judge cannot see (§4). W7 p70 used it with WER on the ASR side. |
 :::
 
 ::: {.footer}
@@ -659,7 +707,7 @@ $$
 |:---|:---------|
 | $\rho_{n,t}\,\hat{A}_n$ | the samples were drawn by last round's model $\pi_{\theta_{\text{old}}}$; the ratio corrects for that. Raise a token's probability if its draw did better than the group |
 | $\mathrm{clip}(\cdot,\, 1 - \varepsilon,\, 1 + \varepsilon)$ | **PPO**: no credit for moving a probability by more than a factor $1 \pm \varepsilon$ in one round |
-| $\beta\,\mathrm{KL}(\pi_\theta \,\Vert\, \pi_{\text{ref}})$ | step 1's leash (p30), unchanged |
+| $\beta\,\mathrm{KL}(\pi_\theta \,\Vert\, \pi_{\text{ref}})$ | step 1's leash (p31), unchanged |
 
 ::: {.footer}
 DeepSeekMath §4.1, Eq. 3 · PPO: Schulman et al. 2017 · $\rho_{n,t}$ is our symbol for the ratio
@@ -668,6 +716,12 @@ DeepSeekMath §4.1, Eq. 3 · PPO: Schulman et al. 2017 · $\rho_{n,t}$ is our sy
 ## Training and use are two different pictures
 
 {{< include assets/w09/posttrain-train-vs-use.inline.qmd >}}
+
+::: {.fragment fragment-index=2}
+::: {.claim .warn}
+The judge is present **only in training** — its blind spots stay in the weights.
+:::
+:::
 
 ::: {.footer}
 the fifth shape: W5 p39 · W6 p30 · W7 p64 · W8 p51 · W9: training has a judge, use does not
@@ -681,8 +735,14 @@ the fifth shape: W5 p39 · W6 p30 · W7 p64 · W8 p51 · W9: training has a judg
 Seed-TTS §4.2: a reward model **targets attributes**; DPO is **simpler to implement**.
 :::
 
+::: {.fragment fragment-index=1}
+::: {.small}
+Use is W8's graph in both cases: **the inference cost does not change.**
+:::
+:::
+
 ::: {.footer}
-Seed-TTS, arXiv:2406.02430, §4.2 · p36: who made the pairs · W5 p39, W6 p30, W7 p64, W8 p51
+Seed-TTS, arXiv:2406.02430, §4.2 · p37: who made the pairs · W5 p39, W6 p30, W7 p64, W8 p51
 :::
 
 ## MC 6 — "RL makes inference slower" / "RL is an inference-time trick"
@@ -698,7 +758,7 @@ Post-training changes **the weights only**. The inference graph is W8's, and the
 | best-of-$N$ | — | $N$ generations; cannot stream |
 
 ::: {.footer}
-p24 · p42–p43 · W8 p53, p80
+p25 · p43–p44 · W8 p53, p80
 :::
 
 ## Flow matching: there is no step probability to differentiate
@@ -707,6 +767,12 @@ p24 · p42–p43 · W8 p53, p80
 
 ::: {.claim}
 ODE: each step **determined**, no $\ln \pi_\theta$. SDE, **same marginals**: each step a draw.
+:::
+
+::: {.fragment fragment-index=2}
+::: {.small}
+Same marginals, checked on this toy: over 4000 starting points, the spread at $\tau = 0.5$ is $0.704$ (ODE) and $0.713$ (SDE); theory $0.707$.
+:::
 :::
 
 ::: {.footer}
@@ -784,13 +850,25 @@ Three routes: replace the ODE by an SDE with the same marginals (every step a Ga
 ::: {.wrap1}
 | the obstacle | the way round |
 |:---------|:---------|
-| no probability of a step | add noise that leaves $p_\tau$ unchanged (p46–p47) |
+| no probability of a step | add noise that leaves $p_\tau$ unchanged (p47–p48) |
 | no probability of a step | predict a variance as well as a mean (F5R-TTS) |
 | the reward is not differentiable | compute it on tokens, through Gumbel-softmax (DiffRO) |
 :::
 
 ::: {.footer}
 W8 MC 5 (W8 p54): "ODE or SDE decides whether RL has a stochastic policy" — delivered
+:::
+
+## Half-time: the judge is inside training — what can it not see?
+
+{{< include assets/w09/half-time.inline.qmd >}}
+
+::: {.claim}
+The judge is inside training now. **What happens where it cannot see?**
+:::
+
+::: {.footer}
+the answers: p18 (MC 1) · p23 · p43, p45 (MC 6) · the route: p6
 :::
 
 # What the judge cannot see {.section-title}
@@ -846,13 +924,13 @@ Seed-TTS §4.2 · Shin et al. and RRPO, ICASSP 2026 · FlowTTS-GRPO, Interspeech
 ::: {.prose}
 | | |
 |:---|:-----------------|
-| **Why** | p52's evidence took weeks of training. The same signal is visible without training: **draw the same sentence twelve times and let each judge pick its favourite.** If the judges disagree with each other — and with our ears — that disagreement is what a reward would be optimising. |
+| **Why** | p54's evidence took weeks of training. The same signal is visible without training: **draw the same sentence twelve times and let each judge pick its favourite.** If the judges disagree with each other — and with our ears — that disagreement is what a reward would be optimising. |
 | **What runs** | A tongue-twister — the same few words, repeated in a new order: hard for an AR model (one English, one Mandarin). Qwen3-TTS, the same prompt, $N_{\text{grp}} = 12$ draws. Each draw through three judges: WER (Whisper), SIM, a MOS predictor. Two descriptors that are **not** judges: syllables per second, and the standard deviation of log-$F_0$. A $12 \times 5$ table; then $\hat{A}_n$ per judge. |
 | **Watch for** | Is there a long tail — a draw that drops words, repeats, or does not stop? Which column of $\hat{A}_n$ carries no signal? And the draw the WER judge ranks first: is it **faster or slower**, **flatter or livelier** than the rest? |
 :::
 
 ::: {.footer}
-Demo 2 · demos/w09_d2_judges_pick · not RL: $\pi^{*}$ at $\beta \to 0$, $N = 12$ (p32)
+Demo 2 · demos/w09_d2_judges_pick · not RL: $\pi^{*}$ at $\beta \to 0$, $N = 12$ (p33)
 :::
 
 ## Demo 2 — the table: twelve draws, three judges, two descriptors
@@ -925,7 +1003,7 @@ It pushes the model **toward the reward**; the dimensions the reward cannot see 
 | emotion-classifier accuracy up | artefacts that fool the classifier |
 
 ::: {.footer}
-p52 · Demo 2 (p54–p55): the same question, asked without training
+p54 · Demo 2 (p56–p57): the same question, asked without training
 :::
 
 # Judging the judges: people and machines {.section-title}
@@ -936,7 +1014,7 @@ p52 · Demo 2 (p54–p55): the same question, asked without training
 |:---|:------|:------|:------|
 | **intelligibility** | transcribe what you heard | WER / CER — **which ASR, which text normalisation** (W7) | its prior repairs a mumbled sound (W8 p87) |
 | **naturalness** | MOS, CMOS, MUSHRA | a MOS predictor (UTMOS and its kin) | outside its training systems and listeners |
-| **similarity** | SMOS | SIM — **which $E_{\text{spk}}$, original or resynthesised prompt** | p16 |
+| **similarity** | SMOS | SIM — **which $E_{\text{spk}}$, original or resynthesised prompt** | p17 |
 | **controllability** | did it do as told? | an emotion classifier; an LLM as judge (InstructTTSEval: Gemini) | the instruction needs understanding, not acoustics |
 
 ::: {.claim}
@@ -979,6 +1057,12 @@ o_{a,j,m} = \mu_a + b_j + u_m + \varepsilon_{a,j,m}
 \mathrm{Var}\big(\mathrm{MOS}_a\big) = \frac{\sigma_b^2}{J} + \frac{\sigma_u^2}{M} + \frac{\sigma_\varepsilon^2}{JM}
 $$
 
+::: {.fragment fragment-index=5}
+::: {.claim .warn}
+Treated as 400 independent ratings: s.e. $0.049$ — really $0.136$. **Only more raters shrink the first term.**
+:::
+:::
+
 ::: {.footer}
 assumed $\sigma$'s, computed: w09-data.json → mos_variance · additive model, no interactions
 :::
@@ -1000,7 +1084,7 @@ A paired test asks an easier question — **which of these two** — and removes
 :::
 
 ::: {.footer}
-outline 〈關鍵數學 8〉 · Bradley–Terry (p34) is the model of exactly this kind of data
+outline 〈關鍵數學 8〉 · Bradley–Terry (p35) is the model of exactly this kind of data
 :::
 
 ## MC 9 — "enough ratings, and the interval is narrow enough"
@@ -1014,12 +1098,18 @@ $$
 $$
 
 ::: {.footer}
-p61–p62 · Wester et al., Interspeech 2015: *Are we using enough listeners? No!*
+p63–p64 · Wester et al., Interspeech 2015: *Are we using enough listeners? No!*
 :::
 
 ## MOS is relative: the range-equalizing bias
 
 {{< include assets/w09/range-equalizing.inline.qmd >}}
+
+::: {.fragment fragment-index=2}
+::: {.small}
+Listeners spread whatever they are given over the whole scale. Measured (Cooper & Yamagishi 2023): 187 systems, re-tested as the top 93, then 46, 23 and 11 — the lowest-ranked of the top 11 fell **1.28 MOS points** below its score in the full test.
+:::
+:::
 
 ::: {.claim .warn}
 **No common zero**: "4.5 here, 4.3 there" compares two rooms, not two systems.
@@ -1035,8 +1125,8 @@ Cooper & Yamagishi, Interspeech 2023, Table 4: 1.28 points · the dots are schem
 | report | because |
 |:---------|:---------|
 | how raters were recruited and screened; native language, location | rater offsets $b_j$ differ by population |
-| the instructions, **verbatim**; payment; stimuli per rater | the wording changes the scores; clustering (p61) |
-| the reference, the anchors, the other systems in the test | the range the scale was stretched over (p64) |
+| the instructions, **verbatim**; payment; stimuli per rater | the wording changes the scores; clustering (p63) |
+| the reference, the anchors, the other systems in the test | the range the scale was stretched over (p66) |
 | headphones or loudspeakers | which artefacts could be heard at all |
 :::
 
@@ -1058,11 +1148,11 @@ Two listening tests have no common zero: raters fill the scale, so a score depen
 | comparable | not comparable |
 |:---------|:---------|
 | two systems **in the same test**: same raters, same sentences, same session | a number from one test against a number from another |
-| better still: a paired test of the two (p62) | "MOS 4.5" with nothing said about the test |
+| better still: a paired test of the two (p64) | "MOS 4.5" with nothing said about the test |
 :::
 
 ::: {.footer}
-p64–p65 · W8 p66: "find the rating conditions first" · MOS is not comparable across papers
+p66–p67 · W8 p66: "find the rating conditions first" · MOS is not comparable across papers
 :::
 
 ## At a glance: UTMOS
@@ -1073,8 +1163,8 @@ p64–p65 · W8 p66: "find the rating conditions first" · MOS is not comparable
 | **Name** | **UTMOS: UTokyo-SaruLab System for VoiceMOS Challenge 2022** — Saeki, Xin, Nakata, Koriyama, Takamichi & Saruwatari, Interspeech 2022. "UT" is the team (the University of Tokyo), not an acronym of the method. |
 | **The question** | Listening tests are slow and costly. Can a model listen to one utterance and **predict the score people would give**? |
 | **The idea** | Fine-tune an SSL encoder (W5) to regress the rating — and tell it **which listener** gave it (listener-dependent), because each listener uses the scale differently. An ensemble of strong and weak learners. |
-| **What it added** | The representative of the *learned judge*: one number per utterance, no listeners. Now the default "naturalness" metric — and a reward (p51). |
-| **What it leaves open** | It was trained on one test's listeners and systems (BVCC: 187 English TTS and voice-conversion (VC) systems). Everything else is out of distribution (p68–p69). |
+| **What it added** | The representative of the *learned judge*: one number per utterance, no listeners. Now the default "naturalness" metric — and a reward (p53). |
+| **What it leaves open** | It was trained on one test's listeners and systems (BVCC: 187 English TTS and voice-conversion (VC) systems). Everything else is out of distribution (p70–p71). |
 :::
 
 ::: {.footer}
@@ -1085,8 +1175,14 @@ Saeki et al., Interspeech 2022, pp. 4521–4525 · VoiceMOS Challenge 2022 · ea
 
 {{< include assets/w09/utmos-train-vs-use.inline.qmd >}}
 
+::: {.fragment fragment-index=2}
+::: {.claim .warn}
+It estimates what **those listeners, in that test,** would have said on average — elsewhere it is out of distribution.
+:::
+:::
+
 ::: {.footer}
-UTMOS §3.1.3: at inference, the "mean listener" embedding · p64: nothing to be relative to
+UTMOS §3.1.3: at inference, the "mean listener" embedding · p66: nothing to be relative to
 :::
 
 ## System-level is not utterance-level
@@ -1094,7 +1190,7 @@ UTMOS §3.1.3: at inference, the "mean listener" embedding · p64: nothing to be
 {{< include assets/w09/sys-vs-utt.inline.qmd >}}
 
 ::: {.claim}
-Ranking systems is one use. **Scoring one utterance — a reward — is another.**
+Ranking systems is one use. **Scoring one utterance of one system — a reward — is another: the weak case.**
 :::
 
 ::: {.footer}
@@ -1110,7 +1206,7 @@ synthetic data: w09-data.json · UTMOS §4.2: SRCC 0.897 (utterances, pooled), 0
 | what it catches | a bad utterance | a model whose every utterance is fine — and all alike |
 
 ::: {.claim}
-W8's "regress to the mean" model is clear in every sentence and **narrow as a distribution**. Per-utterance metrics cannot see that; Shin et al.'s narrowed log-$F_0$ (p52) is the same picture.
+W8's "regress to the mean" model is clear in every sentence and **narrow as a distribution**. Per-utterance metrics cannot see that; Shin et al.'s narrowed log-$F_0$ (p54) is the same picture.
 :::
 
 ::: {.footer}
@@ -1128,11 +1224,11 @@ It was trained on one set of listeners and one set of systems. A high system-lev
 |:-----------|:------|
 | ranking your own checkpoints, same setup, during development | yes |
 | the headline number of a paper; a comparison with another paper's number | no |
-| a reward, alone and unconstrained | no — the generator walks out of its training distribution (p51–p52) |
+| a reward, alone and unconstrained | no — the generator walks out of its training distribution (p53–p54) |
 :::
 
 ::: {.footer}
-p68–p69 · VoiceMOS Challenge 2024, Track 1
+p70–p71 · VoiceMOS Challenge 2024, Track 1
 :::
 
 # When the judge is the adversary {.section-title}
@@ -1151,7 +1247,7 @@ They defend against **different people**. And synthetic speech is not counterfei
 :::
 
 ::: {.footer}
-outline 〈直覺比喻〉 (c) · the full comparison closes this part (p86)
+outline 〈直覺比喻〉 (c) · the full comparison closes this part (p88)
 :::
 
 ## A countermeasure: trained on yesterday's generators
@@ -1176,6 +1272,12 @@ AASIST, ICASSP 2022 · Tak et al., Odyssey 2022 · ASVspoof 2019, 2021, 5
 
 {{< include assets/w09/eer-curves.inline.qmd >}}
 
+::: {.fragment fragment-index=2}
+::: {.small}
+**Equal error rate (EER)**: the $\vartheta$ where the two areas match — here $6.7\%$. Move $\vartheta$ to $0.8$: real rejected $24.2\%$, fake accepted $1.1\%$ — the right trade depends on the costs, and on how rare fakes are.
+:::
+:::
+
 $$
 \mathrm{DCF}(\vartheta) \;=\; C_{\text{miss}}\,(1 - P_{\text{spoof}})\,P_{\text{miss}}(\vartheta) \;+\; C_{\text{fa}}\,P_{\text{spoof}}\,P_{\text{fa}}(\vartheta)
 $$
@@ -1192,8 +1294,14 @@ A detector with an EER of 1%. One call in a thousand is synthetic. The alarm rin
 
 {{< include assets/w09/base-rate.inline.qmd >}}
 
+::: {.fragment fragment-index=2}
+::: {.claim .warn}
+About **ten alarms in eleven are real people**. The benchmark was half fake; the deployment is not.
+:::
+:::
+
 ::: {.footer}
-assumed numbers, computed: w09-data.json → base_rate · hence TPR at a fixed low FPR (p81)
+assumed numbers, computed: w09-data.json → base_rate · hence TPR at a fixed low FPR (p83)
 :::
 
 ## MC 12 — "an EER of 1%: ready to deploy"
@@ -1207,7 +1315,7 @@ P(\text{spoof} \mid \text{alarm}) \;=\; \frac{P_{\text{spoof}}\,(1 - P_{\text{fa
 $$
 
 ::: {.footer}
-p75–p76 · as with "DER depends on the collar": a number does not travel without its conditions
+p77–p78 · as with "DER depends on the collar": a number does not travel without its conditions
 :::
 
 ## Four measured failures to generalise
@@ -1243,7 +1351,7 @@ It recognises **the traces left by the generators it was trained on**. A codec-b
 :::
 
 ::: {.footer}
-p78 · Demo 3 (p84) · W10: enhancement makes speech sound better — and may make it look fake
+p80 · Demo 3 (p86) · W10: enhancement makes speech sound better — and may make it look fake
 :::
 
 ## AudioSeal: two halves, on two sides
@@ -1297,7 +1405,7 @@ AudioSeal Table 3 · AudioMarkBench Fig. 3 · Zhu et al., arXiv:2609.26235 (prep
 ::: {.prose}
 | | |
 |:---|:-----------------|
-| **Why** | p78 and p81 gave the literature's answers — which, for a watermark through a codec, disagree. Here: **the sounds this course has already made**, through a detector trained on 2019 data — and a watermark through W6's codec and W8's vocoder. |
+| **Why** | p80 and p83 gave the literature's answers — which, for a watermark through a codec, disagree. Here: **the sounds this course has already made**, through a detector trained on 2019 data — and a watermark through W6's codec and W8's vocoder. |
 | **What runs** | (1) An AASIST trained on ASVspoof 2019 LA scores, one by one: real recordings (dev-clean; one sentence into the microphone), W2's Griffin-Lim, W8–W9 outputs (SpeechT5 + HiFi-GAN, F5 + Vocos, Kokoro, Qwen3-TTS, MMS-TTS `nan`), and **real speech resynthesised** by Mimi and EnCodec (W6 Demo 1). (2) AudioSeal marks one F5 output: A / B, the per-sample curve, a splice into a real recording; then resampling, noise, MP3 — and **regeneration**: EnCodec from high to low $n_q$, Mimi, Vocos, each with an **unmarked control**. |
 | **Watch for** | Does a 2019 detector catch 2025–2026 generators? Is **real** speech that went through a codec called fake? After EnCodec, is the watermark still detected — and down to which $n_q$? That is the cell where published results disagree. |
 :::
@@ -1329,7 +1437,7 @@ Demo 3 · rehearsed 2026-11-16 → w09-metrics.json → demo3 · threshold $0$, 
 ## Demo 3 — the watermark: localise, then regenerate
 
 ::: {.ask}
-**Demo 3, second half.** A watermarked utterance is regenerated — through EnCodec at fewer and fewer codebooks, through Mimi, through Vocos. Where does detection stop?
+**Demo 3, second half.** A watermarked utterance is generated again. Where does detection stop?
 :::
 
 ::: {.fragment .wrap1 fragment-index=1}
@@ -1347,7 +1455,7 @@ The detector breaks on **what it has not seen**; the watermark breaks on **being
 :::
 
 ::: {.footer}
-Demo 3 · rehearsed 2026-11-16 · one utterance, one run · EnCodec: published results disagree (p81) · Mimi: none found
+Demo 3 · rehearsed 2026-11-16 · one utterance, one run · p83: published results disagree
 :::
 
 ## Two defences, side by side
@@ -1385,7 +1493,7 @@ A watermark's threat model is **a cooperating generator, traced afterwards** —
 | anyone with the detector | gradient attack | removed, or **forged onto a real recording** |
 
 ::: {.footer}
-p81 · p86 · AudioSeal §6 · AudioMarkBench: removal at every access level; forgery white-box
+p83 · p88 · AudioSeal §6 · AudioMarkBench: removal at every access level; forgery white-box
 :::
 
 # Back to the three axes {.section-title}
@@ -1431,7 +1539,7 @@ Breeze Taigi · Osakuade & King 2026 · ToneUnit · Zhang et al. 2025 · VoxHakk
 
 **If one thing today was new to you, make it this one**
 
-- Shao et al., *DeepSeekMath*, arXiv:2402.03300 — §4.1 only: GRPO in two pages; read it with p40–p41 open
+- Shao et al., *DeepSeekMath*, arXiv:2402.03300 — §4.1 only: GRPO in two pages; read it with p41–p42 open
 
 **Next week — the physical layer of full duplex**
 
@@ -1441,52 +1549,52 @@ Every judge today heard **a finished recording**. In a conversation the micropho
 
 | | |
 |:----|:----------------|
-| AASIST | Audio Anti-Spoofing using Integrated Spectro-Temporal graph attention networks: a detector (p74) |
-| ACR | absolute category rating (p60) |
+| AASIST | Audio Anti-Spoofing using Integrated Spectro-Temporal graph attention networks: a detector (p76) |
+| ACR | absolute category rating (p62) |
 | AR | autoregressive (W8) |
 | ASR | automatic speech recognition (W1) |
-| ASVspoof | the Automatic Speaker Verification Spoofing and Countermeasures challenge (p74) |
+| ASVspoof | the Automatic Speaker Verification Spoofing and Countermeasures challenge (p76) |
 | CER, WER | character / word error rate (W7) |
 | CFG | classifier-free guidance (W8) |
-| CM | countermeasure: a spoofing detector (p73) |
-| CMOS | comparison mean opinion score (p60) |
+| CM | countermeasure: a spoofing detector (p75) |
+| CMOS | comparison mean opinion score (p62) |
 | CNF | continuous normalizing flow (W8) |
-| DCF | detection cost function (p75) |
-| DiffRO | Differentiable Reward Optimization (p48) |
-| DPO | Direct Preference Optimization (p29) |
+| DCF | detection cost function (p77) |
+| DiffRO | Differentiable Reward Optimization (p49) |
+| DPO | Direct Preference Optimization (p30) |
 
 ## Acronyms in this deck, E–N
 
 | | |
 |:----|:----------------|
-| EER | equal error rate (p75) |
+| EER | equal error rate (p77) |
 | $F_0$ | fundamental frequency (W2) |
-| FACodec | NaturalSpeech 3's factorized codec (p11) |
-| FPR, TPR | false-positive rate, true-positive rate (p81) |
-| GRPO | Group Relative Policy Optimization (p38) |
-| GST | Global Style Tokens (p20) |
-| KL | Kullback–Leibler divergence (p6, p30) |
-| LA | logical access: ASVspoof's synthesised-and-converted-speech condition (p74) |
-| LFCC | linear-frequency cepstral coefficients (p74) |
+| FACodec | NaturalSpeech 3's factorized codec (p12) |
+| FPR, TPR | false-positive rate, true-positive rate (p83) |
+| GRPO | Group Relative Policy Optimization (p39) |
+| GST | Global Style Tokens (p21) |
+| KL | Kullback–Leibler divergence (p7, p31) |
+| LA | logical access: ASVspoof's synthesised-and-converted-speech condition (p76) |
+| LFCC | linear-frequency cepstral coefficients (p76) |
 | LM, LLM | language model; large language model (W1) |
-| MOS | mean opinion score (p60) |
-| MUSHRA | multiple stimuli with hidden reference and anchor (p60) |
-| NLL | negative log-likelihood (p52) |
+| MOS | mean opinion score (p62) |
+| MUSHRA | multiple stimuli with hidden reference and anchor (p62) |
+| NLL | negative log-likelihood (p54) |
 
 ## Acronyms in this deck, O–W
 
 | | |
 |:----|:----------------|
-| ODE, SDE | ordinary differential equation (W8); stochastic differential equation (p46) |
-| PPO | Proximal Policy Optimization (p38) |
-| RL | reinforcement learning (p28) |
-| RRPO | Robust Reward Policy Optimization (p48) |
-| s.e., std | standard error; standard deviation (p61, p40) |
-| SIM | speaker similarity: a cosine between two speaker embeddings (p16) |
-| SMOS | similarity mean opinion score (p16) |
-| SNR | signal-to-noise ratio (p13) |
+| ODE, SDE | ordinary differential equation (W8); stochastic differential equation (p47) |
+| PPO | Proximal Policy Optimization (p39) |
+| RL | reinforcement learning (p29) |
+| RRPO | Robust Reward Policy Optimization (p49) |
+| s.e., std | standard error; standard deviation (p63, p41) |
+| SIM | speaker similarity: a cosine between two speaker embeddings (p17) |
+| SMOS | similarity mean opinion score (p17) |
+| SNR | signal-to-noise ratio (p14) |
 | SSL | self-supervised learning (W5) |
 | TTS | text-to-speech (W1) |
-| TTSDS | Text-to-Speech Distribution Score (p70) |
-| UTMOS | the UTokyo-SaruLab MOS-prediction system — "UT" is the team, not a method (p67) |
-| VC | voice conversion (p67) |
+| TTSDS | Text-to-Speech Distribution Score (p72) |
+| UTMOS | the UTokyo-SaruLab MOS-prediction system — "UT" is the team, not a method (p69) |
+| VC | voice conversion (p69) |

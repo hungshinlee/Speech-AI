@@ -14,7 +14,7 @@
   selftest   不開視窗、不需要模型：四版 prompt 的 SNR 與頻寬、兩個自己定的量、WER、fake 流程；有彩排紀錄時對 w09-metrics.json
   export     只重寫 w09-metrics.json → demo1（從 runs/rehearsal/rehearsal.json）
 
-畫面上的鍵（順序照投影片 p14、p15 講稿的【操作】）：
+畫面上的鍵（順序照投影片 p15、p16 講稿的【操作】）：
   p  四版 prompt 的 mel，依序播：乾淨、加噪、加音樂、電話頻寬
   1  加噪那一版的三個輸出（SpeechT5、F5-TTS、Qwen3-TTS），依序播；畫面是那一版 prompt 與三個輸出的 mel
   2  加音樂那一版的三個輸出
@@ -26,7 +26,7 @@
   a  加一格：華語的 prompt 念英文
   r  再播一次     h  選單     q  離開
 
-三種條件（投影片 p9–p12）：
+三種條件（投影片 p10–p13）：
   (a) SpeechT5      參考音 → x-vector（512 個數字）→ 模型。瓶頸。
   (b) F5-TTS        參考音的 mel 整段放進去，模型把後面補完（flow matching）。沒有瓶頸。
   (b) Qwen3-TTS     參考音的 codec token 整段放進去，模型往下續寫（AR）。沒有瓶頸。
@@ -972,8 +972,8 @@ class Demo:
                 o(f"    {SYS_SHORT[s]:<12s}{r['seconds']:>9.2f}{str(r['f0_median_hz']):>11s}{str(r['f0_span_semitones']):>14s}{r['sim_prompt']:>15.3f}{r['wer']['pct']:>9.1f}")
 
     def menu(self) -> None:
-        self.out(f"\n{C.BOLD}p14{C.RESET}  p 四版 prompt   1 加噪   2 加音樂   3 電話頻寬   c 乾淨   （s f k 只播一個系統，o 這一版的 prompt，g 真人錄音）   t 數字"
-                 f"     {C.BOLD}p15{C.RESET}  e 語氣   a 腔     r 再播   h 選單   q 離開")
+        self.out(f"\n{C.BOLD}p15{C.RESET}  p 四版 prompt   1 加噪   2 加音樂   3 電話頻寬   c 乾淨   （s f k 只播一個系統，o 這一版的 prompt，g 真人錄音）   t 數字"
+                 f"     {C.BOLD}p16{C.RESET}  e 語氣   a 腔     r 再播   h 選單   q 離開")
 
     def dispatch(self, k: str) -> bool:
         if k == "p":
@@ -1265,7 +1265,7 @@ def export(rec_path: Path) -> None:
                                   "sim2_*": "the same with a second encoder, the SpeechBrain x-vector that also conditions SpeechT5; not comparable with sim_*",
                                   "wer": "Whisper small (greedy) against the text to read; English: words after Whisper's English normaliser; Mandarin: tone-numbered pinyin syllables",
                                   "f0_span_semitones": "12 log2 (90th / 10th percentile of the autocorrelation F0 over voiced frames)",
-                                  "one draw": "each cell is a single sample (seed 1 per system)", "what_we_heard": "filled by hand after the rehearsal (w09.qmd p14, p15)"}}
+                                  "one draw": "each cell is a single sample (seed 1 per system)", "what_we_heard": "filled by hand after the rehearsal (w09.qmd p15, p16)"}}
     METRICS_JSON.parent.mkdir(parents=True, exist_ok=True)
     METRICS_JSON.write_text(json.dumps(d, ensure_ascii=False, indent=1, default=float), encoding="utf-8")
     print(f"  → {os.path.relpath(METRICS_JSON, HERE)}（demo1）")
@@ -1408,7 +1408,7 @@ def main() -> None:
         d.sys.close()
         d.save()
         export(d.folder / "rehearsal.json")
-        print("\n下一步：./present.sh 自己按一遍 p 1 2 3 c t e a；聽到的寫進 p14、p15 的表（what we heard），runs/rehearsal/*.png 看過。")
+        print("\n下一步：./present.sh 自己按一遍 p 1 2 3 c t e a；聽到的寫進 p15、p16 的表（what we heard），runs/rehearsal/*.png 看過。")
         return
 
     d.make_fig()

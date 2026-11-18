@@ -1,25 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 360" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 286" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
 <g class="fragment" data-fragment-index="0">
-<text x="20.0" y="30.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">(b) prompt continuation: the reference goes into the context, untouched</text>
-<rect x="20.0" y="62.0" width="610.0" height="64.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="32.0" y="80.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">the context</text>
-<rect x="140.0" y="70.0" width="84.0" height="48.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
-<svg x="172.88" y="82.6116" width="18.24" height="18.3884" viewBox="0 0 18.24 18.388437"><defs>
+<rect x="20.0" y="28.0" width="600.0" height="80.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="32.0" y="20.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">the context</text>
+<rect x="34.0" y="44.0" width="84.0" height="48.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<svg x="65.056" y="51.8156" width="21.888" height="27.7661" viewBox="0 -5.7 21.888 27.7661"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w9t10-figure_1">
   <g id="w9t10-patch_1">
-   <path d="M 0 18.388437 
-L 18.24 18.388437 
-L 18.24 0 
+   <path d="M 0 22.066125 
+L 21.888 22.066125 
+L 21.888 0 
 L 0 0 
-L 0 18.388437 
+L 0 22.066125 
 z
 " style="fill: none"/>
   </g>
   <g id="w9t10-text_1">
    <!-- $\ell^{\mathsf{p}}$ -->
-   <g style="fill: #1f2328" transform="translate(0 14.437031) scale(0.19 -0.19)">
+   <g style="fill: #1f2328" transform="translate(0 17.324437) scale(0.228 -0.228)">
     <defs>
      <path id="w9t10-Cmmi10-60" d="M 153 475 
 Q 125 475 94 509 
@@ -99,23 +98,23 @@ z
   </g>
  </g>
 </svg>
-<rect x="230.0" y="70.0" width="64.0" height="48.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
-<svg x="258.01" y="82.6116" width="7.98" height="18.3884" viewBox="0 0 7.98 18.388437"><defs>
+<rect x="124.0" y="44.0" width="64.0" height="48.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<svg x="151.212" y="57.5156" width="9.576" height="22.0661" viewBox="0 0 9.576 22.066125"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w9t11-figure_1">
   <g id="w9t11-patch_1">
-   <path d="M 0 18.388437 
-L 7.98 18.388437 
-L 7.98 0 
+   <path d="M 0 22.066125 
+L 9.576 22.066125 
+L 9.576 0 
 L 0 0 
-L 0 18.388437 
+L 0 22.066125 
 z
 " style="fill: none"/>
   </g>
   <g id="w9t11-text_1">
    <!-- $\ell$ -->
-   <g style="fill: #1f2328" transform="translate(0 14.437031) scale(0.19 -0.19)">
+   <g style="fill: #1f2328" transform="translate(0 17.324437) scale(0.228 -0.228)">
     <defs>
      <path id="w9t11-Cmmi10-60" d="M 153 475 
 Q 125 475 94 509 
@@ -164,26 +163,26 @@ z
   </g>
  </g>
 </svg>
-<rect x="300.0" y="70.0" width="190.0" height="48.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.4"/>
-<polyline points="308.0,94.0 312.4,95.6 316.7,96.3 321.1,92.5 325.4,91.8 329.8,88.9 334.1,97.9 338.4,98.4 342.8,99.6 347.1,94.4 351.5,90.7 355.9,91.2 360.2,97.2 364.6,85.7 368.9,93.3 373.2,102.2 377.6,88.9 381.9,86.5 386.3,86.0 390.6,87.4 395.0,91.7 399.4,95.8 403.7,86.9 408.1,85.5 412.4,85.5 416.8,94.2 421.1,85.9 425.4,84.8 429.8,87.8 434.1,99.3 438.5,92.1 442.9,86.5 447.2,88.8 451.6,92.2 455.9,97.5 460.2,98.3 464.6,97.5 468.9,95.6 473.3,94.2 477.6,94.6 482.0,94.0" fill="none" stroke="#b45309" stroke-width="1.6"/>
-<rect x="496.0" y="70.0" width="126.0" height="48.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="5 4"/>
-<text x="559.0" y="94.0" font-size="16" font-weight="600" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">… continue</text>
-<svg x="358.5" y="131.644" width="73" height="19.3562" viewBox="0 0 73 19.35625"><defs>
+<rect x="194.0" y="44.0" width="260.0" height="48.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.4"/>
+<polyline points="202.0,68.0 208.1,69.6 214.2,70.3 220.3,66.5 226.4,65.8 232.5,62.9 238.6,71.9 244.7,72.4 250.8,73.6 256.9,68.4 263.0,64.7 269.1,65.2 275.2,71.2 281.3,59.7 287.4,67.3 293.5,76.2 299.6,62.9 305.7,60.5 311.8,60.0 317.9,61.4 324.0,65.7 330.1,69.8 336.2,60.9 342.3,59.5 348.4,59.5 354.5,68.2 360.6,59.9 366.7,58.8 372.8,61.8 378.9,73.3 385.0,66.1 391.1,60.5 397.2,62.8 403.3,66.2 409.4,71.5 415.5,72.3 421.6,71.5 427.7,69.6 433.8,68.2 439.9,68.6 446.0,68.0" fill="none" stroke="#b45309" stroke-width="1.6"/>
+<rect x="460.0" y="44.0" width="148.0" height="48.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="534.0" y="68.0" font-size="19" font-weight="600" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">… continue</text>
+<svg x="278.258" y="113.34" width="26.4" height="32.1502" viewBox="0 -6.6 26.4 32.1502"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w9t12-figure_1">
   <g id="w9t12-patch_1">
-   <path d="M 0 19.35625 
-L 73 19.35625 
-L 73 0 
+   <path d="M 0 25.55025 
+L 26.4 25.55025 
+L 26.4 0 
 L 0 0 
-L 0 19.35625 
+L 0 25.55025 
 z
 " style="fill: none"/>
   </g>
   <g id="w9t12-text_1">
-   <!-- $\mathbf{k}^{\mathsf{p}}\ \mathsf{or}\ \mathbf{X}^{\mathsf{p}}$ -->
-   <g style="fill: #b45309" transform="translate(0 15.196875) scale(0.2 -0.2)">
+   <!-- $\mathbf{k}^{\mathsf{p}}$ -->
+   <g style="fill: #b45309" transform="translate(0 20.059875) scale(0.264 -0.264)">
     <defs>
      <path id="w9t12-Cmb10-6b" d="M 91 0 
 L 91 325 
@@ -246,54 +245,32 @@ Q 1116 2238 1038 2125
 L 1038 744 
 z
 " transform="scale(0.015625)"/>
-     <path id="w9t12-Cmss10-6f" d="M 1600 -72 
-Q 1203 -72 878 133 
-Q 553 338 365 680 
-Q 178 1022 178 1403 
-Q 178 1697 284 1976 
-Q 391 2256 580 2476 
-Q 769 2697 1033 2823 
-Q 1297 2950 1600 2950 
-Q 1900 2950 2161 2825 
-Q 2422 2700 2615 2476 
-Q 2809 2253 2912 1975 
-Q 3016 1697 3016 1403 
-Q 3016 1022 2830 680 
-Q 2644 338 2317 133 
-Q 1991 -72 1600 -72 
+    </defs>
+    <use xlink:href="#w9t12-Cmb10-6b" transform="translate(0 0.875)"/>
+    <use xlink:href="#w9t12-Cmss10-70" transform="translate(57.149687 39.139063) scale(0.7)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<text x="310.6" y="140.0" font-size="22" font-weight="400" fill="#b45309" text-anchor="start" dominant-baseline="auto" textLength="20.7" lengthAdjust="spacing">or</text>
+<svg x="337.27" y="113.34" width="32.472" height="32.1502" viewBox="0 -6.6 32.472 32.1502"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w9t13-figure_1">
+  <g id="w9t13-patch_1">
+   <path d="M 0 25.55025 
+L 32.472 25.55025 
+L 32.472 0 
+L 0 0 
+L 0 25.55025 
 z
-M 1600 366 
-Q 1894 366 2095 525 
-Q 2297 684 2394 940 
-Q 2491 1197 2491 1478 
-Q 2491 1753 2389 1995 
-Q 2288 2238 2086 2386 
-Q 1884 2534 1600 2534 
-Q 1313 2534 1111 2387 
-Q 909 2241 806 1997 
-Q 703 1753 703 1478 
-Q 703 1278 756 1079 
-Q 809 881 926 714 
-Q 1044 547 1214 456 
-Q 1384 366 1600 366 
-z
-" transform="scale(0.015625)"/>
-     <path id="w9t12-Cmss10-72" d="M 513 0 
-L 513 2881 
-L 984 2881 
-L 984 2328 
-Q 1109 2503 1287 2637 
-Q 1466 2772 1670 2842 
-Q 1875 2913 2094 2913 
-L 2094 2456 
-Q 1809 2456 1561 2315 
-Q 1313 2175 1166 1933 
-Q 1019 1691 1019 1403 
-L 1019 0 
-L 513 0 
-z
-" transform="scale(0.015625)"/>
-     <path id="w9t12-Cmb10-58" d="M 184 0 
+" style="fill: none"/>
+  </g>
+  <g id="w9t13-text_1">
+   <!-- $\mathbf{X}^{\mathsf{p}}$ -->
+   <g style="fill: #b45309" transform="translate(0 20.059875) scale(0.264 -0.264)">
+    <defs>
+     <path id="w9t13-Cmb10-58" d="M 184 0 
 L 184 325 
 Q 856 325 909 384 
 L 2009 2106 
@@ -329,43 +306,69 @@ L 1881 0
 L 184 0 
 z
 " transform="scale(0.015625)"/>
+     <path id="w9t13-Cmss10-70" d="M 513 -1241 
+L 513 2841 
+L 1019 2841 
+L 1019 2541 
+Q 1469 2913 2113 2913 
+Q 2428 2913 2648 2672 
+Q 2869 2431 2976 2082 
+Q 3084 1734 3084 1422 
+Q 3084 1081 2942 728 
+Q 2800 375 2533 151 
+Q 2266 -72 1906 -72 
+Q 1663 -72 1436 23 
+Q 1209 119 1038 281 
+L 1038 -1241 
+L 513 -1241 
+z
+M 1038 744 
+Q 1138 559 1288 453 
+Q 1438 347 1631 347 
+Q 1906 347 2117 501 
+Q 2328 656 2443 909 
+Q 2559 1163 2559 1422 
+Q 2559 1825 2325 2151 
+Q 2091 2478 1709 2478 
+Q 1581 2478 1451 2434 
+Q 1322 2391 1219 2314 
+Q 1116 2238 1038 2125 
+L 1038 744 
+z
+" transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w9t12-Cmb10-6b" transform="translate(0 0.875)"/>
-    <use xlink:href="#w9t12-Cmss10-70" transform="translate(57.149687 39.139063) scale(0.7)"/>
-    <use xlink:href="#w9t12-Cmss10-6f" transform="translate(128.918991 0.875)"/>
-    <use xlink:href="#w9t12-Cmss10-72" transform="translate(178.918991 0.875)"/>
-    <use xlink:href="#w9t12-Cmb10-58" transform="translate(242.265053 0.875)"/>
-    <use xlink:href="#w9t12-Cmss10-70" transform="translate(322.217475 39.139063) scale(0.7)"/>
+    <use xlink:href="#w9t13-Cmb10-58" transform="translate(0 0.875)"/>
+    <use xlink:href="#w9t13-Cmss10-70" transform="translate(79.952422 39.139063) scale(0.7)"/>
    </g>
   </g>
  </g>
 </svg>
-<text x="395.0" y="174.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">every frame of the prompt, no bottleneck</text>
-<line x1="634.0" y1="94.0" x2="658.0" y2="94.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="666.0,94.0 658.0,99.0 658.0,89.0" fill="#94a3b8"/>
-<rect x="670.0" y="59.0" width="200.0" height="70.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="770.0" y="86.0" font-size="18" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">the generator</text>
-<text x="770.0" y="110.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">VALL-E, F5, Qwen3-TTS</text>
-<line x1="874.0" y1="94.0" x2="892.0" y2="94.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="900.0,94.0 892.0,99.0 892.0,89.0" fill="#94a3b8"/>
-<svg x="938.17" y="74.7081" width="11.66" height="25.2919" viewBox="0 -4 11.66 25.2919"><defs>
+<text x="324.0" y="168.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">every frame of the prompt, no bottleneck</text>
+<line x1="624.0" y1="68.0" x2="640.0" y2="68.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="648.0,68.0 640.0,73.0 640.0,63.0" fill="#94a3b8"/>
+<rect x="652.0" y="32.0" width="240.0" height="72.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="772.0" y="55.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">the generator</text>
+<text x="772.0" y="82.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">VALL-E, F5, Qwen3-TTS</text>
+<line x1="896.0" y1="68.0" x2="912.0" y2="68.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="920.0,68.0 912.0,73.0 912.0,63.0" fill="#94a3b8"/>
+<svg x="949.004" y="49.3401" width="13.992" height="32.1502" viewBox="0 -6.6 13.992 32.1502"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w9t13-figure_1">
-  <g id="w9t13-patch_1">
-   <path d="M 0 21.291875 
-L 11.66 21.291875 
-L 11.66 0 
+ <g id="w9t14-figure_1">
+  <g id="w9t14-patch_1">
+   <path d="M 0 25.55025 
+L 13.992 25.55025 
+L 13.992 0 
 L 0 0 
-L 0 21.291875 
+L 0 25.55025 
 z
 " style="fill: none"/>
   </g>
-  <g id="w9t13-text_1">
+  <g id="w9t14-text_1">
    <!-- $\hat{\mathbf{x}}$ -->
-   <g style="fill: #b45309" transform="translate(0 16.716563) scale(0.22 -0.22)">
+   <g style="fill: #b45309" transform="translate(0 20.059875) scale(0.264 -0.264)">
     <defs>
-     <path id="w9t13-Cmr10-5e" d="M 863 3444 
+     <path id="w9t14-Cmr10-5e" d="M 863 3444 
 L 738 3578 
 L 1600 4441 
 L 2456 3578 
@@ -374,7 +377,7 @@ L 1600 4084
 L 863 3444 
 z
 " transform="scale(0.015625)"/>
-     <path id="w9t13-Cmb10-78" d="M 109 0 
+     <path id="w9t14-Cmb10-78" d="M 109 0 
 L 109 325 
 Q 628 325 678 384 
 L 1381 1350 
@@ -408,27 +411,24 @@ L 109 0
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w9t13-Cmr10-5e" transform="translate(7.640137 3.609375)"/>
-    <use xlink:href="#w9t13-Cmb10-78" transform="translate(0 0.53125)"/>
+    <use xlink:href="#w9t14-Cmr10-5e" transform="translate(7.640137 3.609375)"/>
+    <use xlink:href="#w9t14-Cmb10-78" transform="translate(0 0.53125)"/>
    </g>
   </g>
  </g>
 </svg>
 </g>
 <g class="fragment" data-fragment-index="1">
-<text x="20.0" y="214.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">what is in the reference — and what gets through</text>
-<rect x="20.0" y="230.0" width="184.0" height="30.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
-<text x="112.0" y="245.0" font-size="16" font-weight="600" fill="#15803d" text-anchor="middle" dominant-baseline="middle">timbre</text>
-<rect x="212.0" y="230.0" width="184.0" height="30.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
-<text x="304.0" y="245.0" font-size="16" font-weight="600" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">prosody, emotion</text>
-<rect x="404.0" y="230.0" width="184.0" height="30.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
-<text x="496.0" y="245.0" font-size="16" font-weight="600" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">accent</text>
-<rect x="596.0" y="230.0" width="184.0" height="30.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
-<text x="688.0" y="245.0" font-size="16" font-weight="600" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">room, microphone</text>
-<rect x="788.0" y="230.0" width="184.0" height="30.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
-<text x="880.0" y="245.0" font-size="16" font-weight="600" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">noise, music</text>
-<text x="20.0" y="292.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">W8 p29: a prior large enough to resemble — the same mechanism copies the room, the hum, the mood of that one sentence</text>
-<text x="20.0" y="318.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">Wang et al. 2024 (flow) · Lu et al. 2025 (LLM-based): a noisy prompt, a degraded output</text>
-<text x="20.0" y="346.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="auto">"copy only the timbre" is not a promise this scheme can make</text>
+<text x="20.0" y="216.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">what is in the reference — and what gets through</text>
+<rect x="20.0" y="234.0" width="186.0" height="38.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="113.0" y="253.0" font-size="19" font-weight="600" fill="#15803d" text-anchor="middle" dominant-baseline="middle">timbre</text>
+<rect x="213.0" y="234.0" width="186.0" height="38.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+<text x="306.0" y="253.0" font-size="19" font-weight="600" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">prosody, emotion</text>
+<rect x="406.0" y="234.0" width="186.0" height="38.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+<text x="499.0" y="253.0" font-size="19" font-weight="600" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">accent</text>
+<rect x="599.0" y="234.0" width="186.0" height="38.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+<text x="692.0" y="253.0" font-size="19" font-weight="600" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">room, microphone</text>
+<rect x="792.0" y="234.0" width="186.0" height="38.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+<text x="885.0" y="253.0" font-size="19" font-weight="600" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">noise, music</text>
 </g>
 </svg>

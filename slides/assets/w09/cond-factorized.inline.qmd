@@ -1,149 +1,26 @@
 <!-- 由 scripts/make_figs_w09.py 產生，勿手改；投影片用 {{< include assets/w09/cond-factorized.inline.qmd >}} 貼入 -->
 ```{=html}
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 372" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 330" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
 <g class="fragment" data-fragment-index="0">
-<text x="20.0" y="30.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">(c) factorized: the reference is split, and each part can come from somewhere else</text>
-<rect x="20.0" y="96.0" width="170.0" height="40.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.4"/>
-<polyline points="28.0,116.0 31.9,117.6 35.7,118.3 39.5,114.5 43.4,113.8 47.2,110.9 51.1,119.9 55.0,120.4 58.8,121.6 62.6,116.4 66.5,112.7 70.3,113.2 74.2,119.2 78.0,107.7 81.9,115.3 85.8,124.2 89.6,110.9 93.5,108.5 97.3,108.0 101.2,109.4 105.0,113.7 108.8,117.8 112.7,108.9 116.5,107.5 120.4,107.5 124.2,116.2 128.1,107.9 131.9,106.8 135.8,109.8 139.7,121.3 143.5,114.1 147.3,108.5 151.2,110.8 155.1,114.2 158.9,119.5 162.8,120.3 166.6,119.5 170.4,117.6 174.3,116.2 178.2,116.6 182.0,116.0" fill="none" stroke="#b45309" stroke-width="1.6"/>
-<svg x="95" y="142.644" width="20" height="19.3562" viewBox="0 0 20 19.35625"><defs>
-  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
- </defs>
- <g id="w9t14-figure_1">
-  <g id="w9t14-patch_1">
-   <path d="M 0 19.35625 
-L 20 19.35625 
-L 20 0 
-L 0 0 
-L 0 19.35625 
-z
-" style="fill: none"/>
-  </g>
-  <g id="w9t14-text_1">
-   <!-- $\mathbf{x}^{\mathsf{p}}$ -->
-   <g style="fill: #b45309" transform="translate(0 15.196875) scale(0.2 -0.2)">
-    <defs>
-     <path id="w9t14-Cmb10-78" d="M 109 0 
-L 109 325 
-Q 628 325 678 384 
-L 1381 1350 
-L 588 2516 
-L 141 2516 
-L 141 2841 
-L 1606 2841 
-L 1606 2516 
-L 1331 2516 
-L 1766 1881 
-L 2181 2463 
-Q 2181 2491 2072 2503 
-Q 1963 2516 1888 2516 
-L 1888 2841 
-L 3156 2841 
-L 3156 2516 
-Q 2638 2516 2584 2456 
-L 1959 1594 
-L 2816 325 
-L 3272 325 
-L 3272 0 
-L 1797 0 
-L 1797 325 
-L 2075 325 
-L 1575 1063 
-L 1081 378 
-Q 1081 356 1193 340 
-Q 1306 325 1381 325 
-L 1381 0 
-L 109 0 
-z
-" transform="scale(0.015625)"/>
-     <path id="w9t14-Cmss10-70" d="M 513 -1241 
-L 513 2841 
-L 1019 2841 
-L 1019 2541 
-Q 1469 2913 2113 2913 
-Q 2428 2913 2648 2672 
-Q 2869 2431 2976 2082 
-Q 3084 1734 3084 1422 
-Q 3084 1081 2942 728 
-Q 2800 375 2533 151 
-Q 2266 -72 1906 -72 
-Q 1663 -72 1436 23 
-Q 1209 119 1038 281 
-L 1038 -1241 
-L 513 -1241 
-z
-M 1038 744 
-Q 1138 559 1288 453 
-Q 1438 347 1631 347 
-Q 1906 347 2117 501 
-Q 2328 656 2443 909 
-Q 2559 1163 2559 1422 
-Q 2559 1825 2325 2151 
-Q 2091 2478 1709 2478 
-Q 1581 2478 1451 2434 
-Q 1322 2391 1219 2314 
-Q 1116 2238 1038 2125 
-L 1038 744 
-z
-" transform="scale(0.015625)"/>
-    </defs>
-    <use xlink:href="#w9t14-Cmb10-78" transform="translate(0 0.875)"/>
-    <use xlink:href="#w9t14-Cmss10-70" transform="translate(57.149687 39.139063) scale(0.7)"/>
-   </g>
-  </g>
- </g>
-</svg>
-<line x1="194.0" y1="116.0" x2="218.0" y2="116.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="226.0,116.0 218.0,121.0 218.0,111.0" fill="#94a3b8"/>
-<rect x="230.0" y="82.0" width="150.0" height="68.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<text x="305.0" y="108.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">a factorized</text>
-<text x="305.0" y="132.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">codec (FACodec)</text>
-<line x1="384.0" y1="116.0" x2="416.0" y2="67.0" stroke="#94a3b8" stroke-width="1.0"/>
-<rect x="420.0" y="52.0" width="170.0" height="30.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
-<text x="505.0" y="67.0" font-size="16" font-weight="600" fill="#15803d" text-anchor="middle" dominant-baseline="middle">content</text>
-<line x1="594.0" y1="67.0" x2="646.0" y2="116.0" stroke="#94a3b8" stroke-width="1.0"/>
-<line x1="384.0" y1="116.0" x2="416.0" y2="101.0" stroke="#94a3b8" stroke-width="1.0"/>
-<rect x="420.0" y="86.0" width="170.0" height="30.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="505.0" y="101.0" font-size="16" font-weight="600" fill="#0b5cad" text-anchor="middle" dominant-baseline="middle">prosody</text>
-<line x1="594.0" y1="101.0" x2="646.0" y2="116.0" stroke="#94a3b8" stroke-width="1.0"/>
-<line x1="384.0" y1="116.0" x2="416.0" y2="135.0" stroke="#94a3b8" stroke-width="1.0"/>
-<rect x="420.0" y="120.0" width="170.0" height="30.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<text x="505.0" y="135.0" font-size="16" font-weight="600" fill="#7c3aed" text-anchor="middle" dominant-baseline="middle">timbre</text>
-<line x1="594.0" y1="135.0" x2="646.0" y2="116.0" stroke="#94a3b8" stroke-width="1.0"/>
-<line x1="384.0" y1="116.0" x2="416.0" y2="169.0" stroke="#94a3b8" stroke-width="1.0"/>
-<rect x="420.0" y="154.0" width="170.0" height="30.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
-<text x="505.0" y="169.0" font-size="16" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="middle">acoustic detail</text>
-<line x1="594.0" y1="169.0" x2="646.0" y2="116.0" stroke="#94a3b8" stroke-width="1.0"/>
-<rect x="650.0" y="81.0" width="210.0" height="70.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="755.0" y="108.0" font-size="18" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">the generator</text>
-<text x="755.0" y="132.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">W8's model</text>
-<line x1="864.0" y1="116.0" x2="888.0" y2="116.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="896.0,116.0 888.0,121.0 888.0,111.0" fill="#94a3b8"/>
-<svg x="934.17" y="96.7081" width="11.66" height="25.2919" viewBox="0 -4 11.66 25.2919"><defs>
+<rect x="20.0" y="62.0" width="170.0" height="40.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.4"/>
+<polyline points="28.0,82.0 31.9,83.6 35.7,84.3 39.5,80.5 43.4,79.8 47.2,76.9 51.1,85.9 55.0,86.4 58.8,87.6 62.6,82.4 66.5,78.7 70.3,79.2 74.2,85.2 78.0,73.7 81.9,81.3 85.8,90.2 89.6,76.9 93.5,74.5 97.3,74.0 101.2,75.4 105.0,79.7 108.8,83.8 112.7,74.9 116.5,73.5 120.4,73.5 124.2,82.2 128.1,73.9 131.9,72.8 135.8,75.8 139.7,87.3 143.5,80.1 147.3,74.5 151.2,76.8 155.1,80.2 158.9,85.5 162.8,86.3 166.6,85.5 170.4,83.6 174.3,82.2 178.2,82.6 182.0,82.0" fill="none" stroke="#b45309" stroke-width="1.6"/>
+<svg x="91.8" y="109.34" width="26.4" height="32.1502" viewBox="0 -6.6 26.4 32.1502"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w9t15-figure_1">
   <g id="w9t15-patch_1">
-   <path d="M 0 21.291875 
-L 11.66 21.291875 
-L 11.66 0 
+   <path d="M 0 25.55025 
+L 26.4 25.55025 
+L 26.4 0 
 L 0 0 
-L 0 21.291875 
+L 0 25.55025 
 z
 " style="fill: none"/>
   </g>
   <g id="w9t15-text_1">
-   <!-- $\hat{\mathbf{x}}$ -->
-   <g style="fill: #b45309" transform="translate(0 16.716563) scale(0.22 -0.22)">
+   <!-- $\mathbf{x}^{\mathsf{p}}$ -->
+   <g style="fill: #b45309" transform="translate(0 20.059875) scale(0.264 -0.264)">
     <defs>
-     <path id="w9t15-Cmr10-5e" d="M 863 3444 
-L 738 3578 
-L 1600 4441 
-L 2456 3578 
-L 2328 3444 
-L 1600 4084 
-L 863 3444 
-z
-" transform="scale(0.015625)"/>
      <path id="w9t15-Cmb10-78" d="M 109 0 
 L 109 325 
 Q 628 325 678 384 
@@ -177,24 +54,146 @@ L 1381 0
 L 109 0 
 z
 " transform="scale(0.015625)"/>
+     <path id="w9t15-Cmss10-70" d="M 513 -1241 
+L 513 2841 
+L 1019 2841 
+L 1019 2541 
+Q 1469 2913 2113 2913 
+Q 2428 2913 2648 2672 
+Q 2869 2431 2976 2082 
+Q 3084 1734 3084 1422 
+Q 3084 1081 2942 728 
+Q 2800 375 2533 151 
+Q 2266 -72 1906 -72 
+Q 1663 -72 1436 23 
+Q 1209 119 1038 281 
+L 1038 -1241 
+L 513 -1241 
+z
+M 1038 744 
+Q 1138 559 1288 453 
+Q 1438 347 1631 347 
+Q 1906 347 2117 501 
+Q 2328 656 2443 909 
+Q 2559 1163 2559 1422 
+Q 2559 1825 2325 2151 
+Q 2091 2478 1709 2478 
+Q 1581 2478 1451 2434 
+Q 1322 2391 1219 2314 
+Q 1116 2238 1038 2125 
+L 1038 744 
+z
+" transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w9t15-Cmr10-5e" transform="translate(7.640137 3.609375)"/>
-    <use xlink:href="#w9t15-Cmb10-78" transform="translate(0 0.53125)"/>
+    <use xlink:href="#w9t15-Cmb10-78" transform="translate(0 0.875)"/>
+    <use xlink:href="#w9t15-Cmss10-70" transform="translate(57.149687 39.139063) scale(0.7)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<line x1="194.0" y1="82.0" x2="214.0" y2="82.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="222.0,82.0 214.0,87.0 214.0,77.0" fill="#94a3b8"/>
+<rect x="226.0" y="46.0" width="170.0" height="72.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="311.0" y="69.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">a factorized</text>
+<text x="311.0" y="96.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">codec (FACodec)</text>
+<line x1="400.0" y1="82.0" x2="428.0" y2="24.0" stroke="#94a3b8" stroke-width="1.0"/>
+<rect x="432.0" y="6.0" width="170.0" height="36.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="517.0" y="24.0" font-size="19" font-weight="600" fill="#15803d" text-anchor="middle" dominant-baseline="middle">content</text>
+<line x1="606.0" y1="24.0" x2="646.0" y2="82.0" stroke="#94a3b8" stroke-width="1.0"/>
+<line x1="400.0" y1="82.0" x2="428.0" y2="64.0" stroke="#94a3b8" stroke-width="1.0"/>
+<rect x="432.0" y="46.0" width="170.0" height="36.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="517.0" y="64.0" font-size="19" font-weight="600" fill="#0b5cad" text-anchor="middle" dominant-baseline="middle">prosody</text>
+<line x1="606.0" y1="64.0" x2="646.0" y2="82.0" stroke="#94a3b8" stroke-width="1.0"/>
+<line x1="400.0" y1="82.0" x2="428.0" y2="104.0" stroke="#94a3b8" stroke-width="1.0"/>
+<rect x="432.0" y="86.0" width="170.0" height="36.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="517.0" y="104.0" font-size="19" font-weight="600" fill="#7c3aed" text-anchor="middle" dominant-baseline="middle">timbre</text>
+<line x1="606.0" y1="104.0" x2="646.0" y2="82.0" stroke="#94a3b8" stroke-width="1.0"/>
+<line x1="400.0" y1="82.0" x2="428.0" y2="144.0" stroke="#94a3b8" stroke-width="1.0"/>
+<rect x="432.0" y="126.0" width="170.0" height="36.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="517.0" y="144.0" font-size="19" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="middle">acoustic detail</text>
+<line x1="606.0" y1="144.0" x2="646.0" y2="82.0" stroke="#94a3b8" stroke-width="1.0"/>
+<rect x="650.0" y="46.0" width="210.0" height="72.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="755.0" y="69.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">the generator</text>
+<text x="755.0" y="96.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">W8's model</text>
+<line x1="864.0" y1="82.0" x2="888.0" y2="82.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="896.0,82.0 888.0,87.0 888.0,77.0" fill="#94a3b8"/>
+<svg x="933.004" y="63.3401" width="13.992" height="32.1502" viewBox="0 -6.6 13.992 32.1502"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w9t16-figure_1">
+  <g id="w9t16-patch_1">
+   <path d="M 0 25.55025 
+L 13.992 25.55025 
+L 13.992 0 
+L 0 0 
+L 0 25.55025 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w9t16-text_1">
+   <!-- $\hat{\mathbf{x}}$ -->
+   <g style="fill: #b45309" transform="translate(0 20.059875) scale(0.264 -0.264)">
+    <defs>
+     <path id="w9t16-Cmr10-5e" d="M 863 3444 
+L 738 3578 
+L 1600 4441 
+L 2456 3578 
+L 2328 3444 
+L 1600 4084 
+L 863 3444 
+z
+" transform="scale(0.015625)"/>
+     <path id="w9t16-Cmb10-78" d="M 109 0 
+L 109 325 
+Q 628 325 678 384 
+L 1381 1350 
+L 588 2516 
+L 141 2516 
+L 141 2841 
+L 1606 2841 
+L 1606 2516 
+L 1331 2516 
+L 1766 1881 
+L 2181 2463 
+Q 2181 2491 2072 2503 
+Q 1963 2516 1888 2516 
+L 1888 2841 
+L 3156 2841 
+L 3156 2516 
+Q 2638 2516 2584 2456 
+L 1959 1594 
+L 2816 325 
+L 3272 325 
+L 3272 0 
+L 1797 0 
+L 1797 325 
+L 2075 325 
+L 1575 1063 
+L 1081 378 
+Q 1081 356 1193 340 
+Q 1306 325 1381 325 
+L 1381 0 
+L 109 0 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w9t16-Cmr10-5e" transform="translate(7.640137 3.609375)"/>
+    <use xlink:href="#w9t16-Cmb10-78" transform="translate(0 0.53125)"/>
    </g>
   </g>
  </g>
 </svg>
 </g>
 <g class="fragment" data-fragment-index="1">
-<text x="20.0" y="214.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">the industrial compromise: condition by layer, or by prompt</text>
-<rect x="20.0" y="228.0" width="470.0" height="62.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="34.0" y="248.0" font-size="16" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="middle">by layer (W8's 2026 recipe)</text>
-<text x="34.0" y="272.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">AR stage: text + instruction · flow: the timbre</text>
-<rect x="510.0" y="228.0" width="470.0" height="62.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="524.0" y="248.0" font-size="16" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="middle">by prompt (IndexTTS2)</text>
-<text x="524.0" y="272.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">a timbre prompt and a style prompt, from different people</text>
-<text x="20.0" y="322.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">NaturalSpeech 3 (ICML 2024): content / prosody / timbre / acoustic detail, a subspace each</text>
-<text x="20.0" y="350.0" font-size="16" font-weight="700" fill="#b45309" text-anchor="start" dominant-baseline="auto">splitting them is an admission: by default they arrive glued together</text>
+<text x="20.0" y="206.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">the industrial compromise: condition by layer, or by prompt</text>
+<rect x="20.0" y="222.0" width="472.0" height="98.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="34.0" y="248.0" font-size="19" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">by layer (W8's 2026 recipe)</text>
+<text x="34.0" y="276.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">AR stage: text + instruction</text>
+<text x="34.0" y="302.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">flow: the timbre</text>
+<rect x="508.0" y="222.0" width="472.0" height="98.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="522.0" y="248.0" font-size="19" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">by prompt (IndexTTS2)</text>
+<text x="522.0" y="276.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">a timbre prompt and a style prompt,</text>
+<text x="522.0" y="302.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">from different people</text>
 </g>
 </svg>
 ```

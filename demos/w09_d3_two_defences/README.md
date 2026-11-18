@@ -1,7 +1,7 @@
 <!-- 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。 -->
 # W9 Demo 3 · Two lines of defence, and where each one breaks
 
-Slides p82–p84. Run by the lecturer on a MacBook Pro (M5 Max, no CUDA); you are not asked to run it.
+Slides p85–p87. Run by the lecturer on a MacBook Pro (M5 Max, no CUDA); you are not asked to run it.
 
 ## What it does
 

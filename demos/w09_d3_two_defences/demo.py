@@ -13,7 +13,7 @@
   selftest   不開視窗、不需要模型：取窗、調音量、接合、SNR、統計量、fake 流程；有彩排紀錄時對 w09-metrics.json
   export     只重寫 w09-metrics.json → demo3（從 runs/rehearsal/rehearsal.json）
 
-畫面上的鍵（順序照投影片 p83、p84 講稿的【操作】）。
+畫面上的鍵（順序照投影片 p86、p87 講稿的【操作】）。
 前半——偵測器，一條分數軸、一條門檻：
   r        真人錄音（W3 那句）與參考組（dev-clean 每位說話人一句，小點）
   空白鍵   對麥克風說一句，現場給分（replay 時沒有；彩排時用 record 錄的那一句）
@@ -1203,7 +1203,7 @@ def export(rec_path: Path) -> None:
                       "detected": "frac > 0.5",
                       "bit_acc": "fraction of the 16 message bits decoded correctly (0.5 = chance)",
                       "regeneration": "16 kHz → 24 kHz → codec (encode once, decode the first n_q codebooks) → 16 kHz; Vocos: 16 → 24 kHz → its own mel front end → waveform → 16 kHz",
-                      "what_we_heard": "filled by hand after the rehearsal (w09.qmd p84, p85)"}}
+                      "what_we_heard": "filled by hand after the rehearsal (w09.qmd p86, p87)"}}
     METRICS_JSON.parent.mkdir(parents=True, exist_ok=True)
     METRICS_JSON.write_text(json.dumps(d, ensure_ascii=False, indent=1, default=float), encoding="utf-8")
     print(f"  → {os.path.relpath(METRICS_JSON, HERE)}（demo3）")

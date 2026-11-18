@@ -1,5 +1,5 @@
 <!-- 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。 -->
-# W9 · Demo 1 — Four prompts, three ways to condition (slides p13–p15)
+# W9 · Demo 1 — Four prompts, three ways to condition (slides p14–p16)
 
 Voice cloning hands the model a short recording of the target speaker. This demo asks what else in that recording reaches the output. One 4.9 s prompt of one LibriSpeech dev-clean speaker (`1272-128104-0010`, CC BY 4.0) is made into four versions, and each version goes through three systems that take the reference in different ways. Twelve outputs, all reading the same sentence (W3's `1272-128104-0000`, of which the same speaker's real recording exists).
 
@@ -12,7 +12,7 @@ Voice cloning hands the model a short recording of the target speaker. This demo
 | + music | a chord progression synthesised in `demo.py` (C–G–Am–F) added at 10 dB |
 | telephone band | zero-phase low-pass at 3.4 kHz, then resampled 16 → 8 → 16 kHz |
 
-**The three ways to condition** (slides p9–p12):
+**The three ways to condition** (slides p10–p13):
 
 | | System | What it receives from the prompt |
 |---|---|---|
@@ -29,22 +29,22 @@ Voice cloning hands the model a short recording of the target speaker. This demo
 | SIM | the cosine between two embeddings from one speaker-verification encoder (`microsoft/wavlm-base-plus-sv`, WavLM Base+ with an x-vector head): output vs the **clean** prompt, and output vs **that version** of the prompt |
 | WER | Whisper small (W7's) against the sentence, both sides through Whisper's English normaliser |
 
-The first two are this demo's own quantities, written to answer two specific questions; they are not standard metrics. SIM is also printed with a second encoder (the SpeechBrain x-vector that conditions SpeechT5): the two encoders' numbers are not comparable with each other, which is the point of slide p18. Two reference points are printed with the SIM table: the same speaker's real recording of the sentence, and last week's SpeechT5 output in a different voice.
+The first two are this demo's own quantities, written to answer two specific questions; they are not standard metrics. SIM is also printed with a second encoder (the SpeechBrain x-vector that conditions SpeechT5): the two encoders' numbers are not comparable with each other, which is the point of slide p19. Two reference points are printed with the SIM table: the same speaker's real recording of the sentence, and last week's SpeechT5 output in a different voice.
 
 Each cell is **one draw** (seed 1 for each system). Before trusting a small difference between two cells, draw again with another seed.
 
-**The extra row (slide p15)** uses two prompts recorded by the lecturer — one sentence spoken in an obvious mood, one Mandarin sentence — and asks the two continuation systems to read a neutral sentence and an English sentence. Those recordings and their outputs are not in this repository; `./present.sh record mood` and `./present.sh record accent` record your own.
+**The extra row (slide p16)** uses two prompts recorded by the lecturer — one sentence spoken in an obvious mood, one Mandarin sentence — and asks the two continuation systems to read a neutral sentence and an English sentence. Those recordings and their outputs are not in this repository; `./present.sh record mood` and `./present.sh record accent` record your own.
 
 ## Keys (in the window)
 
 | Key | What happens | Slide |
 |---|---|---|
-| `p` | the four prompt versions: mel spectrograms, played in order | p14 |
-| `1` `2` `3` | the three outputs for the + noise / + music / telephone-band prompt, played in order; the window shows that prompt and the three outputs (dashed line at 4 kHz) | p14 |
-| `c` | the three outputs for the clean prompt | p14 |
+| `p` | the four prompt versions: mel spectrograms, played in order | p15 |
+| `1` `2` `3` | the three outputs for the + noise / + music / telephone-band prompt, played in order; the window shows that prompt and the three outputs (dashed line at 4 kHz) | p15 |
+| `c` | the three outputs for the clean prompt | p15 |
 | `s` `f` `k` | replay only SpeechT5 / F5-TTS / Qwen3-TTS for the current version; `o` replays that version's prompt; `g` plays the speaker's real recording of the sentence | |
-| `t` | the numbers: a table in the terminal, bar charts in the window | p14 |
-| `e` `a` | the extra row: the mood prompt, the accent prompt | p15 |
+| `t` | the numbers: a table in the terminal, bar charts in the window | p15 |
+| `e` `a` | the extra row: the mood prompt, the accent prompt | p16 |
 | `r` `h` `q` | play again, menu, quit | |
 
 Playback files are scaled to one RMS so that loudness does not stand in for quality; all measurements use the raw outputs. The mel spectrograms in the window all use one display front end (16 kHz, 25 ms / 10 ms, 80 mel bins up to 8 kHz).

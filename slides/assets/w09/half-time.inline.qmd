@@ -1,0 +1,57 @@
+<!-- 由 scripts/make_figs_w09.py 產生，勿手改；投影片用 {{< include assets/w09/half-time.inline.qmd >}} 貼入 -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 366" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<text x="20.0" y="30.0" font-size="22" font-weight="700" fill="#15803d" text-anchor="start" dominant-baseline="auto">First half — done</text>
+<text x="218.9" y="30.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">The judge moves closer: from a condition to a reward</text>
+<rect x="20.0" y="42.0" width="308.0" height="128.0" rx="8" fill="#dcfce7" stroke="#15803d" stroke-width="1.4"/>
+<circle cx="48.0" cy="72.0" r="16.0" fill="#15803d" stroke="#15803d" stroke-width="1.4"/>
+<text x="48.0" y="73.0" font-size="19" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">✓</text>
+<text x="74.0" y="80.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">Whose voice</text>
+<text x="36.0" y="110.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">Neither route copies only the</text>
+<text x="36.0" y="135.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">timbre: what came with the</text>
+<text x="36.0" y="160.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">prompt comes along.</text>
+<line x1="330.0" y1="106.0" x2="336.0" y2="106.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="344.0,106.0 336.0,111.0 336.0,101.0" fill="#94a3b8"/>
+<rect x="346.0" y="42.0" width="308.0" height="128.0" rx="8" fill="#dcfce7" stroke="#15803d" stroke-width="1.4"/>
+<circle cx="374.0" cy="72.0" r="16.0" fill="#15803d" stroke="#15803d" stroke-width="1.4"/>
+<text x="374.0" y="73.0" font-size="19" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">✓</text>
+<text x="400.0" y="80.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">In what manner</text>
+<text x="362.0" y="110.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">An instruction the judge cannot</text>
+<text x="362.0" y="135.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">hear, the generator has no</text>
+<text x="362.0" y="160.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">reason to learn.</text>
+<line x1="656.0" y1="106.0" x2="662.0" y2="106.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="670.0,106.0 662.0,111.0 662.0,101.0" fill="#94a3b8"/>
+<rect x="672.0" y="42.0" width="308.0" height="128.0" rx="8" fill="#dcfce7" stroke="#15803d" stroke-width="1.4"/>
+<circle cx="700.0" cy="72.0" r="16.0" fill="#15803d" stroke="#15803d" stroke-width="1.4"/>
+<text x="700.0" y="73.0" font-size="19" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">✓</text>
+<text x="726.0" y="80.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">A reward</text>
+<text x="688.0" y="110.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">Yes: post-training changes</text>
+<text x="688.0" y="135.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">only the weights. The judge is</text>
+<text x="688.0" y="160.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">in training, not in use.</text>
+<text x="20.0" y="214.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="auto">Second half — next</text>
+<text x="245.6" y="214.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">What the judge misses — and who judges the judge</text>
+<rect x="20.0" y="226.0" width="308.0" height="128.0" rx="8" fill="#ffffff" stroke="#dc2626" stroke-width="1.4"/>
+<circle cx="48.0" cy="256.0" r="16.0" fill="#fee2e2" stroke="#dc2626" stroke-width="1.4"/>
+<text x="48.0" y="257.0" font-size="19" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">4</text>
+<text x="74.0" y="264.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">Blind spots</text>
+<text x="36.0" y="294.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">What happens in the places</text>
+<text x="36.0" y="319.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">the judge cannot see?</text>
+<line x1="330.0" y1="290.0" x2="336.0" y2="290.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="344.0,290.0 336.0,295.0 336.0,285.0" fill="#94a3b8"/>
+<rect x="346.0" y="226.0" width="308.0" height="128.0" rx="8" fill="#ffffff" stroke="#dc2626" stroke-width="1.4"/>
+<circle cx="374.0" cy="256.0" r="16.0" fill="#fee2e2" stroke="#dc2626" stroke-width="1.4"/>
+<text x="374.0" y="257.0" font-size="19" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">5</text>
+<text x="400.0" y="264.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">Judging the judges</text>
+<text x="362.0" y="294.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">What do listeners measure —</text>
+<text x="362.0" y="319.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">and a machine that imitates</text>
+<text x="362.0" y="344.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">them?</text>
+<line x1="656.0" y1="290.0" x2="662.0" y2="290.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="670.0,290.0 662.0,295.0 662.0,285.0" fill="#94a3b8"/>
+<rect x="672.0" y="226.0" width="308.0" height="128.0" rx="8" fill="#ffffff" stroke="#dc2626" stroke-width="1.4"/>
+<circle cx="700.0" cy="256.0" r="16.0" fill="#fee2e2" stroke="#dc2626" stroke-width="1.4"/>
+<text x="700.0" y="257.0" font-size="19" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">6</text>
+<text x="726.0" y="264.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">The adversary</text>
+<text x="688.0" y="294.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">What if the generating side</text>
+<text x="688.0" y="319.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">does not want to be judged?</text>
+</svg>
+```

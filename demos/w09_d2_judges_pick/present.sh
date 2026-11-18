@@ -17,7 +17,7 @@
 #
 # 兩個環境：demo.py 在 ../.venv-tts（torch、f5-tts；W8 Demo 1 的 setup.sh 建的），Qwen3-TTS 由 W8 Demo 2 的 mlx_worker.py 在 ../.venv（mlx-audio）當子程序跑。
 # 這個 demo 不裝新套件。replay／listen／fake／selftest／export 不需要 torch，沒有 ../.venv-tts 時退到 ../.venv。
-# 課堂上的講法與按鍵順序寫在投影片 p53–p55 講稿的【操作】。
+# 課堂上的講法與按鍵順序寫在投影片 p55–p57 講稿的【操作】。
 set -euo pipefail
 cd "$(dirname "$0")"
 export HF_HUB_OFFLINE=1
