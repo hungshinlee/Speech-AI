@@ -1,23 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 360" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 362" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
 <g class="fragment" data-fragment-index="0">
-<text x="20.0" y="34.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">W6: an alphabet for speech — the target was the waveform, and no transcript appeared anywhere</text>
-<rect x="20.0" y="52.0" width="110.0" height="60.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<svg x="69.7" y="68.6437" width="10.6" height="19.3562" viewBox="0 0 10.6 19.35625"><defs>
+<text x="20.0" y="26.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">W6: an alphabet for speech</text>
+<rect x="20.0" y="40.0" width="100.0" height="64.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<svg x="63.004" y="59.8601" width="13.992" height="25.5502" viewBox="0 0 13.992 25.55025"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w7t1-figure_1">
   <g id="w7t1-patch_1">
-   <path d="M 0 19.35625 
-L 10.6 19.35625 
-L 10.6 0 
+   <path d="M 0 25.55025 
+L 13.992 25.55025 
+L 13.992 0 
 L 0 0 
-L 0 19.35625 
+L 0 25.55025 
 z
 " style="fill: none"/>
   </g>
   <g id="w7t1-text_1">
    <!-- $\mathbf{x}$ -->
-   <g style="fill: #1f2328" transform="translate(0 15.196875) scale(0.2 -0.2)">
+   <g style="fill: #1f2328" transform="translate(0 20.059875) scale(0.264 -0.264)">
     <defs>
      <path id="w7t1-Cmb10-78" d="M 109 0 
 L 109 325 
@@ -58,34 +58,34 @@ z
   </g>
  </g>
 </svg>
-<line x1="134.0" y1="82.0" x2="159.0" y2="82.0" stroke="#94a3b8" stroke-width="1.4"/>
-<polygon points="166.0,82.0 159.0,87.0 159.0,77.0" fill="#94a3b8"/>
-<rect x="170.0" y="52.0" width="150.0" height="60.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="245.0" y="82.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">codec encoder</text>
-<line x1="324.0" y1="82.0" x2="349.0" y2="82.0" stroke="#94a3b8" stroke-width="1.4"/>
-<polygon points="356.0,82.0 349.0,87.0 349.0,77.0" fill="#94a3b8"/>
-<rect x="360.0" y="52.0" width="170.0" height="60.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<text x="445.0" y="74.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">quantiser (RVQ)</text>
-<text x="445.0" y="98.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">W6 p22</text>
-<line x1="534.0" y1="82.0" x2="559.0" y2="82.0" stroke="#94a3b8" stroke-width="1.4"/>
-<polygon points="566.0,82.0 559.0,87.0 559.0,77.0" fill="#94a3b8"/>
-<rect x="570.0" y="52.0" width="190.0" height="60.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
-<svg x="607.31" y="76" width="115.38" height="18" viewBox="0 0 115.38 18"><defs>
+<line x1="123.0" y1="72.0" x2="136.0" y2="72.0" stroke="#94a3b8" stroke-width="1.4"/>
+<polygon points="143.0,72.0 136.0,77.0 136.0,67.0" fill="#94a3b8"/>
+<rect x="146.0" y="40.0" width="170.0" height="64.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="231.0" y="72.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">codec encoder</text>
+<line x1="319.0" y1="72.0" x2="332.0" y2="72.0" stroke="#94a3b8" stroke-width="1.4"/>
+<polygon points="339.0,72.0 332.0,77.0 332.0,67.0" fill="#94a3b8"/>
+<rect x="342.0" y="40.0" width="200.0" height="64.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="442.0" y="59.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">quantiser (RVQ)</text>
+<text x="442.0" y="86.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">W6 p23</text>
+<line x1="545.0" y1="72.0" x2="558.0" y2="72.0" stroke="#94a3b8" stroke-width="1.4"/>
+<polygon points="565.0,72.0 558.0,77.0 558.0,67.0" fill="#94a3b8"/>
+<rect x="568.0" y="40.0" width="200.0" height="64.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<svg x="594.926" y="63.108" width="146.148" height="22.8" viewBox="0 0 146.148 22.8"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w7t2-figure_1">
   <g id="w7t2-patch_1">
-   <path d="M 0 18 
-L 115.38 18 
-L 115.38 -0 
-L 0 -0 
-L 0 18 
+   <path d="M 0 22.8 
+L 146.148 22.8 
+L 146.148 0 
+L 0 0 
+L 0 22.8 
 z
 " style="fill: none"/>
   </g>
   <g id="w7t2-text_1">
    <!-- $N_q \times T\ \mathsf{integers}$ -->
-   <g style="fill: #1f2328" transform="translate(0 12.42) scale(0.18 -0.18)">
+   <g style="fill: #1f2328" transform="translate(0 15.732) scale(0.228 -0.228)">
     <defs>
      <path id="w7t2-Cmmi10-4e" d="M 300 0 
 Q 238 0 238 84 
@@ -451,53 +451,53 @@ z
   </g>
  </g>
 </svg>
-<line x1="764.0" y1="82.0" x2="789.0" y2="82.0" stroke="#94a3b8" stroke-width="1.4"/>
-<polygon points="796.0,82.0 789.0,87.0 789.0,77.0" fill="#94a3b8"/>
-<rect x="800.0" y="52.0" width="180.0" height="60.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="890.0" y="74.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">an LM reads it</text>
-<text x="890.0" y="98.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">W11</text>
-<rect x="20.0" y="128.0" width="960.0" height="40.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="40.0" y="148.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">a token is</text>
-<text x="126.0" y="148.0" font-size="16" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="middle">reconstructed</text>
-<text x="252.0" y="148.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">· frame rate chosen for the LM · W5's unit came back as the first codebook · W6 p55</text>
+<line x1="771.0" y1="72.0" x2="784.0" y2="72.0" stroke="#94a3b8" stroke-width="1.4"/>
+<polygon points="791.0,72.0 784.0,77.0 784.0,67.0" fill="#94a3b8"/>
+<rect x="794.0" y="40.0" width="186.0" height="64.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="887.0" y="59.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">an LM reads it</text>
+<text x="887.0" y="86.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">W11</text>
+<rect x="20.0" y="116.0" width="960.0" height="40.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="36.0" y="136.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">a token is</text>
+<text x="127.8" y="136.0" font-size="19" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="middle">reconstructed</text>
+<text x="265.2" y="136.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">— no transcript appeared anywhere (W6 p57)</text>
 </g>
 <g class="fragment" data-fragment-index="1">
-<line x1="500.0" y1="170.0" x2="500.0" y2="187.0" stroke="#dc2626" stroke-width="1.8"/>
-<polygon points="500.0,196.0 495.0,187.0 505.0,187.0" fill="#dc2626"/>
-<text x="20.0" y="216.0" font-size="17" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="auto">W7: back to a world with transcripts (W6 p56) — the encoder is W5's, the input is any of W2's three, the output is text</text>
-<rect x="20.0" y="232.0" width="300.0" height="32.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="170.0" y="248.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">log-mel (W2)</text>
-<text x="330.0" y="248.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">Whisper's encoder</text>
-<rect x="20.0" y="268.0" width="300.0" height="32.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
-<text x="170.0" y="284.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">SSL features (W5)</text>
-<text x="330.0" y="284.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">wav2vec 2.0 fine-tuning, SLAM-ASR</text>
-<rect x="20.0" y="304.0" width="300.0" height="32.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<text x="170.0" y="320.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">discrete units (W6)</text>
-<text x="330.0" y="320.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">Chang et al. 2024, DASB</text>
-<line x1="640.0" y1="284.0" x2="664.0" y2="284.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="672.0,284.0 664.0,289.0 664.0,279.0" fill="#94a3b8"/>
-<rect x="676.0" y="254.0" width="140.0" height="60.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="746.0" y="276.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">encoder</text>
-<text x="746.0" y="300.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">W4 / W5</text>
-<line x1="820.0" y1="284.0" x2="840.0" y2="284.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="848.0,284.0 840.0,289.0 840.0,279.0" fill="#94a3b8"/>
-<rect x="852.0" y="254.0" width="128.0" height="60.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
-<svg x="885.31" y="277" width="61.38" height="18" viewBox="0 0 61.38 18"><defs>
+<line x1="500.0" y1="160.0" x2="500.0" y2="175.0" stroke="#dc2626" stroke-width="1.8"/>
+<polygon points="500.0,184.0 495.0,175.0 505.0,175.0" fill="#dc2626"/>
+<text x="20.0" y="208.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="auto">W7: back to a world with transcripts</text>
+<rect x="20.0" y="222.0" width="230.0" height="40.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="135.0" y="242.0" font-size="19" font-weight="600" fill="#0b5cad" text-anchor="middle" dominant-baseline="middle">log-mel (W2)</text>
+<text x="262.0" y="242.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">Whisper's encoder</text>
+<rect x="20.0" y="268.0" width="230.0" height="40.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="135.0" y="288.0" font-size="19" font-weight="600" fill="#15803d" text-anchor="middle" dominant-baseline="middle">SSL features (W5)</text>
+<text x="262.0" y="288.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">wav2vec 2.0, SLAM-ASR</text>
+<rect x="20.0" y="314.0" width="230.0" height="40.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="135.0" y="334.0" font-size="19" font-weight="600" fill="#7c3aed" text-anchor="middle" dominant-baseline="middle">discrete units (W6)</text>
+<text x="262.0" y="334.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">Chang et al. 2024, DASB</text>
+<line x1="612.0" y1="288.0" x2="632.0" y2="288.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="640.0,288.0 632.0,293.0 632.0,283.0" fill="#94a3b8"/>
+<rect x="644.0" y="256.0" width="150.0" height="64.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="719.0" y="275.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">encoder</text>
+<text x="719.0" y="302.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">W4 / W5</text>
+<line x1="797.0" y1="288.0" x2="817.0" y2="288.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="825.0,288.0 817.0,293.0 817.0,283.0" fill="#94a3b8"/>
+<rect x="829.0" y="256.0" width="151.0" height="64.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+<svg x="865.626" y="277.74" width="77.748" height="22.8" viewBox="0 0 77.748 22.8"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w7t3-figure_1">
   <g id="w7t3-patch_1">
-   <path d="M 0 18 
-L 61.38 18 
-L 61.38 0 
+   <path d="M 0 22.8 
+L 77.748 22.8 
+L 77.748 0 
 L 0 0 
-L 0 18 
+L 0 22.8 
 z
 " style="fill: none"/>
   </g>
   <g id="w7t3-text_1">
    <!-- $\ell\ \ \mathsf{(text)}$ -->
-   <g style="fill: #1f2328" transform="translate(0 13.5) scale(0.18 -0.18)">
+   <g style="fill: #1f2328" transform="translate(0 17.1) scale(0.228 -0.228)">
     <defs>
      <path id="w7t3-Cmmi10-60" d="M 153 475 
 Q 125 475 94 509 
@@ -663,6 +663,5 @@ z
   </g>
  </g>
 </svg>
-<text x="980.0" y="344.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">between the encoder and the text sits the question of the week →</text>
 </g>
 </svg>

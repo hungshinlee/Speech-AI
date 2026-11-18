@@ -70,7 +70,7 @@ format:
 :::
 
 ::: {.footer}
-W7 p5 · W7 p81's last paragraph · W6 p22 RVQ · W6 p56
+W7 p5 · W7 p83's last paragraph · W6 p23 RVQ · W6 p58
 :::
 
 ## The problem this week handles, in one picture
@@ -150,7 +150,7 @@ Two distant modes: their mean **is not a legitimate sample** — harmonics at di
 :::
 
 ::: {.footer}
-L1 gives the conditional median, same problem · W2 p49, p52 · W6 p28
+L1 gives the conditional median, same problem · W2 p49, p52 · W6 p29
 :::
 
 ## Two exits: discretise and sample, or carry noise to a sample
@@ -326,7 +326,7 @@ VITS is where "length" first became something the model **samples**, and where t
 :::
 
 ::: {.footer}
-Kim et al. 2021 §2.1–2.5 (PMLR 139) · MMS: Pratap et al. 2024 §7.1 · W6 p28
+Kim et al. 2021 §2.1–2.5 (PMLR 139) · MMS: Pratap et al. 2024 §7.1 · W6 p29
 :::
 
 ## Four answers to the length question
@@ -374,11 +374,11 @@ a design trade, not a generation gap · W4 p58 · p59: the three systems in a ro
 | **The question** | If speech is a string of W6's letters, can TTS be **language modelling** — and can a prompt of 3 s make it speak in that voice without any training for that speaker? |
 | **The idea** | Tokens: EnCodec, $f_r = 75$ Hz, $N_q = 8$, $V = 1024$. One AR model writes the first level token by token; one NAR model writes each of the other seven levels in a single pass. The prompt's tokens go into the context, and the model **continues** them. 60,000 hours of LibriLight with ASR transcripts. |
 | **What it added** | Zero-shot voice cloning as **in-context learning** (the paper's term): no speaker embedding, no fine-tuning; variation from a token draw; a length decided by $\langle\text{eos}\rangle$. |
-| **What it leaves open** | The stop symbol is learned, so the length is unstable (p31); eight levels at 75 Hz is 600 steps per second of speech (W6 p46) — the 2026 configurations exist to fix both (p33–p36). |
+| **What it leaves open** | The stop symbol is learned, so the length is unstable (p31); eight levels at 75 Hz is 600 steps per second of speech (W6 p48) — the 2026 configurations exist to fix both (p33–p36). |
 :::
 
 ::: {.footer}
-Wang et al., arXiv:2301.02111 · W6 p22 RVQ, p24 first level · W7 p64: the prompt, the other way
+Wang et al., arXiv:2301.02111 · W6 p23 RVQ, p25 first level · W7 p66: the prompt, the other way
 :::
 
 ## AR + NAR: the first level decides, the other seven correct
@@ -390,7 +390,7 @@ P(\mathbf{k} \mid \ell, \mathbf{k}^{\text{p}}) = \underbrace{\prod_t P_{\text{AR
 $$
 
 ::: {.footer}
-AR = autoregressive, NAR = non-autoregressive · Wang et al. 2023 §4.2 · W6 p24
+AR = autoregressive, NAR = non-autoregressive · Wang et al. 2023 §4.2 · W6 p25
 :::
 
 ## Training and use are the same picture: cloning is continuation
@@ -408,7 +408,7 @@ W7: a text prompt steers an ASR's prior. W8: a speech prompt steers a TTS's prio
 :::
 
 ::: {.footer}
-Wang et al. 2023 §4.3 ("in-context learning") · W7 p64 · "continuation": this course's bridge
+Wang et al. 2023 §4.3 ("in-context learning") · W7 p66 · "continuation": this course's bridge
 :::
 
 ## Why continuation clones: a prior large enough to resemble
@@ -424,7 +424,7 @@ W6's tokens encode **speaker, prosody and content together**; the LM only learns
 | 3 | at use, the prior "continues" — which is why **channel leaks** too: background noise and codec artefacts in the prompt are preserved just as faithfully (W9) |
 
 ::: {.footer}
-W7: a prior big enough speaks on its own — here it **resembles** on its own · W6 p40
+W7: a prior big enough speaks on its own — here it **resembles** on its own · W6 p42
 :::
 
 ## The stop symbol is learned: length instability, two patches
@@ -444,14 +444,14 @@ W7's AED again: weak evidence stops early, a loop never stops.
 | stops early, drops words | $\langle\text{eos}\rangle$ drawn where the evidence is weak (long tails, a prompt whose style differs from the text) | not listed as a problem in the paper; addressed by CFG, repetition penalties, and W9's RL with a WER reward |
 
 ::: {.footer}
-Chen et al., VALL-E 2, arXiv:2406.05370 §1 · W7 p47: the length reward · nothing ties $T$ to $\lvert\ell\rvert$
+Chen et al., VALL-E 2, arXiv:2406.05370 §1 · W7 p49: the length reward · nothing ties $T$ to $\lvert\ell\rvert$
 :::
 
 ## Parallel instead of autoregressive: SoundStorm, MaskGCT
 
 | | what is parallel | what still has to be decided elsewhere |
 |:---|:---------|:---------|
-| **SoundStorm** (Borsos et al. 2023) | all acoustic levels, MaskGIT-style: mask, predict, keep the confident tokens, repeat — level by level over the RVQ | the **semantic tokens** it is conditioned on come from AudioLM's AR stage (W6 p40) — so does the length |
+| **SoundStorm** (Borsos et al. 2023) | all acoustic levels, MaskGIT-style: mask, predict, keep the confident tokens, repeat — level by level over the RVQ | the **semantic tokens** it is conditioned on come from AudioLM's AR stage (W6 p42) — so does the length |
 | **MaskGCT** (Wang et al., ICLR 2025) | **both** stages: text → semantic tokens and semantic → acoustic tokens are masked generation; no alignment, no phone durations | the **total length**: a separate flow-matching duration model predicts it from the text and the prompt's length (§3.2.2) |
 
 ::: {.claim}
@@ -528,11 +528,11 @@ Three things differ: **(a)** the length comes from a learned $\langle\text{eos}\
 
 | what is the same | what is not |
 |:---|:---------|
-| a strong prior that writes on its own — "hallucination" here is a sound not in the text | the vocabulary is a *reconstruction* (W6 p40): every property of the prompt is in it |
-| next-token cross-entropy, sampling, repetition penalties, CFG | the **unit of a step**: 12.5–75 per second of output, not per word (W6 p46) |
+| a strong prior that writes on its own — "hallucination" here is a sound not in the text | the vocabulary is a *reconstruction* (W6 p42): every property of the prompt is in it |
+| next-token cross-entropy, sampling, repetition penalties, CFG | the **unit of a step**: 12.5–75 per second of output, not per word (W6 p48) |
 
 ::: {.footer}
-W6 p52 · W7 p30 (the prior speaks on its own) · the 2026 configurations differ in (b)
+W6 p54 · W7 p31 (the prior speaks on its own) · the 2026 configurations differ in (b)
 :::
 
 ## MC 4 — "zero-shot cloning extracts a speaker embedding"
@@ -789,7 +789,7 @@ Four shapes so far: W5 half the model goes · W6 both halves stay, apart · W7 o
 :::
 
 ::: {.footer}
-the fourth shape: W5 p39 · W6 p30 · W7 p64 · W8: the data and the line disappear
+the fourth shape: W5 p39 · W6 p31 · W7 p66 · W8: the data and the line disappear
 :::
 
 ## Diffusion is the same family: a bent path, a score for a velocity
@@ -972,14 +972,14 @@ Demo 2 · demos/w08_d2_nfe_cfg_first_packet · rehearsed 2026-11-09 (M5 Max, MPS
 |:---|:---------|:---------|
 | **1** put the phase back | the mel kept only magnitudes; Griffin-Lim showed the phase is largely recoverable but the algorithm is slow and buzzy (W2 p43–p45) | a GAN generator learns it; or Vocos predicts it directly (p69) |
 | **2** undo the mel compression | 80 bins from 513: the pseudo-inverse is minimum-norm, not the original (W2 p49) | learned from data — the generator has seen what real spectra look like |
-| **3** sharpen a *predicted* mel | the acoustic model regressed: its mel is an average (p10) — the third job, promised in W2, delivered today | discriminators (W6 p28) push the output toward real speech, not toward the blurred input |
+| **3** sharpen a *predicted* mel | the acoustic model regressed: its mel is an average (p10) — the third job, promised in W2, delivered today | discriminators (W6 p29) push the output toward real speech, not toward the blurred input |
 
 ::: {.claim}
 $\hat{\mathbf{x}} = G(\mathbf{X})$, trained against W6's $\Phi_j$. A codec decoder is a vocoder whose input is tokens; a vocoder is the codec's second half trained on its own.
 :::
 
 ::: {.footer}
-W2 p52 MC 5 · W2 p43–p45, p49 · W6 p28, p30 · Demo 3 (p72–p74) plays all three
+W2 p52 MC 5 · W2 p43–p45, p49 · W6 p29, p31 · Demo 3 (p72–p74) plays all three
 :::
 
 ## HiFi-GAN: a generator and two families of discriminators
@@ -1027,7 +1027,7 @@ $$
 | input | a mel | tokens — and the encoder is trained jointly |
 
 ::: {.footer}
-Kong et al. 2020 §2.4: Eq. 5, $\lambda$ after Eq. 6 · W6 p28 · term for term, a codec's decoder half
+Kong et al. 2020 §2.4: Eq. 5, $\lambda$ after Eq. 6 · W6 p29 · term for term, a codec's decoder half
 :::
 
 ## Take one term away: HiFi-GAN's ablation
@@ -1075,11 +1075,11 @@ Siuzdak, ICLR 2024 §3.1–3.2, §4.3 · Kaneko et al., iSTFTNet, ICASSP 2022 ·
 |:---|:---------|
 | **where GAN vocoders break** | high pitch (female voices, singing), breath and fricatives, music: metallic buzz; unseen speakers, sample rates, languages; and a **train / use mismatch** — trained on real mels, used on predicted ones (the FastSpeech 2 era fine-tuned the vocoder on ground-truth-aligned predicted mels) |
 | **BigVGAN** (Lee et al., ICLR 2023) | the Snake activation $x + \sin^2(\alpha x)/\alpha$ puts a periodic inductive bias into $G$; anti-aliased up/down-sampling around it (AMP); 112M parameters, LibriTTS 24 kHz; robust out of distribution without fine-tuning (§4.6: music) |
-| **the codec decoder is a vocoder** | Mimi's decoder goes token → waveform (W6 p33): VALL-E and Qwen3-TTS need no separate vocoder; CosyVoice's "token → flow → mel → HiFi-GAN" is two vocoders in a row |
+| **the codec decoder is a vocoder** | Mimi's decoder goes token → waveform (W6 p35): VALL-E and Qwen3-TTS need no separate vocoder; CosyVoice's "token → flow → mel → HiFi-GAN" is two vocoders in a row |
 | **and it can stream, and be generative** | MelFlow (Welker, Peer & Gerkmann, ICASSP 2026): a flow-matching mel vocoder at 16 kHz, 32 ms algorithmic / 48 ms total latency |
 
 ::: {.footer}
-Lee et al. §3.2–3.4, §4.6 · W6 p33 · Welker et al., arXiv:2509.15085 (no DOI yet) · Demo 3
+Lee et al. §3.2–3.4, §4.6 · W6 p35 · Welker et al., arXiv:2509.15085 (no DOI yet) · Demo 3
 :::
 
 ## MC 8 — "the vocoder is a small last step"
@@ -1186,11 +1186,11 @@ $$
 | budget | the LM must emit $C$ tokens in $C / f_r$ s **every time**: at 25 Hz, 40 ms per token, nothing left for a slow step | more slack per chunk |
 
 ::: {.small}
-W6 p46: a codec LM must run $f_r$ steps per second of output — this is that bill with the decoder's $N_{\text{FE}}$ passes and the vocoder added. Miss it once and playback stalls; W1's $D_{\text{buf}}$ exists to absorb the miss.
+W6 p48: a codec LM must run $f_r$ steps per second of output — this is that bill with the decoder's $N_{\text{FE}}$ passes and the vocoder added. Miss it once and playback stalls; W1's $D_{\text{buf}}$ exists to absorb the miss.
 :::
 
 ::: {.footer}
-outline 〈關鍵數學 9〉 · W6 p46 (steps per second), p54 (the floor $1/f_r$) · W1 p41 (the buffer)
+outline 〈關鍵數學 9〉 · W6 p48 (steps per second), p56 (the floor $1/f_r$) · W1 p41 (the buffer)
 :::
 
 ## Chunk-aware flow matching: the mask is seen in training
@@ -1228,7 +1228,7 @@ CosyVoice 2 §2.3: $N = 5$, $M = 15$; Eq. 12 adds $N d_{\text{llm}}$ · DSM: 150
 ## MC 9 — "flow is always slower than AR"
 
 ::: {.claim .warn}
-Speed is set by **implementation, token rate and chunk design**, not by the paradigm. A flow decoder at 1–2 NFE (MeanFlow) is a handful of passes per chunk; an AR model at 75 Hz × 8 levels was 600 steps per second (W6 p46). The 2026 systems use one of each precisely because neither is "the fast one".
+Speed is set by **implementation, token rate and chunk design**, not by the paradigm. A flow decoder at 1–2 NFE (MeanFlow) is a handful of passes per chunk; an AR model at 75 Hz × 8 levels was 600 steps per second (W6 p48). The 2026 systems use one of each precisely because neither is "the fast one".
 :::
 
 | number | system, hardware, definition — **do not put these in one table** |
@@ -1271,7 +1271,7 @@ W6 put the floor $1 / f_r$ in this cell. W11 merges it with "first token": an au
 :::
 
 ::: {.footer}
-W1 p36 · W1 p46–p47 (Kokoro 124 ms) · W6 p54 (the floor) · W7 p79 (the ASR-tail cell) · W11
+W1 p36 · W1 p46–p47 (Kokoro 124 ms) · W6 p56 (the floor) · W7 p81 (the ASR-tail cell) · W11
 :::
 
 ## MC 10 — "streaming TTS is just cutting the sentence short"
@@ -1300,14 +1300,14 @@ p76–p79 · "每個 chunk 都是一個第四週的 streaming encoder 問題，�
 | VITS, MMS-TTS, Kokoro | the waveform | W2's first slot | the sample rate |
 | VALL-E | RVQ tokens $k_{t,i}$ | W6: EnCodec 75 Hz × 8 | the codec (chosen for the LM) |
 | CosyVoice 2 | semantic tokens, 25 Hz → mel by flow | W6's semantic token → W2's mel | **the generator's steps/s** |
-| CuteTTS | latents, 12.5 Hz, patched to 6.25 | between W5 and W6 | the same — W6 p46's $R_{\text{tok}}$ |
+| CuteTTS | latents, 12.5 Hz, patched to 6.25 | between W5 and W6 | the same — W6 p48's $R_{\text{tok}}$ |
 
 ::: {.claim}
 Every representation of W2–W6 has now been a TTS **output**. The clock: W2 the hop, W5 the stride, W6 a choice, W7 the LLM's budget — **W8: generator steps per second.**
 :::
 
 ::: {.footer}
-W2 p68 · W5 p61 · W6 p53 · W7 p78 · W6 p46: $R_{\text{tok}}$
+W2 p68 · W5 p61 · W6 p55 · W7 p80 · W6 p48: $R_{\text{tok}}$
 :::
 
 ## Supervision: three data scales, and the three axes
@@ -1326,7 +1326,7 @@ W2 p68 · W5 p61 · W6 p53 · W7 p78 · W6 p46: $R_{\text{tok}}$
 | supervision | paired (text, speech) is the only supervision — at three scales; the fourth answer is W9's |
 
 ::: {.footer}
-outline 〈定位〉 three axes · W5 p62 · W6 p55 · W7 p80
+outline 〈定位〉 three axes · W5 p62 · W6 p57 · W7 p82
 :::
 
 ## Local languages: orthography, MMS-TTS's input, tone in the token
@@ -1335,10 +1335,10 @@ outline 〈定位〉 three axes · W5 p62 · W6 p55 · W7 p80
 |:---|:---------|:---------|
 | **1 — Taiwanese text input is unsolved** | one character, several readings; two romanisations (Tâi-lô, POJ); **tone sandhi**: the citation tone survives only at the phrase end | a phone-input system needs a G2P that applies sandhi; a character-input system (E2 / F5) leaves sandhi to data — and Taiwanese TTS corpora are orders of magnitude smaller than Mandarin ones |
 | **2 — MMS-TTS has `nan` and `hak`** | VITS, one speaker, New Testament; the cards say nothing about input; `vocab.json` says POJ and Pha̍k-fa-sṳ (p74) | characters must pass a G2P first; the accent decides whom it serves; "exists" ≠ "usable" |
-| **3 — is the tone still in the token?** | W6 p44: evidence at the SSL-unit level (Osakuade & King 2026); the ASR-supervised semantic tokens of 2026 TTS (the S3 family): **no direct evidence found** | a prediction, marked *to be verified*: Mandarin transcripts carry tone through the characters; Taiwanese ASR data is scarce, so its tokens may not learn seven tones and sandhi — W9 (cloning) and W12 (turn-taking) return to it |
+| **3 — is the tone still in the token?** | W6 p46: evidence at the SSL-unit level (Osakuade & King 2026); the ASR-supervised semantic tokens of 2026 TTS (the S3 family): **no direct evidence found** | a prediction, marked *to be verified*: Mandarin transcripts carry tone through the characters; Taiwanese ASR data is scarce, so its tokens may not learn seven tones and sandhi — W9 (cloning) and W12 (turn-taking) return to it |
 
 ::: {.footer}
-outline 〈定位〉 · W6 p44 · Qwen3-TTS: ten languages, no Min Nan · row 3 is a hypothesis
+outline 〈定位〉 · W6 p46 · Qwen3-TTS: ten languages, no Min Nan · row 3 is a hypothesis
 :::
 
 ## MC 11 — "the hard part of TTS is sound quality"

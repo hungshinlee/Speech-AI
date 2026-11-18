@@ -1,5 +1,5 @@
 # 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
-# W7 demo 2：Biasing——提詞卡的三種用法（p58 前導頁、p59 Demo 2；p53 三條路、p54 WFST、p56 prompt）。換內容只改這裡。
+# W7 demo 2：Biasing——提詞卡的三種用法（p60 前導頁、p61 Demo 2；p55 三條路、p56 WFST、p58 prompt）。換內容只改這裡。
 #
 # 設計（2026-11-01；理由見 README）：
 #   兩段含專有名詞的音訊——一句 LibriSpeech dev-clean 的英文（名單是句子裡的人名）、一句授課者自錄的華語（名單是三四個
@@ -78,7 +78,7 @@ text = "MOREOVER JEAN VALJEAN HAD CHOSEN HIS REFUGE WELL"
 names = ["Jean Valjean"]
 
 [prompts]
-# Whisper 的 prompt 是「上一個視窗的轉錄」（p19 的槽）：名單寫成一串名字就好，不要寫成指令。{names} 會換成名單（英文用 ", "、華語用 "、" 接）。
+# Whisper 的 prompt 是「上一個視窗的轉錄」（p20 的槽）：名單寫成一串名字就好，不要寫成指令。{names} 會換成名單（英文用 ", "、華語用 "、" 接）。
 list_fmt_en = "{names}."
 list_fmt_zh = "{names}。"
 # 英文的「台詞」prompt：一句完整的話，看它會不會出現在轉錄裡（提詞卡被念出來）。與句子內容無關是故意的。

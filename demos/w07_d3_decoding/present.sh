@@ -3,7 +3,7 @@
 # W7 demo 3 課堂與課前的入口。一律離線（HF_HUB_OFFLINE=1），避免教室網路出狀況時卡在連線。
 #
 #   ./present.sh               上課用：載入 wav2vec2-base-960h、3-gram LM、MMS-1B-all、Whisper small、Qwen3-ASR，終端機單鍵操作：
-#                              0 p32 的例子、1 greedy 與 beam λ=0、2 λ 掃描（視窗畫曲線）、3 一句看字（n 下一句）、m 華語同音字、
+#                              0 p43 的例子、1 greedy 與 beam λ=0、2 λ 掃描（視窗畫曲線）、3 一句看字（n 下一句）、m 華語同音字、
 #                              e η 的調參、l LM 本身、t 表、h 選單、q 離開（離開時存 runs/live/<時間>/，不進版控）
 #   ./present.sh rehearse      課前彩排：先在調參集上調 η，再全部跑一遍 → runs/rehearsal/（進版控 = 現場的退路；含 eta.json、lambda_sweep.png）；
 #                              華語全文 → ../_media/w07_d3/private_rehearsal.*（不進版控）
@@ -14,7 +14,7 @@
 #                              從 dev-clean.tar.gz 讀參考文字 → data/sentences.json；要網路
 #   ./present.sh record        錄一句自己的華語 → ../_media/w07_d3/mandarin.wav，接著輸入參考文字
 #   ./present.sh fake          沒有模型也能演練流程（合成 log 機率 + 小 LM，畫面標明 FAKE）
-#   ./present.sh selftest      不需要模型：ARPA 與 backoff 對手算、LMBonus、p41 的窮舉對 json、WER／字元對齊、同音判定、fake 整條流程
+#   ./present.sh selftest      不需要模型：ARPA 與 backoff 對手算、LMBonus、p43 的窮舉對 json、WER／字元對齊、同音判定、fake 整條流程
 #   ./present.sh export        彩排紀錄的摘要 → slides/assets/w07/w07-metrics.json（demo3）
 #
 # 模型套件（torch 2.14.0、transformers 5.17.0）已由 w03_d3_blank_heatmap/setup.sh 裝進共用 .venv；pypinyin 0.55.0 也已在 requirements.lock.txt。

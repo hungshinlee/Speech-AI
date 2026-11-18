@@ -79,6 +79,18 @@ A codec **invents an alphabet for speech** — and every choice in it is a trade
 Route: quantiser → stacking + objective → listen, count → voice and words → frame rate
 :::
 
+## Today's route: five stops, in two halves
+
+{{< include assets/w06/route.inline.qmd >}}
+
+::: {.claim}
+**First:** learn the letters; stack them, and decide what they hold. **Then:** listen and count; voice and words; how many per second.
+:::
+
+::: {.footer}
+five stops = the five section pages · the same map, half filled in, returns at p33
+:::
+
 ## Notation for today
 
 | Symbol | Meaning |
@@ -127,11 +139,11 @@ SoundStream / EnCodec: 75 Hz at 24 kHz, strides $(2, 4, 5, 8)$ · Mimi: 12.5 Hz
 | **The question** | An autoencoder whose bottleneck is a choice among $V$ codewords: how do you train through a choice that has no gradient? |
 | **The idea** | Snap each $\mathbf{z}_t$ to its nearest codeword, copy the decoder's gradient straight through the snap, and add two terms that pull the codebook and the encoder toward each other. |
 | **What it added** | A **discrete** code with a separately learned prior. The abstract: the encoder "outputs discrete, rather than continuous, codes; and the prior is learnt rather than static." Every codec today keeps that split. |
-| **What it leaves open** | The copied gradient is biased (p13); a codeword nobody picks never moves (p16); one codebook is far too small for a waveform (p22). |
+| **What it leaves open** | The copied gradient is biased (p14); a codeword nobody picks never moves (p17); one codebook is far too small for a waveform (p23). |
 :::
 
 ::: {.footer}
-van den Oord et al., NeurIPS 2017, abstract · straight-through: W5 p21 · the mechanism: p11–p15
+van den Oord et al., NeurIPS 2017, abstract · straight-through: W5 p21 · the mechanism: p12–p16
 :::
 
 ## The three-term loss, and which parameters each term moves
@@ -249,6 +261,12 @@ Demo 3 · code: `demos/w06_d3_dead_codes` · numpy only, CPU
 
 {{< include assets/w06/dead-codes.inline.qmd >}}
 
+::: {.fragment fragment-index=4}
+::: {.small}
+Left to right: only chosen codes move · EMA is not the cure · start inside the data · revive unused codes · no codebook to kill.
+:::
+:::
+
 ::: {.footer}
 Demo 3 · demos/w06_d3_dead_codes · seed 20261017 · numbers: w06-data.json
 :::
@@ -293,12 +311,12 @@ Mentzer §5.3: 99% usage · TAAE (Transformer Audio AutoEncoder): FSQ, 400 / 700
 | **Name** | **Residual vector quantisation** (RVQ), SoundStream's "a.k.a. multi-stage vector quantizer": Juang & Gray built it for speech coding (ICASSP 1982); SoundStream put it in a neural codec (TASLP 2022). |
 | **The question** | 6 kbps at 75 frames a second is 80 bits a frame. One codebook would need $2^{80}$ codewords — "obviously unfeasible". How else can 80 bits be spent? |
 | **The idea** | Quantise, subtract, quantise what is left: $N_q$ small codebooks in a chain, each on the residual of the stage before; the decoder sums the stages. |
-| **What it added** | $V^{N_q}$ effective codewords for $N_q V d$ parameters — eight stages of 1024 are exactly those 80 bits — and coarse-to-fine stages, so one model can stop at any $n_q$ (p25). |
-| **What it leaves open** | $N_q$ tokens per step, dependent by construction: the LM's problem (W13). And the stage with the most energy need not carry the meaning (MC 2, p26). |
+| **What it added** | $V^{N_q}$ effective codewords for $N_q V d$ parameters — eight stages of 1024 are exactly those 80 bits — and coarse-to-fine stages, so one model can stop at any $n_q$ (p26). |
+| **What it leaves open** | $N_q$ tokens per step, dependent by construction: the LM's problem (W13). And the stage with the most energy need not carry the meaning (MC 2, p27). |
 :::
 
 ::: {.footer}
-SoundStream §III-C · Juang & Gray, ICASSP 1982 · the mechanism: p23–p25
+SoundStream §III-C · Juang & Gray, ICASSP 1982 · the mechanism: p24–p26
 :::
 
 ## Residual VQ: big letters first, then the corrections
@@ -316,6 +334,12 @@ Juang & Gray, ICASSP 1982 · SoundStream §III-C · $V^{N_q}$ codewords, $N_q V 
 ## The residual shrinks: making change, and where it fails
 
 {{< include assets/w06/residual-decay.inline.qmd >}}
+
+::: {.fragment fragment-index=2}
+::: {.small}
+Doubling the bitrate does not double the quality — and the last stages can be dropped: quantizer dropout.
+:::
+:::
 
 ::: {.fragment fragment-index=2}
 $$R(\mathcal{D}) = \tfrac{1}{2}\log_2\!\big(\sigma^2 / \mathcal{D}\big)\qquad\text{— one more bit per dimension halves the distortion}$$
@@ -345,7 +369,7 @@ SoundStream §III-C · EnCodec §3.2: codebooks a multiple of 4 · DAC: $p = 0.5
 | **later stages** | carry less, and the late ones look like noise | that they are "detail" in any linguistic sense |
 
 ::: {.claim}
-**Most energy $\neq$ the semantics.** AudioLM had to put w2v-BERT's semantic tokens *on top of* SoundStream's 12 acoustic stages because the first acoustic stage was not semantic enough; and from semantic tokens alone the speaker was gone — speaker classification 3.2%. "Stage 1 = semantics" becomes true only through **distillation** (p41).
+**Most energy $\neq$ the semantics.** AudioLM had to put w2v-BERT's semantic tokens *on top of* SoundStream's 12 acoustic stages because the first acoustic stage was not semantic enough; and from semantic tokens alone the speaker was gone — speaker classification 3.2%. "Stage 1 = semantics" becomes true only through **distillation** (p43).
 :::
 
 ::: {.footer}
@@ -381,6 +405,12 @@ $$\mathcal{L}_{\text{adv}} = \sum_j \mathbb{E}\max\big(0,\, 1 - \Phi_j(\hat{\mat
 
 ::: {.fragment fragment-index=2}
 $$\mathcal{L} = \lambda_{\text{spec}}\mathcal{L}_{\text{spec}} + \lambda_{\text{adv}}\mathcal{L}_{\text{adv}} + \lambda_{\text{feat}}\mathcal{L}_{\text{feat}} + \mathcal{L}_{\text{VQ}}\ (+\ \mathcal{L}_{\text{dist}})$$
+:::
+
+::: {.fragment fragment-index=3}
+::: {.ask}
+**What the adversary changes is not only the sound.** Take the discriminators away, same bitrate: do the tokens carry more information, or less?
+:::
 :::
 
 ::: {.footer}
@@ -438,6 +468,18 @@ Neural codecs win on **quality per bit at low bitrates**, in tests that do not c
 SoundStream abstract · EnCodec §4.5, Table 1 · RFC 6716 · EVS = Enhanced Voice Services (3GPP)
 :::
 
+## Half-time: the alphabet is built — what does each stage hold?
+
+{{< include assets/w06/half-time.inline.qmd >}}
+
+::: {.claim}
+Scores do not cross papers — so: the same sentence, the same machine, the same ears. **What does each stage hold?**
+:::
+
+::: {.footer}
+the answers: p16, p17 · p27, p30, p32 · the route: p6
+:::
+
 # What each stage holds: listen, then count {.section-title}
 
 ## At a glance: Mimi
@@ -449,11 +491,11 @@ SoundStream abstract · EnCodec §4.5, Table 1 · RFC 6716 · EVS = Enhanced Voi
 | **The question** | Can one tokenizer give an LM few tokens a second, hold the words, rebuild the voice — and stream? |
 | **The idea** | 24 kHz in, 12.5 Hz out; every convolution causal, a Transformer on each side of the bottleneck. Each 80 ms frame gets a plain VQ distilled toward WavLM (W5 p32), beside a 7-stage acoustic RVQ: 8 tokens, $V = 2048$. |
 | **What it added** | A frame rate six times below EnCodec's — 1.1 kbps, 100 tokens a second — with a *semantic* and an *acoustic* stream from one model. Moshi is trained on these tokens. |
-| **What it leaves open** | Does the distilled codebook alone hold the words? Demo 1, next. Why split, instead of distilling into stage 1 of one RVQ? p41. |
+| **What it leaves open** | Does the distilled codebook alone hold the words? Demo 1, next. Why split, instead of distilling into stage 1 of one RVQ? p43. |
 :::
 
 ::: {.footer}
-Moshi §3.3.1–3.3.2: $D = 512$, $N_q = 8$, $V = 2048$, causal · the bill at 12.5 Hz: p46
+Moshi §3.3.1–3.3.2: $D = 512$, $N_q = 8$, $V = 2048$, causal · the bill at 12.5 Hz: p48
 :::
 
 ## Before Demo 1: adding the letters back, one stage at a time
@@ -507,7 +549,7 @@ $F_0$ is a physical quantity, pitch is a percept (W2 p56): the plot is a referen
 :::
 
 ::: {.footer}
-prediction from the design · heard: rehearsal 2026-10-19, one sentence, one listener · W2 p56, p62 · W5 p51 · unit-level evidence: p44
+prediction from the design · heard: rehearsal 2026-10-19, one sentence, one listener · W2 p56, p62 · W5 p51 · unit-level evidence: p46
 :::
 
 ## Before Demo 2: what the letters look like
@@ -515,13 +557,13 @@ prediction from the design · heard: rehearsal 2026-10-19, one sentence, one lis
 ::: {.prose}
 | | |
 |:---|:-----------------|
-| **Why** | We have heard what the stages carry; now look at the tokens themselves. Three claims so far rest on a picture or a sentence — the residual curve (p24), "stage 1 is the most language-like", and how many codes are actually used — and all three are measured on real codecs here: the curve on p24 already came from this demo. |
+| **Why** | We have heard what the stages carry; now look at the tokens themselves. Three claims so far rest on a picture or a sentence — the residual curve (p25), "stage 1 is the most language-like", and how many codes are actually used — and all three are measured on real codecs here: the curve on p25 already came from this demo. |
 | **What runs** | The same sentence through Mimi, EnCodec and DAC: the $N_q \times T$ matrix printed in the terminal. Then, on the W5 dev-clean subset (40 speakers × 10 sentences, cached): per stage, the number of codes used and the unigram entropy over $\log_2 V$; the residual-energy curve $\mathbb{E}\lVert \mathbf{r}_{t,i} \rVert^2 / \mathbb{E}\lVert \mathbf{z}_t \rVert^2$; and, for stage 1, the bigram conditional entropy against the unigram one. |
 | **Watch for** | Which stage has the longest runs of repeated tokens. Whether the usage and entropy ratios fall with the stage — and what that says about the late residual. Where Mimi's semantic path sits relative to its acoustic path. |
 :::
 
 ::: {.footer}
-Demo 2 · code: `demos/w06_d2_token_matrix` · the arithmetic half comes at p46
+Demo 2 · code: `demos/w06_d2_token_matrix` · the arithmetic half comes at p48
 :::
 
 ## Demo 2 — token matrix, codebook usage, residual curve
@@ -576,7 +618,7 @@ SpeechTokenizer §3.2, App. E · Moshi §3.3.2 · $\mathcal{L}_{\text{dist}}$: a
 | **the probe** | purity was measured, not assumed (Demo 2) | on TIMIT, segmental information is **not confined to codebook 1**, and its tokens correspond to **allophones**, not phonemes |
 
 ::: {.claim}
-Demo 1 did **not** go as predicted: stage 1 alone kept neither the words nor the voice. "Semantic" names what the codebook was trained *towards*, not what the ear gets back from it alone — and the tone answer is on p36.
+Demo 1 did **not** go as predicted: stage 1 alone kept neither the words nor the voice. "Semantic" names what the codebook was trained *towards*, not what the ear gets back from it alone — and the tone answer is on p38.
 :::
 
 ::: {.footer}
@@ -610,7 +652,7 @@ Ji et al. · Xin et al. · Parker et al. · Vocos, ICLR 2024 · other frame rate
 {{< include assets/w06/tone-layers.inline.qmd >}}
 
 ::: {.claim .fragment fragment-index=2}
-At the unit level this is **measured**; at the codec level it is a **prediction** — and p36 is where we listened. For Mandarin, Taiwanese and Hakka, a token that drops tone drops the word.
+At the unit level this is **measured**; at the codec level it is a **prediction** — and p38 is where we listened. For Mandarin, Taiwanese and Hakka, a token that drops tone drops the word.
 :::
 
 ::: {.footer}
@@ -775,7 +817,7 @@ W1 p36 · W4 p21 $D_{\text{alg}}$ · EnCodec streamable vs not · Mimi: causal, 
 
 **Read this week**
 
-- Zeghidour et al., *SoundStream*, IEEE/ACM TASLP 2022 — §III for the recipe (RVQ, quantizer dropout, k-means init and dead-code reset, the three losses); the abstract's sentence about Opus, read with p31 in mind
+- Zeghidour et al., *SoundStream*, IEEE/ACM TASLP 2022 — §III for the recipe (RVQ, quantizer dropout, k-means init and dead-code reset, the three losses); the abstract's sentence about Opus, read with p32 in mind
 - Défossez et al., *Moshi*, 2024 (a technical report) — **§3.3 only**: Mimi — the split RVQ, the WavLM distillation, 12.5 Hz; keep §3.4 and §5 for W13
 - van den Oord et al., *Neural Discrete Representation Learning*, NeurIPS 2017 — §3.2 and Appendix A.1: the three terms and the EMA update you derived today
 
@@ -795,11 +837,11 @@ Back to a world with transcripts. The encoder is W5's; the input may be W2's log
 | BERT | Bidirectional Encoder Representations from Transformers (W5) |
 | BPE | byte-pair encoding: a text tokenizer (W3) |
 | CNN | convolutional neural network (W5) |
-| DAC | Descript Audio Codec: the release name of "Improved RVQGAN" (p16) |
-| DASB | Discrete Audio and Speech Benchmark (p31) |
-| EMA | exponential moving average (p15) |
-| EVS | Enhanced Voice Services: 3GPP's speech codec for LTE (p31) |
-| FSQ | finite scalar quantization (p19) |
+| DAC | Descript Audio Codec: the release name of "Improved RVQGAN" (p17) |
+| DASB | Discrete Audio and Speech Benchmark (p32) |
+| EMA | exponential moving average (p16) |
+| EVS | Enhanced Voice Services: 3GPP's speech codec for LTE (p32) |
+| FSQ | finite scalar quantization (p20) |
 | HuBERT | Hidden-Unit BERT (W5) |
 
 ## Acronyms in this deck, L–R
@@ -809,24 +851,24 @@ Back to a world with transcripts. The encoder is W5's; the input may be W2's log
 | LLM, LM | large language model (W1); language model |
 | MC | misconception: a belief that sounds right, and what breaks it |
 | MOS | mean opinion score (W1) |
-| MS-STFT | multi-scale STFT: EnCodec's discriminator (p27) |
+| MS-STFT | multi-scale STFT: EnCodec's discriminator (p28) |
 | MSE, RMSE | mean squared error; its square root |
-| MUSHRA | Multi Stimulus test with Hidden Reference and Anchor (p31) |
-| PESQ | Perceptual Evaluation of Speech Quality (p51) |
+| MUSHRA | Multi Stimulus test with Hidden Reference and Anchor (p32) |
+| PESQ | Perceptual Evaluation of Speech Quality (p53) |
 | RFC | Request for Comments: the Internet's standards documents; RFC 6716 is Opus |
-| RQ-Transformer | residual-quantized Transformer (p46) |
-| RVQ | residual vector quantisation (p22) |
+| RQ-Transformer | residual-quantized Transformer (p48) |
+| RVQ | residual vector quantisation (p23) |
 
 ## Acronyms in this deck, S–W
 
 | | |
 |:----|:----------------|
 | SSL | self-supervised learning |
-| ST | SpeechTokenizer, in the p30 and p48 figures |
+| ST | SpeechTokenizer, in the p31 and p50 figures |
 | STFT, iSTFT | short-time Fourier transform (W2); its inverse |
-| TAAE | Transformer Audio AutoEncoder (p20) |
+| TAAE | Transformer Audio AutoEncoder (p21) |
 | TTS | text-to-speech (W1) |
-| UTMOS | a learned MOS predictor, from UTokyo-SaruLab (p51) |
-| ViSQOL | Virtual Speech Quality Objective Listener (p51) |
-| VQ, VQ-VAE | vector quantisation (W5); Vector Quantised-Variational AutoEncoder (p10) |
+| UTMOS | a learned MOS predictor, from UTokyo-SaruLab (p53) |
+| ViSQOL | Virtual Speech Quality Objective Listener (p53) |
+| VQ, VQ-VAE | vector quantisation (W5); Vector Quantised-Variational AutoEncoder (p11) |
 | WER | word error rate (W5) |

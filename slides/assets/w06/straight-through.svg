@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 364" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 392" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
 <g class="fragment" data-fragment-index="0">
-<rect x="40.0" y="40.0" width="440.0" height="312.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="260.0" y="62.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">latent plane: codewords and their cells</text>
+<rect x="40.0" y="40.0" width="440.0" height="344.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="260.0" y="62.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">latent plane: codewords and their cells</text>
 <polygon points="208.0,166.3 322.3,227.9 325.6,256.2 280.9,348.0 197.6,348.0 145.4,240.0" fill="#eef2f7" stroke="none"/>
 <line x1="208.0" y1="166.3" x2="322.3" y2="227.9" stroke="#94a3b8" stroke-width="1.0" stroke-dasharray="4 3"/>
 <line x1="322.3" y1="227.9" x2="325.6" y2="256.2" stroke="#94a3b8" stroke-width="1.0" stroke-dasharray="4 3"/>
@@ -20,23 +20,23 @@
 <circle cx="420.0" cy="240.0" r="6.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
 <circle cx="110.0" cy="320.0" r="6.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
 <circle cx="380.0" cy="335.0" r="6.0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"/>
-<text x="226.0" y="312.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">its cell</text>
-<svg x="240" y="275.547" width="19.72" height="16.4528" viewBox="0 0 19.72 16.452813"><defs>
+<text x="226.0" y="316.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">its cell</text>
+<svg x="240" y="272.774" width="26.448" height="22.0661" viewBox="0 0 26.448 22.066125"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t18-figure_1">
   <g id="w6t18-patch_1">
-   <path d="M 0 16.452813 
-L 19.72 16.452813 
-L 19.72 0 
+   <path d="M 0 22.066125 
+L 26.448 22.066125 
+L 26.448 0 
 L 0 0 
-L 0 16.452813 
+L 0 22.066125 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t18-text_1">
    <!-- $\mathbf{e}_{k_t}$ -->
-   <g style="fill: #7c3aed" transform="translate(0 11.352812) scale(0.17 -0.17)">
+   <g style="fill: #7c3aed" transform="translate(0 15.226125) scale(0.228 -0.228)">
     <defs>
      <path id="w6t18-Cmb10-65" d="M 178 1441 
 Q 178 1856 350 2189 
@@ -179,22 +179,22 @@ z
 </svg>
 <line x1="283.0" y1="238.0" x2="230.0" y2="262.0" stroke="#6b7280" stroke-width="1.2" stroke-dasharray="3 3"/>
 <circle cx="283.0" cy="238.0" r="5.0" fill="#0b5cad" stroke="#0b5cad" stroke-width="1"/>
-<svg x="293" y="247.547" width="13.77" height="16.4528" viewBox="0 0 13.77 16.452813"><defs>
+<svg x="293" y="244.676" width="18.468" height="22.0661" viewBox="0 0 18.468 22.066125"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t19-figure_1">
   <g id="w6t19-patch_1">
-   <path d="M 0 16.452813 
-L 13.77 16.452813 
-L 13.77 0 
+   <path d="M 0 22.066125 
+L 18.468 22.066125 
+L 18.468 0 
 L 0 0 
-L 0 16.452813 
+L 0 22.066125 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t19-text_1">
    <!-- $\mathbf{z}_t$ -->
-   <g style="fill: #0b5cad" transform="translate(0 12.917344) scale(0.17 -0.17)">
+   <g style="fill: #0b5cad" transform="translate(0 17.324437) scale(0.228 -0.228)">
     <defs>
      <path id="w6t19-Cmb10-7a" d="M 294 0 
 Q 247 0 212 31 
@@ -268,24 +268,24 @@ z
 </svg>
 </g>
 <g class="fragment" data-fragment-index="1">
-<rect x="500.0" y="40.0" width="460.0" height="88.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="518.0" y="62.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="middle">the true gradient</text>
-<svg x="690" y="56" width="94.18" height="17" viewBox="0 0 94.18 17"><defs>
+<rect x="500.0" y="40.0" width="480.0" height="96.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="516.0" y="62.0" font-size="19" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="middle">the true gradient</text>
+<svg x="710" y="51.9" width="126.312" height="22.8" viewBox="0 0 126.312 22.8"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t20-figure_1">
   <g id="w6t20-patch_1">
-   <path d="M 0 17 
-L 94.18 17 
-L 94.18 0 
+   <path d="M 0 22.8 
+L 126.312 22.8 
+L 126.312 0 
 L 0 0 
-L 0 17 
+L 0 22.8 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t20-text_1">
    <!-- $\partial \mathcal{L}_{\mathsf{rec}} / \partial \mathbf{z}_t = \mathbf{0}$ -->
-   <g style="fill: #1f2328" transform="translate(0 12.75) scale(0.17 -0.17)">
+   <g style="fill: #1f2328" transform="translate(0 17.1) scale(0.228 -0.228)">
     <defs>
      <path id="w6t20-STIXGeneral-Regular-2202" d="M 1248 4000 
 L 1184 4128 
@@ -593,30 +593,30 @@ z
   </g>
  </g>
 </svg>
-<text x="518.0" y="92.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">almost everywhere: a small move changes no index,</text>
-<text x="518.0" y="112.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">so nothing reaches the encoder</text>
+<text x="516.0" y="92.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">almost everywhere: a small move changes</text>
+<text x="516.0" y="117.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">no index, so nothing reaches the encoder</text>
 <line x1="283.0" y1="238.0" x2="299.6" y2="244.9" stroke="#e5e7eb" stroke-width="2.0"/>
 <polygon points="307.0,248.0 297.7,249.5 301.5,240.3" fill="#e5e7eb"/>
 </g>
 <g class="fragment" data-fragment-index="2">
-<rect x="500.0" y="136.0" width="460.0" height="112.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
-<text x="518.0" y="158.0" font-size="17" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="middle">straight-through</text>
-<svg x="676" y="152" width="157.25" height="17" viewBox="0 0 157.25 17"><defs>
+<rect x="500.0" y="144.0" width="480.0" height="142.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+<text x="516.0" y="166.0" font-size="19" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="middle">straight-through</text>
+<svg x="696" y="155.9" width="210.9" height="22.8" viewBox="0 0 210.9 22.8"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t21-figure_1">
   <g id="w6t21-patch_1">
-   <path d="M 0 17 
-L 157.25 17 
-L 157.25 0 
+   <path d="M 0 22.8 
+L 210.9 22.8 
+L 210.9 0 
 L 0 0 
-L 0 17 
+L 0 22.8 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t21-text_1">
    <!-- $\partial \mathcal{L}_{\mathsf{rec}} / \partial \mathbf{z}_t \leftarrow \partial \mathcal{L}_{\mathsf{rec}} / \partial \mathbf{q}_t$ -->
-   <g style="fill: #dc2626" transform="translate(0 12.75) scale(0.17 -0.17)">
+   <g style="fill: #dc2626" transform="translate(0 17.1) scale(0.228 -0.228)">
     <defs>
      <path id="w6t21-STIXGeneral-Regular-2202" d="M 1248 4000 
 L 1184 4128 
@@ -939,25 +939,25 @@ z
   </g>
  </g>
 </svg>
-<text x="518.0" y="188.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">read at the codeword, used at the latent —</text>
-<text x="518.0" y="208.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">as if quantising did nothing;</text>
-<text x="518.0" y="232.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">the error grows with the gap</text>
-<svg x="752" y="226.15" width="69.7" height="17.85" viewBox="0 0 69.7 17.85"><defs>
+<text x="516.0" y="198.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">read at the codeword, used at the latent —</text>
+<text x="516.0" y="224.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">as if quantising did nothing;</text>
+<text x="516.0" y="258.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto" textLength="249.6" lengthAdjust="spacing">the error grows with the gap</text>
+<svg x="770.745" y="240.9" width="93.48" height="23.94" viewBox="0 0 93.48 23.94"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t22-figure_1">
   <g id="w6t22-patch_1">
-   <path d="M 0 17.85 
-L 69.7 17.85 
-L 69.7 0 
+   <path d="M 0 23.94 
+L 93.48 23.94 
+L 93.48 0 
 L 0 0 
-L 0 17.85 
+L 0 23.94 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t22-text_1">
    <!-- $\|\mathbf{z}_t - \mathbf{e}_{k_t}\|$ -->
-   <g style="fill: #dc2626" transform="translate(0 12.75) scale(0.17 -0.17)">
+   <g style="fill: #1f2328" transform="translate(0 17.1) scale(0.228 -0.228)">
     <defs>
      <path id="w6t22-Cmsy10-6b" d="M 850 -1484 
 L 850 4684 
@@ -1169,35 +1169,35 @@ z
 </svg>
 <line x1="230.0" y1="262.0" x2="236.6" y2="218.9" stroke="#dc2626" stroke-width="2.2"/>
 <polygon points="238.0,210.0 241.6,219.7 231.7,218.1" fill="#dc2626"/>
-<text x="222.0" y="234.0" font-size="16" font-weight="400" fill="#dc2626" text-anchor="end" dominant-baseline="middle">read here</text>
+<text x="222.0" y="234.0" font-size="19" font-weight="400" fill="#dc2626" text-anchor="end" dominant-baseline="middle">read here</text>
 <line x1="283.0" y1="238.0" x2="289.6" y2="194.9" stroke="#dc2626" stroke-width="2.2"/>
 <polygon points="291.0,186.0 294.6,195.7 284.7,194.1" fill="#dc2626"/>
-<text x="301.0" y="184.0" font-size="16" font-weight="400" fill="#dc2626" text-anchor="start" dominant-baseline="middle">used here</text>
+<text x="301.0" y="184.0" font-size="19" font-weight="400" fill="#dc2626" text-anchor="start" dominant-baseline="middle">used here</text>
 </g>
 <g class="fragment" data-fragment-index="3">
-<rect x="500.0" y="256.0" width="460.0" height="96.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="518.0" y="278.0" font-size="17" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="middle">what the copied arrow is for</text>
-<text x="518.0" y="304.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">it can push the latent over a border:</text>
-<text x="518.0" y="326.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">the next forward pass picks another codeword</text>
+<rect x="500.0" y="294.0" width="480.0" height="90.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="516.0" y="316.0" font-size="19" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="middle">what the copied arrow is for</text>
+<text x="516.0" y="344.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">it can push the latent over a border:</text>
+<text x="516.0" y="369.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">the next pass picks another codeword</text>
 <line x1="291.0" y1="186.0" x2="300.0" y2="132.0" stroke="#7c3aed" stroke-width="1.4" stroke-dasharray="3 3"/>
 <circle cx="291.0" cy="186.0" r="5.0" fill="#ffffff" stroke="#0b5cad" stroke-width="1.8"/>
-<text x="314.0" y="130.0" font-size="16" font-weight="400" fill="#0b5cad" text-anchor="start" dominant-baseline="middle">next pass: a new</text>
-<svg x="446" y="123.547" width="14.28" height="16.4528" viewBox="0 0 14.28 16.452813"><defs>
+<text x="212.3" y="116.0" font-size="19" font-weight="400" fill="#0b5cad" text-anchor="start" dominant-baseline="auto" textLength="151.1" lengthAdjust="spacing">next pass: a new</text>
+<svg x="368.554" y="98.6756" width="19.152" height="22.0661" viewBox="0 0 19.152 22.066125"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w6t23-figure_1">
   <g id="w6t23-patch_1">
-   <path d="M 0 16.452813 
-L 14.28 16.452813 
-L 14.28 0 
+   <path d="M 0 22.066125 
+L 19.152 22.066125 
+L 19.152 0 
 L 0 0 
-L 0 16.452813 
+L 0 22.066125 
 z
 " style="fill: none"/>
   </g>
   <g id="w6t23-text_1">
    <!-- $k_t$ -->
-   <g style="fill: #0b5cad" transform="translate(0 12.917344) scale(0.17 -0.17)">
+   <g style="fill: #0b5cad" transform="translate(0 17.324437) scale(0.228 -0.228)">
     <defs>
      <path id="w6t23-Cmmi10-6b" d="M 341 116 
 Q 341 153 347 172 

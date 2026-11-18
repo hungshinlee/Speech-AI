@@ -1,39 +1,39 @@
 <!-- 由 scripts/make_figs_w06.py 產生，勿手改；投影片用 {{< include assets/w06/tone-layers.inline.qmd >}} 貼入 -->
 ```{=html}
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 324" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 286" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
 <g class="fragment" data-fragment-index="0">
-<rect x="20.0" y="50.0" width="230.0" height="64.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
-<text x="135.0" y="74.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">continuous SSL features</text>
-<text x="135.0" y="98.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">tone is there</text>
-<line x1="254.0" y1="82.0" x2="278.0" y2="82.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="286.0,82.0 278.0,87.0 278.0,77.0" fill="#94a3b8"/>
-<rect x="290.0" y="50.0" width="260.0" height="64.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
-<text x="420.0" y="74.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">discrete units (k-means)</text>
-<text x="420.0" y="98.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">tone lost faster than segments</text>
-<text x="20.0" y="140.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">Osakuade &amp; King 2026 — Mandarin, Yorùbá; SSL-unit level</text>
+<rect x="20.0" y="8.0" width="270.0" height="64.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="155.0" y="27.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">continuous SSL features</text>
+<text x="155.0" y="54.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">tone is there</text>
+<line x1="293.0" y1="40.0" x2="310.0" y2="40.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="318.0,40.0 310.0,45.0 310.0,35.0" fill="#94a3b8"/>
+<rect x="322.0" y="8.0" width="290.0" height="64.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+<text x="467.0" y="27.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">discrete units (k-means)</text>
+<text x="467.0" y="54.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">tone lost before segments</text>
+<text x="20.0" y="98.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">Osakuade &amp; King 2026: Mandarin, Yorùbá</text>
 </g>
 <g class="fragment" data-fragment-index="1">
-<line x1="420.0" y1="118.0" x2="420.0" y2="152.0" stroke="#7c3aed" stroke-width="1.6"/>
-<polygon points="420.0,160.0 415.0,152.0 425.0,152.0" fill="#7c3aed"/>
-<rect x="290.0" y="164.0" width="260.0" height="64.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<text x="420.0" y="188.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Mimi codebook 1</text>
-<text x="420.0" y="212.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">distilled from WavLM</text>
-<text x="290.0" y="256.0" font-size="16" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="auto">if the teacher's units carry no tone,</text>
-<text x="290.0" y="278.0" font-size="16" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="auto">the distilled codebook 1 will not either —</text>
-<text x="290.0" y="300.0" font-size="16" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="auto">a prediction from the design, not a measurement</text>
+<line x1="467.0" y1="76.0" x2="467.0" y2="118.0" stroke="#7c3aed" stroke-width="1.6"/>
+<polygon points="467.0,126.0 462.0,118.0 472.0,118.0" fill="#7c3aed"/>
+<rect x="322.0" y="130.0" width="290.0" height="64.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="467.0" y="149.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Mimi codebook 1</text>
+<text x="467.0" y="176.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">distilled from WavLM</text>
+<text x="20.0" y="224.0" font-size="19" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="auto">if the teacher's units carry no tone,</text>
+<text x="20.0" y="249.0" font-size="19" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="auto">the distilled codebook 1 will not either —</text>
+<text x="20.0" y="274.0" font-size="19" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="auto">a prediction from the design, not a measurement</text>
 </g>
 <g class="fragment" data-fragment-index="2">
-<line x1="554.0" y1="196.0" x2="588.0" y2="196.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="596.0,196.0 588.0,201.0 588.0,191.0" fill="#94a3b8"/>
-<rect x="600.0" y="164.0" width="380.0" height="84.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="790.0" y="184.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">acoustic stages 2–8: tone lands here?</text>
-<text x="790.0" y="208.0" font-size="16" font-weight="400" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">no peer-reviewed codec-level study (2026-10)</text>
-<text x="790.0" y="232.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">Demo 1 listens: Mandarin, stage 1 only</text>
-<rect x="600.0" y="50.0" width="380.0" height="100.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.0" stroke-dasharray="5 3"/>
-<text x="790.0" y="70.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Mandarin, Taiwanese, Hakka:</text>
-<text x="790.0" y="92.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">tone is lexical content</text>
-<text x="790.0" y="114.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">an LM that predicts semantic, then acoustic,</text>
-<text x="790.0" y="134.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">treats it as “detail”</text>
+<line x1="615.0" y1="162.0" x2="628.0" y2="162.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="636.0,162.0 628.0,167.0 628.0,157.0" fill="#94a3b8"/>
+<rect x="640.0" y="130.0" width="340.0" height="100.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="810.0" y="150.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">stages 2–8: tone lands here?</text>
+<text x="810.0" y="180.0" font-size="19" font-weight="400" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">no codec-level study (2026-10)</text>
+<text x="810.0" y="208.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">Demo 1 listens: stage 1 only</text>
+<rect x="640.0" y="8.0" width="340.0" height="112.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.0" stroke-dasharray="5 3"/>
+<text x="810.0" y="26.0" font-size="19" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Mandarin, Taiwanese, Hakka:</text>
+<text x="810.0" y="52.0" font-size="19" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">tone is lexical content</text>
+<text x="810.0" y="78.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">a semantic-then-acoustic LM</text>
+<text x="810.0" y="103.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">treats it as “detail”</text>
 </g>
 </svg>
 ```

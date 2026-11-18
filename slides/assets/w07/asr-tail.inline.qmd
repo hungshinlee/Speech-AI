@@ -1,55 +1,55 @@
 <!-- 由 scripts/make_figs_w07.py 產生，勿手改；投影片用 {{< include assets/w07/asr-tail.inline.qmd >}} 貼入 -->
 ```{=html}
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 372" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 384" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
 <g class="fragment" data-fragment-index="0">
-<line x1="300.0" y1="40.0" x2="300.0" y2="332.0" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="6 4"/>
-<text x="300.0" y="30.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">the user stops speaking</text>
-<line x1="300.0" y1="336.0" x2="972.0" y2="336.0" stroke="#6b7280" stroke-width="1.2"/>
-<polygon points="980.0,336.0 972.0,341.0 972.0,331.0" fill="#6b7280"/>
-<text x="980.0" y="356.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">time →   widths schematic, except the two measured numbers</text>
-<text x="20.0" y="356.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">ASR tail: from the last word spoken to the last word written</text>
+<line x1="300.0" y1="30.0" x2="300.0" y2="340.0" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="6 4"/>
+<text x="300.0" y="22.0" font-size="19" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">the user stops speaking</text>
+<line x1="300.0" y1="344.0" x2="972.0" y2="344.0" stroke="#6b7280" stroke-width="1.2"/>
+<polygon points="980.0,344.0 972.0,349.0 972.0,339.0" fill="#6b7280"/>
+<text x="980.0" y="370.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">time →</text>
+<text x="20.0" y="370.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">ASR tail: from the last word spoken to the last word written</text>
 </g>
 <g class="fragment" data-fragment-index="1">
-<text x="20.0" y="58.0" font-size="17" font-weight="700" fill="#15803d" text-anchor="start" dominant-baseline="middle">streaming RNN-T (W4)</text>
-<rect x="20.0" y="70.0" width="280.0" height="34.0" rx="4" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
-<text x="160.0" y="87.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">earlier words: already written</text>
-<rect x="300.0" y="70.0" width="300.0" height="34.0" rx="4" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
-<text x="450.0" y="87.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">last word: emission delay ≈ 220 ms</text>
-<rect x="600.0" y="70.0" width="110.0" height="34.0" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="655.0" y="87.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">endpoint</text>
-<text x="20.0" y="124.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">W4 Demo 2 (p52): median emission delay 220 ms, the same for every chunk size fed</text>
+<text x="20.0" y="50.0" font-size="19" font-weight="700" fill="#15803d" text-anchor="start" dominant-baseline="middle">streaming RNN-T (W4)</text>
+<rect x="20.0" y="64.0" width="280.0" height="38.0" rx="4" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="160.0" y="83.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">earlier words: written</text>
+<rect x="300.0" y="64.0" width="300.0" height="38.0" rx="4" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="450.0" y="83.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">emission delay ≈ 220 ms</text>
+<rect x="600.0" y="64.0" width="110.0" height="38.0" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="655.0" y="83.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">endpoint</text>
+<text x="20.0" y="124.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">W4 Demo 2 (p52): median emission delay 220 ms, the same for every chunk size fed</text>
 </g>
 <g class="fragment" data-fragment-index="2">
-<text x="20.0" y="152.0" font-size="17" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="middle">non-streaming AED (Whisper)</text>
-<rect x="20.0" y="164.0" width="280.0" height="34.0" rx="4" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="160.0" y="181.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">nothing written yet</text>
-<rect x="300.0" y="164.0" width="620.0" height="34.0" rx="4" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
-<text x="610.0" y="181.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">the whole utterance decodes now — 68 ms p50 for a 6 s Mandarin sentence</text>
-<text x="20.0" y="218.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">W1 Demo 2 (p47): whisper.cpp small, Metal, this laptop — short because the model is small</text>
+<text x="20.0" y="152.0" font-size="19" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="middle">non-streaming AED</text>
+<rect x="20.0" y="166.0" width="280.0" height="38.0" rx="4" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="160.0" y="185.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">nothing written yet</text>
+<rect x="300.0" y="166.0" width="620.0" height="38.0" rx="4" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="610.0" y="185.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">whole utterance decodes now: 68 ms p50 (6 s, Mandarin)</text>
+<text x="20.0" y="226.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">W1 Demo 2 (p47): whisper.cpp small, Metal, this laptop — short: the model is small</text>
 </g>
 <g class="fragment" data-fragment-index="3">
-<text x="20.0" y="246.0" font-size="17" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="middle">LLM-based ASR</text>
-<rect x="20.0" y="258.0" width="280.0" height="34.0" rx="4" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="160.0" y="275.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">nothing written yet</text>
-<rect x="300.0" y="258.0" width="180.0" height="34.0" rx="4" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<svg x="340.56" y="265" width="98.88" height="20" viewBox="0 -4 98.88 20"><defs>
+<text x="20.0" y="254.0" font-size="19" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="middle">LLM-based ASR</text>
+<rect x="20.0" y="268.0" width="280.0" height="38.0" rx="4" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="160.0" y="287.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">nothing written yet</text>
+<rect x="300.0" y="268.0" width="220.0" height="38.0" rx="4" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<svg x="339.548" y="276.9" width="140.904" height="22.8" viewBox="0 0 140.904 22.8"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w7t81-figure_1">
-  <g id="w7t81-patch_1">
-   <path d="M 0 16 
-L 98.88 16 
-L 98.88 0 
+ <g id="w7t90-figure_1">
+  <g id="w7t90-patch_1">
+   <path d="M 0 22.8 
+L 140.904 22.8 
+L 140.904 0 
 L 0 0 
-L 0 16 
+L 0 22.8 
 z
 " style="fill: none"/>
   </g>
-  <g id="w7t81-text_1">
+  <g id="w7t90-text_1">
    <!-- $\mathsf{prefill}\ (J + |\mathbf{p}|)$ -->
-   <g style="fill: #1f2328" transform="translate(0 12) scale(0.16 -0.16)">
+   <g style="fill: #1f2328" transform="translate(0 17.1) scale(0.228 -0.228)">
     <defs>
-     <path id="w7t81-Cmss10-70" d="M 513 -1241 
+     <path id="w7t90-Cmss10-70" d="M 513 -1241 
 L 513 2841 
 L 1019 2841 
 L 1019 2541 
@@ -79,7 +79,7 @@ Q 1116 2238 1038 2125
 L 1038 744 
 z
 " transform="scale(0.015625)"/>
-     <path id="w7t81-Cmss10-72" d="M 513 0 
+     <path id="w7t90-Cmss10-72" d="M 513 0 
 L 513 2881 
 L 984 2881 
 L 984 2328 
@@ -94,7 +94,7 @@ L 1019 0
 L 513 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w7t81-Cmss10-65" d="M 1594 -72 
+     <path id="w7t90-Cmss10-65" d="M 1594 -72 
 Q 1300 -72 1044 51 
 Q 788 175 602 390 
 Q 416 606 314 882 
@@ -122,7 +122,7 @@ Q 984 2319 876 2145
 Q 769 1972 722 1778 
 z
 " transform="scale(0.015625)"/>
-     <path id="w7t81-Cmss10-66" d="M 634 0 
+     <path id="w7t90-Cmss10-66" d="M 634 0 
 L 634 2444 
 L 172 2444 
 L 172 2841 
@@ -146,7 +146,7 @@ L 1141 0
 L 634 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w7t81-Cmss10-69" d="M 506 0 
+     <path id="w7t90-Cmss10-69" d="M 506 0 
 L 506 2841 
 L 1013 2841 
 L 1013 0 
@@ -159,14 +159,14 @@ L 1056 3756
 L 459 3756 
 z
 " transform="scale(0.015625)"/>
-     <path id="w7t81-Cmss10-6c" d="M 506 0 
+     <path id="w7t90-Cmss10-6c" d="M 506 0 
 L 506 4441 
 L 1013 4441 
 L 1013 0 
 L 506 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w7t81-Cmr10-28" d="M 1984 -1588 
+     <path id="w7t90-Cmr10-28" d="M 1984 -1588 
 Q 1628 -1306 1370 -942 
 Q 1113 -578 948 -165 
 Q 784 247 703 697 
@@ -192,7 +192,7 @@ L 2016 -1600
 Q 1984 -1600 1984 -1588 
 z
 " transform="scale(0.015625)"/>
-     <path id="w7t81-Cmmi10-4a" d="M 697 384 
+     <path id="w7t90-Cmmi10-4a" d="M 697 384 
 Q 759 206 928 115 
 Q 1097 25 1294 25 
 Q 1494 25 1680 164 
@@ -227,7 +227,7 @@ Q 916 378 744 378
 Q 709 378 697 384 
 z
 " transform="scale(0.015625)"/>
-     <path id="w7t81-Cmr10-2b" d="M 481 1472 
+     <path id="w7t90-Cmr10-2b" d="M 481 1472 
 Q 428 1472 393 1512 
 Q 359 1553 359 1600 
 Q 359 1647 393 1687 
@@ -254,7 +254,7 @@ L 2363 1472
 L 481 1472 
 z
 " transform="scale(0.015625)"/>
-     <path id="w7t81-Cmsy10-6a" d="M 763 -1484 
+     <path id="w7t90-Cmsy10-6a" d="M 763 -1484 
 L 763 4684 
 Q 763 4734 800 4767 
 Q 838 4800 891 4800 
@@ -267,7 +267,7 @@ Q 838 -1600 800 -1567
 Q 763 -1534 763 -1484 
 z
 " transform="scale(0.015625)"/>
-     <path id="w7t81-Cmb10-70" d="M 91 -1241 
+     <path id="w7t90-Cmb10-70" d="M 91 -1241 
 L 91 -916 
 L 531 -916 
 L 531 2394 
@@ -300,7 +300,7 @@ Q 1413 2419 1288 2259
 L 1288 581 
 z
 " transform="scale(0.015625)"/>
-     <path id="w7t81-Cmr10-29" d="M 416 -1600 
+     <path id="w7t90-Cmr10-29" d="M 416 -1600 
 Q 359 -1600 359 -1544 
 Q 359 -1516 372 -1503 
 Q 1466 -434 1466 1600 
@@ -322,45 +322,45 @@ L 416 -1600
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w7t81-Cmss10-70"/>
-    <use xlink:href="#w7t81-Cmss10-72" transform="translate(51.611328 0)"/>
-    <use xlink:href="#w7t81-Cmss10-65" transform="translate(85.693359 0)"/>
-    <use xlink:href="#w7t81-Cmss10-66" transform="translate(130.078125 0)"/>
-    <use xlink:href="#w7t81-Cmss10-69" transform="translate(160.595703 0)"/>
-    <use xlink:href="#w7t81-Cmss10-6c" transform="translate(184.375 0)"/>
-    <use xlink:href="#w7t81-Cmss10-6c" transform="translate(208.154297 0)"/>
-    <use xlink:href="#w7t81-Cmr10-28" transform="translate(261.197624 0)"/>
-    <use xlink:href="#w7t81-Cmmi10-4a" transform="translate(300.015983 0)"/>
-    <use xlink:href="#w7t81-Cmr10-2b" transform="translate(372.994499 0)"/>
-    <use xlink:href="#w7t81-Cmsy10-6a" transform="translate(468.23864 0)"/>
-    <use xlink:href="#w7t81-Cmb10-70" transform="translate(495.924187 0)"/>
-    <use xlink:href="#w7t81-Cmsy10-6a" transform="translate(551.441765 0)"/>
-    <use xlink:href="#w7t81-Cmr10-29" transform="translate(579.127312 0)"/>
+    <use xlink:href="#w7t90-Cmss10-70"/>
+    <use xlink:href="#w7t90-Cmss10-72" transform="translate(51.611328 0)"/>
+    <use xlink:href="#w7t90-Cmss10-65" transform="translate(85.693359 0)"/>
+    <use xlink:href="#w7t90-Cmss10-66" transform="translate(130.078125 0)"/>
+    <use xlink:href="#w7t90-Cmss10-69" transform="translate(160.595703 0)"/>
+    <use xlink:href="#w7t90-Cmss10-6c" transform="translate(184.375 0)"/>
+    <use xlink:href="#w7t90-Cmss10-6c" transform="translate(208.154297 0)"/>
+    <use xlink:href="#w7t90-Cmr10-28" transform="translate(261.197624 0)"/>
+    <use xlink:href="#w7t90-Cmmi10-4a" transform="translate(300.015983 0)"/>
+    <use xlink:href="#w7t90-Cmr10-2b" transform="translate(372.994499 0)"/>
+    <use xlink:href="#w7t90-Cmsy10-6a" transform="translate(468.23864 0)"/>
+    <use xlink:href="#w7t90-Cmb10-70" transform="translate(495.924187 0)"/>
+    <use xlink:href="#w7t90-Cmsy10-6a" transform="translate(551.441765 0)"/>
+    <use xlink:href="#w7t90-Cmr10-29" transform="translate(579.127312 0)"/>
    </g>
   </g>
  </g>
 </svg>
-<rect x="480.0" y="258.0" width="120.0" height="34.0" rx="4" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
-<text x="540.0" y="275.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">first token</text>
-<rect x="600.0" y="258.0" width="230.0" height="34.0" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
-<svg x="665.16" y="261.48" width="99.68" height="23.52" viewBox="0 -4 99.68 23.52"><defs>
+<rect x="520.0" y="268.0" width="130.0" height="38.0" rx="4" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="585.0" y="287.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">first token</text>
+<rect x="650.0" y="268.0" width="250.0" height="38.0" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<svg x="703.978" y="266.184" width="142.044" height="33.516" viewBox="0 -5.7 142.044 33.516"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w7t82-figure_1">
-  <g id="w7t82-patch_1">
-   <path d="M 0 19.52 
-L 99.68 19.52 
-L 99.68 0 
+ <g id="w7t91-figure_1">
+  <g id="w7t91-patch_1">
+   <path d="M 0 27.816 
+L 142.044 27.816 
+L 142.044 0 
 L 0 0 
-L 0 19.52 
+L 0 27.816 
 z
 " style="fill: none"/>
   </g>
-  <g id="w7t82-text_1">
+  <g id="w7t91-text_1">
    <!-- $(\hat{U} - 1) \cdot D_{\mathsf{token}}$ -->
-   <g style="fill: #1f2328" transform="translate(0 15.52) scale(0.16 -0.16)">
+   <g style="fill: #1f2328" transform="translate(0 22.116) scale(0.228 -0.228)">
     <defs>
-     <path id="w7t82-Cmr10-28" d="M 1984 -1588 
+     <path id="w7t91-Cmr10-28" d="M 1984 -1588 
 Q 1628 -1306 1370 -942 
 Q 1113 -578 948 -165 
 Q 784 247 703 697 
@@ -386,7 +386,7 @@ L 2016 -1600
 Q 1984 -1600 1984 -1588 
 z
 " transform="scale(0.015625)"/>
-     <path id="w7t82-Cmr10-5e" d="M 863 3444 
+     <path id="w7t91-Cmr10-5e" d="M 863 3444 
 L 738 3578 
 L 1600 4441 
 L 2456 3578 
@@ -395,7 +395,7 @@ L 1600 4084
 L 863 3444 
 z
 " transform="scale(0.015625)"/>
-     <path id="w7t82-Cmmi10-55" d="M 941 891 
+     <path id="w7t91-Cmmi10-55" d="M 941 891 
 Q 941 656 1033 472 
 Q 1125 288 1300 186 
 Q 1475 84 1709 84 
@@ -443,7 +443,7 @@ L 1025 1447
 Q 941 1109 941 891 
 z
 " transform="scale(0.015625)"/>
-     <path id="w7t82-Cmsy10-a1" d="M 653 1472 
+     <path id="w7t91-Cmsy10-a1" d="M 653 1472 
 Q 600 1472 565 1512 
 Q 531 1553 531 1600 
 Q 531 1647 565 1687 
@@ -456,7 +456,7 @@ Q 4375 1472 4325 1472
 L 653 1472 
 z
 " transform="scale(0.015625)"/>
-     <path id="w7t82-Cmr10-31" d="M 594 0 
+     <path id="w7t91-Cmr10-31" d="M 594 0 
 L 594 225 
 Q 1394 225 1394 428 
 L 1394 3788 
@@ -472,7 +472,7 @@ L 2694 0
 L 594 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w7t82-Cmr10-29" d="M 416 -1600 
+     <path id="w7t91-Cmr10-29" d="M 416 -1600 
 Q 359 -1600 359 -1544 
 Q 359 -1516 372 -1503 
 Q 1466 -434 1466 1600 
@@ -493,7 +493,7 @@ Q 494 -1600 475 -1600
 L 416 -1600 
 z
 " transform="scale(0.015625)"/>
-     <path id="w7t82-Cmsy10-a2" d="M 538 1600 
+     <path id="w7t91-Cmsy10-a2" d="M 538 1600 
 Q 538 1691 584 1772 
 Q 631 1853 714 1903 
 Q 797 1953 891 1953 
@@ -506,7 +506,7 @@ Q 747 1247 642 1351
 Q 538 1456 538 1600 
 z
 " transform="scale(0.015625)"/>
-     <path id="w7t82-Cmmi10-44" d="M 313 0 
+     <path id="w7t91-Cmmi10-44" d="M 313 0 
 Q 250 0 250 84 
 Q 253 100 262 139 
 Q 272 178 289 201 
@@ -550,7 +550,7 @@ L 1538 416
 Q 1509 338 1509 275 
 z
 " transform="scale(0.015625)"/>
-     <path id="w7t82-Cmss10-74" d="M 1141 -72 
+     <path id="w7t91-Cmss10-74" d="M 1141 -72 
 Q 859 -72 753 211 
 Q 647 494 647 831 
 L 647 2444 
@@ -571,7 +571,7 @@ Q 1884 47 1646 -12
 Q 1409 -72 1141 -72 
 z
 " transform="scale(0.015625)"/>
-     <path id="w7t82-Cmss10-6f" d="M 1600 -72 
+     <path id="w7t91-Cmss10-6f" d="M 1600 -72 
 Q 1203 -72 878 133 
 Q 553 338 365 680 
 Q 178 1022 178 1403 
@@ -603,7 +603,7 @@ Q 1044 547 1214 456
 Q 1384 366 1600 366 
 z
 " transform="scale(0.015625)"/>
-     <path id="w7t82-Cmss10-6b" d="M 525 0 
+     <path id="w7t91-Cmss10-6b" d="M 525 0 
 L 525 4441 
 L 1013 4441 
 L 1013 1550 
@@ -618,7 +618,7 @@ L 991 0
 L 525 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w7t82-Cmss10-65" d="M 1594 -72 
+     <path id="w7t91-Cmss10-65" d="M 1594 -72 
 Q 1300 -72 1044 51 
 Q 788 175 602 390 
 Q 416 606 314 882 
@@ -646,7 +646,7 @@ Q 984 2319 876 2145
 Q 769 1972 722 1778 
 z
 " transform="scale(0.015625)"/>
-     <path id="w7t82-Cmss10-6e" d="M 506 0 
+     <path id="w7t91-Cmss10-6e" d="M 506 0 
 L 506 2881 
 L 991 2881 
 L 991 2444 
@@ -667,24 +667,24 @@ L 506 0
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w7t82-Cmr10-28" transform="translate(0 0.609375)"/>
-    <use xlink:href="#w7t82-Cmr10-5e" transform="translate(56.340332 27.609375)"/>
-    <use xlink:href="#w7t82-Cmmi10-55" transform="translate(38.818359 0.609375)"/>
-    <use xlink:href="#w7t82-Cmsy10-a1" transform="translate(124.589844 0.609375)"/>
-    <use xlink:href="#w7t82-Cmr10-31" transform="translate(219.833984 0.609375)"/>
-    <use xlink:href="#w7t82-Cmr10-29" transform="translate(269.833984 0.609375)"/>
-    <use xlink:href="#w7t82-Cmsy10-a2" transform="translate(326.210938 0.609375)"/>
-    <use xlink:href="#w7t82-Cmmi10-44" transform="translate(371.455078 0.609375)"/>
-    <use xlink:href="#w7t82-Cmss10-74" transform="translate(454.169922 -16.396875) scale(0.7)"/>
-    <use xlink:href="#w7t82-Cmss10-6f" transform="translate(479.428711 -16.396875) scale(0.7)"/>
-    <use xlink:href="#w7t82-Cmss10-6b" transform="translate(514.428711 -16.396875) scale(0.7)"/>
-    <use xlink:href="#w7t82-Cmss10-65" transform="translate(548.574219 -16.396875) scale(0.7)"/>
-    <use xlink:href="#w7t82-Cmss10-6e" transform="translate(579.643555 -16.396875) scale(0.7)"/>
+    <use xlink:href="#w7t91-Cmr10-28" transform="translate(0 0.609375)"/>
+    <use xlink:href="#w7t91-Cmr10-5e" transform="translate(56.340332 27.609375)"/>
+    <use xlink:href="#w7t91-Cmmi10-55" transform="translate(38.818359 0.609375)"/>
+    <use xlink:href="#w7t91-Cmsy10-a1" transform="translate(124.589844 0.609375)"/>
+    <use xlink:href="#w7t91-Cmr10-31" transform="translate(219.833984 0.609375)"/>
+    <use xlink:href="#w7t91-Cmr10-29" transform="translate(269.833984 0.609375)"/>
+    <use xlink:href="#w7t91-Cmsy10-a2" transform="translate(326.210938 0.609375)"/>
+    <use xlink:href="#w7t91-Cmmi10-44" transform="translate(371.455078 0.609375)"/>
+    <use xlink:href="#w7t91-Cmss10-74" transform="translate(454.169922 -16.396875) scale(0.7)"/>
+    <use xlink:href="#w7t91-Cmss10-6f" transform="translate(479.428711 -16.396875) scale(0.7)"/>
+    <use xlink:href="#w7t91-Cmss10-6b" transform="translate(514.428711 -16.396875) scale(0.7)"/>
+    <use xlink:href="#w7t91-Cmss10-65" transform="translate(548.574219 -16.396875) scale(0.7)"/>
+    <use xlink:href="#w7t91-Cmss10-6e" transform="translate(579.643555 -16.396875) scale(0.7)"/>
    </g>
   </g>
  </g>
 </svg>
-<text x="20.0" y="312.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">three terms, all growing with the LLM; Qwen3-ASR's '92 ms to first token' is a server number — not this machine</text>
+<text x="20.0" y="328.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">all three grow with the LLM · Qwen3-ASR's 92 ms first token is a server number</text>
 </g>
 </svg>
 ```
