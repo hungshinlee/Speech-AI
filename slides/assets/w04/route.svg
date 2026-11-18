@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 366" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<text x="20.0" y="30.0" font-size="22" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="auto">First half</text>
+<text x="128.1" y="30.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">The box: how much of the future may it see?</text>
+<rect x="20.0" y="42.0" width="471.0" height="136.0" rx="8" fill="#ffffff" stroke="#0b5cad" stroke-width="1.4"/>
+<circle cx="46.0" cy="70.0" r="16.0" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.4"/>
+<text x="46.0" y="71.0" font-size="19" font-weight="700" fill="#0b5cad" text-anchor="middle" dominant-baseline="middle">1</text>
+<text x="70.0" y="78.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">The box</text>
+<text x="32.0" y="108.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">What is inside the encoder? What does each</text>
+<text x="32.0" y="133.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">frame get to see, and what does that cost?</text>
+<line x1="493.0" y1="110.0" x2="500.0" y2="110.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="507.0,110.0 500.0,115.0 500.0,105.0" fill="#94a3b8"/>
+<rect x="509.0" y="42.0" width="471.0" height="136.0" rx="8" fill="#ffffff" stroke="#0b5cad" stroke-width="1.4"/>
+<circle cx="535.0" cy="70.0" r="16.0" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.4"/>
+<text x="535.0" y="71.0" font-size="19" font-weight="700" fill="#0b5cad" text-anchor="middle" dominant-baseline="middle">2</text>
+<text x="559.0" y="78.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">Making it causal</text>
+<text x="521.0" y="108.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">What does looking to the right cost — and when</text>
+<text x="521.0" y="133.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">does that cost pile up with depth?</text>
+<text x="20.0" y="216.0" font-size="22" font-weight="700" fill="#b45309" text-anchor="start" dominant-baseline="auto">Second half</text>
+<text x="162.8" y="216.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">The output: how does it line up with the input?</text>
+<rect x="20.0" y="228.0" width="308.0" height="136.0" rx="8" fill="#ffffff" stroke="#b45309" stroke-width="1.4"/>
+<circle cx="46.0" cy="256.0" r="16.0" fill="#fff7ed" stroke="#b45309" stroke-width="1.4"/>
+<text x="46.0" y="257.0" font-size="19" font-weight="700" fill="#b45309" text-anchor="middle" dominant-baseline="middle">3</text>
+<text x="70.0" y="264.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">RNN-T</text>
+<text x="32.0" y="294.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">How does the output get a</text>
+<text x="32.0" y="319.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">memory without giving up the</text>
+<text x="32.0" y="344.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">lattice?</text>
+<line x1="330.0" y1="296.0" x2="337.0" y2="296.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="344.0,296.0 337.0,301.0 337.0,291.0" fill="#94a3b8"/>
+<rect x="346.0" y="228.0" width="308.0" height="136.0" rx="8" fill="#ffffff" stroke="#b45309" stroke-width="1.4"/>
+<circle cx="372.0" cy="256.0" r="16.0" fill="#fff7ed" stroke="#b45309" stroke-width="1.4"/>
+<text x="372.0" y="257.0" font-size="19" font-weight="700" fill="#b45309" text-anchor="middle" dominant-baseline="middle">4</text>
+<text x="396.0" y="264.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">Attention</text>
+<text x="358.0" y="294.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">The decoder learns where to</text>
+<text x="358.0" y="319.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">look. Is what it learns an</text>
+<text x="358.0" y="344.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">alignment?</text>
+<line x1="656.0" y1="296.0" x2="663.0" y2="296.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="670.0,296.0 663.0,301.0 663.0,291.0" fill="#94a3b8"/>
+<rect x="672.0" y="228.0" width="308.0" height="136.0" rx="8" fill="#ffffff" stroke="#b45309" stroke-width="1.4"/>
+<circle cx="698.0" cy="256.0" r="16.0" fill="#fff7ed" stroke="#b45309" stroke-width="1.4"/>
+<text x="698.0" y="257.0" font-size="19" font-weight="700" fill="#b45309" text-anchor="middle" dominant-baseline="middle">5</text>
+<text x="722.0" y="264.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">The state</text>
+<text x="684.0" y="294.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">What does a Transformer carry</text>
+<text x="684.0" y="319.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">forward, and how fast does it</text>
+<text x="684.0" y="344.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">grow?</text>
+</svg>

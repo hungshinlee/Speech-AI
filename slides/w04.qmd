@@ -59,6 +59,12 @@ format:
 
 {{< include assets/w04/last-week.inline.qmd >}}
 
+::: {.fragment fragment-index=0}
+::: {.small}
+The gradient: softmax minus the alignment posterior — one cross-entropy per frame, with a soft target.
+:::
+:::
+
 ::: {.claim}
 **Week 3 gave us a loss and a gradient.** It also left two holes: the outputs never see each other, and we never opened the box that makes them.
 :::
@@ -76,7 +82,19 @@ Open the box, give the output a memory, meet the third alignment — and through
 :::
 
 ::: {.footer}
-Route: the box → make it causal → RNN-T → attention ≠ alignment → the state that grows
+three protagonists, one question · the route: next slide
+:::
+
+## Today's route: five stops, in two halves
+
+{{< include assets/w04/route.inline.qmd >}}
+
+::: {.claim}
+**First:** open the box, then make it causal. **Then:** an output that remembers, a decoder that looks where it likes, and the state both carry.
+:::
+
+::: {.footer}
+five stops = the five section pages · the same map, half filled in, returns at p29
 :::
 
 ## Notation for today
@@ -109,6 +127,10 @@ Logs are $\ln$ · no $L$ (W2's window): left context is $H$ · lookahead is $m$,
 ## Attention in one line: three matrices and a $T \times T$ score
 
 {{< include assets/w04/attention-dims.inline.qmd >}}
+
+::: {.small}
+Every streaming trick this week is a way of not computing, or not waiting for, part of the $T \times T$ block.
+:::
 
 $$\operatorname{Attn}(\mathbf{Q}, \mathbf{K}, \mathbf{V}) \;=\; \operatorname{softmax}\!\left(\frac{\mathbf{Q}\mathbf{K}^{\top}}{\sqrt{d_k}} + \mathbf{M}\right)\mathbf{V}, \qquad \mathbf{Q} = \mathbf{X}\mathbf{W}_Q,\ \mathbf{K} = \mathbf{X}\mathbf{W}_K,\ \mathbf{V} = \mathbf{X}\mathbf{W}_V$$
 
@@ -153,6 +175,10 @@ Gulati et al., Interspeech 2020 (arXiv:2005.08100) · §2 the block, §3.4 the a
 ## Conformer: four modules, one block
 
 {{< include assets/w04/conformer-block.inline.qmd >}}
+
+::: {.small}
+Modules and order as in Gulati et al. (2020), Fig. 1–2; the two FFN halves are the Macaron structure.
+:::
 
 ::: {.footer}
 Gulati et al. 2020 · kernel 32 · $s = 4$ (10 → 40 ms) · Macaron: ½ FFN each side
@@ -226,6 +252,10 @@ Only two quantities change: **how far right** a layer reads, and **whether that 
 
 {{< include assets/w04/masks.inline.qmd >}}
 
+::: {.small}
+White $= 0$ (read), grey $= -\infty$ (blocked). Added before the softmax, so a blocked key gets weight $e^{-\infty} = 0$.
+:::
+
 ::: {.footer}
 $T = 12$, $C = 4$, $R = 1$, $H = 4$ · row $i$ reads white columns · W1 p43: $H$ costs too
 :::
@@ -276,7 +306,7 @@ $$\text{per layer: } 2 \times 40 = 80 \text{ ms} \;\longrightarrow\; 8 \times 40
 
 - **One layer** at $r_k = 8$ already spends a whole human-scale budget (a few hundred ms, W1).
 - Lookahead's benefit saturates quickly; its cost is linear, **per layer**, and in $s\Delta$ units.
-- The budget is spent at the *sum*, so the only cheap right context is the kind that does not stack: put it in the chunk, or copy it per segment (Emformer, p24).
+- The budget is spent at the *sum*, so the only cheap right context is the kind that does not stack: put it in the chunk, or copy it per segment (Emformer, p26).
 
 ::: {.claim}
 Before adding one frame of right context, ask three questions: **which layer, times how many layers, times what frame size.**
@@ -299,9 +329,29 @@ Streaming is a **three-number trade-off** — $m$, $C$, $H$ — not a switch. Th
 W1's budget takes $D_{\text{alg}}$ with both terms · "nobody ships" is a field judgement
 :::
 
-## Right context that does not leak; history that costs memory
+## Right context reread at every layer: it leaks
 
 {{< include assets/w04/right-context-copy.inline.qmd >}}
+
+::: {.fragment fragment-index=0}
+::: {.small}
+Frame 8 belongs to chunk 3: layer 1 computed it with chunk 3's window, one more frame to the right.
+:::
+:::
+
+::: {.footer}
+$C = 4$, $R = 1$, three layers · green dashes: chunk boundaries · the fix: next slide
+:::
+
+## Right context that does not leak; history that costs memory
+
+{{< include assets/w04/right-context-copy-2.inline.qmd >}}
+
+::: {.fragment fragment-index=0}
+::: {.small}
+The orange frame is a copy of the input frame, carried up unchanged: nothing from chunk 3's window. LC-BLSTM's future window is the same idea, in LSTM form.
+:::
+:::
 
 ::: {.small}
 **Transformer-XL.** Layer $n$ of segment $\tau + 1$ attends to $[\,\operatorname{SG}(\mathbf{h}^{\,n-1}_{\tau})\,;\ \mathbf{h}^{\,n-1}_{\tau+1}\,]$ — the previous segment's states under stop-gradient ($\operatorname{SG}$) as extra keys and values: history costs memory, not waiting. **Emformer.** $\mathbf{K}^n_i = [\,\mathbf{W}_k \mathbf{M}^n_i,\ \mathbf{K}^n_{L,i},\ \mathbf{W}_k \mathbf{C}^n_i,\ \mathbf{W}_k \mathbf{R}^n_i\,]$ — memory bank (one vector per past segment, carried over **from the lower layer**), cached left context, centre chunk, **hard-copied** right context.
@@ -314,6 +364,12 @@ Dai et al. 2019 eq. 2 · Shi et al. 2021 §3 (read 2026-10-04) · Zhang et al. 2
 ## Train with a mask, run with a cache: two schedules
 
 {{< include assets/w04/mask-vs-cache.inline.qmd >}}
+
+::: {.fragment fragment-index=3}
+::: {.claim}
+**Train with the mask, run with the cache: the same function, two schedules.** The encoder's cache is bounded by $H$ by design; the decoder's cache in the last section has no $H$.
+:::
+:::
 
 ::: {.footer}
 Chen et al. 2021 · Shi et al. 2021 · $C = 4$, $R = 1$, $H = 4$ as on the mask slide
@@ -329,7 +385,19 @@ Chen et al. 2021 · Shi et al. 2021 · $C = 4$, $R = 1$, $H = 4$ as on the mask 
 | …and a term W1 did not have | + emission delay (next section) | measured, not computed |
 
 ::: {.footer}
-Master: W1 p36 · 1120 ms is the p21 example, not a measurement · Demo 2 measures
+Master: W1 p36 · 1120 ms is the p22 example, not a measurement · Demo 2 measures
+:::
+
+## Half-time: the box is open, and causal
+
+{{< include assets/w04/half-time.inline.qmd >}}
+
+::: {.claim}
+The architecture's delay is a **lower bound**; Demo 2 measures the rest. Last week's second hole is still open: **the outputs have no memory.**
+:::
+
+::: {.footer}
+the answers: p10 · p21, p24 · the route: p6
 :::
 
 # RNN-T: how does the output get a memory without losing the lattice? {.section-title}
@@ -354,6 +422,10 @@ Graves 2012 · He et al., ICASSP 2019 for "on-device workhorse" · this section 
 
 {{< include assets/w04/rnnt-arch.inline.qmd >}}
 
+::: {.small}
+[The prediction network is an output-side language model: it never sees audio.]{.fragment fragment-index=1} [One softmax per lattice node $(t, u)$ — not per frame.]{.fragment fragment-index=2}
+:::
+
 ::: {.claim}
 The prediction network sees **only the labels emitted so far**. That is where the output dependency CTC gave up comes back — and it comes back without touching the monotonic lattice.
 :::
@@ -365,6 +437,10 @@ Graves, arXiv:1211.3711 (2012) · $\mathbf{f}_t$ transcription, $\mathbf{g}_u$ p
 ## Not aligned: the joint runs on every pair $(t, u)$
 
 {{< include assets/w04/pair-grid.inline.qmd >}}
+
+::: {.small}
+Columns are $t$, rows are $u$. Each pair is one node of the lattice and one joint evaluation.
+:::
 
 ::: {.claim .fragment fragment-index=2}
 The joint needs no alignment: it scores **every** pair. An alignment is a path through the pairs — W3's $\pi$, now on a grid — and the loss sums over all of them.
@@ -420,6 +496,10 @@ $\hat{U}$: labels the decoder emits · training: teacher forcing on the gold $\e
 
 {{< include assets/w04/decode-steps.inline.qmd >}}
 
+::: {.small}
+Solid box: computed at this step · dashed box: reused from the step before. Training makes no choice: it sums over every path, so the joint runs at every node.
+:::
+
 ::: {.claim .fragment fragment-index=5}
 Right: one joint evaluation and a new frame. Up: one joint evaluation **plus a prediction-network step** — a cost per label, not per second.
 :::
@@ -444,6 +524,10 @@ Same glyph, three semantics. W3 p65 planted this; here it is paid: the RNN-T's b
 ## The lattice: right is a frame, up is a label
 
 {{< include assets/w04/rnnt-lattice.inline.qmd >}}
+
+::: {.small}
+Rows are $u$ (labels emitted), columns $t$ (frames consumed). Right = blank, up = emit; up never costs a frame. [CTC on the same ab: 5 paths at $T = 3$, 1 at $T = 2$ (transducer: 3).]{.fragment fragment-index=3}
+:::
 
 ::: {.footer}
 $\ell = \text{ab}$, $T = 3$ · start at $(1, 0)$, reach $(T, U)$, then one last blank · `w04-data.json`
@@ -489,6 +573,10 @@ Demo 1 · counts from `w04-data.json` · "aa" at $T = 2$: CTC 0 paths, RNN-T 3
 $$\#\,\text{paths} \;=\; \binom{T + U - 1}{U} \qquad\text{vs. CTC: } \lvert \mathcal{B}^{-1}(\ell) \rvert, \text{ which is } 0 \text{ whenever } T < U + r$$
 
 {{< include assets/w04/path-slots.inline.qmd >}}
+
+::: {.small}
+E = emit (up, no frame used), R = blank (right, one frame used); CTC has one path here.
+:::
 
 | | CTC | RNN-T |
 |:-----------------|:---------------------------------|:-----------------------------------------------|
@@ -549,6 +637,12 @@ Same lesson as W3: the sum over exponentially many paths and the $O(TU)$ recursi
 $$\beta(t,u) \;=\; \beta(t+1,u)\,\varnothing(t,u) \;+\; \beta(t,u+1)\,y(t,u), \qquad \beta(T,U) = \varnothing(T,U)$$
 
 $$\textstyle\sum_{t+u=n} \alpha(t,u)\,\beta(t,u) \;=\; P(\ell \mid \mathbf{X}) \quad \text{for every } n$$
+
+::: {.fragment fragment-index=2}
+::: {.small}
+In CTC the cut was a column $t$; here it is a diagonal, because a step may move either axis (Graves 2012, eq. 18–19).
+:::
+:::
 
 ## The gradient: occupancy $\times$ softmax $-$ edge posterior
 
@@ -628,16 +722,46 @@ W3 said the vocabulary is decided before the loss. Here is its bill: $|\mathcal{
 
 {{< include assets/w04/pruned-band.inline.qmd >}}
 
+::: {.fragment fragment-index=2}
+::: {.small}
+**1.** A *linear* joiner on $(\mathbf{f}_t, \mathbf{g}_u)$: cheap, $O(TU)$ — run forward–backward, read off the band. **2.** The full nonlinear joiner, only inside the band — memory falls by $U / S$.
+:::
+:::
+
 ::: {.footer}
-Kuang et al., Interspeech 2022 (abstract) · the band from a joiner linear in $\mathbf{f}_t$, $\mathbf{g}_u$
+Kuang et al., Interspeech 2022 (abstract) · the band drawn is illustrative
 :::
 
 ## Emission delay: the loss prefers to wait
 
 {{< include assets/w04/emission-delay.inline.qmd >}}
 
+::: {.fragment fragment-index=2}
+::: {.small}
+Both paths collapse to the same $\ell$; the loss weighs them by probability only, and the late one scores higher.
+:::
+:::
+
+::: {.fragment fragment-index=2}
+::: {.claim .warn}
+So the optimum drifts late: **emission delay** — learned, not designed, and invisible in $D_{\text{alg}}$.
+:::
+:::
+
 ::: {.footer}
-Yu et al., ICASSP 2021 (FastEmit), eq. 11–12 · a third delay: learned, not designed
+a third delay: learned, not designed · what to do about it: next slide
+:::
+
+## Emission delay: FastEmit reweights the gradient
+
+$$\frac{\partial \tilde{\mathcal{L}}}{\partial y(t,u)} = (1 + \lambda)\,\frac{\partial \mathcal{L}}{\partial y(t,u)}, \qquad \frac{\partial \tilde{\mathcal{L}}}{\partial \varnothing(t,u)} = \frac{\partial \mathcal{L}}{\partial \varnothing(t,u)}$$
+
+::: {.claim .ok}
+**Emit edges pulled harder, blank edges left alone** — on alignment probabilities, hence sequence-level.
+:::
+
+::: {.footer}
+Yu et al., ICASSP 2021 (FastEmit), eq. 11–12 · W12: "when to speak" as a gradient weighting
 :::
 
 ## MC 6 — "computed latency is measured latency"
@@ -645,6 +769,10 @@ Yu et al., ICASSP 2021 (FastEmit), eq. 11–12 · a third delay: learned, not de
 $$D_{\text{what you measure}} \;\geq\; \underbrace{(m + \alpha C)\,s\Delta}_{\text{architecture: a lower bound}} \;+\; \underbrace{D_{\text{emit}}}_{\text{learned; same encoder, different training}} \;+\; D_{\text{comp}}$$
 
 {{< include assets/w04/delay-stack.inline.qmd >}}
+
+::: {.small}
+220 ms in every row: the model's delay, not the feed's · black tick = the architecture's bound. Per-symbol medians add up; the per-word medians in the table do not.
+:::
 
 ::: {.claim}
 $D_{\text{alg}}$ is what the architecture *guarantees you cannot beat.* What you actually get is a property of the trained model.
@@ -678,7 +806,7 @@ Demo 2 · code: `demos/w04_d2_stream_chunks` · sherpa-onnx 1.13.8, CPU · rehea
 | 320 ms ($=$ model chunk) | 480 ms | $+220$ ms | $+742$ ms | MIDDLE $+922$ |
 
 ::: {.small}
-$D_{\text{alg}}$ here is $c + F/2$, $c = 320$ ms the model's own chunk, $F$ the feed: the 130 ms lookahead past the chunk edge waits for the **next feed to arrive whole**, so it is paid in feed chunks, not in milliseconds (p20's $\alpha$, exact).
+$D_{\text{alg}}$ here is $c + F/2$, $c = 320$ ms the model's own chunk, $F$ the feed: the 130 ms lookahead past the chunk edge waits for the **next feed to arrive whole**, so it is paid in feed chunks, not in milliseconds (p21's $\alpha$, exact).
 :::
 ::::
 
@@ -756,8 +884,32 @@ Demo 3 · whisper-small, eager, CPU · dev-clean 1272-128104-0000 · measured 20
 
 {{< include assets/w04/weights-vs-seating.inline.qmd >}}
 
+::: {.small}
+[One column per frame, one occupant each: blank holds 150 of 292.]{.fragment fragment-index=0} [Below: the same $T = 292$ frames, 4 per column — Whisper small L8H6: flat by the stated rule, transcript still right.]{.fragment fragment-index=1}
+:::
+
 ::: {.claim}
 **Weights of an average** are not **a seating chart**: flat weights, right transcript.
+:::
+
+::: {.footer}
+“how much from each position” is not “which position is mine”
+:::
+
+## MC 7 — why a flat head still gets it right
+
+{{< include assets/w04/why-flat-works.inline.qmd >}}
+
+::: {.claim}
+Encoder self-attention has already mixed the context into every position — so the decoder reads the right content from the “wrong” frames too. **Weights are not a correspondence.**
+:::
+
+::: {.small}
+Sharpness is forced only when the encoder has no context (raw log-mel).
+:::
+
+::: {.footer}
+schematic · $\mathbf{f}_5$ already holds $\mathbf{f}_3$ and $\mathbf{f}_6$ · this carries to W7 and W8
 :::
 
 ## Where word timestamps actually come from
@@ -892,15 +1044,15 @@ The box is open; now where does its ability come from? Masked prediction over au
 
 | | |
 |:----|:----------------|
-| AED | attention-based encoder–decoder (p54) |
+| AED | attention-based encoder–decoder (p58) |
 | ASR | automatic speech recognition (W1) |
-| BLSTM, LC-BLSTM | bidirectional LSTM; latency-controlled BLSTM (p17) |
+| BLSTM, LC-BLSTM | bidirectional LSTM; latency-controlled BLSTM (p18) |
 | CTC | connectionist temporal classification (W3) |
-| DTW | dynamic time warping (p56) |
-| FFN | feed-forward network: the Conformer block's two half-steps (p12) |
-| GLU | gated linear unit (p12) |
-| KV | key–value: the cache a Transformer keeps (p63) |
-| LAS | Listen, Attend and Spell (p54) |
+| DTW | dynamic time warping (p60) |
+| FFN | feed-forward network: the Conformer block's two half-steps (p13) |
+| GLU | gated linear unit (p13) |
+| KV | key–value: the cache a Transformer keeps (p68) |
+| LAS | Listen, Attend and Spell (p58) |
 | LM | language model (W3) |
 | LSTM | long short-term memory network (W3) |
 
@@ -908,12 +1060,12 @@ The box is open; now where does its ability come from? Masked prediction over au
 
 | | |
 |:----|:----------------|
-| MC | misconception: a belief that sounds right, and what breaks it (p13) |
-| MHA, MHSA | multi-head attention (p10); multi-head self-attention (p12) |
-| RNN | recurrent neural network (p28) |
-| RNN-T | recurrent neural network transducer (W1; the card is p28) |
-| SG | stop-gradient (p24) |
+| MC | misconception: a belief that sounds right, and what breaks it (p14) |
+| MHA, MHSA | multi-head attention (p11); multi-head self-attention (p13) |
+| RNN | recurrent neural network (p31) |
+| RNN-T | recurrent neural network transducer (W1; the card is p31) |
+| SG | stop-gradient (p26) |
 | SSL | self-supervised learning (W1) |
-| SSM | state-space model (p64) |
-| TDT | token-and-duration transducer (p38) |
+| SSM | state-space model (p69) |
+| TDT | token-and-duration transducer (p41) |
 | WER | word error rate (W1) |

@@ -169,7 +169,7 @@
         "system": "encoder output (W4, W5)",
         "per_s": 50,
         "how": "frames, 20 ms",
-        "src": "W4 p14 / W5 p11"
+        "src": "W4 p15 / W5 p11"
       },
       {
         "system": "SLAM-ASR: stack 5 frames",
