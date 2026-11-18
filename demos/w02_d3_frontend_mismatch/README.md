@@ -1,5 +1,5 @@
 <!-- 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。 -->
-# W2 · Demo 3 — Front-end mismatch: same audio, same recogniser, a different log-mel recipe (slides p64–p66)
+# W2 · Demo 3 — Front-end mismatch: same audio, same recogniser, a different log-mel recipe (slides p66–p68)
 
 Two front-ends can both be called "80-dim log-mel, 25 ms window, 10 ms hop" and still produce different numbers. This demo asks whether a pretrained recogniser notices.
 
@@ -58,4 +58,4 @@ cd speech_ai/demos/w02_d3_frontend_mismatch
 
 Requirements: the shared `speech_ai/demos/.venv` with `torch 2.14.0`, `transformers 5.17.0` and `soundfile 0.14.0` (all installed by the earlier demos' `setup.sh`), and `demos/_media/dev-clean.tar.gz` from W3 demo 3's `fetch` (LibriSpeech, CC BY 4.0). Whisper runs on the CPU; one recipe over 40 sentences takes 34–40 s on the lecture laptop (M5 Max). `data/sentences.json` is not published — `fetch` rebuilds it from the tarball.
 
-The rehearsal record (`runs/rehearsal/rehearsal.json`) is summarised into `slides/assets/w02/w02-metrics.json` (`demo3`) by `./present.sh export`; the numbers on slide p66 come from there. In the published copy of `rehearsal.json` the `model.path` entry (the instructor's local Hugging Face cache directory) is replaced by a placeholder; `replay` does not read it.
+The rehearsal record (`runs/rehearsal/rehearsal.json`) is summarised into `slides/assets/w02/w02-metrics.json` (`demo3`) by `./present.sh export`; the numbers on slide p68 come from there. In the published copy of `rehearsal.json` the `model.path` entry (the instructor's local Hugging Face cache directory) is replaced by a placeholder; `replay` does not read it.

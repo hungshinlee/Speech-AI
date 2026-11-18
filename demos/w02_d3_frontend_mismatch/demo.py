@@ -14,13 +14,13 @@
   selftest   不需要模型：自己的前端對 transformers 的 numpy 實作、兩種 mel 尺度對 w02-data.json、WER、FLAC 表頭、挑句、fake 整條流程
   export     runs/rehearsal/ 的摘要 → slides/assets/w02/w02-metrics.json（鍵 demo3）
 
-畫面上的鍵（順序照投影片 p66 講稿的【操作】）：
+畫面上的鍵（順序照投影片 p68 講稿的【操作】）：
   r  基準：Whisper 自己的前端（transformers 的 WhisperFeatureExtractor）→ 轉錄 40 句 → WER（show 啟動時自動跑一次）
   0  同一個配方、自己的程式碼算（dsp.py）——每個旋鈕都對上時，應該拿到同一個 WER
   1  mel 尺度 HTK ↔ Slaney            2  濾波器正規化：峰值 1 ↔ 面積        3  magnitude ↔ power
   4  log 的 floor 1e-5 ↔ 1e-10        5  dither                              6  pre-emphasis 0.97
   7  輸出正規化：每句 CMVN ↔ clamp + affine                                  8  五個旋鈕一起轉
-  a  全部 recipe 依序跑       t  到目前為止的表（投影片 p66 的表）      n  換特徵圖上看的那一句
+  a  全部 recipe 依序跑       t  到目前為止的表（投影片 p68 的表）      n  換特徵圖上看的那一句
   s  播目前特徵圖上那一句     h  重印選單      q  離開
 
 判定的定義（課堂上要念出來的）：
@@ -180,7 +180,7 @@ def filterbank(p: dict) -> np.ndarray:
 
 
 def filter_centres(scale: str) -> np.ndarray:
-    """80 個三角形的中心頻率（Hz）。投影片 p64 的右圖就是兩種尺度的這條曲線相減。"""
+    """80 個三角形的中心頻率（Hz）。投影片 p66 的右圖就是兩種尺度的這條曲線相減。"""
     edges = dsp.mel_to_hz(np.linspace(dsp.hz_to_mel(float(FE["fmin"]), scale), dsp.hz_to_mel(float(FE["fmax"]), scale), N_MELS + 2), scale)
     return edges[1:-1]
 
@@ -513,7 +513,7 @@ class Demo:
 
     def table(self) -> None:
         o = self.out
-        o.banner("到目前為止（投影片 p66 的表）", C.GREEN)
+        o.banner("到目前為止（投影片 p68 的表）", C.GREEN)
         o(f"  {'key':<4}{'recipe':<50}{'mean |Δ|':>9}{'WER %':>8}{'Δ pts':>8}{'changed':>9}{'avg logP':>10}")
         for rid in self.order:
             r = self.results[rid]
@@ -774,7 +774,7 @@ def cmd_rehearse(args) -> None:
     demo.save(folder, "rehearsal")
     out(f"  存到 {folder.relative_to(HERE)}/（rehearsal.json、rehearsal.txt、wer.png、features_<id>.png）")
     if not args.fake:
-        out("\n下一步：./present.sh export → 把數字回填到投影片 p66；上課用 ./present.sh")
+        out("\n下一步：./present.sh export → 把數字回填到投影片 p68；上課用 ./present.sh")
 
 
 def cmd_replay(args) -> None:

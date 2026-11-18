@@ -61,6 +61,12 @@ format:
 
 {{< include assets/w02/last-week.inline.qmd >}}
 
+::: {.fragment fragment-index=1}
+::: {.small}
+Same $\ell$, four times the delay — and Week 1 never said who chooses $\Delta$, or what it costs.
+:::
+:::
+
 ::: {.claim}
 **Week 1 priced every delay in frames.** Nobody said how long a frame is, or who decides — that is the first question today answers.
 :::
@@ -78,7 +84,19 @@ Budget, formulas and the $\ell = 30$ example are all Week 1's — nothing here i
 :::
 
 ::: {.footer}
-Route: sampling → production → STFT & mel → what mel drops → prosody → mismatch
+one pipeline, three axes · the route: next slide
+:::
+
+## Today's route: six stops, in two halves
+
+{{< include assets/w02/route.inline.qmd >}}
+
+::: {.claim}
+**First:** how air becomes numbers, and where the word is in them. **Then:** the front end — what it keeps, what it drops, and what comes back.
+:::
+
+::: {.footer}
+six stops = the six sections (the first opened at p2) · the same map, half filled in, returns at p20
 :::
 
 ## Sampling: a waveform becomes a list of numbers
@@ -169,7 +187,7 @@ Demo 1 · code: `demos/w02_d1_spectrogram` · microphone, numpy, scipy, matplotl
 
 ::: {.columns}
 ::: {.column width="52%"}
-![](assets/w02/vowel-space.svg){width="100%"}
+{{< include assets/w02/vowel-space.inline.qmd >}}
 :::
 ::: {.column width="48%"}
 Vowels live in a two-dimensional space:
@@ -259,6 +277,18 @@ $$H(z) = \frac{1}{1 - \sum_{i=1}^{p} a_i z^{-i}} \qquad\qquad \hat{s}(n) = \sum_
 
 It is the core of classical speech codecs (CELP — code-excited linear prediction — and the speech mode of Opus), and the starting point of LPCNet (W8).
 
+## Half-time: numbers in hand, and where the word is
+
+{{< include assets/w02/half-time.inline.qmd >}}
+
+::: {.claim}
+Three things, three scales — a few hundred hertz, a hundred-odd hertz, a few milliseconds. **Can one picture show all of them at once?**
+:::
+
+::: {.footer}
+the answers: p7–p8 · p11–p18 · the route: p6
+:::
+
 # Seeing speech: what does cutting into frames cost? {.section-title}
 
 ## A spectrum is a set of inner products
@@ -283,7 +313,7 @@ The patterns are orthogonal, $\langle \mathbf{b}_k, \mathbf{b}_l \rangle = N\del
 | **The question** | Speech changes every few tens of milliseconds. One spectrum of a whole utterance says *which* frequencies occurred, not *when*. How do you get a spectrum as a function of time? |
 | **The idea** | Multiply the signal by a short window, take a DFT, slide the window by a hop, repeat. Three knobs: window length $L$, hop $H$, FFT size $N$. |
 | **What it added** | A picture of speech — the spectrogram — and, with enough overlap, an inverse: the frames can be added back into the signal. |
-| **What it leaves open** | Every knob costs something: the window trades time against frequency and buys lookahead (p23–p27); the hop sets the clock everything downstream ticks on (p28–p29); and the overlap makes the frames redundant — which is exactly what the phase section will exploit (p41–p48). |
+| **What it leaves open** | Every knob costs something: the window trades time against frequency and buys lookahead (p25–p29); the hop sets the clock everything downstream ticks on (p30–p31); and the overlap makes the frames redundant — which is exactly what the phase section will exploit (p43–p50). |
 :::
 
 ::: {.footer}
@@ -331,7 +361,7 @@ Zero whenever $fL/f_s \in \{\pm 1, \pm 2, \dots\}$: first zero at $f_s/L$, so th
 
 ## Same sound, two window lengths
 
-![](assets/w02/wide-narrow.svg){width="100%"}
+![](assets/w02/wide-narrow.svg){.nostretch width="100%"}
 
 | | Wideband — 5 ms | Narrowband — 30 ms |
 |:--|:--|:--|
@@ -431,8 +461,8 @@ Translation invariance holds along time and **fails** along frequency. An archit
 | **Name** | Log mel-filterbank energies — "log-mel", "fbank". The mel scale is Stevens, Volkmann & Newman, *JASA* 1937; the mel-filterbank-plus-cepstrum recipe for recognition is Davis & Mermelstein, *IEEE Trans. ASSP* 1980. |
 | **The question** | A frame has 257 magnitudes. What distinguishes words is mostly the spectral envelope, read the way the ear reads frequency. How do you keep that and drop the rest? |
 | **The idea** | Sum the power spectrum into about 80 overlapping triangles, spaced evenly on the mel scale, then take the log: $\mathbf{y}_m = \log(\mathbf{M}\,|\mathbf{X}_m|^2 + \epsilon)$. |
-| **What it added** | 80 numbers per 10 ms that carry nearly everything recognition needs; a log domain in which a microphone or a room becomes an additive constant (p33); and, one DCT later, MFCC (p35). |
-| **What it leaves open** | $\mathbf{M}$ is wide and not invertible — the fine harmonic structure is gone (p49); every step is a human choice, and the choices differ between toolkits (p64); and the ear's other trick, masking, is not in it at all (p37). |
+| **What it added** | 80 numbers per 10 ms that carry nearly everything recognition needs; a log domain in which a microphone or a room becomes an additive constant (p35); and, one DCT later, MFCC (p37). |
+| **What it leaves open** | $\mathbf{M}$ is wide and not invertible — the fine harmonic structure is gone (p51); every step is a human choice, and the choices differ between toolkits (p66); and the ear's other trick, masking, is not in it at all (p39). |
 :::
 
 ::: {.footer}
@@ -454,7 +484,7 @@ A product has turned into a sum again — and it will not be the last time today
 
 ## The ear is a filterbank, and mel is its engineering sketch
 
-![](assets/w02/mel-filterbank.svg){width="100%"}
+{{< include assets/w02/mel-filterbank.inline.qmd >}}
 
 The cochlea analyses sound with filters that get **wider as frequency goes up**. Mel imitates that: narrow triangles at the bottom, wide ones at the top.
 
@@ -561,7 +591,7 @@ A real magnitude with a made-up phase is, in general, **not** in $\mathcal{C}$. 
 | **The question** | You hold a magnitude $\mathbf{A}$ — a spectrogram — and no phase. Which signal has it? Often none does exactly: a spectrogram that has been modified, or had its phase replaced, is usually inconsistent. |
 | **The idea** | Alternate between the two constraints. Make the matrix the STFT of a real signal (ISTFT, then STFT); then put the given magnitude back and keep only the new phase. Repeat. |
 | **What it added** | A proof that the inconsistency never increases, so the iteration converges — and a least-squares inverse STFT that works for any window and hop. |
-| **What it leaves open** | Convergence is not to a *consistent* spectrogram — the magnitude constraint is not convex — so a metallic residue stays (p44–p47). And it knows nothing about speech, so it cannot invent what mel threw away (p49–p52). |
+| **What it leaves open** | Convergence is not to a *consistent* spectrogram — the magnitude constraint is not convex — so a metallic residue stays (p46–p49). And it knows nothing about speech, so it cannot invent what mel threw away (p51–p54). |
 :::
 
 ::: {.footer}
@@ -688,7 +718,7 @@ $$\underbrace{\mathbf{y}_m}_{80} = \underbrace{\mathbf{M}}_{80 \times 257}\; \un
 
 257 numbers in, 80 out: many spectra give the same $\mathbf{y}_m$. The pseudo-inverse returns the minimum-norm one — for triangular filters, the smoothest — and at high frequencies **the harmonics are gone for good**.
 
-![](assets/w02/mel-sweep.svg){width="100%"}
+{{< include assets/w02/mel-sweep.inline.qmd >}}
 
 ::: {.ask}
 **Demo 2.** Keys `4`, then `a` `s` `d` `f`. The phase is the **original**, so phase did not do it.
@@ -904,7 +934,7 @@ Demo 3 · code: `demos/w02_d3_frontend_mismatch` · Whisper small via `transform
 
 ::: {.fragment fragment-index=1}
 | | recipe | mean $\lvert\Delta\rvert$ | WER % | changed | avg $\log P$ |
-|:--|:---|--:|--:|--:|--:|
+|:-|:----------------------|-------:|-----:|-----:|------:|
 | r | Whisper's own front-end | 0 | 3.31 | — | $-0.111$ |
 | 0 | same recipe, our own code | 0.000 | 3.31 | 0/40 | $-0.111$ |
 | 1 | mel scale: HTK instead of Slaney | 0.121 | 3.31 | 4/40 | $-0.113$ |
@@ -985,30 +1015,30 @@ We have 100 frames per second. A sentence has perhaps a dozen phonemes per secon
 | | |
 |:----|:----------------|
 | ASR | automatic speech recognition (W1) |
-| CELP | code-excited linear prediction (p18) |
-| CMVN | cepstral mean and variance normalisation (p33) |
-| COLA | constant overlap-add (p41) |
-| DCT | discrete cosine transform (p35) |
-| DFT | discrete Fourier transform (p20) |
-| FFT | fast Fourier transform (p22) |
-| GMM | Gaussian mixture model (p35) |
-| HTK | the Hidden Markov Model Toolkit — here, its mel formula (p64) |
-| ISTFT | inverse short-time Fourier transform (p41) |
+| CELP | code-excited linear prediction (p19) |
+| CMVN | cepstral mean and variance normalisation (p35) |
+| COLA | constant overlap-add (p43) |
+| DCT | discrete cosine transform (p37) |
+| DFT | discrete Fourier transform (p22) |
+| FFT | fast Fourier transform (p24) |
+| GMM | Gaussian mixture model (p37) |
+| HTK | the Hidden Markov Model Toolkit — here, its mel formula (p66) |
+| ISTFT | inverse short-time Fourier transform (p43) |
 | LLM | large language model (W1) |
-| LPC | linear predictive coding (p18) |
-| LSD | log-spectral distance (p50) |
+| LPC | linear predictive coding (p19) |
+| LSD | log-spectral distance (p52) |
 
 ## Acronyms in this deck, M–W
 
 | | |
 |:----|:----------------|
-| MFCC | mel-frequency cepstral coefficients (p35) |
+| MFCC | mel-frequency cepstral coefficients (p37) |
 | RTF | real-time factor (W1) |
-| SI-SDR | scale-invariant signal-to-distortion ratio (p67) |
-| SNR | signal-to-noise ratio (p51) |
-| SPL | sound pressure level — the dB SPL axis (p37) |
+| SI-SDR | scale-invariant signal-to-distortion ratio (p69) |
+| SNR | signal-to-noise ratio (p53) |
+| SPL | sound pressure level — the dB SPL axis (p39) |
 | SSL | self-supervised learning (W1) |
-| STFT | short-time Fourier transform (p21) |
+| STFT | short-time Fourier transform (p23) |
 | TTS | text-to-speech (W1) |
-| VOT | voice onset time (p16) |
+| VOT | voice onset time (p17) |
 | WER | word error rate (W1) |
