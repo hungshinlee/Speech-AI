@@ -170,6 +170,18 @@ These five are the hooks that the next thirteen weeks attach to.
 
 These three are the coordinate system for the whole course. Slides in every later week come back to them.
 
+## Today's route: five stops, in two halves
+
+{{< include assets/w01/route.inline.qmd >}}
+
+::: {.claim}
+**First:** the question, and three systems that try to answer it. **Then:** how we know an answer is right — a human clock, a budget, and a second speaker.
+:::
+
+::: {.footer}
+five stops = the first five section pages · the same map, half filled in, returns at p29
+:::
+
 # Three architectures: what each one gives up to get both right {.section-title}
 
 ## From walkie-talkie to face to face
@@ -195,18 +207,18 @@ Where the metaphor breaks: two people talking are not two independent tracks tha
 | **The question** | How do you build a spoken dialogue system today, out of parts that already exist and already have benchmarks? |
 | **The idea** | Each module speaks the next one's language: audio in, a string out, a string back, audio out. The only thing the modules share is text. |
 | **What it added** | Independent training, independent monitoring, independent replacement. If it has to ship in three months, this is still the one to pick. |
-| **What it leaves open** | Everything a string cannot carry — and a string has no clock (p16–p18). Its shape also fixes the budget sheet we draw in p36, which is why that sheet will not fit the last of the three. |
+| **What it leaves open** | Everything a string cannot carry — and a string has no clock (p17–p19). Its shape also fixes the budget sheet we draw in p38, which is why that sheet will not fit the last of the three. |
 :::
 
 ## Cascade survives because every module can be debugged separately
 
-![](assets/w01/arch-cascade.svg){width="100%"}
+{{< include assets/w01/arch-cascade.inline.qmd >}}
 
 Thick line = audio. **Thin line = text.** The thickness is the information rate.
 
 ## Everything the transcript cannot carry is gone at the ASR output
 
-![](assets/w01/arch-cascade.svg){width="100%"}
+{{< include assets/w01/arch-cascade.inline.qmd >}}
 
 The LLM receives a string. Hesitation, amusement, shouting, speaking rate, whether the user had finished — and **the timing of all of it** — are gone.
 
@@ -241,14 +253,14 @@ A string has no timestamps. Not one.
 | **The question** | If the string is the bottleneck, what happens when nothing is forced through it? |
 | **The idea** | Cast dialogue as speech-to-speech generation: the LM reads and writes speech tokens, and text survives only *inside* the model, as an "inner monologue" written just ahead of the audio. |
 | **What it added** | Emotion, laughter, hesitation, speaking rate — and the timing of all of them — now reach the model. |
-| **What it leaves open** | Speech-token sequences are one to two orders of magnitude longer than text, and language ability pays for it (p21). And the turn is usually still taken from outside: a VAD decides when it may speak. Letting the model itself decide, every frame, is the third rung — p22. |
+| **What it leaves open** | Speech-token sequences are one to two orders of magnitude longer than text, and language ability pays for it (p22). And the turn is usually still taken from outside: a VAD decides when it may speak. Letting the model itself decide, every frame, is the third rung — p23. |
 :::
 
 ## End-to-end keeps the paralinguistics, and keeps text as a planning channel
 
-![](assets/w01/arch-e2e.svg){width="100%"}
+{{< include assets/w01/arch-e2e.inline.qmd >}}
 
-Nothing is forced through a transcript. But text does not disappear — it moves *inside* the model as an inner monologue.
+Nothing is forced through a transcript. But text does not disappear — it moves *inside* the model as an inner monologue: a planning channel, not the interface.
 
 ## What end-to-end costs
 
@@ -269,12 +281,12 @@ The field's current answer is neither pure cascade nor pure end-to-end. It is **
 | **The question** | Can turn-taking stop being a separate controller and become part of what the model predicts? |
 | **The idea** | Every frame the model emits one token — a sound, or $\varnothing$, "say nothing" — conditioned on everything heard so far *and* on what it has itself said. Silence is a token. |
 | **What it added** | No speaker turns to segment: overlap, interjections and interruptions are ordinary positions in one sequence. The output clock never stops. |
-| **What it leaves open** | Two-track conversational data to learn from (p27, p57); the *stop* side of the budget (p53); and a test that tells it apart from a cascade that merely *looks* interruptible — p24. First, the equation: p23. |
+| **What it leaves open** | Two-track conversational data to learn from (p28, p59); the *stop* side of the budget (p55); and a test that tells it apart from a cascade that merely *looks* interruptible — p25. First, the equation: p24. |
 :::
 
 ## Full duplex is sequence modelling: silence is a token
 
-![](assets/w01/arch-duplex.svg){width="100%"}
+{{< include assets/w01/arch-duplex.inline.qmd >}}
 
 $$y_t \;=\; f\!\left(x_{1:\,t+\ell},\; y_{1:\,t-1}\right), \qquad y_t \in \mathcal{V} \cup \{\varnothing\}$$
 
@@ -296,11 +308,33 @@ A VAD-gated cascade and a native full-duplex model can look identical on a clean
 
 {{< include assets/w01/output-clock.inline.qmd >}}
 
+::: {.small}
+The test is not whether it can be interrupted. It is whether $x_t$ still changes $y_t$ while the system is speaking.
+:::
+
 A VAD-gated cascade **decides once** — when the endpoint fires — and then plays a string. Between that decision and the external "stop", $x_t$ is not read and no $y_t$ is chosen. Its output clock is **broken**; the frame clock of the model above it never stops.
 
 ## Where each architecture narrows the channel
 
 {{< include assets/w01/arch-waist.inline.qmd >}}
+
+::: {.fragment fragment-index=0}
+::: {.small}
+**Cascade** — text: a few tokens a second; no paralinguistics, and no clock.
+:::
+:::
+
+::: {.fragment fragment-index=1}
+::: {.small}
+**End-to-end** — speech tokens: 12.5–75 frames a second × codebooks; only what the codebook keeps, at its clock (W6).
+:::
+:::
+
+::: {.fragment fragment-index=2}
+::: {.small}
+**Native full duplex** — the same tokenizer, plus one decision every frame, including $\varnothing$: narrow in content, never in time.
+:::
+:::
 
 ::: {.claim}
 The cascade narrows at the **transcript** and loses the clock. The other two narrow at the **tokenizer** — which is why W6 is the hinge: what the codebook keeps, and how many frames a second it runs at, is the ceiling for everything downstream.
@@ -319,6 +353,18 @@ The cascade narrows at the **transcript** and loses the clock. The other two nar
 
 ::: {.claim}
 No ranking here — **"end-to-end must be better" is a misconception.** Pick the architecture whose failure mode your application can survive.
+:::
+
+## Half-time: three systems, three things given up
+
+{{< include assets/w01/half-time.inline.qmd >}}
+
+::: {.claim}
+Whichever column you pick, the referee is the same: **the clock of the person on the other side.** How late is too late — and how early?
+:::
+
+::: {.footer}
+the answers: p8–p11 · p16–p28 · the route: p12
 :::
 
 # What humans aim at: how late is too late? {.section-title}
@@ -374,6 +420,10 @@ Gap statistics: Stivers et al., PNAS 106(26), 2009. Production timing: Indefrey 
 ## Detection would reply 600 ms late. Prediction lands on time.
 
 {{< include assets/w01/prediction-vs-detection.inline.qmd >}}
+
+::: {.small}
+Planning time is an order of magnitude from word-production chronometry, not a measurement of this task.
+:::
 
 Put the two numbers on one axis and the conclusion is forced: the planning box has to start **before** the other speaker stops. Nothing else fits the observed gap.
 
@@ -444,6 +494,10 @@ Two claims hide in the first line: $\ell$ is a *sum*, and $\alpha$ is a *range*.
 
 {{< include assets/w01/lookahead-stack.inline.qmd >}}
 
+::: {.small}
+Left context is omitted: it costs nothing in time. Only the right edge moves the clock.
+:::
+
 Layer $k$ at time $t$ needs layer $k-1$ up to $t + r_k$. Apply that $n_{\text{layer}}$ times:
 
 $$t^{(k)} \;=\; t^{(k-1)} + r_k \qquad\Longrightarrow\qquad t^{(n_{\text{layer}})} \;=\; t + \sum_{k=1}^{n_{\text{layer}}} r_k \;=\; t + \ell$$
@@ -498,7 +552,7 @@ Chunks arrive at $1/(C\Delta)$ per second; each is $C$ queries against $C+H$ key
 
 $$\text{cost per second} \;\propto\; \frac{1}{C\Delta}\cdot C\,(C+H)\,d \;=\; \frac{(C+H)\,d}{\Delta}$$
 
-Halving $C$ halves the wait but removes only $C$ from $C+H$: **smaller chunks are more often and less efficient, not cheaper.**
+Halving $C$ halves the wait but removes only $C$ from $C+H$ — the blue part of each block: **smaller chunks are more often and less efficient, not cheaper.**
 
 ## MC 4 — "latency is an engineering problem, not a research problem"
 
@@ -530,7 +584,7 @@ Report distributions. In W14 the goal becomes *matching* the human latency distr
 |:---|:-----------------|
 | **Why** | The last ten slides built the budget on paper: every cell is time left after the user stops speaking, and some cells are a setting while others are compute. This demo fills the budget in from a real pipeline on this laptop. |
 | **What runs** | One recorded Mandarin sentence with a pause in the middle ("I'd like a ticket to … Tainan, next Wednesday") through a cascade: an energy-VAD endpoint, whisper.cpp, a local LLM (`mlx-lm`), a local TTS (`mlx-audio`). Every module boundary is time-stamped; ten runs, p50 and p95. Then, on headphones, a full-duplex model on the same laptop — listened to, not measured. |
-| **Watch for** | Which cell is largest, how much each cell varies across the ten runs, and which of the two kinds of delay on p38 the largest one is. For the full-duplex model: *when* it talks, not what it says. |
+| **Watch for** | Which cell is largest, how much each cell varies across the ten runs, and which of the two kinds of delay on p40 the largest one is. For the full-duplex model: *when* it talks, not what it says. |
 :::
 
 ::: {.footer}
@@ -543,7 +597,7 @@ Demo 2 · code: `demos/w01_d2_pipeline` · Apple silicon only (mlx) · rehearsed
 **Demo 2.** Prediction before we run it: which module will dominate?
 :::
 
-The terminal fills in the budget sheet from p36 and draws the timeline; the end-to-end point on it is Recording 2 of the cold open, not this sentence.
+The terminal fills in the budget sheet from p38 and draws the timeline; the end-to-end point on it is Recording 2 of the cold open, not this sentence.
 
 ::: {.footer}
 Demo 2 · code: `demos/w01_d2_pipeline` · whisper.cpp → Gemma 4 → Kokoro, all on this laptop
@@ -704,16 +758,16 @@ Audio analysis code (energy VAD, overlap / response / stop latency, the two-trac
 
 | | |
 |:----|:----------------|
-| AEC | acoustic echo cancellation (p49) |
-| ASR | automatic speech recognition (p14) |
-| LLM | large language model (p14) |
-| MOS | mean opinion score (p58) |
-| NFE | number of function evaluations: sampling steps in a flow-matching TTS model (p56) |
-| RNN-T | recurrent neural network transducer (p44) |
-| RTF | real-time factor: seconds of compute per second of audio (p38) |
-| S2S | speech-to-speech (p19) |
-| SSL | self-supervised learning (p19) |
-| STFT | short-time Fourier transform (p59) |
-| TTS | text-to-speech (p14) |
-| VAD | voice activity detection (p14) |
-| WER | word error rate (p56) |
+| AEC | acoustic echo cancellation (p51) |
+| ASR | automatic speech recognition (p15) |
+| LLM | large language model (p15) |
+| MOS | mean opinion score (p60) |
+| NFE | number of function evaluations: sampling steps in a flow-matching TTS model (p58) |
+| RNN-T | recurrent neural network transducer (p46) |
+| RTF | real-time factor: seconds of compute per second of audio (p40) |
+| S2S | speech-to-speech (p20) |
+| SSL | self-supervised learning (p20) |
+| STFT | short-time Fourier transform (p61) |
+| TTS | text-to-speech (p15) |
+| VAD | voice activity detection (p15) |
+| WER | word error rate (p58) |

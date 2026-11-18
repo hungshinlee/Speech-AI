@@ -17,7 +17,7 @@ min_above_floor_db = 8.0
 min_segment_ms = 100
 
 [endpoint]
-threshold_ms = 1000                 # cascade 用的門檻。投影片 p29 寫 700 安全，但 2026-09-20 彩排的錄音句中停了 980 ms，
+threshold_ms = 1000                 # cascade 用的門檻。投影片 p35 寫 700 安全，但 2026-09-20 彩排的錄音句中停了 980 ms，
                                     # 700 也切斷——真人思考時的停頓就是一秒量級，這是課堂上要講的
 thresholds_ms = [300, 700, 1000, 1500]  # endpoint 子命令列出的比較（Misconception 3 的實證）
 
@@ -25,7 +25,7 @@ thresholds_ms = [300, 700, 1000, 1500]  # endpoint 子命令列出的比較（Mi
 repeats = 10                        # 每格跑幾遍，報 p50 與 p95（大綱：每段跑 10 次）
 
 [playout]
-buffer_ms = 100                     # 設定值不是量測；投影片 p36 的 D_buf。改了要在課堂上說
+buffer_ms = 100                     # 設定值不是量測；投影片 p43 的 D_buf。改了要在課堂上說
 
 [asr]
 backend = "whispercpp"              # whispercpp | mlx_whisper | fake

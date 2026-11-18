@@ -1080,7 +1080,7 @@ SLAM-ASR · Qwen3-ASR TR · W4 p64
 {{< include assets/w07/asr-tail.inline.qmd >}}
 
 ::: {.footer}
-W1 p36 · W4 Demo 2: 220 ms · W1 Demo 2: 68 ms · widths schematic
+W1 p38 · W4 Demo 2: 220 ms · W1 Demo 2: 68 ms · widths schematic
 :::
 
 ## Streaming a decoder-only model: when to read, when to write
@@ -1244,7 +1244,7 @@ W11 removes this cell: an audio-native LM has no transcript to wait for — and 
 :::
 
 ::: {.footer}
-W1 p36 · W1 p41 · W4 Demo 2 · W1 Demo 2 · W6 p56 · W11, W12
+W1 p38 · W1 p43 · W4 Demo 2 · W1 Demo 2 · W6 p56 · W11, W12
 :::
 
 ## The three axes, and supervision's four answers

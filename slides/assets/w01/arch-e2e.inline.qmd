@@ -1,0 +1,33 @@
+<!-- 由 scripts/make_figs_w01.py 產生，勿手改；投影片用 {{< include assets/w01/arch-e2e.inline.qmd >}} 貼入 -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 196" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<rect x="8.0" y="8.0" width="72.0" height="76.0" rx="7" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="44.0" y="47.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Mic</text>
+<rect x="90.0" y="37.0" width="27.0" height="18.0" fill="#0b5cad" opacity=".9"/>
+<polygon points="117.0,37.0 128.0,46.0 117.0,55.0" fill="#0b5cad"/>
+<rect x="130.0" y="8.0" width="170.0" height="76.0" rx="7" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="215.0" y="34.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Audio encoder</text>
+<text x="215.0" y="62.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">SSL / codec</text>
+<rect x="310.0" y="40.0" width="36.0" height="12.0" fill="#7c3aed" opacity=".9"/>
+<polygon points="346.0,37.0 357.0,46.0 346.0,55.0" fill="#7c3aed"/>
+<rect x="359.0" y="8.0" width="248.0" height="76.0" rx="7" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="483.0" y="34.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Speech–text LM</text>
+<text x="483.0" y="62.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">one autoregressive model</text>
+<rect x="617.0" y="40.0" width="36.0" height="12.0" fill="#7c3aed" opacity=".9"/>
+<polygon points="653.0,37.0 664.0,46.0 653.0,55.0" fill="#7c3aed"/>
+<rect x="666.0" y="8.0" width="170.0" height="76.0" rx="7" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="751.0" y="34.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Codec decoder</text>
+<text x="751.0" y="62.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">vocoder</text>
+<rect x="846.0" y="37.0" width="27.0" height="18.0" fill="#0b5cad" opacity=".9"/>
+<polygon points="873.0,37.0 884.0,46.0 873.0,55.0" fill="#0b5cad"/>
+<rect x="886.0" y="8.0" width="102.0" height="76.0" rx="7" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="937.0" y="47.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Speaker</text>
+<line x1="483.0" y1="84.0" x2="483.0" y2="110.0" stroke="#b45309" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="343.0" y="110.0" width="280.0" height="42.0" rx="7" fill="#fff7ed" stroke="#b45309" stroke-width="1.6"/>
+<text x="483.0" y="132.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">inner monologue (text)</text>
+<rect x="8.0" y="169.0" width="34" height="18.0" fill="#0b5cad" opacity=".9"/>
+<text x="50.0" y="179.0" font-size="19" font-weight="400" fill="#0b5cad" text-anchor="start" dominant-baseline="middle">audio</text>
+<rect x="129.3" y="172.0" width="34" height="12.0" fill="#7c3aed" opacity=".9"/>
+<text x="171.3" y="179.0" font-size="19" font-weight="400" fill="#7c3aed" text-anchor="start" dominant-baseline="middle">speech tokens</text>
+</svg>
+```

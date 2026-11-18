@@ -1169,7 +1169,7 @@ Measured on this laptop so far: Kokoro 124 ms p50 (W1 Demo 2) — the top shape 
 :::
 
 ::: {.footer}
-factor 2 = CFG; Kokoro: one pass · CosyVoice 2 Eq. 11 is the second line with $M = C$ · W1 p36
+factor 2 = CFG; Kokoro: one pass · CosyVoice 2 Eq. 11 is the second line with $M = C$ · W1 p38
 :::
 
 ## Every chunk must finish in $C / f_r$: the RTF constraint
@@ -1190,7 +1190,7 @@ W6 p48: a codec LM must run $f_r$ steps per second of output — this is that bi
 :::
 
 ::: {.footer}
-outline 〈關鍵數學 9〉 · W6 p48 (steps per second), p56 (the floor $1/f_r$) · W1 p41 (the buffer)
+outline 〈關鍵數學 9〉 · W6 p48 (steps per second), p56 (the floor $1/f_r$) · W1 p43 (the buffer)
 :::
 
 ## Chunk-aware flow matching: the mask is seen in training
@@ -1271,7 +1271,7 @@ W6 put the floor $1 / f_r$ in this cell. W11 merges it with "first token": an au
 :::
 
 ::: {.footer}
-W1 p36 · W1 p46–p47 (Kokoro 124 ms) · W6 p56 (the floor) · W7 p81 (the ASR-tail cell) · W11
+W1 p38 · W1 p48–p49 (Kokoro 124 ms) · W6 p56 (the floor) · W7 p81 (the ASR-tail cell) · W11
 :::
 
 ## MC 10 — "streaming TTS is just cutting the sentence short"

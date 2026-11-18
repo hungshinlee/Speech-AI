@@ -73,6 +73,16 @@ def esc(s):
     return (s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
 
 
+def title_size(title):
+    """標題字級：預設 26；太長會壓到右上角的「simultaneous speech: x.xx s」（20 px；留 300 px）時縮到放得下，最小 20。
+    2026-11-18 加：兩張 backchannel 的標題原本都壓在那個標籤上。寬度用 0.47 em／字估（粗體的 system-ui，實測約 0.44）。"""
+    avail = (W - PAD_R - PAD_L) - 300 - 16
+    need = len(title) * 0.47
+    if need * 26 <= avail:
+        return "26"
+    return "%.1f" % max(20.0, avail / need)
+
+
 def build(wav, title, tmax=None, mark_silence=True):
     ch0, ch1, sr = read_stereo(wav)
     user, _ = vad(ch0, sr)
@@ -151,8 +161,8 @@ def build(wav, title, tmax=None, mark_silence=True):
           'no response for %.1f s</text>' % ((x1 + x2) / 2, gy - 13, C_TEXT, gap[1] - gap[0]))
 
     # 標題與圖例
-    a('<text x="%d" y="31" font-size="26" font-weight="700" fill="%s">%s</text>'
-      % (PAD_L, C_TEXT, esc(title)))
+    a('<text x="%d" y="31" font-size="%s" font-weight="700" fill="%s">%s</text>'
+      % (PAD_L, title_size(title), C_TEXT, esc(title)))
     if ov:
         tot = sum(e - s for s, e in ov)
         a('<text x="%d" y="31" font-size="20" fill="%s" text-anchor="end">'
