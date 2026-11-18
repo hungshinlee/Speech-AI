@@ -1,23 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 360" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 314" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
 <g class="fragment" data-fragment-index="0">
-<text x="20.0" y="34.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">W7: the prior learned to listen — every ASR was one way of writing the evidence times the prior</text>
-<rect x="20.0" y="52.0" width="110.0" height="60.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<svg x="67.4" y="68.6437" width="15.2" height="19.3562" viewBox="0 0 15.2 19.35625"><defs>
+<rect x="20.0" y="10.0" width="100.0" height="64.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<svg x="59.968" y="29.8601" width="20.064" height="25.5502" viewBox="0 0 20.064 25.55025"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w8t1-figure_1">
   <g id="w8t1-patch_1">
-   <path d="M 0 19.35625 
-L 15.2 19.35625 
-L 15.2 0 
+   <path d="M 0 25.55025 
+L 20.064 25.55025 
+L 20.064 0 
 L 0 0 
-L 0 19.35625 
+L 0 25.55025 
 z
 " style="fill: none"/>
   </g>
   <g id="w8t1-text_1">
    <!-- $\mathbf{X}$ -->
-   <g style="fill: #1f2328" transform="translate(0 15.196875) scale(0.2 -0.2)">
+   <g style="fill: #1f2328" transform="translate(0 20.059875) scale(0.264 -0.264)">
     <defs>
      <path id="w8t1-Cmb10-58" d="M 184 0 
 L 184 325 
@@ -61,30 +60,30 @@ z
   </g>
  </g>
 </svg>
-<line x1="134.0" y1="82.0" x2="159.0" y2="82.0" stroke="#94a3b8" stroke-width="1.4"/>
-<polygon points="166.0,82.0 159.0,87.0 159.0,77.0" fill="#94a3b8"/>
-<rect x="170.0" y="52.0" width="170.0" height="60.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="255.0" y="74.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">encoder</text>
-<text x="255.0" y="98.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">W4 / W5</text>
-<line x1="344.0" y1="82.0" x2="369.0" y2="82.0" stroke="#94a3b8" stroke-width="1.4"/>
-<polygon points="376.0,82.0 369.0,87.0 369.0,77.0" fill="#94a3b8"/>
-<rect x="380.0" y="52.0" width="300.0" height="60.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<svg x="444.05" y="65" width="171.9" height="18" viewBox="0 0 171.9 18"><defs>
+<line x1="124.0" y1="42.0" x2="139.0" y2="42.0" stroke="#94a3b8" stroke-width="1.4"/>
+<polygon points="146.0,42.0 139.0,47.0 139.0,37.0" fill="#94a3b8"/>
+<rect x="150.0" y="10.0" width="150.0" height="64.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="225.0" y="29.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">encoder</text>
+<text x="225.0" y="56.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">W4 / W5</text>
+<line x1="304.0" y1="42.0" x2="319.0" y2="42.0" stroke="#94a3b8" stroke-width="1.4"/>
+<polygon points="326.0,42.0 319.0,47.0 319.0,37.0" fill="#94a3b8"/>
+<rect x="330.0" y="10.0" width="370.0" height="64.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<svg x="406.13" y="18.74" width="217.74" height="22.8" viewBox="0 0 217.74 22.8"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w8t2-figure_1">
   <g id="w8t2-patch_1">
-   <path d="M 0 18 
-L 171.9 18 
-L 171.9 0 
+   <path d="M 0 22.8 
+L 217.74 22.8 
+L 217.74 0 
 L 0 0 
-L 0 18 
+L 0 22.8 
 z
 " style="fill: none"/>
   </g>
   <g id="w8t2-text_1">
    <!-- $P(\ell \mid \mathbf{X}) \propto P(\mathbf{X} \mid \ell)\,P(\ell)$ -->
-   <g style="fill: #1f2328" transform="translate(0 13.5) scale(0.18 -0.18)">
+   <g style="fill: #1f2328" transform="translate(0 17.1) scale(0.228 -0.228)">
     <defs>
      <path id="w8t2-Cmmi10-50" d="M 313 0 
 Q 250 0 250 84 
@@ -337,26 +336,26 @@ z
   </g>
  </g>
 </svg>
-<text x="530.0" y="98.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">where does the prior live? (W7)</text>
-<line x1="684.0" y1="82.0" x2="709.0" y2="82.0" stroke="#94a3b8" stroke-width="1.4"/>
-<polygon points="716.0,82.0 709.0,87.0 709.0,77.0" fill="#94a3b8"/>
-<rect x="720.0" y="52.0" width="110.0" height="60.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
-<svg x="770.8" y="59.6437" width="8.4" height="19.3562" viewBox="0 0 8.4 19.35625"><defs>
+<text x="515.0" y="56.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">where does the prior live? (W7)</text>
+<line x1="704.0" y1="42.0" x2="719.0" y2="42.0" stroke="#94a3b8" stroke-width="1.4"/>
+<polygon points="726.0,42.0 719.0,47.0 719.0,37.0" fill="#94a3b8"/>
+<rect x="730.0" y="10.0" width="100.0" height="64.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<svg x="774.456" y="16.8601" width="11.088" height="25.5502" viewBox="0 0 11.088 25.55025"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w8t3-figure_1">
   <g id="w8t3-patch_1">
-   <path d="M 0 19.35625 
-L 8.4 19.35625 
-L 8.4 0 
+   <path d="M 0 25.55025 
+L 11.088 25.55025 
+L 11.088 0 
 L 0 0 
-L 0 19.35625 
+L 0 25.55025 
 z
 " style="fill: none"/>
   </g>
   <g id="w8t3-text_1">
    <!-- $\ell$ -->
-   <g style="fill: #1f2328" transform="translate(0 15.196875) scale(0.2 -0.2)">
+   <g style="fill: #1f2328" transform="translate(0 20.059875) scale(0.264 -0.264)">
     <defs>
      <path id="w8t3-Cmmi10-60" d="M 153 475 
 Q 125 475 94 509 
@@ -405,34 +404,31 @@ z
   </g>
  </g>
 </svg>
-<text x="775.0" y="98.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">text</text>
-<text x="850.0" y="82.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">→ the LLM (W1)</text>
-<rect x="20.0" y="128.0" width="960.0" height="40.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="40.0" y="148.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">W7 p81, last line:</text>
-<text x="190.0" y="148.0" font-size="16" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="middle">the prior learned to listen; next it has to speak</text>
-<text x="640.0" y="148.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">— the same question, turned around</text>
+<text x="780.0" y="56.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">text</text>
+<text x="842.0" y="42.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">→ the LLM (W1)</text>
+<rect x="20.0" y="90.0" width="960.0" height="44.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="36.0" y="112.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">W7 p81:</text>
+<text x="128.0" y="112.0" font-size="19" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="middle">the prior learned to listen; next it has to speak</text>
 </g>
 <g class="fragment" data-fragment-index="1">
-<line x1="500.0" y1="170.0" x2="500.0" y2="187.0" stroke="#dc2626" stroke-width="1.8"/>
-<polygon points="500.0,196.0 495.0,187.0 505.0,187.0" fill="#dc2626"/>
-<text x="20.0" y="216.0" font-size="17" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="auto">W8: the arrow reversed — given the text, which sound? The output can be any of three things we already have</text>
-<rect x="20.0" y="254.0" width="110.0" height="60.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
-<svg x="70.8" y="261.644" width="8.4" height="19.3562" viewBox="0 0 8.4 19.35625"><defs>
+<text x="20.0" y="174.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="auto">W8: the arrow reversed — given the text, which sound?</text>
+<rect x="20.0" y="214.0" width="100.0" height="68.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<svg x="64.456" y="222.86" width="11.088" height="25.5502" viewBox="0 0 11.088 25.55025"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w8t4-figure_1">
   <g id="w8t4-patch_1">
-   <path d="M 0 19.35625 
-L 8.4 19.35625 
-L 8.4 0 
+   <path d="M 0 25.55025 
+L 11.088 25.55025 
+L 11.088 0 
 L 0 0 
-L 0 19.35625 
+L 0 25.55025 
 z
 " style="fill: none"/>
   </g>
   <g id="w8t4-text_1">
    <!-- $\ell$ -->
-   <g style="fill: #1f2328" transform="translate(0 15.196875) scale(0.2 -0.2)">
+   <g style="fill: #1f2328" transform="translate(0 20.059875) scale(0.264 -0.264)">
     <defs>
      <path id="w8t4-Cmmi10-60" d="M 153 475 
 Q 125 475 94 509 
@@ -481,26 +477,26 @@ z
   </g>
  </g>
 </svg>
-<text x="75.0" y="300.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">text</text>
-<line x1="134.0" y1="284.0" x2="158.0" y2="284.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="166.0,284.0 158.0,289.0 158.0,279.0" fill="#94a3b8"/>
-<rect x="170.0" y="254.0" width="300.0" height="60.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
-<svg x="287.8" y="265" width="64.4" height="20" viewBox="0 0 64.4 20"><defs>
+<text x="70.0" y="262.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">text</text>
+<line x1="124.0" y1="248.0" x2="144.0" y2="248.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="152.0,248.0 144.0,253.0 144.0,243.0" fill="#94a3b8"/>
+<rect x="156.0" y="214.0" width="300.0" height="68.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+<svg x="263.496" y="223.12" width="85.008" height="26.4" viewBox="0 0 85.008 26.4"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w8t5-figure_1">
   <g id="w8t5-patch_1">
-   <path d="M 0 20 
-L 64.4 20 
-L 64.4 0 
+   <path d="M 0 26.4 
+L 85.008 26.4 
+L 85.008 0 
 L 0 0 
-L 0 20 
+L 0 26.4 
 z
 " style="fill: none"/>
   </g>
   <g id="w8t5-text_1">
    <!-- $P(\mathbf{X} \mid \ell)$ -->
-   <g style="fill: #1f2328" transform="translate(0 15) scale(0.2 -0.2)">
+   <g style="fill: #1f2328" transform="translate(0 19.8) scale(0.264 -0.264)">
     <defs>
      <path id="w8t5-Cmmi10-50" d="M 313 0 
 Q 250 0 250 84 
@@ -697,18 +693,17 @@ z
   </g>
  </g>
 </svg>
-<text x="320.0" y="300.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">one text, many readings — which one?</text>
-<line x1="474.0" y1="284.0" x2="498.0" y2="284.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="506.0,284.0 498.0,289.0 498.0,279.0" fill="#94a3b8"/>
-<rect x="510.0" y="232.0" width="220.0" height="32.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<text x="620.0" y="248.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">W6's tokens</text>
-<text x="740.0" y="248.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">then the codec decoder</text>
-<rect x="510.0" y="268.0" width="220.0" height="32.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="620.0" y="284.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">W2's mel</text>
-<text x="740.0" y="284.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">then a vocoder</text>
-<rect x="510.0" y="304.0" width="220.0" height="32.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
-<text x="620.0" y="320.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">the waveform</text>
-<text x="740.0" y="320.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">directly</text>
-<text x="980.0" y="350.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">W6's alphabet and W6's decoder both return →</text>
+<text x="306.0" y="262.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">one text, many readings</text>
+<line x1="460.0" y1="248.0" x2="480.0" y2="248.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="488.0,248.0 480.0,253.0 480.0,243.0" fill="#94a3b8"/>
+<rect x="492.0" y="192.0" width="220.0" height="34.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="602.0" y="209.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">W6's tokens</text>
+<text x="724.0" y="209.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">then the codec decoder</text>
+<rect x="492.0" y="230.0" width="220.0" height="34.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="602.0" y="247.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">W2's mel</text>
+<text x="724.0" y="247.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">then a vocoder</text>
+<rect x="492.0" y="268.0" width="220.0" height="34.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="602.0" y="285.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">the waveform</text>
+<text x="724.0" y="285.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">directly</text>
 </g>
 </svg>

@@ -76,7 +76,7 @@ Four questions, one structure: a generator, and a judge that scores it — **the
 :::
 
 ::: {.footer}
-W8 p9 one-to-many · W8 p84: the fourth supervision, previewed only · W8 p87: WER as a judge
+W8 p10 one-to-many · W8 p86: the fourth supervision, previewed only · W8 p89: WER as a judge
 :::
 
 ## The problem this week handles, in one picture
@@ -152,7 +152,7 @@ $E_{\text{spk}}$ was trained to recognise one person across recording conditions
 :::
 
 ::: {.footer}
-Jia et al., NeurIPS 2018 · x-vector: Snyder et al. 2018 · YourTTS, ICML 2022 · W8 p11, p37
+Jia et al., NeurIPS 2018 · x-vector: Snyder et al. 2018 · YourTTS, ICML 2022 · W8 p12, p38
 :::
 
 ## (b) Prompt continuation: the reference goes in whole
@@ -165,12 +165,12 @@ $\mathbf{c} = (\mathbf{k}^{\text{p}}, \ell^{\text{p}})$: $P_\theta(\mathbf{k} \m
 
 ::: {.fragment fragment-index=1}
 ::: {.small}
-W8 p29: a prior large enough to resemble — the same mechanism copies the room, the hum, the mood of that one sentence. **"Copy only the timbre" is not a promise this scheme can make.**
+W8 p30: a prior large enough to resemble — the same mechanism copies the room, the hum, the mood of that one sentence. **"Copy only the timbre" is not a promise this scheme can make.**
 :::
 :::
 
 ::: {.footer}
-VALL-E (W8 p26–p29) · F5 (W8 p56) · Wang et al., Interspeech 2024 · Lu et al., Interspeech 2025
+VALL-E (W8 p27–p30) · F5 (W8 p58) · Wang et al., Interspeech 2024 · Lu et al., Interspeech 2025
 :::
 
 ## (c) Factorized: split the reference, then choose
@@ -188,7 +188,7 @@ Splitting them is an admission: **by default they arrive glued together.**
 :::
 
 ::: {.footer}
-NaturalSpeech 3, ICML 2024 (FACodec) · IndexTTS2, AAAI 2026 · W8 p32–p35
+NaturalSpeech 3, ICML 2024 (FACodec) · IndexTTS2, AAAI 2026 · W8 p33–p36
 :::
 
 ## The bottleneck sets the leak — not the generator
@@ -274,7 +274,7 @@ $$
 
 | the number depends on | because |
 |:---|:---------|
-| **which** $E_{\text{spk}}$ | a different encoder, a different number — Seed-TTS: a WavLM-large fine-tuned for speaker verification (W8 p87) |
+| **which** $E_{\text{spk}}$ | a different encoder, a different number — Seed-TTS: a WavLM-large fine-tuned for speaker verification (W8 p89) |
 | the reference: **SIM-o** or **SIM-r** | against the *original* prompt, or against the prompt *resynthesised* through the codec or vocoder (Voicebox). SIM-r is not comparable across systems with different vocoders; VALL-E reports the second kind |
 | what $E_{\text{spk}}$ was trained to ignore | it scores "the same person to this encoder" — not natural, not intelligible, not "sounds like them to a listener" |
 
@@ -299,7 +299,7 @@ Prompt continuation has no bottleneck: it copies **everything in the prompt** �
 | a factorized codec | what you select | only as clean as the split |
 
 ::: {.footer}
-W8 MC 4 (W8 p37), one step further · Demo 1 (p15–p16)
+W8 MC 4 (W8 p38), one step further · Demo 1 (p15–p16)
 :::
 
 ## MC 2 — "a high SIM means it sounds like them"
@@ -327,7 +327,7 @@ Voicebox: SIM-o / SIM-r · Shin et al., ICASSP 2026, §4.4 (SIM as a reward) · 
 ::: {.wrap1}
 | generation | what you hand the model | what it buys | what it costs |
 |:---------|:------|:-----|:------|
-| **explicit prosodic parameters** — FastSpeech 2 (W8 p18) | pitch, energy, duration: values | interpretable, one dial each | labels or extraction; dials, not "angry" |
+| **explicit prosodic parameters** — FastSpeech 2 (W8 p19) | pitch, energy, duration: values | interpretable, one dial each | labels or extraction; dials, not "angry" |
 | **a reference encoder; Global Style Tokens (GST)** — 2018 | a recording → a prosody vector; or learned style embeddings | no annotation | no guarantee what was learned |
 | **a natural-language description** — PromptTTS; Lyth & King; CosyVoice, Qwen3-TTS | a sentence: $\ell^{\text{ins}}$ | the most natural interface | the coarsest control |
 :::
@@ -337,7 +337,7 @@ How **strongly** the condition is applied is still W8's dial: the CFG weight $w$
 :::
 
 ::: {.footer}
-PromptTTS, ICASSP 2023 · Lyth & King, arXiv:2402.01912 (45k hours, synthetic labels) · W8 p53
+PromptTTS, ICASSP 2023 · Lyth & King, arXiv:2402.01912 (45k hours, synthetic labels) · W8 p55
 :::
 
 ## Entanglement: emotion is not a separate dial
@@ -390,7 +390,7 @@ $$
 | a bill | two forward passes at every step |
 
 ::: {.footer}
-W8 p53 · W8 p60: the $w$ sweep · FlowTTS-GRPO: RL converges faster with CFG off
+W8 p55 · W8 p62: the $w$ sweep · FlowTTS-GRPO: RL converges faster with CFG off
 :::
 
 ## Where the judge lives, and what inference pays
@@ -404,7 +404,7 @@ Moving the judge **from inference into training** is why post-training matters i
 :::
 
 ::: {.footer}
-best-of-$N$: generate $N$, a judge picks one · W8 p80: the first-packet cell · p33: why picking works
+best-of-$N$: generate $N$, a judge picks one · W8 p82: the first-packet cell · p33: why picking works
 :::
 
 ## MC 3 — "emotion control is one emotion embedding"
@@ -456,7 +456,7 @@ p23 · Huang et al., InstructTTSEval, arXiv:2506.16381 (abstract)
 :::
 
 ::: {.wrap1}
-| what goes wrong in AR TTS (W8 p30) | a frozen judge that scores it, with no human |
+| what goes wrong in AR TTS (W8 p31) | a frozen judge that scores it, with no human |
 |:------|:---------|
 | dropped words, repeated phrases, never stopping | W7's ASR → WER |
 | the voice drifting away from the prompt | a speaker encoder → SIM |
@@ -467,7 +467,7 @@ Sample the same condition $N$ times and there are $N$ different results to compa
 :::
 
 ::: {.footer}
-W8 p30: the stop symbol, length instability · W7 p70: GRPO with WER as the reward
+W8 p31: the stop symbol, length instability · W7 p70: GRPO with WER as the reward
 :::
 
 ## At a glance: Direct Preference Optimization (DPO)
@@ -558,7 +558,7 @@ The third time such a sum appears: W3's "all paths" (a dynamic programme summed 
 :::
 
 ::: {.footer}
-DPO Eq. 5 · W3: the forward algorithm · W8 p42–p43: why a CNF is expensive, and the way round
+DPO Eq. 5 · W3: the forward algorithm · W8 p44–p45: why a CNF is expensive, and the way round
 :::
 
 ## Step 4 — Bradley–Terry: only the difference counts, so $Z$ cancels
@@ -724,7 +724,7 @@ The judge is present **only in training** — its blind spots stay in the weight
 :::
 
 ::: {.footer}
-the fifth shape: W5 p39 · W6 p30 · W7 p64 · W8 p51 · W9: training has a judge, use does not
+the fifth shape: W5 p39 · W6 p30 · W7 p64 · W8 p53 · W9: training has a judge, use does not
 :::
 
 ## DPO's picture, and the fifth shape
@@ -742,7 +742,7 @@ Use is W8's graph in both cases: **the inference cost does not change.**
 :::
 
 ::: {.footer}
-Seed-TTS, arXiv:2406.02430, §4.2 · p37: who made the pairs · W5 p39, W6 p30, W7 p64, W8 p51
+Seed-TTS, arXiv:2406.02430, §4.2 · p37: who made the pairs · W5 p39, W6 p30, W7 p64, W8 p53
 :::
 
 ## MC 6 — "RL makes inference slower" / "RL is an inference-time trick"
@@ -758,7 +758,7 @@ Post-training changes **the weights only**. The inference graph is W8's, and the
 | best-of-$N$ | — | $N$ generations; cannot stream |
 
 ::: {.footer}
-p25 · p43–p44 · W8 p53, p80
+p25 · p43–p44 · W8 p55, p82
 :::
 
 ## Flow matching: there is no step probability to differentiate
@@ -776,7 +776,7 @@ Same marginals, checked on this toy: over 4000 starting points, the spread at $\
 :::
 
 ::: {.footer}
-toy, computed: w09-data.json → ode_vs_sde · W8 p48, p52, p54 · Flow-GRPO, NeurIPS 2025
+toy, computed: w09-data.json → ode_vs_sde · W8 p50, p54, p56 · Flow-GRPO, NeurIPS 2025
 :::
 
 ## Route one: a stochastic differential equation with the same marginals
@@ -793,7 +793,7 @@ $$
 
 ::: {.fragment fragment-index=1}
 $$
-\text{straight-line path (W8 p52):} \qquad \nabla_{\mathbf{X}} \ln p_\tau(\mathbf{X}) \;=\; \frac{\tau\,\mathbf{u}_\tau(\mathbf{X}) - \mathbf{X}}{1 - \tau}
+\text{straight-line path (W8 p54):} \qquad \nabla_{\mathbf{X}} \ln p_\tau(\mathbf{X}) \;=\; \frac{\tau\,\mathbf{u}_\tau(\mathbf{X}) - \mathbf{X}}{1 - \tau}
 $$
 :::
 
@@ -830,7 +830,7 @@ FlowTTS-GRPO, Interspeech 2026, Eq. 7: term by term the same, time running our w
 | **1. ODE → SDE** | sampling gains noise; every step is a Gaussian policy | Flow-GRPO; FlowTTS-GRPO (CosyVoice 3, F5-TTS) |
 | **2. output a distribution** | the last layer predicts a mean **and a variance** of the velocity: a probability directly | F5R-TTS |
 | **3. no sampling: a differentiable reward** | the reward is computed **on the tokens** — an ASR-like model reads $\tilde{\mathbf{k}}$, a Gumbel-softmax sample (W5 p21–p22), and $\ln P_{\text{ASR}}(\ell \mid \tilde{\mathbf{k}})$ back-propagates into the LM; no waveform, no policy gradient | DiffRO; adopted by CosyVoice 3 |
-| **4. RL on the duration only** | the $T$ that a flow must be handed from outside (W8 p56) is tuned by the reward | DMOSpeech 2 |
+| **4. RL on the duration only** | the $T$ that a flow must be handed from outside (W8 p58) is tuned by the reward | DMOSpeech 2 |
 :::
 
 ::: {.claim .warn}
@@ -856,7 +856,7 @@ Three routes: replace the ODE by an SDE with the same marginals (every step a Ga
 :::
 
 ::: {.footer}
-W8 MC 5 (W8 p54): "ODE or SDE decides whether RL has a stochastic policy" — delivered
+W8 MC 5 (W8 p56): "ODE or SDE decides whether RL has a stochastic policy" — delivered
 :::
 
 ## Half-time: the judge is inside training — what can it not see?
@@ -881,7 +881,7 @@ $$
 
 | the judge | what it cannot see |
 |:---|:---------|
-| WER — a frozen ASR | prosody, speaking rate, naturalness (W8 p87) |
+| WER — a frozen ASR | prosody, speaking rate, naturalness (W8 p89) |
 | SIM — a frozen speaker encoder | the words, naturalness |
 | $\widehat{\mathrm{MOS}}$ — a MOS predictor | anything outside the systems and listeners it was trained on (§5) |
 | an emotion classifier | whether the cue it responds to is speech at all |
@@ -892,7 +892,7 @@ $$
 :::
 
 ::: {.footer}
-FlowTTS-GRPO §2.3–2.4 · Multi-Reward GRPO: a length penalty · W6 p29 · W8 p63–p66
+FlowTTS-GRPO §2.3–2.4 · Multi-Reward GRPO: a length penalty · W6 p29 · W8 p65–p68
 :::
 
 ## Predict first: optimise one judge alone
@@ -1012,7 +1012,7 @@ p54 · Demo 2 (p56–p57): the same question, asked without training
 
 | dimension | ask people | ask a model | the model fails when |
 |:---|:------|:------|:------|
-| **intelligibility** | transcribe what you heard | WER / CER — **which ASR, which text normalisation** (W7) | its prior repairs a mumbled sound (W8 p87) |
+| **intelligibility** | transcribe what you heard | WER / CER — **which ASR, which text normalisation** (W7) | its prior repairs a mumbled sound (W8 p89) |
 | **naturalness** | MOS, CMOS, MUSHRA | a MOS predictor (UTMOS and its kin) | outside its training systems and listeners |
 | **similarity** | SMOS | SIM — **which $E_{\text{spk}}$, original or resynthesised prompt** | p17 |
 | **controllability** | did it do as told? | an emotion classifier; an LLM as judge (InstructTTSEval: Gemini) | the instruction needs understanding, not acoustics |
@@ -1044,7 +1044,7 @@ The scale is **ordinal**: the step from 1 to 2 is not the step from 4 to 5. Aver
 :::
 
 ::: {.footer}
-ITU-T P.800, P.808 · ITU-R BS.1534 (MUSHRA): specifications, not papers · W8 p66
+ITU-T P.800, P.808 · ITU-R BS.1534 (MUSHRA): specifications, not papers · W8 p68
 :::
 
 ## Ratings come in clusters
@@ -1152,7 +1152,7 @@ Two listening tests have no common zero: raters fill the scale, so a score depen
 :::
 
 ::: {.footer}
-p66–p67 · W8 p66: "find the rating conditions first" · MOS is not comparable across papers
+p66–p67 · W8 p68: "find the rating conditions first" · MOS is not comparable across papers
 :::
 
 ## At a glance: UTMOS
@@ -1334,7 +1334,7 @@ And the other direction: **genuine speech** that has passed through an enhancer 
 :::
 
 ::: {.footer}
-Müller et al., Interspeech 2022 · CodecFake · SEA-CF, arXiv:2606.15968 · W6 p29, W8 p63
+Müller et al., Interspeech 2022 · CodecFake · SEA-CF, arXiv:2606.15968 · W6 p29, W8 p65
 :::
 
 ## MC 13 — "a detector recognises synthetic speech"
@@ -1511,7 +1511,7 @@ p83 · p88 · AudioSeal §6 · AudioMarkBench: removal at every access level; fo
 :::
 
 ::: {.footer}
-outline 〈定位〉 three axes · W5 p63 · W6 p55 · W7 p80 · W8 p84
+outline 〈定位〉 three axes · W5 p63 · W6 p55 · W7 p80 · W8 p86
 :::
 
 ## Local languages: four things this week
@@ -1526,7 +1526,7 @@ outline 〈定位〉 three axes · W5 p63 · W6 p55 · W7 p80 · W8 p84
 :::
 
 ::: {.footer}
-Breeze Taigi · Osakuade & King 2026 · ToneUnit · Zhang et al. 2025 · VoxHakka · W8 p85
+Breeze Taigi · Osakuade & King 2026 · ToneUnit · Zhang et al. 2025 · VoxHakka · W8 p87
 :::
 
 ## Reading, and next week

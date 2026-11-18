@@ -15,7 +15,7 @@
 #
 # 兩個環境：demo.py 在 ../.venv-tts（torch、f5-tts；Demo 1 的 setup.sh 建），mlx_worker.py 由 demo.py 用 ../.venv/bin/python（mlx-audio 0.5.4）開。
 # replay／fake／selftest 不需要 torch，沒有 ../.venv-tts 時退到 ../.venv。
-# 課堂上的講法與按鍵順序寫在投影片 p59／p60、p79 講稿的【操作】。
+# 課堂上的講法與按鍵順序寫在投影片 p61／p62、p81 講稿的【操作】。
 set -euo pipefail
 cd "$(dirname "$0")"
 export HF_HUB_OFFLINE=1

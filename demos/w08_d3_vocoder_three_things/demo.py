@@ -13,7 +13,7 @@
   selftest   不開視窗、不需要模型：filterbank、換算（恆等；真人錄音上 SpeechT5 → Vocos 的誤差）、Griffin-Lim 單調性、fake 流程、白話字的字元；有彩排紀錄時對 w08-metrics.json
   export     只重寫 w08-metrics.json → demo3（從 runs/rehearsal/rehearsal.json）
 
-畫面上的鍵（順序照投影片 p71／p72 講稿的【操作】）：
+畫面上的鍵（順序照投影片 p73／p74 講稿的【操作】）：
   0  播原音（真人錄音，24 kHz）
   1  目前這一列的 mel → Griffin-Lim（W2 Demo 2 的演算法，64 輪），播；印 fit、LSD、耗時
   2  → Vocos，播          3  → BigVGAN，播
@@ -1350,7 +1350,7 @@ def main() -> None:
         d.rehearse_figs()
         d.save()
         export(d.folder / "rehearsal.json")
-        print("\n下一步：./present.sh 自己按一遍 0 1 2 3 4 5 m n 6 7 c e t；聽到的寫進 p71 的表（what we heard）與 p72【提示】（hak 的腔、nan 的變調），runs/rehearsal/*.png 看過。")
+        print("\n下一步：./present.sh 自己按一遍 0 1 2 3 4 5 m n 6 7 c e t；聽到的寫進 p73 的表（what we heard）與 p74【提示】（hak 的腔、nan 的變調），runs/rehearsal/*.png 看過。")
         return
     d.make_fig()
     d.menu()

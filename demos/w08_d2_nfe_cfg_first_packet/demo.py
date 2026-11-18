@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
-"""W8 demo 2：NFE、CFG 與第一包——品質–速度曲線的膝點（前半，p60）、兩種範式的第一包（後半，p79）。
+"""W8 demo 2：NFE、CFG 與第一包——品質–速度曲線的膝點（前半，p62）、兩種範式的第一包（後半，p81）。
 
   show       課堂：載 F5（Demo 1 的載法）與 MLX worker（Qwen3-TTS、Kokoro），開一個視窗；鍵在視窗裡按。**按鍵時才生成**——等待本身是這個 demo 的內容。
   rehearse   課前：不互動，全部算一遍，.wav、mel（.npy）、圖、時間存 runs/rehearsal/（進版控 = 現場的退路），寫 slides/assets/w08/w08-metrics.json → demo2
@@ -11,10 +11,10 @@
   selftest   不開視窗、不需要模型：三句的字數與 F5 的長度、時刻表（等距／EPSS／sway）、CFG 的 w ↔ α、fake 流程；有彩排紀錄時對 w08-metrics.json
   export     只重寫 w08-metrics.json → demo2（從 runs/rehearsal/rehearsal.json）
 
-畫面上的鍵（順序照投影片 p60、p79 講稿的【操作】）：
+畫面上的鍵（順序照投影片 p62、p81 講稿的【操作】）：
   1  NFE 掃描：同一句（訂票句）、同一個 prompt、同一個 seed，NFE = 1, 2, 4, 8, 16, 32 各生成一次——每次印秒數、播；六張 mel 排成兩列
   e  同一掃描換另一句（英文，W3 那句；NFE 32 這一格與 Demo 1 的 seed 1 逐格相同）
-  2  CFG 掃描：NFE 16 固定，w = 0, 1, 2, 3, 4（投影片 p53 的尺度；F5 的 cfg_strength α = w − 1，預設 w = 3）——w = 0、1 每步一次前向，其餘兩次
+  2  CFG 掃描：NFE 16 固定，w = 0, 1, 2, 3, 4（投影片 p55 的尺度；F5 的 cfg_strength α = w − 1，預設 w = 3）——w = 0、1 每步一次前向，其餘兩次
   3  sway 開（s = −1）對關（s = 0），同樣 NFE 16 等距
   p  F5 自己的 16 步時刻表（EPSS ＋ sway）當對照
   4  第一包 · F5 整句：10／30／90 個漢字，NFE 32——第一包＝整句生成完
@@ -431,7 +431,7 @@ class Demo:
         text = TEXTS[SWEEP_KEY]
         self.mode = "cfg"
         nfe = F5C["nfe_fixed"]
-        self.out(f"\n{C.BOLD}CFG 掃描{C.RESET}  「{text}」  NFE {nfe}  sway {F5C['sway']:g}  w 是 p53 的尺度（F5 的 α = w − 1；F5 預設 w = 3）")
+        self.out(f"\n{C.BOLD}CFG 掃描{C.RESET}  「{text}」  NFE {nfe}  sway {F5C['sway']:g}  w 是 p55 的尺度（F5 的 α = w − 1；F5 預設 w = 3）")
         for w in F5C["w_sweep"]:
             n = cfg_name(w)
             r = self.gen_f5(n, text, nfe, w, F5C["sway"], False, play=False)
@@ -725,7 +725,7 @@ class Demo:
         o("  Times are this machine's (F5 on " + (self.f5.device if self.f5 else str(self.log['models'].get('f5', {}).get('device'))) + ", MLX models on Metal); do not put them in one table with the papers' RTFs.")
 
     def menu(self) -> None:
-        self.out(f"\n{C.BOLD}p60{C.RESET}  1 NFE 掃描   e 另一句   2 CFG 掃描   3 sway 開／關   p EPSS 16     {C.BOLD}p79{C.RESET}  4 F5 整句   5 Qwen3-TTS 串流   6 Kokoro     t 數字表   r 再播   h 選單   q 離開")
+        self.out(f"\n{C.BOLD}p62{C.RESET}  1 NFE 掃描   e 另一句   2 CFG 掃描   3 sway 開／關   p EPSS 16     {C.BOLD}p81{C.RESET}  4 F5 整句   5 Qwen3-TTS 串流   6 Kokoro     t 數字表   r 再播   h 選單   q 離開")
 
     def dispatch(self, k: str) -> bool:
         if k == "1":
@@ -966,12 +966,12 @@ def export(rec_path: Path) -> None:
             r["length"] = {k: v for k, v in rec["items"][n]["length"].items() if k != "ref_text_used"}
     d["demo2"] = {"source": "demos/w08_d2_nfe_cfg_first_packet/runs/rehearsal/rehearsal.json", "time": rec["time"], "tag": rec.get("tag", ""), "texts": rec["texts"],
                   "models": rec["models"], "config": rec["config"], "sweeps": items, "first_packet": rec["first_packet"], "vs_demo1_f5_seed1": rec.get("vs_demo1_f5_seed1"),
-                  "definitions": {"w": "the slides' CFG weight (p53): v_u + w (v_c − v_u); F5's cfg_strength α = w − 1; w = 0 is the unconditional field alone",
+                  "definitions": {"w": "the slides' CFG weight (p55): v_u + w (v_c − v_u); F5's cfg_strength α = w − 1; w = 0 is the unconditional field alone",
                                   "grid": "the τ grid actually integrated (uniform, or F5's EPSS table when epss = true, then sway applied)",
                                   "total_s": "wall clock from the call to the waveform (acoustic + vocoder), after a warm-up call",
                                   "first_packet_s": "F5 / Kokoro: time to the whole utterance; Qwen3-TTS: time to the first streamed chunk (ICL prompt encoding included)",
                                   "later_chunks_rtf": "Qwen3-TTS: sum of gaps between consecutive chunk arrivals ÷ sum of their audio lengths (< 1 = play-out never starves)",
-                                  "what_we_heard": "filled by hand after the rehearsal (w08.qmd p60, p79)"}}
+                                  "what_we_heard": "filled by hand after the rehearsal (w08.qmd p62, p81)"}}
     METRICS_JSON.parent.mkdir(parents=True, exist_ok=True)
     METRICS_JSON.write_text(json.dumps(d, ensure_ascii=False, indent=1, default=float), encoding="utf-8")
     print(f"  → {METRICS_JSON}（demo2）")
@@ -1091,7 +1091,7 @@ def main() -> None:
         if d.worker:
             d.worker.close()
         export(d.folder / "rehearsal.json")
-        print("\n下一步：./present.sh 自己按一遍 1 2 3 4 5 6 t；聽到的寫進 p60、p79 的表（what we heard），runs/rehearsal/*.png 看過。")
+        print("\n下一步：./present.sh 自己按一遍 1 2 3 4 5 6 t；聽到的寫進 p62、p81 的表（what we heard），runs/rehearsal/*.png 看過。")
         return
 
     d.make_fig()

@@ -1,26 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 320" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
-<text x="20.0" y="28.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">configuration (ii): a dual-track LM over a 12.5 Hz, 16-level tokenizer, decoded straight to waveform</text>
-<text x="20.0" y="50.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">Qwen3-TTS — Hu et al. 2026 §2.2, §3.1, §3.4</text>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 204" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
 <g class="fragment" data-fragment-index="0">
-<rect x="20.0" y="66.0" width="100.0" height="60.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
-<svg x="65.8" y="73.6437" width="8.4" height="19.3562" viewBox="0 0 8.4 19.35625"><defs>
+<rect x="20.0" y="14.0" width="90.0" height="64.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<svg x="59.456" y="20.8601" width="11.088" height="25.5502" viewBox="0 0 11.088 25.55025"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w8t89-figure_1">
-  <g id="w8t89-patch_1">
-   <path d="M 0 19.35625 
-L 8.4 19.35625 
-L 8.4 0 
+ <g id="w8t91-figure_1">
+  <g id="w8t91-patch_1">
+   <path d="M 0 25.55025 
+L 11.088 25.55025 
+L 11.088 0 
 L 0 0 
-L 0 19.35625 
+L 0 25.55025 
 z
 " style="fill: none"/>
   </g>
-  <g id="w8t89-text_1">
+  <g id="w8t91-text_1">
    <!-- $\ell$ -->
-   <g style="fill: #1f2328" transform="translate(0 15.196875) scale(0.2 -0.2)">
+   <g style="fill: #1f2328" transform="translate(0 20.059875) scale(0.264 -0.264)">
     <defs>
-     <path id="w8t89-Cmmi10-60" d="M 153 475 
+     <path id="w8t91-Cmmi10-60" d="M 153 475 
 Q 125 475 94 509 
 Q 63 544 63 575 
 Q 63 628 594 1113 
@@ -62,41 +60,41 @@ Q 1122 1988 1044 1575
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w8t89-Cmmi10-60" transform="translate(0 0.484375)"/>
+    <use xlink:href="#w8t91-Cmmi10-60" transform="translate(0 0.484375)"/>
    </g>
   </g>
  </g>
 </svg>
-<text x="70.0" y="112.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">text</text>
-<line x1="124.0" y1="96.0" x2="145.0" y2="96.0" stroke="#94a3b8" stroke-width="1.4"/>
-<polygon points="152.0,96.0 145.0,101.0 145.0,91.0" fill="#94a3b8"/>
-<rect x="156.0" y="60.0" width="300.0" height="72.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<text x="306.0" y="76.0" font-size="17" font-weight="600" fill="#7c3aed" text-anchor="middle" dominant-baseline="middle">LM: two tracks on one channel axis</text>
-<rect x="170.0" y="90.0" width="130.0" height="28.0" rx="4" fill="#ffffff" stroke="#15803d" stroke-width="1.0"/>
-<text x="235.0" y="104.0" font-size="16" font-weight="600" fill="#15803d" text-anchor="middle" dominant-baseline="middle">text tokens</text>
-<rect x="312.0" y="90.0" width="130.0" height="28.0" rx="4" fill="#ffffff" stroke="#7c3aed" stroke-width="1.0"/>
-<text x="377.0" y="104.0" font-size="16" font-weight="600" fill="#7c3aed" text-anchor="middle" dominant-baseline="middle">speech tokens</text>
-<line x1="460.0" y1="96.0" x2="481.0" y2="96.0" stroke="#94a3b8" stroke-width="1.4"/>
-<polygon points="488.0,96.0 481.0,101.0 481.0,91.0" fill="#94a3b8"/>
-<rect x="492.0" y="66.0" width="210.0" height="60.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<svg x="554.16" y="79.82" width="85.68" height="18.18" viewBox="0 0 85.68 18.18"><defs>
+<text x="65.0" y="60.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">text</text>
+<line x1="114.0" y1="46.0" x2="123.0" y2="46.0" stroke="#94a3b8" stroke-width="1.4"/>
+<polygon points="130.0,46.0 123.0,51.0 123.0,41.0" fill="#94a3b8"/>
+<rect x="134.0" y="6.0" width="380.0" height="80.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="324.0" y="24.0" font-size="19" font-weight="600" fill="#7c3aed" text-anchor="middle" dominant-baseline="middle">LM: two tracks on one channel axis</text>
+<rect x="148.0" y="42.0" width="170.0" height="34.0" rx="4" fill="#ffffff" stroke="#15803d" stroke-width="1.0"/>
+<text x="233.0" y="59.0" font-size="19" font-weight="600" fill="#15803d" text-anchor="middle" dominant-baseline="middle">text tokens</text>
+<rect x="330.0" y="42.0" width="170.0" height="34.0" rx="4" fill="#ffffff" stroke="#7c3aed" stroke-width="1.0"/>
+<text x="415.0" y="59.0" font-size="19" font-weight="600" fill="#7c3aed" text-anchor="middle" dominant-baseline="middle">speech tokens</text>
+<line x1="518.0" y1="46.0" x2="527.0" y2="46.0" stroke="#94a3b8" stroke-width="1.4"/>
+<polygon points="534.0,46.0 527.0,51.0 527.0,41.0" fill="#94a3b8"/>
+<rect x="538.0" y="14.0" width="216.0" height="64.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<svg x="591.736" y="23.88" width="108.528" height="23.028" viewBox="0 0 108.528 23.028"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w8t90-figure_1">
-  <g id="w8t90-patch_1">
-   <path d="M 0 18.18 
-L 85.68 18.18 
-L 85.68 -0 
-L 0 -0 
-L 0 18.18 
+ <g id="w8t92-figure_1">
+  <g id="w8t92-patch_1">
+   <path d="M 0 23.028 
+L 108.528 23.028 
+L 108.528 0 
+L 0 0 
+L 0 23.028 
 z
 " style="fill: none"/>
   </g>
-  <g id="w8t90-text_1">
+  <g id="w8t92-text_1">
    <!-- $\mathbf{k}:\ N_q = 16$ -->
-   <g style="fill: #1f2328" transform="translate(0 12.6) scale(0.18 -0.18)">
+   <g style="fill: #1f2328" transform="translate(0 15.96) scale(0.228 -0.228)">
     <defs>
-     <path id="w8t90-Cmb10-6b" d="M 91 0 
+     <path id="w8t92-Cmb10-6b" d="M 91 0 
 L 91 325 
 L 531 325 
 L 531 3884 
@@ -127,7 +125,7 @@ L 1650 0
 L 91 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w8t90-Cmr10-3a" d="M 538 353 
+     <path id="w8t92-Cmr10-3a" d="M 538 353 
 Q 538 497 644 600 
 Q 750 703 891 703 
 Q 978 703 1062 656 
@@ -151,7 +149,7 @@ Q 747 2053 642 2158
 Q 538 2263 538 2406 
 z
 " transform="scale(0.015625)"/>
-     <path id="w8t90-Cmmi10-4e" d="M 300 0 
+     <path id="w8t92-Cmmi10-4e" d="M 300 0 
 Q 238 0 238 84 
 Q 241 100 250 139 
 Q 259 178 276 201 
@@ -196,7 +194,7 @@ Q 1725 0 1672 0
 L 300 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w8t90-Cmmi10-71" d="M 941 -1159 
+     <path id="w8t92-Cmmi10-71" d="M 941 -1159 
 Q 963 -1019 1025 -1019 
 Q 1256 -1019 1389 -981 
 Q 1522 -944 1563 -800 
@@ -236,7 +234,7 @@ Q 722 450 817 273
 Q 913 97 1119 97 
 z
 " transform="scale(0.015625)"/>
-     <path id="w8t90-Cmr10-3d" d="M 481 850 
+     <path id="w8t92-Cmr10-3d" d="M 481 850 
 Q 428 850 393 890 
 Q 359 931 359 978 
 Q 359 1031 393 1068 
@@ -261,7 +259,7 @@ Q 4547 2094 4500 2094
 L 481 2094 
 z
 " transform="scale(0.015625)"/>
-     <path id="w8t90-Cmr10-31" d="M 594 0 
+     <path id="w8t92-Cmr10-31" d="M 594 0 
 L 594 225 
 Q 1394 225 1394 428 
 L 1394 3788 
@@ -277,7 +275,7 @@ L 2694 0
 L 594 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w8t90-Cmr10-36" d="M 1600 -141 
+     <path id="w8t92-Cmr10-36" d="M 1600 -141 
 Q 1203 -141 937 70 
 Q 672 281 526 617 
 Q 381 953 325 1322 
@@ -333,35 +331,35 @@ Q 1316 63 1600 63
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w8t90-Cmb10-6b" transform="translate(0 0.609375)"/>
-    <use xlink:href="#w8t90-Cmr10-3a" transform="translate(70.244141 0.609375)"/>
-    <use xlink:href="#w8t90-Cmmi10-4e" transform="translate(144.752312 0.609375)"/>
-    <use xlink:href="#w8t90-Cmmi10-71" transform="translate(225.074577 -16.396875) scale(0.7)"/>
-    <use xlink:href="#w8t90-Cmr10-3d" transform="translate(280.216569 0.609375)"/>
-    <use xlink:href="#w8t90-Cmr10-31" transform="translate(375.46071 0.609375)"/>
-    <use xlink:href="#w8t90-Cmr10-36" transform="translate(425.46071 0.609375)"/>
+    <use xlink:href="#w8t92-Cmb10-6b" transform="translate(0 0.609375)"/>
+    <use xlink:href="#w8t92-Cmr10-3a" transform="translate(70.244141 0.609375)"/>
+    <use xlink:href="#w8t92-Cmmi10-4e" transform="translate(144.752312 0.609375)"/>
+    <use xlink:href="#w8t92-Cmmi10-71" transform="translate(225.074577 -16.396875) scale(0.7)"/>
+    <use xlink:href="#w8t92-Cmr10-3d" transform="translate(280.216569 0.609375)"/>
+    <use xlink:href="#w8t92-Cmr10-31" transform="translate(375.46071 0.609375)"/>
+    <use xlink:href="#w8t92-Cmr10-36" transform="translate(425.46071 0.609375)"/>
    </g>
   </g>
  </g>
 </svg>
-<svg x="535.64" y="106.515" width="122.72" height="15.485" viewBox="0 0 122.72 15.485"><defs>
+<svg x="558.562" y="49.5156" width="174.876" height="22.0661" viewBox="0 0 174.876 22.066125"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w8t91-figure_1">
-  <g id="w8t91-patch_1">
-   <path d="M 0 15.485 
-L 122.72 15.485 
-L 122.72 0 
+ <g id="w8t93-figure_1">
+  <g id="w8t93-patch_1">
+   <path d="M 0 22.066125 
+L 174.876 22.066125 
+L 174.876 0 
 L 0 0 
-L 0 15.485 
+L 0 22.066125 
 z
 " style="fill: none"/>
   </g>
-  <g id="w8t91-text_1">
+  <g id="w8t93-text_1">
    <!-- $12.5\ \mathsf{Hz},\ V = 2048$ -->
-   <g style="fill: #7c3aed" transform="translate(0 12.1575) scale(0.16 -0.16)">
+   <g style="fill: #7c3aed" transform="translate(0 17.324437) scale(0.228 -0.228)">
     <defs>
-     <path id="w8t91-Cmr10-31" d="M 594 0 
+     <path id="w8t93-Cmr10-31" d="M 594 0 
 L 594 225 
 Q 1394 225 1394 428 
 L 1394 3788 
@@ -377,7 +375,7 @@ L 2694 0
 L 594 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w8t91-Cmr10-32" d="M 319 0 
+     <path id="w8t93-Cmr10-32" d="M 319 0 
 L 319 172 
 Q 319 188 331 206 
 L 1325 1306 
@@ -418,7 +416,7 @@ L 2694 0
 L 319 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w8t91-Cmmi10-3a" d="M 538 353 
+     <path id="w8t93-Cmmi10-3a" d="M 538 353 
 Q 538 497 644 600 
 Q 750 703 891 703 
 Q 978 703 1062 656 
@@ -430,7 +428,7 @@ Q 750 0 644 106
 Q 538 213 538 353 
 z
 " transform="scale(0.015625)"/>
-     <path id="w8t91-Cmr10-35" d="M 556 728 
+     <path id="w8t93-Cmr10-35" d="M 556 728 
 Q 622 541 758 387 
 Q 894 234 1080 148 
 Q 1266 63 1466 63 
@@ -483,7 +481,7 @@ Q 625 716 597 720
 Q 569 725 556 728 
 z
 " transform="scale(0.015625)"/>
-     <path id="w8t91-Cmss10-48" d="M 588 0 
+     <path id="w8t93-Cmss10-48" d="M 588 0 
 L 588 4441 
 L 1184 4441 
 L 1184 2516 
@@ -498,7 +496,7 @@ L 1184 0
 L 588 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w8t91-Cmss10-7a" d="M 178 0 
+     <path id="w8t93-Cmss10-7a" d="M 178 0 
 L 178 275 
 L 1850 2444 
 L 269 2438 
@@ -511,7 +509,7 @@ L 2572 0
 L 178 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w8t91-Cmmi10-3b" d="M 634 -1153 
+     <path id="w8t93-Cmmi10-3b" d="M 634 -1153 
 Q 634 -1125 659 -1100 
 Q 891 -878 1019 -587 
 Q 1147 -297 1147 25 
@@ -530,7 +528,7 @@ Q 697 -1241 665 -1212
 Q 634 -1184 634 -1153 
 z
 " transform="scale(0.015625)"/>
-     <path id="w8t91-Cmmi10-56" d="M 1409 -72 
+     <path id="w8t93-Cmmi10-56" d="M 1409 -72 
 L 897 4006 
 Q 850 4147 416 4147 
 Q 353 4147 353 4231 
@@ -561,7 +559,7 @@ L 1491 -141
 Q 1419 -141 1409 -72 
 z
 " transform="scale(0.015625)"/>
-     <path id="w8t91-Cmr10-3d" d="M 481 850 
+     <path id="w8t93-Cmr10-3d" d="M 481 850 
 Q 428 850 393 890 
 Q 359 931 359 978 
 Q 359 1031 393 1068 
@@ -586,7 +584,7 @@ Q 4547 2094 4500 2094
 L 481 2094 
 z
 " transform="scale(0.015625)"/>
-     <path id="w8t91-Cmr10-30" d="M 1600 -141 
+     <path id="w8t93-Cmr10-30" d="M 1600 -141 
 Q 816 -141 533 504 
 Q 250 1150 250 2041 
 Q 250 2597 351 3087 
@@ -616,7 +614,7 @@ Q 991 484 1158 254
 Q 1325 25 1600 25 
 z
 " transform="scale(0.015625)"/>
-     <path id="w8t91-Cmr10-34" d="M 178 1056 
+     <path id="w8t93-Cmr10-34" d="M 178 1056 
 L 178 1281 
 L 2156 4231 
 Q 2178 4263 2222 4263 
@@ -643,7 +641,7 @@ L 1906 3547
 L 391 1281 
 z
 " transform="scale(0.015625)"/>
-     <path id="w8t91-Cmr10-38" d="M 269 972 
+     <path id="w8t93-Cmr10-38" d="M 269 972 
 Q 269 1356 522 1651 
 Q 775 1947 1172 2144 
 L 934 2297 
@@ -696,47 +694,44 @@ Q 750 3131 1056 2925
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w8t91-Cmr10-31" transform="translate(0 0.609375)"/>
-    <use xlink:href="#w8t91-Cmr10-32" transform="translate(50 0.609375)"/>
-    <use xlink:href="#w8t91-Cmmi10-3a" transform="translate(100 0.609375)"/>
-    <use xlink:href="#w8t91-Cmr10-35" transform="translate(127.685547 0.609375)"/>
-    <use xlink:href="#w8t91-Cmss10-48" transform="translate(206.949577 0.609375)"/>
-    <use xlink:href="#w8t91-Cmss10-7a" transform="translate(277.750358 0.609375)"/>
-    <use xlink:href="#w8t91-Cmmi10-3b" transform="translate(321.158562 0.609375)"/>
-    <use xlink:href="#w8t91-Cmmi10-56" transform="translate(395.666732 0.609375)"/>
-    <use xlink:href="#w8t91-Cmr10-3d" transform="translate(471.526107 0.609375)"/>
-    <use xlink:href="#w8t91-Cmr10-32" transform="translate(566.770248 0.609375)"/>
-    <use xlink:href="#w8t91-Cmr10-30" transform="translate(616.770248 0.609375)"/>
-    <use xlink:href="#w8t91-Cmr10-34" transform="translate(666.770248 0.609375)"/>
-    <use xlink:href="#w8t91-Cmr10-38" transform="translate(716.770248 0.609375)"/>
+    <use xlink:href="#w8t93-Cmr10-31" transform="translate(0 0.609375)"/>
+    <use xlink:href="#w8t93-Cmr10-32" transform="translate(50 0.609375)"/>
+    <use xlink:href="#w8t93-Cmmi10-3a" transform="translate(100 0.609375)"/>
+    <use xlink:href="#w8t93-Cmr10-35" transform="translate(127.685547 0.609375)"/>
+    <use xlink:href="#w8t93-Cmss10-48" transform="translate(206.949577 0.609375)"/>
+    <use xlink:href="#w8t93-Cmss10-7a" transform="translate(277.750358 0.609375)"/>
+    <use xlink:href="#w8t93-Cmmi10-3b" transform="translate(321.158562 0.609375)"/>
+    <use xlink:href="#w8t93-Cmmi10-56" transform="translate(395.666732 0.609375)"/>
+    <use xlink:href="#w8t93-Cmr10-3d" transform="translate(471.526107 0.609375)"/>
+    <use xlink:href="#w8t93-Cmr10-32" transform="translate(566.770248 0.609375)"/>
+    <use xlink:href="#w8t93-Cmr10-30" transform="translate(616.770248 0.609375)"/>
+    <use xlink:href="#w8t93-Cmr10-34" transform="translate(666.770248 0.609375)"/>
+    <use xlink:href="#w8t93-Cmr10-38" transform="translate(716.770248 0.609375)"/>
    </g>
   </g>
  </g>
 </svg>
-<line x1="706.0" y1="96.0" x2="727.0" y2="96.0" stroke="#94a3b8" stroke-width="1.4"/>
-<polygon points="734.0,96.0 727.0,101.0 727.0,91.0" fill="#94a3b8"/>
-<rect x="738.0" y="66.0" width="242.0" height="60.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="859.0" y="88.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">codec decoder</text>
-<text x="859.0" y="112.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">no mel, no flow</text>
-</g>
-<g class="fragment" data-fragment-index="1">
-<rect x="20.0" y="144.0" width="960.0" height="90.0" rx="6" fill="#ffffff" stroke="#7c3aed" stroke-width="1.0" stroke-dasharray="5 4"/>
-<text x="36.0" y="162.0" font-size="16" font-weight="600" fill="#7c3aed" text-anchor="start" dominant-baseline="middle">every LM step emits all 16 codebooks of one 80 ms frame (1 semantic + 15 RVQ acoustic): the decoder needs nothing else</text>
-<text x="36.0" y="186.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">so the first packet waits only for a few LM steps: 97 ms = 93 ms of LM + 4 ms of decoding, for 4 tokens = 320 ms of speech</text>
-<text x="36.0" y="212.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">(0.6B model, vLLM, concurrency 1; the GPU is not stated — quote the number with its conditions)</text>
+<line x1="758.0" y1="46.0" x2="767.0" y2="46.0" stroke="#94a3b8" stroke-width="1.4"/>
+<polygon points="774.0,46.0 767.0,51.0 767.0,41.0" fill="#94a3b8"/>
+<rect x="778.0" y="14.0" width="202.0" height="64.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="879.0" y="33.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">codec decoder</text>
+<text x="879.0" y="60.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">no mel, no flow</text>
 </g>
 <g class="fragment" data-fragment-index="2">
-<rect x="20.0" y="254.0" width="225.0" height="54.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<text x="28.0" y="269.0" font-size="16" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="middle">length</text>
-<text x="28.0" y="292.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">the LM's stop symbol</text>
-<rect x="265.0" y="254.0" width="225.0" height="54.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
-<text x="273.0" y="269.0" font-size="16" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="middle">variation</text>
-<text x="273.0" y="292.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">AR over 16 levels at once</text>
-<rect x="510.0" y="254.0" width="225.0" height="54.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="518.0" y="269.0" font-size="16" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="middle">waveform</text>
-<text x="518.0" y="292.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">the codec decoder (W6)</text>
-<rect x="755.0" y="254.0" width="225.0" height="54.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
-<text x="763.0" y="269.0" font-size="16" font-weight="700" fill="#b45309" text-anchor="start" dominant-baseline="middle">first packet</text>
-<text x="763.0" y="292.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">a few LM steps + decoder</text>
+<rect x="20.0" y="108.0" width="225.0" height="86.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="30.0" y="126.0" font-size="19" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="middle">length</text>
+<text x="30.0" y="152.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">the LM's stop symbol</text>
+<rect x="265.0" y="108.0" width="225.0" height="86.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+<text x="275.0" y="126.0" font-size="19" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="middle">variation</text>
+<text x="275.0" y="152.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">AR over 16 levels at</text>
+<text x="275.0" y="176.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">once</text>
+<rect x="510.0" y="108.0" width="225.0" height="86.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="520.0" y="126.0" font-size="19" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="middle">waveform</text>
+<text x="520.0" y="152.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">the codec decoder</text>
+<text x="520.0" y="176.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">(W6)</text>
+<rect x="755.0" y="108.0" width="225.0" height="86.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="765.0" y="126.0" font-size="19" font-weight="700" fill="#b45309" text-anchor="start" dominant-baseline="middle">first packet</text>
+<text x="765.0" y="152.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">a few LM steps +</text>
+<text x="765.0" y="176.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">decoder</text>
 </g>
 </svg>

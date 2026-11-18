@@ -1,5 +1,5 @@
 <!-- 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。 -->
-# W8 · Demo 1 — A regressed mel, a drawn mel, three draws (slides p11–p12)
+# W8 · Demo 1 — A regressed mel, a drawn mel, three draws (slides p12–p13)
 
 One line of text, two text-to-speech models that answer the one-to-many problem in opposite ways:
 
@@ -25,12 +25,12 @@ Above roughly 1.1–1.3 kHz these mel filterbanks are coarser than half the harm
 
 | Key | What happens | Slide |
 |---|---|---|
-| `1` | SpeechT5's regressed mel (top left), and its audio | p12 |
-| `2` | F5-TTS seed 1's drawn mel (top right), and its audio | p12 |
-| `g` | the real recording through both front ends (bottom row), and the original audio | p12 |
-| `x` | zoom to 2–6 kHz and back | p12 |
-| `3` | F5-TTS seeds 1–3 side by side; seeds 2 and 3 are played; the three lengths are printed | p12 |
-| `z` | the three $F_0$ tracks on one time axis (real recording dashed) | p12 |
+| `1` | SpeechT5's regressed mel (top left), and its audio | p13 |
+| `2` | F5-TTS seed 1's drawn mel (top right), and its audio | p13 |
+| `g` | the real recording through both front ends (bottom row), and the original audio | p13 |
+| `x` | zoom to 2–6 kHz and back | p13 |
+| `3` | F5-TTS seeds 1–3 side by side; seeds 2 and 3 are played; the three lengths are printed | p13 |
+| `z` | the three $F_0$ tracks on one time axis (real recording dashed) | p13 |
 | `s` | SpeechT5 with the next seed — its decoder pre-net keeps dropout on at inference, so it too varies a little | |
 | `t` | the table: lengths and how they were decided, fine detail per band, seed-to-seed differences, run times | |
 | `r` `h` `q` | play again, menu, quit | |
@@ -52,7 +52,7 @@ cd speech_ai/demos/w08_d1_mean_vs_sample
 
 Requirements: a separate environment, `speech_ai/demos/.venv-tts`, built by `./setup.sh` with the same Python, numpy, torch 2.14.0 and transformers 5.17.0 as the shared `.venv`, plus `f5-tts 1.1.22`. It is separate because `f5-tts`'s dependencies (through `cached-path`) need older `rich` and `filelock` than the shared environment pins. `replay`, `fake` and `selftest` fall back to the shared `.venv` if `.venv-tts` is missing.
 
-`f5-tts`'s own inference code is used unchanged (`infer_batch_process`, the function its CLI ends in); the demo passes the prompt waveform directly, after the same preprocessing (edges below −42 dBFS trimmed, 50 ms of silence appended), so no FFmpeg is needed. F5's `cfg_strength` is the $\alpha$ of its Eq. 4, $\mathbf{v}_\theta(\mathbf{X}_\tau, \tau, \mathbf{c}) + \alpha\big(\mathbf{v}_\theta(\mathbf{X}_\tau, \tau, \mathbf{c}) - \mathbf{v}_\theta(\mathbf{X}_\tau, \tau)\big)$ (Ho & Salimans' form); the slides (p53) write CFG with a weight $w$ on the difference added to the *unconditional* field, so $w = \alpha + 1$ and F5's default $\alpha = 2$ is $w = 3$.
+`f5-tts`'s own inference code is used unchanged (`infer_batch_process`, the function its CLI ends in); the demo passes the prompt waveform directly, after the same preprocessing (edges below −42 dBFS trimmed, 50 ms of silence appended), so no FFmpeg is needed. F5's `cfg_strength` is the $\alpha$ of its Eq. 4, $\mathbf{v}_\theta(\mathbf{X}_\tau, \tau, \mathbf{c}) + \alpha\big(\mathbf{v}_\theta(\mathbf{X}_\tau, \tau, \mathbf{c}) - \mathbf{v}_\theta(\mathbf{X}_\tau, \tau)\big)$ (Ho & Salimans' form); the slides (p55) write CFG with a weight $w$ on the difference added to the *unconditional* field, so $w = \alpha + 1$ and F5's default $\alpha = 2$ is $w = 3$.
 
 Weights: SpeechT5 and its HiFi-GAN are MIT; F5-TTS's weights are CC BY-NC 4.0 (non-commercial); Vocos is MIT; the ARCTIC x-vectors are MIT.
 

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 366" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<text x="20.0" y="30.0" font-size="22" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="auto">First half</text>
+<text x="128.1" y="30.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">One line of text, many readings: why, how long, and answer one</text>
+<rect x="20.0" y="42.0" width="308.0" height="128.0" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.4"/>
+<circle cx="48.0" cy="72.0" r="16.0" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.4"/>
+<text x="48.0" y="73.0" font-size="19" font-weight="700" fill="#7c3aed" text-anchor="middle" dominant-baseline="middle">1</text>
+<text x="74.0" y="80.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">Not regression</text>
+<text x="36.0" y="110.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">Why can't a TTS model just</text>
+<text x="36.0" y="135.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">regress the mel?</text>
+<line x1="330.0" y1="106.0" x2="336.0" y2="106.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="344.0,106.0 336.0,111.0 336.0,101.0" fill="#94a3b8"/>
+<rect x="346.0" y="42.0" width="308.0" height="128.0" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.4"/>
+<circle cx="374.0" cy="72.0" r="16.0" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.4"/>
+<text x="374.0" y="73.0" font-size="19" font-weight="700" fill="#7c3aed" text-anchor="middle" dominant-baseline="middle">2</text>
+<text x="400.0" y="80.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">Length and alignment</text>
+<text x="362.0" y="110.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">Who decides how many</text>
+<text x="362.0" y="135.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">frames — and which frame</text>
+<text x="362.0" y="160.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">reads which token?</text>
+<line x1="656.0" y1="106.0" x2="662.0" y2="106.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="670.0,106.0 662.0,111.0 662.0,101.0" fill="#94a3b8"/>
+<rect x="672.0" y="42.0" width="308.0" height="128.0" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.4"/>
+<circle cx="700.0" cy="72.0" r="16.0" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.4"/>
+<text x="700.0" y="73.0" font-size="19" font-weight="700" fill="#7c3aed" text-anchor="middle" dominant-baseline="middle">3</text>
+<text x="726.0" y="80.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">AR over tokens</text>
+<text x="688.0" y="110.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">Variation, answer one: draw it</text>
+<text x="688.0" y="135.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">token by token?</text>
+<text x="20.0" y="214.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="auto">Second half</text>
+<text x="162.8" y="214.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">Answer two, the waveform, and the wait</text>
+<rect x="20.0" y="226.0" width="308.0" height="128.0" rx="8" fill="#ffffff" stroke="#dc2626" stroke-width="1.4"/>
+<circle cx="48.0" cy="256.0" r="16.0" fill="#fee2e2" stroke="#dc2626" stroke-width="1.4"/>
+<text x="48.0" y="257.0" font-size="19" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">4</text>
+<text x="74.0" y="264.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">Flow matching</text>
+<text x="36.0" y="294.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">Variation, answer two: how</text>
+<text x="36.0" y="319.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">does noise become a sample?</text>
+<line x1="330.0" y1="290.0" x2="336.0" y2="290.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="344.0,290.0 336.0,295.0 336.0,285.0" fill="#94a3b8"/>
+<rect x="346.0" y="226.0" width="308.0" height="128.0" rx="8" fill="#ffffff" stroke="#dc2626" stroke-width="1.4"/>
+<circle cx="374.0" cy="256.0" r="16.0" fill="#fee2e2" stroke="#dc2626" stroke-width="1.4"/>
+<text x="374.0" y="257.0" font-size="19" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">5</text>
+<text x="400.0" y="264.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">The vocoder</text>
+<text x="362.0" y="294.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">A mel is not sound yet: who</text>
+<text x="362.0" y="319.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">renders the waveform?</text>
+<line x1="656.0" y1="290.0" x2="662.0" y2="290.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="670.0,290.0 662.0,295.0 662.0,285.0" fill="#94a3b8"/>
+<rect x="672.0" y="226.0" width="308.0" height="128.0" rx="8" fill="#ffffff" stroke="#dc2626" stroke-width="1.4"/>
+<circle cx="700.0" cy="256.0" r="16.0" fill="#fee2e2" stroke="#dc2626" stroke-width="1.4"/>
+<text x="700.0" y="257.0" font-size="19" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">6</text>
+<text x="726.0" y="264.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">The first packet</text>
+<text x="688.0" y="294.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">How long does each decision</text>
+<text x="688.0" y="319.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">delay the first sound?</text>
+</svg>

@@ -1,22 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 304" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 318" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
 <g class="fragment" data-fragment-index="0">
-<rect x="20.0" y="30.0" width="180.0" height="60.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
-<svg x="105.8" y="37.6437" width="8.4" height="19.3562" viewBox="0 0 8.4 19.35625"><defs>
+<rect x="20.0" y="30.0" width="150.0" height="64.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<svg x="89.456" y="36.8601" width="11.088" height="25.5502" viewBox="0 0 11.088 25.55025"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w8t11-figure_1">
   <g id="w8t11-patch_1">
-   <path d="M 0 19.35625 
-L 8.4 19.35625 
-L 8.4 0 
+   <path d="M 0 25.55025 
+L 11.088 25.55025 
+L 11.088 0 
 L 0 0 
-L 0 19.35625 
+L 0 25.55025 
 z
 " style="fill: none"/>
   </g>
   <g id="w8t11-text_1">
    <!-- $\ell$ -->
-   <g style="fill: #1f2328" transform="translate(0 15.196875) scale(0.2 -0.2)">
+   <g style="fill: #1f2328" transform="translate(0 20.059875) scale(0.264 -0.264)">
     <defs>
      <path id="w8t11-Cmmi10-60" d="M 153 475 
 Q 125 475 94 509 
@@ -65,26 +65,26 @@ z
   </g>
  </g>
 </svg>
-<text x="110.0" y="76.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">text</text>
-<line x1="204.0" y1="60.0" x2="238.0" y2="60.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="246.0,60.0 238.0,65.0 238.0,55.0" fill="#94a3b8"/>
-<rect x="250.0" y="30.0" width="300.0" height="60.0" rx="6" fill="#e5e7eb" stroke="#6b7280" stroke-width="1.2"/>
-<svg x="345.37" y="39.04" width="109.26" height="21.96" viewBox="0 0 109.26 21.96"><defs>
+<text x="95.0" y="76.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">text</text>
+<line x1="174.0" y1="62.0" x2="198.0" y2="62.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="206.0,62.0 198.0,67.0 198.0,57.0" fill="#94a3b8"/>
+<rect x="210.0" y="30.0" width="340.0" height="64.0" rx="6" fill="#e5e7eb" stroke="#6b7280" stroke-width="1.2"/>
+<svg x="310.802" y="28.024" width="138.396" height="33.516" viewBox="0 -5.7 138.396 33.516"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w8t12-figure_1">
   <g id="w8t12-patch_1">
-   <path d="M 0 21.96 
-L 109.26 21.96 
-L 109.26 0 
+   <path d="M 0 27.816 
+L 138.396 27.816 
+L 138.396 0 
 L 0 0 
-L 0 21.96 
+L 0 27.816 
 z
 " style="fill: none"/>
   </g>
   <g id="w8t12-text_1">
    <!-- $\hat{\mathbf{X}}(\ell) = \mathbb{E}[\mathbf{X} \mid \ell]$ -->
-   <g style="fill: #1f2328" transform="translate(0 17.46) scale(0.18 -0.18)">
+   <g style="fill: #1f2328" transform="translate(0 22.116) scale(0.228 -0.228)">
     <defs>
      <path id="w8t12-Cmr10-5e" d="M 863 3444 
 L 738 3578 
@@ -317,35 +317,35 @@ z
   </g>
  </g>
 </svg>
-<text x="400.0" y="76.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">regression: one output per input</text>
-<line x1="554.0" y1="60.0" x2="588.0" y2="60.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="596.0,60.0 588.0,65.0 588.0,55.0" fill="#94a3b8"/>
-<rect x="600.0" y="30.0" width="240.0" height="60.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
-<text x="720.0" y="52.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">the average reading</text>
-<text x="720.0" y="76.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">over-smoothed (W2 p52)</text>
-<line x1="256.0" y1="34.0" x2="544.0" y2="86.0" stroke="#dc2626" stroke-width="2.2" stroke-dasharray="8 5"/>
-<line x1="256.0" y1="86.0" x2="544.0" y2="34.0" stroke="#dc2626" stroke-width="2.2" stroke-dasharray="8 5"/>
-<text x="560.0" y="20.0" font-size="16" font-weight="600" fill="#dc2626" text-anchor="start" dominant-baseline="auto">the exit nobody takes any more</text>
+<text x="380.0" y="76.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">regression: one output per input</text>
+<line x1="554.0" y1="62.0" x2="578.0" y2="62.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="586.0,62.0 578.0,67.0 578.0,57.0" fill="#94a3b8"/>
+<rect x="590.0" y="30.0" width="250.0" height="64.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+<text x="715.0" y="49.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">the average reading</text>
+<text x="715.0" y="76.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">over-smoothed (W2 p52)</text>
+<line x1="216.0" y1="34.0" x2="544.0" y2="90.0" stroke="#dc2626" stroke-width="2.2" stroke-dasharray="8 5"/>
+<line x1="216.0" y1="90.0" x2="544.0" y2="34.0" stroke="#dc2626" stroke-width="2.2" stroke-dasharray="8 5"/>
+<text x="590.0" y="20.0" font-size="19" font-weight="600" fill="#dc2626" text-anchor="start" dominant-baseline="auto">the exit nobody takes any more</text>
 </g>
 <g class="fragment" data-fragment-index="1">
-<text x="20.0" y="130.0" font-size="17" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="auto">exit 1 — make the output discrete, learn a distribution over it, then sample</text>
-<rect x="20.0" y="142.0" width="180.0" height="56.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
-<svg x="105.8" y="157.644" width="8.4" height="19.3562" viewBox="0 0 8.4 19.35625"><defs>
+<text x="20.0" y="130.0" font-size="19" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="auto">exit 1 — make the output discrete, learn a distribution over it, sample</text>
+<rect x="20.0" y="142.0" width="150.0" height="64.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<svg x="89.456" y="161.86" width="11.088" height="25.5502" viewBox="0 0 11.088 25.55025"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w8t13-figure_1">
   <g id="w8t13-patch_1">
-   <path d="M 0 19.35625 
-L 8.4 19.35625 
-L 8.4 0 
+   <path d="M 0 25.55025 
+L 11.088 25.55025 
+L 11.088 0 
 L 0 0 
-L 0 19.35625 
+L 0 25.55025 
 z
 " style="fill: none"/>
   </g>
   <g id="w8t13-text_1">
    <!-- $\ell$ -->
-   <g style="fill: #1f2328" transform="translate(0 15.196875) scale(0.2 -0.2)">
+   <g style="fill: #1f2328" transform="translate(0 20.059875) scale(0.264 -0.264)">
     <defs>
      <path id="w8t13-Cmmi10-60" d="M 153 475 
 Q 125 475 94 509 
@@ -394,25 +394,25 @@ z
   </g>
  </g>
 </svg>
-<line x1="204.0" y1="170.0" x2="238.0" y2="170.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="246.0,170.0 238.0,175.0 238.0,165.0" fill="#94a3b8"/>
-<rect x="250.0" y="142.0" width="300.0" height="56.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<svg x="373.09" y="153" width="53.82" height="18" viewBox="0 0 53.82 18"><defs>
+<line x1="174.0" y1="174.0" x2="198.0" y2="174.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="206.0,174.0 198.0,179.0 198.0,169.0" fill="#94a3b8"/>
+<rect x="210.0" y="142.0" width="340.0" height="64.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<svg x="345.914" y="150.74" width="68.172" height="22.8" viewBox="0 0 68.172 22.8"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w8t14-figure_1">
   <g id="w8t14-patch_1">
-   <path d="M 0 18 
-L 53.82 18 
-L 53.82 0 
+   <path d="M 0 22.8 
+L 68.172 22.8 
+L 68.172 0 
 L 0 0 
-L 0 18 
+L 0 22.8 
 z
 " style="fill: none"/>
   </g>
   <g id="w8t14-text_1">
    <!-- $P(\mathbf{k} \mid \ell)$ -->
-   <g style="fill: #1f2328" transform="translate(0 13.5) scale(0.18 -0.18)">
+   <g style="fill: #1f2328" transform="translate(0 17.1) scale(0.228 -0.228)">
     <defs>
      <path id="w8t14-Cmmi10-50" d="M 313 0 
 Q 250 0 250 84 
@@ -604,33 +604,33 @@ z
   </g>
  </g>
 </svg>
-<text x="400.0" y="186.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">an LM over W6's tokens (W7's prior)</text>
-<line x1="554.0" y1="170.0" x2="588.0" y2="170.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="596.0,170.0 588.0,175.0 588.0,165.0" fill="#94a3b8"/>
-<rect x="600.0" y="142.0" width="160.0" height="56.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<text x="680.0" y="162.0" font-size="17" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">sample</text>
-<text x="680.0" y="186.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">one token at a time</text>
-<text x="780.0" y="170.0" font-size="16" font-weight="600" fill="#6b7280" text-anchor="start" dominant-baseline="middle">§3: codec LMs</text>
+<text x="380.0" y="188.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">an LM over W6's tokens (W7's prior)</text>
+<line x1="554.0" y1="174.0" x2="578.0" y2="174.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="586.0,174.0 578.0,179.0 578.0,169.0" fill="#94a3b8"/>
+<rect x="590.0" y="142.0" width="200.0" height="64.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="690.0" y="161.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">sample</text>
+<text x="690.0" y="188.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">one token at a time</text>
+<text x="806.0" y="174.0" font-size="19" font-weight="600" fill="#6b7280" text-anchor="start" dominant-baseline="middle">§3: codec LMs</text>
 </g>
 <g class="fragment" data-fragment-index="2">
-<text x="20.0" y="232.0" font-size="17" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="auto">exit 2 — keep it continuous, but learn a map from noise to a sample instead of a map from text to the mean</text>
-<rect x="20.0" y="244.0" width="180.0" height="48.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
-<svg x="81.47" y="260.54" width="57.06" height="17.46" viewBox="0 0 57.06 17.46"><defs>
+<text x="20.0" y="242.0" font-size="19" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="auto">exit 2 — keep it continuous: learn a map from noise to a sample</text>
+<rect x="20.0" y="254.0" width="150.0" height="52.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<svg x="58.862" y="269.466" width="72.276" height="22.116" viewBox="0 0 72.276 22.116"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w8t15-figure_1">
   <g id="w8t15-patch_1">
-   <path d="M 0 17.46 
-L 57.06 17.46 
-L 57.06 0 
+   <path d="M 0 22.116 
+L 72.276 22.116 
+L 72.276 0 
 L 0 0 
-L 0 17.46 
+L 0 22.116 
 z
 " style="fill: none"/>
   </g>
   <g id="w8t15-text_1">
    <!-- $\mathbf{X}_0 \sim \mathcal{N}$ -->
-   <g style="fill: #1f2328" transform="translate(0 13.716563) scale(0.18 -0.18)">
+   <g style="fill: #1f2328" transform="translate(0 17.374312) scale(0.228 -0.228)">
     <defs>
      <path id="w8t15-Cmb10-58" d="M 184 0 
 L 184 325 
@@ -794,25 +794,25 @@ z
   </g>
  </g>
 </svg>
-<line x1="204.0" y1="268.0" x2="238.0" y2="268.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="246.0,268.0 238.0,273.0 238.0,263.0" fill="#94a3b8"/>
-<rect x="250.0" y="244.0" width="300.0" height="48.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
-<svg x="357.7" y="261" width="84.6" height="18" viewBox="0 0 84.6 18"><defs>
+<line x1="174.0" y1="280.0" x2="198.0" y2="280.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="206.0,280.0 198.0,285.0 198.0,275.0" fill="#94a3b8"/>
+<rect x="210.0" y="254.0" width="340.0" height="52.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+<svg x="326.42" y="269.74" width="107.16" height="22.8" viewBox="0 0 107.16 22.8"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w8t16-figure_1">
   <g id="w8t16-patch_1">
-   <path d="M 0 18 
-L 84.6 18 
-L 84.6 0 
+   <path d="M 0 22.8 
+L 107.16 22.8 
+L 107.16 0 
 L 0 0 
-L 0 18 
+L 0 22.8 
 z
 " style="fill: none"/>
   </g>
   <g id="w8t16-text_1">
    <!-- $\mathbf{v}_\theta(\mathbf{X}_\tau, \tau, \mathbf{c})$ -->
-   <g style="fill: #1f2328" transform="translate(0 13.5) scale(0.18 -0.18)">
+   <g style="fill: #1f2328" transform="translate(0 17.1) scale(0.228 -0.228)">
     <defs>
      <path id="w8t16-Cmb10-76" d="M 1466 91 
 L 544 2516 
@@ -1055,25 +1055,25 @@ z
   </g>
  </g>
 </svg>
-<line x1="554.0" y1="268.0" x2="588.0" y2="268.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="596.0,268.0 588.0,273.0 588.0,263.0" fill="#94a3b8"/>
-<rect x="600.0" y="244.0" width="160.0" height="48.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<svg x="669.02" y="260.579" width="21.96" height="17.4206" viewBox="0 0 21.96 17.420625"><defs>
+<line x1="554.0" y1="280.0" x2="578.0" y2="280.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="586.0,280.0 578.0,285.0 578.0,275.0" fill="#94a3b8"/>
+<rect x="590.0" y="254.0" width="200.0" height="52.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<svg x="676.092" y="269.516" width="27.816" height="22.0661" viewBox="0 0 27.816 22.066125"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w8t17-figure_1">
   <g id="w8t17-patch_1">
-   <path d="M 0 17.420625 
-L 21.96 17.420625 
-L 21.96 0 
+   <path d="M 0 22.066125 
+L 27.816 22.066125 
+L 27.816 0 
 L 0 0 
-L 0 17.420625 
+L 0 22.066125 
 z
 " style="fill: none"/>
   </g>
   <g id="w8t17-text_1">
    <!-- $\mathbf{X}_1$ -->
-   <g style="fill: #1f2328" transform="translate(0 13.677187) scale(0.18 -0.18)">
+   <g style="fill: #1f2328" transform="translate(0 17.324437) scale(0.228 -0.228)">
     <defs>
      <path id="w8t17-Cmb10-58" d="M 184 0 
 L 184 325 
@@ -1134,7 +1134,6 @@ z
   </g>
  </g>
 </svg>
-<text x="780.0" y="258.0" font-size="16" font-weight="600" fill="#6b7280" text-anchor="start" dominant-baseline="middle">§4: flow matching —</text>
-<text x="780.0" y="280.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">randomness lives in the start</text>
+<text x="806.0" y="280.0" font-size="19" font-weight="600" fill="#6b7280" text-anchor="start" dominant-baseline="middle">§4: flow matching</text>
 </g>
 </svg>

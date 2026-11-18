@@ -1,300 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 350" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 300" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
 <g class="fragment" data-fragment-index="0">
-<text x="984.0" y="22.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">computed from w08-data.json</text>
-<text x="20.0" y="48.0" font-size="17" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">two training pairs whose straight lines cross: the same place and time now has two correct velocities</text>
-<line x1="240.0" y1="278.0" x2="760.0" y2="91.0" stroke="#0b5cad" stroke-width="2.0" stroke-dasharray="7 5"/>
-<circle cx="240.0" cy="278.0" r="7.0" fill="#f1f5f9" stroke="#0b5cad" stroke-width="2"/>
-<circle cx="760.0" cy="91.0" r="7.0" fill="#dbeafe" stroke="#0b5cad" stroke-width="2"/>
-<line x1="240.0" y1="102.0" x2="760.0" y2="289.0" stroke="#7c3aed" stroke-width="2.0" stroke-dasharray="7 5"/>
-<circle cx="240.0" cy="102.0" r="7.0" fill="#f1f5f9" stroke="#7c3aed" stroke-width="2"/>
-<circle cx="760.0" cy="289.0" r="7.0" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
-<svg x="206.48" y="271.515" width="19.52" height="15.485" viewBox="0 0 19.52 15.485"><defs>
-  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
- </defs>
- <g id="w8t119-figure_1">
-  <g id="w8t119-patch_1">
-   <path d="M 0 15.485 
-L 19.52 15.485 
-L 19.52 0 
-L 0 0 
-L 0 15.485 
-z
-" style="fill: none"/>
-  </g>
-  <g id="w8t119-text_1">
-   <!-- $\mathbf{X}_0$ -->
-   <g style="fill: #0b5cad" transform="translate(0 12.1575) scale(0.16 -0.16)">
-    <defs>
-     <path id="w8t119-Cmb10-58" d="M 184 0 
-L 184 325 
-Q 856 325 909 384 
-L 2009 2106 
-L 825 4063 
-L 269 4063 
-L 269 4391 
-L 2291 4391 
-L 2291 4063 
-L 1838 4063 
-L 2528 2919 
-L 3225 4013 
-Q 3225 4028 3158 4036 
-Q 3091 4044 3053 4044 
-Q 2872 4063 2688 4063 
-L 2688 4391 
-L 4384 4391 
-L 4384 4063 
-Q 4159 4063 3925 4053 
-Q 3691 4044 3653 4006 
-L 2741 2572 
-L 4091 325 
-L 4653 325 
-L 4653 0 
-L 2625 0 
-L 2625 325 
-L 3084 325 
-L 2222 1759 
-L 1344 378 
-Q 1344 369 1411 358 
-Q 1478 347 1509 347 
-Q 1681 325 1881 325 
-L 1881 0 
-L 184 0 
-z
-" transform="scale(0.015625)"/>
-     <path id="w8t119-Cmr10-30" d="M 1600 -141 
-Q 816 -141 533 504 
-Q 250 1150 250 2041 
-Q 250 2597 351 3087 
-Q 453 3578 754 3920 
-Q 1056 4263 1600 4263 
-Q 2022 4263 2290 4056 
-Q 2559 3850 2700 3523 
-Q 2841 3197 2892 2823 
-Q 2944 2450 2944 2041 
-Q 2944 1491 2842 1011 
-Q 2741 531 2444 195 
-Q 2147 -141 1600 -141 
-z
-M 1600 25 
-Q 1956 25 2131 390 
-Q 2306 756 2347 1200 
-Q 2388 1644 2388 2144 
-Q 2388 2625 2347 3031 
-Q 2306 3438 2132 3767 
-Q 1959 4097 1600 4097 
-Q 1238 4097 1063 3765 
-Q 888 3434 847 3029 
-Q 806 2625 806 2144 
-Q 806 1788 823 1472 
-Q 841 1156 916 820 
-Q 991 484 1158 254 
-Q 1325 25 1600 25 
-z
-" transform="scale(0.015625)"/>
-    </defs>
-    <use xlink:href="#w8t119-Cmb10-58" transform="translate(0 0.390625)"/>
-    <use xlink:href="#w8t119-Cmr10-30" transform="translate(79.952422 -16.615625) scale(0.7)"/>
-   </g>
-  </g>
- </g>
-</svg>
-<svg x="774" y="84.515" width="19.52" height="15.485" viewBox="0 0 19.52 15.485"><defs>
-  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
- </defs>
- <g id="w8t120-figure_1">
-  <g id="w8t120-patch_1">
-   <path d="M 0 15.485 
-L 19.52 15.485 
-L 19.52 0 
-L 0 0 
-L 0 15.485 
-z
-" style="fill: none"/>
-  </g>
-  <g id="w8t120-text_1">
-   <!-- $\mathbf{X}_1$ -->
-   <g style="fill: #0b5cad" transform="translate(0 12.1575) scale(0.16 -0.16)">
-    <defs>
-     <path id="w8t120-Cmb10-58" d="M 184 0 
-L 184 325 
-Q 856 325 909 384 
-L 2009 2106 
-L 825 4063 
-L 269 4063 
-L 269 4391 
-L 2291 4391 
-L 2291 4063 
-L 1838 4063 
-L 2528 2919 
-L 3225 4013 
-Q 3225 4028 3158 4036 
-Q 3091 4044 3053 4044 
-Q 2872 4063 2688 4063 
-L 2688 4391 
-L 4384 4391 
-L 4384 4063 
-Q 4159 4063 3925 4053 
-Q 3691 4044 3653 4006 
-L 2741 2572 
-L 4091 325 
-L 4653 325 
-L 4653 0 
-L 2625 0 
-L 2625 325 
-L 3084 325 
-L 2222 1759 
-L 1344 378 
-Q 1344 369 1411 358 
-Q 1478 347 1509 347 
-Q 1681 325 1881 325 
-L 1881 0 
-L 184 0 
-z
-" transform="scale(0.015625)"/>
-     <path id="w8t120-Cmr10-31" d="M 594 0 
-L 594 225 
-Q 1394 225 1394 428 
-L 1394 3788 
-Q 1063 3628 556 3628 
-L 556 3853 
-Q 1341 3853 1741 4263 
-L 1831 4263 
-Q 1853 4263 1873 4245 
-Q 1894 4228 1894 4206 
-L 1894 428 
-Q 1894 225 2694 225 
-L 2694 0 
-L 594 0 
-z
-" transform="scale(0.015625)"/>
-    </defs>
-    <use xlink:href="#w8t120-Cmb10-58" transform="translate(0 0.390625)"/>
-    <use xlink:href="#w8t120-Cmr10-31" transform="translate(79.952422 -16.615625) scale(0.7)"/>
-   </g>
-  </g>
- </g>
-</svg>
-<svg x="206.48" y="96.04" width="19.52" height="16.96" viewBox="0 0 19.52 16.96"><defs>
-  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
- </defs>
- <g id="w8t121-figure_1">
-  <g id="w8t121-patch_1">
-   <path d="M 0 16.96 
-L 19.52 16.96 
-L 19.52 0 
-L 0 0 
-L 0 16.96 
-z
-" style="fill: none"/>
-  </g>
-  <g id="w8t121-text_1">
-   <!-- $\mathbf{X}_0'$ -->
-   <g style="fill: #7c3aed" transform="translate(0 12.48) scale(0.16 -0.16)">
-    <defs>
-     <path id="w8t121-Cmb10-58" d="M 184 0 
-L 184 325 
-Q 856 325 909 384 
-L 2009 2106 
-L 825 4063 
-L 269 4063 
-L 269 4391 
-L 2291 4391 
-L 2291 4063 
-L 1838 4063 
-L 2528 2919 
-L 3225 4013 
-Q 3225 4028 3158 4036 
-Q 3091 4044 3053 4044 
-Q 2872 4063 2688 4063 
-L 2688 4391 
-L 4384 4391 
-L 4384 4063 
-Q 4159 4063 3925 4053 
-Q 3691 4044 3653 4006 
-L 2741 2572 
-L 4091 325 
-L 4653 325 
-L 4653 0 
-L 2625 0 
-L 2625 325 
-L 3084 325 
-L 2222 1759 
-L 1344 378 
-Q 1344 369 1411 358 
-Q 1478 347 1509 347 
-Q 1681 325 1881 325 
-L 1881 0 
-L 184 0 
-z
-" transform="scale(0.015625)"/>
-     <path id="w8t121-Cmsy10-30" d="M 225 347 
-Q 184 359 184 409 
-L 966 3316 
-Q 1003 3434 1093 3506 
-Q 1184 3578 1300 3578 
-Q 1450 3578 1564 3479 
-Q 1678 3381 1678 3231 
-Q 1678 3166 1644 3084 
-L 488 319 
-Q 466 275 428 275 
-Q 394 275 320 306 
-Q 247 338 225 347 
-z
-" transform="scale(0.015625)"/>
-     <path id="w8t121-Cmr10-30" d="M 1600 -141 
-Q 816 -141 533 504 
-Q 250 1150 250 2041 
-Q 250 2597 351 3087 
-Q 453 3578 754 3920 
-Q 1056 4263 1600 4263 
-Q 2022 4263 2290 4056 
-Q 2559 3850 2700 3523 
-Q 2841 3197 2892 2823 
-Q 2944 2450 2944 2041 
-Q 2944 1491 2842 1011 
-Q 2741 531 2444 195 
-Q 2147 -141 1600 -141 
-z
-M 1600 25 
-Q 1956 25 2131 390 
-Q 2306 756 2347 1200 
-Q 2388 1644 2388 2144 
-Q 2388 2625 2347 3031 
-Q 2306 3438 2132 3767 
-Q 1959 4097 1600 4097 
-Q 1238 4097 1063 3765 
-Q 888 3434 847 3029 
-Q 806 2625 806 2144 
-Q 806 1788 823 1472 
-Q 841 1156 916 820 
-Q 991 484 1158 254 
-Q 1325 25 1600 25 
-z
-" transform="scale(0.015625)"/>
-    </defs>
-    <use xlink:href="#w8t121-Cmb10-58" transform="translate(0 0.601562)"/>
-    <use xlink:href="#w8t121-Cmsy10-30" transform="translate(79.952422 38.865625) scale(0.7)"/>
-    <use xlink:href="#w8t121-Cmr10-30" transform="translate(79.952422 -24.907813) scale(0.7)"/>
-   </g>
-  </g>
- </g>
-</svg>
-<svg x="774" y="283.36" width="19.52" height="16.64" viewBox="0 0 19.52 16.64"><defs>
+<text x="984.0" y="18.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">computed from w08-data.json</text>
+<text x="20.0" y="30.0" font-size="19" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">two training pairs whose straight lines cross</text>
+<line x1="240.0" y1="254.0" x2="760.0" y2="67.0" stroke="#0b5cad" stroke-width="2.0" stroke-dasharray="7 5"/>
+<circle cx="240.0" cy="254.0" r="7.0" fill="#f1f5f9" stroke="#0b5cad" stroke-width="2"/>
+<circle cx="760.0" cy="67.0" r="7.0" fill="#dbeafe" stroke="#0b5cad" stroke-width="2"/>
+<line x1="240.0" y1="78.0" x2="760.0" y2="265.0" stroke="#7c3aed" stroke-width="2.0" stroke-dasharray="7 5"/>
+<circle cx="240.0" cy="78.0" r="7.0" fill="#f1f5f9" stroke="#7c3aed" stroke-width="2"/>
+<circle cx="760.0" cy="265.0" r="7.0" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+<svg x="198.184" y="243.676" width="27.816" height="22.0661" viewBox="0 0 27.816 22.066125"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w8t122-figure_1">
   <g id="w8t122-patch_1">
-   <path d="M 0 16.64 
-L 19.52 16.64 
-L 19.52 0 
+   <path d="M 0 22.066125 
+L 27.816 22.066125 
+L 27.816 0 
 L 0 0 
-L 0 16.64 
+L 0 22.066125 
 z
 " style="fill: none"/>
   </g>
   <g id="w8t122-text_1">
-   <!-- $\mathbf{X}_1'$ -->
-   <g style="fill: #7c3aed" transform="translate(0 12.48) scale(0.16 -0.16)">
+   <!-- $\mathbf{X}_0$ -->
+   <g style="fill: #0b5cad" transform="translate(0 17.324437) scale(0.228 -0.228)">
     <defs>
      <path id="w8t122-Cmb10-58" d="M 184 0 
 L 184 325 
@@ -332,121 +61,7 @@ L 1881 0
 L 184 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w8t122-Cmsy10-30" d="M 225 347 
-Q 184 359 184 409 
-L 966 3316 
-Q 1003 3434 1093 3506 
-Q 1184 3578 1300 3578 
-Q 1450 3578 1564 3479 
-Q 1678 3381 1678 3231 
-Q 1678 3166 1644 3084 
-L 488 319 
-Q 466 275 428 275 
-Q 394 275 320 306 
-Q 247 338 225 347 
-z
-" transform="scale(0.015625)"/>
-     <path id="w8t122-Cmr10-31" d="M 594 0 
-L 594 225 
-Q 1394 225 1394 428 
-L 1394 3788 
-Q 1063 3628 556 3628 
-L 556 3853 
-Q 1341 3853 1741 4263 
-L 1831 4263 
-Q 1853 4263 1873 4245 
-Q 1894 4228 1894 4206 
-L 1894 428 
-Q 1894 225 2694 225 
-L 2694 0 
-L 594 0 
-z
-" transform="scale(0.015625)"/>
-    </defs>
-    <use xlink:href="#w8t122-Cmb10-58" transform="translate(0 0.601562)"/>
-    <use xlink:href="#w8t122-Cmsy10-30" transform="translate(79.952422 38.865625) scale(0.7)"/>
-    <use xlink:href="#w8t122-Cmr10-31" transform="translate(79.952422 -24.907813) scale(0.7)"/>
-   </g>
-  </g>
- </g>
-</svg>
-</g>
-<g class="fragment" data-fragment-index="1">
-<circle cx="484.7" cy="190.0" r="7.0" fill="#dc2626" stroke="#dc2626" stroke-width="1.4"/>
-<line x1="484.7" y1="190.0" x2="537.9" y2="144.8" stroke="#0b5cad" stroke-width="2.0"/>
-<polygon points="544.7,139.0 541.1,148.6 534.6,141.0" fill="#0b5cad"/>
-<line x1="484.7" y1="190.0" x2="537.9" y2="235.2" stroke="#7c3aed" stroke-width="2.0"/>
-<polygon points="544.7,241.0 534.6,239.0 541.1,231.4" fill="#7c3aed"/>
-<line x1="484.7" y1="190.0" x2="534.7" y2="190.0" stroke="#dc2626" stroke-width="2.8"/>
-<polygon points="544.7,190.0 534.7,195.0 534.7,185.0" fill="#dc2626"/>
-<svg x="546.72" y="65.515" width="153.28" height="15.485" viewBox="0 0 153.28 15.485"><defs>
-  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
- </defs>
- <g id="w8t123-figure_1">
-  <g id="w8t123-patch_1">
-   <path d="M 0 15.485 
-L 153.28 15.485 
-L 153.28 0 
-L 0 0 
-L 0 15.485 
-z
-" style="fill: none"/>
-  </g>
-  <g id="w8t123-text_1">
-   <!-- $\tau = 0.47\ \mathsf{on\ both\ lines:}$ -->
-   <g style="fill: #dc2626" transform="translate(0 12.1575) scale(0.16 -0.16)">
-    <defs>
-     <path id="w8t123-Cmmi10-bf" d="M 997 97 
-Q 997 141 1006 166 
-L 1678 2363 
-L 1100 2363 
-Q 866 2363 662 2216 
-Q 459 2069 325 1844 
-Q 313 1819 288 1819 
-L 213 1819 
-Q 153 1819 153 1881 
-Q 153 1894 166 1919 
-Q 375 2275 614 2517 
-Q 853 2759 1153 2759 
-L 3116 2759 
-Q 3184 2759 3231 2712 
-Q 3278 2666 3278 2597 
-Q 3278 2503 3211 2433 
-Q 3144 2363 3047 2363 
-L 1888 2363 
-L 1459 153 
-Q 1434 50 1365 -17 
-Q 1297 -84 1191 -84 
-Q 1109 -84 1053 -32 
-Q 997 19 997 97 
-z
-" transform="scale(0.015625)"/>
-     <path id="w8t123-Cmr10-3d" d="M 481 850 
-Q 428 850 393 890 
-Q 359 931 359 978 
-Q 359 1031 393 1068 
-Q 428 1106 481 1106 
-L 4500 1106 
-Q 4547 1106 4581 1068 
-Q 4616 1031 4616 978 
-Q 4616 931 4581 890 
-Q 4547 850 4500 850 
-L 481 850 
-z
-M 481 2094 
-Q 428 2094 393 2131 
-Q 359 2169 359 2222 
-Q 359 2269 393 2309 
-Q 428 2350 481 2350 
-L 4500 2350 
-Q 4547 2350 4581 2309 
-Q 4616 2269 4616 2222 
-Q 4616 2169 4581 2131 
-Q 4547 2094 4500 2094 
-L 481 2094 
-z
-" transform="scale(0.015625)"/>
-     <path id="w8t123-Cmr10-30" d="M 1600 -141 
+     <path id="w8t122-Cmr10-30" d="M 1600 -141 
 Q 816 -141 533 504 
 Q 250 1150 250 2041 
 Q 250 2597 351 3087 
@@ -476,7 +91,392 @@ Q 991 484 1158 254
 Q 1325 25 1600 25 
 z
 " transform="scale(0.015625)"/>
-     <path id="w8t123-Cmmi10-3a" d="M 538 353 
+    </defs>
+    <use xlink:href="#w8t122-Cmb10-58" transform="translate(0 0.390625)"/>
+    <use xlink:href="#w8t122-Cmr10-30" transform="translate(79.952422 -16.615625) scale(0.7)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<svg x="774" y="56.6756" width="27.816" height="22.0661" viewBox="0 0 27.816 22.066125"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w8t123-figure_1">
+  <g id="w8t123-patch_1">
+   <path d="M 0 22.066125 
+L 27.816 22.066125 
+L 27.816 0 
+L 0 0 
+L 0 22.066125 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w8t123-text_1">
+   <!-- $\mathbf{X}_1$ -->
+   <g style="fill: #0b5cad" transform="translate(0 17.324437) scale(0.228 -0.228)">
+    <defs>
+     <path id="w8t123-Cmb10-58" d="M 184 0 
+L 184 325 
+Q 856 325 909 384 
+L 2009 2106 
+L 825 4063 
+L 269 4063 
+L 269 4391 
+L 2291 4391 
+L 2291 4063 
+L 1838 4063 
+L 2528 2919 
+L 3225 4013 
+Q 3225 4028 3158 4036 
+Q 3091 4044 3053 4044 
+Q 2872 4063 2688 4063 
+L 2688 4391 
+L 4384 4391 
+L 4384 4063 
+Q 4159 4063 3925 4053 
+Q 3691 4044 3653 4006 
+L 2741 2572 
+L 4091 325 
+L 4653 325 
+L 4653 0 
+L 2625 0 
+L 2625 325 
+L 3084 325 
+L 2222 1759 
+L 1344 378 
+Q 1344 369 1411 358 
+Q 1478 347 1509 347 
+Q 1681 325 1881 325 
+L 1881 0 
+L 184 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w8t123-Cmr10-31" d="M 594 0 
+L 594 225 
+Q 1394 225 1394 428 
+L 1394 3788 
+Q 1063 3628 556 3628 
+L 556 3853 
+Q 1341 3853 1741 4263 
+L 1831 4263 
+Q 1853 4263 1873 4245 
+Q 1894 4228 1894 4206 
+L 1894 428 
+Q 1894 225 2694 225 
+L 2694 0 
+L 594 0 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w8t123-Cmb10-58" transform="translate(0 0.390625)"/>
+    <use xlink:href="#w8t123-Cmr10-31" transform="translate(79.952422 -16.615625) scale(0.7)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<svg x="198.184" y="67.216" width="27.816" height="24.168" viewBox="0 0 27.816 24.168"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w8t124-figure_1">
+  <g id="w8t124-patch_1">
+   <path d="M 0 24.168 
+L 27.816 24.168 
+L 27.816 0 
+L 0 0 
+L 0 24.168 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w8t124-text_1">
+   <!-- $\mathbf{X}_0'$ -->
+   <g style="fill: #7c3aed" transform="translate(0 17.784) scale(0.228 -0.228)">
+    <defs>
+     <path id="w8t124-Cmb10-58" d="M 184 0 
+L 184 325 
+Q 856 325 909 384 
+L 2009 2106 
+L 825 4063 
+L 269 4063 
+L 269 4391 
+L 2291 4391 
+L 2291 4063 
+L 1838 4063 
+L 2528 2919 
+L 3225 4013 
+Q 3225 4028 3158 4036 
+Q 3091 4044 3053 4044 
+Q 2872 4063 2688 4063 
+L 2688 4391 
+L 4384 4391 
+L 4384 4063 
+Q 4159 4063 3925 4053 
+Q 3691 4044 3653 4006 
+L 2741 2572 
+L 4091 325 
+L 4653 325 
+L 4653 0 
+L 2625 0 
+L 2625 325 
+L 3084 325 
+L 2222 1759 
+L 1344 378 
+Q 1344 369 1411 358 
+Q 1478 347 1509 347 
+Q 1681 325 1881 325 
+L 1881 0 
+L 184 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w8t124-Cmsy10-30" d="M 225 347 
+Q 184 359 184 409 
+L 966 3316 
+Q 1003 3434 1093 3506 
+Q 1184 3578 1300 3578 
+Q 1450 3578 1564 3479 
+Q 1678 3381 1678 3231 
+Q 1678 3166 1644 3084 
+L 488 319 
+Q 466 275 428 275 
+Q 394 275 320 306 
+Q 247 338 225 347 
+z
+" transform="scale(0.015625)"/>
+     <path id="w8t124-Cmr10-30" d="M 1600 -141 
+Q 816 -141 533 504 
+Q 250 1150 250 2041 
+Q 250 2597 351 3087 
+Q 453 3578 754 3920 
+Q 1056 4263 1600 4263 
+Q 2022 4263 2290 4056 
+Q 2559 3850 2700 3523 
+Q 2841 3197 2892 2823 
+Q 2944 2450 2944 2041 
+Q 2944 1491 2842 1011 
+Q 2741 531 2444 195 
+Q 2147 -141 1600 -141 
+z
+M 1600 25 
+Q 1956 25 2131 390 
+Q 2306 756 2347 1200 
+Q 2388 1644 2388 2144 
+Q 2388 2625 2347 3031 
+Q 2306 3438 2132 3767 
+Q 1959 4097 1600 4097 
+Q 1238 4097 1063 3765 
+Q 888 3434 847 3029 
+Q 806 2625 806 2144 
+Q 806 1788 823 1472 
+Q 841 1156 916 820 
+Q 991 484 1158 254 
+Q 1325 25 1600 25 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w8t124-Cmb10-58" transform="translate(0 0.601562)"/>
+    <use xlink:href="#w8t124-Cmsy10-30" transform="translate(79.952422 38.865625) scale(0.7)"/>
+    <use xlink:href="#w8t124-Cmr10-30" transform="translate(79.952422 -24.907813) scale(0.7)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<svg x="774" y="254.216" width="27.816" height="23.712" viewBox="0 0 27.816 23.712"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w8t125-figure_1">
+  <g id="w8t125-patch_1">
+   <path d="M 0 23.712 
+L 27.816 23.712 
+L 27.816 0 
+L 0 0 
+L 0 23.712 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w8t125-text_1">
+   <!-- $\mathbf{X}_1'$ -->
+   <g style="fill: #7c3aed" transform="translate(0 17.784) scale(0.228 -0.228)">
+    <defs>
+     <path id="w8t125-Cmb10-58" d="M 184 0 
+L 184 325 
+Q 856 325 909 384 
+L 2009 2106 
+L 825 4063 
+L 269 4063 
+L 269 4391 
+L 2291 4391 
+L 2291 4063 
+L 1838 4063 
+L 2528 2919 
+L 3225 4013 
+Q 3225 4028 3158 4036 
+Q 3091 4044 3053 4044 
+Q 2872 4063 2688 4063 
+L 2688 4391 
+L 4384 4391 
+L 4384 4063 
+Q 4159 4063 3925 4053 
+Q 3691 4044 3653 4006 
+L 2741 2572 
+L 4091 325 
+L 4653 325 
+L 4653 0 
+L 2625 0 
+L 2625 325 
+L 3084 325 
+L 2222 1759 
+L 1344 378 
+Q 1344 369 1411 358 
+Q 1478 347 1509 347 
+Q 1681 325 1881 325 
+L 1881 0 
+L 184 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w8t125-Cmsy10-30" d="M 225 347 
+Q 184 359 184 409 
+L 966 3316 
+Q 1003 3434 1093 3506 
+Q 1184 3578 1300 3578 
+Q 1450 3578 1564 3479 
+Q 1678 3381 1678 3231 
+Q 1678 3166 1644 3084 
+L 488 319 
+Q 466 275 428 275 
+Q 394 275 320 306 
+Q 247 338 225 347 
+z
+" transform="scale(0.015625)"/>
+     <path id="w8t125-Cmr10-31" d="M 594 0 
+L 594 225 
+Q 1394 225 1394 428 
+L 1394 3788 
+Q 1063 3628 556 3628 
+L 556 3853 
+Q 1341 3853 1741 4263 
+L 1831 4263 
+Q 1853 4263 1873 4245 
+Q 1894 4228 1894 4206 
+L 1894 428 
+Q 1894 225 2694 225 
+L 2694 0 
+L 594 0 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w8t125-Cmb10-58" transform="translate(0 0.601562)"/>
+    <use xlink:href="#w8t125-Cmsy10-30" transform="translate(79.952422 38.865625) scale(0.7)"/>
+    <use xlink:href="#w8t125-Cmr10-31" transform="translate(79.952422 -24.907813) scale(0.7)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+</g>
+<g class="fragment" data-fragment-index="1">
+<circle cx="484.7" cy="166.0" r="7.0" fill="#dc2626" stroke="#dc2626" stroke-width="1.4"/>
+<line x1="484.7" y1="166.0" x2="537.9" y2="120.8" stroke="#0b5cad" stroke-width="2.0"/>
+<polygon points="544.7,115.0 541.1,124.6 534.6,117.0" fill="#0b5cad"/>
+<line x1="484.7" y1="166.0" x2="537.9" y2="211.2" stroke="#7c3aed" stroke-width="2.0"/>
+<polygon points="544.7,217.0 534.6,215.0 541.1,207.4" fill="#7c3aed"/>
+<line x1="484.7" y1="166.0" x2="534.7" y2="166.0" stroke="#dc2626" stroke-width="2.8"/>
+<polygon points="544.7,166.0 534.7,171.0 534.7,161.0" fill="#dc2626"/>
+<svg x="298.415" y="244.676" width="76.38" height="22.0661" viewBox="0 0 76.38 22.066125"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w8t126-figure_1">
+  <g id="w8t126-patch_1">
+   <path d="M 0 22.066125 
+L 76.38 22.066125 
+L 76.38 0 
+L 0 0 
+L 0 22.066125 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w8t126-text_1">
+   <!-- $\tau = 0.47$ -->
+   <g style="fill: #dc2626" transform="translate(0 17.324437) scale(0.228 -0.228)">
+    <defs>
+     <path id="w8t126-Cmmi10-bf" d="M 997 97 
+Q 997 141 1006 166 
+L 1678 2363 
+L 1100 2363 
+Q 866 2363 662 2216 
+Q 459 2069 325 1844 
+Q 313 1819 288 1819 
+L 213 1819 
+Q 153 1819 153 1881 
+Q 153 1894 166 1919 
+Q 375 2275 614 2517 
+Q 853 2759 1153 2759 
+L 3116 2759 
+Q 3184 2759 3231 2712 
+Q 3278 2666 3278 2597 
+Q 3278 2503 3211 2433 
+Q 3144 2363 3047 2363 
+L 1888 2363 
+L 1459 153 
+Q 1434 50 1365 -17 
+Q 1297 -84 1191 -84 
+Q 1109 -84 1053 -32 
+Q 997 19 997 97 
+z
+" transform="scale(0.015625)"/>
+     <path id="w8t126-Cmr10-3d" d="M 481 850 
+Q 428 850 393 890 
+Q 359 931 359 978 
+Q 359 1031 393 1068 
+Q 428 1106 481 1106 
+L 4500 1106 
+Q 4547 1106 4581 1068 
+Q 4616 1031 4616 978 
+Q 4616 931 4581 890 
+Q 4547 850 4500 850 
+L 481 850 
+z
+M 481 2094 
+Q 428 2094 393 2131 
+Q 359 2169 359 2222 
+Q 359 2269 393 2309 
+Q 428 2350 481 2350 
+L 4500 2350 
+Q 4547 2350 4581 2309 
+Q 4616 2269 4616 2222 
+Q 4616 2169 4581 2131 
+Q 4547 2094 4500 2094 
+L 481 2094 
+z
+" transform="scale(0.015625)"/>
+     <path id="w8t126-Cmr10-30" d="M 1600 -141 
+Q 816 -141 533 504 
+Q 250 1150 250 2041 
+Q 250 2597 351 3087 
+Q 453 3578 754 3920 
+Q 1056 4263 1600 4263 
+Q 2022 4263 2290 4056 
+Q 2559 3850 2700 3523 
+Q 2841 3197 2892 2823 
+Q 2944 2450 2944 2041 
+Q 2944 1491 2842 1011 
+Q 2741 531 2444 195 
+Q 2147 -141 1600 -141 
+z
+M 1600 25 
+Q 1956 25 2131 390 
+Q 2306 756 2347 1200 
+Q 2388 1644 2388 2144 
+Q 2388 2625 2347 3031 
+Q 2306 3438 2132 3767 
+Q 1959 4097 1600 4097 
+Q 1238 4097 1063 3765 
+Q 888 3434 847 3029 
+Q 806 2625 806 2144 
+Q 806 1788 823 1472 
+Q 841 1156 916 820 
+Q 991 484 1158 254 
+Q 1325 25 1600 25 
+z
+" transform="scale(0.015625)"/>
+     <path id="w8t126-Cmmi10-3a" d="M 538 353 
 Q 538 497 644 600 
 Q 750 703 891 703 
 Q 978 703 1062 656 
@@ -488,7 +488,7 @@ Q 750 0 644 106
 Q 538 213 538 353 
 z
 " transform="scale(0.015625)"/>
-     <path id="w8t123-Cmr10-34" d="M 178 1056 
+     <path id="w8t126-Cmr10-34" d="M 178 1056 
 L 178 1281 
 L 2156 4231 
 Q 2178 4263 2222 4263 
@@ -515,7 +515,7 @@ L 1906 3547
 L 391 1281 
 z
 " transform="scale(0.015625)"/>
-     <path id="w8t123-Cmr10-37" d="M 1113 166 
+     <path id="w8t126-Cmr10-37" d="M 1113 166 
 Q 1113 522 1175 862 
 Q 1238 1203 1358 1536 
 Q 1478 1869 1648 2189 
@@ -543,265 +543,22 @@ Q 1294 -141 1203 -50
 Q 1113 41 1113 166 
 z
 " transform="scale(0.015625)"/>
-     <path id="w8t123-Cmss10-6f" d="M 1600 -72 
-Q 1203 -72 878 133 
-Q 553 338 365 680 
-Q 178 1022 178 1403 
-Q 178 1697 284 1976 
-Q 391 2256 580 2476 
-Q 769 2697 1033 2823 
-Q 1297 2950 1600 2950 
-Q 1900 2950 2161 2825 
-Q 2422 2700 2615 2476 
-Q 2809 2253 2912 1975 
-Q 3016 1697 3016 1403 
-Q 3016 1022 2830 680 
-Q 2644 338 2317 133 
-Q 1991 -72 1600 -72 
-z
-M 1600 366 
-Q 1894 366 2095 525 
-Q 2297 684 2394 940 
-Q 2491 1197 2491 1478 
-Q 2491 1753 2389 1995 
-Q 2288 2238 2086 2386 
-Q 1884 2534 1600 2534 
-Q 1313 2534 1111 2387 
-Q 909 2241 806 1997 
-Q 703 1753 703 1478 
-Q 703 1278 756 1079 
-Q 809 881 926 714 
-Q 1044 547 1214 456 
-Q 1384 366 1600 366 
-z
-" transform="scale(0.015625)"/>
-     <path id="w8t123-Cmss10-6e" d="M 506 0 
-L 506 2881 
-L 991 2881 
-L 991 2444 
-Q 1163 2666 1402 2789 
-Q 1641 2913 1913 2913 
-Q 2391 2913 2594 2645 
-Q 2797 2378 2797 1881 
-L 2797 0 
-L 2272 0 
-L 2272 1881 
-Q 2272 2200 2114 2348 
-Q 1956 2497 1638 2497 
-Q 1425 2497 1289 2355 
-Q 1153 2213 1092 2005 
-Q 1031 1797 1031 1588 
-L 1031 0 
-L 506 0 
-z
-" transform="scale(0.015625)"/>
-     <path id="w8t123-Cmss10-62" d="M 513 0 
-L 513 4441 
-L 1019 4441 
-L 1019 2547 
-Q 1228 2719 1509 2816 
-Q 1791 2913 2088 2913 
-Q 2341 2913 2530 2769 
-Q 2719 2625 2841 2398 
-Q 2963 2172 3023 1911 
-Q 3084 1650 3084 1422 
-Q 3084 1081 2942 728 
-Q 2800 375 2533 151 
-Q 2266 -72 1906 -72 
-Q 1663 -72 1438 22 
-Q 1213 116 1038 288 
-L 1038 0 
-L 513 0 
-z
-M 1038 744 
-Q 1138 559 1288 453 
-Q 1438 347 1631 347 
-Q 1928 347 2139 494 
-Q 2350 641 2454 886 
-Q 2559 1131 2559 1422 
-Q 2559 1700 2468 1945 
-Q 2378 2191 2186 2344 
-Q 1994 2497 1709 2497 
-Q 1509 2497 1334 2401 
-Q 1159 2306 1038 2138 
-L 1038 744 
-z
-" transform="scale(0.015625)"/>
-     <path id="w8t123-Cmss10-74" d="M 1141 -72 
-Q 859 -72 753 211 
-Q 647 494 647 831 
-L 647 2444 
-L 122 2444 
-L 122 2841 
-L 666 2841 
-L 666 3653 
-L 1131 3653 
-L 1131 2841 
-L 2022 2841 
-L 2022 2444 
-L 1131 2444 
-L 1131 916 
-Q 1131 366 1428 366 
-Q 1756 366 2016 569 
-L 2125 166 
-Q 1884 47 1646 -12 
-Q 1409 -72 1141 -72 
-z
-" transform="scale(0.015625)"/>
-     <path id="w8t123-Cmss10-68" d="M 506 0 
-L 506 4441 
-L 1013 4441 
-L 1013 2472 
-Q 1181 2675 1420 2794 
-Q 1659 2913 1913 2913 
-Q 2391 2913 2594 2645 
-Q 2797 2378 2797 1881 
-L 2797 0 
-L 2272 0 
-L 2272 1881 
-Q 2272 2200 2114 2348 
-Q 1956 2497 1638 2497 
-Q 1425 2497 1289 2355 
-Q 1153 2213 1092 2005 
-Q 1031 1797 1031 1588 
-L 1031 0 
-L 506 0 
-z
-" transform="scale(0.015625)"/>
-     <path id="w8t123-Cmss10-6c" d="M 506 0 
-L 506 4441 
-L 1013 4441 
-L 1013 0 
-L 506 0 
-z
-" transform="scale(0.015625)"/>
-     <path id="w8t123-Cmss10-69" d="M 506 0 
-L 506 2841 
-L 1013 2841 
-L 1013 0 
-L 506 0 
-z
-M 459 3756 
-L 459 4353 
-L 1056 4353 
-L 1056 3756 
-L 459 3756 
-z
-" transform="scale(0.015625)"/>
-     <path id="w8t123-Cmss10-65" d="M 1594 -72 
-Q 1300 -72 1044 51 
-Q 788 175 602 390 
-Q 416 606 314 882 
-Q 213 1159 213 1441 
-Q 213 1806 373 2159 
-Q 534 2513 831 2731 
-Q 1128 2950 1503 2950 
-Q 2116 2950 2386 2500 
-Q 2656 2050 2656 1403 
-L 684 1403 
-Q 684 1150 801 904 
-Q 919 659 1130 503 
-Q 1341 347 1594 347 
-Q 2150 347 2584 691 
-L 2625 256 
-Q 2491 122 2162 25 
-Q 1834 -72 1594 -72 
-z
-M 722 1778 
-L 2259 1778 
-Q 2209 2103 2015 2318 
-Q 1822 2534 1503 2534 
-Q 1316 2534 1150 2426 
-Q 984 2319 876 2145 
-Q 769 1972 722 1778 
-z
-" transform="scale(0.015625)"/>
-     <path id="w8t123-Cmss10-73" d="M 178 213 
-L 263 672 
-Q 716 359 1259 359 
-Q 1494 359 1659 461 
-Q 1825 563 1825 781 
-Q 1825 947 1698 1053 
-Q 1572 1159 1403 1191 
-L 1013 1269 
-Q 688 1334 450 1559 
-Q 213 1784 213 2100 
-Q 213 2391 353 2583 
-Q 494 2775 731 2862 
-Q 969 2950 1259 2950 
-Q 1538 2950 1745 2904 
-Q 1953 2859 2194 2747 
-L 2119 2297 
-Q 1888 2434 1673 2490 
-Q 1459 2547 1191 2547 
-Q 981 2547 836 2455 
-Q 691 2363 691 2163 
-Q 691 2025 800 1926 
-Q 909 1828 1063 1791 
-L 1491 1709 
-Q 1709 1659 1895 1537 
-Q 2081 1416 2192 1233 
-Q 2303 1050 2303 831 
-Q 2303 525 2167 323 
-Q 2031 122 1798 25 
-Q 1566 -72 1259 -72 
-Q 684 -72 178 213 
-z
-" transform="scale(0.015625)"/>
-     <path id="w8t123-Cmr10-3a" d="M 538 353 
-Q 538 497 644 600 
-Q 750 703 891 703 
-Q 978 703 1062 656 
-Q 1147 609 1194 525 
-Q 1241 441 1241 353 
-Q 1241 213 1137 106 
-Q 1034 0 891 0 
-Q 750 0 644 106 
-Q 538 213 538 353 
-z
-M 538 2406 
-Q 538 2497 584 2578 
-Q 631 2659 714 2709 
-Q 797 2759 891 2759 
-Q 981 2759 1064 2709 
-Q 1147 2659 1194 2578 
-Q 1241 2497 1241 2406 
-Q 1241 2263 1139 2158 
-Q 1038 2053 891 2053 
-Q 747 2053 642 2158 
-Q 538 2263 538 2406 
-z
-" transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w8t123-Cmmi10-bf" transform="translate(0 0.609375)"/>
-    <use xlink:href="#w8t123-Cmr10-3d" transform="translate(61.259766 0.609375)"/>
-    <use xlink:href="#w8t123-Cmr10-30" transform="translate(156.503906 0.609375)"/>
-    <use xlink:href="#w8t123-Cmmi10-3a" transform="translate(206.503906 0.609375)"/>
-    <use xlink:href="#w8t123-Cmr10-34" transform="translate(234.189453 0.609375)"/>
-    <use xlink:href="#w8t123-Cmr10-37" transform="translate(284.189453 0.609375)"/>
-    <use xlink:href="#w8t123-Cmss10-6f" transform="translate(363.453483 0.609375)"/>
-    <use xlink:href="#w8t123-Cmss10-6e" transform="translate(413.453483 0.609375)"/>
-    <use xlink:href="#w8t123-Cmss10-62" transform="translate(494.328842 0.609375)"/>
-    <use xlink:href="#w8t123-Cmss10-6f" transform="translate(545.94017 0.609375)"/>
-    <use xlink:href="#w8t123-Cmss10-74" transform="translate(595.94017 0.609375)"/>
-    <use xlink:href="#w8t123-Cmss10-68" transform="translate(632.024154 0.609375)"/>
-    <use xlink:href="#w8t123-Cmss10-6c" transform="translate(712.899513 0.609375)"/>
-    <use xlink:href="#w8t123-Cmss10-69" transform="translate(736.67881 0.609375)"/>
-    <use xlink:href="#w8t123-Cmss10-6e" transform="translate(760.458106 0.609375)"/>
-    <use xlink:href="#w8t123-Cmss10-65" transform="translate(812.069435 0.609375)"/>
-    <use xlink:href="#w8t123-Cmss10-73" transform="translate(856.4542 0.609375)"/>
-    <use xlink:href="#w8t123-Cmr10-3a" transform="translate(912.294044 0.609375)"/>
+    <use xlink:href="#w8t126-Cmmi10-bf" transform="translate(0 0.421875)"/>
+    <use xlink:href="#w8t126-Cmr10-3d" transform="translate(61.259766 0.421875)"/>
+    <use xlink:href="#w8t126-Cmr10-30" transform="translate(156.503906 0.421875)"/>
+    <use xlink:href="#w8t126-Cmmi10-3a" transform="translate(206.503906 0.421875)"/>
+    <use xlink:href="#w8t126-Cmr10-34" transform="translate(234.189453 0.421875)"/>
+    <use xlink:href="#w8t126-Cmr10-37" transform="translate(284.189453 0.421875)"/>
    </g>
   </g>
  </g>
 </svg>
-<text x="700.0" y="104.0" font-size="16" font-weight="600" fill="#dc2626" text-anchor="end" dominant-baseline="auto">the MSE optimum at the red dot is their mean (red arrow)</text>
+<text x="379.9" y="262.0" font-size="19" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="auto" textLength="321.7" lengthAdjust="spacing">on both lines: two correct velocities</text>
+<text x="500.0" y="288.0" font-size="19" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">the MSE optimum is their mean (red arrow)</text>
 </g>
 <g class="fragment" data-fragment-index="2">
-<path d="M 240.0 278.0 Q 444.7 200.0 760.0 190.0" fill="none" stroke="#dc2626" stroke-width="2.6"/>
-<circle cx="760.0" cy="190.0" r="7.0" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
-<text x="20.0" y="300.0" font-size="16" font-weight="600" fill="#dc2626" text-anchor="start" dominant-baseline="auto">following the learned (marginal) field from the start bends toward the middle: it ends at</text>
-<text x="20.0" y="322.0" font-size="16" font-weight="600" fill="#dc2626" text-anchor="start" dominant-baseline="auto">another sample, not the original end (sketch) — and a curve costs many small Euler steps;</text>
-<text x="20.0" y="344.0" font-size="16" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">reflow re-pairs each start with the end actually reached: the new lines no longer cross (Liu et al. §2.1, Thm 3.3)</text>
+<path d="M 240.0 254.0 Q 444.7 176.0 760.0 166.0" fill="none" stroke="#dc2626" stroke-width="2.6"/>
+<circle cx="760.0" cy="166.0" r="7.0" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
 </g>
 </svg>
