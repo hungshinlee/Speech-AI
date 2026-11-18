@@ -1,73 +1,73 @@
 <!-- 由 scripts/make_figs_w03.py 產生，勿手改；投影片用 {{< include assets/w03/hmm-trellis.inline.qmd >}} 貼入 -->
 ```{=html}
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 380" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
-<circle cx="120.0" cy="92.0" r="15.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
-<circle cx="120.0" cy="184.0" r="15.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
-<circle cx="120.0" cy="276.0" r="15.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
-<circle cx="224.0" cy="92.0" r="15.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
-<circle cx="224.0" cy="184.0" r="15.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
-<circle cx="224.0" cy="276.0" r="15.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
-<circle cx="328.0" cy="92.0" r="15.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
-<circle cx="328.0" cy="184.0" r="15.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
-<circle cx="328.0" cy="276.0" r="15.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
-<circle cx="432.0" cy="92.0" r="15.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
-<circle cx="432.0" cy="184.0" r="15.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
-<circle cx="432.0" cy="276.0" r="15.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
-<circle cx="536.0" cy="92.0" r="15.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
-<circle cx="536.0" cy="184.0" r="15.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
-<circle cx="536.0" cy="276.0" r="15.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
-<line x1="135.0" y1="92.0" x2="209.0" y2="92.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="135.0" y1="92.0" x2="209.0" y2="184.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="135.0" y1="92.0" x2="209.0" y2="276.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="135.0" y1="184.0" x2="209.0" y2="92.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="135.0" y1="184.0" x2="209.0" y2="184.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="135.0" y1="184.0" x2="209.0" y2="276.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="135.0" y1="276.0" x2="209.0" y2="92.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="135.0" y1="276.0" x2="209.0" y2="184.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="135.0" y1="276.0" x2="209.0" y2="276.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="239.0" y1="92.0" x2="313.0" y2="92.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="239.0" y1="92.0" x2="313.0" y2="184.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="239.0" y1="92.0" x2="313.0" y2="276.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="239.0" y1="184.0" x2="313.0" y2="92.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="239.0" y1="184.0" x2="313.0" y2="184.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="239.0" y1="184.0" x2="313.0" y2="276.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="239.0" y1="276.0" x2="313.0" y2="92.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="239.0" y1="276.0" x2="313.0" y2="184.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="239.0" y1="276.0" x2="313.0" y2="276.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="343.0" y1="92.0" x2="417.0" y2="92.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="343.0" y1="92.0" x2="417.0" y2="184.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="343.0" y1="92.0" x2="417.0" y2="276.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="343.0" y1="184.0" x2="417.0" y2="92.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="343.0" y1="184.0" x2="417.0" y2="184.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="343.0" y1="184.0" x2="417.0" y2="276.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="343.0" y1="276.0" x2="417.0" y2="92.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="343.0" y1="276.0" x2="417.0" y2="184.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="343.0" y1="276.0" x2="417.0" y2="276.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="447.0" y1="92.0" x2="521.0" y2="92.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="447.0" y1="92.0" x2="521.0" y2="184.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="447.0" y1="92.0" x2="521.0" y2="276.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="447.0" y1="184.0" x2="521.0" y2="92.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="447.0" y1="184.0" x2="521.0" y2="184.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="447.0" y1="184.0" x2="521.0" y2="276.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="447.0" y1="276.0" x2="521.0" y2="92.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="447.0" y1="276.0" x2="521.0" y2="184.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<line x1="447.0" y1="276.0" x2="521.0" y2="276.0" stroke="#e5e7eb" stroke-width="1.0"/>
-<svg x="25.32" y="86.5472" width="34.68" height="16.4528" viewBox="0 0 34.68 16.452813"><defs>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 340" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<circle cx="150.0" cy="78.0" r="15.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+<circle cx="150.0" cy="170.0" r="15.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+<circle cx="150.0" cy="262.0" r="15.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+<circle cx="250.0" cy="78.0" r="15.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+<circle cx="250.0" cy="170.0" r="15.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+<circle cx="250.0" cy="262.0" r="15.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+<circle cx="350.0" cy="78.0" r="15.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+<circle cx="350.0" cy="170.0" r="15.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+<circle cx="350.0" cy="262.0" r="15.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+<circle cx="450.0" cy="78.0" r="15.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+<circle cx="450.0" cy="170.0" r="15.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+<circle cx="450.0" cy="262.0" r="15.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+<circle cx="550.0" cy="78.0" r="15.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+<circle cx="550.0" cy="170.0" r="15.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+<circle cx="550.0" cy="262.0" r="15.0" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+<line x1="165.0" y1="78.0" x2="235.0" y2="78.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="165.0" y1="78.0" x2="235.0" y2="170.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="165.0" y1="78.0" x2="235.0" y2="262.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="165.0" y1="170.0" x2="235.0" y2="78.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="165.0" y1="170.0" x2="235.0" y2="170.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="165.0" y1="170.0" x2="235.0" y2="262.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="165.0" y1="262.0" x2="235.0" y2="78.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="165.0" y1="262.0" x2="235.0" y2="170.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="165.0" y1="262.0" x2="235.0" y2="262.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="265.0" y1="78.0" x2="335.0" y2="78.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="265.0" y1="78.0" x2="335.0" y2="170.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="265.0" y1="78.0" x2="335.0" y2="262.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="265.0" y1="170.0" x2="335.0" y2="78.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="265.0" y1="170.0" x2="335.0" y2="170.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="265.0" y1="170.0" x2="335.0" y2="262.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="265.0" y1="262.0" x2="335.0" y2="78.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="265.0" y1="262.0" x2="335.0" y2="170.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="265.0" y1="262.0" x2="335.0" y2="262.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="365.0" y1="78.0" x2="435.0" y2="78.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="365.0" y1="78.0" x2="435.0" y2="170.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="365.0" y1="78.0" x2="435.0" y2="262.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="365.0" y1="170.0" x2="435.0" y2="78.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="365.0" y1="170.0" x2="435.0" y2="170.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="365.0" y1="170.0" x2="435.0" y2="262.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="365.0" y1="262.0" x2="435.0" y2="78.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="365.0" y1="262.0" x2="435.0" y2="170.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="365.0" y1="262.0" x2="435.0" y2="262.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="465.0" y1="78.0" x2="535.0" y2="78.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="465.0" y1="78.0" x2="535.0" y2="170.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="465.0" y1="78.0" x2="535.0" y2="262.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="465.0" y1="170.0" x2="535.0" y2="78.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="465.0" y1="170.0" x2="535.0" y2="170.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="465.0" y1="170.0" x2="535.0" y2="262.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="465.0" y1="262.0" x2="535.0" y2="78.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="465.0" y1="262.0" x2="535.0" y2="170.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<line x1="465.0" y1="262.0" x2="535.0" y2="262.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<svg x="51.488" y="67.7219" width="46.512" height="22.0661" viewBox="0 0 46.512 22.066125"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w3t9-figure_1">
   <g id="w3t9-patch_1">
-   <path d="M 0 16.452813 
-L 34.68 16.452813 
-L 34.68 0 
+   <path d="M 0 22.066125 
+L 46.512 22.066125 
+L 46.512 0 
 L 0 0 
-L 0 16.452813 
+L 0 22.066125 
 z
 " style="fill: none"/>
   </g>
   <g id="w3t9-text_1">
    <!-- $j = 1$ -->
-   <g style="fill: #6b7280" transform="translate(0 12.882812) scale(0.17 -0.17)">
+   <g style="fill: #6b7280" transform="translate(0 17.278125) scale(0.228 -0.228)">
     <defs>
      <path id="w3t9-Cmmi10-6a" d="M -84 -909 
 Q -84 -753 23 -639 
@@ -160,22 +160,22 @@ z
   </g>
  </g>
 </svg>
-<svg x="25.32" y="178.547" width="34.68" height="16.4528" viewBox="0 0 34.68 16.452813"><defs>
+<svg x="51.488" y="159.722" width="46.512" height="22.0661" viewBox="0 0 46.512 22.066125"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w3t10-figure_1">
   <g id="w3t10-patch_1">
-   <path d="M 0 16.452813 
-L 34.68 16.452813 
-L 34.68 0 
+   <path d="M 0 22.066125 
+L 46.512 22.066125 
+L 46.512 0 
 L 0 0 
-L 0 16.452813 
+L 0 22.066125 
 z
 " style="fill: none"/>
   </g>
   <g id="w3t10-text_1">
    <!-- $j = 2$ -->
-   <g style="fill: #6b7280" transform="translate(0 12.882812) scale(0.17 -0.17)">
+   <g style="fill: #6b7280" transform="translate(0 17.278125) scale(0.228 -0.228)">
     <defs>
      <path id="w3t10-Cmmi10-6a" d="M -84 -909 
 Q -84 -753 23 -639 
@@ -293,22 +293,22 @@ z
   </g>
  </g>
 </svg>
-<svg x="25.32" y="270.547" width="34.68" height="16.4528" viewBox="0 0 34.68 16.452813"><defs>
+<svg x="51.488" y="251.722" width="46.512" height="22.0661" viewBox="0 0 46.512 22.066125"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w3t11-figure_1">
   <g id="w3t11-patch_1">
-   <path d="M 0 16.452813 
-L 34.68 16.452813 
-L 34.68 0 
+   <path d="M 0 22.066125 
+L 46.512 22.066125 
+L 46.512 0 
 L 0 0 
-L 0 16.452813 
+L 0 22.066125 
 z
 " style="fill: none"/>
   </g>
   <g id="w3t11-text_1">
    <!-- $j = 3$ -->
-   <g style="fill: #6b7280" transform="translate(0 12.882812) scale(0.17 -0.17)">
+   <g style="fill: #6b7280" transform="translate(0 17.278125) scale(0.228 -0.228)">
     <defs>
      <path id="w3t11-Cmmi10-6a" d="M -84 -909 
 Q -84 -753 23 -639 
@@ -443,22 +443,22 @@ z
   </g>
  </g>
 </svg>
-<svg x="104.08" y="307.515" width="31.84" height="15.485" viewBox="0 0 31.84 15.485"><defs>
+<svg x="127.314" y="292.676" width="45.372" height="22.0661" viewBox="0 0 45.372 22.066125"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w3t12-figure_1">
   <g id="w3t12-patch_1">
-   <path d="M 0 15.485 
-L 31.84 15.485 
-L 31.84 0 
+   <path d="M 0 22.066125 
+L 45.372 22.066125 
+L 45.372 0 
 L 0 0 
-L 0 15.485 
+L 0 22.066125 
 z
 " style="fill: none"/>
   </g>
   <g id="w3t12-text_1">
    <!-- $t = 1$ -->
-   <g style="fill: #6b7280" transform="translate(0 12.1575) scale(0.16 -0.16)">
+   <g style="fill: #6b7280" transform="translate(0 17.324437) scale(0.228 -0.228)">
     <defs>
      <path id="w3t12-Cmmi10-74" d="M 397 519 
 Q 397 613 416 697 
@@ -546,23 +546,85 @@ z
   </g>
  </g>
 </svg>
-<svg x="220" y="306.515" width="8" height="15.485" viewBox="0 0 8 15.485"><defs>
+<svg x="227.314" y="292.676" width="45.372" height="22.0661" viewBox="0 0 45.372 22.066125"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w3t13-figure_1">
   <g id="w3t13-patch_1">
-   <path d="M 0 15.485 
-L 8 15.485 
-L 8 0 
+   <path d="M 0 22.066125 
+L 45.372 22.066125 
+L 45.372 0 
 L 0 0 
-L 0 15.485 
+L 0 22.066125 
 z
 " style="fill: none"/>
   </g>
   <g id="w3t13-text_1">
-   <!-- $2$ -->
-   <g style="fill: #6b7280" transform="translate(0 12.1575) scale(0.16 -0.16)">
+   <!-- $t = 2$ -->
+   <g style="fill: #6b7280" transform="translate(0 17.324437) scale(0.228 -0.228)">
     <defs>
+     <path id="w3t13-Cmmi10-74" d="M 397 519 
+Q 397 613 416 697 
+L 878 2534 
+L 206 2534 
+Q 141 2534 141 2619 
+Q 166 2759 225 2759 
+L 934 2759 
+L 1191 3803 
+Q 1216 3888 1291 3947 
+Q 1366 4006 1459 4006 
+Q 1541 4006 1595 3957 
+Q 1650 3909 1650 3828 
+Q 1650 3809 1648 3798 
+Q 1647 3788 1644 3775 
+L 1388 2759 
+L 2047 2759 
+Q 2113 2759 2113 2675 
+Q 2109 2659 2100 2621 
+Q 2091 2584 2075 2559 
+Q 2059 2534 2028 2534 
+L 1331 2534 
+L 872 684 
+Q 825 503 825 372 
+Q 825 97 1013 97 
+Q 1294 97 1511 361 
+Q 1728 625 1844 941 
+Q 1869 978 1894 978 
+L 1972 978 
+Q 1997 978 2012 961 
+Q 2028 944 2028 922 
+Q 2028 909 2022 903 
+Q 1881 516 1612 222 
+Q 1344 -72 997 -72 
+Q 744 -72 570 93 
+Q 397 259 397 519 
+z
+" transform="scale(0.015625)"/>
+     <path id="w3t13-Cmr10-3d" d="M 481 850 
+Q 428 850 393 890 
+Q 359 931 359 978 
+Q 359 1031 393 1068 
+Q 428 1106 481 1106 
+L 4500 1106 
+Q 4547 1106 4581 1068 
+Q 4616 1031 4616 978 
+Q 4616 931 4581 890 
+Q 4547 850 4500 850 
+L 481 850 
+z
+M 481 2094 
+Q 428 2094 393 2131 
+Q 359 2169 359 2222 
+Q 359 2269 393 2309 
+Q 428 2350 481 2350 
+L 4500 2350 
+Q 4547 2350 4581 2309 
+Q 4616 2269 4616 2222 
+Q 4616 2169 4581 2131 
+Q 4547 2094 4500 2094 
+L 481 2094 
+z
+" transform="scale(0.015625)"/>
      <path id="w3t13-Cmr10-32" d="M 319 0 
 L 319 172 
 Q 319 188 331 206 
@@ -605,28 +667,92 @@ L 319 0
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w3t13-Cmr10-32" transform="translate(0 0.390625)"/>
+    <use xlink:href="#w3t13-Cmmi10-74" transform="translate(0 0.390625)"/>
+    <use xlink:href="#w3t13-Cmr10-3d" transform="translate(53.642578 0.390625)"/>
+    <use xlink:href="#w3t13-Cmr10-32" transform="translate(148.886719 0.390625)"/>
    </g>
   </g>
  </g>
 </svg>
-<svg x="324" y="307.515" width="8" height="15.485" viewBox="0 0 8 15.485"><defs>
+<svg x="327.314" y="292.676" width="45.372" height="22.0661" viewBox="0 0 45.372 22.066125"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w3t14-figure_1">
   <g id="w3t14-patch_1">
-   <path d="M 0 15.485 
-L 8 15.485 
-L 8 0 
+   <path d="M 0 22.066125 
+L 45.372 22.066125 
+L 45.372 0 
 L 0 0 
-L 0 15.485 
+L 0 22.066125 
 z
 " style="fill: none"/>
   </g>
   <g id="w3t14-text_1">
-   <!-- $3$ -->
-   <g style="fill: #6b7280" transform="translate(0 12.1575) scale(0.16 -0.16)">
+   <!-- $t = 3$ -->
+   <g style="fill: #6b7280" transform="translate(0 17.324437) scale(0.228 -0.228)">
     <defs>
+     <path id="w3t14-Cmmi10-74" d="M 397 519 
+Q 397 613 416 697 
+L 878 2534 
+L 206 2534 
+Q 141 2534 141 2619 
+Q 166 2759 225 2759 
+L 934 2759 
+L 1191 3803 
+Q 1216 3888 1291 3947 
+Q 1366 4006 1459 4006 
+Q 1541 4006 1595 3957 
+Q 1650 3909 1650 3828 
+Q 1650 3809 1648 3798 
+Q 1647 3788 1644 3775 
+L 1388 2759 
+L 2047 2759 
+Q 2113 2759 2113 2675 
+Q 2109 2659 2100 2621 
+Q 2091 2584 2075 2559 
+Q 2059 2534 2028 2534 
+L 1331 2534 
+L 872 684 
+Q 825 503 825 372 
+Q 825 97 1013 97 
+Q 1294 97 1511 361 
+Q 1728 625 1844 941 
+Q 1869 978 1894 978 
+L 1972 978 
+Q 1997 978 2012 961 
+Q 2028 944 2028 922 
+Q 2028 909 2022 903 
+Q 1881 516 1612 222 
+Q 1344 -72 997 -72 
+Q 744 -72 570 93 
+Q 397 259 397 519 
+z
+" transform="scale(0.015625)"/>
+     <path id="w3t14-Cmr10-3d" d="M 481 850 
+Q 428 850 393 890 
+Q 359 931 359 978 
+Q 359 1031 393 1068 
+Q 428 1106 481 1106 
+L 4500 1106 
+Q 4547 1106 4581 1068 
+Q 4616 1031 4616 978 
+Q 4616 931 4581 890 
+Q 4547 850 4500 850 
+L 481 850 
+z
+M 481 2094 
+Q 428 2094 393 2131 
+Q 359 2169 359 2222 
+Q 359 2269 393 2309 
+Q 428 2350 481 2350 
+L 4500 2350 
+Q 4547 2350 4581 2309 
+Q 4616 2269 4616 2222 
+Q 4616 2169 4581 2131 
+Q 4547 2094 4500 2094 
+L 481 2094 
+z
+" transform="scale(0.015625)"/>
      <path id="w3t14-Cmr10-33" d="M 609 494 
 Q 759 275 1012 169 
 Q 1266 63 1556 63 
@@ -686,28 +812,92 @@ L 609 494
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w3t14-Cmr10-33" transform="translate(0 0.390625)"/>
+    <use xlink:href="#w3t14-Cmmi10-74" transform="translate(0 0.390625)"/>
+    <use xlink:href="#w3t14-Cmr10-3d" transform="translate(53.642578 0.390625)"/>
+    <use xlink:href="#w3t14-Cmr10-33" transform="translate(148.886719 0.390625)"/>
    </g>
   </g>
  </g>
 </svg>
-<svg x="428" y="306.515" width="8" height="15.485" viewBox="0 0 8 15.485"><defs>
+<svg x="427.314" y="292.676" width="45.372" height="22.0661" viewBox="0 0 45.372 22.066125"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w3t15-figure_1">
   <g id="w3t15-patch_1">
-   <path d="M 0 15.485 
-L 8 15.485 
-L 8 0 
+   <path d="M 0 22.066125 
+L 45.372 22.066125 
+L 45.372 0 
 L 0 0 
-L 0 15.485 
+L 0 22.066125 
 z
 " style="fill: none"/>
   </g>
   <g id="w3t15-text_1">
-   <!-- $4$ -->
-   <g style="fill: #6b7280" transform="translate(0 12.1575) scale(0.16 -0.16)">
+   <!-- $t = 4$ -->
+   <g style="fill: #6b7280" transform="translate(0 17.324437) scale(0.228 -0.228)">
     <defs>
+     <path id="w3t15-Cmmi10-74" d="M 397 519 
+Q 397 613 416 697 
+L 878 2534 
+L 206 2534 
+Q 141 2534 141 2619 
+Q 166 2759 225 2759 
+L 934 2759 
+L 1191 3803 
+Q 1216 3888 1291 3947 
+Q 1366 4006 1459 4006 
+Q 1541 4006 1595 3957 
+Q 1650 3909 1650 3828 
+Q 1650 3809 1648 3798 
+Q 1647 3788 1644 3775 
+L 1388 2759 
+L 2047 2759 
+Q 2113 2759 2113 2675 
+Q 2109 2659 2100 2621 
+Q 2091 2584 2075 2559 
+Q 2059 2534 2028 2534 
+L 1331 2534 
+L 872 684 
+Q 825 503 825 372 
+Q 825 97 1013 97 
+Q 1294 97 1511 361 
+Q 1728 625 1844 941 
+Q 1869 978 1894 978 
+L 1972 978 
+Q 1997 978 2012 961 
+Q 2028 944 2028 922 
+Q 2028 909 2022 903 
+Q 1881 516 1612 222 
+Q 1344 -72 997 -72 
+Q 744 -72 570 93 
+Q 397 259 397 519 
+z
+" transform="scale(0.015625)"/>
+     <path id="w3t15-Cmr10-3d" d="M 481 850 
+Q 428 850 393 890 
+Q 359 931 359 978 
+Q 359 1031 393 1068 
+Q 428 1106 481 1106 
+L 4500 1106 
+Q 4547 1106 4581 1068 
+Q 4616 1031 4616 978 
+Q 4616 931 4581 890 
+Q 4547 850 4500 850 
+L 481 850 
+z
+M 481 2094 
+Q 428 2094 393 2131 
+Q 359 2169 359 2222 
+Q 359 2269 393 2309 
+Q 428 2350 481 2350 
+L 4500 2350 
+Q 4547 2350 4581 2309 
+Q 4616 2269 4616 2222 
+Q 4616 2169 4581 2131 
+Q 4547 2094 4500 2094 
+L 481 2094 
+z
+" transform="scale(0.015625)"/>
      <path id="w3t15-Cmr10-34" d="M 178 1056 
 L 178 1281 
 L 2156 4231 
@@ -736,27 +926,29 @@ L 391 1281
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w3t15-Cmr10-34" transform="translate(0 0.390625)"/>
+    <use xlink:href="#w3t15-Cmmi10-74" transform="translate(0 0.390625)"/>
+    <use xlink:href="#w3t15-Cmr10-3d" transform="translate(53.642578 0.390625)"/>
+    <use xlink:href="#w3t15-Cmr10-34" transform="translate(148.886719 0.390625)"/>
    </g>
   </g>
  </g>
 </svg>
-<svg x="520.08" y="307.515" width="31.84" height="15.485" viewBox="0 0 31.84 15.485"><defs>
+<svg x="527.314" y="292.676" width="45.372" height="22.0661" viewBox="0 0 45.372 22.066125"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w3t16-figure_1">
   <g id="w3t16-patch_1">
-   <path d="M 0 15.485 
-L 31.84 15.485 
-L 31.84 0 
+   <path d="M 0 22.066125 
+L 45.372 22.066125 
+L 45.372 0 
 L 0 0 
-L 0 15.485 
+L 0 22.066125 
 z
 " style="fill: none"/>
   </g>
   <g id="w3t16-text_1">
    <!-- $t = 5$ -->
-   <g style="fill: #6b7280" transform="translate(0 12.1575) scale(0.16 -0.16)">
+   <g style="fill: #6b7280" transform="translate(0 17.324437) scale(0.228 -0.228)">
     <defs>
      <path id="w3t16-Cmmi10-74" d="M 397 519 
 Q 397 613 416 697 
@@ -881,27 +1073,26 @@ z
   </g>
  </g>
 </svg>
-<text x="60.0" y="40.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">states</text>
-<text x="576.0" y="322.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">frames</text>
+<text x="98.0" y="30.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">states</text>
 <g class="fragment" data-fragment-index="0">
-<line x1="343.0" y1="92.0" x2="417.0" y2="184.0" stroke="#0b5cad" stroke-width="2.2"/>
-<circle cx="328.0" cy="92.0" r="15.0" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.6"/>
-<svg x="252.92" y="86" width="54.08" height="16" viewBox="0 0 54.08 16"><defs>
+<line x1="365.0" y1="78.0" x2="435.0" y2="170.0" stroke="#0b5cad" stroke-width="2.2"/>
+<circle cx="350.0" cy="78.0" r="15.0" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.6"/>
+<svg x="266.936" y="35.9" width="77.064" height="22.8" viewBox="0 0 77.064 22.8"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w3t17-figure_1">
   <g id="w3t17-patch_1">
-   <path d="M 0 16 
-L 54.08 16 
-L 54.08 0 
+   <path d="M 0 22.8 
+L 77.064 22.8 
+L 77.064 0 
 L 0 0 
-L 0 16 
+L 0 22.8 
 z
 " style="fill: none"/>
   </g>
   <g id="w3t17-text_1">
    <!-- $\alpha_{t-1}(1)$ -->
-   <g style="fill: #0b5cad" transform="translate(0 12) scale(0.16 -0.16)">
+   <g style="fill: #0b5cad" transform="translate(0 17.1) scale(0.228 -0.228)">
     <defs>
      <path id="w3t17-Cmmi10-ae" d="M 1288 -72 
 Q 984 -72 748 72 
@@ -1074,24 +1265,24 @@ z
   </g>
  </g>
 </svg>
-<line x1="343.0" y1="184.0" x2="417.0" y2="184.0" stroke="#0b5cad" stroke-width="2.2"/>
-<circle cx="328.0" cy="184.0" r="15.0" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.6"/>
-<svg x="252.92" y="178" width="54.08" height="16" viewBox="0 0 54.08 16"><defs>
+<line x1="365.0" y1="170.0" x2="435.0" y2="170.0" stroke="#0b5cad" stroke-width="2.2"/>
+<circle cx="350.0" cy="170.0" r="15.0" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.6"/>
+<svg x="266.936" y="127.9" width="77.064" height="22.8" viewBox="0 0 77.064 22.8"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w3t18-figure_1">
   <g id="w3t18-patch_1">
-   <path d="M 0 16 
-L 54.08 16 
-L 54.08 0 
+   <path d="M 0 22.8 
+L 77.064 22.8 
+L 77.064 0 
 L 0 0 
-L 0 16 
+L 0 22.8 
 z
 " style="fill: none"/>
   </g>
   <g id="w3t18-text_1">
    <!-- $\alpha_{t-1}(2)$ -->
-   <g style="fill: #0b5cad" transform="translate(0 12) scale(0.16 -0.16)">
+   <g style="fill: #0b5cad" transform="translate(0 17.1) scale(0.228 -0.228)">
     <defs>
      <path id="w3t18-Cmmi10-ae" d="M 1288 -72 
 Q 984 -72 748 72 
@@ -1305,24 +1496,24 @@ z
   </g>
  </g>
 </svg>
-<line x1="343.0" y1="276.0" x2="417.0" y2="184.0" stroke="#0b5cad" stroke-width="2.2"/>
-<circle cx="328.0" cy="276.0" r="15.0" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.6"/>
-<svg x="252.92" y="270" width="54.08" height="16" viewBox="0 0 54.08 16"><defs>
+<line x1="365.0" y1="262.0" x2="435.0" y2="170.0" stroke="#0b5cad" stroke-width="2.2"/>
+<circle cx="350.0" cy="262.0" r="15.0" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.6"/>
+<svg x="266.936" y="219.9" width="77.064" height="22.8" viewBox="0 0 77.064 22.8"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w3t19-figure_1">
   <g id="w3t19-patch_1">
-   <path d="M 0 16 
-L 54.08 16 
-L 54.08 0 
+   <path d="M 0 22.8 
+L 77.064 22.8 
+L 77.064 0 
 L 0 0 
-L 0 16 
+L 0 22.8 
 z
 " style="fill: none"/>
   </g>
   <g id="w3t19-text_1">
    <!-- $\alpha_{t-1}(3)$ -->
-   <g style="fill: #0b5cad" transform="translate(0 12) scale(0.16 -0.16)">
+   <g style="fill: #0b5cad" transform="translate(0 17.1) scale(0.228 -0.228)">
     <defs>
      <path id="w3t19-Cmmi10-ae" d="M 1288 -72 
 Q 984 -72 748 72 
@@ -1553,23 +1744,23 @@ z
   </g>
  </g>
 </svg>
-<circle cx="432.0" cy="184.0" r="15.0" fill="#dcfce7" stroke="#15803d" stroke-width="2.0"/>
-<svg x="453" y="178" width="34.4" height="16" viewBox="0 0 34.4 16"><defs>
+<circle cx="450.0" cy="170.0" r="15.0" fill="#dcfce7" stroke="#15803d" stroke-width="2.0"/>
+<svg x="471" y="146.9" width="49.02" height="22.8" viewBox="0 0 49.02 22.8"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w3t20-figure_1">
   <g id="w3t20-patch_1">
-   <path d="M 0 16 
-L 34.4 16 
-L 34.4 0 
+   <path d="M 0 22.8 
+L 49.02 22.8 
+L 49.02 0 
 L 0 0 
-L 0 16 
+L 0 22.8 
 z
 " style="fill: none"/>
   </g>
   <g id="w3t20-text_1">
    <!-- $\alpha_t(j)$ -->
-   <g style="fill: #15803d" transform="translate(0 12) scale(0.16 -0.16)">
+   <g style="fill: #15803d" transform="translate(0 17.1) scale(0.228 -0.228)">
     <defs>
      <path id="w3t20-Cmmi10-ae" d="M 1288 -72 
 Q 984 -72 748 72 
@@ -1753,22 +1944,22 @@ z
   </g>
  </g>
 </svg>
-<svg x="374.96" y="68.515" width="18.08" height="15.485" viewBox="0 0 18.08 15.485"><defs>
+<svg x="391.118" y="47.2299" width="25.764" height="22.0661" viewBox="0 0 25.764 22.066125"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w3t21-figure_1">
   <g id="w3t21-patch_1">
-   <path d="M 0 15.485 
-L 18.08 15.485 
-L 18.08 0 
+   <path d="M 0 22.066125 
+L 25.764 22.066125 
+L 25.764 0 
 L 0 0 
-L 0 15.485 
+L 0 22.066125 
 z
 " style="fill: none"/>
   </g>
   <g id="w3t21-text_1">
    <!-- $a_{ij}$ -->
-   <g style="fill: #0b5cad" transform="translate(0 10.365) scale(0.16 -0.16)">
+   <g style="fill: #0b5cad" transform="translate(0 14.770125) scale(0.228 -0.228)">
     <defs>
      <path id="w3t21-Cmmi10-61" d="M 1113 -72 
 Q 709 -72 476 233 
@@ -1906,22 +2097,22 @@ z
   </g>
  </g>
 </svg>
-<svg x="453" y="202.88" width="39.2" height="17.12" viewBox="0 0 39.2 17.12"><defs>
+<svg x="471" y="178.9" width="55.86" height="24.396" viewBox="0 0 55.86 24.396"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w3t22-figure_1">
   <g id="w3t22-patch_1">
-   <path d="M 0 17.12 
-L 39.2 17.12 
-L 39.2 0 
+   <path d="M 0 24.396 
+L 55.86 24.396 
+L 55.86 0 
 L 0 0 
-L 0 17.12 
+L 0 24.396 
 z
 " style="fill: none"/>
   </g>
   <g id="w3t22-text_1">
    <!-- $b_j(\mathbf{x}_t)$ -->
-   <g style="fill: #15803d" transform="translate(0 12) scale(0.16 -0.16)">
+   <g style="fill: #15803d" transform="translate(0 17.1) scale(0.228 -0.228)">
     <defs>
      <path id="w3t22-Cmmi10-62" d="M 1106 -72 
 Q 719 -72 503 231 
@@ -2134,22 +2325,22 @@ z
 </svg>
 </g>
 <g class="fragment" data-fragment-index="1">
-<svg x="640" y="81.67" width="219.83" height="20.33" viewBox="0 0 219.83 20.33"><defs>
+<svg x="620" y="52.9" width="263.796" height="24.396" viewBox="0 0 263.796 24.396"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w3t23-figure_1">
   <g id="w3t23-patch_1">
-   <path d="M 0 20.33 
-L 219.83 20.33 
-L 219.83 -0 
-L 0 -0 
-L 0 20.33 
+   <path d="M 0 24.396 
+L 263.796 24.396 
+L 263.796 0 
+L 0 0 
+L 0 24.396 
 z
 " style="fill: none"/>
   </g>
   <g id="w3t23-text_1">
    <!-- $\alpha_t(j) = b_j(\mathbf{x}_t)\,\Sigma_i\, \alpha_{t-1}(i)\, a_{ij}$ -->
-   <g style="fill: #1f2328" transform="translate(0 14.25) scale(0.19 -0.19)">
+   <g style="fill: #1f2328" transform="translate(0 17.1) scale(0.228 -0.228)">
     <defs>
      <path id="w3t23-Cmmi10-ae" d="M 1288 -72 
 Q 984 -72 748 72 
@@ -2595,30 +2786,30 @@ z
   </g>
  </g>
 </svg>
-<text x="640.0" y="122.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">forward: add every way of arriving</text>
+<text x="620.0" y="98.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">forward: add every way of arriving</text>
 </g>
 <g class="fragment" data-fragment-index="2">
-<line x1="343.0" y1="92.0" x2="417.0" y2="184.0" stroke="#ffffff" stroke-width="4.0"/>
-<line x1="343.0" y1="92.0" x2="417.0" y2="184.0" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="3 3"/>
-<line x1="343.0" y1="276.0" x2="417.0" y2="184.0" stroke="#ffffff" stroke-width="4.0"/>
-<line x1="343.0" y1="276.0" x2="417.0" y2="184.0" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="3 3"/>
-<line x1="343.0" y1="184.0" x2="417.0" y2="184.0" stroke="#dc2626" stroke-width="3.2"/>
-<svg x="640" y="181.67" width="233.89" height="20.33" viewBox="0 0 233.89 20.33"><defs>
+<line x1="365.0" y1="78.0" x2="435.0" y2="170.0" stroke="#ffffff" stroke-width="4.0"/>
+<line x1="365.0" y1="78.0" x2="435.0" y2="170.0" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="3 3"/>
+<line x1="365.0" y1="262.0" x2="435.0" y2="170.0" stroke="#ffffff" stroke-width="4.0"/>
+<line x1="365.0" y1="262.0" x2="435.0" y2="170.0" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="3 3"/>
+<line x1="365.0" y1="170.0" x2="435.0" y2="170.0" stroke="#dc2626" stroke-width="3.2"/>
+<svg x="620" y="146.9" width="280.668" height="24.396" viewBox="0 0 280.668 24.396"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w3t24-figure_1">
   <g id="w3t24-patch_1">
-   <path d="M 0 20.33 
-L 233.89 20.33 
-L 233.89 -0 
-L 0 -0 
-L 0 20.33 
+   <path d="M 0 24.396 
+L 280.668 24.396 
+L 280.668 0 
+L 0 0 
+L 0 24.396 
 z
 " style="fill: none"/>
   </g>
   <g id="w3t24-text_1">
    <!-- $\delta_t(j) = b_j(\mathbf{x}_t)\,{\max}_i\, \delta_{t-1}(i)\, a_{ij}$ -->
-   <g style="fill: #dc2626" transform="translate(0 14.25) scale(0.19 -0.19)">
+   <g style="fill: #dc2626" transform="translate(0 17.1) scale(0.228 -0.228)">
     <defs>
      <path id="w3t24-Cmmi10-b1" d="M 1281 -97 
 Q 1059 -97 868 -14 
@@ -3178,25 +3369,25 @@ z
   </g>
  </g>
 </svg>
-<text x="640.0" y="222.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">Viterbi: keep only the best way of arriving</text>
-<text x="640.0" y="258.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="auto">same lattice, same recursion —</text>
-<text x="640.0" y="280.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="auto">only the semiring changes:</text>
-<svg x="640" y="294" width="153" height="17" viewBox="0 0 153 17"><defs>
+<text x="620.0" y="192.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">Viterbi: keep only the best way in</text>
+<text x="620.0" y="244.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="auto">same lattice, same recursion —</text>
+<text x="620.0" y="270.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="auto">only the semiring changes:</text>
+<svg x="620" y="284.9" width="205.2" height="22.8" viewBox="0 0 205.2 22.8"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w3t25-figure_1">
   <g id="w3t25-patch_1">
-   <path d="M 0 17 
-L 153 17 
-L 153 0 
+   <path d="M 0 22.8 
+L 205.2 22.8 
+L 205.2 0 
 L 0 0 
-L 0 17 
+L 0 22.8 
 z
 " style="fill: none"/>
   </g>
   <g id="w3t25-text_1">
    <!-- $(+,\, \times) \to (\max,\, \times)$ -->
-   <g style="fill: #1f2328" transform="translate(0 12.75) scale(0.17 -0.17)">
+   <g style="fill: #1f2328" transform="translate(0 17.1) scale(0.228 -0.228)">
     <defs>
      <path id="w3t25-Cmr10-28" d="M 1984 -1588 
 Q 1628 -1306 1370 -942 
@@ -3514,6 +3705,5 @@ z
  </g>
 </svg>
 </g>
-<text x="250.0" y="368.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">Every edge carries a transition probability; every node an emission. Nothing else is in the model.</text>
 </svg>
 ```

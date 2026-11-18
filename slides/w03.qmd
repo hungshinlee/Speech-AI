@@ -59,6 +59,12 @@ format:
 
 {{< include assets/w03/last-week.inline.qmd >}}
 
+::: {.fragment fragment-index=1}
+::: {.small}
+"speech is" in ARPAbet · about a dozen phones per second (order of magnitude) · the boundaries drawn here are invented
+:::
+:::
+
 ::: {.claim}
 **Week 2 gave us the clock.** Nobody gave us what each tick belongs to — and that gap is the whole of this week.
 :::
@@ -95,6 +101,12 @@ Demo 1 · code: `demos/w03_d1_two_rates` · rehearsed on the M5 Max, 2026-10-05
 
 {{< include assets/w03/alignment-gap.inline.qmd >}}
 
+::: {.fragment fragment-index=2}
+::: {.claim .warn}
+Which frames belong to which symbol? **Nobody says.** That gap is this week.
+:::
+:::
+
 ::: {.ask}
 **Demo 1.** Before the plots appear: which numbers change between the two takes, and which stay the same?
 :::
@@ -112,7 +124,19 @@ Speech recognition is **sequence supervision under an unknown alignment**. Every
 :::
 
 ::: {.footer}
-Today's route: remedial → HMM (road 1) → CTC (road 2) · attention (road 3) is W4
+roads 1 and 2 are today · road 3 (attention) is W4 · the route: next slide
+:::
+
+## Today's route: six stops, in two halves
+
+{{< include assets/w03/route.inline.qmd >}}
+
+::: {.claim}
+**First:** the tools, and the first model that summed the alignment out. **Then:** CTC — the sum, its gradient, what it costs, and what it is.
+:::
+
+::: {.footer}
+six stops = the next six section pages · the same map, half filled in, returns at p25
 :::
 
 ## Five things to leave with today
@@ -191,7 +215,7 @@ Logs are $\ln$ throughout · $L$ is not used today: W2 gave it to the window len
 | **The question** | Given the words $W$, how likely is this audio $\mathbf{X}$ — when nobody says which frames belong to which sound? |
 | **The idea** | A chain of hidden states, left to right, a short chain per phone. Each frame is emitted by whichever state the chain is in; moving and emitting are both probabilities. The state sequence $q$ *is* the alignment, summed over — or maximised over — on a lattice. |
 | **What it added** | The alignment as a **variable** instead of an annotation, and one lattice on which three questions are answered by three recursions: forward (sum), Viterbi (max), Baum–Welch (learn). |
-| **What it leaves open** | A state sees one frame and frames are independent given the state, so context must be pushed into the unit (p21). Emissions are generative densities, so a network enters only through a bootstrap (p22). The transitions are a crude duration model — remember that when CTC drops them (p49). |
+| **What it leaves open** | A state sees one frame and frames are independent given the state, so context must be pushed into the unit (p22). Emissions are generative densities, so a network enters only through a bootstrap (p23). The transitions are a crude duration model — remember that when CTC drops them (p51). |
 :::
 
 ::: {.footer}
@@ -268,6 +292,12 @@ Gales & Young, *FnT Signal Processing* 2008 · tying: Young, Odell & Woodland 19
 
 {{< include assets/w03/hybrid-loop.inline.qmd >}}
 
+::: {.fragment fragment-index=2}
+::: {.small}
+CTC replaces the red box by a posterior recomputed at every step.
+:::
+:::
+
 ::: {.claim .warn}
 You need a working recogniser before you can train the recogniser. The targets are **hard** — one state per frame — and they are only as good as the model that produced them.
 :::
@@ -287,6 +317,18 @@ Hybrid DNN–HMM (DNN: deep neural network) · YD Ch 3–6 · the bootstrap is w
 The HMM is not a system you will deploy. It is the **grammar of every alignment algorithm** you will read for the rest of this course.
 :::
 
+## Half-time: the alignment is a variable, and it can be summed
+
+{{< include assets/w03/half-time.inline.qmd >}}
+
+::: {.claim}
+The next method is written in the same grammar: **the lattice, the recursion and the semiring stay** — the transition probabilities and the bootstrap go.
+:::
+
+::: {.footer}
+the answers: p12–p14 · p19–p20 · the route: p9
+:::
+
 # CTC, part 1: can the network's own output be summed over the alignment? {.section-title}
 
 ## At a glance: connectionist temporal classification (CTC)
@@ -298,7 +340,7 @@ The HMM is not a system you will deploy. It is the **grammar of every alignment 
 | **The question** | A network emits one output per frame; the data gives one transcript per clip. How do you train it on that — with no alignment, and no earlier model to guess one? |
 | **The idea** | Add one symbol, the blank $\varnothing$. Let the network emit a symbol at every frame; define a map $\mathcal{B}$ that collapses any such path to a transcript; maximise the total probability of every path that collapses to the right one — a sum on an HMM-shaped lattice with no transition probabilities. |
 | **What it added** | Training from audio plus text alone — the bootstrap is gone; a gradient that is a per-frame cross-entropy against the model's own soft alignment; and an output that streams, one frame at a time. |
-| **What it leaves open** | The sum without listing the paths (p26–p36); one number into a gradient at every frame (p38–p44); what a model trained this way does — blanks, spikes, independence (p46–p56); what it is, next to the HMM (p58–p60). |
+| **What it leaves open** | The sum without listing the paths (p28–p38); one number into a gradient at every frame (p40–p46); what a model trained this way does — blanks, spikes, independence (p48–p58); what it is, next to the HMM (p60–p62). |
 :::
 
 ::: {.footer}
@@ -309,7 +351,7 @@ Graves, Fernández, Gomez & Schmidhuber, ICML 2006, pp. 369–376 · Graves, *Su
 
 {{< include assets/w03/collapse.inline.qmd >}}
 
-$\mathcal{B}$ maps a path of length $T$ to a label sequence: **merge adjacent repeats, then delete every $\varnothing$.**
+$\mathcal{B}$ maps a path of length $T$ to a label sequence: **merge adjacent repeats, then delete every $\varnothing$.** It is many-to-one. Both steps are needed; their order is what makes repeated letters need a blank.
 
 ::: {.footer}
 Graves et al., ICML 2006 · the blank is bookkeeping: "no new label at this frame"
@@ -376,6 +418,12 @@ Three moves per frame: stay · advance one · advance two, between *different* l
 
 {{< include assets/w03/ctc-lattice.inline.qmd >}}
 
+::: {.fragment fragment-index=1}
+::: {.small}
+At $(3, 4)$ the third term is present: $\ell'_4 = b \neq \varnothing$ and $b \neq \ell'_2 = a$. On a blank row, or when $\ell'_s = \ell'_{s-2}$, it is dropped. Rows follow $\ell'$ top to bottom: a path moves down by 0, 1 or 2 rows per frame and never goes up.
+:::
+:::
+
 $$\alpha_t(s) = y^t_{\ell'_s}\Bigl(\alpha_{t-1}(s) + \alpha_{t-1}(s-1) + [\ell'_s \neq \varnothing \,\wedge\, \ell'_s \neq \ell'_{s-2}]\;\alpha_{t-1}(s-2)\Bigr)$$
 
 ::: {.footer}
@@ -403,6 +451,16 @@ Exponentially many paths, **$O(TS)$ cells**. The same idea as the HMM forward, $
 ## MC 3 — "you need $T \geq 2U + 1$ frames"
 
 {{< include assets/w03/min-path.inline.qmd >}}
+
+::: {.fragment fragment-index=3}
+::: {.claim .warn}
+Every path of length 2 collapses to a single a: $P(\text{aa} \mid \mathbf{X}) = 0$, $\mathcal{L}_{\text{CTC}} = \infty$.
+:::
+:::
+
+::: {.small}
+Shortest legal path: $U + r$ frames — one per label, plus one blank inside each repeated pair. $S = 2U + 1$ is the length of $\ell'$, not a bound on $T$.
+:::
 
 $$T < U + r \;\Rightarrow\; \mathcal{B}^{-1}(\ell) = \varnothing \;\Rightarrow\; P(\ell \mid \mathbf{X}) = 0 \;\Rightarrow\; \mathcal{L}_{\text{CTC}} = \infty, \qquad r = \bigl|\{u : \ell_u = \ell_{u+1}\}\bigr|$$
 
@@ -449,6 +507,10 @@ Uniform-$\mathbf{y}$ rows: w03-data.json → forward_uniform · random-$\mathbf{
 ## Numbers underflow before you notice
 
 {{< include assets/w03/underflow.inline.qmd >}}
+
+::: {.small}
+Add logs instead: the sum over paths needs log-sum-exp, the product over frames becomes a sum.
+:::
 
 $$y^{T} < 5 \times 10^{-324} \iff T > \frac{-323.3}{\log_{10} y}, \qquad y = 0.1:\; T > 323.3, \text{ so the product is } 0 \text{ from } T = 324$$
 
@@ -559,11 +621,11 @@ W7: sequence-discriminative training softens the hybrid target the same way
 {{< include assets/w03/three-uses.inline.qmd >}}
 
 ::: {.claim}
-Only training needs the gradient; only decoding runs without $\ell$ — and without $\ell$ there is no lattice and no $\gamma$. **What you deploy is the per-frame $\mathbf{y}^t$ alone.** Greedy decoding reads its argmax: the best *path*, which need not be the best *labelling* (p20).
+Only training needs the gradient; only decoding runs without $\ell$ — and without $\ell$ there is no lattice and no $\gamma$. **What you deploy is the per-frame $\mathbf{y}^t$ alone.** Greedy decoding reads its argmax: the best *path*, which need not be the best *labelling* (p21).
 :::
 
 ::: {.footer}
-Graves et al., ICML 2006, §3.2: best path decoding · prefix beam search: W7 · word-level forced alignment: p52
+Graves et al., ICML 2006, §3.2: best path decoding · prefix beam search: W7 · word-level forced alignment: p54
 :::
 
 # When CTC goes wrong: what did summing it out cost? {.section-title}
@@ -616,6 +678,16 @@ If you ever find yourself "explaining" a blank-dominated posterior by pauses, lo
 
 {{< include assets/w03/peaky.inline.qmd >}}
 
+::: {.fragment fragment-index=2}
+::: {.small}
+Mid-segment · late · at the onset · mid · late — no rule relates the spike to the edges.
+:::
+:::
+
+::: {.small}
+Nothing in the loss prefers a label to last as long as its sound: a one-frame spike plus blanks is as legal as a full segment.
+:::
+
 ::: {.footer}
 schematic — Demo 3 shows a real one · Zeyer, Schlüter & Ney, arXiv:2105.14849
 :::
@@ -624,19 +696,31 @@ schematic — Demo 3 shows a real one · Zeyer, Schlüter & Ney, arXiv:2105.1484
 
 {{< include assets/w03/real-posterior.inline.qmd >}}
 
+::: {.fragment fragment-index=2}
+::: {.small}
+4 blank frames inside the word (30, 34, 36, 38) · I → S with no blank between: different symbols need none · `|` at 40–41
+:::
+:::
+
 ::: {.claim}
 Six letters on eight frames, blanks in the gaps, the word boundary `|` emitted like any other symbol. **This is what Demo 3's heat-map looks like up close** — and why "4 in 10" inside speech is not a majority: every label still needs at least one frame.
 :::
 
 ::: {.footer}
-Demo 3 · `runs/rehearsal/logits.npy`, softmax, frames 26–42 (20 ms each) · rows for the other 24 symbols omitted — none wins a frame here
+Demo 3 · `logits.npy`, softmax · 20 ms per frame · the other 24 symbols win no frame here
 :::
 
 ## Why peaky: the target chases the model
 
-From the gradient $y^t_k - \gamma_t(k)$, with $\gamma$ recomputed **from the current model** at every step:
+From the gradient $y^t_k - \gamma_t(k)$, with $\gamma$ recomputed **from the current model** at every step ($\gamma$ values illustrative):
 
 {{< include assets/w03/target-chase.inline.qmd >}}
+
+::: {.fragment fragment-index=2}
+::: {.small}
+**Nothing pushes back:** no transition probability rewards a label for lasting, so the loop runs to one spike plus blanks.
+:::
+:::
 
 ::: {.claim}
 Zeyer, Schlüter & Ney (2021) give a formal analysis of this as a **convergence property of the CTC loss under gradient descent**; on a toy example they prove a feed-forward network from uniform initialisation converges to peaky behaviour, and show a related loss with a label prior does not.
@@ -687,8 +771,18 @@ Demo 3 · `torch.nn.functional.ctc_loss`, batch of one, `reduction="sum"` · tor
 
 {{< include assets/w03/cond-indep.inline.qmd >}}
 
+::: {.fragment fragment-index=1}
+::: {.small}
+No edge between outputs: $P(\pi \mid \mathbf{X}) = \prod_t y^t_{\pi_t}$ — given $\mathbf{X}$, $\mathbf{y}^t$ never conditions on $\mathbf{y}^{t-1}$.
+:::
+:::
+
 ::: {.claim}
 Every arrow from $\mathbf{X}$ is there; every arrow between outputs is missing. The assumption lives **only** in the top row.
+:::
+
+::: {.footer}
+BiLSTM: bidirectional long short-term memory network · streaming: the encoder sees $\mathbf{x}_{1:t+m}$
 :::
 
 ## Conditional independence: what the encoder sees, what the outputs share
@@ -768,6 +862,18 @@ Drop the transition probabilities, replace the generative emission by a softmax,
 ## Representation: $T \geq U + r$ is a floor on the frame rate
 
 {{< include assets/w03/frame-rate-bound.inline.qmd >}}
+
+::: {.fragment fragment-index=0}
+::: {.small}
+$U + r \approx 15$–$18$ against $T = 25$: little slack — a fast talker and a doubled letter hit the floor.
+:::
+:::
+
+::: {.fragment fragment-index=1}
+::: {.small}
+Coarser units $\Rightarrow$ smaller $U$ $\Rightarrow$ more subsampling allowed $\Rightarrow$ cheaper encoder.
+:::
+:::
 
 ::: {.claim}
 W2 asked *who decides the frame rate* and answered "the hop, times every stride." Today adds the other side: **the label unit sets how slow the clock is allowed to get.** Stride and vocabulary are one decision.
@@ -850,14 +956,14 @@ The blank changes meaning, the lattice gains a second axis, and the encoder lear
 
 | | |
 |:----|:----------------|
-| BiLSTM | bidirectional long short-term memory network — one encoder among others (p54) |
-| BPE | byte-pair encoding (p62) |
-| CTC | connectionist temporal classification (p25) |
-| DNN | deep neural network (p22) |
+| BiLSTM | bidirectional long short-term memory network — one encoder among others (p56) |
+| BPE | byte-pair encoding (p64) |
+| CTC | connectionist temporal classification (p27) |
+| DNN | deep neural network (p23) |
 | GMM | Gaussian mixture model (W2) |
-| HMM | hidden Markov model (p16) |
-| LM | language model (p55) |
-| MMS | Massively Multilingual Speech — the project, and its CTC forced aligner (p52) |
-| MPS | Metal Performance Shaders: PyTorch's Apple-GPU backend (p53) |
+| HMM | hidden Markov model (p17) |
+| LM | language model (p57) |
+| MMS | Massively Multilingual Speech — the project, and its CTC forced aligner (p54) |
+| MPS | Metal Performance Shaders: PyTorch's Apple-GPU backend (p55) |
 | RNN-T | recurrent neural network transducer (W1) |
 | STFT | short-time Fourier transform (W2) |

@@ -1,26 +1,26 @@
 <!-- 由 scripts/make_figs_w03.py 產生，勿手改；投影片用 {{< include assets/w03/hard-soft-target.inline.qmd >}} 貼入 -->
 ```{=html}
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 236" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 262" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
 <g class="fragment" data-fragment-index="2">
-<text x="110.0" y="34.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="middle">hybrid target: one-hot</text>
-<svg x="288" y="24.5472" width="7.99" height="16.4528" viewBox="0 0 7.99 16.452813"><defs>
+<text x="60.0" y="24.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="auto" textLength="197.2" lengthAdjust="spacing">hybrid target: one-hot</text>
+<svg x="262.304" y="6.67556" width="10.716" height="22.0661" viewBox="0 0 10.716 22.066125"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w3t122-figure_1">
-  <g id="w3t122-patch_1">
-   <path d="M 0 16.452813 
-L 7.99 16.452813 
-L 7.99 0 
+ <g id="w3t101-figure_1">
+  <g id="w3t101-patch_1">
+   <path d="M 0 22.066125 
+L 10.716 22.066125 
+L 10.716 0 
 L 0 0 
-L 0 16.452813 
+L 0 22.066125 
 z
 " style="fill: none"/>
   </g>
-  <g id="w3t122-text_1">
+  <g id="w3t101-text_1">
    <!-- $\mathbf{e}$ -->
-   <g style="fill: #1f2328" transform="translate(0 12.917344) scale(0.17 -0.17)">
+   <g style="fill: #1f2328" transform="translate(0 17.324437) scale(0.228 -0.228)">
     <defs>
-     <path id="w3t122-Cmb10-65" d="M 178 1441 
+     <path id="w3t101-Cmb10-65" d="M 178 1441 
 Q 178 1856 350 2189 
 Q 522 2522 842 2711 
 Q 1163 2900 1581 2900 
@@ -56,30 +56,30 @@ Q 1025 2038 1025 1631
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w3t122-Cmb10-65" transform="translate(0 0.6875)"/>
+    <use xlink:href="#w3t101-Cmb10-65" transform="translate(0 0.6875)"/>
    </g>
   </g>
  </g>
 </svg>
-<text x="600.0" y="34.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="middle">CTC target:</text>
-<svg x="696" y="28" width="32.13" height="17" viewBox="0 0 32.13 17"><defs>
+<text x="560.0" y="24.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="auto" textLength="107.2" lengthAdjust="spacing">CTC target:</text>
+<svg x="672.336" y="6.9" width="43.092" height="22.8" viewBox="0 0 43.092 22.8"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w3t123-figure_1">
-  <g id="w3t123-patch_1">
-   <path d="M 0 17 
-L 32.13 17 
-L 32.13 0 
+ <g id="w3t102-figure_1">
+  <g id="w3t102-patch_1">
+   <path d="M 0 22.8 
+L 43.092 22.8 
+L 43.092 0 
 L 0 0 
-L 0 17 
+L 0 22.8 
 z
 " style="fill: none"/>
   </g>
-  <g id="w3t123-text_1">
+  <g id="w3t102-text_1">
    <!-- $\gamma_t(\cdot)$ -->
-   <g style="fill: #1f2328" transform="translate(0 12.75) scale(0.17 -0.17)">
+   <g style="fill: #1f2328" transform="translate(0 17.1) scale(0.228 -0.228)">
     <defs>
-     <path id="w3t123-Cmmi10-b0" d="M 1888 -1253 
+     <path id="w3t102-Cmmi10-b0" d="M 1888 -1253 
 Q 1888 -1109 1952 -834 
 Q 2016 -559 2108 -248 
 Q 2200 63 2266 263 
@@ -116,7 +116,7 @@ Q 2084 -1369 1984 -1381
 Q 1888 -1381 1888 -1253 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t123-Cmmi10-74" d="M 397 519 
+     <path id="w3t102-Cmmi10-74" d="M 397 519 
 Q 397 613 416 697 
 L 878 2534 
 L 206 2534 
@@ -153,7 +153,7 @@ Q 744 -72 570 93
 Q 397 259 397 519 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t123-Cmr10-28" d="M 1984 -1588 
+     <path id="w3t102-Cmr10-28" d="M 1984 -1588 
 Q 1628 -1306 1370 -942 
 Q 1113 -578 948 -165 
 Q 784 247 703 697 
@@ -179,7 +179,7 @@ L 2016 -1600
 Q 1984 -1600 1984 -1588 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t123-Cmsy10-a2" d="M 538 1600 
+     <path id="w3t102-Cmsy10-a2" d="M 538 1600 
 Q 538 1691 584 1772 
 Q 631 1853 714 1903 
 Q 797 1953 891 1953 
@@ -192,7 +192,7 @@ Q 747 1247 642 1351
 Q 538 1456 538 1600 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t123-Cmr10-29" d="M 416 -1600 
+     <path id="w3t102-Cmr10-29" d="M 416 -1600 
 Q 359 -1600 359 -1544 
 Q 359 -1516 372 -1503 
 Q 1466 -434 1466 1600 
@@ -214,638 +214,616 @@ L 416 -1600
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w3t123-Cmmi10-b0"/>
-    <use xlink:href="#w3t123-Cmmi10-74" transform="translate(51.708984 -17.00625) scale(0.7)"/>
-    <use xlink:href="#w3t123-Cmr10-28" transform="translate(83.345117 0)"/>
-    <use xlink:href="#w3t123-Cmsy10-a2" transform="translate(122.163477 0)"/>
-    <use xlink:href="#w3t123-Cmr10-29" transform="translate(149.849023 0)"/>
+    <use xlink:href="#w3t102-Cmmi10-b0"/>
+    <use xlink:href="#w3t102-Cmmi10-74" transform="translate(51.708984 -17.00625) scale(0.7)"/>
+    <use xlink:href="#w3t102-Cmr10-28" transform="translate(83.345117 0)"/>
+    <use xlink:href="#w3t102-Cmsy10-a2" transform="translate(122.163477 0)"/>
+    <use xlink:href="#w3t102-Cmr10-29" transform="translate(149.849023 0)"/>
    </g>
   </g>
  </g>
 </svg>
-<text x="738.0" y="34.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="middle">, a posterior</text>
-<line x1="104.0" y1="154.0" x2="424.0" y2="154.0" stroke="#6b7280" stroke-width="1.0"/>
-<rect x="110.0" y="152.5" width="44.0" height="1.5" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<svg x="125.455" y="161.547" width="13.09" height="16.4528" viewBox="0 0 13.09 16.452813"><defs>
+<text x="715.4" y="24.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="auto" textLength="109.5" lengthAdjust="spacing">, a posterior</text>
+<line x1="54.0" y1="178.0" x2="374.0" y2="178.0" stroke="#6b7280" stroke-width="1.0"/>
+<rect x="60.0" y="176.5" width="44.0" height="1.5" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<svg x="76.3" y="184.676" width="11.4" height="22.0661" viewBox="0 0 11.4 22.066125"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w3t124-figure_1">
-  <g id="w3t124-patch_1">
-   <path d="M 0 16.452813 
-L 13.09 16.452813 
-L 13.09 0 
+ <g id="w3t103-figure_1">
+  <g id="w3t103-patch_1">
+   <path d="M 0 22.066125 
+L 11.4 22.066125 
+L 11.4 0 
 L 0 0 
-L 0 16.452813 
+L 0 22.066125 
 z
 " style="fill: none"/>
   </g>
-  <g id="w3t124-text_1">
-   <!-- $\varnothing$ -->
-   <g style="fill: #1f2328" transform="translate(0 12.917344) scale(0.17 -0.17)">
+  <g id="w3t103-text_1">
+   <!-- $\emptyset$ -->
+   <g style="fill: #1f2328" transform="translate(0 17.324437) scale(0.228 -0.228)">
     <defs>
-     <path id="w3t124-STIXGeneral-Regular-2205" d="M 4512 3731 
-L 3949 3085 
-Q 4557 2458 4557 1613 
-Q 4557 742 3933 118 
-Q 3309 -506 2438 -506 
-Q 1754 -506 1178 -83 
-L 806 -506 
-L 365 -506 
-L 922 134 
-Q 320 749 320 1613 
-Q 320 2483 944 3107 
-Q 1568 3731 2438 3731 
-Q 3098 3731 3699 3309 
-L 4070 3731 
-L 4512 3731 
+     <path id="w3t103-Cmsy10-3b" d="M 709 -372 
+Q 709 -353 716 -347 
+L 856 147 
+Q 509 463 398 1003 
+Q 288 1544 288 2203 
+Q 288 3147 553 3864 
+Q 819 4581 1600 4581 
+Q 1869 4581 2113 4447 
+L 2234 4844 
+Q 2256 4941 2356 4941 
+Q 2409 4941 2446 4903 
+Q 2484 4866 2484 4813 
+L 2484 4788 
+L 2338 4288 
+Q 2575 4066 2703 3717 
+Q 2831 3369 2868 2992 
+Q 2906 2616 2906 2203 
+Q 2906 1650 2814 1129 
+Q 2722 609 2431 234 
+Q 2141 -141 1600 -141 
+Q 1313 -141 1075 -6 
+L 966 -403 
+Q 928 -500 838 -500 
+Q 791 -500 750 -459 
+Q 709 -419 709 -372 
 z
-M 3680 2778 
-L 1453 230 
-Q 1894 -83 2438 -83 
-Q 3142 -83 3638 416 
-Q 4134 915 4134 1619 
-Q 4134 2272 3680 2778 
+M 1141 213 
+Q 1347 25 1600 25 
+Q 1897 25 2075 270 
+Q 2253 516 2334 891 
+Q 2416 1266 2433 1598 
+Q 2450 1931 2450 2309 
+Q 2450 2866 2415 3294 
+Q 2381 3722 2247 3994 
+L 1141 213 
 z
-M 1203 454 
-L 3418 2982 
-Q 3270 3123 2985 3216 
-Q 2701 3309 2438 3309 
-Q 1734 3309 1238 2816 
-Q 742 2323 742 1619 
-Q 742 928 1203 454 
+M 947 469 
+L 2053 4238 
+Q 1844 4416 1600 4416 
+Q 1300 4416 1122 4195 
+Q 944 3975 864 3650 
+Q 784 3325 764 3000 
+Q 744 2675 744 2309 
+Q 744 1706 778 1239 
+Q 813 772 947 469 
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w3t124-STIXGeneral-Regular-2205" transform="translate(0 0.703125)"/>
+    <use xlink:href="#w3t103-Cmsy10-3b" transform="translate(0 0.796875)"/>
    </g>
   </g>
  </g>
 </svg>
-<rect x="176.0" y="152.5" width="44.0" height="1.5" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<svg x="193.07" y="160.547" width="9.86" height="16.4528" viewBox="0 0 9.86 16.452813"><defs>
+<rect x="126.0" y="176.5" width="44.0" height="1.5" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<svg x="141.616" y="184.676" width="12.768" height="22.0661" viewBox="0 0 12.768 22.066125"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w3t125-figure_1">
-  <g id="w3t125-patch_1">
-   <path d="M 0 16.452813 
-L 9.86 16.452813 
-L 9.86 0 
+ <g id="w3t104-figure_1">
+  <g id="w3t104-patch_1">
+   <path d="M 0 22.066125 
+L 12.768 22.066125 
+L 12.768 0 
 L 0 0 
-L 0 16.452813 
+L 0 22.066125 
 z
 " style="fill: none"/>
   </g>
-  <g id="w3t125-text_1">
-   <!-- $h$ -->
-   <g style="fill: #1f2328" transform="translate(0 12.917344) scale(0.17 -0.17)">
+  <g id="w3t104-text_1">
+   <!-- $\mathrm{h}$ -->
+   <g style="fill: #1f2328" transform="translate(0 17.324437) scale(0.228 -0.228)">
     <defs>
-     <path id="w3t125-Cmmi10-68" d="M 341 116 
-Q 341 153 347 172 
-L 1275 3872 
-Q 1300 3981 1306 4044 
-Q 1306 4147 891 4147 
-Q 825 4147 825 4231 
-Q 828 4247 839 4287 
-Q 850 4328 867 4350 
-Q 884 4372 916 4372 
-L 1778 4441 
-L 1797 4441 
-Q 1797 4434 1819 4423 
-Q 1841 4413 1844 4409 
-Q 1856 4378 1856 4359 
-L 1356 2363 
-Q 1750 2828 2291 2828 
-Q 2516 2828 2680 2750 
-Q 2844 2672 2936 2514 
-Q 3028 2356 3028 2138 
-Q 3028 1875 2911 1503 
-Q 2794 1131 2619 672 
-Q 2528 463 2528 288 
-Q 2528 97 2675 97 
-Q 2925 97 3092 364 
-Q 3259 631 3328 941 
-Q 3341 978 3378 978 
-L 3456 978 
-Q 3481 978 3497 961 
-Q 3513 944 3513 922 
-Q 3513 916 3506 903 
-Q 3450 672 3339 448 
-Q 3228 225 3059 76 
-Q 2891 -72 2663 -72 
-Q 2438 -72 2278 83 
-Q 2119 238 2119 459 
-Q 2119 578 2169 709 
-Q 2350 1191 2470 1569 
-Q 2591 1947 2591 2234 
-Q 2591 2419 2519 2541 
-Q 2447 2663 2278 2663 
-Q 1934 2663 1678 2452 
-Q 1422 2241 1234 1894 
-L 800 147 
-Q 775 50 703 -11 
-Q 631 -72 538 -72 
-Q 456 -72 398 -17 
-Q 341 38 341 116 
+     <path id="w3t104-Cmr10-68" d="M 191 0 
+L 191 225 
+Q 409 225 550 259 
+Q 691 294 691 428 
+L 691 3788 
+Q 691 3959 639 4036 
+Q 588 4113 491 4130 
+Q 394 4147 191 4147 
+L 191 4372 
+L 1141 4441 
+L 1141 2241 
+Q 1275 2506 1515 2667 
+Q 1756 2828 2047 2828 
+Q 2491 2828 2714 2615 
+Q 2938 2403 2938 1966 
+L 2938 428 
+Q 2938 294 3078 259 
+Q 3219 225 3438 225 
+L 3438 0 
+L 1972 0 
+L 1972 225 
+Q 2191 225 2331 259 
+Q 2472 294 2472 428 
+L 2472 1947 
+Q 2472 2259 2381 2461 
+Q 2291 2663 2009 2663 
+Q 1638 2663 1398 2366 
+Q 1159 2069 1159 1691 
+L 1159 428 
+Q 1159 294 1300 259 
+Q 1441 225 1656 225 
+L 1656 0 
+L 191 0 
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w3t125-Cmmi10-68" transform="translate(0 0.609375)"/>
+    <use xlink:href="#w3t104-Cmr10-68" transform="translate(0 0.609375)"/>
    </g>
   </g>
  </g>
 </svg>
-<rect x="242.0" y="152.5" width="44.0" height="1.5" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<svg x="260.005" y="160.547" width="7.99" height="16.4528" viewBox="0 0 7.99 16.452813"><defs>
+<rect x="192.0" y="176.5" width="44.0" height="1.5" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<svg x="208.87" y="184.676" width="10.26" height="22.0661" viewBox="0 0 10.26 22.066125"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w3t126-figure_1">
-  <g id="w3t126-patch_1">
-   <path d="M 0 16.452813 
-L 7.99 16.452813 
-L 7.99 0 
+ <g id="w3t105-figure_1">
+  <g id="w3t105-patch_1">
+   <path d="M 0 22.066125 
+L 10.26 22.066125 
+L 10.26 0 
 L 0 0 
-L 0 16.452813 
+L 0 22.066125 
 z
 " style="fill: none"/>
   </g>
-  <g id="w3t126-text_1">
-   <!-- $e$ -->
-   <g style="fill: #1f2328" transform="translate(0 12.917344) scale(0.17 -0.17)">
+  <g id="w3t105-text_1">
+   <!-- $\mathrm{e}$ -->
+   <g style="fill: #1f2328" transform="translate(0 17.324437) scale(0.228 -0.228)">
     <defs>
-     <path id="w3t126-Cmmi10-65" d="M 1288 -72 
-Q 981 -72 751 87 
-Q 522 247 401 517 
-Q 281 788 281 1088 
-Q 281 1544 511 1945 
-Q 741 2347 1134 2587 
-Q 1528 2828 1978 2828 
-Q 2253 2828 2458 2686 
-Q 2663 2544 2663 2278 
-Q 2663 1909 2369 1729 
-Q 2075 1550 1706 1508 
-Q 1338 1466 891 1466 
-L 872 1466 
-Q 769 1084 769 813 
-Q 769 528 900 312 
-Q 1031 97 1300 97 
-Q 1681 97 2032 272 
-Q 2384 447 2606 756 
-Q 2625 775 2656 775 
-Q 2688 775 2720 739 
-Q 2753 703 2753 672 
-Q 2753 647 2741 634 
-Q 2506 306 2109 117 
-Q 1713 -72 1288 -72 
+     <path id="w3t105-Cmr10-65" d="M 1594 -72 
+Q 1203 -72 876 133 
+Q 550 338 364 680 
+Q 178 1022 178 1403 
+Q 178 1778 348 2115 
+Q 519 2453 823 2661 
+Q 1128 2869 1503 2869 
+Q 1797 2869 2014 2770 
+Q 2231 2672 2372 2497 
+Q 2513 2322 2584 2084 
+Q 2656 1847 2656 1563 
+Q 2656 1478 2591 1478 
+L 738 1478 
+L 738 1409 
+Q 738 878 952 497 
+Q 1166 116 1650 116 
+Q 1847 116 2014 203 
+Q 2181 291 2304 447 
+Q 2428 603 2472 781 
+Q 2478 803 2495 820 
+Q 2513 838 2534 838 
+L 2591 838 
+Q 2656 838 2656 756 
+Q 2566 394 2266 161 
+Q 1966 -72 1594 -72 
 z
-M 909 1631 
-Q 1281 1631 1597 1665 
-Q 1913 1700 2169 1839 
-Q 2425 1978 2425 2272 
-Q 2425 2391 2359 2480 
-Q 2294 2569 2189 2616 
-Q 2084 2663 1972 2663 
-Q 1700 2663 1483 2516 
-Q 1266 2369 1125 2133 
-Q 984 1897 909 1631 
+M 744 1638 
+L 2203 1638 
+Q 2203 1878 2136 2125 
+Q 2069 2372 1912 2536 
+Q 1756 2700 1503 2700 
+Q 1141 2700 942 2361 
+Q 744 2022 744 1638 
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w3t126-Cmmi10-65" transform="translate(0 0.8125)"/>
+    <use xlink:href="#w3t105-Cmr10-65" transform="translate(0 0.171875)"/>
    </g>
   </g>
  </g>
 </svg>
-<rect x="308.0" y="54.0" width="44.0" height="100.0" rx="2" fill="#0b5cad" stroke="#0b5cad" stroke-width="1.2"/>
-<svg x="327.45" y="160.547" width="5.1" height="16.4528" viewBox="0 0 5.1 16.452813"><defs>
+<rect x="258.0" y="78.0" width="44.0" height="100.0" rx="2" fill="#0b5cad" stroke="#0b5cad" stroke-width="1.2"/>
+<svg x="276.808" y="184.676" width="6.384" height="22.0661" viewBox="0 0 6.384 22.066125"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w3t127-figure_1">
-  <g id="w3t127-patch_1">
-   <path d="M 0 16.452813 
-L 5.1 16.452813 
-L 5.1 0 
+ <g id="w3t106-figure_1">
+  <g id="w3t106-patch_1">
+   <path d="M 0 22.066125 
+L 6.384 22.066125 
+L 6.384 0 
 L 0 0 
-L 0 16.452813 
+L 0 22.066125 
 z
 " style="fill: none"/>
   </g>
-  <g id="w3t127-text_1">
-   <!-- $l$ -->
-   <g style="fill: #1f2328" transform="translate(0 12.917344) scale(0.17 -0.17)">
+  <g id="w3t106-text_1">
+   <!-- $\mathrm{l}$ -->
+   <g style="fill: #1f2328" transform="translate(0 17.324437) scale(0.228 -0.228)">
     <defs>
-     <path id="w3t127-Cmmi10-6c" d="M 281 519 
-Q 281 538 286 575 
-Q 291 613 295 648 
-Q 300 684 300 703 
-L 1094 3872 
-Q 1119 3981 1125 4044 
-Q 1125 4147 709 4147 
-Q 647 4147 647 4231 
-Q 650 4247 661 4287 
-Q 672 4328 689 4350 
-Q 706 4372 738 4372 
-L 1600 4441 
-Q 1678 4441 1678 4359 
-L 756 678 
-Q 709 575 709 372 
-Q 709 97 897 97 
-Q 1094 97 1192 342 
-Q 1291 588 1369 941 
-Q 1381 978 1422 978 
-L 1497 978 
-Q 1522 978 1539 958 
-Q 1556 938 1556 916 
-Q 1481 606 1420 426 
-Q 1359 247 1225 87 
-Q 1091 -72 884 -72 
-Q 628 -72 454 93 
-Q 281 259 281 519 
+     <path id="w3t106-Cmr10-6c" d="M 197 0 
+L 197 225 
+Q 416 225 556 259 
+Q 697 294 697 428 
+L 697 3788 
+Q 697 3959 645 4036 
+Q 594 4113 497 4130 
+Q 400 4147 197 4147 
+L 197 4372 
+L 1147 4441 
+L 1147 428 
+Q 1147 294 1287 259 
+Q 1428 225 1644 225 
+L 1644 0 
+L 197 0 
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w3t127-Cmmi10-6c" transform="translate(0 0.609375)"/>
+    <use xlink:href="#w3t106-Cmr10-6c" transform="translate(0 0.609375)"/>
    </g>
   </g>
  </g>
 </svg>
-<text x="330.0" y="47.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">1.00</text>
-<rect x="374.0" y="152.5" width="44.0" height="1.5" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<svg x="391.835" y="160.547" width="8.33" height="16.4528" viewBox="0 0 8.33 16.452813"><defs>
+<text x="280.0" y="71.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">1.00</text>
+<rect x="324.0" y="176.5" width="44.0" height="1.5" rx="2" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<svg x="340.3" y="184.676" width="11.4" height="22.0661" viewBox="0 0 11.4 22.066125"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w3t128-figure_1">
-  <g id="w3t128-patch_1">
-   <path d="M 0 16.452813 
-L 8.33 16.452813 
-L 8.33 0 
+ <g id="w3t107-figure_1">
+  <g id="w3t107-patch_1">
+   <path d="M 0 22.066125 
+L 11.4 22.066125 
+L 11.4 0 
 L 0 0 
-L 0 16.452813 
+L 0 22.066125 
 z
 " style="fill: none"/>
   </g>
-  <g id="w3t128-text_1">
-   <!-- $o$ -->
-   <g style="fill: #1f2328" transform="translate(0 12.917344) scale(0.17 -0.17)">
+  <g id="w3t107-text_1">
+   <!-- $\mathrm{o}$ -->
+   <g style="fill: #1f2328" transform="translate(0 17.324437) scale(0.228 -0.228)">
     <defs>
-     <path id="w3t128-Cmmi10-6f" d="M 1288 -72 
-Q 984 -72 748 72 
-Q 513 216 384 459 
-Q 256 703 256 1013 
-Q 256 1447 498 1872 
-Q 741 2297 1142 2562 
-Q 1544 2828 1984 2828 
-Q 2222 2828 2408 2747 
-Q 2594 2666 2731 2519 
-Q 2869 2372 2942 2175 
-Q 3016 1978 3016 1747 
-Q 3016 1413 2875 1089 
-Q 2734 766 2489 502 
-Q 2244 238 1928 83 
-Q 1613 -72 1288 -72 
+     <path id="w3t107-Cmr10-6f" d="M 1600 -72 
+Q 1216 -72 887 123 
+Q 559 319 368 647 
+Q 178 975 178 1363 
+Q 178 1656 283 1928 
+Q 388 2200 583 2414 
+Q 778 2628 1037 2748 
+Q 1297 2869 1600 2869 
+Q 1994 2869 2317 2661 
+Q 2641 2453 2828 2104 
+Q 3016 1756 3016 1363 
+Q 3016 978 2825 648 
+Q 2634 319 2307 123 
+Q 1981 -72 1600 -72 
 z
-M 1300 97 
-Q 1584 97 1820 290 
-Q 2056 484 2207 779 
-Q 2359 1075 2440 1403 
-Q 2522 1731 2522 1997 
-Q 2522 2275 2383 2469 
-Q 2244 2663 1972 2663 
-Q 1597 2663 1315 2342 
-Q 1034 2022 892 1576 
-Q 750 1131 750 763 
-Q 750 484 892 290 
-Q 1034 97 1300 97 
+M 1600 116 
+Q 2113 116 2284 487 
+Q 2456 859 2456 1434 
+Q 2456 1756 2422 1967 
+Q 2388 2178 2272 2350 
+Q 2200 2456 2089 2536 
+Q 1978 2616 1854 2658 
+Q 1731 2700 1600 2700 
+Q 1400 2700 1220 2609 
+Q 1041 2519 922 2350 
+Q 803 2169 770 1951 
+Q 738 1734 738 1434 
+Q 738 1075 800 789 
+Q 863 503 1052 309 
+Q 1241 116 1600 116 
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w3t128-Cmmi10-6f" transform="translate(0 0.8125)"/>
+    <use xlink:href="#w3t107-Cmr10-6f" transform="translate(0 0.171875)"/>
    </g>
   </g>
  </g>
 </svg>
-<text x="430.0" y="148.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">sums to 1</text>
-<line x1="594.0" y1="154.0" x2="914.0" y2="154.0" stroke="#6b7280" stroke-width="1.0"/>
-<rect x="600.0" y="99.0" width="44.0" height="55.0" rx="2" fill="#b45309" stroke="#b45309" stroke-width="1.2"/>
-<svg x="615.455" y="161.547" width="13.09" height="16.4528" viewBox="0 0 13.09 16.452813"><defs>
+<text x="380.0" y="172.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">sums to 1</text>
+<line x1="554.0" y1="178.0" x2="874.0" y2="178.0" stroke="#6b7280" stroke-width="1.0"/>
+<rect x="560.0" y="123.0" width="44.0" height="55.0" rx="2" fill="#b45309" stroke="#b45309" stroke-width="1.2"/>
+<svg x="576.3" y="184.676" width="11.4" height="22.0661" viewBox="0 0 11.4 22.066125"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w3t129-figure_1">
-  <g id="w3t129-patch_1">
-   <path d="M 0 16.452813 
-L 13.09 16.452813 
-L 13.09 0 
+ <g id="w3t108-figure_1">
+  <g id="w3t108-patch_1">
+   <path d="M 0 22.066125 
+L 11.4 22.066125 
+L 11.4 0 
 L 0 0 
-L 0 16.452813 
+L 0 22.066125 
 z
 " style="fill: none"/>
   </g>
-  <g id="w3t129-text_1">
-   <!-- $\varnothing$ -->
-   <g style="fill: #1f2328" transform="translate(0 12.917344) scale(0.17 -0.17)">
+  <g id="w3t108-text_1">
+   <!-- $\emptyset$ -->
+   <g style="fill: #1f2328" transform="translate(0 17.324437) scale(0.228 -0.228)">
     <defs>
-     <path id="w3t129-STIXGeneral-Regular-2205" d="M 4512 3731 
-L 3949 3085 
-Q 4557 2458 4557 1613 
-Q 4557 742 3933 118 
-Q 3309 -506 2438 -506 
-Q 1754 -506 1178 -83 
-L 806 -506 
-L 365 -506 
-L 922 134 
-Q 320 749 320 1613 
-Q 320 2483 944 3107 
-Q 1568 3731 2438 3731 
-Q 3098 3731 3699 3309 
-L 4070 3731 
-L 4512 3731 
+     <path id="w3t108-Cmsy10-3b" d="M 709 -372 
+Q 709 -353 716 -347 
+L 856 147 
+Q 509 463 398 1003 
+Q 288 1544 288 2203 
+Q 288 3147 553 3864 
+Q 819 4581 1600 4581 
+Q 1869 4581 2113 4447 
+L 2234 4844 
+Q 2256 4941 2356 4941 
+Q 2409 4941 2446 4903 
+Q 2484 4866 2484 4813 
+L 2484 4788 
+L 2338 4288 
+Q 2575 4066 2703 3717 
+Q 2831 3369 2868 2992 
+Q 2906 2616 2906 2203 
+Q 2906 1650 2814 1129 
+Q 2722 609 2431 234 
+Q 2141 -141 1600 -141 
+Q 1313 -141 1075 -6 
+L 966 -403 
+Q 928 -500 838 -500 
+Q 791 -500 750 -459 
+Q 709 -419 709 -372 
 z
-M 3680 2778 
-L 1453 230 
-Q 1894 -83 2438 -83 
-Q 3142 -83 3638 416 
-Q 4134 915 4134 1619 
-Q 4134 2272 3680 2778 
+M 1141 213 
+Q 1347 25 1600 25 
+Q 1897 25 2075 270 
+Q 2253 516 2334 891 
+Q 2416 1266 2433 1598 
+Q 2450 1931 2450 2309 
+Q 2450 2866 2415 3294 
+Q 2381 3722 2247 3994 
+L 1141 213 
 z
-M 1203 454 
-L 3418 2982 
-Q 3270 3123 2985 3216 
-Q 2701 3309 2438 3309 
-Q 1734 3309 1238 2816 
-Q 742 2323 742 1619 
-Q 742 928 1203 454 
+M 947 469 
+L 2053 4238 
+Q 1844 4416 1600 4416 
+Q 1300 4416 1122 4195 
+Q 944 3975 864 3650 
+Q 784 3325 764 3000 
+Q 744 2675 744 2309 
+Q 744 1706 778 1239 
+Q 813 772 947 469 
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w3t129-STIXGeneral-Regular-2205" transform="translate(0 0.703125)"/>
+    <use xlink:href="#w3t108-Cmsy10-3b" transform="translate(0 0.796875)"/>
    </g>
   </g>
  </g>
 </svg>
-<text x="622.0" y="92.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">0.55</text>
-<rect x="666.0" y="152.5" width="44.0" height="1.5" rx="2" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
-<svg x="683.07" y="160.547" width="9.86" height="16.4528" viewBox="0 0 9.86 16.452813"><defs>
+<text x="582.0" y="116.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">0.55</text>
+<rect x="626.0" y="176.5" width="44.0" height="1.5" rx="2" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<svg x="641.616" y="184.676" width="12.768" height="22.0661" viewBox="0 0 12.768 22.066125"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w3t130-figure_1">
-  <g id="w3t130-patch_1">
-   <path d="M 0 16.452813 
-L 9.86 16.452813 
-L 9.86 0 
+ <g id="w3t109-figure_1">
+  <g id="w3t109-patch_1">
+   <path d="M 0 22.066125 
+L 12.768 22.066125 
+L 12.768 0 
 L 0 0 
-L 0 16.452813 
+L 0 22.066125 
 z
 " style="fill: none"/>
   </g>
-  <g id="w3t130-text_1">
-   <!-- $h$ -->
-   <g style="fill: #1f2328" transform="translate(0 12.917344) scale(0.17 -0.17)">
+  <g id="w3t109-text_1">
+   <!-- $\mathrm{h}$ -->
+   <g style="fill: #1f2328" transform="translate(0 17.324437) scale(0.228 -0.228)">
     <defs>
-     <path id="w3t130-Cmmi10-68" d="M 341 116 
-Q 341 153 347 172 
-L 1275 3872 
-Q 1300 3981 1306 4044 
-Q 1306 4147 891 4147 
-Q 825 4147 825 4231 
-Q 828 4247 839 4287 
-Q 850 4328 867 4350 
-Q 884 4372 916 4372 
-L 1778 4441 
-L 1797 4441 
-Q 1797 4434 1819 4423 
-Q 1841 4413 1844 4409 
-Q 1856 4378 1856 4359 
-L 1356 2363 
-Q 1750 2828 2291 2828 
-Q 2516 2828 2680 2750 
-Q 2844 2672 2936 2514 
-Q 3028 2356 3028 2138 
-Q 3028 1875 2911 1503 
-Q 2794 1131 2619 672 
-Q 2528 463 2528 288 
-Q 2528 97 2675 97 
-Q 2925 97 3092 364 
-Q 3259 631 3328 941 
-Q 3341 978 3378 978 
-L 3456 978 
-Q 3481 978 3497 961 
-Q 3513 944 3513 922 
-Q 3513 916 3506 903 
-Q 3450 672 3339 448 
-Q 3228 225 3059 76 
-Q 2891 -72 2663 -72 
-Q 2438 -72 2278 83 
-Q 2119 238 2119 459 
-Q 2119 578 2169 709 
-Q 2350 1191 2470 1569 
-Q 2591 1947 2591 2234 
-Q 2591 2419 2519 2541 
-Q 2447 2663 2278 2663 
-Q 1934 2663 1678 2452 
-Q 1422 2241 1234 1894 
-L 800 147 
-Q 775 50 703 -11 
-Q 631 -72 538 -72 
-Q 456 -72 398 -17 
-Q 341 38 341 116 
+     <path id="w3t109-Cmr10-68" d="M 191 0 
+L 191 225 
+Q 409 225 550 259 
+Q 691 294 691 428 
+L 691 3788 
+Q 691 3959 639 4036 
+Q 588 4113 491 4130 
+Q 394 4147 191 4147 
+L 191 4372 
+L 1141 4441 
+L 1141 2241 
+Q 1275 2506 1515 2667 
+Q 1756 2828 2047 2828 
+Q 2491 2828 2714 2615 
+Q 2938 2403 2938 1966 
+L 2938 428 
+Q 2938 294 3078 259 
+Q 3219 225 3438 225 
+L 3438 0 
+L 1972 0 
+L 1972 225 
+Q 2191 225 2331 259 
+Q 2472 294 2472 428 
+L 2472 1947 
+Q 2472 2259 2381 2461 
+Q 2291 2663 2009 2663 
+Q 1638 2663 1398 2366 
+Q 1159 2069 1159 1691 
+L 1159 428 
+Q 1159 294 1300 259 
+Q 1441 225 1656 225 
+L 1656 0 
+L 191 0 
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w3t130-Cmmi10-68" transform="translate(0 0.609375)"/>
+    <use xlink:href="#w3t109-Cmr10-68" transform="translate(0 0.609375)"/>
    </g>
   </g>
  </g>
 </svg>
-<rect x="732.0" y="147.0" width="44.0" height="7.0" rx="2" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
-<svg x="750.005" y="160.547" width="7.99" height="16.4528" viewBox="0 0 7.99 16.452813"><defs>
+<rect x="692.0" y="171.0" width="44.0" height="7.0" rx="2" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<svg x="708.87" y="184.676" width="10.26" height="22.0661" viewBox="0 0 10.26 22.066125"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w3t131-figure_1">
-  <g id="w3t131-patch_1">
-   <path d="M 0 16.452813 
-L 7.99 16.452813 
-L 7.99 0 
+ <g id="w3t110-figure_1">
+  <g id="w3t110-patch_1">
+   <path d="M 0 22.066125 
+L 10.26 22.066125 
+L 10.26 0 
 L 0 0 
-L 0 16.452813 
+L 0 22.066125 
 z
 " style="fill: none"/>
   </g>
-  <g id="w3t131-text_1">
-   <!-- $e$ -->
-   <g style="fill: #1f2328" transform="translate(0 12.917344) scale(0.17 -0.17)">
+  <g id="w3t110-text_1">
+   <!-- $\mathrm{e}$ -->
+   <g style="fill: #1f2328" transform="translate(0 17.324437) scale(0.228 -0.228)">
     <defs>
-     <path id="w3t131-Cmmi10-65" d="M 1288 -72 
-Q 981 -72 751 87 
-Q 522 247 401 517 
-Q 281 788 281 1088 
-Q 281 1544 511 1945 
-Q 741 2347 1134 2587 
-Q 1528 2828 1978 2828 
-Q 2253 2828 2458 2686 
-Q 2663 2544 2663 2278 
-Q 2663 1909 2369 1729 
-Q 2075 1550 1706 1508 
-Q 1338 1466 891 1466 
-L 872 1466 
-Q 769 1084 769 813 
-Q 769 528 900 312 
-Q 1031 97 1300 97 
-Q 1681 97 2032 272 
-Q 2384 447 2606 756 
-Q 2625 775 2656 775 
-Q 2688 775 2720 739 
-Q 2753 703 2753 672 
-Q 2753 647 2741 634 
-Q 2506 306 2109 117 
-Q 1713 -72 1288 -72 
+     <path id="w3t110-Cmr10-65" d="M 1594 -72 
+Q 1203 -72 876 133 
+Q 550 338 364 680 
+Q 178 1022 178 1403 
+Q 178 1778 348 2115 
+Q 519 2453 823 2661 
+Q 1128 2869 1503 2869 
+Q 1797 2869 2014 2770 
+Q 2231 2672 2372 2497 
+Q 2513 2322 2584 2084 
+Q 2656 1847 2656 1563 
+Q 2656 1478 2591 1478 
+L 738 1478 
+L 738 1409 
+Q 738 878 952 497 
+Q 1166 116 1650 116 
+Q 1847 116 2014 203 
+Q 2181 291 2304 447 
+Q 2428 603 2472 781 
+Q 2478 803 2495 820 
+Q 2513 838 2534 838 
+L 2591 838 
+Q 2656 838 2656 756 
+Q 2566 394 2266 161 
+Q 1966 -72 1594 -72 
 z
-M 909 1631 
-Q 1281 1631 1597 1665 
-Q 1913 1700 2169 1839 
-Q 2425 1978 2425 2272 
-Q 2425 2391 2359 2480 
-Q 2294 2569 2189 2616 
-Q 2084 2663 1972 2663 
-Q 1700 2663 1483 2516 
-Q 1266 2369 1125 2133 
-Q 984 1897 909 1631 
+M 744 1638 
+L 2203 1638 
+Q 2203 1878 2136 2125 
+Q 2069 2372 1912 2536 
+Q 1756 2700 1503 2700 
+Q 1141 2700 942 2361 
+Q 744 2022 744 1638 
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w3t131-Cmmi10-65" transform="translate(0 0.8125)"/>
+    <use xlink:href="#w3t110-Cmr10-65" transform="translate(0 0.171875)"/>
    </g>
   </g>
  </g>
 </svg>
-<text x="754.0" y="140.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">0.07</text>
-<rect x="798.0" y="119.0" width="44.0" height="35.0" rx="2" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
-<svg x="817.45" y="160.547" width="5.1" height="16.4528" viewBox="0 0 5.1 16.452813"><defs>
+<text x="714.0" y="164.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">0.07</text>
+<rect x="758.0" y="143.0" width="44.0" height="35.0" rx="2" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<svg x="776.808" y="184.676" width="6.384" height="22.0661" viewBox="0 0 6.384 22.066125"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w3t132-figure_1">
-  <g id="w3t132-patch_1">
-   <path d="M 0 16.452813 
-L 5.1 16.452813 
-L 5.1 0 
+ <g id="w3t111-figure_1">
+  <g id="w3t111-patch_1">
+   <path d="M 0 22.066125 
+L 6.384 22.066125 
+L 6.384 0 
 L 0 0 
-L 0 16.452813 
+L 0 22.066125 
 z
 " style="fill: none"/>
   </g>
-  <g id="w3t132-text_1">
-   <!-- $l$ -->
-   <g style="fill: #1f2328" transform="translate(0 12.917344) scale(0.17 -0.17)">
+  <g id="w3t111-text_1">
+   <!-- $\mathrm{l}$ -->
+   <g style="fill: #1f2328" transform="translate(0 17.324437) scale(0.228 -0.228)">
     <defs>
-     <path id="w3t132-Cmmi10-6c" d="M 281 519 
-Q 281 538 286 575 
-Q 291 613 295 648 
-Q 300 684 300 703 
-L 1094 3872 
-Q 1119 3981 1125 4044 
-Q 1125 4147 709 4147 
-Q 647 4147 647 4231 
-Q 650 4247 661 4287 
-Q 672 4328 689 4350 
-Q 706 4372 738 4372 
-L 1600 4441 
-Q 1678 4441 1678 4359 
-L 756 678 
-Q 709 575 709 372 
-Q 709 97 897 97 
-Q 1094 97 1192 342 
-Q 1291 588 1369 941 
-Q 1381 978 1422 978 
-L 1497 978 
-Q 1522 978 1539 958 
-Q 1556 938 1556 916 
-Q 1481 606 1420 426 
-Q 1359 247 1225 87 
-Q 1091 -72 884 -72 
-Q 628 -72 454 93 
-Q 281 259 281 519 
+     <path id="w3t111-Cmr10-6c" d="M 197 0 
+L 197 225 
+Q 416 225 556 259 
+Q 697 294 697 428 
+L 697 3788 
+Q 697 3959 645 4036 
+Q 594 4113 497 4130 
+Q 400 4147 197 4147 
+L 197 4372 
+L 1147 4441 
+L 1147 428 
+Q 1147 294 1287 259 
+Q 1428 225 1644 225 
+L 1644 0 
+L 197 0 
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w3t132-Cmmi10-6c" transform="translate(0 0.609375)"/>
+    <use xlink:href="#w3t111-Cmr10-6c" transform="translate(0 0.609375)"/>
    </g>
   </g>
  </g>
 </svg>
-<text x="820.0" y="112.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">0.35</text>
-<rect x="864.0" y="152.0" width="44.0" height="2.0" rx="2" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
-<svg x="881.835" y="160.547" width="8.33" height="16.4528" viewBox="0 0 8.33 16.452813"><defs>
+<text x="780.0" y="136.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">0.35</text>
+<rect x="824.0" y="176.0" width="44.0" height="2.0" rx="2" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<svg x="840.3" y="184.676" width="11.4" height="22.0661" viewBox="0 0 11.4 22.066125"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w3t133-figure_1">
-  <g id="w3t133-patch_1">
-   <path d="M 0 16.452813 
-L 8.33 16.452813 
-L 8.33 0 
+ <g id="w3t112-figure_1">
+  <g id="w3t112-patch_1">
+   <path d="M 0 22.066125 
+L 11.4 22.066125 
+L 11.4 0 
 L 0 0 
-L 0 16.452813 
+L 0 22.066125 
 z
 " style="fill: none"/>
   </g>
-  <g id="w3t133-text_1">
-   <!-- $o$ -->
-   <g style="fill: #1f2328" transform="translate(0 12.917344) scale(0.17 -0.17)">
+  <g id="w3t112-text_1">
+   <!-- $\mathrm{o}$ -->
+   <g style="fill: #1f2328" transform="translate(0 17.324437) scale(0.228 -0.228)">
     <defs>
-     <path id="w3t133-Cmmi10-6f" d="M 1288 -72 
-Q 984 -72 748 72 
-Q 513 216 384 459 
-Q 256 703 256 1013 
-Q 256 1447 498 1872 
-Q 741 2297 1142 2562 
-Q 1544 2828 1984 2828 
-Q 2222 2828 2408 2747 
-Q 2594 2666 2731 2519 
-Q 2869 2372 2942 2175 
-Q 3016 1978 3016 1747 
-Q 3016 1413 2875 1089 
-Q 2734 766 2489 502 
-Q 2244 238 1928 83 
-Q 1613 -72 1288 -72 
+     <path id="w3t112-Cmr10-6f" d="M 1600 -72 
+Q 1216 -72 887 123 
+Q 559 319 368 647 
+Q 178 975 178 1363 
+Q 178 1656 283 1928 
+Q 388 2200 583 2414 
+Q 778 2628 1037 2748 
+Q 1297 2869 1600 2869 
+Q 1994 2869 2317 2661 
+Q 2641 2453 2828 2104 
+Q 3016 1756 3016 1363 
+Q 3016 978 2825 648 
+Q 2634 319 2307 123 
+Q 1981 -72 1600 -72 
 z
-M 1300 97 
-Q 1584 97 1820 290 
-Q 2056 484 2207 779 
-Q 2359 1075 2440 1403 
-Q 2522 1731 2522 1997 
-Q 2522 2275 2383 2469 
-Q 2244 2663 1972 2663 
-Q 1597 2663 1315 2342 
-Q 1034 2022 892 1576 
-Q 750 1131 750 763 
-Q 750 484 892 290 
-Q 1034 97 1300 97 
+M 1600 116 
+Q 2113 116 2284 487 
+Q 2456 859 2456 1434 
+Q 2456 1756 2422 1967 
+Q 2388 2178 2272 2350 
+Q 2200 2456 2089 2536 
+Q 1978 2616 1854 2658 
+Q 1731 2700 1600 2700 
+Q 1400 2700 1220 2609 
+Q 1041 2519 922 2350 
+Q 803 2169 770 1951 
+Q 738 1734 738 1434 
+Q 738 1075 800 789 
+Q 863 503 1052 309 
+Q 1241 116 1600 116 
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w3t133-Cmmi10-6f" transform="translate(0 0.8125)"/>
+    <use xlink:href="#w3t112-Cmr10-6f" transform="translate(0 0.171875)"/>
    </g>
   </g>
  </g>
 </svg>
-<text x="920.0" y="148.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">sums to 1</text>
+<text x="880.0" y="172.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">sums to 1</text>
 </g>
 <g class="fragment" data-fragment-index="3">
-<svg x="199.2" y="205.2" width="129.6" height="19.8" viewBox="0 0 129.6 19.8"><defs>
+<svg x="131.92" y="223.376" width="164.16" height="30.78" viewBox="0 -5.7 164.16 30.78"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w3t134-figure_1">
-  <g id="w3t134-patch_1">
-   <path d="M 0 19.8 
-L 129.6 19.8 
-L 129.6 0 
+ <g id="w3t113-figure_1">
+  <g id="w3t113-patch_1">
+   <path d="M 0 25.08 
+L 164.16 25.08 
+L 164.16 0 
 L 0 0 
-L 0 19.8 
+L 0 25.08 
 z
 " style="fill: none"/>
   </g>
-  <g id="w3t134-text_1">
+  <g id="w3t113-text_1">
    <!-- $\partial \mathcal{L} / \partial u^t_k = y^t_k - e_k$ -->
-   <g style="fill: #0b5cad" transform="translate(0 14.94) scale(0.18 -0.18)">
+   <g style="fill: #0b5cad" transform="translate(0 18.924) scale(0.228 -0.228)">
     <defs>
-     <path id="w3t134-STIXGeneral-Regular-2202" d="M 1248 4000 
+     <path id="w3t113-STIXGeneral-Regular-2202" d="M 1248 4000 
 L 1184 4128 
 Q 1427 4275 1811 4275 
 Q 3014 4275 3014 2611 
@@ -875,7 +853,7 @@ Q 2106 877 2253 1414
 Q 2349 1766 2349 2042 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t134-Cmsy10-4c" d="M 238 -141 
+     <path id="w3t113-Cmsy10-4c" d="M 238 -141 
 Q 197 -141 197 -97 
 Q 197 -72 219 -38 
 Q 266 38 359 130 
@@ -933,7 +911,7 @@ Q 578 -100 275 -141
 L 238 -141 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t134-Cmmi10-3d" d="M 359 -1472 
+     <path id="w3t113-Cmmi10-3d" d="M 359 -1472 
 Q 359 -1453 366 -1447 
 L 2591 4722 
 Q 2603 4759 2634 4779 
@@ -947,7 +925,7 @@ Q 434 -1600 396 -1562
 Q 359 -1525 359 -1472 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t134-Cmmi10-75" d="M 678 697 
+     <path id="w3t113-Cmmi10-75" d="M 678 697 
 Q 678 906 734 1126 
 Q 791 1347 892 1617 
 Q 994 1888 1069 2088 
@@ -999,7 +977,7 @@ Q 1116 -72 897 129
 Q 678 331 678 697 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t134-Cmmi10-74" d="M 397 519 
+     <path id="w3t113-Cmmi10-74" d="M 397 519 
 Q 397 613 416 697 
 L 878 2534 
 L 206 2534 
@@ -1036,7 +1014,7 @@ Q 744 -72 570 93
 Q 397 259 397 519 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t134-Cmmi10-6b" d="M 341 116 
+     <path id="w3t113-Cmmi10-6b" d="M 341 116 
 Q 341 153 347 172 
 L 1275 3872 
 Q 1300 3981 1306 4044 
@@ -1095,7 +1073,7 @@ Q 456 -72 398 -17
 Q 341 38 341 116 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t134-Cmr10-3d" d="M 481 850 
+     <path id="w3t113-Cmr10-3d" d="M 481 850 
 Q 428 850 393 890 
 Q 359 931 359 978 
 Q 359 1031 393 1068 
@@ -1120,7 +1098,7 @@ Q 4547 2094 4500 2094
 L 481 2094 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t134-Cmmi10-79" d="M 538 -916 
+     <path id="w3t113-Cmmi10-79" d="M 538 -916 
 Q 672 -1147 1006 -1147 
 Q 1309 -1147 1531 -934 
 Q 1753 -722 1889 -420 
@@ -1175,7 +1153,7 @@ Q 556 -919 550 -917
 Q 544 -916 538 -916 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t134-Cmsy10-a1" d="M 653 1472 
+     <path id="w3t113-Cmsy10-a1" d="M 653 1472 
 Q 600 1472 565 1512 
 Q 531 1553 531 1600 
 Q 531 1647 565 1687 
@@ -1188,7 +1166,7 @@ Q 4375 1472 4325 1472
 L 653 1472 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t134-Cmmi10-65" d="M 1288 -72 
+     <path id="w3t113-Cmmi10-65" d="M 1288 -72 
 Q 981 -72 751 87 
 Q 522 247 401 517 
 Q 281 788 281 1088 
@@ -1226,42 +1204,42 @@ Q 984 1897 909 1631
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w3t134-STIXGeneral-Regular-2202" transform="translate(0 0.920312)"/>
-    <use xlink:href="#w3t134-Cmsy10-4c" transform="translate(47.099991 0.920312)"/>
-    <use xlink:href="#w3t134-Cmmi10-3d" transform="translate(115.996475 0.920312)"/>
-    <use xlink:href="#w3t134-STIXGeneral-Regular-2202" transform="translate(165.996475 0.920312)"/>
-    <use xlink:href="#w3t134-Cmmi10-75" transform="translate(213.096466 0.920312)"/>
-    <use xlink:href="#w3t134-Cmmi10-74" transform="translate(276.577482 39.184375) scale(0.7)"/>
-    <use xlink:href="#w3t134-Cmmi10-6b" transform="translate(270.2742 -24.589062) scale(0.7)"/>
-    <use xlink:href="#w3t134-Cmr10-3d" transform="translate(330.611505 0.920312)"/>
-    <use xlink:href="#w3t134-Cmmi10-79" transform="translate(425.855646 0.920312)"/>
-    <use xlink:href="#w3t134-Cmmi10-74" transform="translate(481.182365 39.184375) scale(0.7)"/>
-    <use xlink:href="#w3t134-Cmmi10-6b" transform="translate(474.879083 -24.589062) scale(0.7)"/>
-    <use xlink:href="#w3t134-Cmsy10-a1" transform="translate(535.216388 0.920312)"/>
-    <use xlink:href="#w3t134-Cmmi10-65" transform="translate(630.460529 0.920312)"/>
-    <use xlink:href="#w3t134-Cmmi10-6b" transform="translate(676.944904 -16.085938) scale(0.7)"/>
+    <use xlink:href="#w3t113-STIXGeneral-Regular-2202" transform="translate(0 0.920312)"/>
+    <use xlink:href="#w3t113-Cmsy10-4c" transform="translate(47.099991 0.920312)"/>
+    <use xlink:href="#w3t113-Cmmi10-3d" transform="translate(115.996475 0.920312)"/>
+    <use xlink:href="#w3t113-STIXGeneral-Regular-2202" transform="translate(165.996475 0.920312)"/>
+    <use xlink:href="#w3t113-Cmmi10-75" transform="translate(213.096466 0.920312)"/>
+    <use xlink:href="#w3t113-Cmmi10-74" transform="translate(276.577482 39.184375) scale(0.7)"/>
+    <use xlink:href="#w3t113-Cmmi10-6b" transform="translate(270.2742 -24.589062) scale(0.7)"/>
+    <use xlink:href="#w3t113-Cmr10-3d" transform="translate(330.611505 0.920312)"/>
+    <use xlink:href="#w3t113-Cmmi10-79" transform="translate(425.855646 0.920312)"/>
+    <use xlink:href="#w3t113-Cmmi10-74" transform="translate(481.182365 39.184375) scale(0.7)"/>
+    <use xlink:href="#w3t113-Cmmi10-6b" transform="translate(474.879083 -24.589062) scale(0.7)"/>
+    <use xlink:href="#w3t113-Cmsy10-a1" transform="translate(535.216388 0.920312)"/>
+    <use xlink:href="#w3t113-Cmmi10-65" transform="translate(630.460529 0.920312)"/>
+    <use xlink:href="#w3t113-Cmmi10-6b" transform="translate(676.944904 -16.085938) scale(0.7)"/>
    </g>
   </g>
  </g>
 </svg>
-<svg x="663.46" y="205.2" width="181.08" height="19.8" viewBox="0 0 181.08 19.8"><defs>
+<svg x="619.316" y="223.376" width="229.368" height="30.78" viewBox="0 -5.7 229.368 30.78"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w3t135-figure_1">
-  <g id="w3t135-patch_1">
-   <path d="M 0 19.8 
-L 181.08 19.8 
-L 181.08 0 
+ <g id="w3t114-figure_1">
+  <g id="w3t114-patch_1">
+   <path d="M 0 25.08 
+L 229.368 25.08 
+L 229.368 0 
 L 0 0 
-L 0 19.8 
+L 0 25.08 
 z
 " style="fill: none"/>
   </g>
-  <g id="w3t135-text_1">
+  <g id="w3t114-text_1">
    <!-- $\partial \mathcal{L}_{\mathrm{CTC}} / \partial u^t_k = y^t_k - \gamma_t(k)$ -->
-   <g style="fill: #b45309" transform="translate(0 14.94) scale(0.18 -0.18)">
+   <g style="fill: #b45309" transform="translate(0 18.924) scale(0.228 -0.228)">
     <defs>
-     <path id="w3t135-STIXGeneral-Regular-2202" d="M 1248 4000 
+     <path id="w3t114-STIXGeneral-Regular-2202" d="M 1248 4000 
 L 1184 4128 
 Q 1427 4275 1811 4275 
 Q 3014 4275 3014 2611 
@@ -1291,7 +1269,7 @@ Q 2106 877 2253 1414
 Q 2349 1766 2349 2042 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t135-Cmsy10-4c" d="M 238 -141 
+     <path id="w3t114-Cmsy10-4c" d="M 238 -141 
 Q 197 -141 197 -97 
 Q 197 -72 219 -38 
 Q 266 38 359 130 
@@ -1349,7 +1327,7 @@ Q 578 -100 275 -141
 L 238 -141 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t135-Cmr10-43" d="M 1459 684 
+     <path id="w3t114-Cmr10-43" d="M 1459 684 
 Q 1678 406 2006 245 
 Q 2334 84 2688 84 
 Q 2984 84 3237 201 
@@ -1394,7 +1372,7 @@ Q 1044 1753 1134 1368
 Q 1225 984 1459 684 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t135-Cmr10-54" d="M 1081 0 
+     <path id="w3t114-Cmr10-54" d="M 1081 0 
 L 1081 225 
 Q 1403 225 1706 261 
 Q 2009 297 2009 428 
@@ -1424,7 +1402,7 @@ L 3531 0
 L 1081 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t135-Cmmi10-3d" d="M 359 -1472 
+     <path id="w3t114-Cmmi10-3d" d="M 359 -1472 
 Q 359 -1453 366 -1447 
 L 2591 4722 
 Q 2603 4759 2634 4779 
@@ -1438,7 +1416,7 @@ Q 434 -1600 396 -1562
 Q 359 -1525 359 -1472 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t135-Cmmi10-75" d="M 678 697 
+     <path id="w3t114-Cmmi10-75" d="M 678 697 
 Q 678 906 734 1126 
 Q 791 1347 892 1617 
 Q 994 1888 1069 2088 
@@ -1490,7 +1468,7 @@ Q 1116 -72 897 129
 Q 678 331 678 697 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t135-Cmmi10-74" d="M 397 519 
+     <path id="w3t114-Cmmi10-74" d="M 397 519 
 Q 397 613 416 697 
 L 878 2534 
 L 206 2534 
@@ -1527,7 +1505,7 @@ Q 744 -72 570 93
 Q 397 259 397 519 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t135-Cmmi10-6b" d="M 341 116 
+     <path id="w3t114-Cmmi10-6b" d="M 341 116 
 Q 341 153 347 172 
 L 1275 3872 
 Q 1300 3981 1306 4044 
@@ -1586,7 +1564,7 @@ Q 456 -72 398 -17
 Q 341 38 341 116 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t135-Cmr10-3d" d="M 481 850 
+     <path id="w3t114-Cmr10-3d" d="M 481 850 
 Q 428 850 393 890 
 Q 359 931 359 978 
 Q 359 1031 393 1068 
@@ -1611,7 +1589,7 @@ Q 4547 2094 4500 2094
 L 481 2094 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t135-Cmmi10-79" d="M 538 -916 
+     <path id="w3t114-Cmmi10-79" d="M 538 -916 
 Q 672 -1147 1006 -1147 
 Q 1309 -1147 1531 -934 
 Q 1753 -722 1889 -420 
@@ -1666,7 +1644,7 @@ Q 556 -919 550 -917
 Q 544 -916 538 -916 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t135-Cmsy10-a1" d="M 653 1472 
+     <path id="w3t114-Cmsy10-a1" d="M 653 1472 
 Q 600 1472 565 1512 
 Q 531 1553 531 1600 
 Q 531 1647 565 1687 
@@ -1679,7 +1657,7 @@ Q 4375 1472 4325 1472
 L 653 1472 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t135-Cmmi10-b0" d="M 1888 -1253 
+     <path id="w3t114-Cmmi10-b0" d="M 1888 -1253 
 Q 1888 -1109 1952 -834 
 Q 2016 -559 2108 -248 
 Q 2200 63 2266 263 
@@ -1716,7 +1694,7 @@ Q 2084 -1369 1984 -1381
 Q 1888 -1381 1888 -1253 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t135-Cmr10-28" d="M 1984 -1588 
+     <path id="w3t114-Cmr10-28" d="M 1984 -1588 
 Q 1628 -1306 1370 -942 
 Q 1113 -578 948 -165 
 Q 784 247 703 697 
@@ -1742,7 +1720,7 @@ L 2016 -1600
 Q 1984 -1600 1984 -1588 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t135-Cmr10-29" d="M 416 -1600 
+     <path id="w3t114-Cmr10-29" d="M 416 -1600 
 Q 359 -1600 359 -1544 
 Q 359 -1516 372 -1503 
 Q 1466 -434 1466 1600 
@@ -1764,32 +1742,32 @@ L 416 -1600
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w3t135-STIXGeneral-Regular-2202" transform="translate(0 0.920312)"/>
-    <use xlink:href="#w3t135-Cmsy10-4c" transform="translate(47.099991 0.920312)"/>
-    <use xlink:href="#w3t135-Cmr10-43" transform="translate(120.460616 -16.085938) scale(0.7)"/>
-    <use xlink:href="#w3t135-Cmr10-54" transform="translate(171.012374 -16.085938) scale(0.7)"/>
-    <use xlink:href="#w3t135-Cmr10-43" transform="translate(221.564131 -16.085938) scale(0.7)"/>
-    <use xlink:href="#w3t135-Cmmi10-3d" transform="translate(278.493233 0.920312)"/>
-    <use xlink:href="#w3t135-STIXGeneral-Regular-2202" transform="translate(328.493233 0.920312)"/>
-    <use xlink:href="#w3t135-Cmmi10-75" transform="translate(375.593224 0.920312)"/>
-    <use xlink:href="#w3t135-Cmmi10-74" transform="translate(439.07424 39.184375) scale(0.7)"/>
-    <use xlink:href="#w3t135-Cmmi10-6b" transform="translate(432.770958 -24.589062) scale(0.7)"/>
-    <use xlink:href="#w3t135-Cmr10-3d" transform="translate(493.108263 0.920312)"/>
-    <use xlink:href="#w3t135-Cmmi10-79" transform="translate(588.352404 0.920312)"/>
-    <use xlink:href="#w3t135-Cmmi10-74" transform="translate(643.679122 39.184375) scale(0.7)"/>
-    <use xlink:href="#w3t135-Cmmi10-6b" transform="translate(637.375841 -24.589062) scale(0.7)"/>
-    <use xlink:href="#w3t135-Cmsy10-a1" transform="translate(697.713146 0.920312)"/>
-    <use xlink:href="#w3t135-Cmmi10-b0" transform="translate(792.957286 0.920312)"/>
-    <use xlink:href="#w3t135-Cmmi10-74" transform="translate(844.666271 -16.085938) scale(0.7)"/>
-    <use xlink:href="#w3t135-Cmr10-28" transform="translate(876.302404 0.920312)"/>
-    <use xlink:href="#w3t135-Cmmi10-6b" transform="translate(915.120763 0.920312)"/>
-    <use xlink:href="#w3t135-Cmr10-29" transform="translate(967.122716 0.920312)"/>
+    <use xlink:href="#w3t114-STIXGeneral-Regular-2202" transform="translate(0 0.920312)"/>
+    <use xlink:href="#w3t114-Cmsy10-4c" transform="translate(47.099991 0.920312)"/>
+    <use xlink:href="#w3t114-Cmr10-43" transform="translate(120.460616 -16.085938) scale(0.7)"/>
+    <use xlink:href="#w3t114-Cmr10-54" transform="translate(171.012374 -16.085938) scale(0.7)"/>
+    <use xlink:href="#w3t114-Cmr10-43" transform="translate(221.564131 -16.085938) scale(0.7)"/>
+    <use xlink:href="#w3t114-Cmmi10-3d" transform="translate(278.493233 0.920312)"/>
+    <use xlink:href="#w3t114-STIXGeneral-Regular-2202" transform="translate(328.493233 0.920312)"/>
+    <use xlink:href="#w3t114-Cmmi10-75" transform="translate(375.593224 0.920312)"/>
+    <use xlink:href="#w3t114-Cmmi10-74" transform="translate(439.07424 39.184375) scale(0.7)"/>
+    <use xlink:href="#w3t114-Cmmi10-6b" transform="translate(432.770958 -24.589062) scale(0.7)"/>
+    <use xlink:href="#w3t114-Cmr10-3d" transform="translate(493.108263 0.920312)"/>
+    <use xlink:href="#w3t114-Cmmi10-79" transform="translate(588.352404 0.920312)"/>
+    <use xlink:href="#w3t114-Cmmi10-74" transform="translate(643.679122 39.184375) scale(0.7)"/>
+    <use xlink:href="#w3t114-Cmmi10-6b" transform="translate(637.375841 -24.589062) scale(0.7)"/>
+    <use xlink:href="#w3t114-Cmsy10-a1" transform="translate(697.713146 0.920312)"/>
+    <use xlink:href="#w3t114-Cmmi10-b0" transform="translate(792.957286 0.920312)"/>
+    <use xlink:href="#w3t114-Cmmi10-74" transform="translate(844.666271 -16.085938) scale(0.7)"/>
+    <use xlink:href="#w3t114-Cmr10-28" transform="translate(876.302404 0.920312)"/>
+    <use xlink:href="#w3t114-Cmmi10-6b" transform="translate(915.120763 0.920312)"/>
+    <use xlink:href="#w3t114-Cmr10-29" transform="translate(967.122716 0.920312)"/>
    </g>
   </g>
  </g>
 </svg>
-<text x="509.0" y="100.0" font-size="16" font-weight="600" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">same line,</text>
-<text x="509.0" y="120.0" font-size="16" font-weight="600" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">different target</text>
+<text x="458.0" y="232.0" font-size="19" font-weight="600" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">same line,</text>
+<text x="458.0" y="256.0" font-size="19" font-weight="600" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">different target</text>
 </g>
 </svg>
 ```

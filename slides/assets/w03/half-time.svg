@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 398" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<text x="20.0" y="30.0" font-size="22" font-weight="700" fill="#15803d" text-anchor="start" dominant-baseline="auto">First half — done</text>
+<text x="218.9" y="30.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">A variable you never see: what can you do with it?</text>
+<rect x="20.0" y="42.0" width="471.0" height="135.0" rx="8" fill="#dcfce7" stroke="#15803d" stroke-width="1.4"/>
+<circle cx="46.0" cy="70.0" r="16.0" fill="#15803d" stroke="#15803d" stroke-width="1.4"/>
+<text x="46.0" y="71.0" font-size="19" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">✓</text>
+<text x="70.0" y="78.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">Remedial</text>
+<text x="32.0" y="108.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">A hidden variable is summed, not guessed:</text>
+<text x="32.0" y="133.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">marginalise, factorise with the chain rule, work in</text>
+<text x="32.0" y="158.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">the log domain.</text>
+<line x1="493.0" y1="109.5" x2="500.0" y2="109.5" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="507.0,109.5 500.0,114.5 500.0,104.5" fill="#94a3b8"/>
+<rect x="509.0" y="42.0" width="471.0" height="135.0" rx="8" fill="#dcfce7" stroke="#15803d" stroke-width="1.4"/>
+<circle cx="535.0" cy="70.0" r="16.0" fill="#15803d" stroke="#15803d" stroke-width="1.4"/>
+<text x="535.0" y="71.0" font-size="19" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">✓</text>
+<text x="559.0" y="78.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">The HMM</text>
+<text x="521.0" y="108.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">The alignment is the state sequence. Forward</text>
+<text x="521.0" y="133.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">sums over it, Viterbi takes the max: one lattice,</text>
+<text x="521.0" y="158.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">two semirings.</text>
+<text x="20.0" y="215.0" font-size="22" font-weight="700" fill="#b45309" text-anchor="start" dominant-baseline="auto">Second half — next</text>
+<text x="245.6" y="215.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">CTC: sum the alignment out — and what that costs</text>
+<rect x="20.0" y="227.0" width="226.5" height="160.0" rx="8" fill="#ffffff" stroke="#b45309" stroke-width="1.4"/>
+<circle cx="46.0" cy="255.0" r="16.0" fill="#fff7ed" stroke="#b45309" stroke-width="1.4"/>
+<text x="46.0" y="256.0" font-size="19" font-weight="700" fill="#b45309" text-anchor="middle" dominant-baseline="middle">3</text>
+<text x="70.0" y="263.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">The sum</text>
+<text x="32.0" y="293.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">Can the network's</text>
+<text x="32.0" y="318.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">own output be</text>
+<text x="32.0" y="343.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">summed over the</text>
+<text x="32.0" y="368.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">alignment?</text>
+<line x1="248.5" y1="307.0" x2="255.5" y2="307.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="262.5,307.0 255.5,312.0 255.5,302.0" fill="#94a3b8"/>
+<rect x="264.5" y="227.0" width="226.5" height="160.0" rx="8" fill="#ffffff" stroke="#b45309" stroke-width="1.4"/>
+<circle cx="290.5" cy="255.0" r="16.0" fill="#fff7ed" stroke="#b45309" stroke-width="1.4"/>
+<text x="290.5" y="256.0" font-size="19" font-weight="700" fill="#b45309" text-anchor="middle" dominant-baseline="middle">4</text>
+<text x="314.5" y="263.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">The gradient</text>
+<text x="276.5" y="293.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">How does one</text>
+<text x="276.5" y="318.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">number become a</text>
+<text x="276.5" y="343.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">gradient at every</text>
+<text x="276.5" y="368.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">frame?</text>
+<line x1="493.0" y1="307.0" x2="500.0" y2="307.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="507.0,307.0 500.0,312.0 500.0,302.0" fill="#94a3b8"/>
+<rect x="509.0" y="227.0" width="226.5" height="160.0" rx="8" fill="#ffffff" stroke="#b45309" stroke-width="1.4"/>
+<circle cx="535.0" cy="255.0" r="16.0" fill="#fff7ed" stroke="#b45309" stroke-width="1.4"/>
+<text x="535.0" y="256.0" font-size="19" font-weight="700" fill="#b45309" text-anchor="middle" dominant-baseline="middle">5</text>
+<text x="559.0" y="263.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">The cost</text>
+<text x="521.0" y="293.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">When CTC goes</text>
+<text x="521.0" y="318.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">wrong: what did</text>
+<text x="521.0" y="343.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">summing it out cost?</text>
+<line x1="737.5" y1="307.0" x2="744.5" y2="307.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="751.5,307.0 744.5,312.0 744.5,302.0" fill="#94a3b8"/>
+<rect x="753.5" y="227.0" width="226.5" height="160.0" rx="8" fill="#ffffff" stroke="#b45309" stroke-width="1.4"/>
+<circle cx="779.5" cy="255.0" r="16.0" fill="#fff7ed" stroke="#b45309" stroke-width="1.4"/>
+<text x="779.5" y="256.0" font-size="19" font-weight="700" fill="#b45309" text-anchor="middle" dominant-baseline="middle">6</text>
+<text x="803.5" y="263.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">What it is</text>
+<text x="765.5" y="293.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">So what is CTC, next</text>
+<text x="765.5" y="318.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">to an HMM?</text>
+</svg>

@@ -280,7 +280,7 @@ All three hand the acoustic model **one** alignment to learn from. The third one
 :::
 
 ::: {.footer}
-McAuliffe et al. 2017 (MFA) · Kim et al. 2020 (Glow-TTS §3.1–3.2: MAS) · W3 p19, p22
+McAuliffe et al. 2017 (MFA) · Kim et al. 2020 (Glow-TTS §3.1–3.2: MAS) · W3 p20, p23
 :::
 
 ## MAS is W3's Viterbi without the blank
@@ -292,7 +292,7 @@ A^{*} = \arg\max_{A\ \text{monotone, onto}} \sum_t \ln \mathcal{N}\big(\mathbf{z
 $$
 
 ::: {.footer}
-Glow-TTS §3.1–3.2 · w08-data.json → mas_example · W3 p19: the same lattice, with $\sum$ and blanks
+Glow-TTS §3.1–3.2 · w08-data.json → mas_example · W3 p20: the same lattice, with $\sum$ and blanks
 :::
 
 ## Why TTS cannot sum the alignment away, as CTC does
@@ -309,7 +309,7 @@ Recognition can leave "where" undecided and still score the sentence. Synthesis 
 :::
 
 ::: {.footer}
-outline 〈關鍵數學 2〉, the key step · W3 p19 · p25 returns to this
+outline 〈關鍵數學 2〉, the key step · W3 p20 · p25 returns to this
 :::
 
 ## VITS: one stage, no mel, and a sampled duration

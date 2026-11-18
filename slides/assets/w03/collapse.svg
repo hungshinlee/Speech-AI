@@ -1,48 +1,107 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 350" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 300" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
 <g class="fragment" data-fragment-index="0">
-<rect x="130.0" y="50.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="150.0" y="70.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">∅</text>
-<rect x="175.0" y="50.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="195.0" y="70.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">h</text>
-<rect x="220.0" y="50.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="240.0" y="70.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">h</text>
-<rect x="265.0" y="50.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="285.0" y="70.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">e</text>
-<rect x="310.0" y="50.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="330.0" y="70.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">∅</text>
-<rect x="355.0" y="50.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="375.0" y="70.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">l</text>
-<rect x="400.0" y="50.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="420.0" y="70.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">l</text>
-<rect x="445.0" y="50.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="465.0" y="70.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">∅</text>
-<rect x="490.0" y="50.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="510.0" y="70.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">l</text>
-<rect x="535.0" y="50.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="555.0" y="70.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">l</text>
-<rect x="580.0" y="50.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="600.0" y="70.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">o</text>
-<rect x="625.0" y="50.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="645.0" y="70.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">o</text>
-<text x="114.0" y="70.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="end" dominant-baseline="middle">π</text>
-<svg x="678" y="60.515" width="43.52" height="15.485" viewBox="0 0 43.52 15.485"><defs>
+<rect x="110.0" y="20.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="130.0" y="41.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">∅</text>
+<rect x="155.0" y="20.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="175.0" y="41.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">h</text>
+<rect x="200.0" y="20.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="220.0" y="41.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">h</text>
+<rect x="245.0" y="20.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="265.0" y="41.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">e</text>
+<rect x="290.0" y="20.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="310.0" y="41.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">∅</text>
+<rect x="335.0" y="20.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="355.0" y="41.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">l</text>
+<rect x="380.0" y="20.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="400.0" y="41.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">l</text>
+<rect x="425.0" y="20.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="445.0" y="41.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">∅</text>
+<rect x="470.0" y="20.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="490.0" y="41.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">l</text>
+<rect x="515.0" y="20.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="535.0" y="41.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">l</text>
+<rect x="560.0" y="20.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="580.0" y="41.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">o</text>
+<rect x="605.0" y="20.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="625.0" y="41.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">o</text>
+<svg x="81.004" y="29.6756" width="12.996" height="22.0661" viewBox="0 0 12.996 22.066125"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="w3t26-figure_1">
   <g id="w3t26-patch_1">
-   <path d="M 0 15.485 
-L 43.52 15.485 
-L 43.52 0 
+   <path d="M 0 22.066125 
+L 12.996 22.066125 
+L 12.996 0 
 L 0 0 
-L 0 15.485 
+L 0 22.066125 
 z
 " style="fill: none"/>
   </g>
   <g id="w3t26-text_1">
-   <!-- $T = 12$ -->
-   <g style="fill: #6b7280" transform="translate(0 12.1575) scale(0.16 -0.16)">
+   <!-- $\pi$ -->
+   <g style="fill: #1f2328" transform="translate(0 17.324437) scale(0.228 -0.228)">
     <defs>
-     <path id="w3t26-Cmmi10-54" d="M 294 84 
+     <path id="w3t26-Cmmi10-bc" d="M 647 109 
+Q 647 144 672 213 
+Q 850 584 1004 942 
+Q 1159 1300 1282 1639 
+Q 1406 1978 1509 2363 
+L 1100 2363 
+Q 866 2363 662 2216 
+Q 459 2069 325 1844 
+Q 313 1819 288 1819 
+L 213 1819 
+Q 153 1819 153 1881 
+Q 153 1894 166 1919 
+Q 375 2275 614 2517 
+Q 853 2759 1153 2759 
+L 3475 2759 
+Q 3541 2759 3587 2715 
+Q 3634 2672 3634 2597 
+Q 3634 2503 3567 2433 
+Q 3500 2363 3406 2363 
+L 2591 2363 
+Q 2488 1859 2478 1381 
+Q 2478 766 2694 269 
+Q 2713 231 2713 191 
+Q 2713 122 2672 62 
+Q 2631 3 2567 -34 
+Q 2503 -72 2431 -72 
+Q 2263 -72 2200 203 
+Q 2138 478 2138 738 
+Q 2138 1103 2200 1442 
+Q 2263 1781 2400 2363 
+L 1703 2363 
+Q 1197 313 1094 103 
+Q 1003 -72 844 -72 
+Q 766 -72 706 -20 
+Q 647 31 647 109 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w3t26-Cmmi10-bc" transform="translate(0 0.890625)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<svg x="658" y="29.6756" width="62.016" height="22.0661" viewBox="0 0 62.016 22.066125"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w3t27-figure_1">
+  <g id="w3t27-patch_1">
+   <path d="M 0 22.066125 
+L 62.016 22.066125 
+L 62.016 0 
+L 0 0 
+L 0 22.066125 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w3t27-text_1">
+   <!-- $T = 12$ -->
+   <g style="fill: #6b7280" transform="translate(0 17.324437) scale(0.228 -0.228)">
+    <defs>
+     <path id="w3t27-Cmmi10-54" d="M 294 84 
 Q 297 100 308 140 
 Q 319 181 336 203 
 Q 353 225 384 225 
@@ -86,7 +145,7 @@ L 359 0
 Q 294 0 294 84 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t26-Cmr10-3d" d="M 481 850 
+     <path id="w3t27-Cmr10-3d" d="M 481 850 
 Q 428 850 393 890 
 Q 359 931 359 978 
 Q 359 1031 393 1068 
@@ -111,7 +170,7 @@ Q 4547 2094 4500 2094
 L 481 2094 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t26-Cmr10-31" d="M 594 0 
+     <path id="w3t27-Cmr10-31" d="M 594 0 
 L 594 225 
 Q 1394 225 1394 428 
 L 1394 3788 
@@ -127,7 +186,7 @@ L 2694 0
 L 594 0 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t26-Cmr10-32" d="M 319 0 
+     <path id="w3t27-Cmr10-32" d="M 319 0 
 L 319 172 
 Q 319 188 331 206 
 L 1325 1306 
@@ -169,66 +228,66 @@ L 319 0
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w3t26-Cmmi10-54" transform="translate(0 0.6875)"/>
-    <use xlink:href="#w3t26-Cmr10-3d" transform="translate(75.957031 0.6875)"/>
-    <use xlink:href="#w3t26-Cmr10-31" transform="translate(171.201172 0.6875)"/>
-    <use xlink:href="#w3t26-Cmr10-32" transform="translate(221.201172 0.6875)"/>
+    <use xlink:href="#w3t27-Cmmi10-54" transform="translate(0 0.6875)"/>
+    <use xlink:href="#w3t27-Cmr10-3d" transform="translate(75.957031 0.6875)"/>
+    <use xlink:href="#w3t27-Cmr10-31" transform="translate(171.201172 0.6875)"/>
+    <use xlink:href="#w3t27-Cmr10-32" transform="translate(221.201172 0.6875)"/>
    </g>
   </g>
  </g>
 </svg>
 </g>
 <g class="fragment" data-fragment-index="1">
-<rect x="130.0" y="118.0" width="40.0" height="40.0" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<text x="150.0" y="138.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">∅</text>
-<rect x="175.0" y="118.0" width="40.0" height="40.0" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<text x="195.0" y="138.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">h</text>
-<rect x="220.0" y="118.0" width="40.0" height="40.0" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<text x="240.0" y="138.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">e</text>
-<rect x="265.0" y="118.0" width="40.0" height="40.0" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<text x="285.0" y="138.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">∅</text>
-<rect x="310.0" y="118.0" width="40.0" height="40.0" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<text x="330.0" y="138.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">l</text>
-<rect x="355.0" y="118.0" width="40.0" height="40.0" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<text x="375.0" y="138.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">∅</text>
-<rect x="400.0" y="118.0" width="40.0" height="40.0" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<text x="420.0" y="138.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">l</text>
-<rect x="445.0" y="118.0" width="40.0" height="40.0" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<text x="465.0" y="138.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">o</text>
-<text x="114.0" y="138.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="end" dominant-baseline="middle">step 1</text>
-<text x="498.0" y="138.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">merge adjacent repeats</text>
+<rect x="110.0" y="88.0" width="40.0" height="40.0" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="130.0" y="109.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">∅</text>
+<rect x="155.0" y="88.0" width="40.0" height="40.0" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="175.0" y="109.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">h</text>
+<rect x="200.0" y="88.0" width="40.0" height="40.0" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="220.0" y="109.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">e</text>
+<rect x="245.0" y="88.0" width="40.0" height="40.0" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="265.0" y="109.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">∅</text>
+<rect x="290.0" y="88.0" width="40.0" height="40.0" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="310.0" y="109.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">l</text>
+<rect x="335.0" y="88.0" width="40.0" height="40.0" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="355.0" y="109.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">∅</text>
+<rect x="380.0" y="88.0" width="40.0" height="40.0" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="400.0" y="109.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">l</text>
+<rect x="425.0" y="88.0" width="40.0" height="40.0" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="445.0" y="109.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">o</text>
+<text x="94.0" y="115.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="end" dominant-baseline="auto">step 1</text>
+<text x="478.0" y="109.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">merge adjacent repeats</text>
 </g>
 <g class="fragment" data-fragment-index="2">
-<rect x="130.0" y="186.0" width="40.0" height="40.0" rx="3" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
-<text x="150.0" y="206.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">h</text>
-<rect x="175.0" y="186.0" width="40.0" height="40.0" rx="3" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
-<text x="195.0" y="206.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">e</text>
-<rect x="220.0" y="186.0" width="40.0" height="40.0" rx="3" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
-<text x="240.0" y="206.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">l</text>
-<rect x="265.0" y="186.0" width="40.0" height="40.0" rx="3" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
-<text x="285.0" y="206.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">l</text>
-<rect x="310.0" y="186.0" width="40.0" height="40.0" rx="3" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
-<text x="330.0" y="206.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">o</text>
-<text x="114.0" y="206.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="end" dominant-baseline="middle">step 2</text>
-<text x="363.0" y="206.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">delete every blank</text>
-<svg x="545" y="199" width="63.9" height="18" viewBox="0 0 63.9 18"><defs>
+<rect x="110.0" y="156.0" width="40.0" height="40.0" rx="3" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="130.0" y="177.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">h</text>
+<rect x="155.0" y="156.0" width="40.0" height="40.0" rx="3" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="175.0" y="177.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">e</text>
+<rect x="200.0" y="156.0" width="40.0" height="40.0" rx="3" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="220.0" y="177.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">l</text>
+<rect x="245.0" y="156.0" width="40.0" height="40.0" rx="3" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="265.0" y="177.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">l</text>
+<rect x="290.0" y="156.0" width="40.0" height="40.0" rx="3" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="310.0" y="177.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">o</text>
+<text x="94.0" y="183.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="end" dominant-baseline="auto">step 2</text>
+<text x="343.0" y="177.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="middle">delete every blank</text>
+<svg x="545" y="165.9" width="80.94" height="22.8" viewBox="0 0 80.94 22.8"><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="w3t27-figure_1">
-  <g id="w3t27-patch_1">
-   <path d="M 0 18 
-L 63.9 18 
-L 63.9 0 
+ <g id="w3t28-figure_1">
+  <g id="w3t28-patch_1">
+   <path d="M 0 22.8 
+L 80.94 22.8 
+L 80.94 0 
 L 0 0 
-L 0 18 
+L 0 22.8 
 z
 " style="fill: none"/>
   </g>
-  <g id="w3t27-text_1">
+  <g id="w3t28-text_1">
    <!-- $\mathcal{B}(\pi) = \ell$ -->
-   <g style="fill: #15803d" transform="translate(0 13.5) scale(0.18 -0.18)">
+   <g style="fill: #15803d" transform="translate(0 17.1) scale(0.228 -0.228)">
     <defs>
-     <path id="w3t27-Cmsy10-42" d="M 238 -141 
+     <path id="w3t28-Cmsy10-42" d="M 238 -141 
 Q 191 -116 191 -91 
 Q 191 -72 197 -56 
 Q 409 341 576 848 
@@ -298,7 +357,7 @@ Q 403 -128 269 -141
 L 238 -141 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t27-Cmr10-28" d="M 1984 -1588 
+     <path id="w3t28-Cmr10-28" d="M 1984 -1588 
 Q 1628 -1306 1370 -942 
 Q 1113 -578 948 -165 
 Q 784 247 703 697 
@@ -324,7 +383,7 @@ L 2016 -1600
 Q 1984 -1600 1984 -1588 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t27-Cmmi10-bc" d="M 647 109 
+     <path id="w3t28-Cmmi10-bc" d="M 647 109 
 Q 647 144 672 213 
 Q 850 584 1004 942 
 Q 1159 1300 1282 1639 
@@ -361,7 +420,7 @@ Q 766 -72 706 -20
 Q 647 31 647 109 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t27-Cmr10-29" d="M 416 -1600 
+     <path id="w3t28-Cmr10-29" d="M 416 -1600 
 Q 359 -1600 359 -1544 
 Q 359 -1516 372 -1503 
 Q 1466 -434 1466 1600 
@@ -382,7 +441,7 @@ Q 494 -1600 475 -1600
 L 416 -1600 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t27-Cmr10-3d" d="M 481 850 
+     <path id="w3t28-Cmr10-3d" d="M 481 850 
 Q 428 850 393 890 
 Q 359 931 359 978 
 Q 359 1031 393 1068 
@@ -407,7 +466,7 @@ Q 4547 2094 4500 2094
 L 481 2094 
 z
 " transform="scale(0.015625)"/>
-     <path id="w3t27-Cmmi10-60" d="M 153 475 
+     <path id="w3t28-Cmmi10-60" d="M 153 475 
 Q 125 475 94 509 
 Q 63 544 63 575 
 Q 63 628 594 1113 
@@ -449,45 +508,118 @@ Q 1122 1988 1044 1575
 z
 " transform="scale(0.015625)"/>
     </defs>
-    <use xlink:href="#w3t27-Cmsy10-42"/>
-    <use xlink:href="#w3t27-Cmr10-28" transform="translate(65.576172 0)"/>
-    <use xlink:href="#w3t27-Cmmi10-bc" transform="translate(104.394531 0)"/>
-    <use xlink:href="#w3t27-Cmr10-29" transform="translate(161.376953 0)"/>
-    <use xlink:href="#w3t27-Cmr10-3d" transform="translate(217.753906 0)"/>
-    <use xlink:href="#w3t27-Cmmi10-60" transform="translate(312.998047 0)"/>
+    <use xlink:href="#w3t28-Cmsy10-42"/>
+    <use xlink:href="#w3t28-Cmr10-28" transform="translate(65.576172 0)"/>
+    <use xlink:href="#w3t28-Cmmi10-bc" transform="translate(104.394531 0)"/>
+    <use xlink:href="#w3t28-Cmr10-29" transform="translate(161.376953 0)"/>
+    <use xlink:href="#w3t28-Cmr10-3d" transform="translate(217.753906 0)"/>
+    <use xlink:href="#w3t28-Cmmi10-60" transform="translate(312.998047 0)"/>
    </g>
   </g>
  </g>
 </svg>
 </g>
 <g class="fragment" data-fragment-index="3">
-<rect x="130.0" y="262.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="150.0" y="282.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">h</text>
-<rect x="175.0" y="262.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="195.0" y="282.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">h</text>
-<rect x="220.0" y="262.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="240.0" y="282.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">e</text>
-<rect x="265.0" y="262.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="285.0" y="282.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">e</text>
-<rect x="310.0" y="262.0" width="40.0" height="40.0" rx="3" fill="#fee2e2" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="330.0" y="282.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">l</text>
-<rect x="355.0" y="262.0" width="40.0" height="40.0" rx="3" fill="#fee2e2" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="375.0" y="282.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">l</text>
-<rect x="400.0" y="262.0" width="40.0" height="40.0" rx="3" fill="#fee2e2" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="420.0" y="282.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">l</text>
-<rect x="445.0" y="262.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="465.0" y="282.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">o</text>
-<rect x="490.0" y="262.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="510.0" y="282.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">o</text>
-<rect x="535.0" y="262.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="555.0" y="282.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">o</text>
-<rect x="580.0" y="262.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="600.0" y="282.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">∅</text>
-<rect x="625.0" y="262.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="645.0" y="282.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">∅</text>
-<text x="114.0" y="282.0" font-size="16" font-weight="600" fill="#1f2328" text-anchor="end" dominant-baseline="middle">π′</text>
-<text x="682.0" y="273.0" font-size="16" font-weight="600" fill="#dc2626" text-anchor="start" dominant-baseline="middle">no blank between the two l's:</text>
-<text x="682.0" y="293.0" font-size="16" font-weight="600" fill="#dc2626" text-anchor="start" dominant-baseline="middle">step 1 merges them → "helo"</text>
+<rect x="110.0" y="240.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="130.0" y="261.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">h</text>
+<rect x="155.0" y="240.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="175.0" y="261.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">h</text>
+<rect x="200.0" y="240.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="220.0" y="261.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">e</text>
+<rect x="245.0" y="240.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="265.0" y="261.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">e</text>
+<rect x="290.0" y="240.0" width="40.0" height="40.0" rx="3" fill="#fee2e2" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="310.0" y="261.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">l</text>
+<rect x="335.0" y="240.0" width="40.0" height="40.0" rx="3" fill="#fee2e2" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="355.0" y="261.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">l</text>
+<rect x="380.0" y="240.0" width="40.0" height="40.0" rx="3" fill="#fee2e2" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="400.0" y="261.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">l</text>
+<rect x="425.0" y="240.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="445.0" y="261.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">o</text>
+<rect x="470.0" y="240.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="490.0" y="261.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">o</text>
+<rect x="515.0" y="240.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="535.0" y="261.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">o</text>
+<rect x="560.0" y="240.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="580.0" y="261.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">∅</text>
+<rect x="605.0" y="240.0" width="40.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="625.0" y="261.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">∅</text>
+<svg x="73.708" y="249.676" width="20.292" height="22.0661" viewBox="0 0 20.292 22.066125"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w3t29-figure_1">
+  <g id="w3t29-patch_1">
+   <path d="M 0 22.066125 
+L 20.292 22.066125 
+L 20.292 0 
+L 0 0 
+L 0 22.066125 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w3t29-text_1">
+   <!-- $\pi'$ -->
+   <g style="fill: #1f2328" transform="translate(0 17.324437) scale(0.228 -0.228)">
+    <defs>
+     <path id="w3t29-Cmmi10-bc" d="M 647 109 
+Q 647 144 672 213 
+Q 850 584 1004 942 
+Q 1159 1300 1282 1639 
+Q 1406 1978 1509 2363 
+L 1100 2363 
+Q 866 2363 662 2216 
+Q 459 2069 325 1844 
+Q 313 1819 288 1819 
+L 213 1819 
+Q 153 1819 153 1881 
+Q 153 1894 166 1919 
+Q 375 2275 614 2517 
+Q 853 2759 1153 2759 
+L 3475 2759 
+Q 3541 2759 3587 2715 
+Q 3634 2672 3634 2597 
+Q 3634 2503 3567 2433 
+Q 3500 2363 3406 2363 
+L 2591 2363 
+Q 2488 1859 2478 1381 
+Q 2478 766 2694 269 
+Q 2713 231 2713 191 
+Q 2713 122 2672 62 
+Q 2631 3 2567 -34 
+Q 2503 -72 2431 -72 
+Q 2263 -72 2200 203 
+Q 2138 478 2138 738 
+Q 2138 1103 2200 1442 
+Q 2263 1781 2400 2363 
+L 1703 2363 
+Q 1197 313 1094 103 
+Q 1003 -72 844 -72 
+Q 766 -72 706 -20 
+Q 647 31 647 109 
+z
+" transform="scale(0.015625)"/>
+     <path id="w3t29-Cmsy10-30" d="M 225 347 
+Q 184 359 184 409 
+L 966 3316 
+Q 1003 3434 1093 3506 
+Q 1184 3578 1300 3578 
+Q 1450 3578 1564 3479 
+Q 1678 3381 1678 3231 
+Q 1678 3166 1644 3084 
+L 488 319 
+Q 466 275 428 275 
+Q 394 275 320 306 
+Q 247 338 225 347 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w3t29-Cmmi10-bc" transform="translate(0 0.601562)"/>
+    <use xlink:href="#w3t29-Cmsy10-30" transform="translate(63.059297 38.865625) scale(0.7)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<text x="662.0" y="249.0" font-size="19" font-weight="600" fill="#dc2626" text-anchor="start" dominant-baseline="middle">no blank between the two l's:</text>
+<text x="662.0" y="275.0" font-size="19" font-weight="600" fill="#dc2626" text-anchor="start" dominant-baseline="middle">step 1 merges them → “helo”</text>
 </g>
-<text x="500.0" y="338.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">B is many-to-one. Both steps are needed; their order is what makes repeated letters need a blank.</text>
 </svg>
