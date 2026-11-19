@@ -1,6 +1,7 @@
 <!-- 由 scripts/make_figs_w04.py 產生，勿手改；投影片用 {{< include assets/w04/route.inline.qmd >}} 貼入 -->
 ```{=html}
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 366" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
 <text x="20.0" y="30.0" font-size="22" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="auto">First half</text>
 <text x="128.1" y="30.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">The box: how much of the future may it see?</text>
 <rect x="20.0" y="42.0" width="471.0" height="136.0" rx="8" fill="#ffffff" stroke="#0b5cad" stroke-width="1.4"/>
@@ -17,6 +18,8 @@
 <text x="559.0" y="78.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">Making it causal</text>
 <text x="521.0" y="108.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">What does looking to the right cost — and when</text>
 <text x="521.0" y="133.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">does that cost pile up with depth?</text>
+</g>
+<g class="fragment" data-fragment-index="1">
 <text x="20.0" y="216.0" font-size="22" font-weight="700" fill="#b45309" text-anchor="start" dominant-baseline="auto">Second half</text>
 <text x="162.8" y="216.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">The output: how does it line up with the input?</text>
 <rect x="20.0" y="228.0" width="308.0" height="136.0" rx="8" fill="#ffffff" stroke="#b45309" stroke-width="1.4"/>
@@ -44,5 +47,6 @@
 <text x="684.0" y="294.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">What does a Transformer carry</text>
 <text x="684.0" y="319.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">forward, and how fast does it</text>
 <text x="684.0" y="344.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">grow?</text>
+</g>
 </svg>
 ```

@@ -174,12 +174,12 @@ These three are the coordinate system for the whole course. Slides in every late
 
 {{< include assets/w01/route.inline.qmd >}}
 
-::: {.claim}
+::: {.claim .fragment fragment-index=2}
 **First:** the question, and three systems that try to answer it. **Then:** how we know an answer is right — a human clock, a budget, and a second speaker.
 :::
 
 ::: {.footer}
-five stops = the first five section pages · the same map, half filled in, returns at p29
+five stops = the first five section pages · half-time: p29 · answered: p61
 :::
 
 # Three architectures: what each one gives up to get both right {.section-title}
@@ -360,11 +360,11 @@ No ranking here — **"end-to-end must be better" is a misconception.** Pick the
 {{< include assets/w01/half-time.inline.qmd >}}
 
 ::: {.claim}
-Whichever column you pick, the referee is the same: **the clock of the person on the other side.** How late is too late — and how early?
+**So far:** three systems, three things given up. **From here:** the referee is **the other person's clock** — how late is too late, and how early?
 :::
 
 ::: {.footer}
-the answers: p8–p11 · p16–p28 · the route: p12
+the route: p12 · first half: p6–p28 · second half: p30–p56 · answered: p61
 :::
 
 # What humans aim at: how late is too late? {.section-title}
@@ -728,6 +728,26 @@ When we reach W14's open problems, this one has your name on it more than mine.
 You will use these four every week — and they are also how you avoid writing a paper that someone else has to ask them about.
 :::
 
+## The opening question, answered
+
+::: {.ask}
+p5: one recording, two opposite failures. What must a system be, to get both right — and how do we know that it did?
+:::
+
+::: {.prose}
+| | |
+|:----|:-----------------|
+| **1 · The course** | Fourteen weeks with W6 as the hinge; three axes asked every week — representation, latency, supervision. (p8–p11) |
+| **2 · Architectures** | The cascade loses the clock at the transcript. End-to-end keeps it and pays in semantics. Native full duplex turns silence into a token. (p16–p28) |
+| **3 · The human target** | People aim at a target, not at a minimum — and they reach it by **predicting** the end of a turn, not by detecting it. (p31, p33) |
+| **4 · The budget** | Every term after the user stops speaking adds up, and a faster GPU moves exactly one of the four: latency is a **modelling** decision. (p43, p46) |
+| **5 · Behaviours** | The same overlap is a defect in one task and a requirement in another — classify first, then act. Stopping has a budget of its own. (p54, p55) |
+:::
+
+::: {.footer}
+the route: p12 · half-time: p29
+:::
+
 ## Next week, and what to read
 
 **W2 — Speech Signals, Auditory Front-Ends, and the Physics of Representation.** The only systematic digital-signal-processing (DSP) week. Before the short-time Fourier transform (STFT) it stops for a short refresher — inner products and projections — and then uses them three times.
@@ -767,7 +787,7 @@ Audio analysis code (energy VAD, overlap / response / stop latency, the two-trac
 | RTF | real-time factor: seconds of compute per second of audio (p40) |
 | S2S | speech-to-speech (p20) |
 | SSL | self-supervised learning (p20) |
-| STFT | short-time Fourier transform (p61) |
+| STFT | short-time Fourier transform (p62) |
 | TTS | text-to-speech (p15) |
 | VAD | voice activity detection (p15) |
 | WER | word error rate (p58) |

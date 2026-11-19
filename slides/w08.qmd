@@ -70,7 +70,7 @@ format:
 :::
 
 ::: {.footer}
-W7 p5 · W7 p83's last paragraph · W6 p23 RVQ · W6 p58
+W7 p5 · W7 p84's last paragraph · W6 p23 RVQ · W6 p59
 :::
 
 ## The problem this week handles, in one picture
@@ -95,12 +95,12 @@ Route: not regression → length → AR tokens → flow matching → vocoder →
 
 {{< include assets/w08/route.inline.qmd >}}
 
-::: {.claim}
+::: {.claim .fragment fragment-index=2}
 **First:** not the mean; the length; tokens. **Then:** a flow; the waveform; the wait.
 :::
 
 ::: {.footer}
-six stops = the six section pages · the same map, half filled in, returns at p40
+six stops = the six section pages · half-time: p40 · answered: p90
 :::
 
 ## Notation for today
@@ -574,11 +574,11 @@ the table of the week, complete · AR for "when", a flow or a decoder for "what 
 {{< include assets/w08/half-time.inline.qmd >}}
 
 ::: {.claim}
-The 2026 recipe: AR writes tokens, a flow decodes them. **What is the flow half?**
+**So far:** the 2026 recipe is AR writes tokens, a flow decodes them — and the AR half is done. **From here:** **what is the flow half?**
 :::
 
 ::: {.footer}
-the answers: p10 · p17, p24 · p29 · the route: p6
+the route: p6 · first half: p9–p39 · second half: p41–p83 · answered: p90
 :::
 
 # Variation, answer two: flow matching {.section-title}
@@ -1372,6 +1372,27 @@ The judge is W7's ASR — a model with a strong prior that **repairs** a mumbled
 
 ::: {.footer}
 W7: hallucination, the length reward, WER's holes · Seed-TTS §3.1: WER by ASR, SIM by WavLM · W9
+:::
+
+## The opening question, answered
+
+::: {.ask}
+p5: one line of text, many readings. Where does "which reading" get decided — the length, the variation, the waveform, the wait?
+:::
+
+::: {.prose}
+| | |
+|:----|:-----------------|
+| **1 · Not regression** | A regression returns the mean — and the mean is not a reading. (p10) |
+| **2 · Length** | Attention, a duration model, the stop symbol — or outside. (p17, p24) |
+| **3 · AR over tokens** | Sample W6's tokens one by one; cloning is continuation. (p29) |
+| **4 · Flow matching** | Regress a direction, not the destination: the sample is reached by integration. Past the knee, more steps buy only latency. (p43, p48, p57) |
+| **5 · The vocoder** | A generator against discriminators for what repeats and what continues. It sets the ceiling on quality — and often the compute. (p65, p71) |
+| **6 · The first packet** | Three shapes; every chunk must finish in $C / f_r$. Speed is set by implementation and chunk design, not by the paradigm. (p76–p77, p80) |
+:::
+
+::: {.footer}
+the route: p6 · half-time: p40
 :::
 
 ## Reading, and next week

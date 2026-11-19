@@ -89,12 +89,12 @@ three protagonists, one question · the route: next slide
 
 {{< include assets/w04/route.inline.qmd >}}
 
-::: {.claim}
+::: {.claim .fragment fragment-index=2}
 **First:** open the box, then make it causal. **Then:** an output that remembers, a decoder that looks where it likes, and the state both carry.
 :::
 
 ::: {.footer}
-five stops = the five section pages · the same map, half filled in, returns at p29
+five stops = the five section pages · half-time: p29 · answered: p74
 :::
 
 ## Notation for today
@@ -393,11 +393,11 @@ Master: W1 p38 · 1120 ms is the p22 example, not a measurement · Demo 2 measur
 {{< include assets/w04/half-time.inline.qmd >}}
 
 ::: {.claim}
-The architecture's delay is a **lower bound**; Demo 2 measures the rest. Last week's second hole is still open: **the outputs have no memory.**
+**So far:** the box is open, and causal — its delay is a **lower bound**; Demo 2 measures the rest. **From here:** last week's second hole is still open — **the outputs have no memory.**
 :::
 
 ::: {.footer}
-the answers: p10 · p21, p24 · the route: p6
+the route: p6 · first half: p9–p28 · second half: p30–p69 · answered: p74
 :::
 
 # RNN-T: how does the output get a memory without losing the lattice? {.section-title}
@@ -1022,6 +1022,26 @@ W1 wrote $D_{\text{alg}}$ on the 10 ms grid; today put it inside the encoder, fo
 
 ::: {.claim}
 A $T \times T$ block; three numbers to trade; one more axis on the lattice; and **attention is a computation, not an alignment.**
+:::
+
+## The opening question, answered
+
+::: {.ask}
+p5: open the box, give the output a memory, meet the third alignment. Through all three: how much of the future may the model see before it answers?
+:::
+
+::: {.prose}
+| | |
+|:----|:-----------------|
+| **1 · The box** | Attention lets every frame read the whole utterance — a $T \times T$ score — so it has to wait for all of it. (p10) |
+| **2 · Making it causal** | Per-layer right context adds up; a chunk boundary is shared by every layer. Streaming is a trade-off in $m$, $C$, $H$ — not a switch. (p21, p24) |
+| **3 · RNN-T** | A prediction network that sees only the labels emitted so far, and a blank that means *time*: one more axis on the lattice. The bills: a memory wall, and an emission delay no formula contains. (p32, p37, p50, p52) |
+| **4 · Attention** | No. What the decoder learns is a weighting — weights of an average, not a seating chart; the timestamps are manufactured on top. (p59, p62, p64) |
+| **5 · The state** | The KV cache. The encoder's is bounded by $H$; the decoder's is not — so ask of every architecture how the state is kept bounded. (p68–p69) |
+:::
+
+::: {.footer}
+the route: p6 · half-time: p29 · the week in one sentence: p73
 :::
 
 ## Reading, and next week

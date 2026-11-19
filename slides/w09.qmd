@@ -97,12 +97,12 @@ whose voice → in what manner → a reward → its blind spots → judging the 
 
 {{< include assets/w09/route.inline.qmd >}}
 
-::: {.claim}
+::: {.claim .fragment fragment-index=2}
 **First half:** the judge moves into training. **Second half:** what it cannot see.
 :::
 
 ::: {.footer}
-six stops = the six section pages · the same map, half filled in, returns at p51
+six stops = the six section pages · half-time: p51 · answered: p93
 :::
 
 ## Notation for today
@@ -864,11 +864,11 @@ W8 MC 5 (W8 p56): "ODE or SDE decides whether RL has a stochastic policy" — de
 {{< include assets/w09/half-time.inline.qmd >}}
 
 ::: {.claim}
-The judge is inside training now. **What happens where it cannot see?**
+**So far:** the judge is inside training now. **From here:** **what happens where it cannot see?**
 :::
 
 ::: {.footer}
-the answers: p18 (MC 1) · p23 · p43, p45 (MC 6) · the route: p6
+the route: p6 · first half: p9–p50 · second half: p52–p89 · answered: p93
 :::
 
 # What the judge cannot see {.section-title}
@@ -1527,6 +1527,27 @@ outline 〈定位〉 three axes · W5 p69 · W6 p57 · W7 p82 · W8 p86
 
 ::: {.footer}
 Breeze Taigi · Osakuade & King 2026 · ToneUnit · Zhang et al. 2025 · VoxHakka · W8 p87
+:::
+
+## The opening question, answered
+
+::: {.ask}
+p5: who is the judge, what can it not see — and does the generator learn exactly that?
+:::
+
+::: {.prose}
+| | |
+|:----|:-----------------|
+| **1 · Whose voice** | Neither route copies only the timbre: what came with the prompt comes along. (p18) |
+| **2 · In what manner** | An instruction the judge cannot hear, the generator has no reason to learn. (p23) |
+| **3 · A reward** | Yes: post-training changes only the weights. The judge is in training, not in use. (p43, p45) |
+| **4 · Blind spots** | Goodhart's law: what the judge cannot see is traded for score. Many judges watch one another; the rest only people supply. (p53–p54, p58) |
+| **5 · Judging the judges** | MOS is relative: two listening tests have no common zero. A MOS predictor estimates *those* listeners, in *that* test. (p66, p70) |
+| **6 · The adversary** | A detector knows the traces of the generators it was trained on; a watermark traces a generator that cooperates. (p81, p88–p89) |
+:::
+
+::: {.footer}
+the route: p6 · half-time: p51 · the week in one sentence: p91
 :::
 
 ## Reading, and next week

@@ -1,6 +1,7 @@
 <!-- 由 scripts/make_figs_w02.py 產生，勿手改；投影片用 {{< include assets/w02/route.inline.qmd >}} 貼入 -->
 ```{=html}
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 366" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
 <text x="20.0" y="30.0" font-size="22" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="auto">First half</text>
 <text x="128.1" y="30.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">Before any transform: the numbers, and where the word is in them</text>
 <rect x="20.0" y="42.0" width="471.0" height="110.0" rx="8" fill="#ffffff" stroke="#0b5cad" stroke-width="1.4"/>
@@ -16,6 +17,8 @@
 <text x="559.0" y="78.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">Production</text>
 <text x="521.0" y="108.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">How speech is made: where in the signal is the</text>
 <text x="521.0" y="133.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">word?</text>
+</g>
+<g class="fragment" data-fragment-index="1">
 <text x="20.0" y="190.0" font-size="22" font-weight="700" fill="#b45309" text-anchor="start" dominant-baseline="auto">Second half</text>
 <text x="162.8" y="190.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">The front end: what it keeps, what it drops, what comes back</text>
 <rect x="20.0" y="202.0" width="226.5" height="135.0" rx="8" fill="#ffffff" stroke="#b45309" stroke-width="1.4"/>
@@ -51,5 +54,6 @@
 <text x="803.5" y="238.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">Prosody</text>
 <text x="765.5" y="268.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">Above the segment:</text>
 <text x="765.5" y="293.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">what rides on F0?</text>
+</g>
 </svg>
 ```

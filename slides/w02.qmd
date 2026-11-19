@@ -91,12 +91,12 @@ one pipeline, three axes · the route: next slide
 
 {{< include assets/w02/route.inline.qmd >}}
 
-::: {.claim}
+::: {.claim .fragment fragment-index=2}
 **First:** how air becomes numbers, and where the word is in them. **Then:** the front end — what it keeps, what it drops, and what comes back.
 :::
 
 ::: {.footer}
-six stops = the six sections (the first opened at p2) · the same map, half filled in, returns at p20
+six stops = the six sections (the first opened at p2) · half-time: p20 · answered: p72
 :::
 
 ## Sampling: a waveform becomes a list of numbers
@@ -282,11 +282,11 @@ It is the core of classical speech codecs (CELP — code-excited linear predicti
 {{< include assets/w02/half-time.inline.qmd >}}
 
 ::: {.claim}
-Three things, three scales — a few hundred hertz, a hundred-odd hertz, a few milliseconds. **Can one picture show all of them at once?**
+**So far:** numbers in hand, and the word in three places at three scales — a few hundred hertz, a hundred-odd hertz, a few milliseconds. **From here:** **can one picture show all of them at once?**
 :::
 
 ::: {.footer}
-the answers: p7–p8 · p11–p18 · the route: p6
+the route: p6 · first half: p7–p19 · second half: p21–p64 · answered: p72
 :::
 
 # Seeing speech: what does cutting into frames cost? {.section-title}
@@ -993,6 +993,27 @@ Schematic: the grids hold random values · $768 \times 50$ Hz is HuBERT-base, $8
 
 ::: {.claim}
 The front-end decides what every later layer is allowed to know. It is the cheapest part to compute, and the most expensive to get wrong.
+:::
+
+## The opening question, answered
+
+::: {.ask}
+p5: the front end decides what every later layer is allowed to know. What does it keep, what does it drop — and what comes back?
+:::
+
+::: {.prose}
+| | |
+|:----|:-----------------|
+| **1 · Sampling** | Everything below half the sampling rate survives. What lies above does not vanish — it folds back. (p7–p8) |
+| **2 · Production** | In three places: the tube's shape (formants), the folds' period (harmonics), the few milliseconds of a stop. (p11–p18) |
+| **3 · Frames** | The window sets the frequency resolution and the lookahead; the hop sets the clock for everything downstream. (p25, p30–p31) |
+| **4 · Mel** | A log, then a filterbank sketched from the ear: 257 numbers become 80, and **not one number in the chain is learned**. (p35–p36, p38) |
+| **5 · Losses** | Two kinds of loss: the phase is still in the magnitude — an algorithm's problem; what mel drops is gone. (p50–p52) |
+| **6 · Prosody** | Three acoustic handles; tone and intonation share one $F_0$ curve. Source and filter are mechanisms, not kinds of information. (p57, p62–p63) |
+:::
+
+::: {.footer}
+the route: p6 · half-time: p20 · the week in one sentence: p71
 :::
 
 ## Reading, and next week

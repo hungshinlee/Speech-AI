@@ -70,7 +70,7 @@ format:
 :::
 
 ::: {.footer}
-W6 p58's last paragraph · W6 p23 RVQ · W6 p57 three axes
+W6 p59's last paragraph · W6 p23 RVQ · W6 p57 three axes
 :::
 
 ## The problem this week handles, in one picture
@@ -89,12 +89,12 @@ Route: four places → two roads → hallucination → decoding → biasing → 
 
 {{< include assets/w07/route.inline.qmd >}}
 
-::: {.claim}
+::: {.claim .fragment fragment-index=2}
 **First:** where the prior lives; where it comes from; what it says alone. **Then:** combine it, add to it, enlarge it, measure it.
 :::
 
 ::: {.footer}
-seven stops = the seven section pages · the same map, half filled in, returns at p41
+seven stops = the seven section pages · half-time: p41 · answered: p83
 :::
 
 ## Notation for today
@@ -653,11 +653,11 @@ Koenecke 2024 · CrisperWhisper §3.2 · Kumar 2026 §V-B · our framing (p31)
 {{< include assets/w07/half-time.inline.qmd >}}
 
 ::: {.claim}
-The prior stays; you decide where it may speak. **How do the two sides combine?**
+**So far:** the prior can be seen. **From here:** **how do the two sides combine?**
 :::
 
 ::: {.footer}
-the answers: p11, p13 · p28 · p40 · the route: p6
+the route: p6 · first half: p9–p40 · second half: p42–p78 · answered: p83
 :::
 
 # Combining the two sides: decoding {.section-title}
@@ -1259,6 +1259,28 @@ W1 p38 · W1 p43 · W4 Demo 2 · W1 Demo 2 · W6 p56 · W11, W12
 
 ::: {.claim}
 **Where the prior lives, how strong it is, how it meets the evidence.** Too little and homophones are guessed from sound; too much and the system hears what was never said. Decoding sets the weights, biasing adds a list, WER counts the words without saying which side was right.
+:::
+
+## The opening question, answered
+
+::: {.ask}
+p5: where does the prior live, how strong is it, how does it meet the evidence?
+:::
+
+::: {.prose}
+| | |
+|:----|:-----------------|
+| **1 · Four places** | No prior, a small network, the decoder, a text LLM. (p11, p13) |
+| **2 · Two roads** | Strong prior if the domain is unknown; in-domain labels if known. (p28) |
+| **3 · Hallucination** | A sentence: the price of the prior where evidence is flat. (p40) |
+| **4 · Decoding** | In one line of scores with weights. Subtract, because the model already carries a prior — add an LM on top and it is counted twice. (p46–p47) |
+| **5 · Biasing** | Yes, at three layers — the score, the decoder, the prompt. None of them helps with a name that is not on the list. (p55, p59) |
+| **6 · The LLM turn** | The prior comes from outside the paired data — and the strongest prior has the weakest answer to *when*. (p68, p71) |
+| **7 · Measuring** | WER is an alignment, then a count; without its normaliser, test set and significance test it has no unit. (p74–p75) |
+:::
+
+::: {.footer}
+the route: p6 · half-time: p41 · the week in one sentence: p82
 :::
 
 ## Reading, and next week

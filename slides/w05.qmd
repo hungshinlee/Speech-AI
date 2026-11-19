@@ -112,16 +112,16 @@ the four answers: next slide · the pipeline with its numbers: p11
 1: p12–p29 · 2: p30–p37 · 3: p38 · 4: p39 · all four in one row: p40–p41
 :::
 
-## Today's route: six stops, in two parts
+## Today's route: six stops, in two halves
 
 {{< include assets/w05/route.inline.qmd >}}
 
-::: {.claim}
-**Part 1:** who writes the answer — the model itself, or a teacher. **Part 2:** what that choice does to the layers and the units, and what it cannot decide.
+::: {.claim .fragment fragment-index=2}
+**First half:** who writes the answer — the model itself, or a teacher. **Second half:** what that choice does to the layers and the units, and what it cannot decide.
 :::
 
 ::: {.footer}
-six stops = the six section pages · the same map, half filled in, returns at p43
+six stops = the six section pages · half-time: p43 · answered: p70
 :::
 
 ## Notation for today
@@ -739,11 +739,11 @@ wav2vec 2.0 Table 1 (10 min → 960 h) · "pseudo-labels" is our word; HuBERT sa
 {{< include assets/w05/half-time.inline.qmd >}}
 
 ::: {.claim}
-None of the four used a transcript; the labels moved downstream. **The first downstream decision: which layer to read.**
+**So far:** none of the four used a transcript; the labels moved downstream. **From here:** the first downstream decision — **which layer to read.**
 :::
 
 ::: {.footer}
-the answers: p15, p18 · p28 · p35, p40–p41 · the route: p7
+the route: p7 · first half: p10–p42 · second half: p44–p65 · answered: p70
 :::
 
 # What the target does to the layers {.section-title}
@@ -1128,6 +1128,27 @@ W3 and W4 asked "where does the alignment come from"; today asked **"where does 
 
 ::: {.claim}
 **Who writes the answer down** decides whether training can collapse, what each layer ends up holding, and what a unit is. It decides nothing about **the data, the domain or the clock** — check those before crediting it.
+:::
+
+## The opening question, answered
+
+::: {.ask}
+p5: what is the answer for the masked frame, and who wrote it down? What does that choice decide — and what does it not?
+:::
+
+::: {.prose}
+| | |
+|:----|:-----------------|
+| **1 · Contrast** | The estimate never exceeds $\ln N$ — and hard negatives matter more than many. (p15, p18) |
+| **2 · Its own answer** | A recipe full of guards against cheating, and hundreds of GPU-days to cook it once. (p28–p29) |
+| **3 · A teacher** | Consistent, not correct: a bad teacher who answers the same way twice can be learned past. (p35, p40–p41) |
+| **4 · The layers** | A layer looks like what it is asked to predict, so the top turns back toward the target. Which layer to read is measured. (p48–p49) |
+| **5 · The units** | Finer than phones, context-bound, redundant — and without $F_0$: in a tonal language, part of the word went with it. (p55–p57) |
+| **6 · Not decided** | The data, the domain, the protocol and the clock. Match those before crediting the target. (p59–p64) |
+:::
+
+::: {.footer}
+the route: p7 · half-time: p43 · the week in one sentence: p69
 :::
 
 ## Reading, and next week

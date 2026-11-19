@@ -131,12 +131,12 @@ roads 1 and 2 are today · road 3 (attention) is W4 · the route: next slide
 
 {{< include assets/w03/route.inline.qmd >}}
 
-::: {.claim}
+::: {.claim .fragment fragment-index=2}
 **First:** the tools, and the first model that summed the alignment out. **Then:** CTC — the sum, its gradient, what it costs, and what it is.
 :::
 
 ::: {.footer}
-six stops = the next six section pages · the same map, half filled in, returns at p25
+six stops = the next six section pages · half-time: p25 · answered: p69
 :::
 
 ## Five things to leave with today
@@ -322,11 +322,11 @@ The HMM is not a system you will deploy. It is the **grammar of every alignment 
 {{< include assets/w03/half-time.inline.qmd >}}
 
 ::: {.claim}
-The next method is written in the same grammar: **the lattice, the recursion and the semiring stay** — the transition probabilities and the bootstrap go.
+**So far:** the alignment can be summed. **From here:** the same grammar — **lattice, recursion, semiring stay**; transition probabilities and bootstrap go.
 :::
 
 ::: {.footer}
-the answers: p12–p14 · p19–p20 · the route: p9
+the route: p9 · first half: p11–p24 · second half: p26–p62 · answered: p69
 :::
 
 # CTC, part 1: can the network's own output be summed over the alignment? {.section-title}
@@ -935,6 +935,27 @@ Same word, same glyph, different semantics. Next week the blank stops meaning "n
 
 ::: {.claim}
 Every alignment method handles one hidden variable. HMM and CTC sum it out on the same lattice; they differ in what each refuses to model.
+:::
+
+## The opening question, answered
+
+::: {.ask}
+p8: nobody says which frames belong to which symbol. Guess the alignment, or sum it out — and what does summing it out cost?
+:::
+
+::: {.prose}
+| | |
+|:----|:-----------------|
+| **1 · Remedial** | A hidden variable is summed, not guessed. (p12–p14) |
+| **2 · The HMM** | Forward sums over alignments; Viterbi takes the max. (p19–p20) |
+| **3 · The sum** | Yes: one extra symbol and a collapsing map make it a sum over paths — exponentially many, in $O(TS)$ cells. (p28, p34) |
+| **4 · The gradient** | Ways in $\times$ ways out give the posterior $\gamma_t$; the gradient is $y^t_k - \gamma_t(k)$ — cross-entropy against a soft alignment. (p40, p42, p45) |
+| **5 · The cost** | Two refusals. No durations: peaky spikes. No output dependency: nothing that needs the previous symbol. (p51, p57) |
+| **6 · What it is** | An HMM with a fixed topology, no transition probabilities and a softmax emission, trained full-sum. (p60–p61) |
+:::
+
+::: {.footer}
+the route: p9 · half-time: p25 · the week in one sentence: p68
 :::
 
 ## Reading, and next week

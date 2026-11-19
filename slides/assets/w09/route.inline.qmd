@@ -1,6 +1,7 @@
 <!-- 由 scripts/make_figs_w09.py 產生，勿手改；投影片用 {{< include assets/w09/route.inline.qmd >}} 貼入 -->
 ```{=html}
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 366" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
 <text x="20.0" y="30.0" font-size="22" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="auto">First half</text>
 <text x="128.1" y="30.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">The judge moves closer: from a condition to a reward</text>
 <rect x="20.0" y="42.0" width="308.0" height="128.0" rx="8" fill="#ffffff" stroke="#0b5cad" stroke-width="1.4"/>
@@ -25,6 +26,8 @@
 <text x="726.0" y="80.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">A reward</text>
 <text x="688.0" y="110.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">Can the judge move out of</text>
 <text x="688.0" y="135.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">inference and into training?</text>
+</g>
+<g class="fragment" data-fragment-index="1">
 <text x="20.0" y="214.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="auto">Second half</text>
 <text x="162.8" y="214.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">What the judge misses — and who judges the judge</text>
 <rect x="20.0" y="226.0" width="308.0" height="128.0" rx="8" fill="#ffffff" stroke="#dc2626" stroke-width="1.4"/>
@@ -50,5 +53,6 @@
 <text x="726.0" y="264.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">The adversary</text>
 <text x="688.0" y="294.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">What if the generating side</text>
 <text x="688.0" y="319.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">does not want to be judged?</text>
+</g>
 </svg>
 ```

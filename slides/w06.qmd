@@ -64,7 +64,7 @@ format:
 :::
 
 ::: {.footer}
-W5 p40–p41 four targets in one row · W5 p70's last sentence
+W5 p40–p41 four targets in one row · W5 p71's last sentence
 :::
 
 ## The problem this week handles, in one picture
@@ -83,12 +83,12 @@ Route: quantiser → stacking + objective → listen, count → voice and words 
 
 {{< include assets/w06/route.inline.qmd >}}
 
-::: {.claim}
+::: {.claim .fragment fragment-index=2}
 **First:** learn the letters; stack them, and decide what they hold. **Then:** listen and count; voice and words; how many per second.
 :::
 
 ::: {.footer}
-five stops = the five section pages · the same map, half filled in, returns at p33
+five stops = the five section pages · half-time: p33 · answered: p58
 :::
 
 ## Notation for today
@@ -473,11 +473,11 @@ SoundStream abstract · EnCodec §4.5, Table 1 · RFC 6716 · EVS = Enhanced Voi
 {{< include assets/w06/half-time.inline.qmd >}}
 
 ::: {.claim}
-Scores do not cross papers — so: the same sentence, the same machine, the same ears. **What does each stage hold?**
+**So far:** the alphabet is built — and scores do not cross papers. **From here:** the same sentence, the same machine, the same ears: **what does each stage hold?**
 :::
 
 ::: {.footer}
-the answers: p16, p17 · p27, p30, p32 · the route: p6
+the route: p6 · first half: p9–p32 · second half: p34–p51 · answered: p58
 :::
 
 # What each stage holds: listen, then count {.section-title}
@@ -811,6 +811,26 @@ W1 p38 · W4 p22 $D_{\text{alg}}$ · EnCodec streamable vs not · Mimi: causal, 
 
 ::: {.claim}
 **Three choices that constrain each other**: the quantiser decides whether the letters get used, the objective what they hold — the voice or the words, rarely both — and the frame rate writes **the bill** for every later week.
+:::
+
+## The opening question, answered
+
+::: {.ask}
+p5: a codec invents an alphabet for speech. How is it made, what does it hold — and how many letters per second?
+:::
+
+::: {.prose}
+| | |
+|:----|:-----------------|
+| **1 · The quantiser** | By k-means on the latents. It collapses for two reasons: a start outside the data, and updates that touch only winners. (p16, p17) |
+| **2 · Stacking** | Most energy first — not the semantics. The adversary changes what a token carries. Scores do not cross papers. (p27, p30, p32) |
+| **3 · Listen, then count** | Stage 1 alone kept neither the words nor the voice: "semantic" names what a codebook was trained *towards*. (p37–p38, p44) |
+| **4 · Voice and words** | Acoustic tokens rebuild the voice; semantic tokens keep *what* and lose it. Tone: measured for units, a prediction for codecs. (p42, p46) |
+| **5 · Frame rate** | A first-order choice: context, steps, latency floor. Speech tokens outnumber text tokens by one to two orders of magnitude. (p48, p50) |
+:::
+
+::: {.footer}
+the route: p6 · half-time: p33 · the week in one sentence: p57
 :::
 
 ## Reading, and next week
