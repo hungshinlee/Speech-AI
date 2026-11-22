@@ -6,6 +6,10 @@ toc-depth: 2
 
 <!-- 此檔由 scripts/build_weeks.py 從課程大綱過濾產生，請勿直接編輯。大綱正本在 private repo（$COURSE_OUTLINE），改完請重跑腳本。 -->
 
+::: {.callout-note appearance="minimal"}
+[**▶ Slides for this week**](../slides/w10.qmd)
+:::
+
 ## Where This Fits
 **Every model in Weeks 7–9 assumed that the audio coming in is the user's speech. This week removes that assumption.** A system that listens while it speaks receives a sum at its microphone: the user's voice, plus **the system's own voice coming back through the room** (the waveform that Weeks 8–9 generated is now a term on the input side), plus other people nearby, plus noise. A half-duplex system sidesteps the largest of those terms because it does not listen while talking. A full-duplex system cannot — and the moment it cares about most, the user barging in, is exactly the moment all four terms are present at once. One question runs through the week: **for each term in the microphone signal, on what grounds can we remove it — and once it is removed, what is left behind, and who pays for it?**
 

@@ -1,0 +1,50 @@
+<!-- 由 scripts/make_figs_w10.py 產生，勿手改；投影片用 {{< include assets/w10/nlms-sim.inline.qmd >}} 貼入 -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 356" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<line x1="100.0" y1="220.4" x2="700.0" y2="220.4" stroke="#e5e7eb" stroke-width="1.0"/>
+<text x="92.0" y="220.4" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="middle">-40</text>
+<line x1="100.0" y1="172.8" x2="700.0" y2="172.8" stroke="#e5e7eb" stroke-width="1.0"/>
+<text x="92.0" y="172.8" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="middle">-30</text>
+<line x1="100.0" y1="125.2" x2="700.0" y2="125.2" stroke="#e5e7eb" stroke-width="1.0"/>
+<text x="92.0" y="125.2" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="middle">-20</text>
+<line x1="100.0" y1="77.6" x2="700.0" y2="77.6" stroke="#e5e7eb" stroke-width="1.0"/>
+<text x="92.0" y="77.6" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="middle">-10</text>
+<line x1="100.0" y1="30.0" x2="700.0" y2="30.0" stroke="#e5e7eb" stroke-width="1.0"/>
+<text x="92.0" y="30.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="middle">0</text>
+<line x1="100.0" y1="268.0" x2="100.0" y2="273.0" stroke="#6b7280" stroke-width="1.0"/>
+<text x="100.0" y="290.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">0</text>
+<line x1="200.0" y1="268.0" x2="200.0" y2="273.0" stroke="#6b7280" stroke-width="1.0"/>
+<text x="200.0" y="290.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">1000</text>
+<line x1="300.0" y1="268.0" x2="300.0" y2="273.0" stroke="#6b7280" stroke-width="1.0"/>
+<text x="300.0" y="290.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">2000</text>
+<line x1="400.0" y1="268.0" x2="400.0" y2="273.0" stroke="#6b7280" stroke-width="1.0"/>
+<text x="400.0" y="290.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">3000</text>
+<line x1="500.0" y1="268.0" x2="500.0" y2="273.0" stroke="#6b7280" stroke-width="1.0"/>
+<text x="500.0" y="290.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">4000</text>
+<line x1="600.0" y1="268.0" x2="600.0" y2="273.0" stroke="#6b7280" stroke-width="1.0"/>
+<text x="600.0" y="290.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">5000</text>
+<line x1="700.0" y1="268.0" x2="700.0" y2="273.0" stroke="#6b7280" stroke-width="1.0"/>
+<text x="700.0" y="290.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">6000</text>
+<line x1="100.0" y1="268.0" x2="700.0" y2="268.0" stroke="#6b7280" stroke-width="1.4"/>
+<line x1="100.0" y1="30.0" x2="100.0" y2="268.0" stroke="#6b7280" stroke-width="1.4"/>
+<text x="400.0" y="318.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">samples</text>
+<text x="48" y="149" font-size="19" fill="#1f2328" text-anchor="middle" transform="rotate(-90 48 149)">distance from the true path (dB)</text>
+<text x="984.0" y="20.0" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="auto">computed from w10-data.json</text>
+<g class="fragment" data-fragment-index="0">
+<polyline points="110.0,71.1 130.0,184.9 150.0,240.6 170.0,241.2 190.0,241.5 210.0,247.6 230.0,244.1 250.0,239.7 270.0,241.0 290.0,235.7 310.0,244.0 330.0,245.4 350.0,238.5 370.0,243.6 390.0,247.8 410.0,239.2 430.0,235.4 450.0,243.0 470.0,244.3 490.0,248.7 510.0,247.1 530.0,250.9 550.0,238.2 570.0,240.7 590.0,241.5 610.0,240.9 630.0,240.0 650.0,236.4 670.0,239.6 690.0,234.8" fill="none" stroke="#0b5cad" stroke-width="2.6"/>
+</g>
+<g class="fragment" data-fragment-index="1">
+<polyline points="110.0,48.0 130.0,65.1 150.0,75.5 170.0,92.1 190.0,99.0 210.0,101.4 230.0,108.7 250.0,115.5 270.0,124.5 290.0,136.4 310.0,148.1 330.0,153.6 350.0,158.8 370.0,166.4 390.0,173.0 410.0,181.0 430.0,183.3 450.0,189.2 470.0,198.0 490.0,203.6 510.0,206.2 530.0,203.5 550.0,206.4 570.0,208.7 590.0,215.9 610.0,222.7 630.0,222.3 650.0,219.6 670.0,222.9 690.0,225.9" fill="none" stroke="#b45309" stroke-width="2.6"/>
+</g>
+<g class="fragment" data-fragment-index="0">
+<text x="720.0" y="84.0" font-size="19" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="auto">white-noise input</text>
+<text x="720.0" y="110.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">fast: every direction</text>
+<text x="720.0" y="136.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">is excited equally</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<text x="720.0" y="196.0" font-size="19" font-weight="700" fill="#b45309" text-anchor="start" dominant-baseline="auto">speech-like input</text>
+<text x="720.0" y="222.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">(coloured): slow in</text>
+<text x="720.0" y="248.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">the weak directions</text>
+</g>
+</svg>
+```

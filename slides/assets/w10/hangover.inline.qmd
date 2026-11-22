@@ -1,0 +1,261 @@
+<!-- 由 scripts/make_figs_w10.py 產生，勿手改；投影片用 {{< include assets/w10/hangover.inline.qmd >}} 貼入 -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 318" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
+<text x="20.0" y="40.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="middle">speech, really</text>
+<rect x="250.0" y="18.0" width="710.0" height="44.0" rx="4" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
+<rect x="278.4" y="18.0" width="205.9" height="44.0" rx="4" fill="#dcfce7" stroke="#15803d" stroke-width="1.6"/>
+<rect x="534.0" y="18.0" width="213.0" height="44.0" rx="4" fill="#dcfce7" stroke="#15803d" stroke-width="1.6"/>
+<text x="509.1" y="84.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">a short pause</text>
+<text x="20.0" y="126.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="middle">frame by frame</text>
+<rect x="250.0" y="104.0" width="710.0" height="44.0" rx="4" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
+<rect x="278.4" y="104.0" width="205.9" height="44.0" rx="4" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.6"/>
+<rect x="534.0" y="104.0" width="213.0" height="44.0" rx="4" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.6"/>
+<text x="509.1" y="170.0" font-size="19" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">cut in two</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<text x="20.0" y="218.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="middle">with a hangover</text>
+<rect x="250.0" y="196.0" width="710.0" height="44.0" rx="4" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.0"/>
+<rect x="278.4" y="196.0" width="568.0" height="44.0" rx="4" fill="#fff7ed" stroke="#b45309" stroke-width="1.6"/>
+<text x="509.1" y="222.0" font-size="19" font-weight="700" fill="#b45309" text-anchor="middle" dominant-baseline="middle">bridged</text>
+</g>
+<g class="fragment" data-fragment-index="2">
+<line x1="747.0" y1="150.0" x2="747.0" y2="262.0" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="5 4"/>
+<line x1="846.4" y1="196.0" x2="846.4" y2="262.0" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="5 4"/>
+<line x1="749.0" y1="262.0" x2="836.4" y2="262.0" stroke="#dc2626" stroke-width="1.8"/>
+<polygon points="844.4,262.0 836.4,267.0 836.4,257.0" fill="#dc2626"/>
+<line x1="844.4" y1="262.0" x2="757.0" y2="262.0" stroke="#dc2626" stroke-width="1.8"/>
+<polygon points="749.0,262.0 757.0,257.0 757.0,267.0" fill="#dc2626"/>
+<svg x="756.572" y="276.992" width="80.256" height="27.456" viewBox="0 0 80.256 27.456"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w10t12-figure_1">
+  <g id="w10t12-patch_1">
+   <path d="M 0 27.456 
+L 80.256 27.456 
+L 80.256 0 
+L 0 0 
+L 0 27.456 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w10t12-text_1">
+   <!-- $T_{\mathsf{hang}}\,\Delta$ -->
+   <g style="fill: #dc2626" transform="translate(0 19.008) scale(0.264 -0.264)">
+    <defs>
+     <path id="w10t12-Cmmi10-54" d="M 294 84 
+Q 297 100 308 140 
+Q 319 181 336 203 
+Q 353 225 384 225 
+Q 934 225 1113 256 
+Q 1284 300 1319 441 
+L 2194 3956 
+Q 2222 4034 2222 4097 
+Q 2222 4147 1997 4147 
+L 1625 4147 
+Q 1197 4147 964 4015 
+Q 731 3884 622 3668 
+Q 513 3453 341 2963 
+Q 319 2906 275 2906 
+L 219 2906 
+Q 153 2906 153 2988 
+L 609 4313 
+Q 622 4372 672 4372 
+L 4453 4372 
+Q 4519 4372 4519 4288 
+L 4306 2963 
+Q 4306 2944 4284 2925 
+Q 4263 2906 4244 2906 
+L 4184 2906 
+Q 4122 2906 4122 2988 
+Q 4191 3441 4191 3628 
+Q 4191 3853 4097 3968 
+Q 4003 4084 3853 4115 
+Q 3703 4147 3463 4147 
+L 3084 4147 
+Q 2913 4147 2853 4115 
+Q 2794 4084 2753 3928 
+L 1875 416 
+Q 1872 403 1870 390 
+Q 1869 378 1863 359 
+Q 1863 278 1959 256 
+Q 2125 225 2669 225 
+Q 2731 225 2731 141 
+Q 2709 50 2696 25 
+Q 2684 0 2625 0 
+L 359 0 
+Q 294 0 294 84 
+z
+" transform="scale(0.015625)"/>
+     <path id="w10t12-Cmss10-68" d="M 506 0 
+L 506 4441 
+L 1013 4441 
+L 1013 2472 
+Q 1181 2675 1420 2794 
+Q 1659 2913 1913 2913 
+Q 2391 2913 2594 2645 
+Q 2797 2378 2797 1881 
+L 2797 0 
+L 2272 0 
+L 2272 1881 
+Q 2272 2200 2114 2348 
+Q 1956 2497 1638 2497 
+Q 1425 2497 1289 2355 
+Q 1153 2213 1092 2005 
+Q 1031 1797 1031 1588 
+L 1031 0 
+L 506 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w10t12-Cmss10-61" d="M 972 -72 
+Q 766 -72 605 48 
+Q 444 169 356 359 
+Q 269 550 269 763 
+Q 269 1072 580 1256 
+Q 891 1441 1305 1511 
+Q 1719 1581 2041 1581 
+L 2041 1881 
+Q 2041 2128 1900 2337 
+Q 1759 2547 1522 2547 
+Q 1225 2547 1000 2473 
+Q 775 2400 531 2222 
+L 494 2675 
+Q 753 2825 987 2887 
+Q 1222 2950 1522 2950 
+Q 1806 2950 2047 2801 
+Q 2288 2653 2427 2408 
+Q 2566 2163 2566 1881 
+L 2566 0 
+L 2059 0 
+L 2059 238 
+Q 1859 84 1576 6 
+Q 1294 -72 972 -72 
+z
+M 756 763 
+Q 756 566 937 456 
+Q 1119 347 1331 347 
+Q 1600 347 1820 467 
+Q 2041 588 2041 831 
+L 2041 1228 
+Q 1641 1228 1198 1125 
+Q 756 1022 756 763 
+z
+" transform="scale(0.015625)"/>
+     <path id="w10t12-Cmss10-6e" d="M 506 0 
+L 506 2881 
+L 991 2881 
+L 991 2444 
+Q 1163 2666 1402 2789 
+Q 1641 2913 1913 2913 
+Q 2391 2913 2594 2645 
+Q 2797 2378 2797 1881 
+L 2797 0 
+L 2272 0 
+L 2272 1881 
+Q 2272 2200 2114 2348 
+Q 1956 2497 1638 2497 
+Q 1425 2497 1289 2355 
+Q 1153 2213 1092 2005 
+Q 1031 1797 1031 1588 
+L 1031 0 
+L 506 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w10t12-Cmss10-67" d="M 178 -453 
+Q 178 -256 283 -82 
+Q 388 91 569 206 
+Q 403 413 403 691 
+Q 403 972 594 1234 
+Q 384 1516 384 1869 
+Q 384 2081 467 2273 
+Q 550 2466 690 2606 
+Q 831 2747 1018 2830 
+Q 1206 2913 1422 2913 
+Q 1591 2913 1762 2852 
+Q 1934 2791 2069 2681 
+L 2028 2713 
+Q 2078 2763 2275 2809 
+Q 2472 2856 2701 2884 
+Q 2931 2913 3028 2913 
+L 3103 2484 
+Q 2906 2509 2663 2509 
+Q 2463 2509 2259 2491 
+L 2209 2541 
+Q 2450 2250 2450 1869 
+Q 2450 1584 2309 1343 
+Q 2169 1103 1931 961 
+Q 1694 819 1422 819 
+Q 1100 819 831 1006 
+Q 775 891 775 781 
+Q 775 650 853 551 
+Q 931 453 1056 453 
+L 1600 453 
+Q 2213 453 2614 270 
+Q 3016 88 3016 -453 
+Q 3016 -675 2870 -844 
+Q 2725 -1013 2503 -1117 
+Q 2281 -1222 2040 -1270 
+Q 1800 -1319 1600 -1319 
+Q 1309 -1319 979 -1226 
+Q 650 -1134 414 -937 
+Q 178 -741 178 -453 
+z
+M 653 -453 
+Q 653 -694 975 -811 
+Q 1297 -928 1600 -928 
+Q 1759 -928 1981 -883 
+Q 2203 -838 2372 -731 
+Q 2541 -625 2541 -453 
+Q 2541 -181 2259 -106 
+Q 1978 -31 1600 -31 
+L 1056 -31 
+Q 888 -31 770 -157 
+Q 653 -284 653 -453 
+z
+M 1422 1209 
+Q 1691 1209 1834 1396 
+Q 1978 1584 1978 1869 
+Q 1978 2150 1836 2336 
+Q 1694 2522 1422 2522 
+Q 1144 2522 1000 2333 
+Q 856 2144 856 1869 
+Q 856 1591 1003 1400 
+Q 1150 1209 1422 1209 
+z
+" transform="scale(0.015625)"/>
+     <path id="w10t12-Cmr10-a2" d="M 347 0 
+Q 294 0 294 50 
+Q 297 56 298 59 
+Q 300 63 300 72 
+L 2503 4513 
+Q 2531 4581 2619 4581 
+L 2706 4581 
+Q 2794 4581 2822 4513 
+L 5025 72 
+Q 5028 66 5029 61 
+Q 5031 56 5031 50 
+Q 5031 0 4978 0 
+L 347 0 
+z
+M 769 513 
+L 4141 513 
+L 2456 3909 
+L 769 513 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w10t12-Cmmi10-54" transform="translate(0 0.421875)"/>
+    <use xlink:href="#w10t12-Cmss10-68" transform="translate(58.398438 -16.584375) scale(0.7)"/>
+    <use xlink:href="#w10t12-Cmss10-61" transform="translate(94.526367 -16.584375) scale(0.7)"/>
+    <use xlink:href="#w10t12-Cmss10-6e" transform="translate(128.125 -16.584375) scale(0.7)"/>
+    <use xlink:href="#w10t12-Cmss10-67" transform="translate(164.25293 -16.584375) scale(0.7)"/>
+    <use xlink:href="#w10t12-Cmr10-a2" transform="translate(220.262728 0.421875)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<text x="733.0" y="290.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="end" dominant-baseline="auto">the user stopped here</text>
+<text x="858.4" y="290.0" font-size="19" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="auto">let go</text>
+</g>
+</svg>
+```

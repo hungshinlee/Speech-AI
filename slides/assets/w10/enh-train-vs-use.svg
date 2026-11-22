@@ -1,0 +1,424 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 330" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
+<text x="20.0" y="28.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">training: we make the mixture ourselves</text>
+<rect x="20.0" y="46.0" width="150.0" height="44.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="95.0" y="68.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">clean speech</text>
+<rect x="20.0" y="98.0" width="150.0" height="44.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="95.0" y="120.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">a noise clip</text>
+<line x1="174.0" y1="68.0" x2="206.8" y2="84.4" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="214.0,88.0 204.6,88.9 209.1,80.0" fill="#94a3b8"/>
+<line x1="174.0" y1="120.0" x2="206.8" y2="103.6" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="214.0,100.0 209.1,108.0 204.6,99.1" fill="#94a3b8"/>
+<rect x="218.0" y="58.0" width="150.0" height="72.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="293.0" y="81.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">add</text>
+<svg x="250.82" y="97.5619" width="84.36" height="22.0661" viewBox="0 0 84.36 22.066125"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w10t33-figure_1">
+  <g id="w10t33-patch_1">
+   <path d="M 0 22.066125 
+L 84.36 22.066125 
+L 84.36 0 
+L 0 0 
+L 0 22.066125 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w10t33-text_1">
+   <!-- $y = s + v$ -->
+   <g style="fill: #6b7280" transform="translate(0 17.278125) scale(0.228 -0.228)">
+    <defs>
+     <path id="w10t33-Cmmi10-79" d="M 538 -916 
+Q 672 -1147 1006 -1147 
+Q 1309 -1147 1531 -934 
+Q 1753 -722 1889 -420 
+Q 2025 -119 2100 197 
+Q 1816 -72 1484 -72 
+Q 1231 -72 1053 15 
+Q 875 103 776 276 
+Q 678 450 678 697 
+Q 678 906 734 1126 
+Q 791 1347 892 1617 
+Q 994 1888 1069 2088 
+Q 1153 2322 1153 2472 
+Q 1153 2663 1013 2663 
+Q 759 2663 595 2402 
+Q 431 2141 353 1819 
+Q 341 1778 300 1778 
+L 225 1778 
+Q 172 1778 172 1838 
+L 172 1856 
+Q 275 2238 487 2533 
+Q 700 2828 1025 2828 
+Q 1253 2828 1411 2678 
+Q 1569 2528 1569 2297 
+Q 1569 2178 1516 2047 
+Q 1488 1969 1388 1706 
+Q 1288 1444 1234 1272 
+Q 1181 1100 1147 934 
+Q 1113 769 1113 603 
+Q 1113 391 1203 244 
+Q 1294 97 1491 97 
+Q 1888 97 2203 581 
+L 2688 2553 
+Q 2709 2638 2787 2698 
+Q 2866 2759 2956 2759 
+Q 3034 2759 3092 2709 
+Q 3150 2659 3150 2578 
+Q 3150 2541 3144 2528 
+L 2509 -19 
+Q 2425 -347 2200 -647 
+Q 1975 -947 1658 -1130 
+Q 1341 -1313 997 -1313 
+Q 831 -1313 668 -1248 
+Q 506 -1184 406 -1056 
+Q 306 -928 306 -756 
+Q 306 -581 409 -453 
+Q 513 -325 684 -325 
+Q 788 -325 858 -389 
+Q 928 -453 928 -556 
+Q 928 -703 818 -812 
+Q 709 -922 563 -922 
+Q 556 -919 550 -917 
+Q 544 -916 538 -916 
+z
+" transform="scale(0.015625)"/>
+     <path id="w10t33-Cmr10-3d" d="M 481 850 
+Q 428 850 393 890 
+Q 359 931 359 978 
+Q 359 1031 393 1068 
+Q 428 1106 481 1106 
+L 4500 1106 
+Q 4547 1106 4581 1068 
+Q 4616 1031 4616 978 
+Q 4616 931 4581 890 
+Q 4547 850 4500 850 
+L 481 850 
+z
+M 481 2094 
+Q 428 2094 393 2131 
+Q 359 2169 359 2222 
+Q 359 2269 393 2309 
+Q 428 2350 481 2350 
+L 4500 2350 
+Q 4547 2350 4581 2309 
+Q 4616 2269 4616 2222 
+Q 4616 2169 4581 2131 
+Q 4547 2094 4500 2094 
+L 481 2094 
+z
+" transform="scale(0.015625)"/>
+     <path id="w10t33-Cmmi10-73" d="M 556 391 
+Q 728 97 1247 97 
+Q 1472 97 1675 173 
+Q 1878 250 2011 403 
+Q 2144 556 2144 775 
+Q 2144 941 2025 1047 
+Q 1906 1153 1734 1191 
+L 1388 1259 
+Q 1150 1319 997 1481 
+Q 844 1644 844 1875 
+Q 844 2159 998 2378 
+Q 1153 2597 1406 2712 
+Q 1659 2828 1931 2828 
+Q 2222 2828 2451 2689 
+Q 2681 2550 2681 2278 
+Q 2681 2131 2598 2018 
+Q 2516 1906 2369 1906 
+Q 2284 1906 2223 1961 
+Q 2163 2016 2163 2100 
+Q 2163 2175 2205 2245 
+Q 2247 2316 2317 2358 
+Q 2388 2400 2463 2400 
+Q 2406 2538 2251 2600 
+Q 2097 2663 1919 2663 
+Q 1756 2663 1593 2597 
+Q 1431 2531 1332 2404 
+Q 1234 2278 1234 2106 
+Q 1234 1991 1315 1903 
+Q 1397 1816 1516 1778 
+L 1888 1703 
+Q 2066 1666 2214 1570 
+Q 2363 1475 2448 1329 
+Q 2534 1184 2534 997 
+Q 2534 759 2401 528 
+Q 2269 297 2075 159 
+Q 1734 -72 1241 -72 
+Q 900 -72 615 84 
+Q 331 241 331 550 
+Q 331 725 432 854 
+Q 534 984 709 984 
+Q 813 984 883 921 
+Q 953 859 953 756 
+Q 953 609 843 500 
+Q 734 391 588 391 
+L 556 391 
+z
+" transform="scale(0.015625)"/>
+     <path id="w10t33-Cmr10-2b" d="M 481 1472 
+Q 428 1472 393 1512 
+Q 359 1553 359 1600 
+Q 359 1647 393 1687 
+Q 428 1728 481 1728 
+L 2363 1728 
+L 2363 3616 
+Q 2363 3666 2400 3698 
+Q 2438 3731 2491 3731 
+Q 2538 3731 2578 3698 
+Q 2619 3666 2619 3616 
+L 2619 1728 
+L 4500 1728 
+Q 4547 1728 4581 1687 
+Q 4616 1647 4616 1600 
+Q 4616 1553 4581 1512 
+Q 4547 1472 4500 1472 
+L 2619 1472 
+L 2619 -416 
+Q 2619 -466 2578 -498 
+Q 2538 -531 2491 -531 
+Q 2438 -531 2400 -498 
+Q 2363 -466 2363 -416 
+L 2363 1472 
+L 481 1472 
+z
+" transform="scale(0.015625)"/>
+     <path id="w10t33-Cmmi10-76" d="M 684 722 
+Q 684 866 718 1037 
+Q 753 1209 787 1320 
+Q 822 1431 944 1753 
+Q 1066 2075 1069 2088 
+Q 1153 2322 1153 2472 
+Q 1153 2663 1013 2663 
+Q 759 2663 595 2402 
+Q 431 2141 353 1819 
+Q 341 1778 300 1778 
+L 225 1778 
+Q 172 1778 172 1838 
+L 172 1856 
+Q 275 2238 487 2533 
+Q 700 2828 1025 2828 
+Q 1253 2828 1411 2678 
+Q 1569 2528 1569 2297 
+Q 1569 2178 1516 2047 
+Q 1391 1722 1319 1526 
+Q 1247 1331 1186 1089 
+Q 1125 847 1125 641 
+Q 1125 400 1236 248 
+Q 1347 97 1581 97 
+Q 2025 97 2381 781 
+Q 2494 1003 2594 1303 
+Q 2694 1603 2694 1791 
+Q 2694 1984 2631 2092 
+Q 2569 2200 2469 2317 
+Q 2369 2434 2369 2503 
+Q 2369 2628 2472 2731 
+Q 2575 2834 2700 2834 
+Q 2853 2834 2920 2693 
+Q 2988 2553 2988 2375 
+Q 2988 2163 2927 1869 
+Q 2866 1575 2758 1259 
+Q 2650 944 2559 763 
+Q 2138 -72 1575 -72 
+Q 1172 -72 928 129 
+Q 684 331 684 722 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w10t33-Cmmi10-79" transform="translate(0 0.703125)"/>
+    <use xlink:href="#w10t33-Cmr10-3d" transform="translate(66.582031 0.703125)"/>
+    <use xlink:href="#w10t33-Cmmi10-73" transform="translate(161.826172 0.703125)"/>
+    <use xlink:href="#w10t33-Cmr10-2b" transform="translate(226.162109 0.703125)"/>
+    <use xlink:href="#w10t33-Cmmi10-76" transform="translate(321.40625 0.703125)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<line x1="372.0" y1="94.0" x2="396.0" y2="94.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="404.0,94.0 396.0,99.0 396.0,89.0" fill="#94a3b8"/>
+<rect x="408.0" y="58.0" width="170.0" height="72.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="493.0" y="94.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">the network</text>
+<line x1="582.0" y1="94.0" x2="606.0" y2="94.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="614.0,94.0 606.0,99.0 606.0,89.0" fill="#94a3b8"/>
+<rect x="618.0" y="58.0" width="110.0" height="72.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<svg x="666.796" y="75.2601" width="12.408" height="32.1502" viewBox="0 -6.6 12.408 32.1502"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w10t34-figure_1">
+  <g id="w10t34-patch_1">
+   <path d="M 0 25.55025 
+L 12.408 25.55025 
+L 12.408 0 
+L 0 0 
+L 0 25.55025 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w10t34-text_1">
+   <!-- $\hat{s}$ -->
+   <g style="fill: #1f2328" transform="translate(0 20.059875) scale(0.264 -0.264)">
+    <defs>
+     <path id="w10t34-Cmr10-5e" d="M 863 3444 
+L 738 3578 
+L 1600 4441 
+L 2456 3578 
+L 2328 3444 
+L 1600 4084 
+L 863 3444 
+z
+" transform="scale(0.015625)"/>
+     <path id="w10t34-Cmmi10-73" d="M 556 391 
+Q 728 97 1247 97 
+Q 1472 97 1675 173 
+Q 1878 250 2011 403 
+Q 2144 556 2144 775 
+Q 2144 941 2025 1047 
+Q 1906 1153 1734 1191 
+L 1388 1259 
+Q 1150 1319 997 1481 
+Q 844 1644 844 1875 
+Q 844 2159 998 2378 
+Q 1153 2597 1406 2712 
+Q 1659 2828 1931 2828 
+Q 2222 2828 2451 2689 
+Q 2681 2550 2681 2278 
+Q 2681 2131 2598 2018 
+Q 2516 1906 2369 1906 
+Q 2284 1906 2223 1961 
+Q 2163 2016 2163 2100 
+Q 2163 2175 2205 2245 
+Q 2247 2316 2317 2358 
+Q 2388 2400 2463 2400 
+Q 2406 2538 2251 2600 
+Q 2097 2663 1919 2663 
+Q 1756 2663 1593 2597 
+Q 1431 2531 1332 2404 
+Q 1234 2278 1234 2106 
+Q 1234 1991 1315 1903 
+Q 1397 1816 1516 1778 
+L 1888 1703 
+Q 2066 1666 2214 1570 
+Q 2363 1475 2448 1329 
+Q 2534 1184 2534 997 
+Q 2534 759 2401 528 
+Q 2269 297 2075 159 
+Q 1734 -72 1241 -72 
+Q 900 -72 615 84 
+Q 331 241 331 550 
+Q 331 725 432 854 
+Q 534 984 709 984 
+Q 813 984 883 921 
+Q 953 859 953 756 
+Q 953 609 843 500 
+Q 734 391 588 391 
+L 556 391 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w10t34-Cmr10-5e" transform="translate(4.163086 3.609375)"/>
+    <use xlink:href="#w10t34-Cmmi10-73" transform="translate(0 0.734375)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<rect x="770.0" y="58.0" width="210.0" height="72.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="875.0" y="81.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">compare with s</text>
+<text x="875.0" y="108.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">the label is free</text>
+<line x1="732.0" y1="94.0" x2="758.0" y2="94.0" stroke="#15803d" stroke-width="1.6"/>
+<polygon points="766.0,94.0 758.0,99.0 758.0,89.0" fill="#15803d"/>
+</g>
+<g class="fragment" data-fragment-index="1">
+<text x="20.0" y="196.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">use: a real recording</text>
+<rect x="20.0" y="214.0" width="348.0" height="72.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="194.0" y="250.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">a real room, real noise, a real mic</text>
+<line x1="372.0" y1="250.0" x2="396.0" y2="250.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="404.0,250.0 396.0,255.0 396.0,245.0" fill="#94a3b8"/>
+<rect x="408.0" y="214.0" width="170.0" height="72.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="493.0" y="237.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">the network</text>
+<text x="493.0" y="264.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">frozen</text>
+<line x1="582.0" y1="250.0" x2="606.0" y2="250.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="614.0,250.0 606.0,255.0 606.0,245.0" fill="#94a3b8"/>
+<rect x="618.0" y="214.0" width="110.0" height="72.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<svg x="666.796" y="231.26" width="12.408" height="32.1502" viewBox="0 -6.6 12.408 32.1502"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w10t35-figure_1">
+  <g id="w10t35-patch_1">
+   <path d="M 0 25.55025 
+L 12.408 25.55025 
+L 12.408 0 
+L 0 0 
+L 0 25.55025 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w10t35-text_1">
+   <!-- $\hat{s}$ -->
+   <g style="fill: #1f2328" transform="translate(0 20.059875) scale(0.264 -0.264)">
+    <defs>
+     <path id="w10t35-Cmr10-5e" d="M 863 3444 
+L 738 3578 
+L 1600 4441 
+L 2456 3578 
+L 2328 3444 
+L 1600 4084 
+L 863 3444 
+z
+" transform="scale(0.015625)"/>
+     <path id="w10t35-Cmmi10-73" d="M 556 391 
+Q 728 97 1247 97 
+Q 1472 97 1675 173 
+Q 1878 250 2011 403 
+Q 2144 556 2144 775 
+Q 2144 941 2025 1047 
+Q 1906 1153 1734 1191 
+L 1388 1259 
+Q 1150 1319 997 1481 
+Q 844 1644 844 1875 
+Q 844 2159 998 2378 
+Q 1153 2597 1406 2712 
+Q 1659 2828 1931 2828 
+Q 2222 2828 2451 2689 
+Q 2681 2550 2681 2278 
+Q 2681 2131 2598 2018 
+Q 2516 1906 2369 1906 
+Q 2284 1906 2223 1961 
+Q 2163 2016 2163 2100 
+Q 2163 2175 2205 2245 
+Q 2247 2316 2317 2358 
+Q 2388 2400 2463 2400 
+Q 2406 2538 2251 2600 
+Q 2097 2663 1919 2663 
+Q 1756 2663 1593 2597 
+Q 1431 2531 1332 2404 
+Q 1234 2278 1234 2106 
+Q 1234 1991 1315 1903 
+Q 1397 1816 1516 1778 
+L 1888 1703 
+Q 2066 1666 2214 1570 
+Q 2363 1475 2448 1329 
+Q 2534 1184 2534 997 
+Q 2534 759 2401 528 
+Q 2269 297 2075 159 
+Q 1734 -72 1241 -72 
+Q 900 -72 615 84 
+Q 331 241 331 550 
+Q 331 725 432 854 
+Q 534 984 709 984 
+Q 813 984 883 921 
+Q 953 859 953 756 
+Q 953 609 843 500 
+Q 734 391 588 391 
+L 556 391 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w10t35-Cmr10-5e" transform="translate(4.163086 3.609375)"/>
+    <use xlink:href="#w10t35-Cmmi10-73" transform="translate(0 0.734375)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<text x="770.0" y="240.0" font-size="19" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="auto">no target to check;</text>
+<text x="770.0" y="266.0" font-size="19" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="auto">not the training mix</text>
+</g>
+</svg>

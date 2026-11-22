@@ -1,0 +1,30 @@
+<!-- 由 scripts/make_figs_w10.py 產生，勿手改；投影片用 {{< include assets/w10/overlap-timelines.inline.qmd >}} 貼入 -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 300" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
+<text x="20.0" y="44.0" font-size="19" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">a benchmark mixture</text>
+<text x="20.0" y="70.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">two speakers, fully</text>
+<text x="20.0" y="96.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">overlapped, pre-cut</text>
+<rect x="250.0" y="34.0" width="720.0" height="28.0" rx="3" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+<rect x="250.0" y="34.0" width="302.4" height="28.0" rx="3" fill="#dcfce7" stroke="#15803d" stroke-width="1.6"/>
+<rect x="250.0" y="68.0" width="720.0" height="28.0" rx="3" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+<rect x="250.0" y="68.0" width="302.4" height="28.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.6"/>
+</g>
+<g class="fragment" data-fragment-index="1">
+<text x="20.0" y="184.0" font-size="19" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">a conversation</text>
+<text x="20.0" y="210.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">one talker mostly;</text>
+<text x="20.0" y="236.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">overlaps are brief</text>
+<rect x="250.0" y="174.0" width="720.0" height="28.0" rx="3" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+<rect x="250.0" y="174.0" width="158.4" height="28.0" rx="3" fill="#dcfce7" stroke="#15803d" stroke-width="1.6"/>
+<rect x="538.0" y="174.0" width="129.6" height="28.0" rx="3" fill="#dcfce7" stroke="#15803d" stroke-width="1.6"/>
+<rect x="826.0" y="174.0" width="122.4" height="28.0" rx="3" fill="#dcfce7" stroke="#15803d" stroke-width="1.6"/>
+<rect x="250.0" y="208.0" width="720.0" height="28.0" rx="3" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+<rect x="394.0" y="208.0" width="158.4" height="28.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.6"/>
+<rect x="660.4" y="208.0" width="165.6" height="28.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.6"/>
+<rect x="391.0" y="168.0" width="20.4" height="74.0" rx="3" fill="none" stroke="#dc2626" stroke-width="2.0"/>
+<rect x="535.0" y="168.0" width="20.4" height="74.0" rx="3" fill="none" stroke="#dc2626" stroke-width="2.0"/>
+<rect x="657.4" y="168.0" width="13.2" height="74.0" rx="3" fill="none" stroke="#dc2626" stroke-width="2.0"/>
+<text x="473.2" y="272.0" font-size="19" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">overlap: a few hundred ms at a turn change</text>
+</g>
+</svg>
+```

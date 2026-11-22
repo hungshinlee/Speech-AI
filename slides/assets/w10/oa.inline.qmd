@@ -1,0 +1,348 @@
+<!-- 由 scripts/make_figs_w10.py 產生，勿手改；投影片用 {{< include assets/w10/oa.inline.qmd >}} 貼入 -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 352" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
+<polygon points="150.0,286.0 620.0,286.0 768.5,172.6 298.5,172.6" fill="#dbeafe" opacity="0.55"/>
+<line x1="150.0" y1="286.0" x2="590.0" y2="286.0" stroke="#15803d" stroke-width="2.0"/>
+<polygon points="600.0,286.0 590.0,291.0 590.0,281.0" fill="#15803d"/>
+<line x1="150.0" y1="286.0" x2="279.6" y2="187.1" stroke="#6b7280" stroke-width="2.0"/>
+<polygon points="287.5,181.0 282.6,191.0 276.5,183.1" fill="#6b7280"/>
+<svg x="608" y="273.94" width="10.56" height="25.5502" viewBox="0 0 10.56 25.55025"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w10t42-figure_1">
+  <g id="w10t42-patch_1">
+   <path d="M 0 25.55025 
+L 10.56 25.55025 
+L 10.56 0 
+L 0 0 
+L 0 25.55025 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w10t42-text_1">
+   <!-- $\mathbf{s}$ -->
+   <g style="fill: #15803d" transform="translate(0 20.059875) scale(0.264 -0.264)">
+    <defs>
+     <path id="w10t42-Cmb10-73" d="M 213 44 
+L 213 934 
+Q 228 994 294 1013 
+L 459 1013 
+Q 522 991 538 934 
+Q 703 219 1259 219 
+Q 1825 219 1825 684 
+Q 1825 800 1765 892 
+Q 1706 984 1609 1045 
+Q 1513 1106 1403 1131 
+L 1019 1209 
+Q 672 1294 442 1508 
+Q 213 1722 213 2041 
+Q 213 2272 292 2440 
+Q 372 2609 517 2711 
+Q 663 2813 847 2856 
+Q 1031 2900 1259 2900 
+Q 1559 2900 1759 2791 
+L 1966 2894 
+L 1991 2900 
+L 2069 2900 
+Q 2128 2884 2144 2822 
+L 2144 2119 
+Q 2128 2050 2069 2034 
+L 1900 2034 
+Q 1834 2050 1819 2119 
+Q 1819 2288 1748 2411 
+Q 1678 2534 1550 2601 
+Q 1422 2669 1247 2669 
+Q 691 2669 691 2284 
+Q 691 2144 811 2048 
+Q 931 1953 1088 1913 
+L 1478 1838 
+Q 1713 1778 1897 1654 
+Q 2081 1531 2192 1339 
+Q 2303 1147 2303 909 
+Q 2303 428 2022 195 
+Q 1741 -38 1259 -38 
+Q 897 -38 659 141 
+L 391 -31 
+L 366 -38 
+L 294 -38 
+Q 228 -22 213 44 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w10t42-Cmb10-73" transform="translate(0 0.6875)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<svg x="273.908" y="151.58" width="13.992" height="25.5502" viewBox="0 0 13.992 25.55025"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w10t43-figure_1">
+  <g id="w10t43-patch_1">
+   <path d="M 0 25.55025 
+L 13.992 25.55025 
+L 13.992 0 
+L 0 0 
+L 0 25.55025 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w10t43-text_1">
+   <!-- $\mathbf{v}$ -->
+   <g style="fill: #6b7280" transform="translate(0 20.059875) scale(0.264 -0.264)">
+    <defs>
+     <path id="w10t43-Cmb10-76" d="M 1466 91 
+L 544 2516 
+L 141 2516 
+L 141 2841 
+L 1672 2841 
+L 1672 2516 
+L 1319 2516 
+L 1894 984 
+L 2456 2463 
+Q 2456 2494 2342 2505 
+Q 2228 2516 2119 2516 
+L 2119 2841 
+L 3231 2841 
+L 3231 2516 
+Q 2828 2516 2803 2456 
+L 1906 91 
+Q 1866 -25 1741 -25 
+L 1631 -25 
+Q 1506 -25 1466 91 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w10t43-Cmb10-76" transform="translate(0 0.609375)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<line x1="150.0" y1="286.0" x2="461.4" y2="87.8" stroke="#1f2328" stroke-width="2.8"/>
+<polygon points="471.5,81.4 464.1,92.1 458.7,83.6" fill="#1f2328"/>
+<svg x="446.94" y="58.7401" width="10.56" height="32.1502" viewBox="0 -6.6 10.56 32.1502"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w10t44-figure_1">
+  <g id="w10t44-patch_1">
+   <path d="M 0 25.55025 
+L 10.56 25.55025 
+L 10.56 0 
+L 0 0 
+L 0 25.55025 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w10t44-text_1">
+   <!-- $\hat{\mathbf{s}}$ -->
+   <g style="fill: #1f2328" transform="translate(0 20.059875) scale(0.264 -0.264)">
+    <defs>
+     <path id="w10t44-Cmr10-5e" d="M 863 3444 
+L 738 3578 
+L 1600 4441 
+L 2456 3578 
+L 2328 3444 
+L 1600 4084 
+L 863 3444 
+z
+" transform="scale(0.015625)"/>
+     <path id="w10t44-Cmb10-73" d="M 213 44 
+L 213 934 
+Q 228 994 294 1013 
+L 459 1013 
+Q 522 991 538 934 
+Q 703 219 1259 219 
+Q 1825 219 1825 684 
+Q 1825 800 1765 892 
+Q 1706 984 1609 1045 
+Q 1513 1106 1403 1131 
+L 1019 1209 
+Q 672 1294 442 1508 
+Q 213 1722 213 2041 
+Q 213 2272 292 2440 
+Q 372 2609 517 2711 
+Q 663 2813 847 2856 
+Q 1031 2900 1259 2900 
+Q 1559 2900 1759 2791 
+L 1966 2894 
+L 1991 2900 
+L 2069 2900 
+Q 2128 2884 2144 2822 
+L 2144 2119 
+Q 2128 2050 2069 2034 
+L 1900 2034 
+Q 1834 2050 1819 2119 
+Q 1819 2288 1748 2411 
+Q 1678 2534 1550 2601 
+Q 1422 2669 1247 2669 
+Q 691 2669 691 2284 
+Q 691 2144 811 2048 
+Q 931 1953 1088 1913 
+L 1478 1838 
+Q 1713 1778 1897 1654 
+Q 2081 1531 2192 1339 
+Q 2303 1147 2303 909 
+Q 2303 428 2022 195 
+Q 1741 -38 1259 -38 
+Q 897 -38 659 141 
+L 391 -31 
+L 366 -38 
+L 294 -38 
+Q 228 -22 213 44 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w10t44-Cmr10-5e" transform="translate(-0.680176 4.609375)"/>
+    <use xlink:href="#w10t44-Cmb10-73" transform="translate(0 0.609375)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<text x="427.5" y="83.4" font-size="19" font-weight="600" fill="#1f2328" text-anchor="end" dominant-baseline="auto">the enhanced output</text>
+<line x1="471.5" y1="231.4" x2="471.5" y2="81.4" stroke="#dc2626" stroke-width="2.0" stroke-dasharray="6 4"/>
+<line x1="150.0" y1="286.0" x2="462.6" y2="232.9" stroke="#6b7280" stroke-width="1.6"/>
+<polygon points="471.5,231.4 463.5,237.8 461.8,228.0" fill="#6b7280"/>
+</g>
+<g class="fragment" data-fragment-index="1">
+<line x1="471.5" y1="81.4" x2="671.0" y2="28.2" stroke="#0b5cad" stroke-width="2.2"/>
+<polygon points="680.6,25.7 672.3,33.1 669.7,23.4" fill="#0b5cad"/>
+<svg x="700.625" y="16.3719" width="50.616" height="22.0661" viewBox="0 0 50.616 22.066125"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w10t45-figure_1">
+  <g id="w10t45-patch_1">
+   <path d="M 0 22.066125 
+L 50.616 22.066125 
+L 50.616 0 
+L 0 0 
+L 0 22.066125 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w10t45-text_1">
+   <!-- $+\, \omega\, \mathbf{y}$ -->
+   <g style="fill: #0b5cad" transform="translate(0 17.278125) scale(0.228 -0.228)">
+    <defs>
+     <path id="w10t45-Cmr10-2b" d="M 481 1472 
+Q 428 1472 393 1512 
+Q 359 1553 359 1600 
+Q 359 1647 393 1687 
+Q 428 1728 481 1728 
+L 2363 1728 
+L 2363 3616 
+Q 2363 3666 2400 3698 
+Q 2438 3731 2491 3731 
+Q 2538 3731 2578 3698 
+Q 2619 3666 2619 3616 
+L 2619 1728 
+L 4500 1728 
+Q 4547 1728 4581 1687 
+Q 4616 1647 4616 1600 
+Q 4616 1553 4581 1512 
+Q 4547 1472 4500 1472 
+L 2619 1472 
+L 2619 -416 
+Q 2619 -466 2578 -498 
+Q 2538 -531 2491 -531 
+Q 2438 -531 2400 -498 
+Q 2363 -466 2363 -416 
+L 2363 1472 
+L 481 1472 
+z
+" transform="scale(0.015625)"/>
+     <path id="w10t45-Cmmi10-21" d="M 775 -72 
+Q 413 -72 252 193 
+Q 91 459 91 844 
+Q 91 1097 136 1339 
+Q 181 1581 273 1829 
+Q 366 2078 484 2295 
+Q 603 2513 750 2719 
+Q 778 2759 825 2759 
+Q 866 2759 891 2734 
+Q 916 2709 916 2675 
+Q 916 2641 897 2613 
+Q 313 1809 313 1131 
+Q 313 838 448 627 
+Q 584 416 863 416 
+Q 1103 416 1308 556 
+Q 1513 697 1663 916 
+Q 1663 1028 1702 1265 
+Q 1741 1503 1823 1689 
+Q 1906 1875 2022 1875 
+Q 2169 1875 2169 1703 
+Q 2169 1603 2126 1451 
+Q 2084 1300 2032 1169 
+Q 1981 1038 1906 872 
+Q 1981 416 2363 416 
+Q 2584 416 2807 544 
+Q 3031 672 3203 880 
+Q 3375 1088 3473 1328 
+Q 3572 1569 3572 1784 
+Q 3572 1978 3511 2086 
+Q 3450 2194 3350 2312 
+Q 3250 2431 3250 2503 
+Q 3250 2628 3356 2731 
+Q 3463 2834 3584 2834 
+Q 3741 2834 3806 2692 
+Q 3872 2550 3872 2369 
+Q 3872 2075 3755 1628 
+Q 3638 1181 3488 884 
+Q 3281 481 2970 204 
+Q 2659 -72 2272 -72 
+Q 2025 -72 1873 76 
+Q 1722 225 1678 481 
+Q 1500 228 1272 78 
+Q 1044 -72 775 -72 
+z
+" transform="scale(0.015625)"/>
+     <path id="w10t45-Cmb10-79" d="M 709 -1281 
+Q 469 -1281 295 -1100 
+Q 122 -919 122 -672 
+Q 122 -513 231 -403 
+Q 341 -294 506 -294 
+Q 666 -294 775 -403 
+Q 884 -513 884 -672 
+Q 884 -925 672 -1019 
+Q 684 -1025 709 -1025 
+Q 925 -1025 1083 -869 
+Q 1241 -713 1325 -494 
+L 1509 0 
+L 550 2516 
+L 141 2516 
+L 141 2841 
+L 1672 2841 
+L 1672 2516 
+L 1319 2516 
+L 1894 1006 
+L 2456 2463 
+Q 2456 2494 2342 2505 
+Q 2228 2516 2119 2516 
+L 2119 2841 
+L 3231 2841 
+L 3231 2516 
+Q 2828 2516 2803 2456 
+L 1672 -494 
+Q 1544 -822 1291 -1051 
+Q 1038 -1281 709 -1281 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w10t45-Cmr10-2b" transform="translate(0 0.703125)"/>
+    <use xlink:href="#w10t45-Cmmi10-21" transform="translate(92.318001 0.703125)"/>
+    <use xlink:href="#w10t45-Cmb10-79" transform="translate(169.157486 0.703125)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<text x="751.2" y="33.7" font-size="19" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="auto" textLength="230.6" lengthAdjust="spacing">: a move inside the plane</text>
+<line x1="150.0" y1="286.0" x2="673.9" y2="28.9" stroke="#1f2328" stroke-width="2.8"/>
+<polygon points="684.6,23.7 676.1,33.4 671.6,24.4" fill="#1f2328"/>
+<line x1="684.6" y1="173.7" x2="684.6" y2="23.7" stroke="#dc2626" stroke-width="2.6"/>
+<line x1="150.0" y1="286.0" x2="673.9" y2="175.9" stroke="#15803d" stroke-width="2.6"/>
+<polygon points="684.6,173.7 674.9,180.8 672.8,171.0" fill="#15803d"/>
+<text x="698.6" y="112.7" font-size="19" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="auto">the artifact: unchanged</text>
+<text x="698.6" y="203.7" font-size="19" font-weight="700" fill="#15803d" text-anchor="start" dominant-baseline="auto">the in-plane part: longer</text>
+</g>
+</svg>
+```
