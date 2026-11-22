@@ -634,7 +634,7 @@ Ephraim & Malah, IEEE TASSP 1984 · Cappé, IEEE TSAP 1994 · spectral subtracti
 :::
 
 ::: {.footer}
-PSM: Erdogan et al. 2015 · cIRM: Williamson, Wang & Wang 2016 · overview: Wang & Chen (2018)
+PSM: Erdogan et al. 2015 · cIRM: Williamson, Wang & Wang 2016 · Wang & Chen (2018), Eq. 2, 4, 5
 :::
 
 ## Consistency returns: a masked STFT is not an STFT
@@ -654,7 +654,7 @@ Neighbouring frames overlap, so their cells must agree with one another. Scale e
 :::
 
 ::: {.footer}
-W2 p47: the consistent set $\mathcal{C}$ · Luo & Mesgarani, IEEE/ACM TASLP 27(8), 2019
+W2 p43: the consistent set $\mathcal{C}$ · Luo & Mesgarani, IEEE/ACM TASLP 27(8), 2019
 :::
 
 ## A generative model: draw the clean speech
@@ -722,7 +722,7 @@ SI-SDR: Le Roux et al. 2019 (W2 p69) · MetricGAN+: Fu et al. 2021 · W9 p53: ju
 | | |
 |:---|:-----------------|
 | **Why** | The judges enhancement is trained against were built for human ears, or count energy. The judge that matters here is the recogniser. Do the two kinds agree? This is one of the course's six core failure cases. |
-| **What runs** | About 40 LibriSpeech sentences, with noise added at 20, 10, 5, 0 and −5 dB SNR. **Three front ends**: none; a statistical one written in `numpy`; a neural one trained with PESQ as its target (MetricGAN+). **Two recognisers**, chosen to differ: a CTC model that has only heard clean read speech (W3), and Whisper small (W7). |
+| **What runs** | About 40 LibriSpeech sentences, with noise added at $20$, $10$, $5$, $0$ and $-5$ dB SNR. **Three front ends**: none; a statistical one written in `numpy`; a neural one trained with PESQ as its target (MetricGAN+). **Two recognisers**, chosen to differ: a CTC model that has only heard clean read speech (W3), and Whisper small (W7). |
 | **Watch for** | At 0 dB: which has the lower WER — the noisy sentence, or the enhanced one? **Is the answer the same for both recognisers?** And when each recogniser fails on enhanced speech: what does the failure look like? |
 :::
 
@@ -737,7 +737,7 @@ Demo 2 · demos/w10_d2_* — not built yet (2026-11-22) · no model is trained: 
 :::
 
 ::: {.fragment fragment-index=1}
-| recogniser | front end | 20 dB | 10 dB | 5 dB | 0 dB | −5 dB |
+| recogniser | front end | $20$ dB | $10$ dB | $5$ dB | $0$ dB | $-5$ dB |
 |:-----|:-----|:--|:--|:--|:--|:--|
 | CTC, clean-trained (W3) | none | | | | | |
 | | statistical | | | | | |
@@ -821,7 +821,7 @@ $\mathbf{y}$ lies wholly in the plane, so $\mathbf{e}_{\text{artif}}$ does not c
 :::
 
 ::: {.footer}
-OA: observation adding · Iwamoto et al. 2022, Eq. 8, Proposition 1 · proof: Ochiai et al. 2024
+OA: observation adding · Iwamoto et al. 2022, Eq. 8, Prop. 1 · journal: Ochiai et al. 2024
 :::
 
 ## One knob, two errors: SAR back, SNR down
@@ -949,7 +949,7 @@ A beamformer's output is a weighted sum of what the microphones heard — it **c
 :::
 
 ::: {.footer}
-Iwamoto et al. 2022, footnote 1 · the second sentence: the shared account of several introductions
+Iwamoto et al. 2022, fn. 1 · the plane: speech and noise as each microphone heard them
 :::
 
 ## Mask-based beamforming: who does what
@@ -1170,6 +1170,10 @@ $$
 $$
 
 {{< include assets/w10/sv-test.inline.qmd >}}
+
+::: {.claim .fragment fragment-index=2}
+**Three tests, one picture:** a score, a threshold, two errors that only trade.
+:::
 
 ::: {.footer}
 p12's picture, with new labels · W9 p77: the same picture for a spoofing detector · W9 p17: SIM
@@ -1404,20 +1408,20 @@ p5: for each term that is not the user — by what right do we remove it, what i
 :::
 
 ::: {.footer}
-p6 · p45 · p91 · drawn from p16, p23, p29, p38, p51, p62, p64, p69, p73, p83, p88
+p6 · p45 · p91 · drawn from p16, p23, p29, p38, p51, p62, p64, p69, p73, p78, p83, p88
 :::
 
 ## Reading, and next week
 
 **Read this week**
 
-- Iwamoto et al., *How Bad Are Artifacts?*, Interspeech 2022 — four pages: the decomposition (Eq. 1, 4–6), observation adding (Eq. 8), and the experiment behind p51; the week's "if you read one paper"
+- Iwamoto et al., *How Bad Are Artifacts?*, Interspeech 2022 — four pages plus references: the decomposition (Eq. 1, 4–6), observation adding (Eq. 8), and the experiment behind p51; the week's "if you read one paper"
 - Haeb-Umbach et al., *Far-Field Automatic Speech Recognition*, Proceedings of the IEEE, 2021 — how dereverberation, beamforming and separation connect to a recogniser
 - Vincent, Virtanen & Gannot (eds.), *Audio Source Separation and Speech Enhancement*, 2018 — Ch 5 (spectral masking and filtering), Ch 10 (spatial filtering)
 
 **If one thing today was new to you, make it this one**
 
-- Valin, *On Adjusting the Learning Rate in Frequency Domain Echo Cancellation With Double-Talk*, 2007 — four pages; read Eq. 8–9 with p27–p28 open
+- Valin, *On Adjusting the Learning Rate in Frequency Domain Echo Cancellation With Double-Talk*, 2007 — five pages; read Eq. 8–9 with p27–p28 open
 
 **Next week — Part III begins: audio-native language models**
 
