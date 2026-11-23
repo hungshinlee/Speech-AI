@@ -1133,16 +1133,17 @@ Demo 3 · demos/w10_d3_whose_track · public-corpus voices only · no model is t
 :::
 
 ::: {.fragment fragment-index=1}
-| chunk of the "conversation" | SIM to the enrolment: track 1 · track 2 (encoder A) | the same, encoder B | the track picked |
+| chunk of the "conversation" | SIM to the enrolment: track 1 · track 2 (ECAPA) | the same, WavLM-SV | the track picked |
 |:------|:------|:------|:---|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| … the chunk where the user is silent | | | |
+| 1 ($0$–$4$ s) | $-0.04$ · $0.52$ | $0.73$ · $0.94$ | 2 |
+| 3 ($8$–$12$ s) | $0.57$ · $0.30$ | $0.95$ · $0.89$ | 1 |
+| 7 ($24$–$28$ s) | $-0.07$ · $0.31$ | $0.63$ · $0.90$ | 2 |
+| 8 ($28$–$32$ s) | $0.48$ · $0.11$ | $0.89$ · $0.59$ | 1 |
+| 5 ($16$–$20$ s): the user is silent | $0.11$ · $0.04$ | $0.64$ · $0.64$ | 1 / 2 |
 :::
 
 ::: {.footer}
-Demo 3 · demos/w10_d3_whose_track · the table is filled at rehearsal → w10-metrics.json → demo3 · SIM: W9 p17
+Demo 3 · measured 2026-11-23 → w10-metrics.json → demo3 · 5 of 10 chunks shown · SIM: W9 p17
 :::
 
 ## MC 10 — "track 1 of a separation model is the user"
