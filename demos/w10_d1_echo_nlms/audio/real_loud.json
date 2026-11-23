@@ -1,0 +1,21 @@
+{
+ "time": "2026-11-23T09:46:34",
+ "clip": "loud",
+ "x_sha": "bdda30d64ca6",
+ "delay_samples": 2125,
+ "delay_ms": 132.8125,
+ "peak": 0.7998476688992523,
+ "clipped_frac": 0.0,
+ "echo_rms_db": -21.713118513856955,
+ "floor_rms_db": -60.88603702024841,
+ "software_drive": 0.0,
+ "device": {
+  "input": "MacBook Pro的麥克風",
+  "output": "MacBook Pro的揚聲器",
+  "device_fs": 48000,
+  "output_channels": 2,
+  "input_default_fs": 48000.0,
+  "output_default_fs": 48000.0
+ },
+ "platform": "macOS-27.2.1-arm64-arm-64bit"
+}

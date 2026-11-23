@@ -8,7 +8,7 @@ project:
     - slides.qmd
     - supplements.qmd
     - supplements/*.qmd
-    # 只上 W1–W9。build_weeks.py 仍會產生 weeks/w10–w14.qmd（內容照樣過濾、
+    # 只上 W1–W10。build_weeks.py 仍會產生 weeks/w11–w14.qmd（內容照樣過濾、
     # 跟著大綱更新），但不 render，站上就沒有那些頁面。
     # **要開放某一週：這裡加一行，並同步改 build_weeks.py 的 PUBLISHED_WEEKS
     # 與下面 sidebar 的註解區塊。**
@@ -21,6 +21,7 @@ project:
     - weeks/w07.qmd
     - weeks/w08.qmd
     - weeks/w09.qmd
+    - weeks/w10.qmd
     - slides/*.qmd
   resources:
     - slides/assets/**
@@ -102,7 +103,7 @@ website:
           - href: weeks/w07.qmd
           - href: weeks/w08.qmd
           - href: weeks/w09.qmd
-      #     - href: weeks/w10.qmd
+          - href: weeks/w10.qmd
       # - section: "Part III — Dialogue Systems"
       #   contents:
       #     - href: weeks/w11.qmd

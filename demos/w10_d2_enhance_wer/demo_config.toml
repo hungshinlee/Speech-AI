@@ -1,0 +1,96 @@
+# 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
+# W10 demo 2：增強之後 WER 往哪裡走。換內容只改這裡。
+#
+# 設計（2026-11-23；理由見 README）：
+#   同一批乾淨的句子，自己加噪音（所以乾淨的答案與噪音本身都已知），每一句過幾種前端，再送進兩個辨識器。
+#   量三類東西：訊號類的指標（要乾淨的答案才算得出來）、兩個辨識器的 WER、一個合成語音偵測器的判定。
+#   沒有任何模型被訓練或微調；全部是推論。
+
+[audio]
+fs = 16000
+
+[sentences]
+# W2 Demo 3 挑的那 40 句：LibriSpeech dev-clean（CC BY 4.0）每位說話人一句、每句約 7 秒。
+# 清單與參考文字在它的 data/sentences.json，wav 在 ../_media/w02_d3/wav/（它的 fetch 解出來的，不進版控）。
+# W9 Demo 3 的「真人參考組」也是這 40 句，所以那裡的「40 句裡幾句被叫成 spoof」可以直接當這裡的基準。
+from = "../w02_d3_frontend_mismatch"
+
+[noise]
+# 三種，都是程式合成的（沒有另外抓噪音資料集）：
+#   white   白噪音（穩態、頻譜平）
+#   pink    功率譜 ∝ 1/f（穩態、低頻重）
+#   babble  同一批 40 句裡「其他說話人」的 babble_k 句疊在一起（非穩態；它本身就是語音）
+types = ["white", "pink", "babble"]
+# 投影片 p49 的表、鍵 2–7 一開始看的那一種；鍵 b 換。
+main = "white"
+snrs = [20, 10, 5, 0, -5]
+babble_k = 6
+# 每一句、每一種噪音各抽一次；五個 SNR 用的是同一段噪音，只有音量不同。
+seed = 20261123
+
+[stat]
+# 自己寫的統計式增強：decision-directed Wiener（enhance.py 的 wiener_dd）。32 ms Hann、8 ms hop。
+win = 512
+hop = 128
+n_fft = 512
+alpha = 0.98          # decision-directed 的平滑。越接近 1 殘留噪音越平、語音的起頭被壓得越多
+alpha_musical = 0.0   # 鍵 u：不平滑的版本（每一格只看自己）——聽 musical noise 用，不進 WER 的表
+g_min = 0.1           # 增益的下限（−20 dB）
+q = 0.5               # 噪音功率的估計：每個 bin 取整句 |Y|² 的中位數再校正（enhance.noise_psd）
+
+[neural]
+# MetricGAN+（SpeechBrain 的權重，VoiceBank-DEMAND 上訓的；generator 的目標是讓一個學出來的 PESQ 預測器給高分）。
+# BLSTM 估一張實數的 mask，乘在 magnitude 上，相位沿用帶噪的。Apache-2.0。
+repo = "speechbrain/metricgan-plus-voicebank"
+label = "MetricGAN+"
+device = "cpu"        # 很小（一句 0.03 s）；留在 CPU，不必管 MPS
+
+[extra]
+# 加映的第二個神經網路前端：SepFormer 的增強版（時域、不經 STFT 的 mask；DNS4 16 kHz 的權重）。Apache-2.0。
+# 輸出的音量是任意的（訓練目標對音量不敏感），所以先乘 enhance.blind_gain 再用。
+# 只在 main 那一種噪音上跑；不想等就 enabled = false（或 rehearse --no-extra）。
+enabled = true
+repo = "speechbrain/sepformer-dns4-16k-enhancement"
+label = "SepFormer (DNS4)"
+device = "auto"       # check 會測 mps 對 cpu；mps 不行就改 "cpu"（M5 Max 的 CPU 上一句是秒級）
+
+[ctc]
+# W3 Demo 3 的模型：wav2vec2-base-960h，只在 LibriSpeech 960 小時的乾淨朗讀上 fine-tune，greedy 解碼、沒有語言模型。
+repo = "facebook/wav2vec2-base-960h"
+device = "auto"
+lock_from = ["../w03_d3_blank_heatmap/model.lock", "../w07_d1_hallucination/model.lock"]
+
+[whisper]
+# W7 的 Whisper small：類別、權重與 commit 都沿用 W2 Demo 3（它在 CPU 上跑——transformers 5.17.0 的 generate 在 MPS 上會掛）。
+# WER 的文字標準化也沿用它：參考與輸出都過 Whisper 的 EnglishTextNormalizer。
+from = "../w02_d3_frontend_mismatch"
+
+[spoof]
+# W9 Demo 3 的偵測器（AASIST，ASVspoof 2019 LA 上訓的）：類別、取窗、固定 RMS、門檻 0 全部沿用它的設定檔。
+from = "../w09_d3_two_defences"
+device = "cpu"
+
+[oa]
+# observation adding：ŝ + ω·y。在哪一個條件上掃、掃哪些 ω（0 = 不加回去；「不增強」是 ω → ∞ 的那一端）。
+snr = 0
+fe = "mgan"
+omegas = [0.1, 0.3, 1.0, 3.0]
+table = [0.0, 0.1, 0.3, 1.0]      # 投影片 p55 那張表的四欄
+
+[listen]
+# 課堂上聽的句子（data/sentences.json 的 id）與 SNR。彩排時這些組合的 .wav 存進 runs/rehearsal/（同一組用同一個增益）。
+sentences = ["1272-128104-0013", "2277-149874-0001"]
+snrs = [-5, 0]
+
+[metrics]
+# 給人耳設計的兩位裁判。沒裝就不報（./setup.sh 會試著裝；pesq 要編譯）。
+stoi = true
+pesq = true
+
+[display]
+fig_w = 12.0
+fig_h = 6.2
+digits = 1
+
+[fake]
+seed = 20261123

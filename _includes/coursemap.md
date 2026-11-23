@@ -19,7 +19,7 @@
 <a class="cm-wk" href="weeks/w07.html"><span class="cm-n">W7</span><span class="cm-t">ASR</span></a>
 <a class="cm-wk" href="weeks/w08.html"><span class="cm-n">W8</span><span class="cm-t">TTS I: generative</span></a>
 <a class="cm-wk" href="weeks/w09.html"><span class="cm-n">W9</span><span class="cm-t">TTS II: control &amp; eval</span></a>
-<div class="cm-wk cm-soon"><span class="cm-n">W10</span><span class="cm-t">VAD / AEC / sep / spk</span></div>
+<a class="cm-wk" href="weeks/w10.html"><span class="cm-n">W10</span><span class="cm-t">VAD / AEC / sep / spk</span></a>
 </div>
 <div class="cm-col">
 <div class="cm-part">Part III — Dialogue Systems</div>

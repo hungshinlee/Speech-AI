@@ -1,0 +1,3715 @@
+{
+ "time": "2026-11-23T15:01:58",
+ "tag": "rehearse",
+ "fake": false,
+ "main": "m",
+ "chunk_s": 4.0,
+ "collar": 0.25,
+ "enrol": {
+  "utt": "1272-128104-0010",
+  "seconds": 4.98
+ },
+ "thresholds": {
+  "a": 0.25,
+  "b": 0.86
+ },
+ "enc_labels": {
+  "a": "ECAPA",
+  "b": "WavLM-SV"
+ },
+ "pairs": {
+  "m": {
+   "label": "user 1272 (m) + speaker 174 (m)",
+   "other": "174",
+   "seconds": 39.38,
+   "stats": {
+    "speech_s": {
+     "user": 18.88,
+     "other": 18.11
+    },
+    "any_s": 33.03,
+    "overlap_s": 3.96,
+    "overlap_ratio": 0.1199,
+    "silence_s": 6.35
+   },
+   "turns": [
+    {
+     "spk": "user",
+     "utt": "1272-141231-0000",
+     "lead": 0.0,
+     "start": 0.5,
+     "end": 4.2,
+     "text": "A MAN SAID TO THE UNIVERSE SIR I EXIST"
+    },
+    {
+     "spk": "other",
+     "utt": "174-168635-0000",
+     "lead": -0.8,
+     "start": 3.4,
+     "end": 7.34,
+     "text": "HE HAD NEVER BEEN FATHER LOVER HUSBAND FRIEND"
+    },
+    {
+     "spk": "user",
+     "utt": "1272-135031-0003",
+     "lead": 0.3,
+     "start": 7.64,
+     "end": 12.39,
+     "text": "THE LITTLE GIRL HAD BEEN ASLEEP BUT SHE HEARD THE RAPS AND OPENED THE DOOR"
+    },
+    {
+     "spk": "other",
+     "utt": "174-168635-0006",
+     "lead": -1.2,
+     "start": 11.19,
+     "end": 16.71,
+     "text": "SHE FELT THAT WHICH SHE HAD NEVER FELT BEFORE A SENSATION OF EXPANSION"
+    },
+    {
+     "spk": "other",
+     "utt": "174-168635-0001",
+     "lead": 0.4,
+     "start": 17.11,
+     "end": 20.81,
+     "text": "THE HEART OF THAT EX CONVICT WAS FULL OF VIRGINITY"
+    },
+    {
+     "spk": "user",
+     "utt": "1272-141231-0008",
+     "lead": -0.6,
+     "start": 20.21,
+     "end": 23.86,
+     "text": "HE WAS IN REVERIE SLIDING ALONG THE BORDERS OF CONSCIOUSNESS"
+    },
+    {
+     "spk": "other",
+     "utt": "174-168635-0015",
+     "lead": 0.5,
+     "start": 24.36,
+     "end": 27.52,
+     "text": "AND THEN HE TALKED OF HER MOTHER AND HE MADE HER PRAY"
+    },
+    {
+     "spk": "user",
+     "utt": "1272-135031-0005",
+     "lead": -1.0,
+     "start": 26.52,
+     "end": 31.13,
+     "text": "I BEGGED RUGGEDO LONG AGO TO SEND HIM AWAY BUT HE WOULD NOT DO SO"
+    },
+    {
+     "spk": "other",
+     "utt": "174-168635-0011",
+     "lead": 0.3,
+     "start": 31.43,
+     "end": 35.62,
+     "text": "MOREOVER JEAN VALJEAN HAD CHOSEN HIS REFUGE WELL"
+    },
+    {
+     "spk": "user",
+     "utt": "1272-141231-0007",
+     "lead": -0.7,
+     "start": 34.92,
+     "end": 38.88,
+     "text": "ONLY HIS HEART AND LUNGS WORKED ON AT A STRONG MEASURED RATE"
+    }
+   ],
+   "ref_segments": {
+    "user": [
+     [
+      0.5,
+      2.06
+     ],
+     [
+      2.69,
+      3.14
+     ],
+     [
+      3.4,
+      4.19
+     ],
+     [
+      7.62,
+      12.39
+     ],
+     [
+      20.21,
+      21.25
+     ],
+     [
+      21.51,
+      23.86
+     ],
+     [
+      26.51,
+      30.78
+     ],
+     [
+      35.22,
+      38.87
+     ]
+    ],
+    "other": [
+     [
+      3.4,
+      7.16
+     ],
+     [
+      11.19,
+      14.09
+     ],
+     [
+      14.88,
+      16.7
+     ],
+     [
+      17.11,
+      19.19
+     ],
+     [
+      19.46,
+      20.8
+     ],
+     [
+      24.36,
+      26.1
+     ],
+     [
+      26.45,
+      27.51
+     ],
+     [
+      31.42,
+      31.49
+     ],
+     [
+      31.96,
+      32.6
+     ],
+     [
+      32.9,
+      35.6
+     ]
+    ]
+   },
+   "split_s": 16.3,
+   "user_ref_text": "A MAN SAID TO THE UNIVERSE SIR I EXIST THE LITTLE GIRL HAD BEEN ASLEEP BUT SHE HEARD THE RAPS AND OPENED THE DOOR HE WAS IN REVERIE SLIDING ALONG THE BORDERS OF CONSCIOUSNESS I BEGGED RUGGEDO LONG AGO TO SEND HIM AWAY BUT HE WOULD NOT DO SO ONLY HIS HEART AND LUNGS WORKED ON AT A STRONG MEASURED RATE",
+   "overlap": {
+    "seconds": 4.89,
+    "utts": [
+     "1272-128104-0000",
+     "174-168635-0013"
+    ],
+    "ref_text": "MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL",
+    "tracks": [
+     {
+      "si_user": 8.821766603492945,
+      "si_other": -42.403922435440016,
+      "level_db": -3.5352843449322457,
+      "sim": {
+       "a": 0.6006885632393948,
+       "b": 0.9283883004623389
+      }
+     },
+     {
+      "si_user": -41.25086127143127,
+      "si_other": 16.605050931387307,
+      "level_db": -3.08060684790323,
+      "sim": {
+       "a": -0.03061580171168173,
+       "b": 0.6705296150894725
+      }
+     }
+    ],
+    "truth": 0,
+    "pick": {
+     "a": 0,
+     "b": 0
+    },
+    "asr": {
+     "mix": {
+      "text": "MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL",
+      "S": 0,
+      "D": 0,
+      "I": 0,
+      "n_ref": 17,
+      "wer": 0.0
+     },
+     "user_track": {
+      "text": "MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL",
+      "S": 0,
+      "D": 0,
+      "I": 0,
+      "n_ref": 17,
+      "wer": 0.0
+     }
+    },
+    "compute_s": 0.276366458972916
+   },
+   "chunkings": {
+    "4": {
+     "chunk_s": 4.0,
+     "rows": [
+      {
+       "k": 1,
+       "a_s": 0.0,
+       "b_s": 4.0,
+       "user_s": 2.61,
+       "other_s": 0.6,
+       "tracks": [
+        {
+         "si_user": -34.37881484421196,
+         "si_other": 17.032590463280528,
+         "level_db": -6.787163137718504,
+         "sim": {
+          "a": -0.0358109272711035,
+          "b": 0.7297114482039323
+         }
+        },
+        {
+         "si_user": 7.869880121677023,
+         "si_other": -35.49542047374204,
+         "level_db": -1.760728289416049,
+         "sim": {
+          "a": 0.5234833762314911,
+          "b": 0.9426279547625799
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.5234833762314911,
+        "b": 0.9426279547625799
+       }
+      },
+      {
+       "k": 2,
+       "a_s": 4.0,
+       "b_s": 8.0,
+       "user_s": 0.5700000000000001,
+       "other_s": 3.16,
+       "tracks": [
+        {
+         "si_user": -33.41250110255108,
+         "si_other": 4.958674333017074,
+         "level_db": -2.2635993151444005,
+         "sim": {
+          "a": 0.04371130208240605,
+          "b": 0.6423119312904587
+         }
+        },
+        {
+         "si_user": -25.429291137556316,
+         "si_other": -1.4936625610998626,
+         "level_db": -6.166430956779561,
+         "sim": {
+          "a": 0.14966976750071231,
+          "b": 0.7388066839380513
+         }
+        }
+       ],
+       "truth": null,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.14966976750071231,
+        "b": 0.7388066839380513
+       }
+      },
+      {
+       "k": 3,
+       "a_s": 8.0,
+       "b_s": 12.0,
+       "user_s": 4.0,
+       "other_s": 0.81,
+       "tracks": [
+        {
+         "si_user": 7.521398308600408,
+         "si_other": -32.06172966228455,
+         "level_db": -2.6487982480345185,
+         "sim": {
+          "a": 0.5683110071888394,
+          "b": 0.9452224743248244
+         }
+        },
+        {
+         "si_user": -15.647809163765181,
+         "si_other": 7.481277014596981,
+         "level_db": -5.140068299785893,
+         "sim": {
+          "a": 0.30286379760470694,
+          "b": 0.8936707990237397
+         }
+        }
+       ],
+       "truth": 0,
+       "pick": {
+        "a": 0,
+        "b": 0
+       },
+       "max_sim": {
+        "a": 0.5683110071888394,
+        "b": 0.9452224743248244
+       }
+      },
+      {
+       "k": 4,
+       "a_s": 12.0,
+       "b_s": 16.0,
+       "user_s": 0.39,
+       "other_s": 3.21,
+       "tracks": [
+        {
+         "si_user": -39.22706406958597,
+         "si_other": 7.373761947469207,
+         "level_db": -1.7405867118235512,
+         "sim": {
+          "a": 0.09689446896004214,
+          "b": 0.7630321399433195
+         }
+        },
+        {
+         "si_user": -28.511717520570087,
+         "si_other": -2.7345112455067824,
+         "level_db": -8.823920035560363,
+         "sim": {
+          "a": 0.01287186316394157,
+          "b": 0.6598155789820125
+         }
+        }
+       ],
+       "truth": null,
+       "pick": {
+        "a": 0,
+        "b": 0
+       },
+       "max_sim": {
+        "a": 0.09689446896004214,
+        "b": 0.7630321399433195
+       }
+      },
+      {
+       "k": 5,
+       "a_s": 16.0,
+       "b_s": 20.0,
+       "user_s": 0.0,
+       "other_s": 3.3200000000000003,
+       "tracks": [
+        {
+         "si_user": null,
+         "si_other": 11.42247046923929,
+         "level_db": -0.4375068263501189,
+         "sim": {
+          "a": 0.10879213441832768,
+          "b": 0.6432183857315026
+         }
+        },
+        {
+         "si_user": null,
+         "si_other": -11.192775874418766,
+         "level_db": -14.345784905024516,
+         "sim": {
+          "a": 0.040786564240349626,
+          "b": 0.6434745314340555
+         }
+        }
+       ],
+       "truth": null,
+       "pick": {
+        "a": 0,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.10879213441832768,
+        "b": 0.6434745314340555
+       }
+      },
+      {
+       "k": 6,
+       "a_s": 20.0,
+       "b_s": 24.0,
+       "user_s": 3.39,
+       "other_s": 0.8,
+       "tracks": [
+        {
+         "si_user": 11.240177431992928,
+         "si_other": -38.28213857588591,
+         "level_db": -0.7122219289722008,
+         "sim": {
+          "a": 0.5663138253120008,
+          "b": 0.9509262854988082
+         }
+        },
+        {
+         "si_user": -36.903103545543715,
+         "si_other": 14.040210274730667,
+         "level_db": -10.937426592350555,
+         "sim": {
+          "a": 0.08831290659752698,
+          "b": 0.6275085304820478
+         }
+        }
+       ],
+       "truth": 0,
+       "pick": {
+        "a": 0,
+        "b": 0
+       },
+       "max_sim": {
+        "a": 0.5663138253120008,
+        "b": 0.9509262854988082
+       }
+      },
+      {
+       "k": 7,
+       "a_s": 24.0,
+       "b_s": 28.0,
+       "user_s": 1.49,
+       "other_s": 2.8000000000000003,
+       "tracks": [
+        {
+         "si_user": -58.658176261980046,
+         "si_other": 20.94216947544497,
+         "level_db": -2.0907573332710023,
+         "sim": {
+          "a": -0.07137101162165425,
+          "b": 0.6279324241713574
+         }
+        },
+        {
+         "si_user": 21.62796528033631,
+         "si_other": -46.44344722302199,
+         "level_db": -4.190331055581668,
+         "sim": {
+          "a": 0.3128108746428594,
+          "b": 0.8983723619243545
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.3128108746428594,
+        "b": 0.8983723619243545
+       }
+      },
+      {
+       "k": 8,
+       "a_s": 28.0,
+       "b_s": 32.0,
+       "user_s": 2.7800000000000002,
+       "other_s": 0.11,
+       "tracks": [
+        {
+         "si_user": 12.785277275954485,
+         "si_other": -63.02369369002992,
+         "level_db": -0.2335873339829055,
+         "sim": {
+          "a": 0.48467310627565446,
+          "b": 0.8869604025657447
+         }
+        },
+        {
+         "si_user": -38.399495824649186,
+         "si_other": 17.286754389781898,
+         "level_db": -28.21303017882101,
+         "sim": {
+          "a": 0.10567327521391504,
+          "b": 0.5936855714556133
+         }
+        }
+       ],
+       "truth": 0,
+       "pick": {
+        "a": 0,
+        "b": 0
+       },
+       "max_sim": {
+        "a": 0.48467310627565446,
+        "b": 0.8869604025657447
+       }
+      },
+      {
+       "k": 9,
+       "a_s": 32.0,
+       "b_s": 36.0,
+       "user_s": 0.78,
+       "other_s": 3.3000000000000003,
+       "tracks": [
+        {
+         "si_user": -36.20588102029383,
+         "si_other": 12.799711526043591,
+         "level_db": -2.317538077318167,
+         "sim": {
+          "a": 0.052761642617992884,
+          "b": 0.7348017874046896
+         }
+        },
+        {
+         "si_user": 7.788169169802332,
+         "si_other": -16.112667332008485,
+         "level_db": -5.18358798308268,
+         "sim": {
+          "a": 0.2530178424012482,
+          "b": 0.9041274208488139
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.2530178424012482,
+        "b": 0.9041274208488139
+       }
+      },
+      {
+       "k": 10,
+       "a_s": 36.0,
+       "b_s": 39.38,
+       "user_s": 2.87,
+       "other_s": 0.0,
+       "tracks": [
+        {
+         "si_user": -16.185394394232574,
+         "si_other": null,
+         "level_db": -19.341000443974874,
+         "sim": {
+          "a": 0.1642814367958986,
+          "b": 0.8064521995981783
+         }
+        },
+        {
+         "si_user": 14.832079399166586,
+         "si_other": null,
+         "level_db": -0.1847515941431732,
+         "sim": {
+          "a": 0.43315770464037684,
+          "b": 0.8814117507906969
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.43315770464037684,
+        "b": 0.8814117507906969
+       }
+      }
+     ],
+     "compute_s": 1.839368541026488,
+     "n_present": 7,
+     "n_swaps": 4,
+     "n_right": {
+      "a": 7,
+      "b": 7
+     }
+    },
+    "2": {
+     "chunk_s": 2.0,
+     "rows": [
+      {
+       "k": 1,
+       "a_s": 0.0,
+       "b_s": 2.0,
+       "user_s": 1.5,
+       "other_s": 0.0,
+       "tracks": [
+        {
+         "si_user": -4.769799204474424,
+         "si_other": null,
+         "level_db": -27.04116758563604,
+         "sim": {
+          "a": 0.3907334570318843,
+          "b": 0.8617073586123671
+         }
+        },
+        {
+         "si_user": 9.069659051026859,
+         "si_other": null,
+         "level_db": -0.7117197150196681,
+         "sim": {
+          "a": 0.520364123018637,
+          "b": 0.9058058588149441
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.520364123018637,
+        "b": 0.9058058588149441
+       }
+      },
+      {
+       "k": 2,
+       "a_s": 2.0,
+       "b_s": 4.0,
+       "user_s": 1.11,
+       "other_s": 0.6,
+       "tracks": [
+        {
+         "si_user": -27.059044304394174,
+         "si_other": 16.49006213542172,
+         "level_db": -2.8247066398664007,
+         "sim": {
+          "a": -0.011735989132829413,
+          "b": 0.7157622145437949
+         }
+        },
+        {
+         "si_user": 4.876535610581944,
+         "si_other": -29.433855074181242,
+         "level_db": -4.778075572506585,
+         "sim": {
+          "a": 0.3222123745099228,
+          "b": 0.8336291040597791
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.3222123745099228,
+        "b": 0.8336291040597791
+       }
+      },
+      {
+       "k": 3,
+       "a_s": 4.0,
+       "b_s": 6.0,
+       "user_s": 0.19,
+       "other_s": 2.0,
+       "tracks": [
+        {
+         "si_user": -29.4623523255362,
+         "si_other": 0.49952490463516896,
+         "level_db": -3.6905229843934313,
+         "sim": {
+          "a": 0.0917416349127659,
+          "b": 0.7024019816537714
+         }
+        },
+        {
+         "si_user": -34.26996401861299,
+         "si_other": 1.1566777796856134,
+         "level_db": -3.337635507530046,
+         "sim": {
+          "a": 0.017905567094231394,
+          "b": 0.7112504323316405
+         }
+        }
+       ],
+       "truth": null,
+       "pick": {
+        "a": 0,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.0917416349127659,
+        "b": 0.7112504323316405
+       }
+      },
+      {
+       "k": 4,
+       "a_s": 6.0,
+       "b_s": 8.0,
+       "user_s": 0.38,
+       "other_s": 1.16,
+       "tracks": [
+        {
+         "si_user": 1.110311876252431,
+         "si_other": -28.311562617841783,
+         "level_db": -17.617747819441533,
+         "sim": {
+          "a": -0.010386155894352553,
+          "b": 0.6165561175484758
+         }
+        },
+        {
+         "si_user": -37.366253886119,
+         "si_other": 21.122599890417703,
+         "level_db": -0.17256402947861735,
+         "sim": {
+          "a": 0.08764704510902235,
+          "b": 0.46237481655885976
+         }
+        }
+       ],
+       "truth": 0,
+       "pick": {
+        "a": 1,
+        "b": 0
+       },
+       "max_sim": {
+        "a": 0.08764704510902235,
+        "b": 0.6165561175484758
+       }
+      },
+      {
+       "k": 5,
+       "a_s": 8.0,
+       "b_s": 10.0,
+       "user_s": 2.0,
+       "other_s": 0.0,
+       "tracks": [
+        {
+         "si_user": -5.164623831456087,
+         "si_other": null,
+         "level_db": -29.192626538096636,
+         "sim": {
+          "a": 0.17670469495001095,
+          "b": 0.7721140749597697
+         }
+        },
+        {
+         "si_user": 8.641732070512484,
+         "si_other": null,
+         "level_db": -0.714369582265217,
+         "sim": {
+          "a": 0.5387410835736965,
+          "b": 0.8387535429023399
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.5387410835736965,
+        "b": 0.8387535429023399
+       }
+      },
+      {
+       "k": 6,
+       "a_s": 10.0,
+       "b_s": 12.0,
+       "user_s": 2.0,
+       "other_s": 0.81,
+       "tracks": [
+        {
+         "si_user": 11.463399056329987,
+         "si_other": -48.62638657569719,
+         "level_db": -2.7914844361053737,
+         "sim": {
+          "a": 0.6171243200839106,
+          "b": 0.9232533444567448
+         }
+        },
+        {
+         "si_user": -40.56910356023505,
+         "si_other": 17.50772640198961,
+         "level_db": -3.6890732942375237,
+         "sim": {
+          "a": 0.07584018078282594,
+          "b": 0.6151353983764705
+         }
+        }
+       ],
+       "truth": 0,
+       "pick": {
+        "a": 0,
+        "b": 0
+       },
+       "max_sim": {
+        "a": 0.6171243200839106,
+        "b": 0.9232533444567448
+       }
+      },
+      {
+       "k": 7,
+       "a_s": 12.0,
+       "b_s": 14.0,
+       "user_s": 0.39,
+       "other_s": 2.0,
+       "tracks": [
+        {
+         "si_user": -38.11479016510562,
+         "si_other": 8.302367485080861,
+         "level_db": -0.9152438986644729,
+         "sim": {
+          "a": 0.04967551117374973,
+          "b": 0.7725490703481348
+         }
+        },
+        {
+         "si_user": -27.447202641147868,
+         "si_other": -6.32247460023947,
+         "level_db": -9.118970864287162,
+         "sim": {
+          "a": 0.03797702806599459,
+          "b": 0.6484661409380796
+         }
+        }
+       ],
+       "truth": null,
+       "pick": {
+        "a": 0,
+        "b": 0
+       },
+       "max_sim": {
+        "a": 0.04967551117374973,
+        "b": 0.7725490703481348
+       }
+      },
+      {
+       "k": 8,
+       "a_s": 14.0,
+       "b_s": 16.0,
+       "user_s": 0.0,
+       "other_s": 1.21,
+       "tracks": [
+        {
+         "si_user": null,
+         "si_other": -8.148038368962913,
+         "level_db": -18.22725180832392,
+         "sim": {
+          "a": 0.010903785641075199,
+          "b": 0.42125748995181184
+         }
+        },
+        {
+         "si_user": null,
+         "si_other": 8.194630865507587,
+         "level_db": -0.9258781443475266,
+         "sim": {
+          "a": 0.04455779003752424,
+          "b": 0.5923778843471315
+         }
+        }
+       ],
+       "truth": null,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.04455779003752424,
+        "b": 0.5923778843471315
+       }
+      },
+      {
+       "k": 9,
+       "a_s": 16.0,
+       "b_s": 18.0,
+       "user_s": 0.0,
+       "other_s": 1.59,
+       "tracks": [
+        {
+         "si_user": null,
+         "si_other": 11.4721012304011,
+         "level_db": -1.357755867069101,
+         "sim": {
+          "a": 0.04303179787912036,
+          "b": 0.6101737731950472
+         }
+        },
+        {
+         "si_user": null,
+         "si_other": -1.467275385970372,
+         "level_db": -12.900018752969274,
+         "sim": {
+          "a": 0.19419949269563747,
+          "b": 0.801230571490268
+         }
+        }
+       ],
+       "truth": null,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.19419949269563747,
+        "b": 0.801230571490268
+       }
+      },
+      {
+       "k": 10,
+       "a_s": 18.0,
+       "b_s": 20.0,
+       "user_s": 0.0,
+       "other_s": 1.73,
+       "tracks": [
+        {
+         "si_user": null,
+         "si_other": 5.1599416932704365,
+         "level_db": -1.301416850531722,
+         "sim": {
+          "a": 0.07892148760568742,
+          "b": 0.7953655714936944
+         }
+        },
+        {
+         "si_user": null,
+         "si_other": -5.382970065011229,
+         "level_db": -7.019888241779264,
+         "sim": {
+          "a": -0.004982474795261456,
+          "b": 0.522785424079856
+         }
+        }
+       ],
+       "truth": null,
+       "pick": {
+        "a": 0,
+        "b": 0
+       },
+       "max_sim": {
+        "a": 0.07892148760568742,
+        "b": 0.7953655714936944
+       }
+      },
+      {
+       "k": 11,
+       "a_s": 20.0,
+       "b_s": 22.0,
+       "user_s": 1.53,
+       "other_s": 0.8,
+       "tracks": [
+        {
+         "si_user": 12.748278533294492,
+         "si_other": -36.655234029206454,
+         "level_db": -0.8406521378154672,
+         "sim": {
+          "a": 0.5015625888819838,
+          "b": 0.9375740464093508
+         }
+        },
+        {
+         "si_user": -35.688676072634266,
+         "si_other": 14.134474758101005,
+         "level_db": -9.102121674571993,
+         "sim": {
+          "a": 0.15652932736428002,
+          "b": 0.5744946905436161
+         }
+        }
+       ],
+       "truth": 0,
+       "pick": {
+        "a": 0,
+        "b": 0
+       },
+       "max_sim": {
+        "a": 0.5015625888819838,
+        "b": 0.9375740464093508
+       }
+      },
+      {
+       "k": 12,
+       "a_s": 22.0,
+       "b_s": 24.0,
+       "user_s": 1.86,
+       "other_s": 0.0,
+       "tracks": [
+        {
+         "si_user": -10.325950822616015,
+         "si_other": null,
+         "level_db": -12.545225003448127,
+         "sim": {
+          "a": 0.07654647173184284,
+          "b": 0.7614455079092914
+         }
+        },
+        {
+         "si_user": 7.282063692998974,
+         "si_other": null,
+         "level_db": -0.882563741102347,
+         "sim": {
+          "a": 0.4443393041583345,
+          "b": 0.9139196820401798
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.4443393041583345,
+        "b": 0.9139196820401798
+       }
+      },
+      {
+       "k": 13,
+       "a_s": 24.0,
+       "b_s": 26.0,
+       "user_s": 0.0,
+       "other_s": 1.6400000000000001,
+       "tracks": [
+        {
+         "si_user": null,
+         "si_other": 10.270784831452511,
+         "level_db": -0.4192887159317962,
+         "sim": {
+          "a": -0.141479662700161,
+          "b": 0.5360755162965487
+         }
+        },
+        {
+         "si_user": null,
+         "si_other": -10.28599779857064,
+         "level_db": -11.003913196708549,
+         "sim": {
+          "a": -0.033473845562575565,
+          "b": 0.5210061833214662
+         }
+        }
+       ],
+       "truth": null,
+       "pick": {
+        "a": 1,
+        "b": 0
+       },
+       "max_sim": {
+        "a": -0.033473845562575565,
+        "b": 0.5360755162965487
+       }
+      },
+      {
+       "k": 14,
+       "a_s": 26.0,
+       "b_s": 28.0,
+       "user_s": 1.49,
+       "other_s": 1.16,
+       "tracks": [
+        {
+         "si_user": -48.52053596449153,
+         "si_other": 18.652552841147266,
+         "level_db": -5.746855131086157,
+         "sim": {
+          "a": 0.029809306681737355,
+          "b": 0.71748937125649
+         }
+        },
+        {
+         "si_user": 21.564183221434764,
+         "si_other": -40.15986360430874,
+         "level_db": -1.3148581363005793,
+         "sim": {
+          "a": 0.36289755850005606,
+          "b": 0.9111260707475404
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.36289755850005606,
+        "b": 0.9111260707475404
+       }
+      },
+      {
+       "k": 15,
+       "a_s": 28.0,
+       "b_s": 30.0,
+       "user_s": 2.0,
+       "other_s": 0.0,
+       "tracks": [
+        {
+         "si_user": -0.3831952572402755,
+         "si_other": null,
+         "level_db": -7.748353303298158,
+         "sim": {
+          "a": 0.3044964564429378,
+          "b": 0.8342018802240202
+         }
+        },
+        {
+         "si_user": 6.268492673651961,
+         "si_other": null,
+         "level_db": -2.563632907250362,
+         "sim": {
+          "a": 0.3981062194963274,
+          "b": 0.8845222206529331
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.3981062194963274,
+        "b": 0.8845222206529331
+       }
+      },
+      {
+       "k": 16,
+       "a_s": 30.0,
+       "b_s": 32.0,
+       "user_s": 0.78,
+       "other_s": 0.11,
+       "tracks": [
+        {
+         "si_user": 11.315541652207317,
+         "si_other": -45.37649785797512,
+         "level_db": -0.4812389449058271,
+         "sim": {
+          "a": 0.33243580653649146,
+          "b": 0.7934081676408231
+         }
+        },
+        {
+         "si_user": -15.336817741362477,
+         "si_other": 2.1304180651447497,
+         "level_db": -19.09547592091673,
+         "sim": {
+          "a": 0.09338278169940036,
+          "b": 0.646764522170335
+         }
+        }
+       ],
+       "truth": 0,
+       "pick": {
+        "a": 0,
+        "b": 0
+       },
+       "max_sim": {
+        "a": 0.33243580653649146,
+        "b": 0.7934081676408231
+       }
+      },
+      {
+       "k": 17,
+       "a_s": 32.0,
+       "b_s": 34.0,
+       "user_s": 0.0,
+       "other_s": 1.7,
+       "tracks": [
+        {
+         "si_user": null,
+         "si_other": 3.4931938960786364,
+         "level_db": -1.8058394514229295,
+         "sim": {
+          "a": -0.03144785251505523,
+          "b": 0.6375456735047302
+         }
+        },
+        {
+         "si_user": null,
+         "si_other": -2.9521471715424075,
+         "level_db": -5.1596420532720515,
+         "sim": {
+          "a": 0.04508322600107254,
+          "b": 0.6903935850287126
+         }
+        }
+       ],
+       "truth": null,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.04508322600107254,
+        "b": 0.6903935850287126
+       }
+      },
+      {
+       "k": 18,
+       "a_s": 34.0,
+       "b_s": 36.0,
+       "user_s": 0.78,
+       "other_s": 1.6,
+       "tracks": [
+        {
+         "si_user": 12.9124028214956,
+         "si_other": -44.174959175767974,
+         "level_db": -2.0000062345733944,
+         "sim": {
+          "a": 0.3170551622733814,
+          "b": 0.9230948359865707
+         }
+        },
+        {
+         "si_user": -42.74350577410546,
+         "si_other": 15.087977691327424,
+         "level_db": -4.836256576427453,
+         "sim": {
+          "a": 0.00018151506275452956,
+          "b": 0.70070019456092
+         }
+        }
+       ],
+       "truth": 0,
+       "pick": {
+        "a": 0,
+        "b": 0
+       },
+       "max_sim": {
+        "a": 0.3170551622733814,
+        "b": 0.9230948359865707
+       }
+      },
+      {
+       "k": 19,
+       "a_s": 36.0,
+       "b_s": 38.0,
+       "user_s": 2.0,
+       "other_s": 0.0,
+       "tracks": [
+        {
+         "si_user": -17.172845920884082,
+         "si_other": null,
+         "level_db": -24.902887163329215,
+         "sim": {
+          "a": 0.15127474082517806,
+          "b": 0.7375739975858009
+         }
+        },
+        {
+         "si_user": 15.363819705827183,
+         "si_other": null,
+         "level_db": -0.16557754240440078,
+         "sim": {
+          "a": 0.4179685500894209,
+          "b": 0.88555620500211
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.4179685500894209,
+        "b": 0.88555620500211
+       }
+      },
+      {
+       "k": 20,
+       "a_s": 38.0,
+       "b_s": 39.38,
+       "user_s": 0.87,
+       "other_s": 0.0,
+       "tracks": [
+        {
+         "si_user": -16.472786904270635,
+         "si_other": null,
+         "level_db": -47.47394448318506,
+         "sim": {
+          "a": 0.07732046992235402,
+          "b": 0.350792245362576
+         }
+        },
+        {
+         "si_user": 19.924747320821304,
+         "si_other": null,
+         "level_db": -0.04930495805245677,
+         "sim": {
+          "a": 0.38931484071613676,
+          "b": 0.888770435954287
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.38931484071613676,
+        "b": 0.888770435954287
+       }
+      }
+     ],
+     "compute_s": 2.3718320410698652,
+     "n_present": 13,
+     "n_swaps": 6,
+     "n_right": {
+      "a": 12,
+      "b": 13
+     }
+    },
+    "8": {
+     "chunk_s": 8.0,
+     "rows": [
+      {
+       "k": 1,
+       "a_s": 0.0,
+       "b_s": 8.0,
+       "user_s": 3.18,
+       "other_s": 3.7600000000000002,
+       "tracks": [
+        {
+         "si_user": -38.29838277112294,
+         "si_other": 18.843703967650473,
+         "level_db": -2.940576761339967,
+         "sim": {
+          "a": 0.021403657214700694,
+          "b": 0.7171907928820191
+         }
+        },
+        {
+         "si_user": 7.739405697996404,
+         "si_other": -41.46099850104932,
+         "level_db": -3.869728965887065,
+         "sim": {
+          "a": 0.5202347202288272,
+          "b": 0.9428799340898156
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.5202347202288272,
+        "b": 0.9428799340898156
+       }
+      },
+      {
+       "k": 2,
+       "a_s": 8.0,
+       "b_s": 16.0,
+       "user_s": 4.39,
+       "other_s": 4.0200000000000005,
+       "tracks": [
+        {
+         "si_user": -54.781746626413124,
+         "si_other": 15.59530180798446,
+         "level_db": -2.9382560725372264,
+         "sim": {
+          "a": 0.03970168647160334,
+          "b": 0.6837498345235593
+         }
+        },
+        {
+         "si_user": 10.004172188834854,
+         "si_other": -54.327243529259704,
+         "level_db": -3.629068898326171,
+         "sim": {
+          "a": 0.563068458440363,
+          "b": 0.929747351127616
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.563068458440363,
+        "b": 0.929747351127616
+       }
+      },
+      {
+       "k": 3,
+       "a_s": 16.0,
+       "b_s": 24.0,
+       "user_s": 3.39,
+       "other_s": 4.12,
+       "tracks": [
+        {
+         "si_user": 11.221476898979244,
+         "si_other": -46.88931832777289,
+         "level_db": -3.5667581942470274,
+         "sim": {
+          "a": 0.5374087050461526,
+          "b": 0.942352597299188
+         }
+        },
+        {
+         "si_user": -44.95349787483235,
+         "si_other": 14.87655770730081,
+         "level_db": -2.95436636694033,
+         "sim": {
+          "a": 0.06182357549634645,
+          "b": 0.6868305272611811
+         }
+        }
+       ],
+       "truth": 0,
+       "pick": {
+        "a": 0,
+        "b": 0
+       },
+       "max_sim": {
+        "a": 0.5374087050461526,
+        "b": 0.942352597299188
+       }
+      },
+      {
+       "k": 4,
+       "a_s": 24.0,
+       "b_s": 32.0,
+       "user_s": 4.2700000000000005,
+       "other_s": 2.91,
+       "tracks": [
+        {
+         "si_user": -60.03898923549188,
+         "si_other": 20.95662694380962,
+         "level_db": -3.9043922745182416,
+         "sim": {
+          "a": -0.04728799930290152,
+          "b": 0.5887799556364893
+         }
+        },
+        {
+         "si_user": 14.859799502230144,
+         "si_other": -49.38256322680957,
+         "level_db": -2.398021688803782,
+         "sim": {
+          "a": 0.5053877923262666,
+          "b": 0.911956333004867
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.5053877923262666,
+        "b": 0.911956333004867
+       }
+      },
+      {
+       "k": 5,
+       "a_s": 32.0,
+       "b_s": 39.38,
+       "user_s": 3.65,
+       "other_s": 3.3000000000000003,
+       "tracks": [
+        {
+         "si_user": -48.814782184822604,
+         "si_other": 19.72229352334316,
+         "level_db": -2.9308549024331465,
+         "sim": {
+          "a": 0.034828197199539855,
+          "b": 0.6801558053531139
+         }
+        },
+        {
+         "si_user": 14.63497699940344,
+         "si_other": -54.10583279451714,
+         "level_db": -3.2871664021547082,
+         "sim": {
+          "a": 0.531473196873014,
+          "b": 0.9291793674376801
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.531473196873014,
+        "b": 0.9291793674376801
+       }
+      }
+     ],
+     "compute_s": 1.5536724999547005,
+     "n_present": 5,
+     "n_swaps": 2,
+     "n_right": {
+      "a": 5,
+      "b": 5
+     }
+    },
+    "whole": {
+     "chunk_s": null,
+     "rows": [
+      {
+       "k": 1,
+       "a_s": 0.0,
+       "b_s": 39.38,
+       "user_s": 18.88,
+       "other_s": 18.11,
+       "tracks": [
+        {
+         "si_user": -45.230798208769905,
+         "si_other": 17.160712683064993,
+         "level_db": -3.106927072241999,
+         "sim": {
+          "a": 0.04892046029147403,
+          "b": 0.6223436791022148
+         }
+        },
+        {
+         "si_user": 11.06312548256091,
+         "si_other": -51.406431501459046,
+         "level_db": -3.3441746600139837,
+         "sim": {
+          "a": 0.6291402482766146,
+          "b": 0.943061515619251
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.6291402482766146,
+        "b": 0.943061515619251
+       }
+      }
+     ],
+     "compute_s": 1.5264304999727756,
+     "n_present": 1,
+     "n_swaps": 0,
+     "n_right": {
+      "a": 1,
+      "b": 1
+     }
+    }
+   },
+   "asr": {
+    "mix": {
+     "text": "A MAN SAID TO THE UNIVERSE SIR I HAVE NEVER BEEN FATHER LOVER HUSBAND FRIEND THE LITTLE GIRL HAD BEEN ASLEEP BUT SHE HEARD THE RAPS AND OPENED THE DOOR SHE FELT THAT WHICH SHE HAD NEVER FELT BEFORE A SENSATION OF THE HEART OF THAT EX CONVICT WAS FULL OF VIRGINITY USING RIVERRY SLIDING ALONG THE BORDERS OF CONSCIOUSNESS AND THEN HE TALKED TO HER MOTHER AND HE MADE HER PRAY I BEGGED RIGIDDO LONG AGO TO SEND HIM AWAY BUT HE WOULD NOT DO SO MOREOVER JEAN VALJEAN HAD CHOSEN HIS REFUGE WELL WHEN HIS HEART AND LUNGS WORKED ON AT A STRONG MEASURED RATE",
+     "S": 6,
+     "D": 0,
+     "I": 46,
+     "n_ref": 61,
+     "wer": 0.8524590163934426
+    },
+    "track1": {
+     "text": "HE HAD NEVER BEEN FATHER LOVER HUSBAND OR FRIEND THE LITTLE GIRL HAD BEEN ASLEEP BUT HE HEARD THE WRAPS AND OPENED THE DOOR WHICH HE HAD NEVER FELT BEFORE A SENSATION OF EXPANSION THE HEART OF THAT CONVICT WAS FULL LOSING THE REVERIE SLIDING ALONG THE BORDERS OF CONSCIOUSNESS AND THEN HE TALKED TO HER MOTHER AND HE MADE HER PRAY LONG AGO TO SEND HIM AWAY BUT HE WOULD NOT DO SO MOREOVER SEAN VALCHAUN CODES IN HIS REFUGE WELL GREAT",
+     "S": 24,
+     "D": 3,
+     "I": 25,
+     "n_ref": 61,
+     "wer": 0.8524590163934426
+    },
+    "pick_a": {
+     "text": "A MAN SAID TO THE UNIVERSE SIR I EXIST LOVE HUSBAND FRIEND THE LITTLE GIRL HAD BEEN ASLEEP BUT HE HEARD THE WRAPS AND OPENED THE DOOR SHE HAS NEVER FELT BEFORE A SENSATION OF EXPANSION THE HEART OF THAT CONVICT WAS FULL HE WAS IN THE RIVER Y SLIDING ALONG THE BORDERS OF CONSCIOUSNESS I BEGGED RUGGEDO LONG AGO TO SEND HIM AWAY BUT HE WOULD NOT DO SO WHEN LEE IS HEART AND LUNGS WORKED ON AT A STRONG MEASURED RATE",
+     "S": 5,
+     "D": 0,
+     "I": 22,
+     "n_ref": 61,
+     "wer": 0.4426229508196721
+    },
+    "pick_b": {
+     "text": "A MAN SAID TO THE UNIVERSE SIR I EXIST LOVE HUSBAND FRIEND THE LITTLE GIRL HAD BEEN ASLEEP BUT HE HEARD THE WRAPS AND OPENED THE DOOR SHE HAS NEVER FELT BEFORE A SENSATION OF EXPERIENCE IT WAS IN THE RIVER SLIDING ALONG THE BORDERS OF CONSCIOUSNESS I BEGGED RUGGEDO A LONG AGO TO SEND HIM AWAY BUT HE WOULD NOT DO SO WHEN LEE IS HEART AND LUNGS WORKED ON AT A STRONG MEASURED RATE",
+     "S": 6,
+     "D": 0,
+     "I": 15,
+     "n_ref": 61,
+     "wer": 0.3442622950819672
+    },
+    "gate_a": {
+     "text": "A MAN SAID TO THE UNIVERSE SIR I EXIST THE LITTLE GIRL HAD BEEN AT SLEEP BUT HE HEARD THE WRAPS AND OPENED THE DOOR LOSING THE REVERIE SLIDING ALONG THE BORDERS OF CONSCIOUSNESS I BEGGED RUGGEDO LONG AGO TO SEND HIM AWAY BUT HE WOULD NOT DO SO WHEN LEE IS HEART AND LUNGS WORKED ON AT A STRONG MEASURED RATE",
+     "S": 7,
+     "D": 1,
+     "I": 2,
+     "n_ref": 61,
+     "wer": 0.16393442622950818
+    },
+    "gate_b": {
+     "text": "A MAN SAID TO THE UNIVERSE SIR I EXIST THE LITTLE GIRL HAD BEEN AT SLEEP BUT HE HEARD THE WRAPS AND OPENED THE DOOR LOSING THE REVERIE SLIDING ALONG THE BORDERS OF CONSCIOUSNESS I BEGGED RUGGEDO LONG AGO TO SEND HIM AWAY BUT HE WOULD NOT DO SO WHEN LEE IS HEART AND LUNGS WORKED ON AT A STRONG MEASURED RATE",
+     "S": 7,
+     "D": 1,
+     "I": 2,
+     "n_ref": 61,
+     "wer": 0.16393442622950818
+    },
+    "truth": {
+     "text": "A MAN SAID TO THE UNIVERSE SIR I EXIST THE LITTLE GIRL HAD BEEN AT SLEEP BUT HE HEARD THE WRAPS AND OPENED THE DOOR LOSING THE REVERIE SLIDING ALONG THE BORDERS OF CONSCIOUSNESS I BEGGED RUGGEDO LONG AGO TO SEND HIM AWAY BUT HE WOULD NOT DO SO WHEN LEE IS HEART AND LUNGS WORKED ON AT A STRONG MEASURED RATE",
+     "S": 7,
+     "D": 1,
+     "I": 2,
+     "n_ref": 61,
+     "wer": 0.16393442622950818
+    },
+    "clean": {
+     "text": "A MAN SAID TO THE UNIVERSE SIR I EXIST THE LITTLE GIRL HAD BEEN ASLEEP BUT SHE HEARD THE WRAPS AND OPENED THE DOOR HE WAS IN THE RIVER SLIDING ALONG THE BORDERS OF CONSCIOUSNESS I BEGGED RUGGEDO LONG AGO TO SEND HIM AWAY BUT HE WOULD NOT DO SO ONLY HIS HEART AND LUNGS WORKED ON AT A STRONG MEASURED RATE",
+     "S": 2,
+     "D": 0,
+     "I": 1,
+     "n_ref": 61,
+     "wer": 0.04918032786885246
+    }
+   },
+   "diar": {
+    "naive": {
+     "segments": [
+      [
+       0.5,
+       2.05,
+       "cluster 2"
+      ],
+      [
+       2.69,
+       2.75,
+       "cluster 2"
+      ],
+      [
+       2.75,
+       3.12,
+       "cluster 5"
+      ],
+      [
+       3.4,
+       3.5,
+       "cluster 5"
+      ],
+      [
+       3.5,
+       6.75,
+       "cluster 1"
+      ],
+      [
+       6.75,
+       7.16,
+       "cluster 4"
+      ],
+      [
+       7.62,
+       11.25,
+       "cluster 2"
+      ],
+      [
+       11.25,
+       14.09,
+       "cluster 1"
+      ],
+      [
+       14.88,
+       16.7,
+       "cluster 1"
+      ],
+      [
+       17.27,
+       19.19,
+       "cluster 1"
+      ],
+      [
+       19.46,
+       20.75,
+       "cluster 1"
+      ],
+      [
+       20.75,
+       21.2,
+       "cluster 2"
+      ],
+      [
+       21.51,
+       23.85,
+       "cluster 2"
+      ],
+      [
+       24.37,
+       26.1,
+       "cluster 1"
+      ],
+      [
+       26.45,
+       27.0,
+       "cluster 1"
+      ],
+      [
+       27.0,
+       27.5,
+       "cluster 3"
+      ],
+      [
+       27.5,
+       30.76,
+       "cluster 2"
+      ],
+      [
+       31.43,
+       31.49,
+       "cluster 2"
+      ],
+      [
+       31.96,
+       32.6,
+       "cluster 1"
+      ],
+      [
+       32.9,
+       35.5,
+       "cluster 1"
+      ],
+      [
+       35.5,
+       38.86,
+       "cluster 2"
+      ]
+     ],
+     "n_speakers": 5,
+     "der": [
+      {
+       "name": "collar 0.25 s, overlap skipped",
+       "collar": 0.25,
+       "skip_overlap": true,
+       "der": 0.007428040854224698,
+       "fa": 0.0,
+       "miss": 0.0,
+       "conf": 0.16,
+       "total": 21.54,
+       "scored_s": 22.61,
+       "map": {
+        "cluster 2": "user",
+        "cluster 1": "other"
+       }
+      },
+      {
+       "name": "collar 0.25 s, overlap scored",
+       "collar": 0.25,
+       "skip_overlap": false,
+       "der": 0.08097165991902834,
+       "fa": 0.0,
+       "miss": 1.58,
+       "conf": 0.42,
+       "total": 24.7,
+       "scored_s": 24.19,
+       "map": {
+        "cluster 2": "user",
+        "cluster 1": "other"
+       }
+      },
+      {
+       "name": "no collar, overlap scored",
+       "collar": 0.0,
+       "skip_overlap": false,
+       "der": 0.15409570154095698,
+       "fa": 0.0,
+       "miss": 4.26,
+       "conf": 1.44,
+       "total": 36.99,
+       "scored_s": 39.38,
+       "map": {
+        "cluster 2": "user",
+        "cluster 1": "other"
+       }
+      }
+     ]
+    },
+    "pyannote": {
+     "error": "快取裡沒有 pyannote/speaker-diarization-community-1（LocalEntryNotFoundError）：先同意使用條款、登入，再跑 ./present.sh fetch"
+    }
+   }
+  },
+  "f": {
+   "label": "user 1272 (m) + speaker 2277 (f)",
+   "other": "2277",
+   "seconds": 42.82,
+   "stats": {
+    "speech_s": {
+     "user": 18.88,
+     "other": 23.3
+    },
+    "any_s": 38.43,
+    "overlap_s": 3.75,
+    "overlap_ratio": 0.0976,
+    "silence_s": 4.39
+   },
+   "turns": [
+    {
+     "spk": "user",
+     "utt": "1272-141231-0000",
+     "lead": 0.0,
+     "start": 0.5,
+     "end": 4.2,
+     "text": "A MAN SAID TO THE UNIVERSE SIR I EXIST"
+    },
+    {
+     "spk": "other",
+     "utt": "2277-149896-0018",
+     "lead": -0.8,
+     "start": 3.4,
+     "end": 7.25,
+     "text": "HIS 1ST IMPULSE WAS TO WRITE BUT 4 WORDS IN REPLY GO TO THE DEVIL"
+    },
+    {
+     "spk": "user",
+     "utt": "1272-135031-0003",
+     "lead": 0.3,
+     "start": 7.55,
+     "end": 12.3,
+     "text": "THE LITTLE GIRL HAD BEEN ASLEEP BUT SHE HEARD THE RAPS AND OPENED THE DOOR"
+    },
+    {
+     "spk": "other",
+     "utt": "2277-149896-0000",
+     "lead": -1.2,
+     "start": 11.1,
+     "end": 17.68,
+     "text": "HE WAS IN A FEVERED STATE OF MIND OWING TO THE BLIGHT HIS WIFE IS ACTION THREATENED TO CAST UPON HIS ENTIRE FUTURE"
+    },
+    {
+     "spk": "other",
+     "utt": "2277-149874-0015",
+     "lead": 0.4,
+     "start": 18.08,
+     "end": 22.8,
+     "text": "SHE WANTED TO MAKE SOME REFERENCE TO THEIR RELATIONS UPON THE TRAIN BUT WAS TOO TIMID"
+    },
+    {
+     "spk": "user",
+     "utt": "1272-141231-0008",
+     "lead": -0.6,
+     "start": 22.2,
+     "end": 25.85,
+     "text": "HE WAS IN REVERIE SLIDING ALONG THE BORDERS OF CONSCIOUSNESS"
+    },
+    {
+     "spk": "other",
+     "utt": "2277-149896-0014",
+     "lead": 0.5,
+     "start": 26.35,
+     "end": 30.36,
+     "text": "AFTER A TIME HE GAVE UP WAITING AND DREARILY HEADED FOR THE MADISON CAR"
+    },
+    {
+     "spk": "user",
+     "utt": "1272-135031-0005",
+     "lead": -1.0,
+     "start": 29.36,
+     "end": 33.97,
+     "text": "I BEGGED RUGGEDO LONG AGO TO SEND HIM AWAY BUT HE WOULD NOT DO SO"
+    },
+    {
+     "spk": "other",
+     "utt": "2277-149896-0006",
+     "lead": 0.3,
+     "start": 34.27,
+     "end": 39.06,
+     "text": "HE COULD ARRANGE THAT SATISFACTORILY FOR CARRIE WOULD BE GLAD TO WAIT IF NECESSARY"
+    },
+    {
+     "spk": "user",
+     "utt": "1272-141231-0007",
+     "lead": -0.7,
+     "start": 38.36,
+     "end": 42.32,
+     "text": "ONLY HIS HEART AND LUNGS WORKED ON AT A STRONG MEASURED RATE"
+    }
+   ],
+   "ref_segments": {
+    "user": [
+     [
+      0.5,
+      2.06
+     ],
+     [
+      2.69,
+      3.14
+     ],
+     [
+      3.4,
+      4.19
+     ],
+     [
+      7.53,
+      12.3
+     ],
+     [
+      22.2,
+      23.24
+     ],
+     [
+      23.5,
+      25.85
+     ],
+     [
+      29.35,
+      33.62
+     ],
+     [
+      38.66,
+      42.31
+     ]
+    ],
+    "other": [
+     [
+      3.41,
+      6.12
+     ],
+     [
+      6.33,
+      7.24
+     ],
+     [
+      11.11,
+      17.67
+     ],
+     [
+      18.1,
+      22.78
+     ],
+     [
+      26.51,
+      30.35
+     ],
+     [
+      34.26,
+      38.86
+     ]
+    ]
+   },
+   "split_s": 17.25,
+   "user_ref_text": "A MAN SAID TO THE UNIVERSE SIR I EXIST THE LITTLE GIRL HAD BEEN ASLEEP BUT SHE HEARD THE RAPS AND OPENED THE DOOR HE WAS IN REVERIE SLIDING ALONG THE BORDERS OF CONSCIOUSNESS I BEGGED RUGGEDO LONG AGO TO SEND HIM AWAY BUT HE WOULD NOT DO SO ONLY HIS HEART AND LUNGS WORKED ON AT A STRONG MEASURED RATE",
+   "overlap": {
+    "seconds": 4.89,
+    "utts": [
+     "1272-128104-0000",
+     "2277-149896-0009"
+    ],
+    "ref_text": "MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL",
+    "tracks": [
+     {
+      "si_user": -39.153185069100914,
+      "si_other": 19.513903439584126,
+      "level_db": -3.088233112417848,
+      "sim": {
+       "a": 0.18727952468765424,
+       "b": 0.44746462833969103
+      }
+     },
+     {
+      "si_user": 9.041060797453085,
+      "si_other": -37.066171551768036,
+      "level_db": -3.528190956516912,
+      "sim": {
+       "a": 0.602943313771215,
+       "b": 0.9401114414176461
+      }
+     }
+    ],
+    "truth": 1,
+    "pick": {
+     "a": 1,
+     "b": 1
+    },
+    "asr": {
+     "mix": {
+      "text": "MISTER QUILTER IS THE APOSTLE OF THE CLASSES WE ARE GLAD TO WELCOME THESE GUYS",
+      "S": 2,
+      "D": 2,
+      "I": 0,
+      "n_ref": 17,
+      "wer": 0.23529411764705882
+     },
+     "user_track": {
+      "text": "MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL",
+      "S": 0,
+      "D": 0,
+      "I": 0,
+      "n_ref": 17,
+      "wer": 0.0
+     }
+    },
+    "compute_s": 0.13883116701617837
+   },
+   "chunkings": {
+    "4": {
+     "chunk_s": 4.0,
+     "rows": [
+      {
+       "k": 1,
+       "a_s": 0.0,
+       "b_s": 4.0,
+       "user_s": 2.61,
+       "other_s": 0.59,
+       "tracks": [
+        {
+         "si_user": -42.94154729939475,
+         "si_other": 16.063483065685038,
+         "level_db": -8.892633147143739,
+         "sim": {
+          "a": 0.036587884086750934,
+          "b": 0.27903446385103187
+         }
+        },
+        {
+         "si_user": 7.935519999279536,
+         "si_other": -49.457937737387084,
+         "level_db": -1.2546437243601993,
+         "sim": {
+          "a": 0.5369389316545358,
+          "b": 0.9493207754552252
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.5369389316545358,
+        "b": 0.9493207754552252
+       }
+      },
+      {
+       "k": 2,
+       "a_s": 4.0,
+       "b_s": 8.0,
+       "user_s": 0.66,
+       "other_s": 3.0300000000000002,
+       "tracks": [
+        {
+         "si_user": -61.32321635585326,
+         "si_other": 20.063217104769876,
+         "level_db": -0.20603533382471462,
+         "sim": {
+          "a": 0.1800411658213387,
+          "b": 0.3678822819495407
+         }
+        },
+        {
+         "si_user": 6.585738921626099,
+         "si_other": -33.53993434865491,
+         "level_db": -14.398971027574126,
+         "sim": {
+          "a": -0.015887189310053687,
+          "b": 0.7027189188432811
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 0,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.1800411658213387,
+        "b": 0.7027189188432811
+       }
+      },
+      {
+       "k": 3,
+       "a_s": 8.0,
+       "b_s": 12.0,
+       "user_s": 4.0,
+       "other_s": 0.89,
+       "tracks": [
+        {
+         "si_user": -37.76983203367116,
+         "si_other": 19.451358182183064,
+         "level_db": -6.770192551469357,
+         "sim": {
+          "a": -0.05134442926927048,
+          "b": 0.3748711679605226
+         }
+        },
+        {
+         "si_user": 9.903922312757032,
+         "si_other": -40.563901953428825,
+         "level_db": -1.4889521668460228,
+         "sim": {
+          "a": 0.6435357523811677,
+          "b": 0.9267398780003785
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.6435357523811677,
+        "b": 0.9267398780003785
+       }
+      },
+      {
+       "k": 4,
+       "a_s": 12.0,
+       "b_s": 16.0,
+       "user_s": 0.3,
+       "other_s": 4.0,
+       "tracks": [
+        {
+         "si_user": -27.138663770561703,
+         "si_other": -9.391108955127063,
+         "level_db": -16.19042520490712,
+         "sim": {
+          "a": 0.10245978976236483,
+          "b": 0.4338614823963954
+         }
+        },
+        {
+         "si_user": -39.44099366024237,
+         "si_other": 14.881525351252753,
+         "level_db": -0.3804115901965052,
+         "sim": {
+          "a": 0.154110999756807,
+          "b": 0.4203042000601534
+         }
+        }
+       ],
+       "truth": null,
+       "pick": {
+        "a": 1,
+        "b": 0
+       },
+       "max_sim": {
+        "a": 0.154110999756807,
+        "b": 0.4338614823963954
+       }
+      },
+      {
+       "k": 5,
+       "a_s": 16.0,
+       "b_s": 20.0,
+       "user_s": 0.0,
+       "other_s": 3.5700000000000003,
+       "tracks": [
+        {
+         "si_user": null,
+         "si_other": 6.782150265400854,
+         "level_db": -0.8274127209148703,
+         "sim": {
+          "a": 0.040944095301478134,
+          "b": 0.44263646095048814
+         }
+        },
+        {
+         "si_user": null,
+         "si_other": -6.96034224951738,
+         "level_db": -7.758610262727245,
+         "sim": {
+          "a": 0.14758317136066854,
+          "b": 0.3946938105404938
+         }
+        }
+       ],
+       "truth": null,
+       "pick": {
+        "a": 1,
+        "b": 0
+       },
+       "max_sim": {
+        "a": 0.14758317136066854,
+        "b": 0.44263646095048814
+       }
+      },
+      {
+       "k": 6,
+       "a_s": 20.0,
+       "b_s": 24.0,
+       "user_s": 1.54,
+       "other_s": 2.7800000000000002,
+       "tracks": [
+        {
+         "si_user": -45.980681246001886,
+         "si_other": 18.335564529787696,
+         "level_db": -3.7637894598138244,
+         "sim": {
+          "a": 0.11668112402363395,
+          "b": 0.4216036830567973
+         }
+        },
+        {
+         "si_user": 12.975869876602728,
+         "si_other": -46.10446588126594,
+         "level_db": -2.6492943432402964,
+         "sim": {
+          "a": 0.4986789676745674,
+          "b": 0.8864384320142434
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.4986789676745674,
+        "b": 0.8864384320142434
+       }
+      },
+      {
+       "k": 7,
+       "a_s": 24.0,
+       "b_s": 28.0,
+       "user_s": 1.85,
+       "other_s": 1.49,
+       "tracks": [
+        {
+         "si_user": -80.78101942998086,
+         "si_other": 23.641779688501355,
+         "level_db": -2.235550709923086,
+         "sim": {
+          "a": 0.0190685150860509,
+          "b": 0.3443171667626354
+         }
+        },
+        {
+         "si_user": 9.299628186225194,
+         "si_other": -79.02292226881175,
+         "level_db": -4.463948825843493,
+         "sim": {
+          "a": 0.46548618662674507,
+          "b": 0.9191102314891798
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.46548618662674507,
+        "b": 0.9191102314891798
+       }
+      },
+      {
+       "k": 8,
+       "a_s": 28.0,
+       "b_s": 32.0,
+       "user_s": 2.65,
+       "other_s": 2.35,
+       "tracks": [
+        {
+         "si_user": -45.66894672613331,
+         "si_other": 22.045867733783876,
+         "level_db": -4.520020307209433,
+         "sim": {
+          "a": 0.1802135348464514,
+          "b": 0.3621435003121598
+         }
+        },
+        {
+         "si_user": 15.059077234988534,
+         "si_other": -43.413195035721124,
+         "level_db": -2.064131895995647,
+         "sim": {
+          "a": 0.44493578250916993,
+          "b": 0.9103206324087931
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.44493578250916993,
+        "b": 0.9103206324087931
+       }
+      },
+      {
+       "k": 9,
+       "a_s": 32.0,
+       "b_s": 36.0,
+       "user_s": 1.62,
+       "other_s": 1.74,
+       "tracks": [
+        {
+         "si_user": -63.34265135408074,
+         "si_other": 27.64382341638018,
+         "level_db": -1.6275667504409834,
+         "sim": {
+          "a": 0.10072926174168835,
+          "b": 0.3810607318154594
+         }
+        },
+        {
+         "si_user": 14.544739397395626,
+         "si_other": -78.41592125773458,
+         "level_db": -5.2219152368543496,
+         "sim": {
+          "a": 0.4077294931650757,
+          "b": 0.8406278885901347
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.4077294931650757,
+        "b": 0.8406278885901347
+       }
+      },
+      {
+       "k": 10,
+       "a_s": 36.0,
+       "b_s": 40.0,
+       "user_s": 1.34,
+       "other_s": 2.86,
+       "tracks": [
+        {
+         "si_user": -68.31557198333178,
+         "si_other": 26.566534544582893,
+         "level_db": -2.881386351856915,
+         "sim": {
+          "a": 0.14066707537268977,
+          "b": 0.41034391582733687
+         }
+        },
+        {
+         "si_user": 14.440393242575283,
+         "si_other": -72.35975488976523,
+         "level_db": -3.2973090650702024,
+         "sim": {
+          "a": 0.464700218579706,
+          "b": 0.9248214107151072
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.464700218579706,
+        "b": 0.9248214107151072
+       }
+      },
+      {
+       "k": 11,
+       "a_s": 40.0,
+       "b_s": 42.82,
+       "user_s": 2.31,
+       "other_s": 0.0,
+       "tracks": [
+        {
+         "si_user": -10.726188313710308,
+         "si_other": null,
+         "level_db": -18.101160986634927,
+         "sim": {
+          "a": 0.1484410606077919,
+          "b": 0.8781086328538712
+         }
+        },
+        {
+         "si_user": 13.68371441501322,
+         "si_other": null,
+         "level_db": -0.3620435357722308,
+         "sim": {
+          "a": 0.3522874897594661,
+          "b": 0.8932454294854675
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.3522874897594661,
+        "b": 0.8932454294854675
+       }
+      }
+     ],
+     "compute_s": 1.9231987500097603,
+     "n_present": 9,
+     "n_swaps": 0,
+     "n_right": {
+      "a": 8,
+      "b": 9
+     }
+    },
+    "2": {
+     "chunk_s": 2.0,
+     "rows": [
+      {
+       "k": 1,
+       "a_s": 0.0,
+       "b_s": 2.0,
+       "user_s": 1.5,
+       "other_s": 0.0,
+       "tracks": [
+        {
+         "si_user": -4.769799204474424,
+         "si_other": null,
+         "level_db": -27.04116758563604,
+         "sim": {
+          "a": 0.3907334570318843,
+          "b": 0.8617073586123671
+         }
+        },
+        {
+         "si_user": 9.069659051026859,
+         "si_other": null,
+         "level_db": -0.7117197150196681,
+         "sim": {
+          "a": 0.520364123018637,
+          "b": 0.9058058588149441
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.520364123018637,
+        "b": 0.9058058588149441
+       }
+      },
+      {
+       "k": 2,
+       "a_s": 2.0,
+       "b_s": 4.0,
+       "user_s": 1.11,
+       "other_s": 0.59,
+       "tracks": [
+        {
+         "si_user": -35.77330430904169,
+         "si_other": 15.891309389574753,
+         "level_db": -4.144972585567165,
+         "sim": {
+          "a": 0.031159068932833243,
+          "b": 0.28458185673037434
+         }
+        },
+        {
+         "si_user": 5.108505135512306,
+         "si_other": -44.30195839511675,
+         "level_db": -3.3013705070335506,
+         "sim": {
+          "a": 0.39600830852854363,
+          "b": 0.86862597248151
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.39600830852854363,
+        "b": 0.86862597248151
+       }
+      },
+      {
+       "k": 3,
+       "a_s": 4.0,
+       "b_s": 6.0,
+       "user_s": 0.19,
+       "other_s": 2.0,
+       "tracks": [
+        {
+         "si_user": -16.14176093176224,
+         "si_other": -10.663715205415418,
+         "level_db": -14.162848057477591,
+         "sim": {
+          "a": 0.03715238336220573,
+          "b": 0.4561477431832483
+         }
+        },
+        {
+         "si_user": -46.37179086094129,
+         "si_other": 13.882048055850419,
+         "level_db": -0.3838653239756063,
+         "sim": {
+          "a": 0.2294744411369741,
+          "b": 0.34118999581959003
+         }
+        }
+       ],
+       "truth": null,
+       "pick": {
+        "a": 1,
+        "b": 0
+       },
+       "max_sim": {
+        "a": 0.2294744411369741,
+        "b": 0.4561477431832483
+       }
+      },
+      {
+       "k": 4,
+       "a_s": 6.0,
+       "b_s": 8.0,
+       "user_s": 0.47000000000000003,
+       "other_s": 1.03,
+       "tracks": [
+        {
+         "si_user": -77.62399253285196,
+         "si_other": 19.965807118185406,
+         "level_db": -0.37743875676817334,
+         "sim": {
+          "a": 0.16962881212887704,
+          "b": 0.47460891122804033
+         }
+        },
+        {
+         "si_user": 17.000684261821938,
+         "si_other": -65.64568907565251,
+         "level_db": -11.389874525748905,
+         "sim": {
+          "a": 0.02236944245564478,
+          "b": 0.4857049350832366
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 0,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.16962881212887704,
+        "b": 0.4857049350832366
+       }
+      },
+      {
+       "k": 5,
+       "a_s": 8.0,
+       "b_s": 10.0,
+       "user_s": 2.0,
+       "other_s": 0.0,
+       "tracks": [
+        {
+         "si_user": 0.5762580514097416,
+         "si_other": null,
+         "level_db": -3.3524941954168246,
+         "sim": {
+          "a": 0.3354995251960999,
+          "b": 0.8759245957009676
+         }
+        },
+        {
+         "si_user": -1.8947659140005464,
+         "si_other": null,
+         "level_db": -4.941772166739289,
+         "sim": {
+          "a": 0.45351699362389136,
+          "b": 0.8321594199022482
+         }
+        }
+       ],
+       "truth": 0,
+       "pick": {
+        "a": 1,
+        "b": 0
+       },
+       "max_sim": {
+        "a": 0.45351699362389136,
+        "b": 0.8759245957009676
+       }
+      },
+      {
+       "k": 6,
+       "a_s": 10.0,
+       "b_s": 12.0,
+       "user_s": 2.0,
+       "other_s": 0.89,
+       "tracks": [
+        {
+         "si_user": -36.816263090950216,
+         "si_other": 20.61286691536862,
+         "level_db": -4.673945834831881,
+         "sim": {
+          "a": -0.0360550740762234,
+          "b": 0.36496982890431834
+         }
+        },
+        {
+         "si_user": 14.075379339817074,
+         "si_other": -38.46247985620981,
+         "level_db": -2.045090343425717,
+         "sim": {
+          "a": 0.6172930689609547,
+          "b": 0.9239948120910383
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.6172930689609547,
+        "b": 0.9239948120910383
+       }
+      },
+      {
+       "k": 7,
+       "a_s": 12.0,
+       "b_s": 14.0,
+       "user_s": 0.3,
+       "other_s": 2.0,
+       "tracks": [
+        {
+         "si_user": -20.84456048003819,
+         "si_other": -7.183968729071449,
+         "level_db": -18.35954128017164,
+         "sim": {
+          "a": 0.056141734027557164,
+          "b": 0.29046866633257723
+         }
+        },
+        {
+         "si_user": -40.538226854637,
+         "si_other": 16.858465187272344,
+         "level_db": -0.40734906109769436,
+         "sim": {
+          "a": 0.15015861502764857,
+          "b": 0.46874419402620404
+         }
+        }
+       ],
+       "truth": null,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.15015861502764857,
+        "b": 0.46874419402620404
+       }
+      },
+      {
+       "k": 8,
+       "a_s": 14.0,
+       "b_s": 16.0,
+       "user_s": 0.0,
+       "other_s": 2.0,
+       "tracks": [
+        {
+         "si_user": null,
+         "si_other": -10.832816598723289,
+         "level_db": -16.107605209064417,
+         "sim": {
+          "a": -0.00710050710516783,
+          "b": 0.2512671540130696
+         }
+        },
+        {
+         "si_user": null,
+         "si_other": 14.39687678170558,
+         "level_db": -0.328640251775419,
+         "sim": {
+          "a": 0.14168206804235925,
+          "b": 0.3788111836228581
+         }
+        }
+       ],
+       "truth": null,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.14168206804235925,
+        "b": 0.3788111836228581
+       }
+      },
+      {
+       "k": 9,
+       "a_s": 16.0,
+       "b_s": 18.0,
+       "user_s": 0.0,
+       "other_s": 1.67,
+       "tracks": [
+        {
+         "si_user": null,
+         "si_other": -7.938828375762808,
+         "level_db": -8.745971537395997,
+         "sim": {
+          "a": 0.20776614492453657,
+          "b": 0.3533550639922254
+         }
+        },
+        {
+         "si_user": null,
+         "si_other": 7.881584859192273,
+         "level_db": -0.6804544361428946,
+         "sim": {
+          "a": -0.0205302883102351,
+          "b": 0.32934478560732783
+         }
+        }
+       ],
+       "truth": null,
+       "pick": {
+        "a": 0,
+        "b": 0
+       },
+       "max_sim": {
+        "a": 0.20776614492453657,
+        "b": 0.3533550639922254
+       }
+      },
+      {
+       "k": 10,
+       "a_s": 18.0,
+       "b_s": 20.0,
+       "user_s": 0.0,
+       "other_s": 1.9000000000000001,
+       "tracks": [
+        {
+         "si_user": null,
+         "si_other": -3.899340717701834,
+         "level_db": -15.009851743494147,
+         "sim": {
+          "a": 0.008979884877974846,
+          "b": 0.3928645803646552
+         }
+        },
+        {
+         "si_user": null,
+         "si_other": 14.749034776145836,
+         "level_db": -0.7835121091509294,
+         "sim": {
+          "a": 0.0989323792911261,
+          "b": 0.44574939433911875
+         }
+        }
+       ],
+       "truth": null,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.0989323792911261,
+        "b": 0.44574939433911875
+       }
+      },
+      {
+       "k": 11,
+       "a_s": 20.0,
+       "b_s": 22.0,
+       "user_s": 0.0,
+       "other_s": 2.0,
+       "tracks": [
+        {
+         "si_user": null,
+         "si_other": -7.264665027348974,
+         "level_db": -12.651165805026334,
+         "sim": {
+          "a": 0.15521786031912294,
+          "b": 0.47619451051579953
+         }
+        },
+        {
+         "si_user": null,
+         "si_other": 11.933347303909713,
+         "level_db": -0.647929763315296,
+         "sim": {
+          "a": 0.12357017449654448,
+          "b": 0.38464514831476787
+         }
+        }
+       ],
+       "truth": null,
+       "pick": {
+        "a": 0,
+        "b": 0
+       },
+       "max_sim": {
+        "a": 0.15521786031912294,
+        "b": 0.47619451051579953
+       }
+      },
+      {
+       "k": 12,
+       "a_s": 22.0,
+       "b_s": 24.0,
+       "user_s": 1.54,
+       "other_s": 0.78,
+       "tracks": [
+        {
+         "si_user": -38.70221723226048,
+         "si_other": 12.598078374818664,
+         "level_db": -10.012905568591723,
+         "sim": {
+          "a": -0.02689710888028798,
+          "b": 0.44359405363022625
+         }
+        },
+        {
+         "si_user": 12.968142401306665,
+         "si_other": -38.01136329086846,
+         "level_db": -0.7123018337753546,
+         "sim": {
+          "a": 0.5250158699713895,
+          "b": 0.9165749153484997
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.5250158699713895,
+        "b": 0.9165749153484997
+       }
+      },
+      {
+       "k": 13,
+       "a_s": 24.0,
+       "b_s": 26.0,
+       "user_s": 1.85,
+       "other_s": 0.0,
+       "tracks": [
+        {
+         "si_user": -9.362164642302373,
+         "si_other": null,
+         "level_db": -12.101336648127143,
+         "sim": {
+          "a": 0.11527389587397797,
+          "b": 0.7359965213094913
+         }
+        },
+        {
+         "si_user": 6.999457646227731,
+         "si_other": null,
+         "level_db": -0.9879791629256373,
+         "sim": {
+          "a": 0.4617540867795597,
+          "b": 0.9233485883454841
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.4617540867795597,
+        "b": 0.9233485883454841
+       }
+      },
+      {
+       "k": 14,
+       "a_s": 26.0,
+       "b_s": 28.0,
+       "user_s": 0.0,
+       "other_s": 1.49,
+       "tracks": [
+        {
+         "si_user": null,
+         "si_other": -2.527449905245394,
+         "level_db": -6.5092307084763625,
+         "sim": {
+          "a": 0.04753079687279366,
+          "b": 0.34631762141658556
+         }
+        },
+        {
+         "si_user": null,
+         "si_other": 5.437689558802724,
+         "level_db": -1.850575125907325,
+         "sim": {
+          "a": 0.11651335467285856,
+          "b": 0.2723634056090516
+         }
+        }
+       ],
+       "truth": null,
+       "pick": {
+        "a": 1,
+        "b": 0
+       },
+       "max_sim": {
+        "a": 0.11651335467285856,
+        "b": 0.34631762141658556
+       }
+      },
+      {
+       "k": 15,
+       "a_s": 28.0,
+       "b_s": 30.0,
+       "user_s": 0.65,
+       "other_s": 2.0,
+       "tracks": [
+        {
+         "si_user": -51.36052357820492,
+         "si_other": 22.16152256982843,
+         "level_db": -1.2258074749082202,
+         "sim": {
+          "a": 0.1714634527172367,
+          "b": 0.4215590680173266
+         }
+        },
+        {
+         "si_user": 19.364222142491737,
+         "si_other": -47.798592671563014,
+         "level_db": -6.244291857966404,
+         "sim": {
+          "a": 0.036903024198494776,
+          "b": 0.7900084066329466
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 0,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.1714634527172367,
+        "b": 0.7900084066329466
+       }
+      },
+      {
+       "k": 16,
+       "a_s": 30.0,
+       "b_s": 32.0,
+       "user_s": 2.0,
+       "other_s": 0.35000000000000003,
+       "tracks": [
+        {
+         "si_user": -29.99036550852253,
+         "si_other": 13.363588747097076,
+         "level_db": -13.67440861292885,
+         "sim": {
+          "a": 0.004214042296279518,
+          "b": 0.3867093056985759
+         }
+        },
+        {
+         "si_user": 14.375200333422312,
+         "si_other": -33.572544647755436,
+         "level_db": -0.3805234376356075,
+         "sim": {
+          "a": 0.399668705489811,
+          "b": 0.8927290552698963
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.399668705489811,
+        "b": 0.8927290552698963
+       }
+      },
+      {
+       "k": 17,
+       "a_s": 32.0,
+       "b_s": 34.0,
+       "user_s": 1.62,
+       "other_s": 0.0,
+       "tracks": [
+        {
+         "si_user": -4.075430763659589,
+         "si_other": null,
+         "level_db": -7.899063191617422,
+         "sim": {
+          "a": 0.18419982595621312,
+          "b": 0.8361639870930977
+         }
+        },
+        {
+         "si_user": 6.213358060046169,
+         "si_other": null,
+         "level_db": -1.5459018387949055,
+         "sim": {
+          "a": 0.4674136020255619,
+          "b": 0.8017276577719505
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 0
+       },
+       "max_sim": {
+        "a": 0.4674136020255619,
+        "b": 0.8361639870930977
+       }
+      },
+      {
+       "k": 18,
+       "a_s": 34.0,
+       "b_s": 36.0,
+       "user_s": 0.0,
+       "other_s": 1.74,
+       "tracks": [
+        {
+         "si_user": null,
+         "si_other": 6.875473133474287,
+         "level_db": -2.818018794424381,
+         "sim": {
+          "a": 0.11506421023413699,
+          "b": 0.3683266729225369
+         }
+        },
+        {
+         "si_user": null,
+         "si_other": 1.1554625920383308,
+         "level_db": -6.905591876476898,
+         "sim": {
+          "a": 0.08002622439341459,
+          "b": 0.3899245395151556
+         }
+        }
+       ],
+       "truth": null,
+       "pick": {
+        "a": 0,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.11506421023413699,
+        "b": 0.3899245395151556
+       }
+      },
+      {
+       "k": 19,
+       "a_s": 36.0,
+       "b_s": 38.0,
+       "user_s": 0.0,
+       "other_s": 2.0,
+       "tracks": [
+        {
+         "si_user": null,
+         "si_other": -10.715668042048348,
+         "level_db": -11.781034994963031,
+         "sim": {
+          "a": 0.1063100156740295,
+          "b": 0.3999797926469808
+         }
+        },
+        {
+         "si_user": null,
+         "si_other": 11.390410877185776,
+         "level_db": -0.3576835702188965,
+         "sim": {
+          "a": 0.07274083148550393,
+          "b": 0.4126392139521005
+         }
+        }
+       ],
+       "truth": null,
+       "pick": {
+        "a": 0,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.1063100156740295,
+        "b": 0.4126392139521005
+       }
+      },
+      {
+       "k": 20,
+       "a_s": 38.0,
+       "b_s": 40.0,
+       "user_s": 1.34,
+       "other_s": 0.86,
+       "tracks": [
+        {
+         "si_user": -59.68943498684552,
+         "si_other": 18.38624668966116,
+         "level_db": -11.778513860873602,
+         "sim": {
+          "a": 0.07391492247180664,
+          "b": 0.48078347235424307
+         }
+        },
+        {
+         "si_user": 14.437850406896413,
+         "si_other": -60.56914234809682,
+         "level_db": -0.44762944295005314,
+         "sim": {
+          "a": 0.45433001836817993,
+          "b": 0.9291486508144682
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.45433001836817993,
+        "b": 0.9291486508144682
+       }
+      },
+      {
+       "k": 21,
+       "a_s": 40.0,
+       "b_s": 42.82,
+       "user_s": 2.31,
+       "other_s": 0.0,
+       "tracks": [
+        {
+         "si_user": -10.726188313710308,
+         "si_other": null,
+         "level_db": -18.101160986634927,
+         "sim": {
+          "a": 0.1484410606077919,
+          "b": 0.8781086328538712
+         }
+        },
+        {
+         "si_user": 13.68371441501322,
+         "si_other": null,
+         "level_db": -0.3620435357722308,
+         "sim": {
+          "a": 0.3522874897594661,
+          "b": 0.8932454294854675
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.3522874897594661,
+        "b": 0.8932454294854675
+       }
+      }
+     ],
+     "compute_s": 2.3418041670229286,
+     "n_present": 12,
+     "n_swaps": 2,
+     "n_right": {
+      "a": 9,
+      "b": 11
+     }
+    },
+    "8": {
+     "chunk_s": 8.0,
+     "rows": [
+      {
+       "k": 1,
+       "a_s": 0.0,
+       "b_s": 8.0,
+       "user_s": 3.27,
+       "other_s": 3.62,
+       "tracks": [
+        {
+         "si_user": -51.396205489502165,
+         "si_other": 20.554512389502285,
+         "level_db": -3.0149607696852643,
+         "sim": {
+          "a": 0.1474901245378187,
+          "b": 0.3981407509372091
+         }
+        },
+        {
+         "si_user": 7.990233035642743,
+         "si_other": -56.96994052226003,
+         "level_db": -3.6750777686105165,
+         "sim": {
+          "a": 0.5550168515712326,
+          "b": 0.9444626785446375
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.5550168515712326,
+        "b": 0.9444626785446375
+       }
+      },
+      {
+       "k": 2,
+       "a_s": 8.0,
+       "b_s": 16.0,
+       "user_s": 4.3,
+       "other_s": 4.89,
+       "tracks": [
+        {
+         "si_user": -46.40113513576,
+         "si_other": 20.870718282061517,
+         "level_db": -2.544627835853426,
+         "sim": {
+          "a": 0.12539189329812872,
+          "b": 0.4281182381338267
+         }
+        },
+        {
+         "si_user": 9.944912357884938,
+         "si_other": -46.794918415414266,
+         "level_db": -4.027528833077053,
+         "sim": {
+          "a": 0.5883611440123921,
+          "b": 0.9316783323826394
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.5883611440123921,
+        "b": 0.9316783323826394
+       }
+      },
+      {
+       "k": 3,
+       "a_s": 16.0,
+       "b_s": 24.0,
+       "user_s": 1.54,
+       "other_s": 6.3500000000000005,
+       "tracks": [
+        {
+         "si_user": -48.05484877363014,
+         "si_other": 8.578194010457912,
+         "level_db": -2.1389287409952473,
+         "sim": {
+          "a": 0.08704816413629869,
+          "b": 0.40730948209073137
+         }
+        },
+        {
+         "si_user": 4.705274728827501,
+         "si_other": -15.892953372285906,
+         "level_db": -4.362074859400321,
+         "sim": {
+          "a": 0.28622308334553787,
+          "b": 0.8532863207281829
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.28622308334553787,
+        "b": 0.8532863207281829
+       }
+      },
+      {
+       "k": 4,
+       "a_s": 24.0,
+       "b_s": 32.0,
+       "user_s": 4.5,
+       "other_s": 3.84,
+       "tracks": [
+        {
+         "si_user": -49.711540656669364,
+         "si_other": 22.76012976816152,
+         "level_db": -3.528620898270022,
+         "sim": {
+          "a": 0.15833294803284265,
+          "b": 0.3835429211068371
+         }
+        },
+        {
+         "si_user": 12.750112544912632,
+         "si_other": -47.70562297563803,
+         "level_db": -2.808132047176752,
+         "sim": {
+          "a": 0.5339823296888274,
+          "b": 0.9273265860510732
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.5339823296888274,
+        "b": 0.9273265860510732
+       }
+      },
+      {
+       "k": 5,
+       "a_s": 32.0,
+       "b_s": 42.82,
+       "user_s": 5.2700000000000005,
+       "other_s": 4.6000000000000005,
+       "tracks": [
+        {
+         "si_user": -73.22815495574375,
+         "si_other": 27.053453277974295,
+         "level_db": -3.087737024252184,
+         "sim": {
+          "a": 0.13874493162198098,
+          "b": 0.3925484349010557
+         }
+        },
+        {
+         "si_user": 14.828113156927591,
+         "si_other": -72.58693854482928,
+         "level_db": -3.080764093326484,
+         "sim": {
+          "a": 0.5593368833782548,
+          "b": 0.9299070883952348
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.5593368833782548,
+        "b": 0.9299070883952348
+       }
+      }
+     ],
+     "compute_s": 1.4843303750967607,
+     "n_present": 5,
+     "n_swaps": 0,
+     "n_right": {
+      "a": 5,
+      "b": 5
+     }
+    },
+    "whole": {
+     "chunk_s": null,
+     "rows": [
+      {
+       "k": 1,
+       "a_s": 0.0,
+       "b_s": 42.82,
+       "user_s": 18.88,
+       "other_s": 23.3,
+       "tracks": [
+        {
+         "si_user": -48.05569441230065,
+         "si_other": 21.502444924761136,
+         "level_db": -2.741570725395721,
+         "sim": {
+          "a": 0.15818633834711754,
+          "b": 0.4014759478423473
+         }
+        },
+        {
+         "si_user": 11.140050797850147,
+         "si_other": -49.07035999959784,
+         "level_db": -3.678091848821312,
+         "sim": {
+          "a": 0.6340114585119412,
+          "b": 0.9415429831801098
+         }
+        }
+       ],
+       "truth": 1,
+       "pick": {
+        "a": 1,
+        "b": 1
+       },
+       "max_sim": {
+        "a": 0.6340114585119412,
+        "b": 0.9415429831801098
+       }
+      }
+     ],
+     "compute_s": 1.6639270830200985,
+     "n_present": 1,
+     "n_swaps": 0,
+     "n_right": {
+      "a": 1,
+      "b": 1
+     }
+    }
+   },
+   "asr": {
+    "mix": {
+     "text": "A MAN SAID TO THE UNIVERSE SIR I EXIST THE 1ST IMPULSE WAS TO WRITE BUT 4 WORDS IN REPLY GO TO THE DEVIL THE LITTLE GIRL HAD BEEN ASLEEP BUT SHE HEARD THE RAPS AND OPENED THE DOOR HE WAS IN A FEVERED STATE OF MIND OWING TO THE BLIGHT HIS WIFE IS ACTION THREATENED TO CAST UPON HIS ENTIRE FUTURE SHE WANTED TO MAKE SOME REFERENCE TO THEIR RELATIONS UPON THE TRAIN BUT WAS TOO TIMID HE WAS IN REVERIE SLIDING ALONG THE BORDERS OF CONSCIOUSNESS AFTER A TIME HE GAVE UP WAITING AND DREARILY HEADED FOR THE MADISON PARK I BEGGED RUGGEDO A LONG AGO TO SEND HIM AWAY BUT HE WOULD NOT DO SO HE COULD ARRANGE THAT SATISFACTORILY FOR KERRY WOULD BE GLAD TO WAIT IF NECESSARY ONLY HIS HEART AND LUNGS WORKED ON AT A STRONG MEASURED RATE",
+     "S": 0,
+     "D": 0,
+     "I": 83,
+     "n_ref": 61,
+     "wer": 1.360655737704918
+    },
+    "track1": {
+     "text": "THE 1ST IMPULSE WAS TO WRITE BUT 4 WORDS IN REPLY GO TO THE DEVIL HE WAS IN A FEEBLE STATE OF MIND AND HE WAS IN A STATE OF MIND AND HE WAS IN A STATE OF MIND AND HE WAS IN A STATE OF MIND AND HE WAS IN A STATE OF MIND AND HE WAS IN A STATE OF MIND AND HE WAS IN A STATE OF MIND AND HE WAS IN A STATE OF MIND AND HE WAS IN A STATE OF MIND AND HE WAS IN A STATE OF MIND AND HE WAS IN A STATE OF MIND AND HE WAS IN A STATE OF MIND AND HE WAS IN A STATE OF MIND AND HE WAS IN A STATE OF MIND AND HE WAS IN A STATE OF MIND AND HE WAS IN A STATE OF SHE WANTED TO MAKE SOME REFERENCE TO THEIR RELATIONS UPON THE TRAIN BUT WAS TOO TIMID AFTER A TIME HE GAVE UP WAITING AND DREARILY HEADED FOR THE MADISON CAR HE COULD ARRANGE THAT SATISFACTORILY FOR A CARRY WOULD BE GLAD TO WAIT IF NECESSARY THAT IS GREAT",
+     "S": 50,
+     "D": 0,
+     "I": 129,
+     "n_ref": 61,
+     "wer": 2.9344262295081966
+    },
+    "pick_a": {
+     "text": "A MAN SAID TO THE UNIVERSE SIR I EXIST THE PULSE WAS TO WRITE BUT 4 WORDS IN REPLY GO TO THE DEVIL THE LITTLE GIRL HAD BEEN ASLEEP BUT SHE HEARD THE WRAPS AND OPENED THE DOOR HE HEARD STATE OF MIND OWING TO THE BLIGHT HIS WIFE IS ACTION THREATENED TO CAST UPON HIS ENTIRE FUTURE IT WAS IN THE RIVER RY SLIDING ALONG THE BORDERS OF CONSCIOUSNESS I BEGGED RUGGEDO A LONG AGO TO SEND HIM AWAY BUT HE WOULD NOT DO SO ONLY HIS HEART AND LUNGS WORKED ON AT A STRONG MEASURED RATE",
+     "S": 2,
+     "D": 0,
+     "I": 37,
+     "n_ref": 61,
+     "wer": 0.639344262295082
+    },
+    "pick_b": {
+     "text": "A MAN SAID TO THE UNIVERSE SIR I EXIST THE LITTLE GIRL HAD BEEN ASLEEP BUT SHE HEARD THE WRAPS AND OPENED THE DOOR SHE WANTED TO MAKE SOME REFERENCE TO IT WAS IN THE REVERIE SLIDING ALONG THE BORDERS OF CONSCIOUSNESS I BEGGED RUGGEDO A LONG AGO TO SEND HIM AWAY BUT HE WOULD NOT DO SO ONLY HIS HEART AND LUNGS WORKED ON AT A STRONG MEASURED RATE",
+     "S": 2,
+     "D": 0,
+     "I": 9,
+     "n_ref": 61,
+     "wer": 0.18032786885245902
+    },
+    "gate_a": {
+     "text": "A MAN SAID TO THE UNIVERSE SIR I EXIST THE LITTLE GIRL HAD BEEN ASLEEP BUT SHE HEARD THE WRAPS AND OPENED THE DOOR IT WAS IN THE RIVER RIE SLIDING ALONG THE BORDERS OF CONSCIOUSNESS I BEGGED RUGGEDO A LONG AGO TO SEND HIM AWAY BUT HE WOULD NOT DO SO ONLY HIS HEART AND LUNGS WORKED ON AT A STRONG MEASURED RATE",
+     "S": 3,
+     "D": 0,
+     "I": 3,
+     "n_ref": 61,
+     "wer": 0.09836065573770492
+    },
+    "gate_b": {
+     "text": "A MAN SAID TO THE UNIVERSE SIR I EXIST THE LITTLE GIRL HAD BEEN ASLEEP BUT SHE HEARD THE WRAPS AND OPENED THE DOOR IT WAS IN THE RIVERRY SLIDING ALONG THE BORDERS OF CONSCIOUSNESS I BEGGED RUGGEDO LONG AGO TO SEND HIM A",
+     "S": 3,
+     "D": 18,
+     "I": 1,
+     "n_ref": 61,
+     "wer": 0.36065573770491804
+    },
+    "truth": {
+     "text": "A MAN SAID TO THE UNIVERSE SIR I EXIST THE LITTLE GIRL HAD BEEN ASLEEP BUT SHE HEARD THE WRAPS AND OPENED THE DOOR IT WAS IN THE RIVER RIE SLIDING ALONG THE BORDERS OF CONSCIOUSNESS I BEGGED RUGGEDO A LONG AGO TO SEND HIM AWAY BUT HE WOULD NOT DO SO ONLY HIS HEART AND LUNGS WORKED ON AT A STRONG MEASURED RATE",
+     "S": 3,
+     "D": 0,
+     "I": 3,
+     "n_ref": 61,
+     "wer": 0.09836065573770492
+    },
+    "clean": {
+     "text": "A MAN SAID TO THE UNIVERSE SIR I EXIST THE LITTLE GIRL HAD BEEN ASLEEP BUT SHE HEARD THE WRAPS AND OPENED THE DOOR HE WAS IN THE RIVER SLIDING ALONG THE BORDERS OF CONSCIOUSNESS I BEGGED RUGGEDO A LONG AGO TO SEND HIM AWAY BUT HE WOULD NOT DO SO ONLY HIS HEART AND LUNGS WORKED ON AT A STRONG MEASURED RATE",
+     "S": 2,
+     "D": 0,
+     "I": 2,
+     "n_ref": 61,
+     "wer": 0.06557377049180328
+    }
+   },
+   "diar": {
+    "naive": {
+     "segments": [
+      [
+       0.5,
+       2.05,
+       "cluster 2"
+      ],
+      [
+       2.69,
+       3.14,
+       "cluster 2"
+      ],
+      [
+       3.4,
+       3.5,
+       "cluster 2"
+      ],
+      [
+       3.5,
+       6.12,
+       "cluster 1"
+      ],
+      [
+       6.33,
+       7.24,
+       "cluster 3"
+      ],
+      [
+       7.53,
+       7.75,
+       "cluster 3"
+      ],
+      [
+       7.75,
+       11.0,
+       "cluster 2"
+      ],
+      [
+       11.0,
+       17.25,
+       "cluster 1"
+      ],
+      [
+       17.25,
+       17.67,
+       "cluster 4"
+      ],
+      [
+       18.1,
+       18.25,
+       "cluster 4"
+      ],
+      [
+       18.25,
+       22.25,
+       "cluster 1"
+      ],
+      [
+       22.25,
+       22.75,
+       "cluster 5"
+      ],
+      [
+       22.75,
+       23.24,
+       "cluster 2"
+      ],
+      [
+       23.5,
+       25.84,
+       "cluster 2"
+      ],
+      [
+       26.51,
+       30.0,
+       "cluster 1"
+      ],
+      [
+       30.0,
+       33.61,
+       "cluster 2"
+      ],
+      [
+       34.26,
+       39.0,
+       "cluster 1"
+      ],
+      [
+       39.0,
+       42.3,
+       "cluster 2"
+      ]
+     ],
+     "n_speakers": 5,
+     "der": [
+      {
+       "name": "collar 0.25 s, overlap skipped",
+       "collar": 0.25,
+       "skip_overlap": true,
+       "der": 0.02052370842179759,
+       "fa": 0.0,
+       "miss": 0.0,
+       "conf": 0.58,
+       "total": 28.26,
+       "scored_s": 29.2,
+       "map": {
+        "cluster 2": "user",
+        "cluster 1": "other"
+       }
+      },
+      {
+       "name": "collar 0.25 s, overlap scored",
+       "collar": 0.25,
+       "skip_overlap": false,
+       "der": 0.07047193877551021,
+       "fa": 0.0,
+       "miss": 1.55,
+       "conf": 0.66,
+       "total": 31.36,
+       "scored_s": 30.75,
+       "map": {
+        "cluster 2": "user",
+        "cluster 1": "other"
+       }
+      },
+      {
+       "name": "no collar, overlap scored",
+       "collar": 0.0,
+       "skip_overlap": false,
+       "der": 0.14793741109530584,
+       "fa": 0.0,
+       "miss": 3.79,
+       "conf": 2.45,
+       "total": 42.18,
+       "scored_s": 42.82,
+       "map": {
+        "cluster 2": "user",
+        "cluster 1": "other"
+       }
+      }
+     ]
+    },
+    "pyannote": {
+     "error": "快取裡沒有 pyannote/speaker-diarization-community-1（LocalEntryNotFoundError）：先同意使用條款、登入，再跑 ./present.sh fetch"
+    }
+   }
+  }
+ },
+ "models": {
+  "sep": {
+   "repo": "speechbrain/sepformer-libri2mix",
+   "commit": "eb43c5bfbb2aa654630adbf849373bcec0a20ed4",
+   "fs": 8000,
+   "device": "mps",
+   "n_params": 25679361
+  },
+  "enc_a": {
+   "repo": "speechbrain/spkrec-ecapa-voxceleb",
+   "commit": "0f99f2d0ebe89ac095bcc5903c4dd8f72b367286",
+   "threshold": 0.25,
+   "device": "cpu",
+   "n_params": 20767552
+  },
+  "enc_b": {
+   "repo": "microsoft/wavlm-base-plus-sv",
+   "commit": "feb593a6c23c1cc3d9510425c29b0a14d2b07b1e",
+   "threshold": 0.86,
+   "device": "mps",
+   "n_params": 101112153
+  },
+  "whisper": {
+   "repo": "openai/whisper-small",
+   "commit": "973afd24965f72e36ca33b3055d56a652f456b4d",
+   "device": "cpu"
+  },
+  "diar": {
+   "repo": "pyannote/speaker-diarization-community-1",
+   "commit": null
+  }
+ },
+ "versions": {
+  "python": "3.12.14",
+  "platform": "macOS-27.2.1-arm64-arm-64bit",
+  "numpy": "2.4.4",
+  "scipy": "1.17.1",
+  "matplotlib": "3.10.9",
+  "sounddevice": "0.5.6",
+  "torch": "2.14.0",
+  "torchaudio": "2.11.0",
+  "transformers": "5.17.0",
+  "speechbrain": "1.1.2",
+  "huggingface_hub": "1.33.0"
+ },
+ "compute_s": 62.153191249934025
+}

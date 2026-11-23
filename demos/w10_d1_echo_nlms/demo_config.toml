@@ -1,0 +1,88 @@
+# 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
+# W10 demo 1：系統聽見自己——回音、NLMS、double-talk。換內容只改這裡。
+# 處理全部是 aec.py 裡的 numpy；VAD 與 Whisper 只在最後一段（鍵 9、0）用到。
+
+[audio]
+fs = 16000                 # 處理、VAD、Whisper 都在 16 kHz
+
+[reference]
+# 系統「正在說的話」x(n)：W8 Demo 2 彩排時 Kokoro 念的訂票助理回覆（90 個漢字，21 秒；W1 Demo 2 的系統也是這個聲音）。
+file = "../w08_d2_nfe_cfg_first_packet/runs/rehearsal/fp_kokoro_2.wav"
+text = "已幫您訂好下週三早上九點台北到台南的高鐵票，座位靠窗，全票一張，票價一千三百五十元。取票時請出示訂位代號與身分證件；發車前三十分鐘可以免費改期一次，其他時間改票要收手續費。請問還需要訂回程的票嗎？"
+peak = 0.5                 # 送去喇叭的數位峰值（留 6 dB，別讓數位端自己削波）
+lead_s = 0.5               # 前面墊的靜音
+tail_s = 1.0               # 後面墊的靜音（讓殘響收完）
+
+[record]
+# 真的回音：這台筆電的喇叭播、內建麥克風錄（sounddevice 的同步播錄）。
+device_fs = 48000          # 裝置端用的取樣率；播之前升上去、錄回來降到 [audio] fs
+cue_start_s = 9.0          # talk 那一段：畫面在這一秒叫你開始說（從 x 開始播起算）
+cue_stop_s = 12.5          # 在這一秒叫你停
+suggested = "等一下，我不要靠窗，幫我換成走道的位子。"   # 插話的建議句（說什麼都可以；Whisper 的語言見 [downstream]）
+# loud 那一段：預設請你把系統音量開到最大再錄（真的喇叭與它的保護電路）。
+# 喇叭開到最大仍然不失真時的替代做法：software_drive > 0 → 播出去的是 tanh 削過的 g(x)，給濾波器的參考仍是 x（畫面會標明）。
+software_drive = 0.0
+max_delay_s = 0.5          # 找播錄延遲時往後看多遠
+
+[nlms]
+L_h = 2048                 # 濾波器長度（樣本）；16 kHz 下是 128 ms
+mu = 0.5                   # 固定步長（與投影片 p26 的模擬同一個值）
+delta_rel = 0.01           # δ = delta_rel · L_h · mean(x²)
+bulk_margin = 64           # 播錄之間的固定延遲先拿掉（回音最早到的那一刻之前留這麼多個樣本），濾波器的 L_h 個數才用在房間上
+
+[geigel]
+# ϑ 的定法：「只有系統在說」那一段上 |y(n)| ÷ max|x(n−i)| 的第 percentile 百分位 × margin。
+# Geigel 原本假設回音路徑的衰減事先知道；這裡沒有，所以從第一段量。
+percentile = 99.9
+margin = 1.5
+hold_ms = 200.0            # 判成 double-talk 之後再凍這麼久
+
+[soft]
+# μ(n) = min(mu_max, Λ(n) p_x(n) / P_e(n))；見 aec.py 的 nlms() 說明。三個時間常數是本 demo 定的。
+mu_max = 0.5
+tau_e = 0.02               # e² 的短時平均（秒）
+tau_lambda = 1.0           # Λ 的慢速平均（秒）
+tau_up = 2.0               # Λ 每這麼多秒最多長一倍
+
+[measure]
+erle_win_ms = 500.0        # ERLE 曲線：過去 500 ms 的功率比
+erle_step_ms = 50.0
+before_s = 2.0             # 「插話前」= 使用者開口前，最後這麼多秒「系統有出聲」的樣本
+after_s = 1.0              # 「停下來之後」= 使用者停止後，最先這麼多秒「系統有出聲」的樣本
+final_s = 3.0              # 「最後」= 這一段的最後這麼多秒
+recover_db = 3.0           # 回到插話前的 ERLE 以下這麼多 dB 以內，算恢復
+x_floor_db = -35.0         # 系統「有在出聲」的門檻（ERLE 只在這些樣本上算）
+user_floor_db = -20.0      # 真錄音找使用者插話的區間：(talk − alone) 的 30 ms 功率在它峰值以下這麼多 dB 以內
+user_extend_db = -30.0     # 找到之後兩端再往外延伸到這個門檻（字頭字尾）
+user_gap_ms = 400.0
+
+[sim]
+# 模擬的回音路徑（pyroomacoustics 的 image method）：h 已知，所以畫得出 ‖h − ĥ‖。沒裝 pyroomacoustics 時退到一條指數衰減的隨機序列。
+room = [6.0, 5.0, 3.0]             # 公尺
+rt60 = 0.3                         # 秒
+loudspeaker = [3.0, 2.0, 1.0]
+microphone = [3.0, 2.3, 1.05]
+user = [3.0, 1.4, 1.2]
+noise_db = -45.0                   # 麥克風底噪，相對回音
+near_db = 6.0                      # 使用者的聲音比回音大幾 dB（人離麥克風近）
+near_start_s = 9.0
+near_len_s = 3.5
+loud_drive = 3.0                   # 「喇叭失真」：tanh(drive · x / peak)
+seed = 20261122
+# 模擬裡的「使用者」：依序找第一個存在的檔。audio/user.wav 是 ./present.sh record user 錄的（不進版控）；
+# 沒有的話用 W8 Demo 2 彩排時 F5-TTS 念的「我想訂一張下週三去台南的票。」（另一個聲音、另一句話，2.4 秒）。
+near_files = ["audio/user.wav", "../w08_d2_nfe_cfg_first_packet/runs/rehearsal/cfg_w3.wav"]
+
+[downstream]
+variant = "soft"           # 鍵 0「AEC 之後」送給 VAD 與 Whisper 的是哪一種步長的殘餘：fixed｜geigel｜soft
+language = "zh"            # Whisper 的語言（系統那一句是華語；插話也用華語）
+max_new_tokens = 224
+vad_threshold = 0.5        # Silero VAD 的門檻（它的預設）
+vad_min_silence_ms = 100   # 它的預設：這麼久沒聲音才放手
+
+[display]
+fig_w = 13.0
+fig_h = 7.6
+step1_play_s = 7.0         # 鍵 1、2、3 各播前幾秒
+after_pad_s = [1.5, 3.0]   # 鍵 a：從使用者停下來之前 1.5 秒播到之後 3 秒
+digits = 1

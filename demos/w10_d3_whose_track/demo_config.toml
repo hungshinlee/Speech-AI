@@ -1,0 +1,131 @@
+# 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
+# W10 demo 3：兩個人同時說——哪一軌是使用者；同一份輸出、三個 DER。換內容只改這裡。
+#
+# 設計（2026-11-23；理由見 README）：
+#   兩位 LibriSpeech dev-clean 的說話人，自己接成兩種混合：完全重疊的一句（基準的樣子），與一段四十秒上下、
+#   只有零星重疊的「對話」。因為是自己接的，每一位的乾淨軌都還在——誰在哪一格說話、哪一軌其實是誰，都算得出來。
+#   沒有任何模型被訓練或微調；全部是推論。只用公開語料的聲音。
+
+[audio]
+fs = 16000
+# W3 Demo 3 下載的那一份（CC BY 4.0）。fetch 從裡面解出下面列到的句子 → ../_media/w10_d3/wav/（不進版控），參考文字 → data/sentences.json。
+dev_clean_tar = "../_media/dev-clean.tar.gz"
+wav_dir = "../_media/w10_d3/wav"
+
+[user]
+# 「使用者」：W3 起一直用的那一位（1272）。註冊語音是 W8／W9 的 demo 拿來當 prompt 的那一句。
+spk = "1272"
+enrol = "1272-128104-0010"
+# 完全重疊的那一段裡，使用者說的是 W3 的那一句。
+overlap_utt = "1272-128104-0000"
+
+[mix]
+level = 0.05          # 每一句先裁掉頭尾的靜音，再調到同一個 RMS
+head_s = 0.5
+tail_s = 0.5
+floor_db = 40.0       # 「有沒有在說話」：比這一軌最響的一格低不到 40 dB 的算有（mix.activity）
+min_pause_s = 0.2     # 短於 0.2 秒的停頓算在同一段裡
+main = "m"            # 投影片的表、一開始看的那一組；鍵 g 換另一組
+
+# 兩組「另一個人」。turns 的 lead：相對於上一句結束的秒數，正的是隔多久才接話、負的是搶在結束前多久開口（重疊）。
+# 兩組的使用者句子與 lead 完全相同，只換另一位說話人。
+[[pair]]
+id = "m"
+other = "174"
+label = "user 1272 (m) + speaker 174 (m)"
+overlap_utt = "174-168635-0013"
+turns = [
+  { spk = "user",  utt = "1272-141231-0000", lead = 0.0 },
+  { spk = "other", utt = "174-168635-0000",  lead = -0.8 },
+  { spk = "user",  utt = "1272-135031-0003", lead = 0.3 },
+  { spk = "other", utt = "174-168635-0006",  lead = -1.2 },
+  { spk = "other", utt = "174-168635-0001",  lead = 0.4 },
+  { spk = "user",  utt = "1272-141231-0008", lead = -0.6 },
+  { spk = "other", utt = "174-168635-0015",  lead = 0.5 },
+  { spk = "user",  utt = "1272-135031-0005", lead = -1.0 },
+  { spk = "other", utt = "174-168635-0011",  lead = 0.3 },
+  { spk = "user",  utt = "1272-141231-0007", lead = -0.7 },
+]
+
+[[pair]]
+id = "f"
+other = "2277"
+label = "user 1272 (m) + speaker 2277 (f)"
+overlap_utt = "2277-149896-0009"
+turns = [
+  { spk = "user",  utt = "1272-141231-0000", lead = 0.0 },
+  { spk = "other", utt = "2277-149896-0018", lead = -0.8 },
+  { spk = "user",  utt = "1272-135031-0003", lead = 0.3 },
+  { spk = "other", utt = "2277-149896-0000", lead = -1.2 },
+  { spk = "other", utt = "2277-149874-0015", lead = 0.4 },
+  { spk = "user",  utt = "1272-141231-0008", lead = -0.6 },
+  { spk = "other", utt = "2277-149896-0014", lead = 0.5 },
+  { spk = "user",  utt = "1272-135031-0005", lead = -1.0 },
+  { spk = "other", utt = "2277-149896-0006", lead = 0.3 },
+  { spk = "user",  utt = "1272-141231-0007", lead = -0.7 },
+]
+
+[sep]
+# SepFormer（Subakan et al. 2021），SpeechBrain 的 Libri2Mix 權重：兩位說話人、8 kHz、訓練時用的是 PIT。Apache-2.0。
+# 模型吃 8 kHz：混合訊號先降到 8 kHz、分離、再升回 16 kHz（所以分出來的兩軌 4 kHz 以上是空的）。
+repo = "speechbrain/sepformer-libri2mix"
+label = "SepFormer (Libri2Mix)"
+fs = 8000
+device = "auto"       # check 會測 mps 對 cpu；mps 不行就改 "cpu"
+chunk_s = 4.0         # 投影片 p75 的表：四秒一塊、不重疊
+alt_chunks = [2.0, 8.0]   # 鍵 c 換
+whole = true          # 鍵 x：整段不切、一次處理（對照：整句只配一次）
+
+[enc.a]
+# ECAPA-TDNN（Desplanques et al. 2020），SpeechBrain 的 VoxCeleb 權重。192 維。Apache-2.0。
+repo = "speechbrain/spkrec-ecapa-voxceleb"
+label = "ECAPA"
+device = "cpu"
+# SpeechBrain 的 SpeakerRecognition.verify_batch 預設的門檻（它自己的介面寫的數字，不是在這批資料上調的）。
+threshold = 0.25
+
+[enc.b]
+# W9 Demo 1 的 SIM 裁判：WavLM Base+ 接 x-vector head（transformers 的 WavLMForXVector）。512 維。commit 沿它的 model.lock。
+repo = "microsoft/wavlm-base-plus-sv"
+label = "WavLM-SV"
+device = "auto"
+lock_from = "../w09_d1_cloning_leak/model.lock"
+# model card 上示範用的門檻。
+threshold = 0.86
+
+[truth]
+# 「這一塊裡使用者其實在哪一軌」：對使用者那一軌乾淨的答案算 SI-SDR，高的那一軌；
+# 兩軌都不到 min_si_sdr（或使用者這一塊說不到 min_user_s）就算「不在任何一軌」。
+min_si_sdr = 0.0
+min_user_s = 0.1
+
+[whisper]
+# W7 的 Whisper small：類別、權重、commit、文字標準化都沿用 W2 Demo 3（在 CPU 上跑）。
+# 一個視窗 30 秒，所以四十秒的那一段在「使用者最長的一次沉默」正中間切成兩段各轉一次。
+from = "../w02_d3_frontend_mismatch"
+
+[diar]
+# pyannote.audio 的 pipeline（Bredin et al.）。模型在 Hugging Face 上要先同意使用條款、登入帶 token（課前做，見 README）。
+# 它另住一個環境 ../.venv-diar（./setup.sh 建的）：pyannote.audio 4.1.1 要 matplotlib ≥ 3.11，共用環境釘的是 3.10.9。
+repo = "pyannote/speaker-diarization-community-1"
+label = "pyannote (community-1)"
+env = "../.venv-diar"
+device = "auto"       # check 會比 mps 與 cpu 的時間戳；不一致就改 "cpu"
+timeout_s = 600
+
+[naive]
+# 對照用的土法聚類（demo.py 的 naive_diarize）：能量找出有聲的格子 → 1.5 秒的窗、每 0.25 秒一個 → 每個窗一個 ECAPA 向量
+# → 階層式聚類（average linkage、cosine 距離超過 cut 就不併）→ 每一格取蓋到它的窗的多數決。一格只會有一位說話人。
+win_s = 1.5
+hop_s = 0.25
+cut = 0.7
+
+[der]
+collar = 0.25
+
+[display]
+fig_w = 12.0
+fig_h = 6.4
+
+[fake]
+seed = 20261123

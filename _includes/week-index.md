@@ -11,7 +11,7 @@
 | **W7** | [Speech Recognition: Where the Prior Lives — Three Paradigms, Decoding, Biasing, and the LLM Turn](weeks/w07.qmd)<br>[語音辨識：先驗放在哪裡——三種範式、解碼、biasing 與 LLM 化]{.wk-zh} | Modules | [▶ Open](slides/w07.qmd) |
 | **W8** | [Speech Synthesis I: From a Line of Text to a Stretch of Sound — Where Length, Variation, Waveform and Latency Are Decided](weeks/w08.qmd)<br>[語音合成 I：從一行字到一段聲音——長度、變異、波形、延遲各放在哪裡]{.wk-zh} | Modules | [▶ Open](slides/w08.qmd) |
 | **W9** | [Speech Synthesis II: Who Is the Judge — Controllability, Post-Training, Evaluation, and Misuse](weeks/w09.qmd)<br>[語音合成 II：裁判是誰——可控性、後訓練、評估與濫用防範]{.wk-zh} | Modules | [▶ Open](slides/w09.qmd) |
-| **W10** | The Physical Layer of Full Duplex: The Microphone Hears More Than the User — VAD, AEC, Enhancement, Separation, Speakers<br>[全雙工的物理層：麥克風聽到的不只是使用者——VAD、AEC、增強、分離與說話人]{.wk-zh} | Modules | [▶ Open](slides/w10.qmd) |
+| **W10** | [The Physical Layer of Full Duplex: The Microphone Hears More Than the User — VAD, AEC, Enhancement, Separation, Speakers](weeks/w10.qmd)<br>[全雙工的物理層：麥克風聽到的不只是使用者——VAD、AEC、增強、分離與說話人]{.wk-zh} | Modules | [▶ Open](slides/w10.qmd) |
 | **W11** | Audio-Native Language Models: Building Half-Duplex Spoken Dialogue<br>[Audio-Native 語言模型：半雙工語音對話的建成]{.wk-zh} | Dialogue Systems | — |
 | **W12** | Full-Duplex I: Linguistic Foundations and Modeling of Turn-Taking<br>[全雙工 I：Turn-Taking 的語言學基礎與建模]{.wk-zh} | Dialogue Systems | — |
 | **W13** | Full-Duplex II: Architectures, Multi-Stream Modeling, and Data<br>[全雙工 II：架構路線、多串流建模與資料問題]{.wk-zh} | Dialogue Systems | — |
