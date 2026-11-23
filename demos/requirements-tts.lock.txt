@@ -87,6 +87,7 @@ opentelemetry-semantic-conventions==0.66b2
 orjson==3.13.0
 packaging==26.3
 pandas==3.1.1
+pesq==0.0.4
 pillow==12.3.0
 platformdirs==4.14.5
 pooch==1.9.0
@@ -104,6 +105,7 @@ pydub==0.25.1
 pygments==2.21.0
 pyparsing==3.3.3
 pypinyin==0.55.0
+pystoi==0.4.1
 python-dateutil==2.9.0.post0
 python-multipart==0.0.33
 pytz==2026.6
