@@ -1118,12 +1118,12 @@ Most extraction systems were never shown a mixture without the target — so the
 | | |
 |:---|:-----------------|
 | **Why** | Stops 6 and 7 make three claims that are easy to say and better seen: the output order is arbitrary; an enrolment can pick the user — and picks someone even when the user is silent; and one diarization output can be given three different error rates. |
-| **What runs** | Two LibriSpeech speakers; one is "the user", with a second sentence of theirs as the enrolment. Two mixtures: fully overlapped, as in a benchmark; and a 40-second "conversation" spliced from sentences, with brief overlaps. A separation model (SepFormer) processes it in chunks of a few seconds. Two speaker encoders score each output track against the enrolment. |
+| **What runs** | Two LibriSpeech speakers; one is "the user", with a second sentence of theirs as the enrolment. Two mixtures: fully overlapped, as in a benchmark; and a 40-second "conversation" spliced from sentences, with brief overlaps. A separation model (SepFormer) processes it in 4-second chunks. Two speaker encoders score each output track against the enrolment. |
 | **Watch for** | The model returns two tracks. **Which one holds the user — and in the next chunk?** Do the two encoders give the same number for the same pair of voices? And in the chunk where the user says nothing: what gets picked? |
 :::
 
 ::: {.footer}
-Demo 3 · demos/w10_d3_* — not built yet (2026-11-22) · public-corpus and lecturer's voices only
+Demo 3 · demos/w10_d3_whose_track · public-corpus voices only · no model is trained
 :::
 
 ## Demo 3 — first half: separate, swap, pick by enrolment
@@ -1142,7 +1142,7 @@ Demo 3 · demos/w10_d3_* — not built yet (2026-11-22) · public-corpus and lec
 :::
 
 ::: {.footer}
-Demo 3 · not built yet (2026-11-22): filled at rehearsal → w10-metrics.json → demo3 · SIM: W9 p17
+Demo 3 · demos/w10_d3_whose_track · the table is filled at rehearsal → w10-metrics.json → demo3 · SIM: W9 p17
 :::
 
 ## MC 10 — "track 1 of a separation model is the user"
@@ -1272,7 +1272,7 @@ DER: diarization error rate · toy: w10-data.json → der · last column: DIHARD
 :::
 
 ::: {.footer}
-Demo 3 · not built yet (2026-11-22) → w10-metrics.json → demo3 · pyannote: Bredin et al. 2020
+Demo 3 · demos/w10_d3_whose_track → w10-metrics.json → demo3 · pyannote: Bredin et al. 2020
 :::
 
 ## MC 12 — "DER can be compared across papers"
