@@ -1,0 +1,588 @@
+{
+ "demo1": {
+  "source": "demos/w10_d1_echo_nlms/runs/rehearsal/rehearsal.json",
+  "time": "2026-11-23T09:47:14",
+  "fs": 16000,
+  "reference": {
+   "file": "../w08_d2_nfe_cfg_first_packet/runs/rehearsal/fp_kokoro_2.wav",
+   "text": "已幫您訂好下週三早上九點台北到台南的高鐵票，座位靠窗，全票一張，票價一千三百五十元。取票時請出示訂位代號與身分證件；發車前三十分鐘可以免費改期一次，其他時間改票要收手續費。請問還需要訂回程的票嗎？"
+  },
+  "nlms": {
+   "L_h": 2048,
+   "mu": 0.5,
+   "delta_rel": 0.01,
+   "bulk_margin": 32
+  },
+  "geigel": {
+   "percentile": 99.9,
+   "margin": 1.5,
+   "hold_ms": 200.0
+  },
+  "soft": {
+   "mu_max": 0.5,
+   "tau_e": 0.02,
+   "tau_lambda": 1.0,
+   "tau_up": 2.0
+  },
+  "measure": {
+   "erle_win_ms": 500.0,
+   "erle_step_ms": 50.0,
+   "before_s": 2.0,
+   "after_s": 1.0,
+   "final_s": 3.0,
+   "recover_db": 3.0,
+   "x_floor_db": -35.0,
+   "user_floor_db": -20.0,
+   "user_extend_db": -30.0,
+   "user_gap_ms": 400.0
+  },
+  "versions": {
+   "python": "3.12.14",
+   "numpy": "2.4.4",
+   "scipy": "1.17.1",
+   "sounddevice": "0.5.6",
+   "torch": "2.14.0",
+   "transformers": "5.17.0",
+   "silero-vad": "6.2.3",
+   "pyroomacoustics": "0.10.1",
+   "whisper": "openai/whisper-small 973afd24965f72e36ca33b3055d56a652f456b4d"
+  },
+  "real": {
+   "how": "this laptop's loudspeaker and built-in microphone (sounddevice playrec)",
+   "L_h": 2048,
+   "mu": 0.5,
+   "delta": 0.04779226347753801,
+   "geigel_theta": 0.9550825038266688,
+   "clips": {
+    "alone": {
+     "seconds": 22.625,
+     "delay_samples": 2253,
+     "delay_ms": 140.8125,
+     "y_rms_db": -39.17695846749551,
+     "y_peak": 0.10312204352039452,
+     "clipped_frac": 0.0
+    },
+    "talk": {
+     "seconds": 22.625,
+     "delay_samples": 2258,
+     "delay_ms": 141.125,
+     "y_rms_db": -33.54276041941496,
+     "y_peak": 0.2707296975625711,
+     "clipped_frac": 0.0,
+     "dt_s": [
+      9.5506875,
+      13.4131875
+     ],
+     "dt_source": "difference of the two recordings"
+    },
+    "loud": {
+     "seconds": 22.625,
+     "delay_samples": 2125,
+     "delay_ms": 132.8125,
+     "y_rms_db": -22.915415328087725,
+     "y_peak": 0.7998290963479344,
+     "clipped_frac": 0.0
+    }
+   },
+   "step1": {
+    "delay_samples": 2253,
+    "delay_ms": 140.8125,
+    "literal_db": 13.080156698725444,
+    "gain_only_g": -0.0004380863979518973,
+    "gain_only_db": -1.6092671703689534e-05,
+    "aligned_g": 0.10012478880155143,
+    "aligned_db": -0.9342580535212307
+   },
+   "variants": {
+    "alone:fixed": {
+     "erle_final_db": 6.109285874276662,
+     "erle_all_db": 4.420538766045844,
+     "mu_mean": 0.5,
+     "converge_s": 1.0999375,
+     "seconds_to_compute": 2.0194643340073526
+    },
+    "talk:fixed": {
+     "erle_final_db": 3.2297123535994943,
+     "erle_all_db": 2.5940876565772113,
+     "mu_mean": 0.5,
+     "converge_s": 1.0999375,
+     "erle_before_db": 2.84823857630806,
+     "erle_during_db": 2.6396582058789217,
+     "erle_after_db": 0.8588909740654251,
+     "mu_before": 0.5,
+     "mu_during": 0.5,
+     "recover_s": 0.68675,
+     "seconds_to_compute": 2.0189515840029344
+    },
+    "talk:geigel": {
+     "erle_final_db": 3.5691863825809844,
+     "erle_all_db": -1.969641610501443,
+     "mu_mean": 0.3773267602128578,
+     "converge_s": 1.2999375,
+     "erle_before_db": 1.9427548401785057,
+     "erle_during_db": -1.9772411886921266,
+     "erle_after_db": -10.117430971956786,
+     "mu_before": 0.32478125,
+     "mu_during": 0.18808252427184466,
+     "recover_s": 0.28675,
+     "seconds_to_compute": 1.8021864580223337,
+     "frozen_frac_user": 0.6238349514563106,
+     "frozen_frac_system_only": 0.1548456432798439
+    },
+    "talk:soft": {
+     "erle_final_db": 4.17771252142431,
+     "erle_all_db": 1.0956132561380447,
+     "mu_mean": 0.40162467654267425,
+     "converge_s": 1.0999375,
+     "erle_before_db": 3.328777554244495,
+     "erle_during_db": 0.5583338145954717,
+     "erle_after_db": 5.52641420396642,
+     "mu_before": 0.367599002912739,
+     "mu_during": 0.2271517601207499,
+     "recover_s": 0.28675,
+     "seconds_to_compute": 2.050560540985316
+    },
+    "loud:fixed": {
+     "erle_final_db": 5.636563223329367,
+     "erle_all_db": 5.201286814474511,
+     "mu_mean": 0.5,
+     "converge_s": 1.2499375,
+     "seconds_to_compute": 2.0185455000028014
+    }
+   },
+   "recorded": {
+    "alone": {
+     "time": "2026-11-23T09:45:19",
+     "clip": "alone",
+     "x_sha": "bdda30d64ca6",
+     "delay_samples": 2253,
+     "delay_ms": 140.8125,
+     "peak": 0.10314750580121466,
+     "clipped_frac": 0.0,
+     "echo_rms_db": -37.99404437451814,
+     "floor_rms_db": -58.938671940921886,
+     "software_drive": 0.0,
+     "device": {
+      "input": "MacBook Pro的麥克風",
+      "output": "MacBook Pro的揚聲器",
+      "device_fs": 48000,
+      "output_channels": 2,
+      "input_default_fs": 48000.0,
+      "output_default_fs": 48000.0
+     },
+     "platform": "macOS-27.2.1-arm64-arm-64bit"
+    },
+    "talk": {
+     "time": "2026-11-23T09:45:56",
+     "clip": "talk",
+     "x_sha": "bdda30d64ca6",
+     "delay_samples": 2258,
+     "delay_ms": 141.125,
+     "peak": 0.27074014055850104,
+     "clipped_frac": 0.0,
+     "echo_rms_db": -32.679361914290894,
+     "floor_rms_db": -58.14218021491563,
+     "software_drive": 0.0,
+     "device": {
+      "input": "MacBook Pro的麥克風",
+      "output": "MacBook Pro的揚聲器",
+      "device_fs": 48000,
+      "output_channels": 2,
+      "input_default_fs": 48000.0,
+      "output_default_fs": 48000.0
+     },
+     "platform": "macOS-27.2.1-arm64-arm-64bit"
+    },
+    "loud": {
+     "time": "2026-11-23T09:46:34",
+     "clip": "loud",
+     "x_sha": "bdda30d64ca6",
+     "delay_samples": 2125,
+     "delay_ms": 132.8125,
+     "peak": 0.7998476688992523,
+     "clipped_frac": 0.0,
+     "echo_rms_db": -21.713118513856955,
+     "floor_rms_db": -60.88603702024841,
+     "software_drive": 0.0,
+     "device": {
+      "input": "MacBook Pro的麥克風",
+      "output": "MacBook Pro的揚聲器",
+      "device_fs": 48000,
+      "output_channels": 2,
+      "input_default_fs": 48000.0,
+      "output_default_fs": 48000.0
+     },
+     "platform": "macOS-27.2.1-arm64-arm-64bit"
+    }
+   },
+   "downstream": {
+    "talk:before": {
+     "signal": "talk_y",
+     "vad_active_frac": 0.830939226519337,
+     "vad_active_frac_system_only": 0.9979483087795287,
+     "vad_active_frac_user": 1.0,
+     "vad_segments_s": [
+      [
+       1.1,
+       5.3
+      ],
+      [
+       5.5,
+       9.0
+      ],
+      [
+       9.3,
+       15.5
+      ],
+      [
+       15.6,
+       18.1
+      ],
+      [
+       18.3,
+       20.7
+      ]
+     ],
+     "whisper_text": "一帮您订好下周三早上九点台北到台南的高铁票作为靠创全票一张票价1350元取票时请出示定位拜后10分钟帮我换成走道的位置可以免费改期一次其他时间改票要收手续费请问还需要定回程的票吗",
+     "system_chars_found": 47,
+     "system_chars": 90
+    },
+    "talk:after": {
+     "signal": "talk_e_soft",
+     "vad_active_frac": 0.8,
+     "vad_active_frac_system_only": 0.9682842732168808,
+     "vad_active_frac_user": 1.0,
+     "vad_segments_s": [
+      [
+       1.1,
+       5.4
+      ],
+      [
+       5.5,
+       9.0
+      ],
+      [
+       9.2,
+       13.5
+      ],
+      [
+       14.0,
+       15.4
+      ],
+      [
+       15.7,
+       18.1
+      ],
+      [
+       18.3,
+       20.1
+      ],
+      [
+       20.2,
+       20.6
+      ]
+     ],
+     "whisper_text": "等一下我不要靠窗 讓我換成走大的位置",
+     "system_chars_found": 4,
+     "system_chars": 90
+    },
+    "alone:before": {
+     "signal": "alone_y",
+     "vad_active_frac": 0.8265193370165745,
+     "vad_active_frac_system_only": 0.9971416441584868,
+     "vad_active_frac_user": null,
+     "vad_segments_s": [
+      [
+       1.1,
+       5.3
+      ],
+      [
+       5.5,
+       9.0
+      ],
+      [
+       9.2,
+       12.3
+      ],
+      [
+       12.4,
+       15.5
+      ],
+      [
+       15.7,
+       18.1
+      ],
+      [
+       18.3,
+       20.7
+      ]
+     ],
+     "whisper_text": "一帮您订好下周三早上九点台北到台南的高铁票作为靠创全票一张票价1350元取票时请出示定位代号与身份证件发车前30分钟可以免费改期一次其他时间改票要收手续费请问还需要定回程的票吗",
+     "system_chars_found": 51,
+     "system_chars": 90
+    },
+    "alone:after": {
+     "signal": "alone_e_fixed",
+     "vad_active_frac": 0.8397790055248618,
+     "vad_active_frac_system_only": 0.9984006382807411,
+     "vad_active_frac_user": null,
+     "vad_segments_s": [
+      [
+       1.1,
+       5.4
+      ],
+      [
+       5.5,
+       9.0
+      ],
+      [
+       9.2,
+       12.3
+      ],
+      [
+       12.4,
+       15.5
+      ],
+      [
+       15.6,
+       18.2
+      ],
+      [
+       18.3,
+       20.7
+      ]
+     ],
+     "whisper_text": "一帮您订好下周三早上九点台北到台南的高铁票作为抗创选票一张票价1350元取票时请出示定位代号与身份证件发车前30分钟可以免费改期一次其他时间改票要收手续费请问还需要订回程的票吗",
+     "system_chars_found": 49,
+     "system_chars": 90
+    }
+   }
+  },
+  "sim": {
+   "how": "pyroomacoustics 0.10.1 image method, room [6.0, 5.0, 3.0] m, RT60 0.3 s",
+   "L_h": 2048,
+   "mu": 0.5,
+   "delta": 0.04779226347753801,
+   "geigel_theta": 5.659995983953844,
+   "clips": {
+    "alone": {
+     "seconds": 22.625,
+     "delay_samples": 54,
+     "delay_ms": 3.375,
+     "y_rms_db": -15.402609608917396,
+     "y_peak": 1.8558167266759724,
+     "clipped_frac": 0.0008922651933701657
+    },
+    "talk": {
+     "seconds": 22.625,
+     "delay_samples": 54,
+     "delay_ms": 3.375,
+     "y_rms_db": -13.861876169222052,
+     "y_peak": 2.3905233793474685,
+     "clipped_frac": 0.0035027624309392266,
+     "dt_s": [
+      9.0,
+      11.4426875
+     ],
+     "dt_source": "known (simulation)"
+    },
+    "loud": {
+     "seconds": 22.625,
+     "delay_samples": 54,
+     "delay_ms": 3.375,
+     "y_rms_db": -7.250546715472578,
+     "y_peak": 2.2841485619381507,
+     "clipped_frac": 0.05207182320441989
+    }
+   },
+   "step1": {
+    "delay_samples": 54,
+    "delay_ms": 3.375,
+    "literal_db": 0.10673901672750201,
+    "gain_only_g": 0.3463374045991105,
+    "gain_only_db": -0.04238274973269962,
+    "aligned_g": 3.3204561214986197,
+    "aligned_db": -9.692219830336823
+   },
+   "variants": {
+    "alone:fixed": {
+     "erle_final_db": 39.3109792173552,
+     "erle_all_db": 22.88339247846292,
+     "mu_mean": 0.5,
+     "converge_s": 10.7999375,
+     "misalignment_final_db": -27.633974806094187,
+     "seconds_to_compute": 2.082415083074011
+    },
+    "talk:fixed": {
+     "erle_final_db": 28.064221139187424,
+     "erle_all_db": 8.495172535624615,
+     "mu_mean": 0.5,
+     "converge_s": 4.2999375,
+     "misalignment_final_db": -18.54146369998742,
+     "erle_before_db": 29.743931040317374,
+     "erle_during_db": 4.5086474247688075,
+     "erle_after_db": 13.504791971509075,
+     "mu_before": 0.5,
+     "mu_during": 0.5,
+     "recover_s": 3.60725,
+     "misalignment_before_db": -12.198921104708365,
+     "misalignment_after_db": 0.10808724760913191,
+     "seconds_to_compute": 2.0765898750396445
+    },
+    "talk:geigel": {
+     "erle_final_db": 35.11681031245159,
+     "erle_all_db": 4.79586580368381,
+     "mu_mean": 0.42127077889281717,
+     "converge_s": 6.8499375,
+     "misalignment_final_db": -18.44830436407234,
+     "erle_before_db": 28.930789167685383,
+     "erle_during_db": 1.0780560793911507,
+     "erle_after_db": 8.59512711122959,
+     "mu_before": 0.485734375,
+     "mu_during": 0.09804774454366348,
+     "recover_s": 1.75725,
+     "misalignment_before_db": -11.341011716387637,
+     "misalignment_after_db": -7.093958835591115,
+     "seconds_to_compute": 1.9030057500349358,
+     "frozen_frac_user": 0.803904510912673,
+     "frozen_frac_system_only": 0.06355333535170048
+    },
+    "talk:soft": {
+     "erle_final_db": 29.886120027734258,
+     "erle_all_db": 5.251313561965433,
+     "mu_mean": 0.3975206658014178,
+     "converge_s": 4.5999375,
+     "misalignment_final_db": -9.83228569389343,
+     "erle_before_db": 26.249284459546356,
+     "erle_during_db": 1.0738853255929592,
+     "erle_after_db": 30.164580475419562,
+     "mu_before": 0.4329452417232016,
+     "mu_during": 0.03441963113958016,
+     "recover_s": 0.25725,
+     "misalignment_before_db": -7.476032506974846,
+     "misalignment_after_db": -7.635497961942518,
+     "seconds_to_compute": 2.0893242500023916
+    },
+    "loud:fixed": {
+     "erle_final_db": 21.318261320395106,
+     "erle_all_db": 19.831774352001183,
+     "mu_mean": 0.5,
+     "converge_s": 1.6999375,
+     "misalignment_final_db": 5.4200204687261255,
+     "seconds_to_compute": 2.0207146250177175
+    }
+   },
+   "tanh_ceiling_db": 15.460967645647816,
+   "downstream": {
+    "talk:before": {
+     "signal": "talk_y",
+     "vad_active_frac": 0.8265193370165745,
+     "vad_active_frac_system_only": 0.9982396767483889,
+     "vad_active_frac_user": 0.9181229690658342,
+     "vad_segments_s": [
+      [
+       0.9,
+       5.2
+      ],
+      [
+       5.4,
+       8.9
+      ],
+      [
+       9.2,
+       12.2
+      ],
+      [
+       12.4,
+       15.4
+      ],
+      [
+       15.5,
+       18.0
+      ],
+      [
+       18.2,
+       20.6
+      ]
+     ],
+     "whisper_text": "一幫您訂好下週三早上9點台北到台南的高鐵票作為靠創全票一張票價1350元我想訂一張下週三去台南票 發車前30分鐘可以免費改期一次其他時間改票要收手續費請問還需要訂回程的票嗎?",
+     "system_chars_found": 64,
+     "system_chars": 90
+    },
+    "talk:after": {
+     "signal": "talk_e_soft",
+     "vad_active_frac": 0.26519337016574585,
+     "vad_active_frac_system_only": 0.25834555188051966,
+     "vad_active_frac_user": 0.8362459381316685,
+     "vad_segments_s": [
+      [
+       0.9,
+       4.8
+      ],
+      [
+       9.4,
+       11.5
+      ]
+     ],
+     "whisper_text": "我想定一張下週三去台南的票",
+     "system_chars_found": 7,
+     "system_chars": 90
+    },
+    "alone:before": {
+     "signal": "alone_y",
+     "vad_active_frac": 0.830939226519337,
+     "vad_active_frac_system_only": 0.9988032236105316,
+     "vad_active_frac_user": null,
+     "vad_segments_s": [
+      [
+       0.9,
+       5.2
+      ],
+      [
+       5.4,
+       8.9
+      ],
+      [
+       9.2,
+       12.2
+      ],
+      [
+       12.3,
+       15.4
+      ],
+      [
+       15.5,
+       18.0
+      ],
+      [
+       18.2,
+       20.6
+      ]
+     ],
+     "whisper_text": "一幫您訂好下週三早上9點台北到台南的高鐵票作為靠創全票一張票價1350元取票時請出示定位代號與身份證件發車前30分鐘可以免費改期一次其他時間改票要收手續費請問還需要訂回程的票碼",
+     "system_chars_found": 74,
+     "system_chars": 90
+    },
+    "alone:after": {
+     "signal": "alone_e_fixed",
+     "vad_active_frac": 0.19005524861878453,
+     "vad_active_frac_system_only": 0.24525498290842282,
+     "vad_active_frac_user": null,
+     "vad_segments_s": [
+      [
+       0.9,
+       4.8
+      ],
+      [
+       5.6,
+       6.0
+      ]
+     ],
+     "whisper_text": "以幫您訂好下週三早上九點台北到台南的鋼鐵票作為特寵全票一張票價1300元",
+     "system_chars_found": 26,
+     "system_chars": 90
+    }
+   }
+  }
+ }
+}
