@@ -65,6 +65,8 @@ ver() { "${ENV}/bin/python" -c "from importlib.metadata import version; print(ve
     grep -E '^SPEECHBRAIN_VERSION=' "${LOCK}" 2>/dev/null || true
     # W9 Demo 3 的 setup.sh 加進這個環境的 audioseal：同樣留著
     grep -E '^AUDIOSEAL_VERSION=' "${LOCK}" 2>/dev/null || true
+    # W10 Demo 2 的 setup.sh 加進這個環境的 pystoi 與 pesq：同樣留著
+    grep -E '^(PYSTOI_VERSION|PESQ_VERSION)=' "${LOCK}" 2>/dev/null || true
   } | LC_ALL=C sort
 } > "${LOCK}.tmp" && mv "${LOCK}.tmp" "${LOCK}"
 uv pip freeze --python "${ENV}/bin/python" > "${DEMOS}/requirements-tts.lock.txt"

@@ -722,12 +722,12 @@ SI-SDR: Le Roux et al. 2019 (W2 p69) · MetricGAN+: Fu et al. 2021 · W9 p53: ju
 | | |
 |:---|:-----------------|
 | **Why** | The judges enhancement is trained against were built for human ears, or count energy. The judge that matters here is the recogniser. Do the two kinds agree? This is one of the course's six core failure cases. |
-| **What runs** | About 40 LibriSpeech sentences, with noise added at $20$, $10$, $5$, $0$ and $-5$ dB SNR. **Three front ends**: none; a statistical one written in `numpy`; a neural one trained with PESQ as its target (MetricGAN+). **Two recognisers**, chosen to differ: a CTC model that has only heard clean read speech (W3), and Whisper small (W7). |
+| **What runs** | 40 LibriSpeech sentences, with white noise added at $20$, $10$, $5$, $0$ and $-5$ dB SNR (pink noise and babble are one key away). **Three front ends**: none; a statistical one written in `numpy`; a neural one trained with PESQ as its target (MetricGAN+). **Two recognisers**, chosen to differ: a CTC model that has only heard clean read speech (W3), and Whisper small (W7). |
 | **Watch for** | At 0 dB: which has the lower WER — the noisy sentence, or the enhanced one? **Is the answer the same for both recognisers?** And when each recogniser fails on enhanced speech: what does the failure look like? |
 :::
 
 ::: {.footer}
-Demo 2 · demos/w10_d2_* — not built yet (2026-11-22) · no model is trained: inference only
+Demo 2 · demos/w10_d2_enhance_wer · no model is trained: inference only
 :::
 
 ## Demo 2 — WER against SNR, with and without enhancement
@@ -748,7 +748,7 @@ Demo 2 · demos/w10_d2_* — not built yet (2026-11-22) · no model is trained: 
 :::
 
 ::: {.footer}
-Demo 2 · WER (%), normalised as in W7 · not built yet (2026-11-22) → w10-metrics.json → demo2
+Demo 2 · WER (%), normalised as in W7 · white noise · demos/w10_d2_enhance_wer
 :::
 
 ## The error, split by two projections
@@ -851,7 +851,7 @@ toy vectors: $\hat{\mathbf{s}} = 0.9\,\mathbf{s} + 0.2\,\mathbf{v} + 0.3\,\mathb
 :::
 
 ::: {.footer}
-Demo 2 · not built yet (2026-11-22) → w10-metrics.json → demo2 · SNR, SAR as on p51, no delays
+Demo 2 · demos/w10_d2_enhance_wer · white noise · SNR, SAR as on p51, no delays
 :::
 
 ## Generative enhancement: when the evidence is flat
