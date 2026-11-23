@@ -1133,13 +1133,13 @@ Demo 3 · demos/w10_d3_whose_track · public-corpus voices only · no model is t
 :::
 
 ::: {.fragment fragment-index=1}
-| chunk of the "conversation" | SIM to the enrolment: track 1 · track 2 (ECAPA) | the same, WavLM-SV | the track picked |
-|:------|:------|:------|:---|
-| 1 ($0$–$4$ s) | $-0.04$ · $0.52$ | $0.73$ · $0.94$ | 2 |
-| 3 ($8$–$12$ s) | $0.57$ · $0.30$ | $0.95$ · $0.89$ | 1 |
-| 7 ($24$–$28$ s) | $-0.07$ · $0.31$ | $0.63$ · $0.90$ | 2 |
-| 8 ($28$–$32$ s) | $0.48$ · $0.11$ | $0.89$ · $0.59$ | 1 |
-| 5 ($16$–$20$ s): the user is silent | $0.11$ · $0.04$ | $0.64$ · $0.64$ | 1 / 2 |
+| chunk of the "conversation" | SIM to the enrolment: track 1 · track 2 (ECAPA) | the same, WavLM-SV | the track picked | the user is really in |
+|:------|:------|:-----|:---|:---|
+| 1 ($0$–$4$ s) | $-0.04$ · $0.52$ | $0.73$ · $0.94$ | 2 | track 2 |
+| 3 ($8$–$12$ s) | $0.57$ · $0.30$ | $0.95$ · $0.89$ | 1 | track 1 |
+| 7 ($24$–$28$ s) | $-0.07$ · $0.31$ | $0.63$ · $0.90$ | 2 | track 2 |
+| 8 ($28$–$32$ s) | $0.48$ · $0.11$ | $0.89$ · $0.59$ | 1 | track 1 |
+| 5 ($16$–$20$ s): the user is silent | $0.11$ · $0.04$ | $0.64$ · $0.64$ | 1 / 2 | neither |
 :::
 
 ::: {.footer}
@@ -1270,10 +1270,11 @@ DER: diarization error rate · toy: w10-data.json → der · last column: DIHARD
 |:------|:---|:---|:---|
 | DER | | | |
 | of which: false alarm · missed · wrong speaker | | | |
+| DER of a home-made clustering, one speaker per frame | $0.7\%$ | $8.1\%$ | $15.4\%$ |
 :::
 
 ::: {.footer}
-Demo 3 · demos/w10_d3_whose_track → w10-metrics.json → demo3 · pyannote: Bredin et al. 2020
+Demo 3 · last row measured 2026-11-23 → w10-metrics.json → demo3 · pyannote: Bredin et al. 2020
 :::
 
 ## MC 12 — "DER can be compared across papers"
