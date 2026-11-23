@@ -248,7 +248,7 @@ MC: misconception · the loudest "speech" in the mic is the echo: stop 2 · W1 p
 :::
 
 ::: {.footer}
-Demo 1 · demos/w10_d1_* — not built yet (2026-11-22) · no neural network is trained this week
+Demo 1 · demos/w10_d1_echo_nlms · no neural network is trained this week
 :::
 
 ## Demo 1 — step one: $y - x$
@@ -262,11 +262,11 @@ Demo 1 · demos/w10_d1_* — not built yet (2026-11-22) · no neural network is 
 |:----------|:--------|:--------|
 | nothing — the raw microphone | | $0$ dB, by definition |
 | $x(n)$, as played | | |
-| $x(n)$, delayed to line up with the echo | | |
+| $g\,x(n - D)$: delayed to line up with the echo, scaled to fit | | |
 :::
 
 ::: {.footer}
-Demo 1 · not built yet (2026-11-22): the table is filled at rehearsal → w10-metrics.json → demo1
+Demo 1 · demos/w10_d1_echo_nlms · the table is filled at rehearsal → w10-metrics.json → demo1
 :::
 
 ## MC 2 — "AEC subtracts the played signal from the microphone"
@@ -509,7 +509,7 @@ W5 p45 · W6 p31 · W7 p66 · W8 p53 · W9 p43–p44 · today's other shapes: p4
 :::
 
 ::: {.footer}
-Demo 1 · not built yet (2026-11-22) → w10-metrics.json → demo1 · the method: p24–p25, p28
+Demo 1 · measured at rehearsal → w10-metrics.json → demo1 · the method: p24–p25, p28
 :::
 
 ## Demo 1 — what the next model hears: VAD and Whisper
@@ -532,7 +532,7 @@ p16's question, on real audio: a barge-in trigger placed **before** the echo can
 :::
 
 ::: {.footer}
-Demo 1 · not built yet (2026-11-22) · Silero VAD: open-source software (p15) · Whisper small: W7
+Demo 1 · demos/w10_d1_echo_nlms · Silero VAD: open-source software (p15) · Whisper small: W7
 :::
 
 ## The full-duplex model's side: headphones, or two answers
