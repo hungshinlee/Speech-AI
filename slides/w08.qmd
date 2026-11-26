@@ -789,7 +789,7 @@ Four shapes so far: W5 half the model goes · W6 both halves stay, apart · W7 o
 :::
 
 ::: {.footer}
-the fourth shape: W5 p45 · W6 p31 · W7 p66 · W8: the data and the line disappear
+the fourth shape: W5 p46 · W6 p31 · W7 p66 · W8: the data and the line disappear
 :::
 
 ## Diffusion is the same family: a bent path, a score for a velocity
@@ -1307,7 +1307,7 @@ Every representation of W2–W6 has now been a TTS **output**. The clock: W2 the
 :::
 
 ::: {.footer}
-W2 p73 · W5 p67 · W6 p55 · W7 p80 · W6 p48: $R_{\text{tok}}$
+W2 p73 · W5 p70 · W6 p55 · W7 p80 · W6 p48: $R_{\text{tok}}$
 :::
 
 ## Supervision: three data scales, and the three axes
@@ -1326,7 +1326,7 @@ W2 p73 · W5 p67 · W6 p55 · W7 p80 · W6 p48: $R_{\text{tok}}$
 | supervision | paired (text, speech) is the only supervision — at three scales; the fourth answer is W9's |
 
 ::: {.footer}
-outline 〈定位〉 three axes · W5 p68 · W6 p57 · W7 p82
+outline 〈定位〉 three axes · W5 p71 · W6 p57 · W7 p82
 :::
 
 ## Local languages: orthography, MMS-TTS's input, tone in the token

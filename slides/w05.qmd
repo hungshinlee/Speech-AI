@@ -109,7 +109,7 @@ the four answers: next slide · the pipeline with its numbers: p11
 ```
 
 ::: {.footer}
-1: p12–p29 · 2: p30–p37 · 3: p38 · 4: p39 · all four in one row: p40–p41
+1: p12–p30 · 2: p31–p38 · 3: p39 · 4: p40 · all four in one row: p41–p42
 :::
 
 ## Today's route: six stops, in two halves
@@ -121,7 +121,7 @@ the four answers: next slide · the pipeline with its numbers: p11
 :::
 
 ::: {.footer}
-six stops = the six section pages · half-time: p43 · answered: p70
+six stops = the six section pages · half-time: p44 · answered: p73
 :::
 
 ## Notation for today
@@ -176,7 +176,7 @@ CNN = convolutional neural network · wav2vec 2.0 §2, §3.3 · same front end: 
 | **The question** | With no transcript, what can a model be asked to predict about speech? |
 | **The idea** | Fold the past into $\mathbf{c}_t$ with a causal GRU (gated recurrent unit), then pick the true future latent $\mathbf{z}_{t+k}$ out of a set of distractors — a classification, not a reconstruction. |
 | **What it added** | No labels, and no model of the waveform itself: the best classifier learns a density ratio, and its loss bounds the mutual information $I(\mathbf{z};\mathbf{c})$ from below. |
-| **What it leaves open** | The context sees only the past, and only a narrow band of $k$ is useful; wav2vec 2.0 fills a hole instead (p19). |
+| **What it leaves open** | The context sees only the past, and only a narrow band of $k$ is useful; wav2vec 2.0 fills a hole instead (p20). |
 :::
 
 ::: {.footer}
@@ -223,12 +223,20 @@ CPC App. A.1, eq. 6–11 · a proof without the $\approx$ and $\geq$: Poole et a
 | | |
 |:---|:-----------------|
 | **Why** | The last slide gave two inequalities: $I(\mathbf{z};\mathbf{c}) \geq \ln N - \mathcal{L}_N$ for any critic, and a ceiling at $\ln N$ because $\mathcal{L}_N \geq 0$. To see how a trained critic actually behaves under them, use data whose mutual information is known. |
-| **What runs** | Pure numpy, a terminal and one plot window. Two 8-dimensional Gaussian vectors with correlation 0.7 in every dimension, so the mutual information has a closed form: 2.69 nat. A critic is trained with InfoNCE at each $N = 2, 4, \dots, 1024$, and $\ln N - \mathcal{L}_N$ is averaged over 200 held-out batches. |
+| **What runs** | Pure numpy, a terminal and one plot window. Two 8-dimensional Gaussian vectors with correlation 0.7 in every dimension, so the mutual information has a closed form: 2.69 nat. A critic is trained with InfoNCE at each $N = 2, 4, \dots, 1024$; the next slide draws what one $N$ involves. |
 | **Watch for** | The estimate against two lines, the truth and $\ln N$, as $N$ goes from 2 to 1024 — and what each doubling of $N$ buys. |
 :::
 
 ::: {.footer}
 Demo 3 · code: `demos/w05_d3_infonce_bound` · numpy only, CPU
+:::
+
+## Demo 3: how it runs
+
+{{< include assets/w05/demo3-flow.inline.qmd >}}
+
+::: {.footer}
+Demo 3 · code: `demos/w05_d3_infonce_bound` · the table is drawn for $N = 4$
 :::
 
 ## Demo 3 — the ceiling at $\ln N$
@@ -296,7 +304,7 @@ vq-wav2vec, ICLR 2020 · BERT = Bidirectional Encoder Representations from Trans
 :::
 
 ::: {.footer}
-wav2vec, Interspeech 2019 · vq-wav2vec, ICLR 2020 · the ten-minute numbers: p60
+wav2vec, Interspeech 2019 · vq-wav2vec, ICLR 2020 · the ten-minute numbers: p63
 :::
 
 ## wav2vec 2.0: two paths that meet only at the masked steps
@@ -304,7 +312,7 @@ wav2vec, Interspeech 2019 · vq-wav2vec, ICLR 2020 · the ten-minute numbers: p6
 {{< include assets/w05/w2v2-arch.inline.qmd >}}
 
 ::: {.claim .fragment fragment-index=3}
-**The quantiser sees the latent before it is masked; the Transformer sees the hole.** They meet only at the masked steps — the loss on p28 writes exactly this.
+**The quantiser sees the latent before it is masked; the Transformer sees the hole.** They meet only at the masked steps — the loss on p29 writes exactly this.
 :::
 
 ::: {.footer}
@@ -348,7 +356,7 @@ $$\text{(b) follow the slope:}\quad \nabla_{l_g}\,\mathbb{E}_{n_g}\big[\mathcal{
 :::
 
 ::: {.claim .fragment fragment-index=3}
-**Fix the luck, and the choice is a function of $l_g$**: backprop can follow the loss's slope instead of grading each draw. A discrete choice is still a staircase — $\tau$ (p23) gives it a slope.
+**Fix the luck, and the choice is a function of $l_g$**: backprop can follow the loss's slope instead of grading each draw. A discrete choice is still a staircase — $\tau$ (p24) gives it a slope.
 :::
 
 ::: {.footer}
@@ -412,7 +420,7 @@ Collapse is a property of **online targets**, not of "non-contrastive". A fixed 
 :::
 
 ::: {.footer}
-(a), (b): the two collapses on p26 · the four targets in one row: p40–p41
+(a), (b): the two collapses on p27 · the four targets in one row: p41–p42
 :::
 
 ## The whole loss, and where the negatives come from
@@ -421,7 +429,7 @@ $$\mathcal{L} = \mathcal{L}_m + \alpha\,\mathcal{L}_d, \qquad \mathcal{L}_m = -\
 
 | piece | wav2vec 2.0 BASE | why |
 |:--|:--|:--|
-| target | $\mathbf{q}_t = \mathrm{VQ}(\mathbf{z}_t)$ at masked $t$; $G = 2$, $V = 320$ | discrete, finite freedom (p19) |
+| target | $\mathbf{q}_t = \mathrm{VQ}(\mathbf{z}_t)$ at masked $t$; $G = 2$, $V = 320$ | discrete, finite freedom (p20) |
 | negatives $\mathcal{Z}_t \setminus \{\mathbf{q}_t\}$ | $N - 1 = 100$, **other masked steps of the same utterance** | same speaker, same channel: only content separates them |
 | temperatures | $\kappa = 0.1$ (contrast); $\tau\colon 2 \to 0.5$ (Gumbel) | two knobs, two jobs |
 | masking | spans of 10 steps, start prob. 0.065; $\approx 49\%$ of steps masked | long enough that interpolation fails |
@@ -474,7 +482,7 @@ LS-960 = LibriSpeech 960 h · LV-60k = Libri-light 60k h · wav2vec 2.0 App. B �
 | **The question** | What if the answer for each masked frame is written down before training starts, and never moves? |
 | **The idea** | Cluster frames with k-means; predict the cluster id of every masked frame (a $K$-way classification); then cluster a middle layer of the trained model and train again. |
 | **What it added** | No negatives and no collapse by construction; a target that improves by iteration; and a consistent teacher matters more than an accurate one. |
-| **What it leaves open** | How good must the first teacher be — and what does a "hidden unit" actually hold? The next two slides, and the units section from p51. |
+| **What it leaves open** | How good must the first teacher be — and what does a "hidden unit" actually hold? The next two slides, and the units section from p53. |
 :::
 
 ::: {.footer}
@@ -607,7 +615,7 @@ Chen et al., IEEE JSTSP 2022: §IV-B, Fig. 1 · 20% of utterances mixed (§V-A),
 | what it buys | content | content, plus a representation that already separates speakers and ignores noise |
 
 ::: {.claim}
-Three things changed at once — the task, the position bias **and** the data. When WavLM wins a benchmark, you cannot tell which one paid. Keep that for p62.
+Three things changed at once — the task, the position bias **and** the data. When WavLM wins a benchmark, you cannot tell which one paid. Keep that for p65.
 :::
 
 ::: {.footer}
@@ -715,7 +723,7 @@ Who builds the target and whether it moves decide three things at once: **can it
 :::
 
 ::: {.footer}
-the fixed two: p40 · the two collapses: p26–p27
+the fixed two: p41 · the two collapses: p27–p28
 :::
 
 ## MC 4 — "self-supervised means no labels"
@@ -743,7 +751,7 @@ wav2vec 2.0 Table 1 (10 min → 960 h) · "pseudo-labels" is our word; HuBERT sa
 :::
 
 ::: {.footer}
-the route: p7 · first half: p10–p42 · second half: p44–p65 · answered: p70
+the route: p7 · first half: p10–p43 · second half: p45–p68 · answered: p73
 :::
 
 # What the target does to the layers {.section-title}
@@ -766,12 +774,20 @@ wav2vec 2.0 §3.3, §5.4 · HuBERT §II-E · $l = 0$ is the CNN output; BASE has
 | | |
 |:---|:-----------------|
 | **Why** | An SSL encoder gives thirteen representations, not one: the CNN output and twelve blocks. Which layer holds the speaker, which holds the phones, and which still resembles the input decides which layer a downstream task should read. |
-| **What runs** | HuBERT-base, then wav2vec 2.0 base, pre-trained and not fine-tuned, on 400 dev-clean utterances from 40 speakers. For every layer, three numbers: a linear speaker probe, a linear phone probe (labels from the Montreal Forced Aligner, MFA), and PWCCA — projection-weighted canonical correlation analysis — with layer 0. Probes and PWCCA are plain numpy; the curves appear point by point. |
+| **What runs** | HuBERT-base, then wav2vec 2.0 base, pre-trained and not fine-tuned, on 400 dev-clean utterances from 40 speakers. For every layer, three numbers: a linear speaker probe, a linear phone probe (labels from the Montreal Forced Aligner, MFA), and PWCCA — projection-weighted canonical correlation analysis — with layer 0. The next slide draws the run. |
 | **Watch for** | If the last layer were the best for everything, all three curves would climb to the top. Watch where each one peaks, and whether any of them peaks at the top. |
 :::
 
 ::: {.footer}
 Demo 1 · code: `demos/w05_d1_layer_probe` · torch 2.14.0, transformers 5.17.0
+:::
+
+## Demo 1: how it runs
+
+{{< include assets/w05/demo1-flow.inline.qmd >}}
+
+::: {.footer}
+Demo 1 · code: `demos/w05_d1_layer_probe` · the highlighted layer is only an example
 :::
 
 ## Demo 1 — three curves across thirteen layers
@@ -853,12 +869,20 @@ Yang et al., Interspeech 2021 · Pasad et al. 2023: best single layer beats the 
 | | |
 |:---|:-----------------|
 | **Why** | HuBERT's targets are k-means clusters, often called "phone-like units". Two questions: how well does each teacher's clustering line up with phones, and what do the units of one real sentence look like under its phone segments? |
-| **What runs** | k-means with $K = 100$ (numpy) on the frames of Demo 1's subset, three times: on MFCC (HuBERT's first teacher), on HuBERT-base layer 6, on layer 9. Each is scored against the MFA phone labels with the paper's three measures. Then W3's sentence: words, phone segments, and its units, one 20 ms cell per frame. |
+| **What runs** | k-means with $K = 100$ on the frames of Demo 1's subset, three times: on MFCC (HuBERT's first teacher), on HuBERT-base layer 6, on layer 9; each is scored against the MFA phone labels. Then W3's sentence, with its units under its phones. The next slide draws both parts. |
 | **Watch for** | If units were phones, each phone segment would be one unit and unit edges would sit on phone edges. Watch how the three PNMIs order, how many units one phone takes, and whether *mister* said by four speakers gets the same units. |
 :::
 
 ::: {.footer}
 Demo 2 · code: `demos/w05_d2_units_vs_phones` · shares Demo 1's subset, alignments and caches
+:::
+
+## Demo 2: how it runs
+
+{{< include assets/w05/demo2-flow.inline.qmd >}}
+
+::: {.footer}
+Demo 2 · code: `demos/w05_d2_units_vs_phones` · phone segments drawn equal on purpose
 :::
 
 ## Demo 2 — three teachers, three purities, one sentence
@@ -1139,16 +1163,16 @@ p5: what is the answer for the masked frame, and who wrote it down? What does th
 ::: {.prose}
 | | |
 |:----|:-----------------|
-| **1 · Contrast** | The estimate never exceeds $\ln N$ — and hard negatives matter more than many. (p15, p18) |
-| **2 · Its own answer** | A recipe full of guards against cheating, and hundreds of GPU-days to cook it once. (p28–p29) |
-| **3 · A teacher** | Consistent, not correct: a bad teacher who answers the same way twice can be learned past. (p35, p40–p41) |
-| **4 · The layers** | A layer looks like what it is asked to predict, so the top turns back toward the target. Which layer to read is measured. (p48–p49) |
-| **5 · The units** | Finer than phones, context-bound, redundant — and without $F_0$: in a tonal language, part of the word went with it. (p55–p57) |
-| **6 · Not decided** | The data, the domain, the protocol and the clock. Match those before crediting the target. (p59–p64) |
+| **1 · Contrast** | The estimate never exceeds $\ln N$ — and hard negatives matter more than many. (p15, p19) |
+| **2 · Its own answer** | A recipe full of guards against cheating, and hundreds of GPU-days to cook it once. (p29–p30) |
+| **3 · A teacher** | Consistent, not correct: a bad teacher who answers the same way twice can be learned past. (p36, p41–p42) |
+| **4 · The layers** | A layer looks like what it is asked to predict, so the top turns back toward the target. Which layer to read is measured. (p50–p51) |
+| **5 · The units** | Finer than phones, context-bound, redundant — and without $F_0$: in a tonal language, part of the word went with it. (p58–p60) |
+| **6 · Not decided** | The data, the domain, the protocol and the clock. Match those before crediting the target. (p62–p67) |
 :::
 
 ::: {.footer}
-the route: p7 · half-time: p43 · the week in one sentence: p69
+the route: p7 · half-time: p44 · the week in one sentence: p72
 :::
 
 ## Reading, and next week
@@ -1157,7 +1181,7 @@ the route: p7 · half-time: p43 · the week in one sentence: p69
 
 - Mohamed et al., *Self-Supervised Speech Representation Learning: A Review*, IEEE JSTSP 2022 — the survey; read the taxonomy section, then re-sort it by target as we did today
 - Hsu et al., *HuBERT*, IEEE/ACM TASLP 2021 — §II for the loss, §IV-E for the three purities, Table V for the $\alpha$ ablation you saw
-- Baevski et al., *wav2vec 2.0*, NeurIPS 2020 — §2–3 and Appendix B; look at Table 1 with p60 in mind
+- Baevski et al., *wav2vec 2.0*, NeurIPS 2020 — §2–3 and Appendix B; look at Table 1 with p63 in mind
 
 **If one thing today was new to you, make it this one**
 
@@ -1172,17 +1196,17 @@ Today's unit was *predicted*; next week's token is *reconstructed*. What changes
 | | |
 |:----|:----------------|
 | ASR | automatic speech recognition (W1) |
-| BERT | Bidirectional Encoder Representations from Transformers (p19) |
-| BEST-RQ | BERT-based Speech pre-Training with Random-projection Quantizer (p39) |
-| BYOL | Bootstrap Your Own Latent (p26) |
-| CCA, PWCCA | canonical correlation analysis; projection-weighted CCA (p46) |
+| BERT | Bidirectional Encoder Representations from Transformers (p20) |
+| BEST-RQ | BERT-based Speech pre-Training with Random-projection Quantizer (p40) |
+| BYOL | Bootstrap Your Own Latent (p27) |
+| CCA, PWCCA | canonical correlation analysis; projection-weighted CCA (p47) |
 | CNN | convolutional neural network (p11) |
 | CPC | Contrastive Predictive Coding (p12) |
 | CTC | connectionist temporal classification (W3) |
-| EMA | exponential moving average (p26) |
+| EMA | exponential moving average (p27) |
 | GRU | gated recurrent unit (p12) |
-| GSLM | generative spoken language modeling (p56) |
-| HuBERT | Hidden-Unit BERT (p31) |
+| GSLM | generative spoken language modeling (p59) |
+| HuBERT | Hidden-Unit BERT (p32) |
 | InfoNCE | CPC's loss, "based on NCE": noise-contrastive estimation (p12) |
 
 ## Acronyms in this deck, K–W
@@ -1191,14 +1215,14 @@ Today's unit was *predicted*; next week's token is *reconstructed*. What changes
 |:----|:----------------|
 | KV | key–value: the cache a Transformer keeps (W4) |
 | LM | language model |
-| LS-960, LV-60k | LibriSpeech, 960 h; Libri-light, 60k h (p29) |
+| LS-960, LV-60k | LibriSpeech, 960 h; Libri-light, 60k h (p30) |
 | MC | misconception: a belief that sounds right, and what breaks it |
-| MFA | Montreal Forced Aligner (p46) |
+| MFA | Montreal Forced Aligner (p47) |
 | MFCC | mel-frequency cepstral coefficients (W2) |
-| ML-SUPERB | multilingual SUPERB (p59) |
+| ML-SUPERB | multilingual SUPERB (p62) |
 | MPS | Metal Performance Shaders: Apple's GPU backend (W3) |
-| PNMI | phone-normalized mutual information (p34) |
+| PNMI | phone-normalized mutual information (p35) |
 | SSL | self-supervised learning |
-| SUPERB | Speech processing Universal PERformance Benchmark (p50) |
-| VQ, VQ-VAE | vector quantisation (p21); vector-quantised variational autoencoder (p23) |
-| WER | word error rate (p35) |
+| SUPERB | Speech processing Universal PERformance Benchmark (p52) |
+| VQ, VQ-VAE | vector quantisation (p22); vector-quantised variational autoencoder (p24) |
+| WER | word error rate (p36) |
