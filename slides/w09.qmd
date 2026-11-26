@@ -467,7 +467,7 @@ Sample the same condition $N$ times and there are $N$ different results to compa
 :::
 
 ::: {.footer}
-W8 p31: the stop symbol, length instability · W7 p72: GRPO with WER as the reward
+W8 p31: the stop symbol, length instability · W7 p75: GRPO with WER as the reward
 :::
 
 ## At a glance: Direct Preference Optimization (DPO)
@@ -650,7 +650,7 @@ p36–p37 · Shin et al., ICASSP 2026, §4.5: 200 human pairs per round
 | **The question** | The judge gives **a number** to any sample — not a pair. To learn from it we must know whether a sample did better than *usual*. Must a second network be trained just to estimate "usual"? |
 | **The idea** | Draw a **group** of $N_{\text{grp}}$ samples for the same condition. The group's own mean is "usual"; divide by the group's standard deviation. Put that into PPO's clipped objective, plus a KL term to $\pi_{\text{ref}}$. |
 | **What it added** | No value network; rewards on different scales (WER, SIM, a predicted MOS) become comparable after normalisation. |
-| **What it leaves open** | $N_{\text{grp}}$ generations per condition; a group whose samples all tie carries no signal (p41); and everything the judge cannot see (§4). W7 p72 used it with WER on the ASR side. |
+| **What it leaves open** | $N_{\text{grp}}$ generations per condition; a group whose samples all tie carries no signal (p41); and everything the judge cannot see (§4). W7 p75 used it with WER on the ASR side. |
 :::
 
 ::: {.footer}
@@ -724,7 +724,7 @@ The judge is present **only in training** — its blind spots stay in the weight
 :::
 
 ::: {.footer}
-the fifth shape: W5 p46 · W6 p32 · W7 p66 · W8 p53 · W9: training has a judge, use does not
+the fifth shape: W5 p46 · W6 p32 · W7 p69 · W8 p53 · W9: training has a judge, use does not
 :::
 
 ## DPO's picture, and the fifth shape
@@ -742,7 +742,7 @@ Use is W8's graph in both cases: **the inference cost does not change.**
 :::
 
 ::: {.footer}
-Seed-TTS, arXiv:2406.02430, §4.2 · p37: who made the pairs · W5 p46, W6 p32, W7 p66, W8 p53
+Seed-TTS, arXiv:2406.02430, §4.2 · p37: who made the pairs · W5 p46, W6 p32, W7 p69, W8 p53
 :::
 
 ## MC 6 — "RL makes inference slower" / "RL is an inference-time trick"
@@ -1511,7 +1511,7 @@ p83 · p88 · AudioSeal §6 · AudioMarkBench: removal at every access level; fo
 :::
 
 ::: {.footer}
-outline 〈定位〉 three axes · W5 p72 · W6 p60 · W7 p82 · W8 p86
+outline 〈定位〉 three axes · W5 p72 · W6 p60 · W7 p85 · W8 p86
 :::
 
 ## Local languages: four things this week

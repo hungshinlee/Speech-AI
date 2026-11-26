@@ -50,6 +50,6 @@
 <rect x="20.0" y="252.0" width="960.0" height="94.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
 <text x="36.0" y="272.0" font-size="19" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="middle">5  in training: teach the empty answer</text>
 <text x="36.0" y="302.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">noise clips paired with empty transcripts (1% of the data) · distillation ·</text>
-<text x="36.0" y="328.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">RL that calibrates when to stop (p72)</text>
+<text x="36.0" y="328.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">RL that calibrates when to stop (p75)</text>
 </g>
 </svg>

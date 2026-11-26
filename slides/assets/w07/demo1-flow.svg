@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 410" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
+<rect x="20.0" y="14.0" width="190.0" height="68.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="115.0" y="35.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">10 s of silence</text>
+<text x="115.0" y="68.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">key 1</text>
+<rect x="222.0" y="14.0" width="220.0" height="68.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="332.0" y="35.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">10 s of white noise</text>
+<text x="332.0" y="68.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">three levels · key 2</text>
+<rect x="454.0" y="14.0" width="300.0" height="68.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="604.0" y="35.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">W3's sentence + 30 s silence</text>
+<text x="604.0" y="68.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">window 2 is all silence · key 3</text>
+<rect x="766.0" y="14.0" width="214.0" height="68.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="873.0" y="35.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">a non-speech clip</text>
+<text x="873.0" y="68.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">my recording · key 4</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<text x="20.0" y="120.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="auto">the same files, three ways — only one of the two models has a decoder:</text>
+<rect x="20.0" y="136.0" width="300.0" height="68.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="170.0" y="157.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Whisper small</text>
+<text x="35.6" y="190.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto" textLength="128.7" lengthAdjust="spacing">decoder reads</text>
+<svg x="169.43" y="173.516" width="38.076" height="22.0661" viewBox="0 0 38.076 22.066125"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w7t102-figure_1">
+  <g id="w7t102-patch_1">
+   <path d="M 0 22.066125 
+L 38.076 22.066125 
+L 38.076 0 
+L 0 0 
+L 0 22.066125 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w7t102-text_1">
+   <!-- $\ell_{&lt;u}$ -->
+   <g style="fill: #6b7280" transform="translate(0 17.324437) scale(0.228 -0.228)">
+    <defs>
+     <path id="w7t102-Cmmi10-60" d="M 153 475 
+Q 125 475 94 509 
+Q 63 544 63 575 
+Q 63 628 594 1113 
+Q 594 1141 592 1159 
+Q 591 1178 588 1197 
+Q 588 1472 631 1758 
+Q 675 2044 751 2328 
+Q 828 2613 943 2922 
+Q 1059 3231 1178 3463 
+Q 1384 3884 1628 4198 
+Q 1872 4513 2169 4513 
+Q 2372 4513 2459 4373 
+Q 2547 4234 2547 4025 
+Q 2547 2853 991 1269 
+Q 966 994 966 878 
+Q 966 78 1331 78 
+Q 1488 78 1642 161 
+Q 1797 244 1908 341 
+Q 2019 438 2216 628 
+Q 2228 641 2253 641 
+Q 2288 641 2319 603 
+Q 2350 566 2350 531 
+Q 2350 509 2322 488 
+Q 2038 209 1809 56 
+Q 1581 -97 1319 -97 
+Q 981 -97 817 193 
+Q 653 484 609 884 
+Q 438 713 191 488 
+Q 184 475 153 475 
+z
+M 1044 1575 
+Q 1384 1938 1681 2338 
+Q 1978 2738 2176 3180 
+Q 2375 3622 2375 4044 
+Q 2375 4347 2163 4347 
+Q 1934 4347 1696 3801 
+Q 1459 3256 1290 2622 
+Q 1122 1988 1044 1575 
+z
+" transform="scale(0.015625)"/>
+     <path id="w7t102-Cmmi10-3c" d="M 594 1491 
+Q 531 1519 531 1600 
+Q 531 1681 616 1722 
+L 4269 3444 
+Q 4294 3456 4313 3456 
+Q 4369 3456 4405 3417 
+Q 4441 3378 4441 3328 
+Q 4441 3250 4366 3206 
+L 959 1600 
+L 4384 -19 
+Q 4441 -38 4441 -128 
+Q 4441 -178 4405 -217 
+Q 4369 -256 4313 -256 
+Q 4294 -256 4269 -244 
+L 594 1491 
+z
+" transform="scale(0.015625)"/>
+     <path id="w7t102-Cmmi10-75" d="M 678 697 
+Q 678 906 734 1126 
+Q 791 1347 892 1617 
+Q 994 1888 1069 2088 
+Q 1153 2322 1153 2472 
+Q 1153 2663 1013 2663 
+Q 759 2663 595 2402 
+Q 431 2141 353 1819 
+Q 341 1778 300 1778 
+L 225 1778 
+Q 172 1778 172 1838 
+L 172 1856 
+Q 275 2238 487 2533 
+Q 700 2828 1025 2828 
+Q 1253 2828 1411 2678 
+Q 1569 2528 1569 2297 
+Q 1569 2178 1516 2047 
+Q 1488 1969 1388 1706 
+Q 1288 1444 1234 1272 
+Q 1181 1100 1147 934 
+Q 1113 769 1113 603 
+Q 1113 391 1203 244 
+Q 1294 97 1497 97 
+Q 1906 97 2216 603 
+Q 2222 628 2226 651 
+Q 2231 675 2234 697 
+L 2694 2553 
+Q 2716 2638 2794 2698 
+Q 2872 2759 2963 2759 
+Q 3041 2759 3098 2709 
+Q 3156 2659 3156 2578 
+Q 3156 2541 3150 2528 
+L 2688 684 
+Q 2644 494 2644 372 
+Q 2644 97 2828 97 
+Q 3034 97 3136 351 
+Q 3238 606 3309 941 
+Q 3322 978 3359 978 
+L 3438 978 
+Q 3463 978 3478 956 
+Q 3494 934 3494 916 
+Q 3425 641 3361 444 
+Q 3297 247 3159 87 
+Q 3022 -72 2816 -72 
+Q 2613 -72 2452 39 
+Q 2291 150 2234 341 
+Q 2088 153 1894 40 
+Q 1700 -72 1484 -72 
+Q 1116 -72 897 129 
+Q 678 331 678 697 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w7t102-Cmmi10-60" transform="translate(0 0.484375)"/>
+    <use xlink:href="#w7t102-Cmmi10-3c" transform="translate(53.892578 -16.521875) scale(0.7)"/>
+    <use xlink:href="#w7t102-Cmmi10-75" transform="translate(120.563477 -16.521875) scale(0.7)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<text x="212.6" y="190.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto" textLength="91.8" lengthAdjust="spacing">· keys 1–4</text>
+<rect x="350.0" y="136.0" width="300.0" height="68.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="500.0" y="157.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">wav2vec2, CTC, greedy</text>
+<text x="500.0" y="190.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">every frame on its own · key w</text>
+<rect x="680.0" y="136.0" width="300.0" height="68.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="830.0" y="157.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Whisper, encoder zeroed</text>
+<text x="830.0" y="190.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">the decoder, alone · key z</text>
+<text x="20.0" y="234.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">key f: Whisper's fallback, on  ·  key c: no text carried over from window 1</text>
+</g>
+<g class="fragment" data-fragment-index="2">
+<text x="20.0" y="276.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="auto">on the screen, for every file — one column per way:</text>
+<rect x="20.0" y="292.0" width="300.0" height="32.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="32.0" y="314.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">what it writes</text>
+<text x="300.0" y="309.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+<rect x="20.0" y="328.0" width="300.0" height="32.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="32.0" y="350.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">each token's log-probability</text>
+<text x="300.0" y="345.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+<rect x="20.0" y="364.0" width="300.0" height="32.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="32.0" y="386.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">no_speech_prob</text>
+<text x="300.0" y="381.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+<rect x="350.0" y="292.0" width="300.0" height="32.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="362.0" y="314.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">what it writes</text>
+<text x="630.0" y="309.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+<rect x="350.0" y="328.0" width="300.0" height="32.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="362.0" y="350.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">frames that are blank</text>
+<text x="630.0" y="345.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+<rect x="680.0" y="292.0" width="300.0" height="32.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="692.0" y="314.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">five beams</text>
+<text x="960.0" y="309.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+<rect x="680.0" y="328.0" width="300.0" height="32.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="692.0" y="350.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">five samples</text>
+<text x="960.0" y="345.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+</g>
+</svg>

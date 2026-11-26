@@ -1,0 +1,772 @@
+<!-- 由 scripts/make_figs_w07.py 產生，勿手改；投影片用 {{< include assets/w07/demo3-flow.inline.qmd >}} 貼入 -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 392" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
+<rect x="20.0" y="14.0" width="196.0" height="68.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="118.0" y="35.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">30 sentences</text>
+<text x="118.0" y="68.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">one per speaker</text>
+<rect x="246.0" y="14.0" width="236.0" height="68.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="364.0" y="35.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">wav2vec2, CTC</text>
+<text x="364.0" y="68.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">log-probs per frame</text>
+<rect x="512.0" y="14.0" width="226.0" height="68.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="625.0" y="35.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">prefix beam search</text>
+<text x="625.0" y="68.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">32 beams kept</text>
+<rect x="768.0" y="14.0" width="212.0" height="68.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="874.0" y="35.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">a 3-gram word LM</text>
+<text x="874.0" y="68.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">scores each word</text>
+<line x1="219.0" y1="48.0" x2="234.0" y2="48.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="242.0,48.0 234.0,53.0 234.0,43.0" fill="#94a3b8"/>
+<line x1="485.0" y1="48.0" x2="500.0" y2="48.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="508.0,48.0 500.0,53.0 500.0,43.0" fill="#94a3b8"/>
+<line x1="765.0" y1="48.0" x2="750.0" y2="48.0" stroke="#b45309" stroke-width="1.6"/>
+<polygon points="742.0,48.0 750.0,43.0 750.0,53.0" fill="#b45309"/>
+</g>
+<g class="fragment" data-fragment-index="1">
+<text x="20.0" y="122.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="auto" textLength="341.3" lengthAdjust="spacing">keys 1, 2 — every beam is ranked by</text>
+<svg x="366.393" y="104.9" width="320.112" height="22.8" viewBox="0 0 320.112 22.8"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w7t103-figure_1">
+  <g id="w7t103-patch_1">
+   <path d="M 0 22.8 
+L 320.112 22.8 
+L 320.112 0 
+L 0 0 
+L 0 22.8 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w7t103-text_1">
+   <!-- $\ln P_{\mathsf{ASR}}(\ell \mid \mathbf{X}) + \lambda\,\ln P_{\mathsf{LM}}(\ell) + \eta\,|\ell|$ -->
+   <g style="fill: #1f2328" transform="translate(0 17.1) scale(0.228 -0.228)">
+    <defs>
+     <path id="w7t103-Cmr10-6c" d="M 197 0 
+L 197 225 
+Q 416 225 556 259 
+Q 697 294 697 428 
+L 697 3788 
+Q 697 3959 645 4036 
+Q 594 4113 497 4130 
+Q 400 4147 197 4147 
+L 197 4372 
+L 1147 4441 
+L 1147 428 
+Q 1147 294 1287 259 
+Q 1428 225 1644 225 
+L 1644 0 
+L 197 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w7t103-Cmr10-6e" d="M 191 0 
+L 191 225 
+Q 409 225 550 259 
+Q 691 294 691 428 
+L 691 2175 
+Q 691 2347 639 2423 
+Q 588 2500 491 2517 
+Q 394 2534 191 2534 
+L 191 2759 
+L 1119 2828 
+L 1119 2203 
+Q 1247 2478 1498 2653 
+Q 1750 2828 2047 2828 
+Q 2491 2828 2714 2615 
+Q 2938 2403 2938 1966 
+L 2938 428 
+Q 2938 294 3078 259 
+Q 3219 225 3438 225 
+L 3438 0 
+L 1972 0 
+L 1972 225 
+Q 2191 225 2331 259 
+Q 2472 294 2472 428 
+L 2472 1947 
+Q 2472 2259 2381 2461 
+Q 2291 2663 2009 2663 
+Q 1638 2663 1398 2366 
+Q 1159 2069 1159 1691 
+L 1159 428 
+Q 1159 294 1300 259 
+Q 1441 225 1656 225 
+L 1656 0 
+L 191 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w7t103-Cmmi10-50" d="M 313 0 
+Q 250 0 250 84 
+Q 253 100 262 139 
+Q 272 178 289 201 
+Q 306 225 331 225 
+Q 722 225 878 269 
+Q 959 297 997 441 
+L 1875 3956 
+Q 1888 4019 1888 4044 
+Q 1888 4113 1813 4122 
+Q 1691 4147 1350 4147 
+Q 1288 4147 1288 4231 
+Q 1291 4247 1300 4286 
+Q 1309 4325 1326 4348 
+Q 1344 4372 1369 4372 
+L 3578 4372 
+Q 3881 4372 4165 4264 
+Q 4450 4156 4631 3934 
+Q 4813 3713 4813 3397 
+Q 4813 2991 4527 2672 
+Q 4241 2353 3814 2175 
+Q 3388 1997 2988 1997 
+L 1947 1997 
+L 1556 416 
+Q 1544 353 1544 325 
+Q 1544 300 1551 283 
+Q 1559 266 1573 261 
+Q 1588 256 1619 250 
+Q 1741 225 2081 225 
+Q 2144 225 2144 141 
+Q 2122 50 2109 25 
+Q 2097 0 2034 0 
+L 313 0 
+z
+M 1978 2188 
+L 2875 2188 
+Q 3497 2188 3822 2522 
+Q 3988 2688 4092 3000 
+Q 4197 3313 4197 3566 
+Q 4197 3881 3956 4014 
+Q 3716 4147 3359 4147 
+L 2747 4147 
+Q 2572 4147 2515 4117 
+Q 2459 4088 2413 3928 
+L 1978 2188 
+z
+" transform="scale(0.015625)"/>
+     <path id="w7t103-Cmss10-41" d="M 178 0 
+L 1838 4441 
+L 2425 4441 
+L 4084 0 
+L 3469 0 
+Q 3216 684 2994 1275 
+L 1153 1275 
+Q 869 497 678 0 
+L 178 0 
+z
+M 1294 1656 
+L 2853 1656 
+Q 2566 2450 2420 2867 
+Q 2275 3284 2178 3589 
+Q 2081 3894 2081 3975 
+L 2075 3975 
+Q 2075 3913 2011 3700 
+Q 1947 3488 1847 3197 
+Q 1747 2906 1542 2339 
+Q 1338 1772 1294 1656 
+z
+" transform="scale(0.015625)"/>
+     <path id="w7t103-Cmss10-53" d="M 281 300 
+L 378 856 
+Q 981 325 1778 325 
+Q 2006 325 2209 431 
+Q 2413 538 2538 727 
+Q 2663 916 2663 1153 
+Q 2663 1341 2577 1506 
+Q 2491 1672 2344 1786 
+Q 2197 1900 2009 1947 
+L 1394 2100 
+Q 953 2213 656 2548 
+Q 359 2884 359 3316 
+Q 359 3594 476 3825 
+Q 594 4056 800 4228 
+Q 1006 4400 1259 4490 
+Q 1513 4581 1778 4581 
+Q 2134 4581 2404 4511 
+Q 2675 4441 2975 4269 
+L 2881 3713 
+Q 2628 3938 2370 4036 
+Q 2113 4134 1778 4134 
+Q 1563 4134 1356 4042 
+Q 1150 3950 1020 3781 
+Q 891 3613 891 3391 
+Q 891 3219 978 3072 
+Q 1066 2925 1208 2825 
+Q 1350 2725 1522 2681 
+L 2131 2528 
+Q 2434 2453 2675 2262 
+Q 2916 2072 3055 1798 
+Q 3194 1525 3194 1216 
+Q 3194 838 2998 528 
+Q 2803 219 2473 39 
+Q 2144 -141 1778 -141 
+Q 966 -141 281 300 
+z
+" transform="scale(0.015625)"/>
+     <path id="w7t103-Cmss10-52" d="M 603 0 
+L 603 4441 
+L 2150 4441 
+Q 2422 4441 2705 4364 
+Q 2988 4288 3230 4138 
+Q 3472 3988 3620 3761 
+Q 3769 3534 3769 3244 
+Q 3769 2963 3617 2725 
+Q 3466 2488 3216 2323 
+Q 2966 2159 2694 2088 
+L 3950 0 
+L 3353 0 
+L 2169 2016 
+L 1178 2016 
+L 1178 0 
+L 603 0 
+z
+M 1178 2431 
+L 2081 2431 
+Q 2519 2431 2872 2632 
+Q 3225 2834 3225 3244 
+Q 3225 3525 3050 3709 
+Q 2875 3894 2615 3975 
+Q 2356 4056 2081 4056 
+L 1178 4056 
+L 1178 2431 
+z
+" transform="scale(0.015625)"/>
+     <path id="w7t103-Cmr10-28" d="M 1984 -1588 
+Q 1628 -1306 1370 -942 
+Q 1113 -578 948 -165 
+Q 784 247 703 697 
+Q 622 1147 622 1600 
+Q 622 2059 703 2509 
+Q 784 2959 951 3375 
+Q 1119 3791 1378 4153 
+Q 1638 4516 1984 4788 
+Q 1984 4800 2016 4800 
+L 2075 4800 
+Q 2094 4800 2109 4783 
+Q 2125 4766 2125 4744 
+Q 2125 4716 2113 4703 
+Q 1800 4397 1592 4047 
+Q 1384 3697 1257 3301 
+Q 1131 2906 1075 2482 
+Q 1019 2059 1019 1600 
+Q 1019 -434 2106 -1491 
+Q 2125 -1509 2125 -1544 
+Q 2125 -1559 2108 -1579 
+Q 2091 -1600 2075 -1600 
+L 2016 -1600 
+Q 1984 -1600 1984 -1588 
+z
+" transform="scale(0.015625)"/>
+     <path id="w7t103-Cmmi10-60" d="M 153 475 
+Q 125 475 94 509 
+Q 63 544 63 575 
+Q 63 628 594 1113 
+Q 594 1141 592 1159 
+Q 591 1178 588 1197 
+Q 588 1472 631 1758 
+Q 675 2044 751 2328 
+Q 828 2613 943 2922 
+Q 1059 3231 1178 3463 
+Q 1384 3884 1628 4198 
+Q 1872 4513 2169 4513 
+Q 2372 4513 2459 4373 
+Q 2547 4234 2547 4025 
+Q 2547 2853 991 1269 
+Q 966 994 966 878 
+Q 966 78 1331 78 
+Q 1488 78 1642 161 
+Q 1797 244 1908 341 
+Q 2019 438 2216 628 
+Q 2228 641 2253 641 
+Q 2288 641 2319 603 
+Q 2350 566 2350 531 
+Q 2350 509 2322 488 
+Q 2038 209 1809 56 
+Q 1581 -97 1319 -97 
+Q 981 -97 817 193 
+Q 653 484 609 884 
+Q 438 713 191 488 
+Q 184 475 153 475 
+z
+M 1044 1575 
+Q 1384 1938 1681 2338 
+Q 1978 2738 2176 3180 
+Q 2375 3622 2375 4044 
+Q 2375 4347 2163 4347 
+Q 1934 4347 1696 3801 
+Q 1459 3256 1290 2622 
+Q 1122 1988 1044 1575 
+z
+" transform="scale(0.015625)"/>
+     <path id="w7t103-Cmsy10-6a" d="M 763 -1484 
+L 763 4684 
+Q 763 4734 800 4767 
+Q 838 4800 891 4800 
+Q 938 4800 978 4767 
+Q 1019 4734 1019 4684 
+L 1019 -1484 
+Q 1019 -1534 978 -1567 
+Q 938 -1600 891 -1600 
+Q 838 -1600 800 -1567 
+Q 763 -1534 763 -1484 
+z
+" transform="scale(0.015625)"/>
+     <path id="w7t103-Cmb10-58" d="M 184 0 
+L 184 325 
+Q 856 325 909 384 
+L 2009 2106 
+L 825 4063 
+L 269 4063 
+L 269 4391 
+L 2291 4391 
+L 2291 4063 
+L 1838 4063 
+L 2528 2919 
+L 3225 4013 
+Q 3225 4028 3158 4036 
+Q 3091 4044 3053 4044 
+Q 2872 4063 2688 4063 
+L 2688 4391 
+L 4384 4391 
+L 4384 4063 
+Q 4159 4063 3925 4053 
+Q 3691 4044 3653 4006 
+L 2741 2572 
+L 4091 325 
+L 4653 325 
+L 4653 0 
+L 2625 0 
+L 2625 325 
+L 3084 325 
+L 2222 1759 
+L 1344 378 
+Q 1344 369 1411 358 
+Q 1478 347 1509 347 
+Q 1681 325 1881 325 
+L 1881 0 
+L 184 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w7t103-Cmr10-29" d="M 416 -1600 
+Q 359 -1600 359 -1544 
+Q 359 -1516 372 -1503 
+Q 1466 -434 1466 1600 
+Q 1466 3634 384 4691 
+Q 359 4706 359 4744 
+Q 359 4766 376 4783 
+Q 394 4800 416 4800 
+L 475 4800 
+Q 494 4800 506 4788 
+Q 966 4425 1272 3906 
+Q 1578 3388 1720 2800 
+Q 1863 2213 1863 1600 
+Q 1863 1147 1786 708 
+Q 1709 269 1542 -157 
+Q 1375 -584 1119 -945 
+Q 863 -1306 506 -1588 
+Q 494 -1600 475 -1600 
+L 416 -1600 
+z
+" transform="scale(0.015625)"/>
+     <path id="w7t103-Cmr10-2b" d="M 481 1472 
+Q 428 1472 393 1512 
+Q 359 1553 359 1600 
+Q 359 1647 393 1687 
+Q 428 1728 481 1728 
+L 2363 1728 
+L 2363 3616 
+Q 2363 3666 2400 3698 
+Q 2438 3731 2491 3731 
+Q 2538 3731 2578 3698 
+Q 2619 3666 2619 3616 
+L 2619 1728 
+L 4500 1728 
+Q 4547 1728 4581 1687 
+Q 4616 1647 4616 1600 
+Q 4616 1553 4581 1512 
+Q 4547 1472 4500 1472 
+L 2619 1472 
+L 2619 -416 
+Q 2619 -466 2578 -498 
+Q 2538 -531 2491 -531 
+Q 2438 -531 2400 -498 
+Q 2363 -466 2363 -416 
+L 2363 1472 
+L 481 1472 
+z
+" transform="scale(0.015625)"/>
+     <path id="w7t103-Cmmi10-b8" d="M 325 109 
+Q 325 203 409 288 
+L 2209 2053 
+L 1575 3834 
+Q 1500 4038 1417 4156 
+Q 1334 4275 1178 4275 
+Q 1106 4275 1106 4359 
+Q 1113 4397 1138 4419 
+Q 1163 4441 1203 4441 
+Q 1875 4441 2016 4044 
+L 3316 416 
+Q 3400 144 3488 50 
+Q 3519 3 3519 -13 
+Q 3519 -72 3469 -72 
+L 3122 -72 
+Q 2963 -25 2869 206 
+L 2284 1844 
+L 738 25 
+Q 622 -84 531 -84 
+Q 450 -84 387 -28 
+Q 325 28 325 109 
+z
+" transform="scale(0.015625)"/>
+     <path id="w7t103-Cmss10-4c" d="M 588 0 
+L 588 4441 
+L 1184 4441 
+L 1184 434 
+L 3194 447 
+L 3194 0 
+L 588 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w7t103-Cmss10-4d" d="M 628 0 
+L 628 4441 
+L 1388 4441 
+Q 2791 791 2791 609 
+Q 2797 703 3003 1273 
+Q 3209 1844 3500 2611 
+Q 3791 3378 4197 4441 
+L 4966 4441 
+L 4966 0 
+L 4441 0 
+L 4441 3975 
+Q 4438 3853 4036 2778 
+Q 3634 1703 3034 141 
+L 2547 141 
+Q 2028 1469 1592 2650 
+Q 1156 3831 1153 3975 
+L 1153 0 
+L 628 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w7t103-Cmmi10-b4" d="M 684 -72 
+Q 606 -72 550 -22 
+Q 494 28 494 109 
+Q 494 147 500 166 
+L 978 2075 
+Q 1025 2253 1025 2388 
+Q 1025 2663 838 2663 
+Q 638 2663 541 2423 
+Q 444 2184 353 1819 
+Q 353 1800 334 1789 
+Q 316 1778 300 1778 
+L 225 1778 
+Q 203 1778 187 1801 
+Q 172 1825 172 1844 
+Q 241 2122 305 2315 
+Q 369 2509 505 2668 
+Q 641 2828 844 2828 
+Q 1081 2828 1267 2678 
+Q 1453 2528 1453 2291 
+Q 1641 2541 1894 2684 
+Q 2147 2828 2444 2828 
+Q 2778 2828 2979 2648 
+Q 3181 2469 3181 2138 
+Q 3181 1947 3138 1784 
+L 2394 -1178 
+Q 2375 -1269 2300 -1325 
+Q 2225 -1381 2131 -1381 
+Q 2053 -1381 1997 -1332 
+Q 1941 -1284 1941 -1203 
+Q 1941 -1166 1947 -1153 
+L 2681 1797 
+Q 2747 2059 2747 2234 
+Q 2747 2413 2672 2538 
+Q 2597 2663 2431 2663 
+Q 1803 2663 1388 1888 
+L 953 141 
+Q 931 53 854 -9 
+Q 778 -72 684 -72 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w7t103-Cmr10-6c"/>
+    <use xlink:href="#w7t103-Cmr10-6e" transform="translate(27.685547 0)"/>
+    <use xlink:href="#w7t103-Cmmi10-50" transform="translate(97.835579 0)"/>
+    <use xlink:href="#w7t103-Cmss10-41" transform="translate(162.044563 -17.00625) scale(0.7)"/>
+    <use xlink:href="#w7t103-Cmss10-53" transform="translate(208.665657 -17.00625) scale(0.7)"/>
+    <use xlink:href="#w7t103-Cmss10-52" transform="translate(247.527962 -17.00625) scale(0.7)"/>
+    <use xlink:href="#w7t103-Cmr10-28" transform="translate(299.056673 0)"/>
+    <use xlink:href="#w7t103-Cmmi10-60" transform="translate(337.875032 0)"/>
+    <use xlink:href="#w7t103-Cmsy10-6a" transform="translate(397.035188 0)"/>
+    <use xlink:href="#w7t103-Cmb10-58" transform="translate(442.279329 0)"/>
+    <use xlink:href="#w7t103-Cmr10-29" transform="translate(517.76761 0)"/>
+    <use xlink:href="#w7t103-Cmr10-2b" transform="translate(574.144563 0)"/>
+    <use xlink:href="#w7t103-Cmmi10-b8" transform="translate(669.388704 0)"/>
+    <use xlink:href="#w7t103-Cmr10-6c" transform="translate(742.321939 0)"/>
+    <use xlink:href="#w7t103-Cmr10-6e" transform="translate(770.007486 0)"/>
+    <use xlink:href="#w7t103-Cmmi10-50" transform="translate(840.157519 0)"/>
+    <use xlink:href="#w7t103-Cmss10-4c" transform="translate(904.366503 -17.00625) scale(0.7)"/>
+    <use xlink:href="#w7t103-Cmss10-4d" transform="translate(942.237597 -17.00625) scale(0.7)"/>
+    <use xlink:href="#w7t103-Cmr10-28" transform="translate(1009.86494 0)"/>
+    <use xlink:href="#w7t103-Cmmi10-60" transform="translate(1048.6833 0)"/>
+    <use xlink:href="#w7t103-Cmr10-29" transform="translate(1090.284862 0)"/>
+    <use xlink:href="#w7t103-Cmr10-2b" transform="translate(1146.661815 0)"/>
+    <use xlink:href="#w7t103-Cmmi10-b4" transform="translate(1241.905956 0)"/>
+    <use xlink:href="#w7t103-Cmsy10-6a" transform="translate(1306.147785 0)"/>
+    <use xlink:href="#w7t103-Cmmi10-60" transform="translate(1333.833332 0)"/>
+    <use xlink:href="#w7t103-Cmsy10-6a" transform="translate(1375.434895 0)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<text x="20.0" y="148.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto" textLength="397.5" lengthAdjust="spacing">the 30 sentences are decoded again at each</text>
+<svg x="422.593" y="130.676" width="13.452" height="22.0661" viewBox="0 0 13.452 22.066125"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w7t104-figure_1">
+  <g id="w7t104-patch_1">
+   <path d="M 0 22.066125 
+L 13.452 22.066125 
+L 13.452 0 
+L 0 0 
+L 0 22.066125 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w7t104-text_1">
+   <!-- $\lambda$ -->
+   <g style="fill: #6b7280" transform="translate(0 17.324437) scale(0.228 -0.228)">
+    <defs>
+     <path id="w7t104-Cmmi10-b8" d="M 325 109 
+Q 325 203 409 288 
+L 2209 2053 
+L 1575 3834 
+Q 1500 4038 1417 4156 
+Q 1334 4275 1178 4275 
+Q 1106 4275 1106 4359 
+Q 1113 4397 1138 4419 
+Q 1163 4441 1203 4441 
+Q 1875 4441 2016 4044 
+L 3316 416 
+Q 3400 144 3488 50 
+Q 3519 3 3519 -13 
+Q 3519 -72 3469 -72 
+L 3122 -72 
+Q 2963 -25 2869 206 
+L 2284 1844 
+L 738 25 
+Q 622 -84 531 -84 
+Q 450 -84 387 -28 
+Q 325 28 325 109 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w7t104-Cmmi10-b8" transform="translate(0 0.609375)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<text x="436.0" y="148.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto" textLength="134.4" lengthAdjust="spacing">; the beam and</text>
+<svg x="575.529" y="130.95" width="11.4" height="22.0661" viewBox="0 0 11.4 22.066125"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w7t105-figure_1">
+  <g id="w7t105-patch_1">
+   <path d="M 0 22.066125 
+L 11.4 22.066125 
+L 11.4 0 
+L 0 0 
+L 0 22.066125 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w7t105-text_1">
+   <!-- $\eta$ -->
+   <g style="fill: #6b7280" transform="translate(0 17.050125) scale(0.228 -0.228)">
+    <defs>
+     <path id="w7t105-Cmmi10-b4" d="M 684 -72 
+Q 606 -72 550 -22 
+Q 494 28 494 109 
+Q 494 147 500 166 
+L 978 2075 
+Q 1025 2253 1025 2388 
+Q 1025 2663 838 2663 
+Q 638 2663 541 2423 
+Q 444 2184 353 1819 
+Q 353 1800 334 1789 
+Q 316 1778 300 1778 
+L 225 1778 
+Q 203 1778 187 1801 
+Q 172 1825 172 1844 
+Q 241 2122 305 2315 
+Q 369 2509 505 2668 
+Q 641 2828 844 2828 
+Q 1081 2828 1267 2678 
+Q 1453 2528 1453 2291 
+Q 1641 2541 1894 2684 
+Q 2147 2828 2444 2828 
+Q 2778 2828 2979 2648 
+Q 3181 2469 3181 2138 
+Q 3181 1947 3138 1784 
+L 2394 -1178 
+Q 2375 -1269 2300 -1325 
+Q 2225 -1381 2131 -1381 
+Q 2053 -1381 1997 -1332 
+Q 1941 -1284 1941 -1203 
+Q 1941 -1166 1947 -1153 
+L 2681 1797 
+Q 2747 2059 2747 2234 
+Q 2747 2413 2672 2538 
+Q 2597 2663 2431 2663 
+Q 1803 2663 1388 1888 
+L 953 141 
+Q 931 53 854 -9 
+Q 778 -72 684 -72 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w7t105-Cmmi10-b4" transform="translate(0 0.8125)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<text x="592.1" y="148.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto" textLength="90.7" lengthAdjust="spacing">stay fixed:</text>
+<rect x="20.0" y="162.0" width="54.0" height="32.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="47.0" y="179.0" font-size="19" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="middle">0</text>
+<rect x="78.0" y="162.0" width="54.0" height="32.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="105.0" y="179.0" font-size="19" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="middle">0.1</text>
+<rect x="136.0" y="162.0" width="54.0" height="32.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="163.0" y="179.0" font-size="19" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="middle">0.2</text>
+<rect x="194.0" y="162.0" width="54.0" height="32.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="221.0" y="179.0" font-size="19" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="middle">0.3</text>
+<rect x="252.0" y="162.0" width="54.0" height="32.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="279.0" y="179.0" font-size="19" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="middle">0.5</text>
+<rect x="310.0" y="162.0" width="54.0" height="32.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="337.0" y="179.0" font-size="19" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="middle">0.7</text>
+<rect x="368.0" y="162.0" width="54.0" height="32.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="395.0" y="179.0" font-size="19" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="middle">1</text>
+<rect x="426.0" y="162.0" width="54.0" height="32.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="453.0" y="179.0" font-size="19" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="middle">1.5</text>
+<rect x="484.0" y="162.0" width="54.0" height="32.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="511.0" y="179.0" font-size="19" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="middle">2</text>
+<rect x="542.0" y="162.0" width="54.0" height="32.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="569.0" y="179.0" font-size="19" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="middle">3</text>
+<rect x="600.0" y="162.0" width="54.0" height="32.0" rx="3" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="627.0" y="179.0" font-size="19" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="middle">4</text>
+<text x="668.0" y="184.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto" textLength="182.2" lengthAdjust="spacing">← one WER for each</text>
+<svg x="855.357" y="167.516" width="13.452" height="22.0661" viewBox="0 0 13.452 22.066125"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w7t106-figure_1">
+  <g id="w7t106-patch_1">
+   <path d="M 0 22.066125 
+L 13.452 22.066125 
+L 13.452 0 
+L 0 0 
+L 0 22.066125 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w7t106-text_1">
+   <!-- $\lambda$ -->
+   <g style="fill: #6b7280" transform="translate(0 17.324437) scale(0.228 -0.228)">
+    <defs>
+     <path id="w7t106-Cmmi10-b8" d="M 325 109 
+Q 325 203 409 288 
+L 2209 2053 
+L 1575 3834 
+Q 1500 4038 1417 4156 
+Q 1334 4275 1178 4275 
+Q 1106 4275 1106 4359 
+Q 1113 4397 1138 4419 
+Q 1163 4441 1203 4441 
+Q 1875 4441 2016 4044 
+L 3316 416 
+Q 3400 144 3488 50 
+Q 3519 3 3519 -13 
+Q 3519 -72 3469 -72 
+L 3122 -72 
+Q 2963 -25 2869 206 
+L 2284 1844 
+L 738 25 
+Q 622 -84 531 -84 
+Q 450 -84 387 -28 
+Q 325 28 325 109 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w7t106-Cmmi10-b8" transform="translate(0 0.609375)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<rect x="20.0" y="208.0" width="300.0" height="40.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="32.0" y="234.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto" textLength="117.5" lengthAdjust="spacing">WER against</text>
+<svg x="154.647" y="217.516" width="13.452" height="22.0661" viewBox="0 0 13.452 22.066125"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w7t107-figure_1">
+  <g id="w7t107-patch_1">
+   <path d="M 0 22.066125 
+L 13.452 22.066125 
+L 13.452 0 
+L 0 0 
+L 0 22.066125 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w7t107-text_1">
+   <!-- $\lambda$ -->
+   <g style="fill: #1f2328" transform="translate(0 17.324437) scale(0.228 -0.228)">
+    <defs>
+     <path id="w7t107-Cmmi10-b8" d="M 325 109 
+Q 325 203 409 288 
+L 2209 2053 
+L 1575 3834 
+Q 1500 4038 1417 4156 
+Q 1334 4275 1178 4275 
+Q 1106 4275 1106 4359 
+Q 1113 4397 1138 4419 
+Q 1163 4441 1203 4441 
+Q 1875 4441 2016 4044 
+L 3316 416 
+Q 3400 144 3488 50 
+Q 3519 3 3519 -13 
+Q 3519 -72 3469 -72 
+L 3122 -72 
+Q 2963 -25 2869 206 
+L 2284 1844 
+L 738 25 
+Q 622 -84 531 -84 
+Q 450 -84 387 -28 
+Q 325 28 325 109 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w7t107-Cmmi10-b8" transform="translate(0 0.609375)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<text x="168.1" y="234.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto" textLength="99.7" lengthAdjust="spacing">: the shape</text>
+<text x="300.0" y="229.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+<rect x="350.0" y="208.0" width="300.0" height="40.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="362.0" y="234.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">where greedy sits on it</text>
+<text x="630.0" y="229.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+<rect x="680.0" y="208.0" width="300.0" height="40.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="692.0" y="234.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">key 3: which words change</text>
+<text x="960.0" y="229.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+</g>
+<g class="fragment" data-fragment-index="2">
+<text x="20.0" y="290.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="auto">key m — one Mandarin sentence, three models; each wrong character: same sound, or not?</text>
+<rect x="20.0" y="306.0" width="200.0" height="68.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="120.0" y="327.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">MMS-1B</text>
+<text x="120.0" y="360.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">CTC, no LM</text>
+<rect x="235.0" y="306.0" width="200.0" height="68.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="335.0" y="327.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Whisper small</text>
+<text x="335.0" y="360.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">AED</text>
+<rect x="450.0" y="306.0" width="200.0" height="68.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="550.0" y="327.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Qwen3-ASR</text>
+<text x="550.0" y="360.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">LLM-based</text>
+<line x1="653.0" y1="340.0" x2="668.0" y2="340.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="676.0,340.0 668.0,345.0 668.0,335.0" fill="#94a3b8"/>
+<rect x="680.0" y="306.0" width="300.0" height="68.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="692.0" y="346.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">whose errors: homophones</text>
+<text x="960.0" y="341.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+</g>
+</svg>
+```

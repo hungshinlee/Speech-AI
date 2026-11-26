@@ -15,7 +15,7 @@
 <text x="450.0" y="83.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">emission delay ≈ 220 ms</text>
 <rect x="600.0" y="64.0" width="110.0" height="38.0" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
 <text x="655.0" y="83.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">endpoint</text>
-<text x="20.0" y="124.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">W4 Demo 2 (p52): median emission delay 220 ms, the same for every chunk size fed</text>
+<text x="20.0" y="124.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">W4 Demo 2 (W4 p58): median emission delay 220 ms, the same for every chunk size fed</text>
 </g>
 <g class="fragment" data-fragment-index="2">
 <text x="20.0" y="152.0" font-size="19" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="middle">non-streaming AED</text>
@@ -23,7 +23,7 @@
 <text x="160.0" y="185.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">nothing written yet</text>
 <rect x="300.0" y="166.0" width="620.0" height="38.0" rx="4" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
 <text x="610.0" y="185.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">whole utterance decodes now: 70 ms p50 (6 s, Mandarin)</text>
-<text x="20.0" y="226.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">W1 Demo 2 (p47): whisper.cpp small, Metal, this laptop — short: the model is small</text>
+<text x="20.0" y="226.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">W1 Demo 2 (W1 p50): whisper.cpp small, Metal, this laptop — short: the model is small</text>
 </g>
 <g class="fragment" data-fragment-index="3">
 <text x="20.0" y="254.0" font-size="19" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="middle">LLM-based ASR</text>
