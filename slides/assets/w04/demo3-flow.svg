@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 428" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
+<rect x="20.0" y="14.0" width="270.0" height="68.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="155.0" y="35.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">W3's sentence</text>
+<text x="155.0" y="68.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">padded to 30 s, as always</text>
+<rect x="330.0" y="14.0" width="310.0" height="68.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="485.0" y="35.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">whisper-small, on the CPU</text>
+<text x="485.0" y="68.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">transcribes it · key 1</text>
+<rect x="680.0" y="14.0" width="300.0" height="68.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="830.0" y="35.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">144 maps of attention</text>
+<text x="830.0" y="68.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">12 layers × 12 heads</text>
+<line x1="293.0" y1="48.0" x2="318.0" y2="48.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="326.0,48.0 318.0,53.0 318.0,43.0" fill="#94a3b8"/>
+<line x1="643.0" y1="48.0" x2="668.0" y2="48.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="676.0,48.0 668.0,53.0 668.0,43.0" fill="#94a3b8"/>
+</g>
+<g class="fragment" data-fragment-index="1">
+<text x="20.0" y="122.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="auto">one map: a row per text token, a column per 20 ms frame — keys 2 3 0:</text>
+<rect x="20.0" y="136.0" width="560.0" height="96.0" rx="3" fill="#f3f4f6" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="6 4"/>
+<rect x="20.0" y="136.0" width="109.0" height="96.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.4"/>
+<text x="74.5" y="172.0" font-size="19" font-weight="600" fill="#0b5cad" text-anchor="middle" dominant-baseline="middle">the</text>
+<text x="74.5" y="196.0" font-size="19" font-weight="600" fill="#0b5cad" text-anchor="middle" dominant-baseline="middle">audio</text>
+<text x="354.5" y="172.0" font-size="19" font-weight="600" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">padding, up to 30 s</text>
+<text x="354.5" y="196.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">not drawn — each map prints its share</text>
+<text x="20.0" y="258.0" font-size="19" font-weight="400" fill="#0b5cad" text-anchor="start" dominant-baseline="auto">the screen draws only the blue part</text>
+<text x="600.0" y="152.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">a fixed rule sorts each map:</text>
+<rect x="600.0" y="164.0" width="88.0" height="30.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="644.0" y="179.0" font-size="19" font-weight="600" fill="#15803d" text-anchor="middle" dominant-baseline="middle">band</text>
+<rect x="696.0" y="164.0" width="88.0" height="30.0" rx="6" fill="#f3f4f6" stroke="#6b7280" stroke-width="1.2"/>
+<text x="740.0" y="179.0" font-size="19" font-weight="600" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">flat</text>
+<rect x="792.0" y="164.0" width="88.0" height="30.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="836.0" y="179.0" font-size="19" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="middle">stare</text>
+<rect x="888.0" y="164.0" width="88.0" height="30.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="932.0" y="179.0" font-size="19" font-weight="600" fill="#7c3aed" text-anchor="middle" dominant-baseline="middle">other</text>
+<rect x="600.0" y="204.0" width="185.0" height="40.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="612.0" y="230.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">bands, of 144</text>
+<text x="765.0" y="225.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+<rect x="795.0" y="204.0" width="185.0" height="40.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="807.0" y="230.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">on padding</text>
+<text x="960.0" y="225.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+</g>
+<g class="fragment" data-fragment-index="2">
+<text x="20.0" y="314.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="auto">then the ten heads OpenAI's code uses for word timestamps:</text>
+<rect x="20.0" y="330.0" width="290.0" height="68.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="165.0" y="351.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">frame the ten</text>
+<text x="165.0" y="384.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">on the 144 · key 4</text>
+<rect x="355.0" y="330.0" width="290.0" height="68.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="500.0" y="351.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">average them, then DTW</text>
+<text x="500.0" y="384.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">one monotonic path · key 5</text>
+<rect x="690.0" y="330.0" width="290.0" height="68.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="835.0" y="351.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">word times</text>
+<text x="835.0" y="384.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">over W3's alignment · key a</text>
+<line x1="313.0" y1="364.0" x2="343.0" y2="364.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="351.0,364.0 343.0,369.0 343.0,359.0" fill="#94a3b8"/>
+<line x1="648.0" y1="364.0" x2="678.0" y2="364.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="686.0,364.0 678.0,369.0 678.0,359.0" fill="#94a3b8"/>
+</g>
+</svg>

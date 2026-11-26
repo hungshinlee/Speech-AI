@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 430" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
+<rect x="20.0" y="14.0" width="250.0" height="68.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="145.0" y="35.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">W3's sentence</text>
+<text x="145.0" y="68.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">fed at real-time pace</text>
+<rect x="305.0" y="14.0" width="310.0" height="68.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="460.0" y="35.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">in pieces of one size</text>
+<text x="460.0" y="68.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">1280, 640, 320 ms · keys 1 2 3</text>
+<rect x="650.0" y="14.0" width="330.0" height="68.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="815.0" y="35.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">one streaming transducer</text>
+<text x="815.0" y="68.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">its own chunk stays 320 ms</text>
+<line x1="273.0" y1="48.0" x2="293.0" y2="48.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="301.0,48.0 293.0,53.0 293.0,43.0" fill="#94a3b8"/>
+<line x1="618.0" y1="48.0" x2="638.0" y2="48.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="646.0,48.0 638.0,53.0 638.0,43.0" fill="#94a3b8"/>
+</g>
+<g class="fragment" data-fragment-index="1">
+<text x="20.0" y="124.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="auto">every piece of a word gets three clocks, read against the end of the word's audio:</text>
+<line x1="20.0" y1="196.0" x2="980.0" y2="196.0" stroke="#94a3b8" stroke-width="1.4"/>
+<rect x="60.0" y="179.0" width="300.0" height="34.0" rx="3" fill="#e5e7eb" stroke="#6b7280" stroke-width="1.2"/>
+<text x="210.0" y="197.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">the word's audio, from W3</text>
+<path d="M470 186 l-10 18 l20 0 z" fill="#0b5cad"/>
+<circle cx="730.0" cy="196.0" r="9.0" fill="#b45309" stroke="#b45309" stroke-width="1"/>
+<line x1="841.0" y1="187.0" x2="859.0" y2="205.0" stroke="#dc2626" stroke-width="3"/>
+<line x1="841.0" y1="205.0" x2="859.0" y2="187.0" stroke="#dc2626" stroke-width="3"/>
+<text x="470.0" y="170.0" font-size="19" font-weight="600" fill="#0b5cad" text-anchor="middle" dominant-baseline="auto">the frame that emits it</text>
+<text x="730.0" y="170.0" font-size="19" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="auto">audio fed so far</text>
+<text x="864.0" y="170.0" font-size="19" font-weight="600" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">wall clock</text>
+<line x1="363.0" y1="230.0" x2="467.0" y2="230.0" stroke="#0b5cad" stroke-width="1.6"/>
+<line x1="363.0" y1="224.0" x2="363.0" y2="236.0" stroke="#0b5cad" stroke-width="1.6"/>
+<line x1="467.0" y1="224.0" x2="467.0" y2="236.0" stroke="#0b5cad" stroke-width="1.6"/>
+<text x="415.0" y="256.0" font-size="19" font-weight="400" fill="#0b5cad" text-anchor="middle" dominant-baseline="auto">emission delay</text>
+<line x1="473.0" y1="230.0" x2="727.0" y2="230.0" stroke="#b45309" stroke-width="1.6"/>
+<line x1="473.0" y1="224.0" x2="473.0" y2="236.0" stroke="#b45309" stroke-width="1.6"/>
+<line x1="727.0" y1="224.0" x2="727.0" y2="236.0" stroke="#b45309" stroke-width="1.6"/>
+<text x="600.0" y="256.0" font-size="19" font-weight="400" fill="#b45309" text-anchor="middle" dominant-baseline="auto">chunk wait + pad</text>
+<line x1="733.0" y1="230.0" x2="847.0" y2="230.0" stroke="#dc2626" stroke-width="1.6"/>
+<line x1="733.0" y1="224.0" x2="733.0" y2="236.0" stroke="#dc2626" stroke-width="1.6"/>
+<line x1="847.0" y1="224.0" x2="847.0" y2="236.0" stroke="#dc2626" stroke-width="1.6"/>
+<text x="790.0" y="256.0" font-size="19" font-weight="400" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">compute</text>
+</g>
+<g class="fragment" data-fragment-index="2">
+<text x="20.0" y="316.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="auto">in the window: one row of marks per run; key a puts the three runs side by side</text>
+<rect x="20.0" y="332.0" width="300.0" height="68.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="170.0" y="353.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">the triangles</text>
+<text x="170.0" y="386.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">the same in all three rows</text>
+<rect x="350.0" y="332.0" width="300.0" height="68.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="500.0" y="353.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">dots and crosses</text>
+<text x="500.0" y="386.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">move with the piece size</text>
+<rect x="680.0" y="332.0" width="300.0" height="68.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="692.0" y="372.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">the word that waits longest</text>
+<text x="960.0" y="367.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+</g>
+</svg>

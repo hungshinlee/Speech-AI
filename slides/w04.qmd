@@ -94,7 +94,7 @@ three protagonists, one question · the route: next slide
 :::
 
 ::: {.footer}
-five stops = the five section pages · half-time: p29 · answered: p74
+five stops = the five section pages · half-time: p29 · answered: p77
 :::
 
 ## Notation for today
@@ -397,7 +397,7 @@ Master: W1 p38 · 1120 ms is the p22 example, not a measurement · Demo 2 measur
 :::
 
 ::: {.footer}
-the route: p6 · first half: p9–p28 · second half: p30–p69 · answered: p74
+the route: p6 · first half: p9–p28 · second half: p30–p72 · answered: p77
 :::
 
 # RNN-T: how does the output get a memory without losing the lattice? {.section-title}
@@ -539,12 +539,20 @@ $\ell = \text{ab}$, $T = 3$ · start at $(1, 0)$, reach $(T, U)$, then one last 
 | | |
 |:---|:-----------------|
 | **Why** | The CTC lattice had one way to move; this one has two, and emitting does not cost a frame. Count the paths by hand to feel the difference, then check the RNN-T forward recursion against brute force, as in W3. |
-| **What runs** | A terminal program in the style of W3's Demo 2 (standard library, fixed seed), used three times: next slide, the paths for "ab" and "aa", on paper first; at MC 5, greedy decoding on a *synthetic* joint with and without a cap of 5 symbols per frame; after the forward recursion, one random $\mathbf{y}^{t,u}$ through enumeration and through the table. |
+| **What runs** | A terminal program in the style of W3's Demo 2 (standard library, fixed seed), used three times: paths on paper first; greedy decoding on a *synthetic* joint, with and without a cap; one random $\mathbf{y}^{t,u}$ through enumeration and through the table. The next slide draws the three parts. |
 | **Expect** | Enumeration and forward agree to the last digit; if they do not, the recursion is wrong. Watch the CTC count beside the RNN-T one: can RNN-T have a path where CTC has none? And what does the decoder do once the cap is gone? |
 :::
 
 ::: {.footer}
 Demo 1 · code: `demos/w04_d1_rnnt_lattice` · standard library, terminal only
+:::
+
+## Demo 1: how it works
+
+{{< include assets/w04/demo1-flow.inline.qmd >}}
+
+::: {.footer}
+Demo 1 · code: `demos/w04_d1_rnnt_lattice` · three parts, drawn in the order they appear
 :::
 
 ## Paths: write them out before the program does
@@ -784,12 +792,20 @@ $D_{\text{alg}}$ is what the architecture *guarantees you cannot beat.* What you
 | | |
 |:---|:-----------------|
 | **Why** | MC 6 drew the measured delay as three stacked parts: the model's emission delay, the architecture's $m + \alpha C$, and compute. This demo produces those parts live, word by word, and checks the middle one against the formula. |
-| **What runs** | `sherpa-onnx`'s streaming zipformer transducer on the CPU, fed W3's sentence at real-time pace in 1280, 640 and 320 ms pieces; the model's own chunk stays 320 ms. Every word gets three clocks against the end of its acoustic evidence (W3's forced alignment): the frame that emitted it, the audio fed when it appeared, and the wall clock. |
+| **What runs** | `sherpa-onnx`'s streaming zipformer transducer on the CPU, fed W3's sentence at real-time pace in 1280, 640 and 320 ms pieces; the model's own chunk stays 320 ms. Every word gets three clocks, read against the end of its acoustic evidence (W3's forced alignment) — the next slide draws them. |
 | **Expect** | The emitting frame does not move when the feed changes — that part belongs to the model; only the middle part follows the feed. Watch which word waits longest, and whether it is the last word of the sentence. |
 :::
 
 ::: {.footer}
 Demo 2 · code: `demos/w04_d2_stream_chunks` · sherpa-onnx 1.13.8, CPU · rehearsed 2026-10-06
+:::
+
+## Demo 2: how it runs
+
+{{< include assets/w04/demo2-flow.inline.qmd >}}
+
+::: {.footer}
+Demo 2 · code: `demos/w04_d2_stream_chunks` · the spacing of the three marks is schematic
 :::
 
 ## Demo 2 — three chunk sizes: when does each word appear?
@@ -852,12 +868,20 @@ Chan et al. (Listen, Attend and Spell, LAS) · Chorowski et al. 2015 · Whisper 
 | | |
 |:---|:-----------------|
 | **Why** | The encoder–decoder has no alignment variable; its cross-attention weights look like one and are often read as one. Whisper, on a sentence it gets right, tests that reading. |
-| **What runs** | `openai/whisper-small` on the CPU transcribes W3's sentence. All 144 decoder cross-attention heads (12 layers of 12) are drawn as heat-maps — one row per text token, one column per 20 ms encoder frame — and sorted into band, flat, stare or other by a fixed rule. Then the ten heads OpenAI's code uses for word timestamps, and the times dynamic time warping (DTW) makes from them. |
+| **What runs** | `openai/whisper-small` on the CPU transcribes W3's sentence. All 144 decoder cross-attention heads (12 layers of 12) are drawn as heat-maps and sorted into band, flat, stare or other by a fixed rule. Then the ten heads OpenAI's code uses for word timestamps, and the times dynamic time warping (DTW) makes from them. The next slide draws the steps. |
 | **Watch for** | The transcript will be right. If attention were the alignment, most heads would be monotonic bands: count them. And look at where the weight goes — the input is always padded to 30 s. |
 :::
 
 ::: {.footer}
 Demo 3 · code: `demos/w04_d3_attention_heads` · `openai/whisper-small`, eager attention, CPU
+:::
+
+## Demo 3: how it runs
+
+{{< include assets/w04/demo3-flow.inline.qmd >}}
+
+::: {.footer}
+Demo 3 · code: `demos/w04_d3_attention_heads` · the map is to scale: 292 of 1500 frames are audio
 :::
 
 ## Demo 3 — Whisper's cross-attention heads
@@ -1035,13 +1059,13 @@ p5: open the box, give the output a memory, meet the third alignment. Through al
 |:----|:-----------------|
 | **1 · The box** | Attention lets every frame read the whole utterance — a $T \times T$ score — so it has to wait for all of it. (p10) |
 | **2 · Making it causal** | Per-layer right context adds up; a chunk boundary is shared by every layer. Streaming is a trade-off in $m$, $C$, $H$ — not a switch. (p21, p24) |
-| **3 · RNN-T** | A prediction network that sees only the labels emitted so far, and a blank that means *time*: one more axis on the lattice. The bills: a memory wall, and an emission delay no formula contains. (p32, p37, p50, p52) |
-| **4 · Attention** | No. What the decoder learns is a weighting — weights of an average, not a seating chart; the timestamps are manufactured on top. (p59, p62, p64) |
-| **5 · The state** | The KV cache. The encoder's is bounded by $H$; the decoder's is not — so ask of every architecture how the state is kept bounded. (p68–p69) |
+| **3 · RNN-T** | A prediction network that sees only the labels emitted so far, and a blank that means *time*: one more axis on the lattice. The bills: a memory wall, and an emission delay no formula contains. (p32, p37, p51, p53) |
+| **4 · Attention** | No. What the decoder learns is a weighting — weights of an average, not a seating chart; the timestamps are manufactured on top. (p61, p65, p67) |
+| **5 · The state** | The KV cache. The encoder's is bounded by $H$; the decoder's is not — so ask of every architecture how the state is kept bounded. (p71–p72) |
 :::
 
 ::: {.footer}
-the route: p6 · half-time: p29 · the week in one sentence: p73
+the route: p6 · half-time: p29 · the week in one sentence: p76
 :::
 
 ## Reading, and next week
@@ -1064,15 +1088,15 @@ The box is open; now where does its ability come from? Masked prediction over au
 
 | | |
 |:----|:----------------|
-| AED | attention-based encoder–decoder (p58) |
+| AED | attention-based encoder–decoder (p60) |
 | ASR | automatic speech recognition (W1) |
 | BLSTM, LC-BLSTM | bidirectional LSTM; latency-controlled BLSTM (p18) |
 | CTC | connectionist temporal classification (W3) |
-| DTW | dynamic time warping (p60) |
+| DTW | dynamic time warping (p62) |
 | FFN | feed-forward network: the Conformer block's two half-steps (p13) |
 | GLU | gated linear unit (p13) |
-| KV | key–value: the cache a Transformer keeps (p68) |
-| LAS | Listen, Attend and Spell (p58) |
+| KV | key–value: the cache a Transformer keeps (p71) |
+| LAS | Listen, Attend and Spell (p60) |
 | LM | language model (W3) |
 | LSTM | long short-term memory network (W3) |
 
@@ -1086,6 +1110,6 @@ The box is open; now where does its ability come from? Masked prediction over au
 | RNN-T | recurrent neural network transducer (W1; the card is p31) |
 | SG | stop-gradient (p26) |
 | SSL | self-supervised learning (W1) |
-| SSM | state-space model (p69) |
-| TDT | token-and-duration transducer (p41) |
+| SSM | state-space model (p72) |
+| TDT | token-and-duration transducer (p42) |
 | WER | word error rate (W1) |

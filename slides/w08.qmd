@@ -252,7 +252,7 @@ The decoder's attention is the **only** alignment, and nothing makes it monotone
 :::
 
 ::: {.footer}
-Shen et al. 2018 §2.2 · "word skipping and repeating" is FastSpeech §1's name for it · W4 p62, p65
+Shen et al. 2018 §2.2 · "word skipping and repeating" is FastSpeech §1's name for it · W4 p65, p65
 :::
 
 ## FastSpeech: the duration predictor and the length regulator
@@ -360,7 +360,7 @@ Tacotron's repeats and skips **are** attention failing to learn an alignment. Fa
 | what you give up | simplicity of the front end | inspectability; stability on long or odd input |
 
 ::: {.footer}
-a design trade, not a generation gap · W4 p62 · p59: the three systems in a row
+a design trade, not a generation gap · W4 p65 · p59: the three systems in a row
 :::
 
 # Variation, answer one: autoregression over W6's alphabet {.section-title}

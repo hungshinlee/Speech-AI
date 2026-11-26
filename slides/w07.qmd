@@ -152,7 +152,7 @@ RNN-T and AED: the prior saw only the transcripts of the paired data (Whisper: 6
 :::
 
 ::: {.footer}
-CTC: W3 p29 · RNN-T: W4 p32 · AED: W4 p59 · SLAM-ASR §3.1.3 · colouring ours
+CTC: W3 p29 · RNN-T: W4 p32 · AED: W4 p61 · SLAM-ASR §3.1.3 · colouring ours
 :::
 
 ## Ten seconds of silence: what does each one write?
@@ -184,7 +184,7 @@ our reading of the factorisation · evidence: Koenecke 2024; Kumar 2026
 |:---|:-----|:-----|:-----|:-----|
 | **prior** | none on the output side | $\mathbf{g}_u$, small | the decoder | a text LLM |
 | **trained on** | — | paired transcripts | paired (Whisper: 680k h) | text alone |
-| **streams** | yes | **yes** (W4 p52) | no: 30 s windows | no: read / write (p70) |
+| **streams** | yes | **yes** (W4 p53) | no: 30 s windows | no: read / write (p70) |
 | **biasing** | score (p56) | score, deep (p57) | + prompt (p58) | **prompt, first-class** |
 | **data** | minutes, on an SSL encoder | hundreds of hours | 680k h, weak | LLM + encoder + hours |
 | **cost** | one encoder pass | + a small decoder | + a decoder | + **an LLM per token** |
@@ -201,7 +201,7 @@ each cell is a slide of W3, W4 or this week · paired = the ASR training set
 
 | | where | why a CTC head |
 |:---|:--------------|:---------|
-| **timestamps** | WhisperX aligns Whisper's text with a wav2vec 2.0 phoneme model; Qwen3-ASR ships a separate aligner | attention is not an alignment (W4 p62); a frame-synchronous head is |
+| **timestamps** | WhisperX aligns Whisper's text with a wav2vec 2.0 phoneme model; Qwen3-ASR ships a separate aligner | attention is not an alignment (W4 p65); a frame-synchronous head is |
 | **joint decoding** | hybrid CTC / attention (Watanabe et al. 2017), ESPnet's default | the CTC term stops the decoder skipping or looping |
 | **data cleaning** | OWSM v4 (Open Whisper-style Speech Model) segments and filters web audio with CTC | a model with no prior does not "fix" what it checks |
 | **control group** | Demo 1: the same noise, CTC vs. Whisper | no prior block → fragments, never a sentence |
@@ -221,7 +221,7 @@ WhisperX §2.4 · Watanabe 2017 Eq. 45, 48 · OWSM v4 §2.1 · Qwen3-ASR TR
 ::: {.prose}
 | | |
 |:---|:-----------------|
-| **Name** | **Robust Speech Recognition via Large-Scale Weak Supervision** — "Whisper", Radford, Kim, Xu, Brockman, McLeavey & Sutskever, ICML 2023. An encoder–decoder Transformer (W4 p59), nothing new in the architecture. |
+| **Name** | **Robust Speech Recognition via Large-Scale Weak Supervision** — "Whisper", Radford, Kim, Xu, Brockman, McLeavey & Sutskever, ICML 2023. An encoder–decoder Transformer (W4 p61), nothing new in the architecture. |
 | **The question** | Can an ASR system be trained on **transcripts nobody has checked**, scraped at a scale no labelling team could reach — and come out more robust, not less? |
 | **The idea** | 680,000 hours of audio with web transcripts, filtered by heuristics rather than by people; one decoder for transcription, translation, language ID and timestamps, steered by **control tokens** in front of the text. |
 | **What it added** | A decoder that has read more transcribed speech than any before it; zero-shot use across datasets ("effective robustness", p22); and the first ASR whose behaviour you change by writing a prompt. |
@@ -241,7 +241,7 @@ Radford et al., ICML 2023 · W4 Demo 3 used it · W5 p65: Whisper is not SSL
 :::
 
 ::: {.footer}
-Whisper §2.2 · 51,865 and 448: the released `small` config, not the paper · blocks: W4 p59
+Whisper §2.2 · 51,865 and 448: the released `small` config, not the paper · blocks: W4 p61
 :::
 
 ## Five sizes, one clock: what scales, and what does not
@@ -263,7 +263,7 @@ Depth and width scale; **the clock does not**. W3's 5.8 s sentence fills 292 of 
 :::
 
 ::: {.footer}
-Whisper Table 1, §2.3 (20 ms) · 292 and 114 / 144: W4 Demo 3 (W4 p61), `small`
+Whisper Table 1, §2.3 (20 ms) · 292 and 114 / 144: W4 Demo 3 (W4 p64), `small`
 :::
 
 ## Weak supervision: the data arithmetic, and the filter
@@ -351,7 +351,7 @@ Whisper §3.3, Table 2 · Likhomanenko et al. 2021: average over many test sets
 | **680,000 h of unchecked text** | robust across datasets, zero-shot (p22); punctuated, cased output | writes with nothing to hear: **hallucination** (p31) |
 | **one decoder, control tokens** | 99 language tokens, three tasks, steered by a prompt (p20) | a wrong language token spoils a segment; no Taiwanese or Hakka (p76) |
 | **a fixed 30 s window, text carried over** | long recordings, consistent wording | no streaming (p13); **repetition loops** (p36) |
-| **an autoregressive decoder** | fluent output | a pass per token; word times are not its own (W4 p64) |
+| **an autoregressive decoder** | fluent output | a pass per token; word times are not its own (W4 p67) |
 | **released weights, five sizes** | runs on a laptop; everyone's baseline | at home, specialised models win (p22) |
 
 ::: {.claim}
@@ -570,12 +570,12 @@ Each window is conditioned on the previous window's text (p20); its last timesta
 
 ::: {.fragment fragment-index=1}
 ::: {.claim .warn}
-A sentence the prior made from nothing rides the prompt into the next window: **repetition looping** — W4 p65's hook, at scale.
+A sentence the prior made from nothing rides the prompt into the next window: **repetition looping** — W4 p68's hook, at scale.
 :::
 :::
 
 ::: {.footer}
-Whisper §4.5 thresholds · "the ratio catches loops" is our reading · W4 p65
+Whisper §4.5 thresholds · "the ratio catches loops" is our reading · W4 p68
 :::
 
 ## Three triggers, three countermeasures
@@ -702,7 +702,7 @@ Hannun et al. 2014, Algorithm 1 · Graves & Jaitly 2014 §5 · W3 p34
 |:---|:-----------------|
 | **CTC** | $p_b$ and $p_{nb}$ — no state: the outputs are conditionally independent |
 | **RNN-T** | the two numbers **plus its own prediction-network state** (W4 p36) |
-| **AED** | an ordinary token-by-token beam: no blank, no twin tracks (W4 p59) |
+| **AED** | an ordinary token-by-token beam: no blank, no twin tracks (W4 p61) |
 
 ::: {.claim}
 Greedy is a $\max$ per column; prefix beam a pruned $\sum$ per prefix — **W3's semiring again**, and the $\sum$ that $P(\ell \mid \mathbf{X}) = \sum_\pi$ demands.
@@ -863,7 +863,7 @@ Demo 3 · demos/w07_d3_decoding · rehearsed 2026-11-02 (M5 Max, transformers 5.
 ::: {.prose}
 | | |
 |:---|:-----------------|
-| **Name** | **Deep Context: End-to-End Contextual Speech Recognition** — the model is **CLAS**, Contextual Listen, Attend and Spell, Pundak, Sainath, Prabhavalkar, Kannan & Zhao, SLT 2018. "LAS" is the AED of W4 p58. |
+| **Name** | **Deep Context: End-to-End Contextual Speech Recognition** — the model is **CLAS**, Contextual Listen, Attend and Spell, Pundak, Sainath, Prabhavalkar, Kannan & Zhao, SLT 2018. "LAS" is the AED of W4 p60. |
 | **The question** | The user's contacts, the song titles on screen, the names in this meeting: they change every turn and never appear in the training transcripts. How does an end-to-end model use a **list it is handed at run time**? |
 | **The idea** | A second encoder embeds each phrase on the list into a vector; the decoder attends over those vectors (plus a learnable "no bias" vector) at every step and feeds the result in next to the acoustic context. |
 | **What it added** | **Biasing inside the model**: the list enters the decoder's input, not the score — so it works while streaming and needs no external decoder; trained by sampling random lists so the model learns *to look*. |
@@ -1063,7 +1063,7 @@ arithmetic from the papers (`w07-data.json`) · W4 p15 · W6 p48
 |:---|:------|:------|
 | **prior learned** | on 680k h of **paired** transcripts | on **text alone**; paired data trains the adapter |
 | **prompt** | a previous-text slot, a few control tokens | a **first-class input**: instructions, language, lists |
-| **timestamps** | hand-picked attention heads + DTW (W4 p64) | **nothing to read**: a separate aligner (p71) |
+| **timestamps** | hand-picked attention heads + DTW (W4 p67) | **nothing to read**: a separate aligner (p71) |
 | **streaming** | 30 s windows, chained | a read / write policy to learn (p70) |
 | **the same** | a strong prior; hallucinates on flat evidence | the same, further along the axis |
 
@@ -1072,7 +1072,7 @@ Four differences, all from **a prior that arrives from outside the paired data**
 :::
 
 ::: {.footer}
-SLAM-ASR · Qwen3-ASR TR · W4 p64
+SLAM-ASR · Qwen3-ASR TR · W4 p67
 :::
 
 ## The ASR tail, in three shapes
@@ -1106,8 +1106,8 @@ Tsunoo 2024 · Wan 2026 · Tang 2026 · Qwen3-ASR model card · W4 p18 · W4 p24
 | | where the time comes from | what can go wrong |
 |:---|:--------|:--------|
 | **CTC** | the frame index of each spike — frame-synchronous by construction | peaky: the spike sits late in the segment (W3 p54, W3 p57) |
-| **RNN-T** | the frame at which each label was emitted | emission delay: systematically late (W4 p52) |
-| **Whisper (AED)** | timestamp *tokens* the decoder predicts, or DTW over **hand-picked cross-attention heads** | attention is not an alignment (W4 p62); the heads are chosen per model |
+| **RNN-T** | the frame at which each label was emitted | emission delay: systematically late (W4 p53) |
+| **Whisper (AED)** | timestamp *tokens* the decoder predicts, or DTW over **hand-picked cross-attention heads** | attention is not an alignment (W4 p65); the heads are chosen per model |
 | **LLM-based** | **nothing to read**: no cross-attention, no frame-synchronous output | a second branch: a CTC aligner (WhisperX's recipe), or a separate non-autoregressive model (Qwen3-ForcedAligner: 80 ms slots, predicted directly) |
 
 ::: {.claim}
@@ -1115,7 +1115,7 @@ For W12's turn-taking the system must know **when each word ended**. The paradig
 :::
 
 ::: {.footer}
-W3 p54 · W3 p57 · W4 p52 · W4 p62 · W4 p64 · Qwen3-ASR TR
+W3 p54 · W3 p57 · W4 p53 · W4 p65 · W4 p67 · Qwen3-ASR TR
 :::
 
 ## Post-training with WER as the reward: GRPO, after MWER, after YD
