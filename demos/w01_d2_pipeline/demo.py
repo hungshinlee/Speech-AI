@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
-"""W1 demo 2（投影片 p49「Live: measure your own pipeline」）：同一句話跑 cascade，把延遲預算當場填出來。
+"""W1 demo 2（投影片 p50「Live: measure your own pipeline」）：同一句話跑 cascade，把延遲預算當場填出來。
 
 子命令（用 speech_ai/demos/setup.sh 建好的共用 .venv 執行；通常經由 present.sh）：
 

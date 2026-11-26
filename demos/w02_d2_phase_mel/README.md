@@ -1,5 +1,5 @@
 <!-- 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。 -->
-# W2 · Demo 2 — phase × magnitude: taking a "spectrogram → waveform" reconstruction apart (slides p41–p42, p49, p51)
+# W2 · Demo 2 — phase × magnitude: taking a "spectrogram → waveform" reconstruction apart (slides p42–p44, p51, p53)
 
 One five-second sentence is analysed with the usual ASR front-end (25 ms Hann window, 10 ms hop, `n_fft = 512`) and re-synthesised under a 2 × 3 factorial design, so that the different sources of distortion can be *heard one at a time*:
 

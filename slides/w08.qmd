@@ -150,7 +150,7 @@ Two distant modes: their mean **is not a legitimate sample** — harmonics at di
 :::
 
 ::: {.footer}
-L1 gives the conditional median, same problem · W2 p51, p54 · W6 p29
+L1 gives the conditional median, same problem · W2 p53, p54 · W6 p29
 :::
 
 ## Two exits: discretise and sample, or carry noise to a sample
@@ -968,10 +968,10 @@ Demo 2 · demos/w08_d2_nfe_cfg_first_packet · rehearsed 2026-11-09 (M5 Max, MPS
 
 ## A vocoder does three things
 
-| W2 p54 said a vocoder must | because | this week |
+| W2 p56 said a vocoder must | because | this week |
 |:---|:---------|:---------|
-| **1** put the phase back | the mel kept only magnitudes; Griffin-Lim showed the phase is largely recoverable but the algorithm is slow and buzzy (W2 p45–p47) | a GAN generator learns it; or Vocos predicts it directly (p69) |
-| **2** undo the mel compression | 80 bins from 513: the pseudo-inverse is minimum-norm, not the original (W2 p51) | learned from data — the generator has seen what real spectra look like |
+| **1** put the phase back | the mel kept only magnitudes; Griffin-Lim showed the phase is largely recoverable but the algorithm is slow and buzzy (W2 p47–p49) | a GAN generator learns it; or Vocos predicts it directly (p69) |
+| **2** undo the mel compression | 80 bins from 513: the pseudo-inverse is minimum-norm, not the original (W2 p53) | learned from data — the generator has seen what real spectra look like |
 | **3** sharpen a *predicted* mel | the acoustic model regressed: its mel is an average (p10) — the third job, promised in W2, delivered today | discriminators (W6 p29) push the output toward real speech, not toward the blurred input |
 
 ::: {.claim}
@@ -979,7 +979,7 @@ $\hat{\mathbf{x}} = G(\mathbf{X})$, trained against W6's $\Phi_j$. A codec decod
 :::
 
 ::: {.footer}
-W2 p54 MC 5 · W2 p45–p47, p51 · W6 p29, p31 · Demo 3 (p72–p74) plays all three
+W2 p56 MC 5 · W2 p47–p49, p51 · W6 p29, p31 · Demo 3 (p72–p74) plays all three
 :::
 
 ## HiFi-GAN: a generator and two families of discriminators
@@ -1061,7 +1061,7 @@ Vocos never leaves the frame rate: it predicts a full STFT and lets the **invers
 
 ::: {.fragment fragment-index=1}
 ::: {.small}
-HiFi-GAN's $G$ upsamples in the time domain, sample by sample; Vocos does all of it with one inverse FFT: ≈ 13× faster than HiFi-GAN on an A100, ≈ 29× on CPU (§4.3, Table 6). The price: a predicted STFT need not be consistent (W2 p47).
+HiFi-GAN's $G$ upsamples in the time domain, sample by sample; Vocos does all of it with one inverse FFT: ≈ 13× faster than HiFi-GAN on an A100, ≈ 29× on CPU (§4.3, Table 6). The price: a predicted STFT need not be consistent (W2 p49).
 :::
 :::
 
@@ -1271,7 +1271,7 @@ W6 put the floor $1 / f_r$ in this cell. W11 merges it with "first token": an au
 :::
 
 ::: {.footer}
-W1 p38 · W1 p48–p49 (Kokoro 124 ms) · W6 p56 (the floor) · W7 p81 (the ASR-tail cell) · W11
+W1 p38 · W1 p48–p50 (Kokoro 124 ms) · W6 p56 (the floor) · W7 p81 (the ASR-tail cell) · W11
 :::
 
 ## MC 10 — "streaming TTS is just cutting the sentence short"
@@ -1307,7 +1307,7 @@ Every representation of W2–W6 has now been a TTS **output**. The clock: W2 the
 :::
 
 ::: {.footer}
-W2 p70 · W5 p67 · W6 p55 · W7 p80 · W6 p48: $R_{\text{tok}}$
+W2 p73 · W5 p67 · W6 p55 · W7 p80 · W6 p48: $R_{\text{tok}}$
 :::
 
 ## Supervision: three data scales, and the three axes

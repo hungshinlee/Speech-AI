@@ -5,7 +5,7 @@
 #   Whisper small 的輸入是 80 維 log-mel（25 ms Hann、10 ms hop、n_fft 400）。它自己的配方寫在 openai/whisper 的 audio.py
 #   （filterbank 是 librosa.filters.mel 的預設值：Slaney 尺度、面積正規化）；transformers 的 WhisperFeatureExtractor 照抄。
 #   這裡用 ../dsp.py 自己算同一份特徵，每個旋鈕寫成一個參數，然後一次只轉一個旋鈕、把特徵餵進同一個模型，量 WER。
-#   投影片 p66 列的七個分歧點（mel 尺度、濾波器正規化、power／magnitude、log 的 floor、dither、pre-emphasis、輸出正規化）各對應一個 recipe。
+#   投影片 p68 列的七個分歧點（mel 尺度、濾波器正規化、power／magnitude、log 的 floor、dither、pre-emphasis、輸出正規化）各對應一個 recipe。
 
 [model]
 # 多語版 small（244 M），W4 Demo 3／W7 三個 demo 同一份權重；commit 沿它們的 model.lock（fetch 會寫進這裡的 model.lock）。

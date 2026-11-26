@@ -196,7 +196,7 @@ Every endpoint is late by $T_{\text{hang}}\,\Delta$ — **a setting, not a compu
 :::
 
 ::: {.footer}
-W1 p43: the response budget · W1 p49: Demo 2 measured this cell · full refill: p90
+W1 p43: the response budget · W1 p50: Demo 2 measured this cell · full refill: p90
 :::
 
 ## A learned VAD is the same test
@@ -448,7 +448,7 @@ In a phone call, perhaps. In full-duplex dialogue, **barge-in and backchannels a
 | answers after the system stops | the user only | nothing to cancel |
 
 ::: {.footer}
-W1 p25: MC 1 · W1 p55: the stop budget · backchannels: W12
+W1 p25: MC 1 · W1 p56: the stop budget · backchannels: W12
 :::
 
 ## The linear ceiling: what no linear filter can subtract
@@ -583,7 +583,7 @@ With no reference, all that is left is **a prior** about what speech looks like.
 :::
 
 ::: {.footer}
-frame $t$, bin $k$: W2 p23 · the mask view, surveyed: Wang & Chen, IEEE/ACM TASLP 2018
+frame $t$, bin $k$: W2 p24 · the mask view, surveyed: Wang & Chen, IEEE/ACM TASLP 2018
 :::
 
 ## The Wiener gain: one number per cell
@@ -654,7 +654,7 @@ Neighbouring frames overlap, so their cells must agree with one another. Scale e
 :::
 
 ::: {.footer}
-W2 p43: the consistent set $\mathcal{C}$ · Luo & Mesgarani, IEEE/ACM TASLP 27(8), 2019
+W2 p45: the consistent set $\mathcal{C}$ · Luo & Mesgarani, IEEE/ACM TASLP 27(8), 2019
 :::
 
 ## A generative model: draw the clean speech
@@ -713,7 +713,7 @@ The first four are judges that enhancement is **optimised against** — MetricGA
 :::
 
 ::: {.footer}
-SI-SDR: Le Roux et al. 2019 (W2 p69) · MetricGAN+: Fu et al. 2021 · W9 p53: judges' blind spots
+SI-SDR: Le Roux et al. 2019 (W2 p72) · MetricGAN+: Fu et al. 2021 · W9 p53: judges' blind spots
 :::
 
 ## Before Demo 2: does the recogniser agree that it is cleaner?
@@ -1050,7 +1050,7 @@ PIT solves the pairing **in training**. In use, the question "which track is the
 :::
 
 ::: {.footer}
-$\varphi$: a permutation of $\{1, \dots, J\}$ · SI-SDR: W2 p69 · outline 〈key maths 8〉
+$\varphi$: a permutation of $\{1, \dots, J\}$ · SI-SDR: W2 p72 · outline 〈key maths 8〉
 :::
 
 ## Benchmarks are not conversations
@@ -1360,7 +1360,7 @@ $$
 :::
 
 ::: {.footer}
-W1 p38, p43: the response budget · W1 p55: the stop budget · W2 p30: window and look-ahead
+W1 p38, p43: the response budget · W1 p56: the stop budget · W2 p31: window and look-ahead
 :::
 
 ## The three axes this week
@@ -1388,7 +1388,7 @@ W9 p91 · W8 p86 · W5 p69 · Part II ends here: the modules on both sides are i
 | 3 | no public two-channel or multi-party corpus in Taiwanese → no diarization or overlap benchmark | a gap in the resources, noted in W1 |
 
 ::: {.footer}
-W2 p62: tone and intonation share one $F_0$ curve · W2 p63: tone is lexical, carried by the source
+W2 p64: tone and intonation share one $F_0$ curve · W2 p65: tone is lexical, carried by the source
 :::
 
 ## The opening question, answered

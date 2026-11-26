@@ -179,7 +179,7 @@ These three are the coordinate system for the whole course. Slides in every late
 :::
 
 ::: {.footer}
-five stops = the first five section pages · half-time: p29 · answered: p61
+five stops = the first five section pages · half-time: p29 · answered: p62
 :::
 
 # Three architectures: what each one gives up to get both right {.section-title}
@@ -281,7 +281,7 @@ The field's current answer is neither pure cascade nor pure end-to-end. It is **
 | **The question** | Can turn-taking stop being a separate controller and become part of what the model predicts? |
 | **The idea** | Every frame the model emits one token — a sound, or $\varnothing$, "say nothing" — conditioned on everything heard so far *and* on what it has itself said. Silence is a token. |
 | **What it added** | No speaker turns to segment: overlap, interjections and interruptions are ordinary positions in one sequence. The output clock never stops. |
-| **What it leaves open** | Two-track conversational data to learn from (p28, p59); the *stop* side of the budget (p55); and a test that tells it apart from a cascade that merely *looks* interruptible — p25. First, the equation: p24. |
+| **What it leaves open** | Two-track conversational data to learn from (p28, p60); the *stop* side of the budget (p56); and a test that tells it apart from a cascade that merely *looks* interruptible — p25. First, the equation: p24. |
 :::
 
 ## Full duplex is sequence modelling: silence is a token
@@ -364,7 +364,7 @@ No ranking here — **"end-to-end must be better" is a misconception.** Pick the
 :::
 
 ::: {.footer}
-the route: p12 · first half: p6–p28 · second half: p30–p56 · answered: p61
+the route: p12 · first half: p6–p28 · second half: p30–p57 · answered: p62
 :::
 
 # What humans aim at: how late is too late? {.section-title}
@@ -583,12 +583,20 @@ Report distributions. In W14 the goal becomes *matching* the human latency distr
 | | |
 |:---|:-----------------|
 | **Why** | The last ten slides built the budget on paper: every cell is time left after the user stops speaking, and some cells are a setting while others are compute. This demo fills the budget in from a real pipeline on this laptop. |
-| **What runs** | One recorded Mandarin sentence with a pause in the middle ("I'd like a ticket to … Tainan, next Wednesday") through a cascade: an energy-VAD endpoint, whisper.cpp, a local LLM (`mlx-lm`), a local TTS (`mlx-audio`). Every module boundary is time-stamped; ten runs, p50 and p95. Then, on headphones, a full-duplex model on the same laptop — listened to, not measured. |
+| **What runs** | One recorded Mandarin sentence with a pause in the middle goes through a cascade on this laptop, ten times, with every module boundary time-stamped. Then, on headphones, a full-duplex model on the same laptop — listened to, not measured. The next slide draws the path. |
 | **Watch for** | Which cell is largest, how much each cell varies across the ten runs, and which of the two kinds of delay on p40 the largest one is. For the full-duplex model: *when* it talks, not what it says. |
 :::
 
 ::: {.footer}
 Demo 2 · code: `demos/w01_d2_pipeline` · Apple silicon only (mlx) · rehearsed on the M5 Max
+:::
+
+## Demo 2: how it runs
+
+{{< include assets/w01/demo2-flow.inline.qmd >}}
+
+::: {.footer}
+Demo 2 · code: `demos/w01_d2_pipeline` · the five cells are the budget sheet of p38
 :::
 
 ## Live: measure your own pipeline
@@ -741,7 +749,7 @@ p5: one recording, two opposite failures. What must a system be, to get both rig
 | **2 · Architectures** | The cascade loses the clock at the transcript. End-to-end keeps it and pays in semantics. Native full duplex turns silence into a token. (p16–p28) |
 | **3 · The human target** | People aim at a target, not at a minimum — and they reach it by **predicting** the end of a turn, not by detecting it. (p31, p33) |
 | **4 · The budget** | Every term after the user stops speaking adds up, and a faster GPU moves exactly one of the four: latency is a **modelling** decision. (p43, p46) |
-| **5 · Behaviours** | The same overlap is a defect in one task and a requirement in another — classify first, then act. Stopping has a budget of its own. (p54, p55) |
+| **5 · Behaviours** | The same overlap is a defect in one task and a requirement in another — classify first, then act. Stopping has a budget of its own. (p55, p56) |
 :::
 
 ::: {.footer}
@@ -778,16 +786,16 @@ Audio analysis code (energy VAD, overlap / response / stop latency, the two-trac
 
 | | |
 |:----|:----------------|
-| AEC | acoustic echo cancellation (p51) |
+| AEC | acoustic echo cancellation (p52) |
 | ASR | automatic speech recognition (p15) |
 | LLM | large language model (p15) |
-| MOS | mean opinion score (p60) |
-| NFE | number of function evaluations: sampling steps in a flow-matching TTS model (p58) |
+| MOS | mean opinion score (p61) |
+| NFE | number of function evaluations: sampling steps in a flow-matching TTS model (p59) |
 | RNN-T | recurrent neural network transducer (p46) |
 | RTF | real-time factor: seconds of compute per second of audio (p40) |
 | S2S | speech-to-speech (p20) |
 | SSL | self-supervised learning (p20) |
-| STFT | short-time Fourier transform (p62) |
+| STFT | short-time Fourier transform (p63) |
 | TTS | text-to-speech (p15) |
 | VAD | voice activity detection (p15) |
-| WER | word error rate (p58) |
+| WER | word error rate (p59) |

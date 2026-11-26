@@ -1,0 +1,64 @@
+<!-- 由 scripts/make_figs_w01.py 產生，勿手改；投影片用 {{< include assets/w01/demo2-flow.inline.qmd >}} 貼入 -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 408" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
+<rect x="20.0" y="40.0" width="248.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.4"/>
+<text x="144.0" y="61.0" font-size="19" font-weight="400" fill="#0b5cad" text-anchor="middle" dominant-baseline="middle">“I'd like a ticket to …”</text>
+<text x="308.0" y="30.0" font-size="19" font-weight="600" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">a pause</text>
+<rect x="348.0" y="40.0" width="280.0" height="40.0" rx="3" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.4"/>
+<text x="488.0" y="61.0" font-size="19" font-weight="400" fill="#0b5cad" text-anchor="middle" dominant-baseline="middle">“… Tainan, next Wednesday.”</text>
+<line x1="628.0" y1="14.0" x2="628.0" y2="90.0" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="4 3"/>
+<text x="620.0" y="30.0" font-size="19" font-weight="600" fill="#dc2626" text-anchor="end" dominant-baseline="auto">the user stops</text>
+<rect x="628.0" y="40.0" width="144.0" height="40.0" rx="2" fill="#f8fafc" stroke="#6b7280" stroke-width="1.2" stroke-dasharray="4 3"/>
+<text x="700.0" y="61.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">silence</text>
+<circle cx="772.0" cy="60.0" r="8.0" fill="#fff7ed" stroke="#b45309" stroke-width="1.8"/>
+<text x="788.0" y="61.0" font-size="19" font-weight="600" fill="#b45309" text-anchor="start" dominant-baseline="middle">the endpoint fires</text>
+<text x="980.0" y="110.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="end" dominant-baseline="auto">cell 1 · endpoint: an energy VAD waits for a set length of silence</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<text x="20.0" y="148.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">then, on this laptop:</text>
+<rect x="20.0" y="160.0" width="217.5" height="68.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="128.8" y="181.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">whisper.cpp</text>
+<text x="128.8" y="208.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">cell 2 · ASR tail</text>
+<line x1="240.5" y1="194.0" x2="256.5" y2="194.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="264.5,194.0 256.5,199.0 256.5,189.0" fill="#94a3b8"/>
+<rect x="267.5" y="160.0" width="217.5" height="68.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="376.2" y="181.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Gemma 4 · mlx-lm</text>
+<text x="376.2" y="208.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">cell 3 · first token</text>
+<line x1="488.0" y1="194.0" x2="504.0" y2="194.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="512.0,194.0 504.0,199.0 504.0,189.0" fill="#94a3b8"/>
+<rect x="515.0" y="160.0" width="217.5" height="68.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="623.8" y="181.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Kokoro · mlx-audio</text>
+<text x="623.8" y="208.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">cell 4 · first packet</text>
+<line x1="735.5" y1="194.0" x2="751.5" y2="194.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="759.5,194.0 751.5,199.0 751.5,189.0" fill="#94a3b8"/>
+<rect x="762.5" y="160.0" width="217.5" height="68.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="871.2" y="181.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">playout buffer</text>
+<text x="871.2" y="208.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">cell 5 · set, not timed</text>
+<text x="980.0" y="148.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="end" dominant-baseline="auto">every boundary is time-stamped · ten runs</text>
+</g>
+<g class="fragment" data-fragment-index="2">
+<text x="20.0" y="274.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="auto">on the screen: first “which cell will be largest?” — then the sheet</text>
+<rect x="20.0" y="284.0" width="124.0" height="68.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="82.0" y="306.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">endpoint</text>
+<text x="82.0" y="332.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+<rect x="152.0" y="284.0" width="124.0" height="68.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="214.0" y="306.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">ASR tail</text>
+<text x="214.0" y="332.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+<rect x="284.0" y="284.0" width="124.0" height="68.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="346.0" y="306.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">LLM</text>
+<text x="346.0" y="332.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+<rect x="416.0" y="284.0" width="124.0" height="68.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="478.0" y="306.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">TTS</text>
+<text x="478.0" y="332.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+<rect x="548.0" y="284.0" width="124.0" height="68.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="610.0" y="306.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">playout</text>
+<text x="610.0" y="332.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+<text x="20.0" y="382.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">p50 and p95 per cell · the largest is marked in red · a timeline opens</text>
+<rect x="694.0" y="256.0" width="286.0" height="126.0" rx="8" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.4"/>
+<text x="837.0" y="282.0" font-size="19" font-weight="700" fill="#0b5cad" text-anchor="middle" dominant-baseline="middle">then, on headphones</text>
+<text x="837.0" y="318.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Moshi: full-duplex</text>
+<text x="837.0" y="350.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">heard, not measured</text>
+</g>
+</svg>
+```

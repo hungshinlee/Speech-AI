@@ -96,7 +96,7 @@ one pipeline, three axes · the route: next slide
 :::
 
 ::: {.footer}
-six stops = the six sections (the first opened at p2) · half-time: p20 · answered: p72
+six stops = the six sections (the first opened at p2) · half-time: p21 · answered: p75
 :::
 
 ## Sampling: a waveform becomes a list of numbers
@@ -175,12 +175,20 @@ Computed: synthetic /a/, $F_0 = 120$ Hz, idealised source tilt · w02-data.json 
 | | |
 |:---|:-----------------|
 | **Why** | The source–filter model puts the vowel in the filter — the formants — and the pitch in the source, $F_0$. This demo shows both live from a microphone, so you can move one and watch which numbers follow. |
-| **What runs** | A microphone into a 4 s scrolling spectrogram (5 ms or 30 ms window), an autocorrelation $F_0$ track, and an LPC $(F_1, F_2)$ dot on a vowel chart; all the signal processing is plain numpy and scipy. Used three times today: vowels now, then the same sound under two window lengths, then Mandarin tones. |
+| **What runs** | A microphone into three live displays, all plain numpy and scipy; the next slide draws them. Used three times today: vowels now, then the same sound under two window lengths, then Mandarin tones. |
 | **Watch for** | Now: where the dot goes for /a/, /i/, /u/, and the path it takes from /i/ to /a/. Later: what the window length changes on the same sound, and whether a tone keeps its shape when the sentence becomes a question. |
 :::
 
 ::: {.footer}
 Demo 1 · code: `demos/w02_d1_spectrogram` · microphone, numpy, scipy, matplotlib
+:::
+
+## Demo 1: how it runs
+
+{{< include assets/w02/demo1-flow.inline.qmd >}}
+
+::: {.footer}
+Demo 1 · code: `demos/w02_d1_spectrogram` · LPC itself: p20
 :::
 
 ## Two formants are enough to tell vowels apart
@@ -286,7 +294,7 @@ It is the core of classical speech codecs (CELP — code-excited linear predicti
 :::
 
 ::: {.footer}
-the route: p6 · first half: p7–p19 · second half: p21–p64 · answered: p72
+the route: p6 · first half: p7–p20 · second half: p22–p66 · answered: p75
 :::
 
 # Seeing speech: what does cutting into frames cost? {.section-title}
@@ -313,7 +321,7 @@ The patterns are orthogonal, $\langle \mathbf{b}_k, \mathbf{b}_l \rangle = N\del
 | **The question** | Speech changes every few tens of milliseconds. One spectrum of a whole utterance says *which* frequencies occurred, not *when*. How do you get a spectrum as a function of time? |
 | **The idea** | Multiply the signal by a short window, take a DFT, slide the window by a hop, repeat. Three knobs: window length $L$, hop $H$, FFT size $N$. |
 | **What it added** | A picture of speech — the spectrogram — and, with enough overlap, an inverse: the frames can be added back into the signal. |
-| **What it leaves open** | Every knob costs something: the window trades time against frequency and buys lookahead (p25–p29); the hop sets the clock everything downstream ticks on (p30–p31); and the overlap makes the frames redundant — which is exactly what the phase section will exploit (p43–p50). |
+| **What it leaves open** | Every knob costs something: the window trades time against frequency and buys lookahead (p26–p30); the hop sets the clock everything downstream ticks on (p31–p32); and the overlap makes the frames redundant — which is exactly what the phase section will exploit (p45–p52). |
 :::
 
 ::: {.footer}
@@ -461,8 +469,8 @@ Translation invariance holds along time and **fails** along frequency. An archit
 | **Name** | Log mel-filterbank energies — "log-mel", "fbank". The mel scale is Stevens, Volkmann & Newman, *JASA* 1937; the mel-filterbank-plus-cepstrum recipe for recognition is Davis & Mermelstein, *IEEE Trans. ASSP* 1980. |
 | **The question** | A frame has 257 magnitudes. What distinguishes words is mostly the spectral envelope, read the way the ear reads frequency. How do you keep that and drop the rest? |
 | **The idea** | Sum the power spectrum into about 80 overlapping triangles, spaced evenly on the mel scale, then take the log: $\mathbf{y}_m = \log(\mathbf{M}\,|\mathbf{X}_m|^2 + \epsilon)$. |
-| **What it added** | 80 numbers per 10 ms that carry nearly everything recognition needs; a log domain in which a microphone or a room becomes an additive constant (p35); and, one DCT later, MFCC (p37). |
-| **What it leaves open** | $\mathbf{M}$ is wide and not invertible — the fine harmonic structure is gone (p51); every step is a human choice, and the choices differ between toolkits (p66); and the ear's other trick, masking, is not in it at all (p39). |
+| **What it added** | 80 numbers per 10 ms that carry nearly everything recognition needs; a log domain in which a microphone or a room becomes an additive constant (p36); and, one DCT later, MFCC (p38). |
+| **What it leaves open** | $\mathbf{M}$ is wide and not invertible — the fine harmonic structure is gone (p53); every step is a human choice, and the choices differ between toolkits (p68); and the ear's other trick, masking, is not in it at all (p40). |
 :::
 
 ::: {.footer}
@@ -548,12 +556,20 @@ Schematic · curve shapes are illustrative, not a psychoacoustic model
 | | |
 |:---|:-----------------|
 | **Why** | Every number in the STFT is complex. The spectrogram keeps the magnitude and drops the phase, and a mel filterbank then drops more. Before any theory, hear what each loss costs. |
-| **What runs** | One 5 s sentence, rebuilt from its magnitude by an inverse STFT. First three versions, played back to back. Later in this section the full grid — linear or mel-80 magnitude, crossed with the original, a Griffin–Lim or a random phase — with the number of Griffin–Lim iterations as a knob. Plain numpy and scipy; `librosa` is deliberately not used. |
+| **What runs** | One 5 s sentence, rebuilt from its magnitude by an inverse STFT, several ways; the next slide draws the grid. First three versions, played back to back; the whole grid later in this section. Plain numpy and scipy; `librosa` is deliberately not used. |
 | **Watch for** | Nothing in particular yet. On the next slide, write down one word for each version, no explanations; the explanation comes after you have written them down. |
 :::
 
 ::: {.footer}
 Demo 2 · code: `demos/w02_d2_phase_mel` · numpy and scipy, no librosa
+:::
+
+## Demo 2: how it works
+
+{{< include assets/w02/demo2-flow.inline.qmd >}}
+
+::: {.footer}
+Demo 2 · code: `demos/w02_d2_phase_mel` · Griffin–Lim itself: p46–p49
 :::
 
 ## Listen first
@@ -591,7 +607,7 @@ A real magnitude with a made-up phase is, in general, **not** in $\mathcal{C}$. 
 | **The question** | You hold a magnitude $\mathbf{A}$ — a spectrogram — and no phase. Which signal has it? Often none does exactly: a spectrogram that has been modified, or had its phase replaced, is usually inconsistent. |
 | **The idea** | Alternate between the two constraints. Make the matrix the STFT of a real signal (ISTFT, then STFT); then put the given magnitude back and keep only the new phase. Repeat. |
 | **What it added** | A proof that the inconsistency never increases, so the iteration converges — and a least-squares inverse STFT that works for any window and hop. |
-| **What it leaves open** | Convergence is not to a *consistent* spectrogram — the magnitude constraint is not convex — so a metallic residue stays (p46–p49). And it knows nothing about speech, so it cannot invent what mel threw away (p51–p54). |
+| **What it leaves open** | Convergence is not to a *consistent* spectrogram — the magnitude constraint is not convex — so a metallic residue stays (p48–p51). And it knows nothing about speech, so it cannot invent what mel threw away (p53–p56). |
 :::
 
 ::: {.footer}
@@ -918,12 +934,20 @@ Computed: 80 filters, 0–8 kHz · largest gap 262 Hz, at filter 64 · w02-data.
 | | |
 |:---|:-----------------|
 | **Why** | The last slide listed seven places where two "80-dim log-mel" front-ends can differ. Question 1 from Week 1 — *is the input the same?* — in its most concrete form: feed a pretrained recogniser features made with the wrong recipe, and measure. |
-| **What runs** | Forty dev-clean sentences, one per speaker, 786 words, into Whisper small. The reference run uses Whisper's own front-end. Every other run recomputes the features in our own code (`demos/dsp.py`) with **one knob turned** — mel scale, filter normalisation, power vs. magnitude, log floor, dither, pre-emphasis, output normalisation — and feeds them to the same model; one run is about 35 s on this laptop's CPU. Each run prints the word error rate, the model's average log-probability per token, how many of the 40 transcripts changed, and how far the features moved. |
+| **What runs** | Forty dev-clean sentences, one per speaker, into Whisper small. The reference run uses Whisper's own front-end; every other run recomputes the features in our own code (`demos/dsp.py`) with **one knob turned**, and feeds them to the same model — about 35 s a run on this laptop's CPU. The next slide draws it. |
 | **Watch for** | Which knobs move WER, which do not, and by how much. Whether the knob that moves the *features* most is the one that moves the *words* most. Whether the model's confidence moves before its words do. |
 :::
 
 ::: {.footer}
 Demo 3 · code: `demos/w02_d3_frontend_mismatch` · Whisper small via `transformers`, CPU
+:::
+
+## Demo 3: how it runs
+
+{{< include assets/w02/demo3-flow.inline.qmd >}}
+
+::: {.footer}
+Demo 3 · code: `demos/w02_d3_frontend_mismatch` · the seven knobs are the seven places on p68
 :::
 
 ## Demo 3 — same name, different features
@@ -1005,15 +1029,15 @@ p5: the front end decides what every later layer is allowed to know. What does i
 | | |
 |:----|:-----------------|
 | **1 · Sampling** | Everything below half the sampling rate survives. What lies above does not vanish — it folds back. (p7–p8) |
-| **2 · Production** | In three places: the tube's shape (formants), the folds' period (harmonics), the few milliseconds of a stop. (p11–p18) |
-| **3 · Frames** | The window sets the frequency resolution and the lookahead; the hop sets the clock for everything downstream. (p25, p30–p31) |
-| **4 · Mel** | A log, then a filterbank sketched from the ear: 257 numbers become 80, and **not one number in the chain is learned**. (p35–p36, p38) |
-| **5 · Losses** | Two kinds of loss: the phase is still in the magnitude — an algorithm's problem; what mel drops is gone. (p50–p52) |
-| **6 · Prosody** | Three acoustic handles; tone and intonation share one $F_0$ curve. Source and filter are mechanisms, not kinds of information. (p57, p62–p63) |
+| **2 · Production** | In three places: the tube's shape (formants), the folds' period (harmonics), the few milliseconds of a stop. (p11–p19) |
+| **3 · Frames** | The window sets the frequency resolution and the lookahead; the hop sets the clock for everything downstream. (p26, p31–p32) |
+| **4 · Mel** | A log, then a filterbank sketched from the ear: 257 numbers become 80, and **not one number in the chain is learned**. (p36–p37, p39) |
+| **5 · Losses** | Two kinds of loss: the phase is still in the magnitude — an algorithm's problem; what mel drops is gone. (p52–p54) |
+| **6 · Prosody** | Three acoustic handles; tone and intonation share one $F_0$ curve. Source and filter are mechanisms, not kinds of information. (p59, p64–p65) |
 :::
 
 ::: {.footer}
-the route: p6 · half-time: p20 · the week in one sentence: p71
+the route: p6 · half-time: p21 · the week in one sentence: p74
 :::
 
 ## Reading, and next week
@@ -1036,30 +1060,30 @@ We have 100 frames per second. A sentence has perhaps a dozen phonemes per secon
 | | |
 |:----|:----------------|
 | ASR | automatic speech recognition (W1) |
-| CELP | code-excited linear prediction (p19) |
-| CMVN | cepstral mean and variance normalisation (p35) |
-| COLA | constant overlap-add (p43) |
-| DCT | discrete cosine transform (p37) |
-| DFT | discrete Fourier transform (p22) |
-| FFT | fast Fourier transform (p24) |
-| GMM | Gaussian mixture model (p37) |
-| HTK | the Hidden Markov Model Toolkit — here, its mel formula (p66) |
-| ISTFT | inverse short-time Fourier transform (p43) |
+| CELP | code-excited linear prediction (p20) |
+| CMVN | cepstral mean and variance normalisation (p36) |
+| COLA | constant overlap-add (p45) |
+| DCT | discrete cosine transform (p38) |
+| DFT | discrete Fourier transform (p23) |
+| FFT | fast Fourier transform (p25) |
+| GMM | Gaussian mixture model (p38) |
+| HTK | the Hidden Markov Model Toolkit — here, its mel formula (p68) |
+| ISTFT | inverse short-time Fourier transform (p45) |
 | LLM | large language model (W1) |
-| LPC | linear predictive coding (p19) |
-| LSD | log-spectral distance (p52) |
+| LPC | linear predictive coding (p20) |
+| LSD | log-spectral distance (p54) |
 
 ## Acronyms in this deck, M–W
 
 | | |
 |:----|:----------------|
-| MFCC | mel-frequency cepstral coefficients (p37) |
+| MFCC | mel-frequency cepstral coefficients (p38) |
 | RTF | real-time factor (W1) |
-| SI-SDR | scale-invariant signal-to-distortion ratio (p69) |
-| SNR | signal-to-noise ratio (p53) |
-| SPL | sound pressure level — the dB SPL axis (p39) |
+| SI-SDR | scale-invariant signal-to-distortion ratio (p72) |
+| SNR | signal-to-noise ratio (p55) |
+| SPL | sound pressure level — the dB SPL axis (p40) |
 | SSL | self-supervised learning (W1) |
-| STFT | short-time Fourier transform (p23) |
+| STFT | short-time Fourier transform (p24) |
 | TTS | text-to-speech (W1) |
-| VOT | voice onset time (p17) |
+| VOT | voice onset time (p18) |
 | WER | word error rate (W1) |
