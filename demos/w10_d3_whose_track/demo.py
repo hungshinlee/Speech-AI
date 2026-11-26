@@ -25,7 +25,7 @@
   t  投影片上那兩張表     ?  選單     q  離開
 
 定義（課堂上要念出來的）：
-  SIM        兩段聲音各自過 speaker encoder 得到的向量的 cosine（W9 p17）。一邊永遠是註冊語音。
+  SIM        兩段聲音各自過 speaker encoder 得到的向量的 cosine（W9 p18）。一邊永遠是註冊語音。
   「其實在哪一軌」  因為混合是自己接的，使用者那一軌乾淨的答案還在：對它算 SI-SDR，高的那一軌。
   參考標註    每位說話人乾淨的那一軌、每 10 ms 一格的能量門檻（mix.activity）；不是人標的。
   DER        (FA + miss + conf) / 參考標註裡的語音總長；der.py。collar = 每個參考邊界前後各 0.25 秒不計。

@@ -70,7 +70,7 @@ W7–W9 each assumed **the audio that comes in is what the user said.** A system
 :::
 
 ::: {.footer}
-W8: a generator draws $\hat{\mathbf{x}}$ · W9 p5: every judge scores a finished recording · W9 p94: next week
+W8: a generator draws $\hat{\mathbf{x}}$ · W9 p5: every judge scores a finished recording · W9 p97: next week
 :::
 
 ## The problem this week handles, in one picture
@@ -184,7 +184,7 @@ The costs are **not symmetric**, and both are amplified downstream. The threshol
 :::
 
 ::: {.footer}
-W7 p31: flat evidence → the prior · W7 p39: four stations · W9 p78: the base rate
+W7 p31: flat evidence → the prior · W7 p39: four stations · W9 p80: the base rate
 :::
 
 ## The hangover: bridging pauses, at a price
@@ -489,7 +489,7 @@ The only module in this course whose weights move **at inference** — which is 
 :::
 
 ::: {.footer}
-W5 p46 · W6 p32 · W7 p69 · W8 p54 · W9 p43–p44 · today's other shapes: p44, p73, p79
+W5 p46 · W6 p32 · W7 p69 · W8 p54 · W9 p44–p45 · today's other shapes: p44, p73, p79
 :::
 
 ## Demo 1 — convergence, double-talk, the ceiling
@@ -705,7 +705,7 @@ the route: p6 · first half: p11–p44 · second half: p46–p88 · answered: p9
 | **SNR, SI-SDR** | yes | the energy of the error — any error, weighted equally |
 | **PESQ**: perceptual evaluation of speech quality (Rix et al. 2001) | yes | perceived quality, on telephone networks and codecs |
 | **STOI**: short-time objective intelligibility (Taal et al. 2011) | yes | intelligibility, for human listeners |
-| **DNSMOS** (Reddy et al. 2021) | no | a learned MOS predictor — UTMOS's kin (W9 p69) |
+| **DNSMOS** (Reddy et al. 2021) | no | a learned MOS predictor — UTMOS's kin (W9 p71) |
 | **WER** of the recogniser that comes next | a transcript | whether **the next model** still gets the words |
 
 ::: {.claim .fragment}
@@ -713,7 +713,7 @@ The first four are judges that enhancement is **optimised against** — MetricGA
 :::
 
 ::: {.footer}
-SI-SDR: Le Roux et al. 2019 (W2 p72) · MetricGAN+: Fu et al. 2021 · W9 p53: judges' blind spots
+SI-SDR: Le Roux et al. 2019 (W2 p72) · MetricGAN+: Fu et al. 2021 · W9 p54: judges' blind spots
 :::
 
 ## Before Demo 2: does the recogniser agree that it is cleaner?
@@ -1143,7 +1143,7 @@ Demo 3 · demos/w10_d3_whose_track · public-corpus voices only · no model is t
 :::
 
 ::: {.footer}
-Demo 3 · measured 2026-11-23 → w10-metrics.json → demo3 · 5 of 10 chunks shown · SIM: W9 p17
+Demo 3 · measured 2026-11-23 → w10-metrics.json → demo3 · 5 of 10 chunks shown · SIM: W9 p18
 :::
 
 ## MC 10 — "track 1 of a separation model is the user"
@@ -1177,7 +1177,7 @@ $$
 :::
 
 ::: {.footer}
-p12's picture, with new labels · W9 p77: the same picture for a spoofing detector · W9 p17: SIM
+p12's picture, with new labels · W9 p79: the same picture for a spoofing detector · W9 p18: SIM
 :::
 
 ## The speaker encoder: training and use
@@ -1200,7 +1200,7 @@ W9's Demo 1 measured it: the embedding carried the prompt's **noise and bandwidt
 
 | what moved the score | where it was seen |
 |:------|:---------|
-| the recording channel | W9 Demo 1 (W9 p15): noise and bandwidth passed through an x-vector |
+| the recording channel | W9 Demo 1 (W9 p16): noise and bandwidth passed through an x-vector |
 | the dataset | CN-Celeb: systems that do well on VoxCeleb degrade clearly on multi-genre Mandarin data |
 | the encoder itself | Demo 3 today (p75): two encoders, two numbers for the same pair |
 
@@ -1376,7 +1376,7 @@ Each term is removed **on the strength of some evidence** — and what removal l
 :::
 
 ::: {.footer}
-W9 p91 · W8 p89 · W5 p72 · Part II ends here: the modules on both sides are in place
+W9 p94 · W8 p89 · W5 p72 · Part II ends here: the modules on both sides are in place
 :::
 
 ## Local languages: three things, three strengths of evidence

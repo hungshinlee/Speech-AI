@@ -18,7 +18,7 @@
 #
 # 環境：../.venv-tts（W8 Demo 1 的 setup.sh 建的；這個 demo 的 ./setup.sh 再裝一個 audioseal）。
 # replay／fake／selftest／export 不需要 torch，沒有 ../.venv-tts 時退到 ../.venv。
-# 課堂上的講法與按鍵順序寫在投影片 p85–p87 講稿的【操作】。
+# 課堂上的講法與按鍵順序寫在投影片 p87–p90 講稿的【操作】。
 set -euo pipefail
 cd "$(dirname "$0")"
 export HF_HUB_OFFLINE=1

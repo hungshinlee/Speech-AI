@@ -7,7 +7,7 @@
 dir = "../w09_d1_cloning_leak"            # W9 Demo 1 的程式（importlib 載）；它再去載 W8 Demo 1、找 W8 Demo 2 的 worker
 
 [group]
-# 一組抽幾段。12 與 Multi-Reward GRPO 的 group 大小相同（投影片 p41）。seed 就是 1 … n。
+# 一組抽幾段。12 與 Multi-Reward GRPO 的 group 大小相同（投影片 p42）。seed 就是 1 … n。
 n = 12
 
 [sentences]

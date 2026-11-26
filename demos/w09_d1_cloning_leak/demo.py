@@ -14,7 +14,7 @@
   selftest   不開視窗、不需要模型：四版 prompt 的 SNR 與頻寬、兩個自己定的量、WER、fake 流程；有彩排紀錄時對 w09-metrics.json
   export     只重寫 w09-metrics.json → demo1（從 runs/rehearsal/rehearsal.json）
 
-畫面上的鍵（順序照投影片 p15、p16 講稿的【操作】）：
+畫面上的鍵（順序照投影片 p16、p17 講稿的【操作】）：
   p  四版 prompt 的 mel，依序播：乾淨、加噪、加音樂、電話頻寬
   1  加噪那一版的三個輸出（SpeechT5、F5-TTS、Qwen3-TTS），依序播；畫面是那一版 prompt 與三個輸出的 mel
   2  加音樂那一版的三個輸出
@@ -512,8 +512,8 @@ class Systems:
             return {"wav": r["wav"], "fs": r["fs"], "gen_s": time.perf_counter() - t0, "seed": int(CFG["speecht5"]["seed"]), "T": r["T"],
                     "xvector_norm_before_unit": round(float(np.linalg.norm(xv)), 2)}
         if system == "f5":
-            p24 = np.concatenate([dsp.resample(prompt16, FS, 24000), np.zeros(int(24000 * D1.PROMPT_PAD_MS / 1000))])
-            r = self.f5.synth(p24, prompt_text, text, int(CFG["f5"]["seed"]), nfe=self.nfe)
+            p25 = np.concatenate([dsp.resample(prompt16, FS, 24000), np.zeros(int(24000 * D1.PROMPT_PAD_MS / 1000))])
+            r = self.f5.synth(p25, prompt_text, text, int(CFG["f5"]["seed"]), nfe=self.nfe)
             return {"wav": r["wav"], "fs": r["fs"], "gen_s": time.perf_counter() - t0, "seed": int(CFG["f5"]["seed"]), "T": r["T"], "nfe": r["nfe"],
                     "w_slide": r["w_slide"], "sway": r["sway"], "length": {k: v for k, v in r["length"].items() if k != "ref_text_used"}}
         q = self.worker.qwen3(name, text, prompt_path, prompt_text, int(CFG["qwen3"]["seed"]))
@@ -972,8 +972,8 @@ class Demo:
                 o(f"    {SYS_SHORT[s]:<12s}{r['seconds']:>9.2f}{str(r['f0_median_hz']):>11s}{str(r['f0_span_semitones']):>14s}{r['sim_prompt']:>15.3f}{r['wer']['pct']:>9.1f}")
 
     def menu(self) -> None:
-        self.out(f"\n{C.BOLD}p15{C.RESET}  p 四版 prompt   1 加噪   2 加音樂   3 電話頻寬   c 乾淨   （s f k 只播一個系統，o 這一版的 prompt，g 真人錄音）   t 數字"
-                 f"     {C.BOLD}p16{C.RESET}  e 語氣   a 腔     r 再播   h 選單   q 離開")
+        self.out(f"\n{C.BOLD}p16{C.RESET}  p 四版 prompt   1 加噪   2 加音樂   3 電話頻寬   c 乾淨   （s f k 只播一個系統，o 這一版的 prompt，g 真人錄音）   t 數字"
+                 f"     {C.BOLD}p17{C.RESET}  e 語氣   a 腔     r 再播   h 選單   q 離開")
 
     def dispatch(self, k: str) -> bool:
         if k == "p":
@@ -1106,11 +1106,11 @@ def check(device: str | None = None) -> None:
         print(f"  {repo:<36s} @ {str(lock.get(repo))[:12]}")
     devs = [device] if device else (["cpu"] + (["mps"] if mps else []))
     caught: list[str] = []
-    p16 = D1.trim_edges(C.load_wav(PROMPT_WAV, FS), FS)
+    p17 = D1.trim_edges(C.load_wav(PROMPT_WAV, FS), FS)
     t16 = C.load_wav((HERE / CFG["audio"]["real_target"]).resolve(), FS)
     op = (HERE / CFG["audio"]["other_voice"]).resolve()
     o16 = C.load_wav(op, FS) if op.exists() else None
-    prompts, _ = make_prompts(p16)
+    prompts, _ = make_prompts(p17)
 
     def run(cls, name: str) -> dict:
         r, embs = {}, {}
@@ -1119,8 +1119,8 @@ def check(device: str | None = None) -> None:
                 with warnings.catch_warnings(record=True) as ws:
                     warnings.simplefilter("always")
                     t0 = time.perf_counter(); m = cls(dev); load = time.perf_counter() - t0
-                    m.embed(p16)                                                        # 暖機
-                    t0 = time.perf_counter(); e = {"prompt": m.embed(p16), "target": m.embed(t16), "noise": m.embed(prompts["noise"])}
+                    m.embed(p17)                                                        # 暖機
+                    t0 = time.perf_counter(); e = {"prompt": m.embed(p17), "target": m.embed(t16), "noise": m.embed(prompts["noise"])}
                     if o16 is not None:
                         e["other"] = m.embed(o16)
                     dt = (time.perf_counter() - t0) / len(e)
@@ -1161,7 +1161,7 @@ def check(device: str | None = None) -> None:
     try:
         xv = XVector(CFG["infer"]["xvector_device"])
         st = D1.SpeechT5(device or CFG["infer"]["speecht5_device"], device or CFG["infer"]["vocoder_device"])
-        e = xv.embed(p16)
+        e = xv.embed(p17)
         bdl = st.xvector.numpy().reshape(-1)
         st.xvector = torch.tensor(unit(e), dtype=torch.float32)[None]
         y = st.synth(TARGET, int(CFG["speecht5"]["seed"]))
@@ -1265,7 +1265,7 @@ def export(rec_path: Path) -> None:
                                   "sim2_*": "the same with a second encoder, the SpeechBrain x-vector that also conditions SpeechT5; not comparable with sim_*",
                                   "wer": "Whisper small (greedy) against the text to read; English: words after Whisper's English normaliser; Mandarin: tone-numbered pinyin syllables",
                                   "f0_span_semitones": "12 log2 (90th / 10th percentile of the autocorrelation F0 over voiced frames)",
-                                  "one draw": "each cell is a single sample (seed 1 per system)", "what_we_heard": "filled by hand after the rehearsal (w09.qmd p15, p16)"}}
+                                  "one draw": "each cell is a single sample (seed 1 per system)", "what_we_heard": "filled by hand after the rehearsal (w09.qmd p16, p17)"}}
     METRICS_JSON.parent.mkdir(parents=True, exist_ok=True)
     METRICS_JSON.write_text(json.dumps(d, ensure_ascii=False, indent=1, default=float), encoding="utf-8")
     print(f"  → {os.path.relpath(METRICS_JSON, HERE)}（demo1）")
@@ -1408,7 +1408,7 @@ def main() -> None:
         d.sys.close()
         d.save()
         export(d.folder / "rehearsal.json")
-        print("\n下一步：./present.sh 自己按一遍 p 1 2 3 c t e a；聽到的寫進 p15、p16 的表（what we heard），runs/rehearsal/*.png 看過。")
+        print("\n下一步：./present.sh 自己按一遍 p 1 2 3 c t e a；聽到的寫進 p16、p17 的表（what we heard），runs/rehearsal/*.png 看過。")
         return
 
     d.make_fig()

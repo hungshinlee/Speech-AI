@@ -1,7 +1,7 @@
 <!-- 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。 -->
-# W9 · Demo 2 — One sentence, twelve draws, three judges (slides p55–p57)
+# W9 · Demo 2 — One sentence, twelve draws, three judges (slides p56–p59)
 
-Post-training with a reward pushes a model towards whatever its judge prefers. This demo shows the judges' preferences without training anything: one sentence is drawn twelve times from the same model with the same prompt, every draw is scored by three judges, and each judge names its favourite. It is **not** reinforcement learning. It is best-of-12 — the judge kept in inference (slide p33).
+Post-training with a reward pushes a model towards whatever its judge prefers. This demo shows the judges' preferences without training anything: one sentence is drawn twelve times from the same model with the same prompt, every draw is scored by three judges, and each judge names its favourite. It is **not** reinforcement learning. It is best-of-12 — the judge kept in inference (slide p34).
 
 **The generator.** Qwen3-TTS 0.6B Base (`mlx-community/Qwen3-TTS-12Hz-0.6B-Base-bf16`, through `mlx-audio`), an autoregressive codec language model that samples every token, so each seed reads the sentence differently. Seeds 1–12, temperature 0.9. As a control, F5-TTS draws the English sentence twelve times too (seeds 1–12): F5 fixes the output length from the character ratio of text to prompt, so its twelve draws all have the same length.
 
@@ -32,7 +32,7 @@ There are no digit strings: Whisper's normaliser treats "five five five" and "55
 **What the screen computes**
 
 - **The long tail**: draws with more word errors than the group's best draw (so an error every draw shares is not counted), or whose speech runs longer than 1.5 × the group median.
-- **The group-relative advantage** of slide p41, per judge: (reward − group mean) / group standard deviation. When all twelve rewards are equal the standard deviation is 0 and the advantage is undefined — that group carries no signal for that judge.
+- **The group-relative advantage** of slide p42, per judge: (reward − group mean) / group standard deviation. When all twelve rewards are equal the standard deviation is 0 and the advantage is undefined — that group carries no signal for that judge.
 - **Each judge's first choice.** Ties are reported as ties.
 - **Rank against descriptor**: Spearman correlation between a judge's ranking and each descriptor. With twelve draws, |ρ| has to reach about 0.59 to pass a two-sided 5 % test. Selecting among twelve draws is also not the same as training: selection can only pick among readings the model already produces.
 
@@ -40,12 +40,12 @@ There are no digit strings: Whisper's normaliser treats "five five five" and "55
 
 | Key | What happens | Slide |
 |---|---|---|
-| `g` | the table: twelve draws × (WER, SIM, predicted MOS \| syllables / s, F0 spread) | p56 |
-| `l` | marks the long tail and plays its worst draw | p56 |
-| `a` | adds one advantage column per judge | p56 |
-| `w` `s` `m` | plays the first choice of the WER / SIM / MOS judge | p57 |
-| `h` | plays the draw the lecturer picked by ear (blind: `./present.sh listen`) | p57 |
-| `p` | scatter plots: a judge's rank against the two descriptors; press again for the next judge | p57 |
+| `g` | the table: twelve draws × (WER, SIM, predicted MOS \| syllables / s, F0 spread) | p58 |
+| `l` | marks the long tail and plays its worst draw | p58 |
+| `a` | adds one advantage column per judge | p58 |
+| `w` `s` `m` | plays the first choice of the WER / SIM / MOS judge | p59 |
+| `h` | plays the draw the lecturer picked by ear (blind: `./present.sh listen`) | p59 |
+| `p` | scatter plots: a judge's rank against the two descriptors; press again for the next judge | p59 |
 | `z` | the other sentence | |
 | `f` | the F5-TTS control group ↔ Qwen3-TTS | |
 | `n` | draws a fresh group now, with the next twelve seeds (`show` only) | |

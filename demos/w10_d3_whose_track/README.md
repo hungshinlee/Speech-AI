@@ -22,7 +22,7 @@ Because the mixture is made here, each talker's clean track still exists. That g
 | output level | a separation model's output scale is arbitrary — and in these weights one track comes out with inverted polarity. The two tracks are rescaled by the pair of gains that makes their sum closest to the mixture (least squares; a gain may be negative). SI-SDR and the speaker encoders ignore scale and sign |
 | encoder A | ECAPA-TDNN, SpeechBrain's `spkrec-ecapa-voxceleb` |
 | encoder B | WavLM Base+ with an x-vector head, `microsoft/wavlm-base-plus-sv` (W9 Demo 1's SIM judge) |
-| SIM | the cosine between the embedding of a separated track and the embedding of the enrolment (W9 p17) |
+| SIM | the cosine between the embedding of a separated track and the embedding of the enrolment (W9 p18) |
 | recogniser | Whisper small (W7), on the tracks stitched back together; WER is counted against the user's words only, after Whisper's `EnglishTextNormalizer` |
 | diarization | `pyannote/speaker-diarization-community-1` through `pyannote.audio`, on the conversation as one file. Key `k` switches to a deliberately simple clustering baseline written in `demo.py` (`naive_diarize`): 1.5 s windows, one ECAPA embedding each, agglomerative clustering, one speaker per frame |
 | scoring | `der.py`: 10 ms frames, optimal one-to-one mapping between system labels and reference speakers, then the three scorings of slide p83. `check` compares it with `pyannote.metrics` on the same input |

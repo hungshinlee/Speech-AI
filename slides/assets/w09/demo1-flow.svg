@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 424" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
+<text x="20.0" y="24.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="auto">one speaker's 4.9 s prompt, in four versions — key p plays them:</text>
+<rect x="20.0" y="36.0" width="228.0" height="68.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="134.0" y="57.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">clean</text>
+<text x="134.0" y="90.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">as recorded</text>
+<rect x="264.0" y="36.0" width="228.0" height="68.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="378.0" y="57.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">+ white noise</text>
+<text x="378.0" y="90.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">SNR 10 dB</text>
+<rect x="508.0" y="36.0" width="228.0" height="68.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="622.0" y="57.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">+ music</text>
+<text x="622.0" y="90.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">the same SNR</text>
+<rect x="752.0" y="36.0" width="228.0" height="68.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="866.0" y="57.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">telephone band</text>
+<text x="866.0" y="90.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">cut at 3.4 kHz</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<text x="20.0" y="140.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="auto">each version → three systems, one sentence: twelve outputs — keys 1, 2, 3, c</text>
+<rect x="20.0" y="152.0" width="300.0" height="96.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="170.0" y="174.0" font-size="19" font-weight="600" fill="#7c3aed" text-anchor="middle" dominant-baseline="middle">SpeechT5</text>
+<text x="170.0" y="206.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">the prompt → an x-vector,</text>
+<text x="170.0" y="231.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">512 numbers: a bottleneck</text>
+<rect x="350.0" y="152.0" width="300.0" height="96.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="500.0" y="174.0" font-size="19" font-weight="600" fill="#0b5cad" text-anchor="middle" dominant-baseline="middle">F5-TTS</text>
+<text x="500.0" y="206.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">the prompt's mel goes in</text>
+<text x="500.0" y="231.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">whole; a flow fills the rest</text>
+<rect x="680.0" y="152.0" width="300.0" height="96.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="830.0" y="174.0" font-size="19" font-weight="600" fill="#0b5cad" text-anchor="middle" dominant-baseline="middle">Qwen3-TTS</text>
+<text x="830.0" y="206.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">the prompt's tokens go in</text>
+<text x="830.0" y="231.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">whole; AR continues them</text>
+</g>
+<g class="fragment" data-fragment-index="2">
+<text x="20.0" y="284.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="auto">measured on every output — key t prints the table:</text>
+<rect x="20.0" y="296.0" width="472.0" height="34.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="32.0" y="319.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">the noise floor in the pauses</text>
+<text x="472.0" y="314.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+<rect x="508.0" y="296.0" width="472.0" height="34.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="520.0" y="319.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">the energy above 4 kHz</text>
+<text x="960.0" y="314.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+<rect x="20.0" y="336.0" width="472.0" height="34.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="32.0" y="359.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">SIM: against clean, against that version</text>
+<text x="472.0" y="354.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+<rect x="508.0" y="336.0" width="472.0" height="34.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="520.0" y="359.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">WER, by W7's Whisper</text>
+<text x="960.0" y="354.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+<rect x="20.0" y="376.0" width="960.0" height="34.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="32.0" y="399.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">keys e, a — two more prompts, the lecturer's own: does a mood ride along, or an accent</text>
+<text x="960.0" y="394.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+</g>
+</svg>

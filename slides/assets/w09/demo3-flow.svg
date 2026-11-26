@@ -1,0 +1,205 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 452" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
+<text x="20.0" y="24.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="auto">sounds this course has already made, all at 16 kHz:</text>
+<rect x="20.0" y="36.0" width="300.0" height="68.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="170.0" y="57.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">real recordings</text>
+<text x="170.0" y="90.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">key r · live: the space bar</text>
+<rect x="350.0" y="36.0" width="300.0" height="68.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="500.0" y="57.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">six generators' outputs</text>
+<text x="500.0" y="90.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">W2, W8, W9 · keys 1 to 6</text>
+<rect x="680.0" y="36.0" width="300.0" height="68.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="830.0" y="57.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">real speech, through a codec</text>
+<text x="830.0" y="90.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">Mimi, EnCodec · key c</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<text x="20.0" y="140.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="auto">first half — the detector gives each clip one score:</text>
+<rect x="20.0" y="152.0" width="300.0" height="96.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="170.0" y="174.0" font-size="19" font-weight="600" fill="#7c3aed" text-anchor="middle" dominant-baseline="middle">AASIST, trained on 2019 data</text>
+<text x="76.3" y="206.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto" textLength="66.0" lengthAdjust="spacing">a score</text>
+<svg x="147.472" y="189.74" width="40.584" height="22.8" viewBox="0 0 40.584 22.8"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w9t84-figure_1">
+  <g id="w9t84-patch_1">
+   <path d="M 0 22.8 
+L 40.584 22.8 
+L 40.584 0 
+L 0 0 
+L 0 22.8 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w9t84-text_1">
+   <!-- $s(\mathbf{x})$ -->
+   <g style="fill: #1f2328" transform="translate(0 17.1) scale(0.228 -0.228)">
+    <defs>
+     <path id="w9t84-Cmmi10-73" d="M 556 391 
+Q 728 97 1247 97 
+Q 1472 97 1675 173 
+Q 1878 250 2011 403 
+Q 2144 556 2144 775 
+Q 2144 941 2025 1047 
+Q 1906 1153 1734 1191 
+L 1388 1259 
+Q 1150 1319 997 1481 
+Q 844 1644 844 1875 
+Q 844 2159 998 2378 
+Q 1153 2597 1406 2712 
+Q 1659 2828 1931 2828 
+Q 2222 2828 2451 2689 
+Q 2681 2550 2681 2278 
+Q 2681 2131 2598 2018 
+Q 2516 1906 2369 1906 
+Q 2284 1906 2223 1961 
+Q 2163 2016 2163 2100 
+Q 2163 2175 2205 2245 
+Q 2247 2316 2317 2358 
+Q 2388 2400 2463 2400 
+Q 2406 2538 2251 2600 
+Q 2097 2663 1919 2663 
+Q 1756 2663 1593 2597 
+Q 1431 2531 1332 2404 
+Q 1234 2278 1234 2106 
+Q 1234 1991 1315 1903 
+Q 1397 1816 1516 1778 
+L 1888 1703 
+Q 2066 1666 2214 1570 
+Q 2363 1475 2448 1329 
+Q 2534 1184 2534 997 
+Q 2534 759 2401 528 
+Q 2269 297 2075 159 
+Q 1734 -72 1241 -72 
+Q 900 -72 615 84 
+Q 331 241 331 550 
+Q 331 725 432 854 
+Q 534 984 709 984 
+Q 813 984 883 921 
+Q 953 859 953 756 
+Q 953 609 843 500 
+Q 734 391 588 391 
+L 556 391 
+z
+" transform="scale(0.015625)"/>
+     <path id="w9t84-Cmr10-28" d="M 1984 -1588 
+Q 1628 -1306 1370 -942 
+Q 1113 -578 948 -165 
+Q 784 247 703 697 
+Q 622 1147 622 1600 
+Q 622 2059 703 2509 
+Q 784 2959 951 3375 
+Q 1119 3791 1378 4153 
+Q 1638 4516 1984 4788 
+Q 1984 4800 2016 4800 
+L 2075 4800 
+Q 2094 4800 2109 4783 
+Q 2125 4766 2125 4744 
+Q 2125 4716 2113 4703 
+Q 1800 4397 1592 4047 
+Q 1384 3697 1257 3301 
+Q 1131 2906 1075 2482 
+Q 1019 2059 1019 1600 
+Q 1019 -434 2106 -1491 
+Q 2125 -1509 2125 -1544 
+Q 2125 -1559 2108 -1579 
+Q 2091 -1600 2075 -1600 
+L 2016 -1600 
+Q 1984 -1600 1984 -1588 
+z
+" transform="scale(0.015625)"/>
+     <path id="w9t84-Cmb10-78" d="M 109 0 
+L 109 325 
+Q 628 325 678 384 
+L 1381 1350 
+L 588 2516 
+L 141 2516 
+L 141 2841 
+L 1606 2841 
+L 1606 2516 
+L 1331 2516 
+L 1766 1881 
+L 2181 2463 
+Q 2181 2491 2072 2503 
+Q 1963 2516 1888 2516 
+L 1888 2841 
+L 3156 2841 
+L 3156 2516 
+Q 2638 2516 2584 2456 
+L 1959 1594 
+L 2816 325 
+L 3272 325 
+L 3272 0 
+L 1797 0 
+L 1797 325 
+L 2075 325 
+L 1575 1063 
+L 1081 378 
+Q 1081 356 1193 340 
+Q 1306 325 1381 325 
+L 1381 0 
+L 109 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w9t84-Cmr10-29" d="M 416 -1600 
+Q 359 -1600 359 -1544 
+Q 359 -1516 372 -1503 
+Q 1466 -434 1466 1600 
+Q 1466 3634 384 4691 
+Q 359 4706 359 4744 
+Q 359 4766 376 4783 
+Q 394 4800 416 4800 
+L 475 4800 
+Q 494 4800 506 4788 
+Q 966 4425 1272 3906 
+Q 1578 3388 1720 2800 
+Q 1863 2213 1863 1600 
+Q 1863 1147 1786 708 
+Q 1709 269 1542 -157 
+Q 1375 -584 1119 -945 
+Q 863 -1306 506 -1588 
+Q 494 -1600 475 -1600 
+L 416 -1600 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w9t84-Cmmi10-73"/>
+    <use xlink:href="#w9t84-Cmr10-28" transform="translate(46.777344 0)"/>
+    <use xlink:href="#w9t84-Cmb10-78" transform="translate(85.595703 0)"/>
+    <use xlink:href="#w9t84-Cmr10-29" transform="translate(138.28125 0)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<text x="193.2" y="206.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto" textLength="70.5" lengthAdjust="spacing">per clip;</text>
+<text x="170.0" y="231.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">threshold 0, fixed in advance</text>
+<line x1="324.0" y1="200.0" x2="338.0" y2="200.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="346.0,200.0 338.0,205.0 338.0,195.0" fill="#94a3b8"/>
+<rect x="350.0" y="156.0" width="630.0" height="40.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="362.0" y="182.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">the generators: which does it call spoof</text>
+<text x="960.0" y="177.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+<rect x="350.0" y="204.0" width="630.0" height="40.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="362.0" y="230.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">real speech through a codec: bona fide, or spoof</text>
+<text x="960.0" y="225.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+</g>
+<g class="fragment" data-fragment-index="2">
+<text x="20.0" y="284.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="auto">second half — a watermark, then damage:</text>
+<rect x="20.0" y="296.0" width="300.0" height="96.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="170.0" y="318.0" font-size="19" font-weight="600" fill="#0b5cad" text-anchor="middle" dominant-baseline="middle">AudioSeal marks an F5 output</text>
+<text x="170.0" y="350.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">keys w, d: A / B, the curve</text>
+<text x="170.0" y="375.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">key s: spliced into real speech</text>
+<line x1="324.0" y1="344.0" x2="338.0" y2="344.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="346.0,344.0 338.0,349.0 338.0,339.0" fill="#94a3b8"/>
+<rect x="350.0" y="296.0" width="300.0" height="96.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="500.0" y="318.0" font-size="19" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="middle">damaged, or generated again</text>
+<text x="500.0" y="350.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">a n p: resample, noise, MP3</text>
+<text x="500.0" y="375.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">e m v: EnCodec, Mimi, Vocos</text>
+<line x1="654.0" y1="344.0" x2="668.0" y2="344.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="676.0,344.0 668.0,349.0 668.0,339.0" fill="#94a3b8"/>
+<rect x="680.0" y="296.0" width="300.0" height="96.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="830.0" y="318.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">its detector, per sample</text>
+<text x="830.0" y="350.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">blue: the marked audio</text>
+<text x="830.0" y="375.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">grey: unmarked, same path</text>
+<rect x="20.0" y="404.0" width="960.0" height="36.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="32.0" y="428.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">key b — for each kind of damage: is the mark still detected, and what does the control read</text>
+<text x="960.0" y="423.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+</g>
+</svg>
