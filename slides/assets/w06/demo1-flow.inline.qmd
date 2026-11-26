@@ -1,0 +1,902 @@
+<!-- 由 scripts/make_figs_w06.py 產生，勿手改；投影片用 {{< include assets/w06/demo1-flow.inline.qmd >}} 貼入 -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 396" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
+<rect x="20.0" y="14.0" width="280.0" height="68.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="160.0" y="35.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">two sentences</text>
+<text x="160.0" y="68.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">W3's, then Mandarin · key m</text>
+<rect x="340.0" y="14.0" width="300.0" height="68.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="490.0" y="35.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">each codec encodes it once</text>
+<text x="490.0" y="68.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">Mimi · EnCodec · DAC</text>
+<rect x="680.0" y="14.0" width="300.0" height="68.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="830.0" y="35.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">a matrix of codes</text>
+<svg x="710.741" y="53.108" width="66.12" height="22.8" viewBox="0 0 66.12 22.8"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w6t92-figure_1">
+  <g id="w6t92-patch_1">
+   <path d="M 0 22.8 
+L 66.12 22.8 
+L 66.12 0 
+L 0 0 
+L 0 22.8 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w6t92-text_1">
+   <!-- $N_q \times T$ -->
+   <g style="fill: #6b7280" transform="translate(0 15.732) scale(0.228 -0.228)">
+    <defs>
+     <path id="w6t92-Cmmi10-4e" d="M 300 0 
+Q 238 0 238 84 
+Q 241 100 250 139 
+Q 259 178 276 201 
+Q 294 225 319 225 
+Q 931 225 1031 616 
+L 1900 4116 
+Q 1722 4147 1338 4147 
+Q 1275 4147 1275 4231 
+Q 1278 4247 1287 4286 
+Q 1297 4325 1314 4348 
+Q 1331 4372 1356 4372 
+L 2463 4372 
+Q 2509 4372 2522 4331 
+L 3944 947 
+L 4653 3781 
+Q 4666 3850 4666 3878 
+Q 4666 4147 4172 4147 
+Q 4109 4147 4109 4231 
+Q 4131 4313 4143 4342 
+Q 4156 4372 4219 4372 
+L 5588 4372 
+Q 5650 4372 5650 4288 
+Q 5647 4272 5637 4233 
+Q 5628 4194 5611 4170 
+Q 5594 4147 5569 4147 
+Q 4956 4147 4856 3756 
+L 3938 56 
+Q 3916 0 3872 0 
+L 3794 0 
+Q 3750 0 3738 44 
+L 2106 3916 
+L 2094 3956 
+Q 2081 3969 2081 3975 
+L 1234 588 
+Q 1228 572 1225 548 
+Q 1222 525 1216 494 
+Q 1216 328 1359 276 
+Q 1503 225 1716 225 
+Q 1778 225 1778 141 
+Q 1756 53 1740 26 
+Q 1725 0 1672 0 
+L 300 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w6t92-Cmmi10-71" d="M 941 -1159 
+Q 963 -1019 1025 -1019 
+Q 1256 -1019 1389 -981 
+Q 1522 -944 1563 -800 
+L 1838 288 
+Q 1472 -72 1106 -72 
+Q 703 -72 473 233 
+Q 244 538 244 953 
+Q 244 1363 455 1803 
+Q 666 2244 1027 2536 
+Q 1388 2828 1806 2828 
+Q 2000 2828 2156 2712 
+Q 2313 2597 2394 2406 
+Q 2431 2481 2601 2654 
+Q 2772 2828 2841 2828 
+Q 2913 2828 2913 2747 
+L 2016 -825 
+Q 2000 -919 1997 -934 
+Q 1997 -1019 2419 -1019 
+Q 2450 -1019 2467 -1044 
+Q 2484 -1069 2484 -1100 
+Q 2463 -1184 2448 -1212 
+Q 2434 -1241 2375 -1241 
+L 1006 -1241 
+Q 941 -1241 941 -1159 
+z
+M 1119 97 
+Q 1344 97 1558 267 
+Q 1772 438 1931 672 
+L 2291 2113 
+Q 2253 2338 2126 2500 
+Q 2000 2663 1791 2663 
+Q 1575 2663 1389 2486 
+Q 1203 2309 1075 2069 
+Q 950 1813 836 1366 
+Q 722 919 722 672 
+Q 722 450 817 273 
+Q 913 97 1119 97 
+z
+" transform="scale(0.015625)"/>
+     <path id="w6t92-Cmsy10-a3" d="M 941 184 
+Q 941 234 972 275 
+L 2303 1600 
+L 972 2931 
+Q 941 2963 941 3016 
+Q 941 3063 978 3103 
+Q 1016 3144 1069 3144 
+Q 1113 3144 1166 3103 
+L 2491 1778 
+L 3809 3103 
+Q 3863 3144 3903 3144 
+Q 3956 3144 3993 3106 
+Q 4031 3069 4031 3016 
+Q 4031 2963 4000 2931 
+L 2669 1600 
+L 4000 275 
+Q 4031 234 4031 184 
+Q 4031 131 3993 93 
+Q 3956 56 3903 56 
+Q 3856 56 3809 103 
+L 2491 1422 
+L 1166 103 
+Q 1119 56 1069 56 
+Q 1016 56 978 97 
+Q 941 138 941 184 
+z
+" transform="scale(0.015625)"/>
+     <path id="w6t92-Cmmi10-54" d="M 294 84 
+Q 297 100 308 140 
+Q 319 181 336 203 
+Q 353 225 384 225 
+Q 934 225 1113 256 
+Q 1284 300 1319 441 
+L 2194 3956 
+Q 2222 4034 2222 4097 
+Q 2222 4147 1997 4147 
+L 1625 4147 
+Q 1197 4147 964 4015 
+Q 731 3884 622 3668 
+Q 513 3453 341 2963 
+Q 319 2906 275 2906 
+L 219 2906 
+Q 153 2906 153 2988 
+L 609 4313 
+Q 622 4372 672 4372 
+L 4453 4372 
+Q 4519 4372 4519 4288 
+L 4306 2963 
+Q 4306 2944 4284 2925 
+Q 4263 2906 4244 2906 
+L 4184 2906 
+Q 4122 2906 4122 2988 
+Q 4191 3441 4191 3628 
+Q 4191 3853 4097 3968 
+Q 4003 4084 3853 4115 
+Q 3703 4147 3463 4147 
+L 3084 4147 
+Q 2913 4147 2853 4115 
+Q 2794 4084 2753 3928 
+L 1875 416 
+Q 1872 403 1870 390 
+Q 1869 378 1863 359 
+Q 1863 278 1959 256 
+Q 2125 225 2669 225 
+Q 2731 225 2731 141 
+Q 2709 50 2696 25 
+Q 2684 0 2625 0 
+L 359 0 
+Q 294 0 294 84 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w6t92-Cmmi10-4e" transform="translate(0 0.6875)"/>
+    <use xlink:href="#w6t92-Cmmi10-71" transform="translate(80.322266 -16.31875) scale(0.7)"/>
+    <use xlink:href="#w6t92-Cmsy10-a3" transform="translate(135.464258 0.6875)"/>
+    <use xlink:href="#w6t92-Cmmi10-54" transform="translate(230.708398 0.6875)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<text x="776.9" y="68.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto" textLength="172.4" lengthAdjust="spacing">: one row per stage</text>
+<line x1="303.0" y1="48.0" x2="328.0" y2="48.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="336.0,48.0 328.0,53.0 328.0,43.0" fill="#94a3b8"/>
+<line x1="643.0" y1="48.0" x2="668.0" y2="48.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="676.0,48.0 668.0,53.0 668.0,43.0" fill="#94a3b8"/>
+</g>
+<g class="fragment" data-fragment-index="1">
+<text x="20.0" y="120.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="auto" textLength="208.7" lengthAdjust="spacing">then keep only the first</text>
+<svg x="233.837" y="105.002" width="22.344" height="22.0661" viewBox="0 0 22.344 22.066125"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w6t93-figure_1">
+  <g id="w6t93-patch_1">
+   <path d="M 0 22.066125 
+L 22.344 22.066125 
+L 22.344 0 
+L 0 0 
+L 0 22.066125 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w6t93-text_1">
+   <!-- $n_q$ -->
+   <g style="fill: #1f2328" transform="translate(0 14.998125) scale(0.228 -0.228)">
+    <defs>
+     <path id="w6t93-Cmmi10-6e" d="M 494 109 
+Q 494 147 500 166 
+L 978 2075 
+Q 1025 2253 1025 2388 
+Q 1025 2663 838 2663 
+Q 638 2663 541 2423 
+Q 444 2184 353 1819 
+Q 353 1800 334 1789 
+Q 316 1778 300 1778 
+L 225 1778 
+Q 203 1778 187 1801 
+Q 172 1825 172 1844 
+Q 241 2122 305 2315 
+Q 369 2509 505 2668 
+Q 641 2828 844 2828 
+Q 1084 2828 1268 2676 
+Q 1453 2525 1453 2291 
+Q 1644 2541 1900 2684 
+Q 2156 2828 2444 2828 
+Q 2672 2828 2837 2750 
+Q 3003 2672 3095 2514 
+Q 3188 2356 3188 2138 
+Q 3188 1875 3070 1503 
+Q 2953 1131 2778 672 
+Q 2688 463 2688 288 
+Q 2688 97 2834 97 
+Q 3084 97 3251 365 
+Q 3419 634 3488 941 
+Q 3500 978 3541 978 
+L 3616 978 
+Q 3641 978 3658 962 
+Q 3675 947 3675 922 
+Q 3675 916 3669 903 
+Q 3581 541 3364 234 
+Q 3147 -72 2822 -72 
+Q 2597 -72 2437 83 
+Q 2278 238 2278 459 
+Q 2278 578 2328 709 
+Q 2409 919 2514 1209 
+Q 2619 1500 2686 1765 
+Q 2753 2031 2753 2234 
+Q 2753 2413 2679 2538 
+Q 2606 2663 2431 2663 
+Q 2197 2663 2000 2559 
+Q 1803 2456 1656 2286 
+Q 1509 2116 1388 1881 
+L 953 141 
+Q 931 53 854 -9 
+Q 778 -72 684 -72 
+Q 606 -72 550 -22 
+Q 494 28 494 109 
+z
+" transform="scale(0.015625)"/>
+     <path id="w6t93-Cmmi10-71" d="M 941 -1159 
+Q 963 -1019 1025 -1019 
+Q 1256 -1019 1389 -981 
+Q 1522 -944 1563 -800 
+L 1838 288 
+Q 1472 -72 1106 -72 
+Q 703 -72 473 233 
+Q 244 538 244 953 
+Q 244 1363 455 1803 
+Q 666 2244 1027 2536 
+Q 1388 2828 1806 2828 
+Q 2000 2828 2156 2712 
+Q 2313 2597 2394 2406 
+Q 2431 2481 2601 2654 
+Q 2772 2828 2841 2828 
+Q 2913 2828 2913 2747 
+L 2016 -825 
+Q 2000 -919 1997 -934 
+Q 1997 -1019 2419 -1019 
+Q 2450 -1019 2467 -1044 
+Q 2484 -1069 2484 -1100 
+Q 2463 -1184 2448 -1212 
+Q 2434 -1241 2375 -1241 
+L 1006 -1241 
+Q 941 -1241 941 -1159 
+z
+M 1119 97 
+Q 1344 97 1558 267 
+Q 1772 438 1931 672 
+L 2291 2113 
+Q 2253 2338 2126 2500 
+Q 2000 2663 1791 2663 
+Q 1575 2663 1389 2486 
+Q 1203 2309 1075 2069 
+Q 950 1813 836 1366 
+Q 722 919 722 672 
+Q 722 450 817 273 
+Q 913 97 1119 97 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w6t93-Cmmi10-6e" transform="translate(0 0.8125)"/>
+    <use xlink:href="#w6t93-Cmmi10-71" transform="translate(60.009766 -16.19375) scale(0.7)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<text x="261.3" y="120.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="auto" textLength="329.7" lengthAdjust="spacing">rows, and decode — drawn here for</text>
+<svg x="596.191" y="104.724" width="59.508" height="22.344" viewBox="0 0 59.508 22.344"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w6t94-figure_1">
+  <g id="w6t94-patch_1">
+   <path d="M 0 22.344 
+L 59.508 22.344 
+L 59.508 0 
+L 0 0 
+L 0 22.344 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w6t94-text_1">
+   <!-- $n_q = 2$ -->
+   <g style="fill: #1f2328" transform="translate(0 15.276) scale(0.228 -0.228)">
+    <defs>
+     <path id="w6t94-Cmmi10-6e" d="M 494 109 
+Q 494 147 500 166 
+L 978 2075 
+Q 1025 2253 1025 2388 
+Q 1025 2663 838 2663 
+Q 638 2663 541 2423 
+Q 444 2184 353 1819 
+Q 353 1800 334 1789 
+Q 316 1778 300 1778 
+L 225 1778 
+Q 203 1778 187 1801 
+Q 172 1825 172 1844 
+Q 241 2122 305 2315 
+Q 369 2509 505 2668 
+Q 641 2828 844 2828 
+Q 1084 2828 1268 2676 
+Q 1453 2525 1453 2291 
+Q 1644 2541 1900 2684 
+Q 2156 2828 2444 2828 
+Q 2672 2828 2837 2750 
+Q 3003 2672 3095 2514 
+Q 3188 2356 3188 2138 
+Q 3188 1875 3070 1503 
+Q 2953 1131 2778 672 
+Q 2688 463 2688 288 
+Q 2688 97 2834 97 
+Q 3084 97 3251 365 
+Q 3419 634 3488 941 
+Q 3500 978 3541 978 
+L 3616 978 
+Q 3641 978 3658 962 
+Q 3675 947 3675 922 
+Q 3675 916 3669 903 
+Q 3581 541 3364 234 
+Q 3147 -72 2822 -72 
+Q 2597 -72 2437 83 
+Q 2278 238 2278 459 
+Q 2278 578 2328 709 
+Q 2409 919 2514 1209 
+Q 2619 1500 2686 1765 
+Q 2753 2031 2753 2234 
+Q 2753 2413 2679 2538 
+Q 2606 2663 2431 2663 
+Q 2197 2663 2000 2559 
+Q 1803 2456 1656 2286 
+Q 1509 2116 1388 1881 
+L 953 141 
+Q 931 53 854 -9 
+Q 778 -72 684 -72 
+Q 606 -72 550 -22 
+Q 494 28 494 109 
+z
+" transform="scale(0.015625)"/>
+     <path id="w6t94-Cmmi10-71" d="M 941 -1159 
+Q 963 -1019 1025 -1019 
+Q 1256 -1019 1389 -981 
+Q 1522 -944 1563 -800 
+L 1838 288 
+Q 1472 -72 1106 -72 
+Q 703 -72 473 233 
+Q 244 538 244 953 
+Q 244 1363 455 1803 
+Q 666 2244 1027 2536 
+Q 1388 2828 1806 2828 
+Q 2000 2828 2156 2712 
+Q 2313 2597 2394 2406 
+Q 2431 2481 2601 2654 
+Q 2772 2828 2841 2828 
+Q 2913 2828 2913 2747 
+L 2016 -825 
+Q 2000 -919 1997 -934 
+Q 1997 -1019 2419 -1019 
+Q 2450 -1019 2467 -1044 
+Q 2484 -1069 2484 -1100 
+Q 2463 -1184 2448 -1212 
+Q 2434 -1241 2375 -1241 
+L 1006 -1241 
+Q 941 -1241 941 -1159 
+z
+M 1119 97 
+Q 1344 97 1558 267 
+Q 1772 438 1931 672 
+L 2291 2113 
+Q 2253 2338 2126 2500 
+Q 2000 2663 1791 2663 
+Q 1575 2663 1389 2486 
+Q 1203 2309 1075 2069 
+Q 950 1813 836 1366 
+Q 722 919 722 672 
+Q 722 450 817 273 
+Q 913 97 1119 97 
+z
+" transform="scale(0.015625)"/>
+     <path id="w6t94-Cmr10-3d" d="M 481 850 
+Q 428 850 393 890 
+Q 359 931 359 978 
+Q 359 1031 393 1068 
+Q 428 1106 481 1106 
+L 4500 1106 
+Q 4547 1106 4581 1068 
+Q 4616 1031 4616 978 
+Q 4616 931 4581 890 
+Q 4547 850 4500 850 
+L 481 850 
+z
+M 481 2094 
+Q 428 2094 393 2131 
+Q 359 2169 359 2222 
+Q 359 2269 393 2309 
+Q 428 2350 481 2350 
+L 4500 2350 
+Q 4547 2350 4581 2309 
+Q 4616 2269 4616 2222 
+Q 4616 2169 4581 2131 
+Q 4547 2094 4500 2094 
+L 481 2094 
+z
+" transform="scale(0.015625)"/>
+     <path id="w6t94-Cmr10-32" d="M 319 0 
+L 319 172 
+Q 319 188 331 206 
+L 1325 1306 
+Q 1550 1550 1690 1715 
+Q 1831 1881 1968 2097 
+Q 2106 2313 2186 2536 
+Q 2266 2759 2266 3009 
+Q 2266 3272 2169 3511 
+Q 2072 3750 1880 3894 
+Q 1688 4038 1416 4038 
+Q 1138 4038 916 3870 
+Q 694 3703 603 3438 
+Q 628 3444 672 3444 
+Q 816 3444 917 3347 
+Q 1019 3250 1019 3097 
+Q 1019 2950 917 2848 
+Q 816 2747 672 2747 
+Q 522 2747 420 2851 
+Q 319 2956 319 3097 
+Q 319 3338 409 3548 
+Q 500 3759 670 3923 
+Q 841 4088 1055 4175 
+Q 1269 4263 1509 4263 
+Q 1875 4263 2190 4108 
+Q 2506 3953 2690 3670 
+Q 2875 3388 2875 3009 
+Q 2875 2731 2753 2481 
+Q 2631 2231 2440 2026 
+Q 2250 1822 1953 1562 
+Q 1656 1303 1563 1216 
+L 838 519 
+L 1453 519 
+Q 1906 519 2211 526 
+Q 2516 534 2534 550 
+Q 2609 631 2688 1141 
+L 2875 1141 
+L 2694 0 
+L 319 0 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w6t94-Cmmi10-6e" transform="translate(0 0.390625)"/>
+    <use xlink:href="#w6t94-Cmmi10-71" transform="translate(60.009766 -16.615625) scale(0.7)"/>
+    <use xlink:href="#w6t94-Cmr10-3d" transform="translate(115.151758 0.390625)"/>
+    <use xlink:href="#w6t94-Cmr10-32" transform="translate(210.395898 0.390625)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<text x="655.7" y="120.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="auto" textLength="5.8" lengthAdjust="spacing">:</text>
+<text x="98.0" y="150.0" font-size="19" font-weight="600" fill="#7c3aed" text-anchor="end" dominant-baseline="middle">stage 1</text>
+<rect x="108.0" y="138.0" width="19.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<rect x="130.0" y="138.0" width="19.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<rect x="152.0" y="138.0" width="19.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<rect x="174.0" y="138.0" width="19.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<rect x="196.0" y="138.0" width="19.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<rect x="218.0" y="138.0" width="19.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<rect x="240.0" y="138.0" width="19.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<rect x="262.0" y="138.0" width="19.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<rect x="284.0" y="138.0" width="19.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<rect x="306.0" y="138.0" width="19.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<rect x="328.0" y="138.0" width="19.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<rect x="350.0" y="138.0" width="19.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="98.0" y="174.0" font-size="19" font-weight="600" fill="#7c3aed" text-anchor="end" dominant-baseline="middle">stage 2</text>
+<rect x="108.0" y="162.0" width="19.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<rect x="130.0" y="162.0" width="19.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<rect x="152.0" y="162.0" width="19.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<rect x="174.0" y="162.0" width="19.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<rect x="196.0" y="162.0" width="19.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<rect x="218.0" y="162.0" width="19.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<rect x="240.0" y="162.0" width="19.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<rect x="262.0" y="162.0" width="19.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<rect x="284.0" y="162.0" width="19.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<rect x="306.0" y="162.0" width="19.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<rect x="328.0" y="162.0" width="19.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<rect x="350.0" y="162.0" width="19.0" height="20.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="98.0" y="198.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="middle">stage 3</text>
+<rect x="108.0" y="186.0" width="19.0" height="20.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.2" stroke-dasharray="3 3"/>
+<rect x="130.0" y="186.0" width="19.0" height="20.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.2" stroke-dasharray="3 3"/>
+<rect x="152.0" y="186.0" width="19.0" height="20.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.2" stroke-dasharray="3 3"/>
+<rect x="174.0" y="186.0" width="19.0" height="20.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.2" stroke-dasharray="3 3"/>
+<rect x="196.0" y="186.0" width="19.0" height="20.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.2" stroke-dasharray="3 3"/>
+<rect x="218.0" y="186.0" width="19.0" height="20.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.2" stroke-dasharray="3 3"/>
+<rect x="240.0" y="186.0" width="19.0" height="20.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.2" stroke-dasharray="3 3"/>
+<rect x="262.0" y="186.0" width="19.0" height="20.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.2" stroke-dasharray="3 3"/>
+<rect x="284.0" y="186.0" width="19.0" height="20.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.2" stroke-dasharray="3 3"/>
+<rect x="306.0" y="186.0" width="19.0" height="20.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.2" stroke-dasharray="3 3"/>
+<rect x="328.0" y="186.0" width="19.0" height="20.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.2" stroke-dasharray="3 3"/>
+<rect x="350.0" y="186.0" width="19.0" height="20.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.2" stroke-dasharray="3 3"/>
+<text x="98.0" y="222.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="end" dominant-baseline="middle">stage 4</text>
+<rect x="108.0" y="210.0" width="19.0" height="20.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.2" stroke-dasharray="3 3"/>
+<rect x="130.0" y="210.0" width="19.0" height="20.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.2" stroke-dasharray="3 3"/>
+<rect x="152.0" y="210.0" width="19.0" height="20.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.2" stroke-dasharray="3 3"/>
+<rect x="174.0" y="210.0" width="19.0" height="20.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.2" stroke-dasharray="3 3"/>
+<rect x="196.0" y="210.0" width="19.0" height="20.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.2" stroke-dasharray="3 3"/>
+<rect x="218.0" y="210.0" width="19.0" height="20.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.2" stroke-dasharray="3 3"/>
+<rect x="240.0" y="210.0" width="19.0" height="20.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.2" stroke-dasharray="3 3"/>
+<rect x="262.0" y="210.0" width="19.0" height="20.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.2" stroke-dasharray="3 3"/>
+<rect x="284.0" y="210.0" width="19.0" height="20.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.2" stroke-dasharray="3 3"/>
+<rect x="306.0" y="210.0" width="19.0" height="20.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.2" stroke-dasharray="3 3"/>
+<rect x="328.0" y="210.0" width="19.0" height="20.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.2" stroke-dasharray="3 3"/>
+<rect x="350.0" y="210.0" width="19.0" height="20.0" rx="2" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.2" stroke-dasharray="3 3"/>
+<text x="240.0" y="244.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">… the rest are dropped</text>
+<line x1="374.0" y1="160.0" x2="394.0" y2="160.0" stroke="#7c3aed" stroke-width="1.6"/>
+<polygon points="402.0,160.0 394.0,165.0 394.0,155.0" fill="#7c3aed"/>
+<rect x="406.0" y="138.0" width="256.0" height="68.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="534.0" y="159.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">the decoder</text>
+<text x="534.0" y="192.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">sums the kept codewords</text>
+<line x1="665.0" y1="172.0" x2="682.0" y2="172.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="690.0,172.0 682.0,177.0 682.0,167.0" fill="#94a3b8"/>
+<rect x="694.0" y="138.0" width="286.0" height="68.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="837.0" y="159.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">a waveform again</text>
+<text x="837.0" y="192.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">played, and drawn as log-mel</text>
+<text x="406.0" y="234.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">Mimi: keys 1 2 4 8  ·  EnCodec: key e  ·  DAC: key d</text>
+<text x="406.0" y="258.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">e and d step up one setting per press</text>
+</g>
+<g class="fragment" data-fragment-index="2">
+<text x="20.0" y="302.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="auto">in the window — and the two things to listen for:</text>
+<rect x="20.0" y="318.0" width="300.0" height="68.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="170.0" y="339.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">top: the original</text>
+<text x="170.0" y="372.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">its log-mel · key o plays it</text>
+<rect x="340.0" y="318.0" width="300.0" height="68.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="490.0" y="339.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">middle: this setting</text>
+<text x="390.4" y="372.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto" textLength="113.0" lengthAdjust="spacing">log-mel, with</text>
+<svg x="508.595" y="355.562" width="19.836" height="22.0661" viewBox="0 0 19.836 22.066125"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w6t95-figure_1">
+  <g id="w6t95-patch_1">
+   <path d="M 0 22.066125 
+L 19.836 22.066125 
+L 19.836 0 
+L 0 0 
+L 0 22.066125 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w6t95-text_1">
+   <!-- $f_r$ -->
+   <g style="fill: #6b7280" transform="translate(0 17.278125) scale(0.228 -0.228)">
+    <defs>
+     <path id="w6t95-Cmmi10-66" d="M 622 -1056 
+Q 741 -1147 909 -1147 
+Q 1138 -1147 1281 -641 
+Q 1341 -397 1606 966 
+L 1900 2534 
+L 1350 2534 
+Q 1288 2534 1288 2619 
+Q 1313 2759 1369 2759 
+L 1941 2759 
+L 2016 3175 
+Q 2053 3369 2084 3508 
+Q 2116 3647 2152 3765 
+Q 2188 3884 2259 4031 
+Q 2369 4241 2555 4377 
+Q 2741 4513 2956 4513 
+Q 3097 4513 3230 4461 
+Q 3363 4409 3447 4306 
+Q 3531 4203 3531 4063 
+Q 3531 3900 3423 3779 
+Q 3316 3659 3163 3659 
+Q 3059 3659 2986 3723 
+Q 2913 3788 2913 3891 
+Q 2913 4031 3008 4136 
+Q 3103 4241 3244 4256 
+Q 3125 4347 2950 4347 
+Q 2853 4347 2767 4256 
+Q 2681 4166 2656 4063 
+Q 2616 3900 2478 3181 
+L 2400 2759 
+L 3059 2759 
+Q 3122 2759 3122 2675 
+Q 3119 2659 3109 2620 
+Q 3100 2581 3083 2557 
+Q 3066 2534 3041 2534 
+L 2356 2534 
+L 2059 972 
+Q 2003 631 1929 279 
+Q 1856 -72 1723 -442 
+Q 1591 -813 1384 -1063 
+Q 1178 -1313 897 -1313 
+Q 681 -1313 511 -1189 
+Q 341 -1066 341 -863 
+Q 341 -700 445 -579 
+Q 550 -459 709 -459 
+Q 816 -459 887 -523 
+Q 959 -588 959 -691 
+Q 959 -828 857 -942 
+Q 756 -1056 622 -1056 
+z
+" transform="scale(0.015625)"/>
+     <path id="w6t95-Cmmi10-72" d="M 494 109 
+Q 494 147 500 166 
+L 978 2075 
+Q 1025 2253 1025 2388 
+Q 1025 2663 838 2663 
+Q 638 2663 541 2423 
+Q 444 2184 353 1819 
+Q 353 1800 334 1789 
+Q 316 1778 300 1778 
+L 225 1778 
+Q 203 1778 187 1801 
+Q 172 1825 172 1844 
+Q 241 2122 305 2315 
+Q 369 2509 505 2668 
+Q 641 2828 844 2828 
+Q 1066 2828 1233 2700 
+Q 1400 2572 1441 2363 
+Q 1603 2575 1811 2701 
+Q 2019 2828 2266 2828 
+Q 2469 2828 2623 2709 
+Q 2778 2591 2778 2388 
+Q 2778 2225 2676 2104 
+Q 2575 1984 2406 1984 
+Q 2303 1984 2233 2048 
+Q 2163 2113 2163 2216 
+Q 2163 2356 2266 2467 
+Q 2369 2578 2503 2578 
+Q 2400 2663 2253 2663 
+Q 1978 2663 1775 2467 
+Q 1572 2272 1409 1972 
+L 953 141 
+Q 931 53 854 -9 
+Q 778 -72 684 -72 
+Q 606 -72 550 -22 
+Q 494 28 494 109 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w6t95-Cmmi10-66" transform="translate(0 0.484375)"/>
+    <use xlink:href="#w6t95-Cmmi10-72" transform="translate(48.876953 -16.521875) scale(0.7)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<text x="528.4" y="372.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto" textLength="5.6" lengthAdjust="spacing">,</text>
+<svg x="539.16" y="357.842" width="22.344" height="22.0661" viewBox="0 0 22.344 22.066125"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w6t96-figure_1">
+  <g id="w6t96-patch_1">
+   <path d="M 0 22.066125 
+L 22.344 22.066125 
+L 22.344 0 
+L 0 0 
+L 0 22.066125 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w6t96-text_1">
+   <!-- $n_q$ -->
+   <g style="fill: #6b7280" transform="translate(0 14.998125) scale(0.228 -0.228)">
+    <defs>
+     <path id="w6t96-Cmmi10-6e" d="M 494 109 
+Q 494 147 500 166 
+L 978 2075 
+Q 1025 2253 1025 2388 
+Q 1025 2663 838 2663 
+Q 638 2663 541 2423 
+Q 444 2184 353 1819 
+Q 353 1800 334 1789 
+Q 316 1778 300 1778 
+L 225 1778 
+Q 203 1778 187 1801 
+Q 172 1825 172 1844 
+Q 241 2122 305 2315 
+Q 369 2509 505 2668 
+Q 641 2828 844 2828 
+Q 1084 2828 1268 2676 
+Q 1453 2525 1453 2291 
+Q 1644 2541 1900 2684 
+Q 2156 2828 2444 2828 
+Q 2672 2828 2837 2750 
+Q 3003 2672 3095 2514 
+Q 3188 2356 3188 2138 
+Q 3188 1875 3070 1503 
+Q 2953 1131 2778 672 
+Q 2688 463 2688 288 
+Q 2688 97 2834 97 
+Q 3084 97 3251 365 
+Q 3419 634 3488 941 
+Q 3500 978 3541 978 
+L 3616 978 
+Q 3641 978 3658 962 
+Q 3675 947 3675 922 
+Q 3675 916 3669 903 
+Q 3581 541 3364 234 
+Q 3147 -72 2822 -72 
+Q 2597 -72 2437 83 
+Q 2278 238 2278 459 
+Q 2278 578 2328 709 
+Q 2409 919 2514 1209 
+Q 2619 1500 2686 1765 
+Q 2753 2031 2753 2234 
+Q 2753 2413 2679 2538 
+Q 2606 2663 2431 2663 
+Q 2197 2663 2000 2559 
+Q 1803 2456 1656 2286 
+Q 1509 2116 1388 1881 
+L 953 141 
+Q 931 53 854 -9 
+Q 778 -72 684 -72 
+Q 606 -72 550 -22 
+Q 494 28 494 109 
+z
+" transform="scale(0.015625)"/>
+     <path id="w6t96-Cmmi10-71" d="M 941 -1159 
+Q 963 -1019 1025 -1019 
+Q 1256 -1019 1389 -981 
+Q 1522 -944 1563 -800 
+L 1838 288 
+Q 1472 -72 1106 -72 
+Q 703 -72 473 233 
+Q 244 538 244 953 
+Q 244 1363 455 1803 
+Q 666 2244 1027 2536 
+Q 1388 2828 1806 2828 
+Q 2000 2828 2156 2712 
+Q 2313 2597 2394 2406 
+Q 2431 2481 2601 2654 
+Q 2772 2828 2841 2828 
+Q 2913 2828 2913 2747 
+L 2016 -825 
+Q 2000 -919 1997 -934 
+Q 1997 -1019 2419 -1019 
+Q 2450 -1019 2467 -1044 
+Q 2484 -1069 2484 -1100 
+Q 2463 -1184 2448 -1212 
+Q 2434 -1241 2375 -1241 
+L 1006 -1241 
+Q 941 -1241 941 -1159 
+z
+M 1119 97 
+Q 1344 97 1558 267 
+Q 1772 438 1931 672 
+L 2291 2113 
+Q 2253 2338 2126 2500 
+Q 2000 2663 1791 2663 
+Q 1575 2663 1389 2486 
+Q 1203 2309 1075 2069 
+Q 950 1813 836 1366 
+Q 722 919 722 672 
+Q 722 450 817 273 
+Q 913 97 1119 97 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w6t96-Cmmi10-6e" transform="translate(0 0.8125)"/>
+    <use xlink:href="#w6t96-Cmmi10-71" transform="translate(60.009766 -16.19375) scale(0.7)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<text x="561.5" y="372.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto" textLength="5.6" lengthAdjust="spacing">,</text>
+<svg x="572.233" y="355.516" width="17.328" height="22.0661" viewBox="0 0 17.328 22.066125"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w6t97-figure_1">
+  <g id="w6t97-patch_1">
+   <path d="M 0 22.066125 
+L 17.328 22.066125 
+L 17.328 0 
+L 0 0 
+L 0 22.066125 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w6t97-text_1">
+   <!-- $B$ -->
+   <g style="fill: #6b7280" transform="translate(0 17.324437) scale(0.228 -0.228)">
+    <defs>
+     <path id="w6t97-Cmmi10-42" d="M 319 0 
+Q 256 0 256 84 
+Q 259 100 268 137 
+Q 278 175 293 200 
+Q 309 225 341 225 
+Q 522 225 656 234 
+Q 791 244 884 269 
+Q 959 297 1006 441 
+L 1881 3956 
+Q 1894 4019 1894 4044 
+Q 1894 4113 1819 4122 
+Q 1697 4147 1356 4147 
+Q 1294 4147 1294 4231 
+Q 1297 4247 1306 4286 
+Q 1316 4325 1333 4348 
+Q 1350 4372 1375 4372 
+L 3669 4372 
+Q 3878 4372 4083 4320 
+Q 4288 4269 4461 4156 
+Q 4634 4044 4736 3876 
+Q 4838 3709 4838 3488 
+Q 4838 3247 4714 3040 
+Q 4591 2834 4395 2681 
+Q 4200 2528 3973 2429 
+Q 3747 2331 3500 2284 
+Q 3675 2284 3854 2215 
+Q 4034 2147 4175 2028 
+Q 4316 1909 4402 1743 
+Q 4488 1578 4488 1388 
+Q 4488 1003 4219 684 
+Q 3950 366 3542 183 
+Q 3134 0 2753 0 
+L 319 0 
+z
+M 1497 275 
+Q 1497 225 1716 225 
+L 2631 225 
+Q 2944 225 3231 398 
+Q 3519 572 3692 859 
+Q 3866 1147 3866 1459 
+Q 3866 1650 3786 1820 
+Q 3706 1991 3556 2089 
+Q 3406 2188 3213 2188 
+L 1966 2188 
+L 1522 416 
+Q 1497 328 1497 275 
+z
+M 2009 2356 
+L 2981 2356 
+Q 3288 2356 3577 2512 
+Q 3866 2669 4048 2937 
+Q 4231 3206 4231 3506 
+Q 4231 3784 4057 3965 
+Q 3884 4147 3609 4147 
+L 2731 4147 
+Q 2559 4147 2500 4115 
+Q 2441 4084 2400 3928 
+L 2009 2356 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w6t97-Cmmi10-42" transform="translate(0 0.6875)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<rect x="680.0" y="318.0" width="300.0" height="32.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="692.0" y="340.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">stage 1 alone: what is left</text>
+<text x="960.0" y="335.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+<rect x="680.0" y="354.0" width="300.0" height="32.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="692.0" y="376.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">Mandarin: the four tones</text>
+<text x="960.0" y="371.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+</g>
+</svg>
+```

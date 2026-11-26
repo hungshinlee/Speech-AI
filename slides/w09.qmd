@@ -724,7 +724,7 @@ The judge is present **only in training** — its blind spots stay in the weight
 :::
 
 ::: {.footer}
-the fifth shape: W5 p46 · W6 p31 · W7 p66 · W8 p53 · W9: training has a judge, use does not
+the fifth shape: W5 p46 · W6 p32 · W7 p66 · W8 p53 · W9: training has a judge, use does not
 :::
 
 ## DPO's picture, and the fifth shape
@@ -742,7 +742,7 @@ Use is W8's graph in both cases: **the inference cost does not change.**
 :::
 
 ::: {.footer}
-Seed-TTS, arXiv:2406.02430, §4.2 · p37: who made the pairs · W5 p46, W6 p31, W7 p66, W8 p53
+Seed-TTS, arXiv:2406.02430, §4.2 · p37: who made the pairs · W5 p46, W6 p32, W7 p66, W8 p53
 :::
 
 ## MC 6 — "RL makes inference slower" / "RL is an inference-time trick"
@@ -892,7 +892,7 @@ $$
 :::
 
 ::: {.footer}
-FlowTTS-GRPO §2.3–2.4 · Multi-Reward GRPO: a length penalty · W6 p30 · W8 p65–p68
+FlowTTS-GRPO §2.3–2.4 · Multi-Reward GRPO: a length penalty · W6 p31 · W8 p65–p68
 :::
 
 ## Predict first: optimise one judge alone
@@ -1334,7 +1334,7 @@ And the other direction: **genuine speech** that has passed through an enhancer 
 :::
 
 ::: {.footer}
-Müller et al., Interspeech 2022 · CodecFake · SEA-CF, arXiv:2606.15968 · W6 p30, W8 p65
+Müller et al., Interspeech 2022 · CodecFake · SEA-CF, arXiv:2606.15968 · W6 p31, W8 p65
 :::
 
 ## MC 13 — "a detector recognises synthetic speech"
@@ -1363,7 +1363,7 @@ Trained **together**. One probability **per sample**: it can say *which seconds*
 :::
 
 ::: {.footer}
-San Roman et al., ICML 2024 — §3.2: masked sample-level detection; §6: detector secret · W6 p31
+San Roman et al., ICML 2024 — §3.2: masked sample-level detection; §6: detector secret · W6 p32
 :::
 
 ## A watermark is a hypothesis test — and what it survives depends on the conditions
@@ -1381,7 +1381,7 @@ Not "a codec washes it out": **which watermark, which codec, which bitrate** (W6
 :::
 
 ::: {.footer}
-AudioMarkBench, NeurIPS 2024 · AudioSeal Table 3 · Zhong et al., arXiv:2609.29040 · W6 p26
+AudioMarkBench, NeurIPS 2024 · AudioSeal Table 3 · Zhong et al., arXiv:2609.29040 · W6 p27
 :::
 
 ## The missing control: unmarked audio, through the same damage
@@ -1511,7 +1511,7 @@ p83 · p88 · AudioSeal §6 · AudioMarkBench: removal at every access level; fo
 :::
 
 ::: {.footer}
-outline 〈定位〉 three axes · W5 p72 · W6 p57 · W7 p82 · W8 p86
+outline 〈定位〉 three axes · W5 p72 · W6 p60 · W7 p82 · W8 p86
 :::
 
 ## Local languages: four things this week
