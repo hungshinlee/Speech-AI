@@ -5,7 +5,7 @@
 #
 #   ./setup.sh            裝 pystoi、試著裝 pesq（不動環境裡其他套件的版本），更新 ../versions-tts.lock 與 ../requirements-tts.lock.txt，跑 selftest
 #
-# 為什麼要它們：投影片 p47「每個指標都是一位裁判」裡給人耳設計的那兩位。
+# 為什麼要它們：投影片 p48「每個指標都是一位裁判」裡給人耳設計的那兩位。
 #   pystoi   STOI，純 Python（只要 numpy、scipy）。
 #   pesq     PESQ（ITU-T P.862 的 C 程式包一層）。PyPI 上只有原始碼，要在這台機器上編譯（Xcode Command Line Tools 的 clang）。
 #            編不起來不擋路：那一欄留空，其他照跑。

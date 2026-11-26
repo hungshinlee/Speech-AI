@@ -1,5 +1,5 @@
 <!-- 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。 -->
-# W10 · Demo 3 — Two people at once: which track is the user? (slides p74–p75, p84)
+# W10 · Demo 3 — Two people at once: which track is the user? (slides p76–p78, p87)
 
 A separation model returns two tracks. Nothing in it says which track is the user, or that the user stays in the same track from one chunk to the next. This demo builds a mixture whose answer is known, separates it, lets two speaker encoders pick the user's track against an enrolment, and then hands the same audio to a diarization pipeline and scores its one output three ways. Nothing is trained; every model is used for inference. Only voices from a public corpus are used.
 
@@ -25,23 +25,23 @@ Because the mixture is made here, each talker's clean track still exists. That g
 | SIM | the cosine between the embedding of a separated track and the embedding of the enrolment (W9 p18) |
 | recogniser | Whisper small (W7), on the tracks stitched back together; WER is counted against the user's words only, after Whisper's `EnglishTextNormalizer` |
 | diarization | `pyannote/speaker-diarization-community-1` through `pyannote.audio`, on the conversation as one file. Key `k` switches to a deliberately simple clustering baseline written in `demo.py` (`naive_diarize`): 1.5 s windows, one ECAPA embedding each, agglomerative clustering, one speaker per frame |
-| scoring | `der.py`: 10 ms frames, optimal one-to-one mapping between system labels and reference speakers, then the three scorings of slide p83. `check` compares it with `pyannote.metrics` on the same input |
+| scoring | `der.py`: 10 ms frames, optimal one-to-one mapping between system labels and reference speakers, then the three scorings of slide p86. `check` compares it with `pyannote.metrics` on the same input |
 
 **What the keys show**
 
 | Key | What happens | Slide |
 |---|---|---|
-| `1` | plays the fully overlapped mixture, then the two separated tracks; SI-SDR of each track against each talker | p75 |
-| `p` | plays the "conversation" | p75 |
-| `2` `3` | one row per chunk: the SIM of track 1 and of track 2 to the enrolment, and the track picked — encoder A, then encoder B | p75 |
-| `o` | reveals which track the user is really in, chunk by chunk, and how often the index changes | p75–p76 |
-| `n` | plays "track 1 of every chunk", stitched | p76 |
-| `4` `l` | several ways of stitching, each sent to Whisper; plays the stitch picked by SIM | p75 |
-| `5` | the chunks where the user says nothing: two tracks still come out, and one SIM is still the higher one — plays the track that gets picked | p73, p75 |
-| `a` | a threshold on SIM: does it reject the chunks where the user is absent, for each encoder? | p78 |
+| `1` | plays the fully overlapped mixture, then the two separated tracks; SI-SDR of each track against each talker | p78 |
+| `p` | plays the "conversation" | p78 |
+| `2` `3` | one row per chunk: the SIM of track 1 and of track 2 to the enrolment, and the track picked — encoder A, then encoder B | p78 |
+| `o` | reveals which track the user is really in, chunk by chunk, and how often the index changes | p78–p79 |
+| `n` | plays "track 1 of every chunk", stitched | p79 |
+| `4` `l` | several ways of stitching, each sent to Whisper; plays the stitch picked by SIM | p78 |
+| `5` | the chunks where the user says nothing: two tracks still come out, and one SIM is still the higher one — plays the track that gets picked | p75, p78 |
+| `a` | a threshold on SIM: does it reject the chunks where the user is absent, for each encoder? | p81 |
 | `c` `x` `g` | chunk length; no chunking; the other talker | |
-| `6` | reference, system output and the three kinds of error on one timeline | p84 |
-| `7` | the same output scored three ways | p84 |
+| `6` | reference, system output and the three kinds of error on one timeline | p87 |
+| `7` | the same output scored three ways | p87 |
 | `k` `t` | the clustering baseline instead of pyannote; the slide tables | |
 
 **The definitions to keep in mind**
@@ -52,7 +52,7 @@ Per 10 ms frame, with $N_{\text{ref}}$ speakers active in the reference, $N_{\te
 
 **Reading the results honestly**
 
-- This is blind separation followed by picking a track with SIM. It is **not** target speaker extraction (p72): no model here is conditioned on the enrolment.
+- This is blind separation followed by picking a track with SIM. It is **not** target speaker extraction (p74): no model here is conditioned on the enrolment.
 - Whether the user's track index changes between chunks depends on the model, the voices, the chunk length, and small numerical details. It is not guaranteed to change — and nothing guarantees that it will not. The second pair of voices (`g`) is there to show a different outcome.
 - The two SIM numbers for the same pair of voices come from two different embedding spaces. Their thresholds (0.25 from SpeechBrain's verification interface, 0.86 from the WavLM model card) are the publishers' examples, not tuned on this data, and are not interchangeable.
 - The enrolment and the test sentences come from the same speaker reading audiobooks, in some cases the same recording session. Real enrolments are older, shorter and recorded elsewhere.

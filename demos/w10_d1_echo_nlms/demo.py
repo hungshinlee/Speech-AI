@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
-"""W10 demo 1：系統聽見自己——回音、NLMS、double-talk（投影片 p18–p19、p33–p34）。
+"""W10 demo 1：系統聽見自己——回音、NLMS、double-talk（投影片 p18–p20、p34–p35）。
 
   show       課堂：讀 audio/real_*.wav（三段真的錄音；沒有就只有模擬），算好全部的版本，視窗裡單鍵操作。離開時存 runs/live/<時間>/（不進版控）
   rehearse   課前：不互動，真錄音與模擬各跑一遍（含 VAD 與 Whisper），存 runs/rehearsal/（進版控 = 現場的退路）
@@ -13,7 +13,7 @@
   selftest   不需要模型、麥克風、pyroomacoustics：NLMS 的恆等式與收斂、三種步長、直接相減、Geigel、整條流程走一遍
   export     runs/rehearsal/rehearsal.json 的摘要 → slides/assets/w10/w10-metrics.json（鍵 demo1；投影片數字進版控的出處）
 
-視窗裡的鍵（順序照投影片 p19、p33、p34 講稿的【操作】）：
+視窗裡的鍵（順序照投影片 p20、p34、p35 講稿的【操作】）：
   1  播麥克風錄到的 y（只有系統在說的那一段）
   2  播 y − x：把播出去的訊號照原樣減掉
   3  播 y − g·x(n − D)：延遲對齊、音量也調到最合之後再減
@@ -22,8 +22,8 @@
   8  第三段（喇叭失真）＋ NLMS：ERLE 的天花板
   9  第二段送給 Silero VAD 與 Whisper small：AEC 之前        0  AEC 之後
   y  播目前這一段的麥克風        e  播目前這一版的殘餘        a  只播「我停下來」前後那幾秒的殘餘
-  c  印出 NLMS 迴圈的程式碼（與 p23、p25 的式子逐行對得上）
-  m  真錄音／模擬 互換        t  表（p19、p33、p34 的三張）        h  選單        q  離開
+  c  印出 NLMS 迴圈的程式碼（與 p24、p26 的式子逐行對得上）
+  m  真錄音／模擬 互換        t  表（p20、p34、p35 的三張）        h  選單        q  離開
 
 數字的定義：
   殘餘的位準（鍵 1–3）= 10 log10(Σ 殘餘² ÷ Σ y²)，整段；0 dB = 沒有變小，正的 = 更大聲
@@ -679,12 +679,12 @@ class Demo:
         o.banner(f"表（{SRC_ZH[self.source]}：{st.get('how', '')}）")
         if "step1" in st:
             s = st["step1"]
-            o("  p19  從 y(n) 減掉什麼                          殘餘的位準（相對麥克風）")
+            o("  p20  從 y(n) 減掉什麼                          殘餘的位準（相對麥克風）")
             o("       什麼都不減                                 0 dB（定義）")
             o(f"       x(n)，照原樣                             {s['literal_db']:+6.1f} dB      （只調音量、不挪時間的最好結果 {s['gain_only_db']:+.2f} dB）")
             o(f"       g·x(n − D)，D = {s['delay_ms']:.1f} ms                 {s['aligned_db']:+6.2f} dB")
         o("")
-        o("  p33  錄音與步長的規則                 ERLE 插話前   插話時   停下來之後   最後    回來要幾秒")
+        o("  p34  錄音與步長的規則                 ERLE 插話前   插話時   停下來之後   最後    回來要幾秒")
         for c, rule in VARIANTS:
             v = st["variants"].get(f"{c}:{rule}")
             if v is None:
@@ -697,20 +697,20 @@ class Demo:
         d = st.get("downstream")
         if d:
             o("")
-            o("  p34                      VAD 亮：只有系統在說／我插話時      Whisper")
+            o("  p35                      VAD 亮：只有系統在說／我插話時      Whisper")
             for when, zh in (("before", "AEC 之前"), ("after", "AEC 之後")):
                 r = d.get(f"talk:{when}")
                 if r:
                     o(f"       {zh}            {100 * (r['vad']['active_frac_system_only'] or 0):5.0f}% ／ {100 * r['vad'].get('active_frac_user', 0):3.0f}%                 {r['whisper']['text'] or '（空的）'}")
 
     def code(self) -> None:
-        self.out.banner("aec.py 的 nlms()：迴圈裡的這幾行（(p23)、(p25) 是投影片上的兩條式子）")
+        self.out.banner("aec.py 的 nlms()：迴圈裡的這幾行（(p24)、(p26) 是投影片上的兩條式子）")
         src = inspect.getsource(aec.nlms).splitlines()
         i0 = next(i for i, ln in enumerate(src) if ln.strip().startswith("for n in range(N):"))
         for ln in src[i0:]:
             if "mis is not None" in ln:
                 break
-            hot = "(p23)" in ln or "(p25)" in ln
+            hot = "(p24)" in ln or "(p26)" in ln
             self.out((C.BOLD if hot else C.GREY) + ln + C.RESET)
 
     # 視窗
@@ -1075,7 +1075,7 @@ def check(no_audio: bool = False) -> None:
             res["delay_spread_samples"] = int(max(ds) - min(ds))
             res["delay_drift_samples"] = int(max(abs(t["delay_first_half"] - t["delay_second_half"]) for t in trials))
             print(f"  三次延遲差 {res['delay_spread_samples']} 個樣本；同一次前後半差最多 {res['delay_drift_samples']} 個樣本"
-                  + ("" if res["delay_drift_samples"] <= 1 else f"  {C.AMBER}← 播與錄的時脈在漂；線性濾波器的 ERLE 會被它壓住（那是 p30 的內容，照實講）{C.RESET}"))
+                  + ("" if res["delay_drift_samples"] <= 1 else f"  {C.AMBER}← 播與錄的時脈在漂；線性濾波器的 ERLE 會被它壓住（那是 p31 的內容，照實講）{C.RESET}"))
             worst = min(t["echo_to_floor_db"] for t in trials)
             best = max((t["erle_last_second_db"] or -99) for t in trials)
             res["verdict"] = ("no echo reached the microphone" if worst < 6 else "echo present, linear path learnable" if best > 15 else "echo present, but a linear filter removes little")
@@ -1347,7 +1347,7 @@ def main() -> None:
         d.save("rehearsal")
         if "real" in stores:
             export()
-        print("\n下一步：./present.sh 自己按一遍 1 2 3 4 5 a 6 a 7 a 8 9 0 t；runs/rehearsal/*.png 看過；數字回填 p19、p33、p34 的表。"
+        print("\n下一步：./present.sh 自己按一遍 1 2 3 4 5 a 6 a 7 a 8 9 0 t；runs/rehearsal/*.png 看過；數字回填 p20、p34、p35 的表。"
               + ("" if "real" in stores else "\n（這次只有模擬：真錄音要先 ./present.sh record alone／talk／loud；沒有真錄音時不匯出 w10-metrics.json，要匯就 ./present.sh export）"))
         return
     d.menu()

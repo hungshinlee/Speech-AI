@@ -10,10 +10,10 @@
              pyannote 在 mps 與 cpu 上的時間戳一不一致、der.py 對 pyannote.metrics → runs/check.json
   fetch      課前一週：從 dev-clean.tar.gz 解出要用的句子；下載 SepFormer、ECAPA、pyannote 的 pipeline（要網路；pyannote 要 token）
   fake       沒有模型也能演練流程（替身；畫面標明 FAKE，數字沒有意義）
-  selftest   不需要模型：接對話、切塊、SI-SDR、DER（對投影片 p83 的玩具）、fake 整條流程
+  selftest   不需要模型：接對話、切塊、SI-SDR、DER（對投影片 p86 的玩具）、fake 整條流程
   export     runs/rehearsal/ 的摘要 → slides/assets/w10/w10-metrics.json（鍵 demo3）
 
-畫面上的鍵（順序照投影片 p75、p84 講稿的【操作】）：
+畫面上的鍵（順序照投影片 p78、p87 講稿的【操作】）：
   1  完全重疊的那一段：播混合的、再播分出來的兩軌        p  播「對話」那一段（混合的）
   2  「對話」切成一塊一塊：每一塊的兩軌各自對註冊語音的 SIM（encoder A）      3  同一張表，encoder B
   o  揭曉：每一塊裡使用者其實在哪一軌（對乾淨的答案算的）
@@ -865,14 +865,14 @@ class Demo:
 
     def slide_tables(self) -> None:
         o = self.out
-        self.head("投影片 p75 的表")
+        self.head("投影片 p78 的表")
         o("    | chunk | SIM to the enrolment: track 1 · track 2 (" + self.el["a"] + ") | the same, " + self.el["b"] + " | picked | the user is really in |")
         for r in self.main_rows:
             t = r["tracks"]
             tr = "neither" if r["truth"] is None else f"track {r['truth'] + 1}"
             pk = f"{r['pick']['a'] + 1}" if r["pick"]["a"] == r["pick"]["b"] else f"{r['pick']['a'] + 1} / {r['pick']['b'] + 1}"
             o(f"    | {r['k']} ({r['a_s']:.0f}–{r['b_s']:.0f} s; user {r['user_s']:.1f} s) | {t[0]['sim']['a']:.2f} · {t[1]['sim']['a']:.2f} | {t[0]['sim']['b']:.2f} · {t[1]['sim']['b']:.2f} | {pk} | {tr} |")
-        self.head("投影片 p84 的表")
+        self.head("投影片 p87 的表")
         for name in ("pyannote", "naive"):
             d = self.p["diar"].get(name, {})
             if "error" in d or not d:
@@ -1403,7 +1403,7 @@ def selftest() -> None:
     A = np.stack([-41.0 * (s + 0.01 * v), 37.0 * (v + 0.01 * s)], 1)
     gsol = np.linalg.lstsq(A, s + v, rcond=None)[0]
     ok(gsol[0] < 0 < gsol[1] and np.sum((s + v - A @ gsol) ** 2) / np.sum((s + v) ** 2) < 1e-3, "兩軌的增益：最小平方把反的極性擺正")
-    # 4 DER：投影片 p83 的玩具
+    # 4 DER：投影片 p86 的玩具
     ref_t = {"A": ((0.5, 6.0), (9.0, 13.0)), "B": ((5.2, 9.4), (13.5, 18.0))}
     hyp_t = {"A": ((0.6, 6.6), (9.2, 13.3)), "B": ((6.6, 9.2), (13.8, 18.4))}
     R = D.to_grid([(a, b, k) for k, ss in ref_t.items() for a, b in ss], 20.0)
@@ -1412,7 +1412,7 @@ def selftest() -> None:
     want = [(13.8, 0.15, 0.05, 0.35, 4.0), (14.4, 0.15, 0.35, 0.35, 5.9), (18.2, 0.7, 1.6, 0.6, 15.9)]
     for gk, wk, (name, _, _) in zip(got, want, D.SCORINGS):
         mine = (round(gk["total"], 2), round(gk["fa"], 2), round(gk["miss"], 2), round(gk["conf"], 2), round(100 * gk["der"], 1))
-        ok(mine == wk, f"DER 玩具（p83）· {name}：{mine}")
+        ok(mine == wk, f"DER 玩具（p86）· {name}：{mine}")
     if DATA_JSON.exists():
         sc = json.loads(DATA_JSON.read_text(encoding="utf-8")).get("der", {}).get("scoring", {})
         ok([round(100 * gk["der"], 1) for gk in got] == [v["DER_percent"] for v in sc.values()], "DER 玩具：與 w10-data.json → der 相同")
@@ -1499,7 +1499,7 @@ def main() -> None:
         (REHEARSAL / "rehearsal.txt").write_text(out.text(), encoding="utf-8")
         d.save_figs()
         export(REHEARSAL / "rehearsal.json")
-        print(f"\n  → runs/rehearsal/（rehearsal.json、rehearsal.txt、圖、要聽的 .wav）\n下一步：./present.sh，照 p75、p84 的【操作】按一遍")
+        print(f"\n  → runs/rehearsal/（rehearsal.json、rehearsal.txt、圖、要聽的 .wav）\n下一步：./present.sh，照 p78、p87 的【操作】按一遍")
         return
     fill_from_rehearsal(rec, out)
     write_run(LIVE, rec, wavs)

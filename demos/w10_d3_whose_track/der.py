@@ -2,7 +2,7 @@
 # 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
 """W10 demo 3 的計分那一半：diarization error rate。純 numpy（配對用 scipy 的匈牙利演算法）。
 
-投影片 p83 的式子與兩個開關就是這個檔：
+投影片 p86 的式子與兩個開關就是這個檔：
 
     DER = (T_FA + T_miss + T_conf) / T_speech
 
@@ -84,7 +84,7 @@ def der(ref: dict[str, np.ndarray], hyp: dict[str, np.ndarray], collar: float = 
             "scored_s": float(keep.sum() * step), "map": mp, "per_frame": {"fa": fa, "miss": miss, "conf": conf}, "keep": keep}
 
 
-# 投影片 p84 那張表的三欄，由寬到嚴
+# 投影片 p87 那張表的三欄，由寬到嚴
 SCORINGS = [("collar 0.25 s, overlap skipped", 0.25, True),
             ("collar 0.25 s, overlap scored", 0.25, False),
             ("no collar, overlap scored", 0.0, False)]

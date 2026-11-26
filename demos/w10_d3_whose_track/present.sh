@@ -13,14 +13,14 @@
 #                              pyannote 在 mps 與 cpu 上的時間戳一不一致；der.py 對 pyannote.metrics → runs/check.json
 #   ./present.sh fetch         課前一週：解出要用的句子；下載 SepFormer、ECAPA、pyannote 的 pipeline（要網路；pyannote 要先同意條款並登入）
 #   ./present.sh fake          沒有模型也能演練流程（畫面標明 FAKE，數字沒有意義）
-#   ./present.sh selftest      接對話、切塊、SI-SDR、DER（對投影片 p83 的玩具）、fake 整條流程（不開視窗）
+#   ./present.sh selftest      接對話、切塊、SI-SDR、DER（對投影片 p86 的玩具）、fake 整條流程（不開視窗）
 #   ./present.sh export        只重寫 w10-metrics.json → demo3
 #   ./present.sh show --no-plot   只在終端機，不開圖
 #
 # 環境：../.venv-tts（W8 Demo 1 的 setup.sh 建的、W9 Demo 1 的 setup.sh 裝了 speechbrain）；
 #       pyannote.audio 另住 ../.venv-diar（這個 demo 的 ./setup.sh 建的），demo.py 用子程序叫它。
 # replay／fake／selftest／export 不需要 torch，沒有 ../.venv-tts 時退到 ../.venv。
-# 課堂上的講法與按鍵順序寫在投影片 p74、p75、p84 講稿的【操作】。
+# 課堂上的講法與按鍵順序寫在投影片 p76、p78、p87 講稿的【操作】。
 set -euo pipefail
 cd "$(dirname "$0")"
 export HF_HUB_OFFLINE=1

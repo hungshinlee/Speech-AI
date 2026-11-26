@@ -19,7 +19,7 @@
 #
 # 環境：../.venv-tts（W8 Demo 1 的 setup.sh 建的、W9 Demo 1 的 setup.sh 裝了 speechbrain；這個 demo 的 ./setup.sh 再裝 pystoi 與 pesq）。
 # replay／fake／selftest／export 不需要 torch，沒有 ../.venv-tts 時退到 ../.venv。
-# 課堂上的講法與按鍵順序寫在投影片 p48、p49、p55 講稿的【操作】。
+# 課堂上的講法與按鍵順序寫在投影片 p49、p51、p57 講稿的【操作】。
 set -euo pipefail
 cd "$(dirname "$0")"
 export HF_HUB_OFFLINE=1

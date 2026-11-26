@@ -72,7 +72,7 @@ repo = "speechbrain/sepformer-libri2mix"
 label = "SepFormer (Libri2Mix)"
 fs = 8000
 device = "auto"       # check 會測 mps 對 cpu；mps 不行就改 "cpu"
-chunk_s = 4.0         # 投影片 p75 的表：四秒一塊、不重疊
+chunk_s = 4.0         # 投影片 p78 的表：四秒一塊、不重疊
 alt_chunks = [2.0, 8.0]   # 鍵 c 換
 whole = true          # 鍵 x：整段不切、一次處理（對照：整句只配一次）
 

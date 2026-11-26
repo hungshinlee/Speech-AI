@@ -14,7 +14,7 @@
   selftest   不需要模型：加噪音的 SNR、三種噪音、兩次投影、observation adding 的單調性、Wiener、fake 整條流程
   export     runs/rehearsal/ 的摘要 → slides/assets/w10/w10-metrics.json（鍵 demo2）
 
-畫面上的鍵（順序照投影片 p49、p55 講稿的【操作】）：
+畫面上的鍵（順序照投影片 p51、p57 講稿的【操作】）：
   0  播乾淨的原句        1  播同一句的三個版本：帶噪的 → 統計式增強 → MetricGAN+      u  統計式、不平滑（musical noise）
   x  加映的前端（SepFormer）  s  換要聽的 SNR      n  換要聽的句子      b  換噪音的種類
   2  CTC 模型：WER 對 SNR，每個前端一條線            3  Whisper：同一張圖
@@ -735,14 +735,14 @@ class Demo:
                 self.out(f"  {FE_LABEL[fe]:<18s}{fmt(r['sig']['si_sdr'], inf='—'):>8s}{pct(r['ctc']['wer']):>9s}{pct(r['whisper']['wer']):>9s}{str(r['spoof']['n_spoof']) + '/' + str(r['spoof']['n']):>9s}")
 
     def slide_tables(self) -> None:
-        self.head("投影片 p49 的表：WER (%)")
+        self.head("投影片 p51 的表：WER (%)")
         self.out(f"  {'recogniser':<26s}{'front end':<16s}" + "".join(f"{s:>+7d}" for s in SNRS))
         for which in ("ctc", "whisper"):
             for fe in ("none", "stat", "mgan"):
                 row = [self.c(s, fe) for s in SNRS]
                 self.out(f"  {(REC_LABEL[which][:24] if fe == 'none' else ''):<26s}{FE_LABEL[fe]:<16s}" + "".join(f"{pct(r[which]['wer']) if r else '—':>7s}" for r in row))
         snr, fe = int(OA["snr"]), OA["fe"]
-        self.out(f"\n  投影片 p55 的表：{snr:+d} dB，{FE_LABEL[fe]}")
+        self.out(f"\n  投影片 p57 的表：{snr:+d} dB，{FE_LABEL[fe]}")
         cols = [(f"ω = {w:g}", self.c(snr, fe, float(w))) for w in OA["table"]] + [("no enh.", self.c(snr, "none"))]
         self.out(f"  {'':<34s}" + "".join(f"{lab:>14s}" for lab, _ in cols))
         self.out(f"  {'SNR, SAR (dB)':<34s}" + "".join(f"{(fmt(r['sig']['snr']) + ', ' + ('∞' if r['sar_inf'] else fmt(r['sig']['sar']))) if r else '—':>14s}" for _, r in cols))

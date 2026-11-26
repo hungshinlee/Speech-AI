@@ -1,0 +1,48 @@
+<!-- 由 scripts/make_figs_w10.py 產生，勿手改；投影片用 {{< include assets/w10/demo3-flow.inline.qmd >}} 貼入 -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 432" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
+<text x="20.0" y="24.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="auto">two speakers, one of them "the user" — spliced by us, so the answer is known:</text>
+<rect x="20.0" y="36.0" width="300.0" height="68.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="170.0" y="57.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">the enrolment</text>
+<text x="170.0" y="90.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">one more sentence by the user</text>
+<rect x="350.0" y="36.0" width="300.0" height="68.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="500.0" y="57.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">fully overlapped</text>
+<text x="500.0" y="90.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">one sentence each · key 1</text>
+<rect x="680.0" y="36.0" width="300.0" height="68.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="830.0" y="57.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">a 40 s "conversation"</text>
+<text x="830.0" y="90.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">brief overlaps · key p</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<text x="20.0" y="140.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="auto">first half — the conversation, one chunk at a time:</text>
+<rect x="20.0" y="152.0" width="465.0" height="96.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="252.5" y="174.0" font-size="19" font-weight="600" fill="#7c3aed" text-anchor="middle" dominant-baseline="middle">SepFormer, in 4-second chunks</text>
+<text x="252.5" y="206.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">each chunk on its own;</text>
+<text x="252.5" y="231.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">two tracks come out of every chunk</text>
+<line x1="489.0" y1="200.0" x2="503.0" y2="200.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="511.0,200.0 503.0,205.0 503.0,195.0" fill="#94a3b8"/>
+<rect x="515.0" y="152.0" width="465.0" height="96.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="747.5" y="174.0" font-size="19" font-weight="600" fill="#0b5cad" text-anchor="middle" dominant-baseline="middle">two speaker encoders · keys 2, 3</text>
+<text x="747.5" y="206.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">each track against the enrolment:</text>
+<text x="747.5" y="231.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">one SIM per track, per encoder</text>
+<rect x="20.0" y="258.0" width="300.0" height="34.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="32.0" y="281.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">key o: the user's track</text>
+<text x="300.0" y="276.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+<rect x="350.0" y="258.0" width="300.0" height="34.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="362.0" y="281.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">keys 2, 3: the same SIM</text>
+<text x="630.0" y="276.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+<rect x="680.0" y="258.0" width="300.0" height="34.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="692.0" y="281.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">key 5: the user is silent</text>
+<text x="960.0" y="276.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+<rect x="20.0" y="298.0" width="960.0" height="34.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="32.0" y="321.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">key 4 — the picked tracks, stitched together and sent to Whisper: the WER on the user's words</text>
+<text x="960.0" y="316.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+</g>
+<g class="fragment" data-fragment-index="2">
+<text x="20.0" y="368.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="auto">second half, later today — who spoke when, in the same conversation:</text>
+<rect x="20.0" y="380.0" width="960.0" height="36.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="32.0" y="404.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">keys 6, 7 — one output, scored three ways: how far apart are the three numbers</text>
+<text x="960.0" y="399.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+</g>
+</svg>
+```

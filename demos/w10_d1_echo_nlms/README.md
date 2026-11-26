@@ -1,5 +1,5 @@
 <!-- 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。 -->
-# W10 · Demo 1 — The system hears itself: echo, NLMS, double-talk (slides p18–p19, p33–p34)
+# W10 · Demo 1 — The system hears itself: echo, NLMS, double-talk (slides p18–p20, p34–p35)
 
 A system that listens while it speaks hears its own voice come back through the room. This demo plays one sentence of text-to-speech through a laptop's loudspeaker, records the laptop's own microphone at the same time, and asks how much of that echo can be removed when the played signal is known. Everything that removes echo is a few dozen lines of `numpy` in `aec.py`; no neural network is trained, and the adaptive filter has no training phase at all — it learns while it runs.
 
@@ -17,15 +17,15 @@ The lecturer's own recordings are not in this repository; the simulation and its
 
 | Key | What happens | Slide |
 |---|---|---|
-| `1` | plays the microphone signal $y(n)$ of the *alone* clip | p19 |
-| `2` | plays $y(n) - x(n)$: the played signal subtracted as it is | p19 |
-| `3` | plays $y(n) - g\,x(n - D)$: delayed to line up with the echo, with the best single gain $g$ | p19 |
-| `4` | *alone* + NLMS starting from zero: ERLE against time | p33 |
-| `5` `6` `7` | *talk* + a fixed step size / a Geigel double-talk detector that freezes the filter / a soft step size | p33 |
-| `8` | *loud* + NLMS: where the ERLE stops | p33 |
-| `9` `0` | the *talk* clip goes to Silero VAD and Whisper small, before and after echo cancellation | p34 |
+| `1` | plays the microphone signal $y(n)$ of the *alone* clip | p20 |
+| `2` | plays $y(n) - x(n)$: the played signal subtracted as it is | p20 |
+| `3` | plays $y(n) - g\,x(n - D)$: delayed to line up with the echo, with the best single gain $g$ | p20 |
+| `4` | *alone* + NLMS starting from zero: ERLE against time | p34 |
+| `5` `6` `7` | *talk* + a fixed step size / a Geigel double-talk detector that freezes the filter / a soft step size | p34 |
+| `8` | *loud* + NLMS: where the ERLE stops | p34 |
+| `9` `0` | the *talk* clip goes to Silero VAD and Whisper small, before and after echo cancellation | p35 |
 | `y` `e` `a` | play the microphone / the residual / only the seconds around the moment the lecturer stops | |
-| `c` | prints the NLMS loop; the two lines marked (p23) and (p25) are the two equations on the slides | |
+| `c` | prints the NLMS loop; the two lines marked (p24) and (p26) are the two equations on the slides | |
 | `t` `m` `h` `q` | the tables, recordings ↔ simulation, menu, quit | |
 
 **The algorithm** (`aec.py`, function `nlms`). With $\mathbf{x}(n) = [x(n), \dots, x(n - L_h + 1)]$:
@@ -38,7 +38,7 @@ $L_h = 2048$ (128 ms), $\mu = 0.5$, $\delta = 0.01\,L_h\,\overline{x^2}$. The fi
 |---|---|
 | fixed | $\mu = 0.5$ always |
 | Geigel freeze | $\mu = 0$ while $\lvert y(n)\rvert > \vartheta \max_{0 \le i < L_h} \lvert x(n-i)\rvert$, and for 200 ms after. $\vartheta$ is set from the *alone* clip: 1.5 times the 99.9th percentile of that ratio when only the system speaks |
-| soft | $\mu(n) = \min\big(0.5,\ \Lambda(n)\,p_x(n) / P_e(n)\big)$, the residual-echo share of the error (slide p28). $p_x(n) = \lVert\mathbf{x}(n)\rVert^2 / L_h$ is known; $P_e$ is a 20 ms average of $e^2$; $\Lambda$ tracks $e^2 / p_x$ with a 1 s average and may at most double every 2 s. **This estimator is this demo's own simplification, not the leakage estimator of Valin (2007)**; its three time constants were chosen on the simulated clip |
+| soft | $\mu(n) = \min\big(0.5,\ \Lambda(n)\,p_x(n) / P_e(n)\big)$, the residual-echo share of the error (slide p29). $p_x(n) = \lVert\mathbf{x}(n)\rVert^2 / L_h$ is known; $P_e$ is a 20 ms average of $e^2$; $\Lambda$ tracks $e^2 / p_x$ with a 1 s average and may at most double every 2 s. **This estimator is this demo's own simplification, not the leakage estimator of Valin (2007)**; its three time constants were chosen on the simulated clip |
 
 **What is measured**
 

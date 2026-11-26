@@ -2,7 +2,7 @@
 # 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
 """W10 demo 3 的訊號那一半：把幾句話接成一段「對話」、切塊、SI-SDR。純 numpy。
 
-投影片 p70 下半（真實對話的樣子）與 p74 的 What runs 對得上的就是這個檔：
+投影片 p72 下半（真實對話的樣子）與 p76 的 What runs 對得上的就是這個檔：
   trim()       每一句先裁掉頭尾的靜音（LibriSpeech 的句子頭尾各有零點幾秒）
   activity()   一條乾淨的軌 → 每 10 ms 一格的「有沒有在說話」（能量門檻，短停頓補起來）
   build()      照設定檔的 turns 把句子擺上時間軸：lead > 0 是隔多久才接話，lead < 0 是搶在前一句結束前多久開口（重疊）

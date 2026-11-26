@@ -21,7 +21,7 @@ from = "../w02_d3_frontend_mismatch"
 #   pink    功率譜 ∝ 1/f（穩態、低頻重）
 #   babble  同一批 40 句裡「其他說話人」的 babble_k 句疊在一起（非穩態；它本身就是語音）
 types = ["white", "pink", "babble"]
-# 投影片 p49 的表、鍵 2–7 一開始看的那一種；鍵 b 換。
+# 投影片 p51 的表、鍵 2–7 一開始看的那一種；鍵 b 換。
 main = "white"
 snrs = [20, 10, 5, 0, -5]
 babble_k = 6
@@ -75,7 +75,7 @@ device = "cpu"
 snr = 0
 fe = "mgan"
 omegas = [0.1, 0.3, 1.0, 3.0]
-table = [0.0, 0.1, 0.3, 1.0]      # 投影片 p55 那張表的四欄
+table = [0.0, 0.1, 0.3, 1.0]      # 投影片 p57 那張表的四欄
 
 [listen]
 # 課堂上聽的句子（data/sentences.json 的 id）與 SNR。彩排時這些組合的 .wav 存進 runs/rehearsal/（同一組用同一個增益）。

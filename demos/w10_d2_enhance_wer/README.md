@@ -1,5 +1,5 @@
 <!-- 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。 -->
-# W10 · Demo 2 — After enhancement, where does WER go? (slides p48–p49, p55)
+# W10 · Demo 2 — After enhancement, where does WER go? (slides p49–p51, p57)
 
 Speech enhancement is trained and scored against judges built for human ears, or judges that count energy. The model that comes next in the pipeline is a different judge. This demo takes the same sentences, adds noise at five levels, sends them through several front ends, and asks two recognisers — and one spoofing detector — what they think. Nothing is trained; every model is used for inference only.
 
@@ -28,7 +28,7 @@ Because the mixture is made here, both $s$ and $v$ are known — which is what t
 |---|---|
 | WER, CTC model | `facebook/wav2vec2-base-960h`, greedy decoding, no language model. It was fine-tuned on clean read speech only (W3) |
 | WER, Whisper small | weakly supervised on a large and noisy collection, with a strong prior on its output side (W7) |
-| SDR, SNR, SAR | two projections of $\hat{s}$: onto $s$, then onto the plane spanned by $s$ and $v$ (`enhance.py`, `decompose`; slides p50–p51). What is left outside the plane is the artifact term |
+| SDR, SNR, SAR | two projections of $\hat{s}$: onto $s$, then onto the plane spanned by $s$ and $v$ (`enhance.py`, `decompose`; slides p52–p53). What is left outside the plane is the artifact term |
 | SI-SDR, STOI, PESQ | SI-SDR as defined in W2; STOI and wide-band PESQ from the `pystoi` and `pesq` packages (left empty if not installed) |
 | AASIST | W9 Demo 3's spoofing detector, used exactly as configured there: is this *real* speech still called real after enhancement? |
 
@@ -38,14 +38,14 @@ WER is corpus-level; references and both recognisers' outputs go through Whisper
 
 | Key | What happens | Slide |
 |---|---|---|
-| `0` `1` | plays the clean sentence; then the same sentence noisy, after the statistical front end, after MetricGAN+ | p49 |
-| `u` | the statistical front end with no smoothing ($\alpha = 0$) — listen for musical noise | p38 |
-| `2` `3` | WER against SNR, one line per front end: the CTC model, then Whisper | p49 |
-| `4` `w` | the two recognisers' transcripts of the same enhanced sentence, side by side; error types (substitutions / deletions / insertions) | p49 |
-| `5` | one point per (front end, SNR): SAR against WER | p55 |
-| `6` | observation adding, $\hat{s} + \omega\,y$: SNR, SAR and both WERs as $\omega$ grows | p53–p55 |
-| `7` | the fraction of real sentences AASIST calls spoof, per front end and SNR | p55 |
-| `m` `e` | every judge in one table; the front ends applied to clean speech | p47 |
+| `0` `1` | plays the clean sentence; then the same sentence noisy, after the statistical front end, after MetricGAN+ | p51 |
+| `u` | the statistical front end with no smoothing ($\alpha = 0$) — listen for musical noise | p39 |
+| `2` `3` | WER against SNR, one line per front end: the CTC model, then Whisper | p51 |
+| `4` `w` | the two recognisers' transcripts of the same enhanced sentence, side by side; error types (substitutions / deletions / insertions) | p51 |
+| `5` | one point per (front end, SNR): SAR against WER | p57 |
+| `6` | observation adding, $\hat{s} + \omega\,y$: SNR, SAR and both WERs as $\omega$ grows | p55–p57 |
+| `7` | the fraction of real sentences AASIST calls spoof, per front end and SNR | p57 |
+| `m` `e` | every judge in one table; the front ends applied to clean speech | p48 |
 | `b` `s` `n` | change the noise kind, the listening SNR, the listening sentence | |
 | `l` | live: a fresh noise draw for the current sentence, all front ends, both recognisers | |
 

@@ -94,7 +94,7 @@ outline 〈key maths 1〉 · the four terms return on p9, one row each
 :::
 
 ::: {.footer}
-seven stops = the seven section pages · half-time: p45 · answered: p93
+seven stops = the seven section pages · half-time: p46 · answered: p96
 :::
 
 ## Notation for today
@@ -196,7 +196,7 @@ Every endpoint is late by $T_{\text{hang}}\,\Delta$ — **a setting, not a compu
 :::
 
 ::: {.footer}
-W1 p43: the response budget · W1 p50: Demo 2 measured this cell · full refill: p90
+W1 p43: the response budget · W1 p50: Demo 2 measured this cell · full refill: p93
 :::
 
 ## A learned VAD is the same test
@@ -226,8 +226,8 @@ The system is in the middle of a sentence; the user is silent. **What does this 
 It detects **something that looks like speech** — the television, a bystander, **the system's own voice coming back**. A barge-in trigger built on it is interrupted by itself.
 :::
 
-- "Is it **the user**?" — add a speaker condition (p72, p78).
-- "Is it **meant for me**?" — add meaning: not an acoustic question (p87).
+- "Is it **the user**?" — add a speaker condition (p74, p81).
+- "Is it **meant for me**?" — add meaning: not an acoustic question (p90).
 - "Has the user **finished**?" — a prediction, not a detection (W12).
 :::
 
@@ -243,12 +243,20 @@ MC: misconception · the loudest "speech" in the mic is the echo: stop 2 · W1 p
 | | |
 |:---|:-----------------|
 | **Why** | Of the three terms to remove, the echo is the one we know most about: **we played it.** So the obvious move is to subtract it. The demo starts with the obvious move, and with why it fails. |
-| **What runs** | This laptop plays a sentence from W8's TTS through its own loudspeaker and records with its own microphone, at the same time: $x(n)$ out, $y(n)$ in. Three recordings — the system alone; the system while I talk over it; the loudspeaker turned up until it distorts. Everything after that is a few dozen lines of `numpy`. |
-| **Watch for** | Step one today: subtract $x$ from $y$ — as played, then shifted to line up. **How much of the echo is gone?** The rest of the demo (p33–p34) returns once the method is on the slides. |
+| **What runs** | This laptop plays a sentence from W8's TTS through its own loudspeaker and records with its own microphone, at the same time: $x(n)$ out, $y(n)$ in — three recordings of it. Everything after that is a few dozen lines of `numpy`. The next slide draws it. |
+| **Watch for** | Step one today: subtract $x$ from $y$ — as played, then shifted to line up. **How much of the echo is gone?** The rest of the demo (p34–p35) returns once the method is on the slides. |
 :::
 
 ::: {.footer}
 Demo 1 · demos/w10_d1_echo_nlms · no neural network is trained this week
+:::
+
+## Demo 1: how it runs
+
+{{< include assets/w10/demo1-flow.inline.qmd >}}
+
+::: {.footer}
+Demo 1 · demos/w10_d1_echo_nlms · today: step one · the rest: p34–p35
 :::
 
 ## Demo 1 — step one: $y - x$
@@ -282,7 +290,7 @@ It subtracts $\hat{\mathbf{h}}^{\top}\mathbf{x}(n)$ — the played signal **afte
 | AEC | $\hat{\mathbf{h}}^{\top}\mathbf{x}(n)$: a weighted sum of the last $L_h$ samples played | $L_h$ numbers — re-learned whenever someone moves |
 
 ::: {.footer}
-Demo 1, step one (p19) · the path as a list of numbers: p22
+Demo 1, step one (p20) · the path as a list of numbers: p23
 :::
 
 ## At a glance: normalised least mean squares (NLMS)
@@ -294,7 +302,7 @@ Demo 1, step one (p19) · the path as a list of numbers: p22
 | **The question** | We know what we played, $x$, and we hear $y$. The path between them is unknown and keeps moving. Can it be learned **while it is being used**? |
 | **The idea** | Guess the path. Use the guess to predict the echo; subtract. Whatever is left says how wrong the guess was — so correct the guess, by the **smallest change** that would have got this sample right. Repeat, every sample. |
 | **What it added** | No training data and no training phase; it follows a path that changes; the cost per sample is a few thousand multiplications. |
-| **What it leaves open** | The user speaking at the same time (p27–p29) · what no linear path can model (p30) · whether a full-duplex model can do without it (p35). The derivation is the next four slides (p22–p25). |
+| **What it leaves open** | The user speaking at the same time (p28–p30) · what no linear path can model (p31) · whether a full-duplex model can do without it (p36). The derivation is the next four slides (p23–p26). |
 :::
 
 ::: {.footer}
@@ -489,7 +497,7 @@ The only module in this course whose weights move **at inference** — which is 
 :::
 
 ::: {.footer}
-W5 p46 · W6 p32 · W7 p69 · W8 p54 · W9 p44–p45 · today's other shapes: p44, p73, p79
+W5 p46 · W6 p32 · W7 p69 · W8 p54 · W9 p44–p45 · today's other shapes: p45, p75, p82
 :::
 
 ## Demo 1 — convergence, double-talk, the ceiling
@@ -509,7 +517,7 @@ W5 p46 · W6 p32 · W7 p69 · W8 p54 · W9 p44–p45 · today's other shapes: p4
 :::
 
 ::: {.footer}
-Demo 1 · measured at rehearsal → w10-metrics.json → demo1 · the method: p24–p25, p28
+Demo 1 · measured at rehearsal → w10-metrics.json → demo1 · the method: p25–p26, p29
 :::
 
 ## Demo 1 — what the next model hears: VAD and Whisper
@@ -555,8 +563,8 @@ A model trained on clean two-channel recordings has never heard its own echo, or
 
 | where the fix sits | 2025–2026 examples |
 |:------|:-----------|
-| in front of the model | an AEC tuned for the downstream (p35) · a reliability gate on the user's audio (IRAF) · token repair from lip video (AV-STE) |
-| inside the model | "learned" echo cancellation — so far, an author's claim (p35) |
+| in front of the model | an AEC tuned for the downstream (p36) · a reliability gate on the user's audio (IRAF) · token repair from lip video (AV-STE) |
+| inside the model | "learned" echo cancellation — so far, an author's claim (p36) |
 
 ::: {.footer}
 IRAF: Zhong et al., arXiv:2606.06559 (preprint) · AV-STE: Godiva, Kim & Ro, EMNLP 2026
@@ -574,9 +582,9 @@ $$
 
 What stands in for the missing reference:
 
-- a **statistical assumption** about speech and noise — $G$ from a formula (p39–p40)
-- a **learned mask** — a network trained on (noisy, clean) pairs predicts $G$ (p41–p42)
-- a **generative model** of clean speech — draw $\hat{S}$ from $P(S \mid Y)$: no mask at all (p43)
+- a **statistical assumption** about speech and noise — $G$ from a formula (p40–p41)
+- a **learned mask** — a network trained on (noisy, clean) pairs predicts $G$ (p42–p43)
+- a **generative model** of clean speech — draw $\hat{S}$ from $P(S \mid Y)$: no mask at all (p44)
 
 ::: {.claim .fragment}
 With no reference, all that is left is **a prior** about what speech looks like. Each step trusts it more than the one before.
@@ -629,7 +637,7 @@ Ephraim & Malah, IEEE TASSP 1984 · Cappé, IEEE TSAP 1994 · spectral subtracti
 
 ::: {.fragment}
 ::: {.small}
-**"Ideal"**: computed from the clean speech — available only in training, where we made the mixture ourselves (p44). The network learns to predict the mask from $Y$ alone.
+**"Ideal"**: computed from the clean speech — available only in training, where we made the mixture ourselves (p45). The network learns to predict the mask from $Y$ alone.
 :::
 :::
 
@@ -693,7 +701,7 @@ DNS: the Deep Noise Suppression Challenge, Reddy et al. 2020 · W5 p64: domain s
 :::
 
 ::: {.footer}
-the route: p6 · first half: p11–p44 · second half: p46–p88 · answered: p93
+the route: p6 · first half: p11–p45 · second half: p47–p91 · answered: p96
 :::
 
 # What removal leaves behind {.section-title}
@@ -722,12 +730,20 @@ SI-SDR: Le Roux et al. 2019 (W2 p72) · MetricGAN+: Fu et al. 2021 · W9 p54: ju
 | | |
 |:---|:-----------------|
 | **Why** | The judges enhancement is trained against were built for human ears, or count energy. The judge that matters here is the recogniser. Do the two kinds agree? This is one of the course's six core failure cases. |
-| **What runs** | 40 LibriSpeech sentences, with white noise added at $20$, $10$, $5$, $0$ and $-5$ dB SNR. **Three front ends**: none; a statistical one written in `numpy`; a neural one trained with PESQ as its target (MetricGAN+). **Two recognisers**, chosen to differ: a CTC model that has only heard clean read speech (W3), and Whisper small (W7). |
+| **What runs** | 40 LibriSpeech sentences, with white noise added at five SNRs, from $20$ down to $-5$ dB. **Three front ends**: none; a statistical one written in `numpy`; a neural one trained with PESQ as its target (MetricGAN+). **Two recognisers**, chosen to differ: a CTC model that has only heard clean read speech (W3), and Whisper small (W7). The next slide draws it. |
 | **Watch for** | At 0 dB: which has the lower WER — the noisy sentence, or the enhanced one? **Is the answer the same for both recognisers?** And when each recogniser fails on enhanced speech: what does the failure look like? |
 :::
 
 ::: {.footer}
 Demo 2 · demos/w10_d2_enhance_wer · no model is trained: inference only
+:::
+
+## Demo 2: how it runs
+
+{{< include assets/w10/demo2-flow.inline.qmd >}}
+
+::: {.footer}
+Demo 2 · demos/w10_d2_enhance_wer · computed at rehearsal, read back today · keys 5–7: p57
 :::
 
 ## Demo 2 — WER against SNR, with and without enhancement
@@ -798,7 +814,7 @@ The metric and the WER can move in **opposite directions.** The mechanism is the
 
 | three ways to repair it | where |
 |:------|:-----|
-| mix a little of the unprocessed signal back in | p53–p54 |
+| mix a little of the unprocessed signal back in | p55–p56 |
 | retrain the back end on enhanced speech, or train the two jointly | Kinoshita et al. 2020: a time-domain front end that **does** help a strong back end |
 | use a front end that makes no artifacts — a linear one | stop 5 |
 
@@ -829,7 +845,7 @@ OA: observation adding · Iwamoto et al. 2022, Eq. 8, Prop. 1 · journal: Ochiai
 {{< include assets/w10/oa-sweep.inline.qmd >}}
 
 ::: {.claim .fragment fragment-index=2}
-Mixing the input back **buys SAR with SNR** — the trade of p51, run in reverse. Where to stop is decided by the next model's WER, not by either curve.
+Mixing the input back **buys SAR with SNR** — the trade of p53, run in reverse. Where to stop is decided by the next model's WER, not by either curve.
 :::
 
 ::: {.footer}
@@ -851,7 +867,7 @@ toy vectors: $\hat{\mathbf{s}} = 0.9\,\mathbf{s} + 0.2\,\mathbf{v} + 0.3\,\mathb
 :::
 
 ::: {.footer}
-Demo 2 · white noise · 40 sentences · measured 2026-11-23 · SNR, SAR as on p51, no delays
+Demo 2 · white noise · 40 sentences · measured 2026-11-23 · SNR, SAR as on p53, no delays
 :::
 
 ## Generative enhancement: when the evidence is flat
@@ -882,7 +898,7 @@ W7 p31: flat evidence → the prior · Lemercier et al., IEEE Signal Processing 
 | generative enhancement | **cleanest** | — | **possibly replaced** |
 
 ::: {.footer}
-p43, p56 · the three rows are the ladder of p38: each trusts the prior more
+p44, p58 · the three rows are the ladder of p39: each trusts the prior more
 :::
 
 # Subtracting with space {.section-title}
@@ -908,7 +924,7 @@ steering vector $\mathbf{d}(k)$: one direction's delays, as a phase per bin · V
 | **The question** | Several microphones hear the same scene with different delays. How should they be combined so that the user's direction is kept and everything else is turned down? |
 | **The idea** | Take a weighted sum of the microphones. Among all weightings that pass the target direction **unchanged**, choose the one that lets the **least power** through from everywhere else. |
 | **What it added** | The output is **linear in what the microphones heard** — nothing is drawn in. A closed form: it needs two statistics, not a trained model. |
-| **What it leaves open** | Where the direction and the noise statistics come from (p63) · a scene that moves; two talkers in one direction (p64). Derivation: p61. |
+| **What it leaves open** | Where the direction and the noise statistics come from (p65) · a scene that moves; two talkers in one direction (p66). Derivation: p63. |
 :::
 
 ::: {.footer}
@@ -937,7 +953,7 @@ $$
 :::
 
 ::: {.footer}
-$^{H}$: conjugate transpose · Capon (1969) · the same shape as p24: a constraint, then a minimum
+$^{H}$: conjugate transpose · Capon (1969) · the same shape as p25: a constraint, then a minimum
 :::
 
 ## Distortionless, read through the decomposition
@@ -978,7 +994,7 @@ Heymann et al., ICASSP 2016 · Erdogan et al., Interspeech 2016 · right: Souden
 ::: {.small}
 **The knob:** $\mathbf{R}_{vv}$ is an average over a stretch of time. A long window is accurate and slow to follow; a short one follows and is noisy — another trade between latency and accuracy.
 
-**Training and use:** the mask network is trained on synthetic mixtures, as on p44; the statistics and the weights are computed **in use**, from the scene in front of it.
+**Training and use:** the mask network is trained on synthetic mixtures, as on p45; the statistics and the weights are computed **in use**, from the scene in front of it.
 :::
 :::
 
@@ -998,7 +1014,7 @@ What was replaced is the half that **found the direction by geometry**. The half
 | who subtracts | a linear filter, $\mathbf{w}^{H}\mathbf{y}$ | **the same linear filter** |
 
 ::: {.footer}
-MVDR: 1969 · the neural mask estimator: 2016 · the same division of labour as p31
+MVDR: 1969 · the neural mask estimator: 2016 · the same division of labour as p32
 :::
 
 # Pulling voices apart — and finding the one {.section-title}
@@ -1024,7 +1040,7 @@ the cocktail-party problem: Cherry, JASA 25(5), 1953 · the number of sources is
 | **The question** | A network has $J$ outputs and there are $J$ target voices. Any assignment of outputs to targets is as good as another. Which one should the loss use? |
 | **The idea** | **Do not choose.** Compute the loss under every pairing; keep the smallest; back-propagate through that one. The network decides which output takes which voice, example by example. |
 | **What it added** | Any separation network can be trained end to end on a signal-level loss — time-domain models followed: Conv-TasNet, DPRNN, SepFormer, TF-GridNet. |
-| **What it leaves open** | Three things (p69) — above all, **the outputs still have no identity.** PIT returns in diarization (p82), and in W13's multi-stream models. |
+| **What it leaves open** | Three things (p71) — above all, **the outputs still have no identity.** PIT returns in diarization (p85), and in W13's multi-stream models. |
 :::
 
 ::: {.footer}
@@ -1081,7 +1097,7 @@ That benchmark is **fully overlapped, pre-cut, with the number of speakers given
 | scored by SI-SDR | scored by what the next model does with it |
 
 ::: {.footer}
-p69–p70 · the third row is Demo 3's first half (p75)
+p71–p72 · the third row is Demo 3's first half (p78)
 :::
 
 ## Target speaker extraction: the enrolment is the condition
@@ -1118,12 +1134,20 @@ Most extraction systems were never shown a mixture without the target — so the
 | | |
 |:---|:-----------------|
 | **Why** | Stops 6 and 7 make three claims that are easy to say and better seen: the output order is arbitrary; an enrolment can pick the user — and picks someone even when the user is silent; and one diarization output can be given three different error rates. |
-| **What runs** | Two LibriSpeech speakers; one is "the user", with a second sentence of theirs as the enrolment. Two mixtures: fully overlapped, as in a benchmark; and a 40-second "conversation" spliced from sentences, with brief overlaps. A separation model (SepFormer) processes it in 4-second chunks. Two speaker encoders score each output track against the enrolment. |
+| **What runs** | Two LibriSpeech speakers; one is "the user", with a second sentence of theirs as the enrolment. Two mixtures: fully overlapped, as in a benchmark; and a 40-second "conversation" spliced from sentences, with brief overlaps. A separation model (SepFormer) processes it in 4-second chunks; two speaker encoders score each output track against the enrolment. The next slide draws it. |
 | **Watch for** | The model returns two tracks. **Which one holds the user — and in the next chunk?** Do the two encoders give the same number for the same pair of voices? And in the chunk where the user says nothing: what gets picked? |
 :::
 
 ::: {.footer}
 Demo 3 · demos/w10_d3_whose_track · public-corpus voices only · no model is trained
+:::
+
+## Demo 3: how it runs
+
+{{< include assets/w10/demo3-flow.inline.qmd >}}
+
+::: {.footer}
+Demo 3 · demos/w10_d3_whose_track · first half: p78 · second half: p87
 :::
 
 ## Demo 3 — first half: separate, swap, pick by enrolment
@@ -1159,7 +1183,7 @@ A model trained with PIT was taught **not to care** about the order of its outpu
 | nothing — hope | — |
 
 ::: {.footer}
-p69 · Demo 3 (p75) · the speaker encoder itself: stop 7
+p71 · Demo 3 (p78) · the speaker encoder itself: stop 7
 :::
 
 # Who is who — and is it addressed to me? {.section-title}
@@ -1202,7 +1226,7 @@ W9's Demo 1 measured it: the embedding carried the prompt's **noise and bandwidt
 |:------|:---------|
 | the recording channel | W9 Demo 1 (W9 p16): noise and bandwidth passed through an x-vector |
 | the dataset | CN-Celeb: systems that do well on VoxCeleb degrade clearly on multi-genre Mandarin data |
-| the encoder itself | Demo 3 today (p75): two encoders, two numbers for the same pair |
+| the encoder itself | Demo 3 today (p78): two encoders, two numbers for the same pair |
 
 ::: {.footer}
 CN-Celeb: Fan et al., ICASSP 2020 — a genre and channel mismatch, not evidence about language
@@ -1287,11 +1311,11 @@ Ask first: **how wide was the collar? Was overlap scored? Was the number of spea
 |:-----|:---------|:---|
 | WER | the text normalisation | W7 |
 | MOS | the listeners, the instructions, the other systems in the test | W9 |
-| SIM | which speaker encoder | W9 · p80 |
-| **DER** | the collar · whether overlap counts · whether $J$ was given | p83 |
+| SIM | which speaker encoder | W9 · p83 |
+| **DER** | the collar · whether overlap counts · whether $J$ was given | p86 |
 
 ::: {.footer}
-p83–p84 · Park et al., *A Review of Speaker Diarization*, Computer Speech & Language 72, 2022
+p86–p87 · Park et al., *A Review of Speaker Diarization*, Computer Speech & Language 72, 2022
 :::
 
 ## MC 13 — "diarization is an offline task"
@@ -1367,9 +1391,9 @@ W1 p38, p43: the response budget · W1 p56: the stop budget · W2 p31: window an
 
 | axis | where this week sits |
 |:----|:-----------------|
-| **representation** | the only week that stays **before the token** from start to end: waveforms and the complex STFT. Phase is back (p41–p42). |
-| **latency** | two cells refilled (p90): the endpoint cell is a hangover; the barge-in cell is an echo canceller plus a VAD. |
-| **supervision** | two kinds not seen as leads before: an adaptive filter with **no training phase** (p32); and **synthetic pairs** — free labels, paid for in the gap to real recordings (p44). |
+| **representation** | the only week that stays **before the token** from start to end: waveforms and the complex STFT. Phase is back (p42–p43). |
+| **latency** | two cells refilled (p93): the endpoint cell is a hangover; the barge-in cell is an echo canceller plus a VAD. |
+| **supervision** | two kinds not seen as leads before: an adaptive filter with **no training phase** (p33); and **synthetic pairs** — free labels, paid for in the gap to real recordings (p45). |
 
 ::: {.claim}
 Each term is removed **on the strength of some evidence** — and what removal leaves behind is judged by the next model, not by the ear.
@@ -1410,20 +1434,20 @@ p5: for each term that is not the user — by what right do we remove it, what i
 :::
 
 ::: {.footer}
-p6 · p45 · p91 · drawn from p16, p23, p29, p38, p51, p62, p64, p69, p73, p78, p83, p88
+p6 · p46 · p94 · drawn from p16, p24, p30, p39, p53, p64, p66, p71, p75, p81, p86, p91
 :::
 
 ## Reading, and next week
 
 **Read this week**
 
-- Iwamoto et al., *How Bad Are Artifacts?*, Interspeech 2022 — four pages plus references: the decomposition (Eq. 1, 4–6), observation adding (Eq. 8), and the experiment behind p51; the week's "if you read one paper"
+- Iwamoto et al., *How Bad Are Artifacts?*, Interspeech 2022 — four pages plus references: the decomposition (Eq. 1, 4–6), observation adding (Eq. 8), and the experiment behind p53; the week's "if you read one paper"
 - Haeb-Umbach et al., *Far-Field Automatic Speech Recognition*, Proceedings of the IEEE, 2021 — how dereverberation, beamforming and separation connect to a recogniser
 - Vincent, Virtanen & Gannot (eds.), *Audio Source Separation and Speech Enhancement*, 2018 — Ch 5 (spectral masking and filtering), Ch 10 (spatial filtering)
 
 **If one thing today was new to you, make it this one**
 
-- Valin, *On Adjusting the Learning Rate in Frequency Domain Echo Cancellation With Double-Talk*, 2007 — five pages; read Eq. 8–9 with p27–p28 open
+- Valin, *On Adjusting the Learning Rate in Frequency Domain Echo Cancellation With Double-Talk*, 2007 — five pages; read Eq. 8–9 with p28–p29 open
 
 **Next week — Part III begins: audio-native language models**
 
@@ -1434,51 +1458,51 @@ Listening, speaking and today's front end are separate modules. Next: put them i
 | | |
 |:----|:----------------|
 | AASIST | Audio Anti-Spoofing using Integrated Spectro-Temporal graph attention networks: a detector (W9) |
-| AEC | acoustic echo cancellation (p21) |
-| AGC | automatic gain control (p30) |
+| AEC | acoustic echo cancellation (p22) |
+| AGC | automatic gain control (p31) |
 | ASR, TTS | automatic speech recognition; text-to-speech (W1) |
-| AV-STE | audio-visual speech token enhancement: a system (p36) |
-| cIRM | complex ideal ratio mask (p41) |
-| CSS | continuous speech separation (p70) |
+| AV-STE | audio-visual speech token enhancement: a system (p37) |
+| cIRM | complex ideal ratio mask (p42) |
+| CSS | continuous speech separation (p72) |
 | CTC | connectionist temporal classification (W3) |
 | DCF, EER, t-DCF | detection cost function; equal error rate; tandem DCF (W9) |
-| DeepVQE | Deep Voice Quality Enhancement: a model (p30) |
-| DER | diarization error rate (p83) |
-| DNS | deep noise suppression, as in the DNS Challenge (p44) |
-| DNSMOS | a MOS predictor from the DNS Challenge (p47) |
+| DeepVQE | Deep Voice Quality Enhancement: a model (p31) |
+| DER | diarization error rate (p86) |
+| DNS | deep noise suppression, as in the DNS Challenge (p45) |
+| DNSMOS | a MOS predictor from the DNS Challenge (p48) |
 
 ## Acronyms in this deck, E–O
 
 | | |
 |:----|:----------------|
-| ECAPA-TDNN | Emphasized Channel Attention, Propagation and Aggregation in a time-delay neural network: a speaker encoder (p79) |
-| EEND | end-to-end neural diarization (p82) |
-| ERLE | echo return loss enhancement (p26) |
-| GE2E | generalized end-to-end loss, for speaker verification (p79) |
+| ECAPA-TDNN | Emphasized Channel Attention, Propagation and Aggregation in a time-delay neural network: a speaker encoder (p82) |
+| EEND | end-to-end neural diarization (p85) |
+| ERLE | echo return loss enhancement (p27) |
+| GE2E | generalized end-to-end loss, for speaker verification (p82) |
 | GRPO | Group Relative Policy Optimization (W9) |
-| IRAF | Interference-Resilient Adaptive Fusion: a system (p36) |
-| IRM | ideal ratio mask (p41) |
-| LMPAN | Lightweight Multi-Path Alignment Network: a model (p31) |
-| LMS, NLMS | least mean squares; normalised LMS (p21) |
+| IRAF | Interference-Resilient Adaptive Fusion: a system (p37) |
+| IRM | ideal ratio mask (p42) |
+| LMPAN | Lightweight Multi-Path Alignment Network: a model (p32) |
+| LMS, NLMS | least mean squares; normalised LMS (p22) |
 | MC | misconception (p16) |
 | MOS | mean opinion score (W9) |
-| MVDR | minimum-variance distortionless response (p60) |
-| OA | observation adding (p53) |
+| MVDR | minimum-variance distortionless response (p62) |
+| OA | observation adding (p55) |
 
 ## Acronyms in this deck, P–W
 
 | | |
 |:----|:----------------|
-| PESQ | perceptual evaluation of speech quality (p47) |
-| PIT, uPIT | permutation-invariant training; utterance-level PIT (p68) |
-| PSM | phase-sensitive mask (p41) |
-| SAR, SDR | signal-to-artifacts ratio; signal-to-distortion ratio (p51) |
-| SASV | spoofing-aware speaker verification (p81) |
-| SGMSE+ | score-based generative model for speech enhancement: a diffusion model (p43) |
+| PESQ | perceptual evaluation of speech quality (p48) |
+| PIT, uPIT | permutation-invariant training; utterance-level PIT (p70) |
+| PSM | phase-sensitive mask (p42) |
+| SAR, SDR | signal-to-artifacts ratio; signal-to-distortion ratio (p53) |
+| SASV | spoofing-aware speaker verification (p84) |
+| SGMSE+ | score-based generative model for speech enhancement: a diffusion model (p44) |
 | SI-SDR, SNR | scale-invariant SDR; signal-to-noise ratio (W2) |
 | SIM | speaker similarity: a cosine between two speaker embeddings (W9) |
 | STFT | short-time Fourier transform (W2) |
-| STOI | short-time objective intelligibility (p47) |
-| TSE | target speaker extraction (p72) |
+| STOI | short-time objective intelligibility (p48) |
+| TSE | target speaker extraction (p74) |
 | VAD | voice activity detection (p12) |
 | WER | word error rate (W7) |

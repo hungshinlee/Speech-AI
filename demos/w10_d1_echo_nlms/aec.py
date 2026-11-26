@@ -2,12 +2,12 @@
 # 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
 """W10 demo 1 的訊號處理：NLMS 與三種步長的規則。只用 numpy／scipy，沒有神經網路。
 
-記號照投影片（W10 p22–p28）：
+記號照投影片（W10 p23–p29）：
   x(n)    系統播出去的參考訊號                     y(n)   麥克風訊號
   x(n) 粗體 = [x(n), x(n-1), …, x(n-L_h+1)]         ĥ(n)   回音路徑的估計（L_h 個數）
   e(n)    = y(n) − ĥᵀ(n) x(n)，殘餘                 μ      步長        δ   正則化常數
 
-nlms() 的迴圈裡標了 (p23) (p25) 的那兩行，就是投影片上的兩條式子。
+nlms() 的迴圈裡標了 (p24) (p26) 的那兩行，就是投影片上的兩條式子。
 """
 from __future__ import annotations
 
@@ -106,7 +106,7 @@ def nlms(x: np.ndarray, y: np.ndarray, L_h: int, mu: float = 0.5, delta: float =
     for n in range(N):
         xv = xp[n:n + L_h][::-1]                                   # x(n) = [x(n), x(n−1), …, x(n−L_h+1)]
         nx = xv @ xv                                               # ‖x(n)‖²
-        e[n] = y[n] - h @ xv                                       # (p23)  e(n) = y(n) − ĥᵀ(n) x(n)
+        e[n] = y[n] - h @ xv                                       # (p24)  e(n) = y(n) − ĥᵀ(n) x(n)
         if rule == "freeze":
             m = 0.0 if frozen[n] else mu
         elif rule == "soft":                                       # soft_step
@@ -115,12 +115,12 @@ def nlms(x: np.ndarray, y: np.ndarray, L_h: int, mu: float = 0.5, delta: float =
             if px > px_floor:
                 q = pe / px
                 lam = q if lam is None else min(a_l * lam + (1 - a_l) * q, lam * up)
-                m = min(mu_max, lam * px / (pe + EPS))             # (p28)  μ ≈ 殘餘回音 ÷ 誤差
+                m = min(mu_max, lam * px / (pe + EPS))             # (p29)  μ ≈ 殘餘回音 ÷ 誤差
             else:
                 m = 0.0                                            # 系統沒出聲：沒有東西可學
         mu_n[n] = m
         if m != 0.0:
-            h += m * e[n] * xv / (nx + delta)                      # (p25)  ĥ(n+1) = ĥ(n) + μ e(n) x(n) / (‖x(n)‖² + δ)
+            h += m * e[n] * xv / (nx + delta)                      # (p26)  ĥ(n+1) = ĥ(n) + μ e(n) x(n) / (‖x(n)‖² + δ)
         if mis is not None and n % 64 == 0:
             d = h_true - h
             mis.append(float(d @ d) / hh)

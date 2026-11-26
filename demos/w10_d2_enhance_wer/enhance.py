@@ -4,9 +4,9 @@
 
 投影片上的式子與這裡的函數一一對應：
   mix()             y = s + g·v，g 由整句的 SNR 決定
-  wiener_dd()       G = ξ / (1 + ξ)，ξ 用 decision-directed 估（p37–p38）
-  decompose()       ŝ = s_target + e_noise + e_artif（p50），SDR／SNR／SAR（p51）——不含延遲版本的子空間
-  observation_add() ŝ + ω·y（p53）
+  wiener_dd()       G = ξ / (1 + ξ)，ξ 用 decision-directed 估（p38–p39）
+  decompose()       ŝ = s_target + e_noise + e_artif（p52），SDR／SNR／SAR（p53）——不含延遲版本的子空間
+  observation_add() ŝ + ω·y（p55）
 """
 from __future__ import annotations
 
