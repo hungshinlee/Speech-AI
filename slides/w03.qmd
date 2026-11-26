@@ -89,12 +89,20 @@ Week 2 left us with **100 feature vectors per second**, $\mathbf{X} = (\mathbf{x
 | | |
 |:---|:-----------------|
 | **Why** | The last slide put the gap in symbols: $T$ frames in, $U$ symbols out, nothing in between. This demo shows that gap on a real voice, before any equation touches it. |
-| **What runs** | A volunteer says 今天天氣很好 twice: at normal speed, then about twice as fast. Each take is trimmed of silence; the two spectrograms are drawn one above the other, aligned at the start, one column per 10 ms frame. |
+| **What runs** | A volunteer says 今天天氣很好 twice: at normal speed, then about twice as fast. The program draws the two takes as spectrograms, one above the other; the next slide shows how. |
 | **Watch for** | The frame count $T$, the symbol count $U$, and anything on the screen that says which frames belong to which character. And: does $T$ halve when the speed doubles? |
 :::
 
 ::: {.footer}
 Demo 1 · code: `demos/w03_d1_two_rates` · rehearsed on the M5 Max, 2026-10-05
+:::
+
+## Demo 1: how it runs
+
+{{< include assets/w03/demo1-flow.inline.qmd >}}
+
+::: {.footer}
+Demo 1 · code: `demos/w03_d1_two_rates` · every box is one step of the program
 :::
 
 ## Demo 1 — the same sentence, twice as fast
@@ -136,7 +144,7 @@ roads 1 and 2 are today · road 3 (attention) is W4 · the route: next slide
 :::
 
 ::: {.footer}
-six stops = the next six section pages · half-time: p25 · answered: p69
+six stops = the next six section pages · half-time: p26 · answered: p72
 :::
 
 ## Five things to leave with today
@@ -215,7 +223,7 @@ Logs are $\ln$ throughout · $L$ is not used today: W2 gave it to the window len
 | **The question** | Given the words $W$, how likely is this audio $\mathbf{X}$ — when nobody says which frames belong to which sound? |
 | **The idea** | A chain of hidden states, left to right, a short chain per phone. Each frame is emitted by whichever state the chain is in; moving and emitting are both probabilities. The state sequence $q$ *is* the alignment, summed over — or maximised over — on a lattice. |
 | **What it added** | The alignment as a **variable** instead of an annotation, and one lattice on which three questions are answered by three recursions: forward (sum), Viterbi (max), Baum–Welch (learn). |
-| **What it leaves open** | A state sees one frame and frames are independent given the state, so context must be pushed into the unit (p22). Emissions are generative densities, so a network enters only through a bootstrap (p23). The transitions are a crude duration model — remember that when CTC drops them (p51). |
+| **What it leaves open** | A state sees one frame and frames are independent given the state, so context must be pushed into the unit (p23). Emissions are generative densities, so a network enters only through a bootstrap (p24). The transitions are a crude duration model — remember that when CTC drops them (p54). |
 :::
 
 ::: {.footer}
@@ -326,7 +334,7 @@ The HMM is not a system you will deploy. It is the **grammar of every alignment 
 :::
 
 ::: {.footer}
-the route: p9 · first half: p11–p24 · second half: p26–p62 · answered: p69
+the route: p10 · first half: p12–p25 · second half: p27–p65 · answered: p72
 :::
 
 # CTC, part 1: can the network's own output be summed over the alignment? {.section-title}
@@ -340,7 +348,7 @@ the route: p9 · first half: p11–p24 · second half: p26–p62 · answered: p6
 | **The question** | A network emits one output per frame; the data gives one transcript per clip. How do you train it on that — with no alignment, and no earlier model to guess one? |
 | **The idea** | Add one symbol, the blank $\varnothing$. Let the network emit a symbol at every frame; define a map $\mathcal{B}$ that collapses any such path to a transcript; maximise the total probability of every path that collapses to the right one — a sum on an HMM-shaped lattice with no transition probabilities. |
 | **What it added** | Training from audio plus text alone — the bootstrap is gone; a gradient that is a per-frame cross-entropy against the model's own soft alignment; and an output that streams, one frame at a time. |
-| **What it leaves open** | The sum without listing the paths (p28–p38); one number into a gradient at every frame (p40–p46); what a model trained this way does — blanks, spikes, independence (p48–p58); what it is, next to the HMM (p60–p62). |
+| **What it leaves open** | The sum without listing the paths (p29–p40); one number into a gradient at every frame (p42–p48); what a model trained this way does — blanks, spikes, independence (p50–p61); what it is, next to the HMM (p63–p65). |
 :::
 
 ::: {.footer}
@@ -363,12 +371,20 @@ Graves et al., ICML 2006 · the blank is bookkeeping: "no new label at this fram
 | | |
 |:---|:-----------------|
 | **Why** | $P(\ell \mid \mathbf{X})$ is a sum over every path that $\mathcal{B}$ collapses to $\ell$. Before deriving a recursion for that sum, look at what it sums over; once the recursion is derived, check it against the brute-force sum. |
-| **What runs** | One terminal program, pure numpy, used twice. Next slide: list the paths for "aa" and "aba" on paper, then let the program list them. After the forward recursion: a random $\mathbf{y}^t$, every path's probability summed, next to the forward table filled column by column — then $T = 500$. |
+| **What runs** | One terminal program, pure numpy, used twice. First: list the paths for "aa" and "aba" on paper, then let the program list them. After the forward recursion: the same number computed both ways, side by side — then $T = 500$. The next slide draws it. |
 | **Expect** | The two sums agree to floating-point error; if they do not, the recursion is wrong. Watch how fast the number of paths grows with $T$, whether every pair $(\ell, T)$ has a path at all, and what the linear-domain table does at $T = 500$. |
 :::
 
 ::: {.footer}
 Demo 2 · code: `demos/w03_d2_paths_vs_forward` · pure numpy, terminal only
+:::
+
+## Demo 2: how it works
+
+{{< include assets/w03/demo2-flow.inline.qmd >}}
+
+::: {.footer}
+Demo 2 · code: `demos/w03_d2_paths_vs_forward` · the keys are the ones in the terminal menu
 :::
 
 ## Paths: write them out before the program does
@@ -621,11 +637,11 @@ W7: sequence-discriminative training softens the hybrid target the same way
 {{< include assets/w03/three-uses.inline.qmd >}}
 
 ::: {.claim}
-Only training needs the gradient; only decoding runs without $\ell$ — and without $\ell$ there is no lattice and no $\gamma$. **What you deploy is the per-frame $\mathbf{y}^t$ alone.** Greedy decoding reads its argmax: the best *path*, which need not be the best *labelling* (p21).
+Only training needs the gradient; only decoding runs without $\ell$ — and without $\ell$ there is no lattice and no $\gamma$. **What you deploy is the per-frame $\mathbf{y}^t$ alone.** Greedy decoding reads its argmax: the best *path*, which need not be the best *labelling* (p22).
 :::
 
 ::: {.footer}
-Graves et al., ICML 2006, §3.2: best path decoding · prefix beam search: W7 · word-level forced alignment: p54
+Graves et al., ICML 2006, §3.2: best path decoding · prefix beam search: W7 · word-level forced alignment: p57
 :::
 
 # When CTC goes wrong: what did summing it out cost? {.section-title}
@@ -636,12 +652,20 @@ Graves et al., ICML 2006, §3.2: best path decoding · prefix beam search: W7 ·
 | | |
 |:---|:-----------------|
 | **Why** | Every posterior so far was made up: uniform, random, or drawn. Now a real character-level CTC model on one LibriSpeech sentence, with two questions: what does the blank do in real speech, and what happens to the loss when the text is too long for the audio? |
-| **What runs** | `wav2vec2-base-960h` on the CPU. First a heat-map: one column per 20 ms frame, one row per symbol, the blank row enlarged at the bottom, non-speech frames shaded grey. Later, `ctc_loss` on the same logits, with the text lengthened one character at a time past $U + r = T$. |
+| **What runs** | `wav2vec2-base-960h` on the CPU, one sentence, one window, used twice. First a heat-map of its posteriors: the blank row enlarged at the bottom, non-speech frames shaded grey. Later, `ctc_loss` on the same posteriors, with a text that is too long. The next slide draws both. |
 | **Watch for** | The blank row where there is **no** grey: if blank meant silence, it would be low there. For the loss, the zero-probability condition already says where it breaks; watch what the loss looks like there, and what `zero_infinity` turns it into. |
 :::
 
 ::: {.footer}
 Demo 3 · code: `demos/w03_d3_blank_heatmap` · LibriSpeech dev-clean, CC BY 4.0
+:::
+
+## Demo 3: how it runs
+
+{{< include assets/w03/demo3-flow.inline.qmd >}}
+
+::: {.footer}
+Demo 3 · code: `demos/w03_d3_blank_heatmap` · the model runs once
 :::
 
 ## Demo 3 — a blank heat-map
@@ -940,22 +964,22 @@ Every alignment method handles one hidden variable. HMM and CTC sum it out on th
 ## The opening question, answered
 
 ::: {.ask}
-p8: nobody says which frames belong to which symbol. Guess the alignment, or sum it out — and what does summing it out cost?
+p9: nobody says which frames belong to which symbol. Guess the alignment, or sum it out — and what does summing it out cost?
 :::
 
 ::: {.prose}
 | | |
 |:----|:-----------------|
-| **1 · Remedial** | A hidden variable is summed, not guessed. (p12–p14) |
-| **2 · The HMM** | Forward sums over alignments; Viterbi takes the max. (p19–p20) |
-| **3 · The sum** | Yes: one extra symbol and a collapsing map make it a sum over paths — exponentially many, in $O(TS)$ cells. (p28, p34) |
-| **4 · The gradient** | Ways in $\times$ ways out give the posterior $\gamma_t$; the gradient is $y^t_k - \gamma_t(k)$ — cross-entropy against a soft alignment. (p40, p42, p45) |
-| **5 · The cost** | Two refusals. No durations: peaky spikes. No output dependency: nothing that needs the previous symbol. (p51, p57) |
-| **6 · What it is** | An HMM with a fixed topology, no transition probabilities and a softmax emission, trained full-sum. (p60–p61) |
+| **1 · Remedial** | A hidden variable is summed, not guessed. (p13–p15) |
+| **2 · The HMM** | Forward sums over alignments; Viterbi takes the max. (p20–p21) |
+| **3 · The sum** | Yes: one extra symbol and a collapsing map make it a sum over paths — exponentially many, in $O(TS)$ cells. (p29, p36) |
+| **4 · The gradient** | Ways in $\times$ ways out give the posterior $\gamma_t$; the gradient is $y^t_k - \gamma_t(k)$ — cross-entropy against a soft alignment. (p42, p44, p47) |
+| **5 · The cost** | Two refusals. No durations: peaky spikes. No output dependency: nothing that needs the previous symbol. (p54, p60) |
+| **6 · What it is** | An HMM with a fixed topology, no transition probabilities and a softmax emission, trained full-sum. (p63–p64) |
 :::
 
 ::: {.footer}
-the route: p9 · half-time: p25 · the week in one sentence: p68
+the route: p10 · half-time: p26 · the week in one sentence: p71
 :::
 
 ## Reading, and next week
@@ -977,14 +1001,14 @@ The blank changes meaning, the lattice gains a second axis, and the encoder lear
 
 | | |
 |:----|:----------------|
-| BiLSTM | bidirectional long short-term memory network — one encoder among others (p56) |
-| BPE | byte-pair encoding (p64) |
-| CTC | connectionist temporal classification (p27) |
-| DNN | deep neural network (p23) |
+| BiLSTM | bidirectional long short-term memory network — one encoder among others (p59) |
+| BPE | byte-pair encoding (p67) |
+| CTC | connectionist temporal classification (p28) |
+| DNN | deep neural network (p24) |
 | GMM | Gaussian mixture model (W2) |
-| HMM | hidden Markov model (p17) |
-| LM | language model (p57) |
-| MMS | Massively Multilingual Speech — the project, and its CTC forced aligner (p54) |
-| MPS | Metal Performance Shaders: PyTorch's Apple-GPU backend (p55) |
+| HMM | hidden Markov model (p18) |
+| LM | language model (p60) |
+| MMS | Massively Multilingual Speech — the project, and its CTC forced aligner (p57) |
+| MPS | Metal Performance Shaders: PyTorch's Apple-GPU backend (p58) |
 | RNN-T | recurrent neural network transducer (W1) |
 | STFT | short-time Fourier transform (W2) |

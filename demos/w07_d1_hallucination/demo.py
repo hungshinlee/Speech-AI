@@ -627,7 +627,7 @@ class Demo:
             r = self._get(self._key("ctc", name), lambda n=name: self.ctc.greedy(self.clips[n]))
             if r:
                 o(f"  {name:<10s} {r['T']:>5d} {r['blank_fraction']:>6.1%} {r['nonblank_frames']:>7d} {r['n_symbols']:>5d}  {C.RED}{r['text']!r}{C.RESET}")
-        o("  （blank 贏不是「偵測到靜音」，是「這一格沒有符號可發」——CTC 沒有靜音這個概念；W3 p50）")
+        o("  （blank 贏不是「偵測到靜音」，是「這一格沒有符號可發」——CTC 沒有靜音這個概念；W3 p53）")
 
     def panel_zeroed(self, mode: str) -> None:
         o, z = self.out, CFG["zeroed"]

@@ -138,7 +138,7 @@ An end-to-end model learns $P(\ell \mid \mathbf{X})$ **directly, with the two te
 :::
 
 ::: {.footer}
-W3 p23 the hybrid recipe · the question is ours, not the survey's (§II)
+W3 p24 the hybrid recipe · the question is ours, not the survey's (§II)
 :::
 
 ## Four paradigms: what on the output side reads $\ell_{<u}$?
@@ -152,7 +152,7 @@ RNN-T and AED: the prior saw only the transcripts of the paired data (Whisper: 6
 :::
 
 ::: {.footer}
-CTC: W3 p28 · RNN-T: W4 p32 · AED: W4 p59 · SLAM-ASR §3.1.3 · colouring ours
+CTC: W3 p29 · RNN-T: W4 p32 · AED: W4 p59 · SLAM-ASR §3.1.3 · colouring ours
 :::
 
 ## Ten seconds of silence: what does each one write?
@@ -164,7 +164,7 @@ CTC: W3 p28 · RNN-T: W4 p32 · AED: W4 p59 · SLAM-ASR §3.1.3 · colouring our
 ::: {.fragment fragment-index=1}
 | | the evidence is flat, so the output side decides by … | so it outputs |
 |:---|:-----------|:-----------|
-| **CTC** | each $y^t$'s $\arg\max$: blank almost everywhere (W3 p50) | **the empty string**, or a few fragments |
+| **CTC** | each $y^t$'s $\arg\max$: blank almost everywhere (W3 p53) | **the empty string**, or a few fragments |
 | **RNN-T** | $\mathbf{g}_u$: a small prior over paired transcripts | a short, common string — or nothing |
 | **AED · Whisper** | the decoder: **the most probable sentence under $P(\ell)$** | a fluent sentence, unless $\langle\text{nospeech}\rangle$ beats it |
 | **LLM-based** | the LLM: a fluent continuation of the prompt | a fluent sentence |
@@ -673,7 +673,7 @@ the route: p6 · first half: p9–p40 · second half: p42–p78 · answered: p83
 :::
 
 ::: {.footer}
-`w07-data.json → prefix_example`: our numbers, enumerated · W3 p30
+`w07-data.json → prefix_example`: our numbers, enumerated · W3 p32
 :::
 
 ## CTC prefix beam search: two accumulators, four rules
@@ -687,7 +687,7 @@ Two accumulators, because rules 2 and 3 must know how the paths ended: the same 
 :::
 
 ::: {.footer}
-Hannun et al. 2014, Algorithm 1 · Graves & Jaitly 2014 §5 · W3 p32
+Hannun et al. 2014, Algorithm 1 · Graves & Jaitly 2014 §5 · W3 p34
 :::
 
 ## The same lattice, a third time: $\max$, $\sum$, and top-$N_{\text{beam}}$
@@ -709,7 +709,7 @@ Greedy is a $\max$ per column; prefix beam a pruned $\sum$ per prefix — **W3's
 :::
 
 ::: {.footer}
-W3 p14 · W3 p19 forward · W3 p20 Viterbi · W3 p46 · W4 p36
+W3 p15 · W3 p20 forward · W3 p21 Viterbi · W3 p48 · W4 p36
 :::
 
 ## Shallow fusion: one line, four knobs
@@ -1105,7 +1105,7 @@ Tsunoo 2024 · Wan 2026 · Tang 2026 · Qwen3-ASR model card · W4 p18 · W4 p24
 
 | | where the time comes from | what can go wrong |
 |:---|:--------|:--------|
-| **CTC** | the frame index of each spike — frame-synchronous by construction | peaky: the spike sits late in the segment (W3 p51, W3 p54) |
+| **CTC** | the frame index of each spike — frame-synchronous by construction | peaky: the spike sits late in the segment (W3 p54, W3 p57) |
 | **RNN-T** | the frame at which each label was emitted | emission delay: systematically late (W4 p52) |
 | **Whisper (AED)** | timestamp *tokens* the decoder predicts, or DTW over **hand-picked cross-attention heads** | attention is not an alignment (W4 p62); the heads are chosen per model |
 | **LLM-based** | **nothing to read**: no cross-attention, no frame-synchronous output | a second branch: a CTC aligner (WhisperX's recipe), or a separate non-autoregressive model (Qwen3-ForcedAligner: 80 ms slots, predicted directly) |
@@ -1115,7 +1115,7 @@ For W12's turn-taking the system must know **when each word ended**. The paradig
 :::
 
 ::: {.footer}
-W3 p51 · W3 p54 · W4 p52 · W4 p62 · W4 p64 · Qwen3-ASR TR
+W3 p54 · W3 p57 · W4 p52 · W4 p62 · W4 p64 · Qwen3-ASR TR
 :::
 
 ## Post-training with WER as the reward: GRPO, after MWER, after YD
