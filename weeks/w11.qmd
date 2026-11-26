@@ -1,46 +1,100 @@
 ---
-title: "W11｜Audio-Native Language Models: Building Half-Duplex Spoken Dialogue"
-subtitle: "Part III — Dialogue Systems · Audio-Native 語言模型：半雙工語音對話的建成"
+title: "W11｜Audio-Native Language Models: Where Does the Text Go? Building Half-Duplex Spoken Dialogue"
+subtitle: "Part III — Dialogue Systems · Audio-Native 語言模型：文字留在哪裡——半雙工語音對話的建成"
 toc-depth: 2
 ---
 
 <!-- 此檔由 scripts/build_weeks.py 從課程大綱過濾產生，請勿直接編輯。大綱正本在 private repo（$COURSE_OUTLINE），改完請重跑腳本。 -->
 
-## 定位
-Part III 的起點。本週把 W5（SSL）、W6（codec）、W7（ASR）、W8（TTS）接成一個端到端的**半雙工** speech-to-speech 模型，並把「文字瓶頸」與「modality gap」這兩個核心問題講透。W12–W13 再加上時間軸的同步性。
+## Where This Fits
+**Part III begins here. We now have recognition (Week 7), synthesis (Weeks 8–9), representations and tokens (Weeks 5–6), and a front end that removes what is not the user (Week 10). This week joins them into one model.** The most direct way to join them is Week 1's cascade: a recogniser, a language model and a synthesiser that pass only text to one another. Week 1 listed what the cascade discards — tone of voice, emotion, speaker identity, laughter, timing — and its three latencies add up. Remove the text interface, let one language model take speech in and give speech out, and what was discarded comes back. But once the text is gone, the model's command of meaning falls much further than anyone expected. **Every usable audio-native language model since 2023 is therefore an answer to one question: where does the text go — what do we lose by removing it, and what do we pay for keeping it?** That question runs through the whole week.
 
-## Learning objectives
-1. 能分類 audio-native LM 的四種架構（speech-in-text-out、text-token interleaving、平行多串流、continuous embedding 注入），並針對延遲與能力保留做比較。
-2. 能解釋為何直接在 speech token 上做 next-token prediction 會導致語意能力大幅退化，並描述三種緩解手段（textual pretraining 初始化、text-speech interleaving、inner monologue / CoT）。
-3. 能計算一個端到端 s2s 模型的理論最小回應延遲，並指出它比 cascade 好在哪、差在哪。
-4. 能設計一個「thinking before speaking」的訓練資料格式，並說明它與延遲的衝突。
+This week is restricted to **half-duplex** dialogue: the user finishes a turn, then the model answers; while the model speaks it does not process new input. Listening and speaking on one time axis is left to Week 12 (when to speak) and Week 13 (how an architecture listens and speaks at once). Half duplex comes first because every component of a full-duplex model — how speech enters a language model, how text and speech are ordered, how codec tokens are generated — must already be settled here, with one fewer variable. Note that stopping playback when a voice activity detector fires is still half duplex.
 
-## 參考資料
-**純語音 LM 的起點**
-- Lakhotia et al., **On Generative Spoken Language Modeling from Raw Audio**（GSLM）, TACL 2021
-- Borsos et al., **AudioLM**, IEEE/ACM TASLP, 2023
-- Hassid et al., **Textually Pretrained Speech Language Models**（TWIST）, NeurIPS 2023
-- Zhang et al., **SpeechGPT: Empowering Large Language Models with Intrinsic Cross-Modal Conversational Abilities**, EMNLP Findings 2023
+**Text can sit in five places**, and the week visits them in order of how far the text has retreated. (0) **The cascade**: text is the only interface between three complete models. (1) **Absent**: textless spoken language models (GSLM, AudioLM) do next-token prediction over speech tokens alone. (2) **In the weights and at the output only**: an encoder and an adapter connect speech to a text language model (SALMONN, the Qwen-Audio family; Week 7's LLM-based recogniser is the special case that only transcribes) — the model can hear but answers in text. (3) **Text first, speech after**, within one response; the variants differ in how closely speech follows: the whole text before any sound (chain of modality), a short span of text then a short span of speech (interleaving), a text stream aligned to every audio frame (Moshi's Inner Monologue), or two models, the second reading the first one's hidden states (Thinker–Talker). (4) **Text that is never spoken**: reasoning is text for the model's own use, and where it is placed in time decides how long the user waits. These are not five generations. Almost every public system in 2026 sits in (3); (1) remains the only route for languages without a widely used orthography; and (0) still frequently wins on semantic benchmarks.
 
-**架構分類的代表作**
-- Tang et al., **SALMONN: Towards Generic Hearing Abilities for Large Language Models**, ICLR 2024 — continuous 注入
-- Nguyen et al.（16 位），**SpiRit-LM: Interleaved Spoken and Written Language Model**, *TACL* 13:30–52, 2025（DOI 10.1162/tacl_a_00728；arXiv:2402.05755）— interleaving
-- Fang et al., **LLaMA-Omni: Seamless Speech Interaction with Large Language Models**, ICLR 2025（arXiv:2409.06666，v1 2024-09-10）
-- Xie & Wu, **Mini-Omni: Language Models Can Hear, Talk While Thinking in Streaming**, arXiv:2408.16725（2024）
-- Zeng et al., **GLM-4-Voice: Towards Intelligent and Human-Like End-to-End Spoken Chatbot**, arXiv:2412.02612（v1 2024-12-03）
-- Défossez et al., **Moshi: A Speech-Text Foundation Model for Real-Time Dialogue**, arXiv:2410.00037（2024）— inner monologue + 多串流，本課程最重要的單一系統論文
-- Chu et al., **Qwen2-Audio Technical Report**, arXiv:2407.10759（v1 2024-07-15）；及 Xu et al., **Qwen2.5-Omni Technical Report**, arXiv:2503.20215（v1 2025-03-26）。**兩篇都是技術報告，不是同儕審查文獻**
-- 2025–2026 的其他 omni / audio LLM：檢索 *Kimi-Audio technical report*、*Step-Audio 2*、*MiniCPM-o*、*Baichuan-Audio*、*Covo-Audio technical report*（arXiv:2602.09823, 2026）
+**Keeping the text has two prices, one for each half of the lecture.** The first is paid in *ability*. After speech is connected to a text language model, the same question is answered worse when spoken than when typed. This is the **modality gap**, and it cannot be blamed on recognition errors: models that transcribe the question correctly still answer it wrongly. It decomposes into forgetting of text abilities during adaptation and misalignment between speech and text representations. A less intuitive point: spoken input should let the model know *more* (tone, speaker, environment), yet in measurements models often perceive these cues without using them to change the answer. The second price is paid in *time*: however far the text leads the speech, that is how long the user waits. Writing the whole answer first is most accurate and slowest; frame-level alignment is fastest but needs word-level timestamps in training; and reasoning text is silent, so placed before the answer it is simply a pause — which is why recent work moves it to while the model is still speaking, or while it is still listening.
 
-**Interleaving 與 scaling**
-- 檢索 *scaling analysis interleaved speech-text language models*、*synthetic interleaved data speech-text pretraining*
-- Sugiura et al., **Llama-Mimi: Exploring the Limits of Flattened Speech Language Modeling**, arXiv:2509.14882（2025）— 「flatten 多層 codebook」的極限測試，適合當反面教材
+On the three course axes. **Representation:** input and output use *different* representations for the first time — most 2025–2026 systems listen with continuous features and speak with discrete tokens. Listening needs no sampling, and quantisation only discards information; speaking needs a distribution to sample from, which discrete tokens provide. Both sides have converged near 12.5 Hz for one reason: the language model's sequence length. **Latency:** several cells of Week 1's budget merge or vanish (the recogniser's tail; the language model's first token and the synthesiser's first packet become one cell), but the largest cell, endpoint detection, is untouched — a half-duplex model still waits for an external decision that the user has finished. That is the entrance to Week 12. **Supervision:** for the first time, ability comes from *other models*: meaning from text pretraining, dialogue data largely from synthesis, and text–speech alignment from a recogniser's timestamps. The modules of earlier weeks have not disappeared; they have moved into the training pipeline.
 
-**Thinking / CoT**
-- Arora et al., **Chain-of-Thought Reasoning in Streaming Full-Duplex End-to-End Spoken Dialogue Systems**, arXiv:2510.02066（2025）
-- Wu et al., **Chronological Thinking in Full-Duplex Spoken Dialogue Language Models**, SIGDIAL 2026（arXiv:2510.05150）— 「在聽的時候思考」，直接處理思考與延遲的衝突
-- Wu et al., **The Silent Thought: Modeling Internal Cognition in Full-Duplex Spoken Dialogue Models via Latent Reasoning**, ICML 2026（arXiv:2603.17837）
+For the local languages, three points of different strength. For Taiwanese Hokkien, "where does the text go" becomes "which text": the best-known textless application is English–Hokkien speech translation for a language without a standard writing system, and even that work reports using Mandarin text as additional supervision. Audio-native models inherit their language coverage from their text model and their synthesiser; a first attempt exists for Taiwanese Mandarin, we know of no end-to-end dialogue model for Hokkien or Hakka, and the practical state is a cascade. Whether lexical tone survives the output tokens is supported by some evidence for Mandarin and by none for Hokkien; for Hokkien it remains a prediction.
 
-**總覽**
-- Ji et al., **WavChat: A Survey of Spoken Dialogue Models**, arXiv:2411.13577（2024）
-- Peng et al., **A Survey on Speech Large Language Models for Understanding**, IEEE JSTSP, 2025（arXiv:2410.18908）
+## Learning Objectives
+1. Draw the five places text can occupy in a spoken dialogue system (the interface of a cascade; absent; in the weights and at the output only; text first and speech after, in four variants; unspoken reasoning) and state for each what it preserves and what it costs in meaning, paralinguistic information, latency and alignment data.
+2. Use token-rate arithmetic to explain the semantic ceiling of speech-only language models, and distinguish what each of three kinds of evidence supports: warm-starting from a text model, scaling analyses, and ablations that add a text stream.
+3. Explain how speech enters a text language model (encoder, adapter, continuous vectors); define the modality gap and decompose it into forgetting and misalignment; design the four conditions that measure it (the original model reading text, the adapted model reading text, the adapted model hearing speech, and a cascade); and explain why the gap is not a recognition error.
+4. Explain why training on the text model's own responses reduces forgetting, and why an audio language model answers from its text prior when the acoustic evidence is weak (continuing Week 7's account of hallucination).
+5. Compare four output-side designs — chain of modality, interleaving, a frame-aligned parallel text stream, and Thinker–Talker — in terms of training data, the mismatch between training and use, and latency; and explain why systems listen with continuous features but speak with discrete tokens.
+6. Write the response-latency expression of a half-duplex speech-to-speech model; identify which cells of the cascade's budget merge and which remain; derive from the interleaving ratio the two conditions "text must stay ahead" and real-time generation; and explain why latency figures from different papers are not directly comparable.
+7. Design a "think before speaking" data format and compute the silence it costs; compare moving the reasoning into speaking time, into listening time, or into latent states; compute the context consumed by a 30-minute conversation under different representations; and name three structural limits of half duplex.
+
+## References
+**Overviews (the backbone reading for this week)**
+- Arora et al. (10 authors), **On The Landscape of Spoken Language Models: A Comprehensive Survey**, *Transactions on Machine Learning Research*, 2025 (arXiv:2504.08528) — organised as speech-only LMs, speech-plus-text LMs and speech-aware text LMs, the closest to this week's "where does the text go"
+- Cui et al. (8 authors), **Recent Advances in Speech Language Models: A Survey**, ACL 2025, pp. 13943–13970 (DOI 10.18653/v1/2025.acl-long.682; arXiv:2410.03751)
+- Ji et al. (19 authors), **WavChat: A Survey of Spoken Dialogue Models**, arXiv:2411.13577 (2024; preprint)
+- Peng et al. (12 authors), **A Survey on Speech Large Language Models for Understanding**, *IEEE Journal of Selected Topics in Signal Processing* (DOI 10.1109/JSTSP.2025.3640535; arXiv:2410.18908) — the listening side only
+
+**What the cascade costs**
+- OpenAI, **Hello GPT-4o** (13 May 2024; a company blog post, **not a paper**) — reports average latencies of 2.8 s and 5.4 s for the earlier three-model voice pipeline, describes what that pipeline loses (tone, multiple speakers, background sound; no laughter or singing in the output), and gives 232 ms minimum and 320 ms average for GPT-4o's audio responses. These are vendor figures with no stated measurement protocol
+
+**Speech-only language models**
+- Lakhotia et al. (11 authors), **On Generative Spoken Language Modeling from Raw Audio** (GSLM), *TACL* 9:1336–1354, 2021 (DOI 10.1162/tacl_a_00430; arXiv:2102.01192; also cited in Week 5) — speech-to-unit, unit language model, unit-to-speech
+- Kharitonov et al. (11 authors), **Text-Free Prosody-Aware Generative Spoken Language Modeling** (pGSLM), ACL 2022, pp. 8666–8681 (DOI 10.18653/v1/2022.acl-long.593; arXiv:2109.03264) — separate streams for duration and F0 alongside the units
+- Borsos et al. (11 authors), **AudioLM: A Language Modeling Approach to Audio Generation**, *IEEE/ACM TASLP* 31:2523–2533, 2023 (DOI 10.1109/TASLP.2023.3288409; arXiv:2209.03143) — semantic and acoustic tokens modelled in three stages
+- Hassid et al. (12 authors), **Textually Pretrained Speech Language Models** (TWIST), NeurIPS 2023 (arXiv:2305.13009) — warm-starting from a text language model; both model scale and data scale matter
+- Cuervo & Marxer, **Scaling Properties of Speech Language Models**, EMNLP 2024 (DOI 10.18653/v1/2024.emnlp-main.21; arXiv:2404.00685) — linguistic performance scales up to three orders of magnitude more slowly than for text models; coarser tokens made it worse
+- Maimon, Hassid, Roth & Adi, **Scaling Analysis of Interleaved Speech-Text Language Models**, COLM 2025 (arXiv:2504.02398) — interleaved models scale more efficiently with compute than textless ones
+- Sugiura, Kurita, Oda & Higashinaka, **Llama-Mimi: Exploring the Limits of Flattened Speech Language Modeling**, arXiv:2509.14882 (2025; preprint) — a single Transformer over flattened multi-level Mimi tokens; more levels improve audio quality and reduce content quality
+- Park et al. (6 authors), **Long-Form Speech Generation with Spoken Language Models** (SpeechSSM), ICML 2025 (arXiv:2412.18603) — textless models lose coherence past tens of seconds; a state-space model generates many minutes in one decoding session
+- Tseng et al. (5 authors), **TASTE: Text-Aligned Speech Tokenization and Embedding for Spoken Language Modeling**, ICLR 2026 (arXiv:2504.07053) — aligns speech tokens to text tokens at the tokenizer, bringing the sequence length down to that of text
+- Chen et al. (16 authors), **Speech-to-Speech Translation for a Real-world Unwritten Language**, Findings of ACL 2023, pp. 4969–4983 (DOI 10.18653/v1/2023.findings-acl.307; arXiv:2211.06474) — English–Taiwanese Hokkien speech translation for a language without a standard writing system, with Mandarin text as additional supervision
+
+**Listening: speech into a text language model**
+- Tang et al. (9 authors), **SALMONN: Towards Generic Hearing Abilities for Large Language Models**, ICLR 2024 (arXiv:2310.13289) — Whisper and BEATs encoders with a window-level Q-Former; task over-fitting and activation tuning
+- Chu et al. (8 authors), **Qwen-Audio: Advancing Universal Audio Understanding via Unified Large-Scale Audio-Language Models**, arXiv:2311.07919 (2023; preprint); Chu et al. (12 authors), **Qwen2-Audio Technical Report**, arXiv:2407.10759 (2024; a technical report, not peer reviewed)
+
+**The modality gap, forgetting, and remedies**
+- Chen et al. (6 authors), **VoiceBench: Benchmarking LLM-Based Voice Assistants**, arXiv:2410.17196 (2024; preprint) — pipelines outperform end-to-end models; the text–speech gap; real recordings and variation in speaker, environment and content
+- Lu, Kuan & Lee, **Speech-IFEval: Evaluating Instruction-Following and Quantifying Catastrophic Forgetting in Speech-Aware Language Models**, Interspeech 2025, pp. 2078–2082 (DOI 10.21437/Interspeech.2025-619; arXiv:2505.19037) — separates speech perception from instruction following; a forgetting rate
+- Xiang, Zhao, Guo & Zou, **Understanding the Modality Gap: An Empirical Study on the Speech-Text Alignment Mechanism of Large Speech Language Models**, EMNLP 2025, pp. 5187–5202 (DOI 10.18653/v1/2025.emnlp-main.262; arXiv:2510.12116) — the gap between speech and text input within one model; deep-layer representations align in direction and diverge in magnitude
+- Cuervo et al. (8 authors), **Closing the Gap Between Text and Speech Understanding in LLMs**, ICLR 2026 (arXiv:2510.13632) — decomposes the gap into forgetting and cross-modal misalignment; speech-adapted models trail even cascades
+- Hsu et al. (6 authors), **Geometric Alignment without Functional Equivalence: A Layer-wise Analysis of the Speech-Text Modality Gap**, NeurIPS 2026 (arXiv:2603.01502; the first arXiv version carried a different title) — mid-layer alignment does not imply functional equivalence; recognition accounts for only part of the gap
+- Wang et al. (7 authors), **Closing the Modality Reasoning Gap for Speech Large Language Models**, ACL 2026 (arXiv:2601.05543) — reinforcement learning that aligns speech-conditioned and text-conditioned trajectories
+- Wang et al. (8 authors), **BLSP: Bootstrapping Language-Speech Pre-training via Behavior Alignment of Continuation Writing**, arXiv:2309.00916 (2023; preprint) — the language model should behave the same whether it receives speech or its transcript
+- Held et al. (6 authors), **Distilling an End-to-End Voice Assistant Without Instruction Training Data** (DiVA), ACL 2025, pp. 7876–7891 (DOI 10.18653/v1/2025.acl-long.388; arXiv:2410.02678) — self-supervision from a text model's responses to transcripts
+- Lu et al. (28 authors), **DeSTA2.5-Audio: Toward General-Purpose Large Audio Language Model with Self-Generated Cross-Modal Alignment**, *IEEE TASLP* 34:2062–2076, 2026 (DOI 10.1109/TASLPRO.2026.3675792; arXiv:2507.02768) — training targets generated by the backbone model itself
+- Kuan, Huang & Lee, **Understanding Sounds, Missing the Questions: The Challenge of Object Hallucination in Large Audio-Language Models**, Interspeech 2024, pp. 4144–4148 (DOI 10.21437/Interspeech.2024-1076; arXiv:2406.08402)
+- Ao et al. (9 authors), **SD-Eval: A Benchmark Dataset for Spoken Dialogue Understanding Beyond Words**, NeurIPS 2024 (arXiv:2406.13340) — emotion, accent, age and background sound
+- Lin, Chiang & Lee, **Advancing Large Language Models to Capture Varied Speaking Styles and Respond Properly in Spoken Conversations** (StyleTalk), ACL 2024 (arXiv:2402.12786)
+
+**Speaking: how text and speech are ordered at the output**
+- Zhang et al. (7 authors), **SpeechGPT: Empowering Large Language Models with Intrinsic Cross-Modal Conversational Abilities**, Findings of EMNLP 2023, pp. 15757–15773 (DOI 10.18653/v1/2023.findings-emnlp.1055; arXiv:2305.11000) — chain of modality
+- Nachmani et al. (9 authors), **Spoken Question Answering and Speech Continuation Using Spectrogram-Powered LLM** (Spectron), ICLR 2024 (arXiv:2305.15255) — transcription, text continuation and synthesis in a single decoding pass
+- Nguyen et al. (16 authors), **SpiRit-LM: Interleaved Spoken and Written Language Model**, *TACL* 13:30–52, 2025 (DOI 10.1162/tacl_a_00728; arXiv:2402.05755) — word-level interleaving
+- Zeng et al. (7 authors), **Scaling Speech-Text Pre-training with Synthetic Interleaved Data**, ICLR 2025 (arXiv:2411.17607) — interleaved data synthesised directly from text corpora; a supervised single-codebook tokenizer at 12.5 Hz
+- Zeng et al. (8 authors), **GLM-4-Voice: Towards Intelligent and Human-Like End-to-End Spoken Chatbot**, arXiv:2412.02612 (2024; preprint) — "streaming thoughts": 13 text tokens alternating with 26 speech tokens; the paper itemises its response latency
+- Yang et al. (13 authors), **Interleaved Speech-Text Language Models for Simple Streaming Text-to-Speech Synthesis** (IST-LM), arXiv:2412.16102 (2024; preprint) — a systematic study of the interleaving ratio, in synthesis
+- Xie & Wu, **Mini-Omni: Language Models Can Hear, Talk While Thinking in Streaming**, arXiv:2408.16725 (2024; technical report) — a text head in parallel with delayed audio heads
+- Défossez et al. (Kyutai, 8 authors), **Moshi: A Speech-Text Foundation Model for Real-Time Dialogue**, arXiv:2410.00037 (2024; a technical report, cited as a preprint; also cited in Week 6) — this week uses the Inner Monologue (§3.4.4) and the ablation in Table 8; the full architecture is Week 13
+- Fang et al. (6 authors), **LLaMA-Omni: Seamless Speech Interaction with Large Language Models**, ICLR 2025 (arXiv:2409.06666) — upsampled language-model hidden states aligned to discrete units with CTC; Fang et al. (5 authors), **LLaMA-Omni 2: LLM-based Real-time Spoken Chatbot with Autoregressive Streaming Speech Synthesis**, ACL 2025, pp. 18617–18629 (DOI 10.18653/v1/2025.acl-long.912; arXiv:2505.02625)
+- Xu et al. (14 authors), **Qwen2.5-Omni Technical Report**, arXiv:2503.20215 (2025); Xu et al. (38 authors), **Qwen3-Omni Technical Report**, arXiv:2509.17765 (2025); Qwen Team, **Qwen3.5-Omni Technical Report**, arXiv:2604.15804 (2026) — three generations of the Thinker–Talker design. **All three are technical reports, not peer-reviewed papers**
+- KimiTeam (40 authors), **Kimi-Audio Technical Report**, arXiv:2504.18425 (2025); Wu et al. (109 authors), **Step-Audio 2 Technical Report**, arXiv:2507.16632 (2025); Wang et al. (26 authors), **Covo-Audio Technical Report**, arXiv:2602.09823 (2026) — three examples of continuous input with discrete output (parallel heads, fixed-ratio interleaving, hierarchical interleaving). **All technical reports**
+- Amini et al. (33 authors), **LFM2 Technical Report**, arXiv:2511.23404 (2025; technical report) — LFM2-Audio separates the audio input and output pathways; the later LFM2.5-Audio-1.5B model is documented in its model card, which is **not a paper**
+- Two answers to "one time step carries several codec tokens" were cited in Week 6 and are developed in Week 13: Lee et al. (CVPR 2022; the RQ-Transformer) and Copet et al. (NeurIPS 2023; the delay pattern)
+
+**Thinking: text that is never spoken**
+- Xie et al. (10 authors), **Mini-Omni-Reasoner: Token-Level Thinking-in-Speaking in Large Speech Models**, arXiv:2508.15827 (2025; technical report)
+- Chiang et al. (10 authors), **STITCH: Simultaneous Thinking and Talking with Chunked Reasoning for Spoken Language Models**, ICLR 2026 (arXiv:2507.15375) — reasons in the slack between generating a chunk and playing it
+- Chiang et al. (10 authors), **SHANKS: Simultaneous Hearing and Thinking for Spoken Language Models**, ACL 2026 (arXiv:2510.06917) — reasons while listening
+- Arora et al. (7 authors), **Chain-of-Thought Reasoning in Streaming Full-Duplex End-to-End Spoken Dialogue Systems**, arXiv:2510.02066 (2025; preprint)
+- Wu et al. (11 authors), **Chronological Thinking in Full-Duplex Spoken Dialogue Language Models**, SIGDIAL 2026 (arXiv:2510.05150) — strictly causal reasoning during the listening window
+- Wu et al. (7 authors), **The Silent Thought: Modeling Internal Cognition in Full-Duplex Spoken Dialogue Models via Latent Reasoning**, ICML 2026 (arXiv:2603.17837) — reasoning in latent states
+
+**Local languages**
+- Yang et al. (21 authors), **Building a Taiwanese Mandarin Spoken Language Model: A First Attempt**, arXiv:2411.07111 (2024; technical report) — an end-to-end dialogue model for Taiwanese Mandarin whose training dialogues were synthesised with a fine-tuned synthesiser
+- Lan et al. (8 authors), **Breeze Taigi: Benchmarks and Models for Taiwanese Hokkien Speech Recognition and Synthesis**, arXiv:2603.19259 (2026; preprint) — recognition and synthesis benchmarks for Taiwanese Hokkien: the components of a cascade
+- For end-to-end dialogue models in Taiwanese Hokkien or Hakka and for lexical tone in output tokens, we give search terms rather than citations: *Taiwanese Hokkien spoken language model*, *Hakka speech LLM*, *lexical tone discrete speech tokens speech-to-speech*
+
+**Further**
+- Other public omni and audio language models of 2025–2026, as search terms: *MiniCPM-o*, *Baichuan-Audio* (arXiv:2502.17239), *MiMo-Audio* (arXiv:2512.23808), *Fun-Audio-Chat technical report*, *Sesame conversational speech model*, *LFM3-Audio*
