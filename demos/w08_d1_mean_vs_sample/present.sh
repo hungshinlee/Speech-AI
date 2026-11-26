@@ -15,7 +15,7 @@
 #
 # 環境是 ../.venv-tts（./setup.sh 建），不是共用的 ../.venv——f5-tts 的相依跟共用環境的兩個釘衝突（README）。
 # replay／fake／selftest 不需要 torch，沒有 ../.venv-tts 時退到 ../.venv。
-# 課堂上的講法與按鍵順序寫在投影片 p12／p13 講稿的【操作】。
+# 課堂上的講法與按鍵順序寫在投影片 p12／p14 講稿的【操作】。
 set -euo pipefail
 cd "$(dirname "$0")"
 export HF_HUB_OFFLINE=1

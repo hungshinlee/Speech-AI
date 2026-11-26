@@ -11,7 +11,7 @@
   selftest   不開視窗、不需要模型：頻率軸、細紋理指標、F5 的長度公式、fake 流程；有彩排紀錄時對 w08-metrics.json
   export     只重寫 w08-metrics.json → demo1（從 runs/rehearsal/rehearsal.json）
 
-畫面上的鍵（順序照投影片 p13 講稿的【操作】）：
+畫面上的鍵（順序照投影片 p14 講稿的【操作】）：
   1  SpeechT5：回歸出來的 mel（左上），播它的 HiFi-GAN 出的聲音
   2  F5-TTS seed 1：抽出來的 mel（右上），播 Vocos 出的聲音
   g  真人錄音：經兩個模型各自的前端（下排），播原音——對照組
@@ -892,7 +892,7 @@ class Demo:
             o(f"  F5：NFE {m['nfe']}、cfg_strength α = {m['cfg_strength_alpha']:g}（投影片的 w = α + 1 = {m['w_slide']:g}）、sway {m['sway_sampling_coef']:g}；每一步兩次前向（有條件、無條件）")
 
     def menu(self) -> None:
-        self.out(f"\n{C.BOLD}p13{C.RESET}  1 SpeechT5   2 F5 seed 1   g 真人錄音   x 2–6 kHz   3 再抽兩次   z F0   s SpeechT5 換 seed   t 數字表   r 再播   h 選單   q 離開")
+        self.out(f"\n{C.BOLD}p14{C.RESET}  1 SpeechT5   2 F5 seed 1   g 真人錄音   x 2–6 kHz   3 再抽兩次   z F0   s SpeechT5 換 seed   t 數字表   r 再播   h 選單   q 離開")
 
     def dispatch(self, k: str) -> bool:
         if k == "1":
@@ -1071,7 +1071,7 @@ def check(device: str | None = None) -> None:
     for k, repo in REPOS.items():
         print(f"  {repo:<32s} @ {str(lock.get(repo))[:12]}")
     x16 = C.load_wav(HERE / CFG["audio"]["target_path"], 16000)
-    p16 = C.load_wav(HERE / CFG["audio"]["prompt_path"], 16000)
+    p17 = C.load_wav(HERE / CFG["audio"]["prompt_path"], 16000)
     CHECK_DIR.mkdir(parents=True, exist_ok=True)
     caught: list[str] = []
 
@@ -1125,7 +1125,7 @@ def check(device: str | None = None) -> None:
             with warnings.catch_warnings(record=True) as ws:
                 warnings.simplefilter("always")
                 t0 = time.perf_counter(); m = F5(dev, dev); r["load_s"] = round(time.perf_counter() - t0, 2)
-                prompt24 = m.prompt(p16)
+                prompt24 = m.prompt(p17)
                 v, t_fwd = f5_field_once(m, prompt24)
                 fields[dev] = v
                 r["field_forward_cfg_s"] = round(t_fwd, 4)
@@ -1254,7 +1254,7 @@ def export(rec_path: Path) -> None:
                                   "w_slide": "the slides' CFG weight w = F5 cfg_strength (alpha, F5 Eq. 4) + 1",
                                   "pauses": "10 ms frame energy, threshold max(peak - 35, 10th percentile + 15) dB, quiet runs >= 100 ms between the first and last active frame",
                                   "f0_median_hz": "median of the autocorrelation F0 (W2 dsp.py, 40 ms / 10 ms, 60-300 Hz) over voiced frames",
-                                  "what_we_heard": "filled by hand after the rehearsal (w08.qmd p13)"}}
+                                  "what_we_heard": "filled by hand after the rehearsal (w08.qmd p14)"}}
     METRICS_JSON.parent.mkdir(parents=True, exist_ok=True)
     METRICS_JSON.write_text(json.dumps(d, ensure_ascii=False, indent=1, default=float), encoding="utf-8")
     print(f"  → {METRICS_JSON}（demo1）")
@@ -1377,7 +1377,7 @@ def main() -> None:
         d.rehearse_figs()
         d.save()
         export(d.folder / "rehearsal.json")
-        print("\n下一步：./present.sh 自己按一遍 1 2 g x x 3 z s t；聽到的寫進 p13 的表（what we heard），runs/rehearsal/*.png 看過。")
+        print("\n下一步：./present.sh 自己按一遍 1 2 g x x 3 z s t；聽到的寫進 p14 的表（what we heard），runs/rehearsal/*.png 看過。")
         return
 
     d.make_fig()

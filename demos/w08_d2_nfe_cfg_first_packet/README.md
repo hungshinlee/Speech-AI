@@ -1,7 +1,7 @@
 <!-- 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。 -->
-# W8 · Demo 2 — NFE, CFG, and the first packet (slides p61–p62, p81)
+# W8 · Demo 2 — NFE, CFG, and the first packet (slides p62–p64, p84)
 
-Two halves, one program. The first half (slide p62) takes the flow-matching model of Demo 1 and changes one thing at a time; the second half (p81) measures the *first packet* — how long after the request the first sound is ready — for three systems with three different shapes.
+Two halves, one program. The first half (slide p64) takes the flow-matching model of Demo 1 and changes one thing at a time; the second half (p84) measures the *first packet* — how long after the request the first sound is ready — for three systems with three different shapes.
 
 ## First half: one sentence, one prompt, one seed
 

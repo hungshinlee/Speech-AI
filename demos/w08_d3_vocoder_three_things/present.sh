@@ -16,7 +16,7 @@
 #
 # 環境是 ../.venv-tts（Demo 1 的 setup.sh 建；vocos、transformers、librosa 都在，BigVGAN 的程式碼隨權重從 HF 下載，沒有新套件）。
 # replay／fake／selftest 不需要 torch，沒有 ../.venv-tts 時退到 ../.venv。
-# 課堂上的講法與按鍵順序寫在投影片 p73／p74 講稿的【操作】。
+# 課堂上的講法與按鍵順序寫在投影片 p76／p77 講稿的【操作】。
 set -euo pipefail
 cd "$(dirname "$0")"
 export HF_HUB_OFFLINE=1

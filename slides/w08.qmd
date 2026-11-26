@@ -100,7 +100,7 @@ Route: not regression → length → AR tokens → flow matching → vocoder →
 :::
 
 ::: {.footer}
-six stops = the six section pages · half-time: p40 · answered: p90
+six stops = the six section pages · half-time: p41 · answered: p93
 :::
 
 ## Notation for today
@@ -171,12 +171,20 @@ exit 1: §3 (VALL-E, CosyVoice, Qwen3-TTS) · exit 2: §4 (Voicebox, E2, F5, Mat
 | | |
 |:---|:-----------------|
 | **Why** | p10 derived what a regression returns and p11 named the two exits; this looks at them, and listens, on this laptop. **The same sentence, once through a model that regresses the mel and once through a model that draws it** — and the second one three times. |
-| **What runs** | W3's sentence, text only. (1) SpeechT5 (`microsoft/speecht5_tts`): regresses an 80-bin log-mel, stops on a learned stop token; the voice is an x-vector of *another* speaker (ARCTIC `bdl`) → its HiFi-GAN. F5-TTS (`F5TTS_v1_Base`, 32 NFE, $w = 3$, a 4.9 s prompt from the same speaker) → Vocos. Each mel in its own front end, the real recording under it. (2) F5 again, same prompt, three seeds. |
+| **What runs** | W3's sentence, text only, through two models, each with its own vocoder. (1) SpeechT5 (`microsoft/speecht5_tts`) regresses an 80-bin log-mel; its voice is an x-vector of *another* speaker (ARCTIC `bdl`). F5-TTS (`F5TTS_v1_Base`, 32 NFE, $w = 3$) draws its mel, from a 4.9 s prompt of the same speaker. The real recording, through the same front end, sits under each mel. (2) F5 again, same prompt, three seeds. The next slide draws all of it. |
 | **Watch for** | Before the mels appear: above 2 kHz, will the regressed mel keep the fine grain of the real recording, or come out smooth? After: do the three F5 draws have the same length, and where do they differ? |
 :::
 
 ::: {.footer}
 Demo 1 · `demos/w08_d1_mean_vs_sample` · rehearsed 2026-11-08 · nothing is trained today
+:::
+
+## Demo 1: how it runs
+
+{{< include assets/w08/demo1-flow.inline.qmd >}}
+
+::: {.footer}
+Demo 1 · `demos/w08_d1_mean_vs_sample` · vocoders: SpeechT5's HiFi-GAN; Vocos for F5
 :::
 
 ## Demo 1 — a regressed mel, a flow mel, three seeds
@@ -210,7 +218,7 @@ Demo 1 · demos/w08_d1_mean_vs_sample · rehearsal 2026-11-08 (M5 Max) · w08-me
 | F5-TTS (2025) | **given from outside** (a ratio) | the starting noise, a flow | Vocos / BigVGAN |
 
 ::: {.footer}
-three more rows at p39 · Tacotron 2 abstract: MOS 4.53 vs 4.58 for recordings
+three more rows at p40 · Tacotron 2 abstract: MOS 4.53 vs 4.58 for recordings
 :::
 
 ## MC 1 — "TTS is regression; a big enough network will learn it"
@@ -240,7 +248,7 @@ The second block is the one with **four answers** — and whichever answer a sys
 :::
 
 ::: {.footer}
-outline 〈形式化〉: front end → alignment / length → acoustic → waveform · p14's columns
+outline 〈形式化〉: front end → alignment / length → acoustic → waveform · p15's columns
 :::
 
 ## Tacotron 2: attention decides the length — and collapses
@@ -309,7 +317,7 @@ Recognition can leave "where" undecided and still score the sentence. Synthesis 
 :::
 
 ::: {.footer}
-outline 〈關鍵數學 2〉, the key step · W3 p21 · p25 returns to this
+outline 〈關鍵數學 2〉, the key step · W3 p21 · p26 returns to this
 :::
 
 ## VITS: one stage, no mel, and a sampled duration
@@ -317,7 +325,7 @@ outline 〈關鍵數學 2〉, the key step · W3 p21 · p25 returns to this
 | block | VITS (Kim, Kong & Son, ICML 2021) |
 |:---|:---------|
 | alignment / length | MAS; a **stochastic duration predictor** — the length is drawn, not predicted |
-| acoustic generation | a conditional VAE (variational autoencoder): posterior from the waveform's spectrogram, prior from the text through a normalizing flow — **the first row of p14 with variation in it** |
+| acoustic generation | a conditional VAE (variational autoencoder): posterior from the waveform's spectrogram, prior from the text through a normalizing flow — **the first row of p15 with variation in it** |
 | waveform | a HiFi-GAN-style decoder trained with W6's discriminators; no mel in between |
 | descendants | MMS-TTS (`nan`, `hak`; W7, Demo 3), the Kokoro family (W1 Demo 2) |
 
@@ -335,7 +343,7 @@ Kim et al. 2021 §2.1–2.5 (PMLR 139) · MMS: Pratap et al. 2024 §7.1 · W6 p3
 |:---|:---------|:---------|:---|:--------|
 | (a) attention | a stop token, step by step | nothing — that is the problem | yes (AR) | repeats, skips, never stops |
 | (b) duration predictor | $T = \sum_u \hat{d}_u$, before any frame | a teacher: attention / MFA / MAS | no (whole mel) | wrong rate, flat prosody |
-| (c) AR $\langle\text{eos}\rangle$ | the first draw of $\langle\text{eos}\rangle$ — learned | a token vocabulary (W6) | yes | early stop, never stops, loops (p31) |
+| (c) AR $\langle\text{eos}\rangle$ | the first draw of $\langle\text{eos}\rangle$ — learned | a token vocabulary (W6) | yes | early stop, never stops, loops (p32) |
 | (d) given from outside | the user, or a character-count ratio | nothing inside — the problem moved out | with chunks (§6) | stretched / squeezed when $T$ is off |
 
 ::: {.claim}
@@ -343,7 +351,7 @@ The length question never disappears: (a)–(c) answer it **inside** the model, 
 :::
 
 ::: {.footer}
-outline 〈關鍵數學 2〉(a)–(d) · (c): §3 · (d): §4, p58
+outline 〈關鍵數學 2〉(a)–(d) · (c): §3 · (d): §4, p59
 :::
 
 ## MC 2 — "TTS needs no alignment; attention learns it"
@@ -360,7 +368,7 @@ Tacotron's repeats and skips **are** attention failing to learn an alignment. Fa
 | what you give up | simplicity of the front end | inspectability; stability on long or odd input |
 
 ::: {.footer}
-a design trade, not a generation gap · W4 p65 · p59: the three systems in a row
+a design trade, not a generation gap · W4 p65 · p60: the three systems in a row
 :::
 
 # Variation, answer one: autoregression over W6's alphabet {.section-title}
@@ -374,7 +382,7 @@ a design trade, not a generation gap · W4 p65 · p59: the three systems in a ro
 | **The question** | If speech is a string of W6's letters, can TTS be **language modelling** — and can a prompt of 3 s make it speak in that voice without any training for that speaker? |
 | **The idea** | Tokens: EnCodec, $f_r = 75$ Hz, $N_q = 8$, $V = 1024$. One AR model writes the first level token by token; one NAR model writes each of the other seven levels in a single pass. The prompt's tokens go into the context, and the model **continues** them. 60,000 hours of LibriLight with ASR transcripts. |
 | **What it added** | Zero-shot voice cloning as **in-context learning** (the paper's term): no speaker embedding, no fine-tuning; variation from a token draw; a length decided by $\langle\text{eos}\rangle$. |
-| **What it leaves open** | The stop symbol is learned, so the length is unstable (p31); eight levels at 75 Hz is 600 steps per second of speech (W6 p51) — the 2026 configurations exist to fix both (p33–p36). |
+| **What it leaves open** | The stop symbol is learned, so the length is unstable (p32); eight levels at 75 Hz is 600 steps per second of speech (W6 p51) — the 2026 configurations exist to fix both (p34–p37). |
 :::
 
 ::: {.footer}
@@ -455,7 +463,7 @@ Chen et al., VALL-E 2, arXiv:2406.05370 §1 · W7 p50: the length reward · noth
 | **MaskGCT** (Wang et al., ICLR 2025) | **both** stages: text → semantic tokens and semantic → acoustic tokens are masked generation; no alignment, no phone durations | the **total length**: a separate flow-matching duration model predicts it from the text and the prompt's length (§3.2.2) |
 
 ::: {.claim}
-Take the autoregression away and the length question does not go away with it — it moves to a conditioning stage or to a separate model. Row (d) of p24 again.
+Take the autoregression away and the length question does not go away with it — it moves to a conditioning stage or to a separate model. Row (d) of p25 again.
 :::
 
 ::: {.footer}
@@ -471,7 +479,7 @@ Borsos et al. 2023 §3.3 · MaskGCT §1, §3.2 · every answer to variation answ
 | **The question** | Can one system be both an LLM that streams and a high-quality generator — by giving each paradigm **one layer**? |
 | **The idea** | A tokenizer that is an ASR encoder with an FSQ inserted (25 Hz, 6,561 codes, 100 % used); a text LLM that writes those tokens, reading $N = 5$ text tokens for every $M = 15$ speech tokens it writes; a **chunk-aware** flow matching model that decodes each chunk of tokens to mel; HiFi-GAN to waveform. |
 | **What it added** | Streaming on both ends (text in, audio out) with a first-packet formula in the paper (Eq. 11–12); a flow decoder trained with four attention masks so the same weights serve offline and streaming (§2.4). |
-| **What it leaves open** | The token leans to content, so timbre and detail are the flow's job (p34); the chunk boundary is a seam the mask must cover (p78); the paper gives **no millisecond figure** — 150 ms is the GitHub README. |
+| **What it leaves open** | The token leans to content, so timbre and detail are the flow's job (p35); the chunk boundary is a seam the mask must cover (p81); the paper gives **no millisecond figure** — 150 ms is the GitHub README. |
 :::
 
 ::: {.footer}
@@ -523,7 +531,7 @@ Zhang et al., CuteTTS §3.1, §3.3, Table 2 (49.0 ms, RTX 4090) · Meng et al., 
 ## MC 3 — "a codec LM is an LLM with the vocabulary swapped"
 
 ::: {.claim .warn}
-Three things differ: **(a)** the length comes from a learned $\langle\text{eos}\rangle$ (p31); **(b)** several codebook levels force a choice — who is AR, who is NAR, or one level plus a flow; **(c)** the prompt's tokens carry timbre *and* channel, and continuation keeps both (p30).
+Three things differ: **(a)** the length comes from a learned $\langle\text{eos}\rangle$ (p32); **(b)** several codebook levels force a choice — who is AR, who is NAR, or one level plus a flow; **(c)** the prompt's tokens carry timbre *and* channel, and continuation keeps both (p31).
 :::
 
 | what is the same | what is not |
@@ -545,7 +553,7 @@ The VALL-E family has **no embedding step**: the prompt's tokens go into the con
 |:---|:---------|:---------|
 | what is copied | everything audible: timbre, rate, style, room, noise | what the encoder was trained to keep — timbre, mostly |
 | control | change the prompt | add, interpolate, swap vectors |
-| leakage | the channel comes along (p30) | less — and so does some of the voice |
+| leakage | the channel comes along (p31) | less — and so does some of the voice |
 | needs | 3 s of audio (and its text, for VALL-E) | an enrolment pass through the speaker encoder |
 
 ::: {.footer}
@@ -578,7 +586,7 @@ the table of the week, complete · AR for "when", a flow or a decoder for "what 
 :::
 
 ::: {.footer}
-the route: p6 · first half: p9–p39 · second half: p41–p83 · answered: p90
+the route: p6 · first half: p9–p40 · second half: p42–p86 · answered: p93
 :::
 
 # Variation, answer two: flow matching {.section-title}
@@ -589,10 +597,10 @@ the route: p6 · first half: p9–p39 · second half: p41–p83 · answered: p90
 | | |
 |:---|:-----------------|
 | **Name** | **Flow Matching for Generative Modeling** — Lipman, Chen, Ben-Hamu, Nickel & Le, ICLR 2023. Independently: *rectified flow* (Liu, Gong & Liu) and *stochastic interpolants* (Albergo & Vanden-Eijnden), both ICLR 2023. |
-| **The question** | A continuous normalizing flow is a beautiful generative model whose training is too expensive (p44). Can the **velocity field** that moves noise to data be learned by plain regression — without ever computing a likelihood? |
+| **The question** | A continuous normalizing flow is a beautiful generative model whose training is too expensive (p45). Can the **velocity field** that moves noise to data be learned by plain regression — without ever computing a likelihood? |
 | **The idea** | Pick a simple *conditional* path from noise to each data point (a straight line will do); regress the model's velocity onto that path's velocity, $\mathbf{X}_1 - \mathbf{X}_0$. The marginal field you actually want has **the same gradient** (Theorem 2), so the cheap loss trains the right thing. |
-| **What it added** | Training as stable as any regression; a straight path that solvers cross in few steps; diffusion as a choice of schedule inside one framework (p54). In TTS: Voicebox, Matcha-TTS, E2, F5, the decoders of CosyVoice and FlashTTS. |
-| **What it leaves open** | Why the field still bends, and how to straighten it (p51–p52); guidance (p55); and — for speech — the **length** must be given before the first noise is drawn (p58). |
+| **What it added** | Training as stable as any regression; a straight path that solvers cross in few steps; diffusion as a choice of schedule inside one framework (p55). In TTS: Voicebox, Matcha-TTS, E2, F5, the decoders of CosyVoice and FlashTTS. |
+| **What it leaves open** | Why the field still bends, and how to straighten it (p52–p53); guidance (p56); and — for speech — the **length** must be given before the first noise is drawn (p59). |
 :::
 
 ::: {.footer}
@@ -608,7 +616,7 @@ Training pairs one real mel with one random start and asks for the **direction**
 :::
 
 ::: {.footer}
-outline analogy (b); it fails where lines cross (p51) · velocity field: everywhere, which way, how fast
+outline analogy (b); it fails where lines cross (p52) · velocity field: everywhere, which way, how fast
 :::
 
 ## Step 1 — why a continuous normalizing flow is expensive
@@ -851,12 +859,12 @@ Same family — both learn a path from noise to data — but the **schedule is n
 
 | if you only remember one line | |
 |:---|:---------|
-| what is the same | $\mathbf{X}_\tau = \alpha_\tau \mathbf{X}_1 + \sigma_\tau \mathbf{X}_0$; velocity ↔ score by a linear map (p54) |
+| what is the same | $\mathbf{X}_\tau = \alpha_\tau \mathbf{X}_1 + \sigma_\tau \mathbf{X}_0$; velocity ↔ score by a linear map (p55) |
 | what the straight line buys | 2–16 NFE instead of hundreds; reflow and MeanFlow only make sense on it |
 | what the SDE keeps | a stochastic sampler — the hook W9's RL post-training uses |
 
 ::: {.footer}
-p54 · Grad-TTS (2021): score-based, 10–1000 steps; Matcha-TTS (2024): CFM, 2–10
+p55 · Grad-TTS (2021): score-based, 10–1000 steps; Matcha-TTS (2024): CFM, 2–10
 :::
 
 ## MC 6 — "more NFE is always better"
@@ -871,7 +879,7 @@ Ten steps and a thousand steps: **the same MOS** ($4.38$ vs $4.44$, §4.1: "almo
 :::
 
 ::: {.footer}
-Popov et al., ICML 2021, Table 2 · Demo 2 (p62) looks for F5's knee here — prediction: 8–16
+Popov et al., ICML 2021, Table 2 · Demo 2 (p64) looks for F5's knee here — prediction: 8–16
 :::
 
 ## E2 / F5: no duration model — a filler, infilling, an outside $T$
@@ -886,7 +894,7 @@ $$
 :::
 
 ::: {.claim .warn}
-The alignment is not modelled, so it can be wrong without a trace; and **the length problem was pushed outside the model, not solved** — row (d) of p24.
+The alignment is not modelled, so it can be wrong without a trace; and **the length problem was pushed outside the model, not solved** — row (d) of p25.
 :::
 
 ::: {.footer}
@@ -908,7 +916,7 @@ Left to right: the front end gets simpler and the alignment becomes a black box.
 :::
 
 ::: {.footer}
-Le et al. §3.2–3.3, §5.1 · Mehta et al. §3.2, §4.1 · Eskimez et al. §2 · Chen et al. §3 · p24 row (d)
+Le et al. §3.2–3.3, §5.1 · Mehta et al. §3.2, §4.1 · Eskimez et al. §2 · Chen et al. §3 · p25 row (d)
 :::
 
 ## MC 7 — "no duration model, so no need to care about length"
@@ -926,7 +934,7 @@ A flow-matching TTS needs the length **more**, not less: $T$ fixes how much nois
 :::
 
 ::: {.footer}
-p24 row (d) · p32 (MaskGCT) · contrast FastSpeech: $d_u$ is a number you can print
+p25 row (d) · p33 (MaskGCT) · contrast FastSpeech: $d_u$ is a number you can print
 :::
 
 ## Before Demo 2: where is the knee?
@@ -934,13 +942,21 @@ p24 row (d) · p32 (MaskGCT) · contrast FastSpeech: $d_u$ is a number you can p
 ::: {.prose}
 | | |
 |:---|:-----------------|
-| **Why** | p50 drew Euler with 4 and 16 steps, p55 said what $w$ does to the sound, p57 quoted a 2021 table. This hears all three on this laptop, on one sentence, with one model. **How many steps before you stop hearing a difference — and what does $w$ do?** |
-| **What runs** | F5-TTS, W1's ticket-booking sentence in Mandarin (Demo 1's English sentence on a second key), Demo 1's 4.9 s prompt, seed 1. (1) $N_{\text{FE}} \in \{1, 2, 4, 8, 16, 32\}$ on a uniform time grid, one clip each; the screen prints the wall-clock time of each and shows the six mels. (2) $N_{\text{FE}} = 16$ fixed, $w \in \{0, 1, 2, 3, 4\}$ on p55's scale ($w = 0$: the unconditional field alone; $w = 3$: F5's default). (3) Sway sampling on ($s = -1$) and off ($s = 0$) at the same 16 steps. The second half of this demo — the first packet — comes in §6 (p81). |
+| **Why** | p51 drew Euler with 4 and 16 steps, p56 said what $w$ does to the sound, p58 quoted a 2021 table. This hears all three on this laptop, on one sentence, with one model. **How many steps before you stop hearing a difference — and what does $w$ do?** |
+| **What runs** | F5-TTS, W1's ticket-booking sentence in Mandarin (Demo 1's English sentence on a second key), Demo 1's 4.9 s prompt, seed 1 — all three fixed. Then three sweeps, one thing changed at a time: (1) $N_{\text{FE}} \in \{1, 2, 4, 8, 16, 32\}$ on a uniform time grid; (2) $N_{\text{FE}} = 16$ fixed, $w \in \{0, 1, 2, 3, 4\}$ on p56's scale ($w = 0$: the unconditional field alone; $w = 3$: F5's default); (3) sway sampling on ($s = -1$) and off ($s = 0$) at the same 16 steps. The next slide draws it. The second half of this demo — the first packet — comes in §6 (p84). |
 | **Watch for** | Write a number before the clips play: the smallest $N_{\text{FE}}$ at which you expect no audible difference from 32. Then: which of $w = 0$ and $w = 4$ sounds wrong, and how. |
 :::
 
 ::: {.footer}
 Demo 2 · `demos/w08_d2_nfe_cfg_first_packet` · rehearsed 2026-11-09 on this laptop (MPS; F5 ≈ 70 ms per step) · listen before you trust the mels
+:::
+
+## Demo 2: how it runs
+
+{{< include assets/w08/demo2-flow.inline.qmd >}}
+
+::: {.footer}
+Demo 2 · `demos/w08_d2_nfe_cfg_first_packet` · F5's `cfg_strength` is $w - 1$ · second half: p84
 :::
 
 ## Demo 2 — the NFE sweep, the CFG sweep, sway on and off
@@ -970,7 +986,7 @@ Demo 2 · demos/w08_d2_nfe_cfg_first_packet · rehearsed 2026-11-09 (M5 Max, MPS
 
 | W2 p56 said a vocoder must | because | this week |
 |:---|:---------|:---------|
-| **1** put the phase back | the mel kept only magnitudes; Griffin-Lim showed the phase is largely recoverable but the algorithm is slow and buzzy (W2 p47–p49) | a GAN generator learns it; or Vocos predicts it directly (p69) |
+| **1** put the phase back | the mel kept only magnitudes; Griffin-Lim showed the phase is largely recoverable but the algorithm is slow and buzzy (W2 p47–p49) | a GAN generator learns it; or Vocos predicts it directly (p71) |
 | **2** undo the mel compression | 80 bins from 513: the pseudo-inverse is minimum-norm, not the original (W2 p53) | learned from data — the generator has seen what real spectra look like |
 | **3** sharpen a *predicted* mel | the acoustic model regressed: its mel is an average (p10) — the third job, promised in W2, delivered today | discriminators (W6 p30) push the output toward real speech, not toward the blurred input |
 
@@ -979,7 +995,7 @@ $\hat{\mathbf{x}} = G(\mathbf{X})$, trained against W6's $\Phi_j$. A codec decod
 :::
 
 ::: {.footer}
-W2 p56 MC 5 · W2 p47–p49, p51 · W6 p30, p31 · Demo 3 (p72–p74) plays all three
+W2 p56 MC 5 · W2 p47–p49, p51 · W6 p30, p31 · Demo 3 (p74–p77) plays all three
 :::
 
 ## HiFi-GAN: a generator and two families of discriminators
@@ -1019,7 +1035,7 @@ $$
 \qquad \lambda_{\text{fm}} = 2,\ \lambda_{\text{mel}} = 45
 $$
 
-| term | HiFi-GAN | W6's codec recipe (p29) |
+| term | HiFi-GAN | W6's codec recipe (p30) |
 |:---|:---------|:---------|
 | $\mathcal{L}_{\text{adv}}$ | least-squares: $\mathbb{E}(\Phi_j(\hat{\mathbf{x}}) - 1)^2$ (LS-GAN, Eq. 1–2) | hinge, mostly |
 | $\mathcal{L}_{\text{feat}}$ | L1 between $\Phi_j$'s intermediate features on real and generated | the same term (MelGAN's import of Larsen et al.) |
@@ -1093,7 +1109,7 @@ It sets the ceiling on quality and is often the **largest consumer of compute an
 | where the network runs | up to the sample rate | at the frame rate |
 | relative cost | 1 | ≈ 1/13 on GPU, ≈ 1/29 on CPU (Vocos vs HiFi-GAN, Table 6) |
 | phase | implicit in the samples | explicit, as $(\cos\phi, \sin\phi)$; consistency not guaranteed |
-| three jobs (p64) | all three, learned | all three — with the phase job made explicit |
+| three jobs (p66) | all three, learned | all three — with the phase job made explicit |
 
 ::: {.footer}
 Siuzdak 2024 §4.3, Table 6 · W1 Demo 2: Kokoro's first packet 124 ms p50 on this laptop
@@ -1104,13 +1120,21 @@ Siuzdak 2024 §4.3, Table 6 · W1 Demo 2: Kokoro's first packet 124 ms p50 on th
 ::: {.prose}
 | | |
 |:---|:-----------------|
-| **Why** | p64 listed three jobs and p68 gave numbers without sounds. This plays them: **the same mel through three vocoders**, then a *predicted* mel through the same three, then a system that has no mel at all. |
-| **What runs** | (1) W3's recording (`1272-128104-0000`, 16 kHz → 24 kHz) → log-mel **with each vocoder's own front end** (W2 Demo 3's lesson: Vocos and BigVGAN are both "100-band, 24 kHz, hop 256" — HTK vs Slaney scale, unnormalised vs area-normalised filters) → W2's Griffin-Lim (numpy, 64 iterations, from the Vocos-defined mel), Vocos (`charactr/vocos-mel-24khz`), BigVGAN v2 (`nvidia/bigvgan_v2_24khz_100band_256x`); the clips side by side, fit to the mel given, LSD to the original and wall-clock printed. (2) Demo 1's SpeechT5 mel and F5 mel, converted to each front end, through the same three. (3) MMS-TTS `nan` and `hak` (VITS, 16 kHz, straight to waveform): one Taiwanese and one Hakka sentence, in **romanised** input — next slide says why. |
+| **Why** | p66 listed three jobs and p70 gave numbers without sounds. This plays them: **the same mel through three vocoders**, then a *predicted* mel through the same three, then a system that has no mel at all. |
+| **What runs** | (1) W3's recording (`1272-128104-0000`, 16 kHz → 24 kHz) → a log-mel **in each vocoder's own front end** (W2 Demo 3's lesson: Vocos and BigVGAN are both "100-band, 24 kHz, hop 256" — HTK vs Slaney scale, unnormalised vs area-normalised filters) → W2's Griffin-Lim, Vocos (`charactr/vocos-mel-24khz`), BigVGAN v2 (`nvidia/bigvgan_v2_24khz_100band_256x`); fit to the mel given, LSD to the original and wall-clock printed for each. (2) Demo 1's SpeechT5 mel and F5 mel, converted to each front end, through the same three. (3) MMS-TTS `nan` and `hak` (VITS, 16 kHz, straight to waveform): one Taiwanese and one Hakka sentence, in **romanised** input — p77 says why. The next slide draws it. |
 | **Watch for** | Griffin-Lim plays first. Then: can you tell Vocos from BigVGAN on the real mel? On the predicted mel? Which input hurts Griffin-Lim more — and what does that say about which of the three jobs it was never doing? |
 :::
 
 ::: {.footer}
 Demo 3 · demos/w08_d3_vocoder_three_things · rehearsed 2026-11-08 on this machine · Vocos, BigVGAN, VITS all on MPS
+:::
+
+## Demo 3: how it runs
+
+{{< include assets/w08/demo3-flow.inline.qmd >}}
+
+::: {.footer}
+Demo 3 · `demos/w08_d3_vocoder_three_things` · LSD needs the original: the real row only
 :::
 
 ## Demo 3 — Griffin-Lim, Vocos, BigVGAN: a real mel, a predicted mel
@@ -1141,7 +1165,7 @@ Demo 3 · demos/w08_d3_vocoder_three_things · rehearsed 2026-11-08 here (MPS) �
 | which accent | — | to be heard (Sixian? Hailu?) — after the rehearsal |
 
 ::: {.claim}
-"A model exists" and "it is usable" differ by an orthography and an accent — and for Taiwanese the input itself is unsettled (p87).
+"A model exists" and "it is usable" differ by an orthography and an accent — and for Taiwanese the input itself is unsettled (p90).
 :::
 
 ::: {.footer}
@@ -1182,7 +1206,7 @@ $$
 | | smaller $C$ | larger $C$ |
 |:---|:-----------------|:---------|
 | first packet | earlier | later |
-| seams | more chunk boundaries: more flow seams (p78), more KV-cache re-reads | fewer |
+| seams | more chunk boundaries: more flow seams (p81), more KV-cache re-reads | fewer |
 | budget | the LM must emit $C$ tokens in $C / f_r$ s **every time**: at 25 Hz, 40 ms per token, nothing left for a slow step | more slack per chunk |
 
 ::: {.small}
@@ -1239,7 +1263,7 @@ Speed is set by **implementation, token rate and chunk design**, not by the para
 | **49.0 ms** mean | CuteTTS on an RTX 4090, 12.5 Hz patches, a flow head per step (Table 2) |
 
 ::: {.footer}
-each number with its own conditions; Demo 2 (p81) measures two more on this laptop
+each number with its own conditions; Demo 2 (p84) measures two more on this laptop
 :::
 
 ## Demo 2 — the first packet here: F5, Qwen3-TTS, Kokoro
@@ -1277,7 +1301,7 @@ W1 p38 · W1 p48–p50 (Kokoro 124 ms) · W6 p59 (the floor) · W7 p84 (the ASR-
 ## MC 10 — "streaming TTS is just cutting the sentence short"
 
 ::: {.claim .warn}
-Cutting the text into short pieces solves **none** of the three problems: a whole-utterance flow still seams at every boundary unless it was trained with chunk masks (p78); an AR model still has to meet RTF $< 1$ on every chunk (p77); and the **text** side must stream too — the $N{:}M$ ratio sets the first packet and the prosody at once (p79).
+Cutting the text into short pieces solves **none** of the three problems: a whole-utterance flow still seams at every boundary unless it was trained with chunk masks (p81); an AR model still has to meet RTF $< 1$ on every chunk (p80); and the **text** side must stream too — the $N{:}M$ ratio sets the first packet and the prosody at once (p82).
 :::
 
 | "cut it short" | what actually has to change |
@@ -1287,7 +1311,7 @@ Cutting the text into short pieces solves **none** of the three problems: a whol
 | the LLM finishes the sentence, then TTS starts? | then the user waits for the whole LLM reply; interleave instead |
 
 ::: {.footer}
-p76–p79 · "每個 chunk 都是一個第四週的 streaming encoder 問題，方向反過來"
+p79–p82 · "每個 chunk 都是一個第四週的 streaming encoder 問題，方向反過來"
 :::
 
 # Back to the three axes {.section-title}
@@ -1334,7 +1358,7 @@ outline 〈定位〉 three axes · W5 p71 · W6 p60 · W7 p85
 | | the fact | the consequence |
 |:---|:---------|:---------|
 | **1 — Taiwanese text input is unsolved** | one character, several readings; two romanisations (Tâi-lô, POJ); **tone sandhi**: the citation tone survives only at the phrase end | a phone-input system needs a G2P that applies sandhi; a character-input system (E2 / F5) leaves sandhi to data — and Taiwanese TTS corpora are orders of magnitude smaller than Mandarin ones |
-| **2 — MMS-TTS has `nan` and `hak`** | VITS, one speaker, New Testament; the cards say nothing about input; `vocab.json` says POJ and Pha̍k-fa-sṳ (p74) | characters must pass a G2P first; the accent decides whom it serves; "exists" ≠ "usable" |
+| **2 — MMS-TTS has `nan` and `hak`** | VITS, one speaker, New Testament; the cards say nothing about input; `vocab.json` says POJ and Pha̍k-fa-sṳ (p77) | characters must pass a G2P first; the accent decides whom it serves; "exists" ≠ "usable" |
 | **3 — is the tone still in the token?** | W6 p49: evidence at the SSL-unit level (Osakuade & King 2026); the ASR-supervised semantic tokens of 2026 TTS (the S3 family): **no direct evidence found** | a prediction, marked *to be verified*: Mandarin transcripts carry tone through the characters; Taiwanese ASR data is scarce, so its tokens may not learn seven tones and sandhi — W9 (cloning) and W12 (turn-taking) return to it |
 
 ::: {.footer}
@@ -1349,13 +1373,13 @@ At 24 kHz, quality has been near saturation since Tacotron 2's 4.53 vs 4.58 (201
 
 | 2018 problem | 2026 problem |
 |:---|:---------|
-| does it sound like a person? | does it say every word once, and stop? (p31) |
-| does the vocoder buzz? | does the first packet arrive before the user notices? (p76) |
+| does it sound like a person? | does it say every word once, and stop? (p32) |
+| does the vocoder buzz? | does the first packet arrive before the user notices? (p79) |
 | one studio voice | this voice, this emotion, this room — and not that one (W9) |
-| English | characters or romanisation, sandhi by rule or by data (p87) |
+| English | characters or romanisation, sandhi by rule or by data (p90) |
 
 ::: {.footer}
-Shen et al. 2018 abstract · p14's table: the variation column is where the last decade happened
+Shen et al. 2018 abstract · p15's table: the variation column is where the last decade happened
 :::
 
 ## MC 12 — "WER is an objective TTS metric"
@@ -1384,15 +1408,15 @@ p5: one line of text, many readings. Where does "which reading" get decided — 
 | | |
 |:----|:-----------------|
 | **1 · Not regression** | A regression returns the mean — and the mean is not a reading. (p10) |
-| **2 · Length** | Attention, a duration model, the stop symbol — or outside. (p17, p24) |
-| **3 · AR over tokens** | Sample W6's tokens one by one; cloning is continuation. (p29) |
-| **4 · Flow matching** | Regress a direction, not the destination: the sample is reached by integration. Past the knee, more steps buy only latency. (p43, p48, p57) |
-| **5 · The vocoder** | A generator against discriminators for what repeats and what continues. It sets the ceiling on quality — and often the compute. (p65, p71) |
-| **6 · The first packet** | Three shapes; every chunk must finish in $C / f_r$. Speed is set by implementation and chunk design, not by the paradigm. (p76–p77, p80) |
+| **2 · Length** | Attention, a duration model, the stop symbol — or outside. (p18, p25) |
+| **3 · AR over tokens** | Sample W6's tokens one by one; cloning is continuation. (p30) |
+| **4 · Flow matching** | Regress a direction, not the destination: the sample is reached by integration. Past the knee, more steps buy only latency. (p44, p49, p58) |
+| **5 · The vocoder** | A generator against discriminators for what repeats and what continues. It sets the ceiling on quality — and often the compute. (p67, p73) |
+| **6 · The first packet** | Three shapes; every chunk must finish in $C / f_r$. Speed is set by implementation and chunk design, not by the paradigm. (p79–p80, p83) |
 :::
 
 ::: {.footer}
-the route: p6 · half-time: p40
+the route: p6 · half-time: p41
 :::
 
 ## Reading, and next week
@@ -1400,13 +1424,13 @@ the route: p6 · half-time: p40
 **Read this week**
 
 - Lipman et al., *Flow Matching for Generative Modeling*, ICLR 2023 — §3 (Eq. 5, 9; Thm 1–2), §4.1 Example II: today's seven steps in the original; the week's "if you read one paper"
-- Lipman et al., *Flow Matching Guide and Code*, arXiv:2412.06264 — §2 (quick tour, with code), §4.8 (the conversions behind p54)
+- Lipman et al., *Flow Matching Guide and Code*, arXiv:2412.06264 — §2 (quick tour, with code), §4.8 (the conversions behind p55)
 - Wang et al., VALL-E, arXiv:2301.02111 — §3–4: the AR + NAR split, and cloning as continuation
 - Kong, Kim & Bae, *HiFi-GAN*, NeurIPS 2020 — §2.3–2.4, Table 2: discriminators, losses, the ablation
 
 **If one thing today was new to you, make it this one**
 
-- Du et al., *CosyVoice 2*, arXiv:2412.10117 — §2.3–2.5: interleaving, the four masks, and the first-packet formula; read §2.5 with p76 open
+- Du et al., *CosyVoice 2*, arXiv:2412.10117 — §2.3–2.5: interleaving, the four masks, and the first-packet formula; read §2.5 with p79 open
 
 **Next week — TTS II: control, post-training, evaluation, misuse**
 
@@ -1416,33 +1440,33 @@ It can speak. Next: **whose voice, which emotion, how to measure it, how to stop
 
 | | |
 |:----|:----------------|
-| AMP | anti-aliased multi-periodicity composition: BigVGAN's up/down-sampling (p70) |
-| AR, NAR | autoregressive; non-autoregressive (p28) |
+| AMP | anti-aliased multi-periodicity composition: BigVGAN's up/down-sampling (p72) |
+| AR, NAR | autoregressive; non-autoregressive (p29) |
 | ASR | automatic speech recognition (W1) |
 | BPE | byte-pair encoding: a text tokenizer (W3) |
-| CFG | classifier-free guidance (p55) |
-| CFM, FM | conditional flow matching; flow matching (p45, p47) |
-| CNF | continuous normalizing flow (p44) |
+| CFG | classifier-free guidance (p56) |
+| CFM, FM | conditional flow matching; flow matching (p46, p48) |
+| CNF | continuous normalizing flow (p45) |
 | CPU, GPU, MPS | the processors; Metal Performance Shaders, PyTorch's GPU backend on Apple silicon (W3) |
-| DP | duration predictor (p19); dynamic programming (p20, p21) |
-| DSM | Delayed Streams Modeling (p79) |
+| DP | duration predictor (p20); dynamic programming (p21, p22) |
+| DSM | Delayed Streams Modeling (p82) |
 
 ## Acronyms in this deck, F–M
 
 | | |
 |:----|:----------------|
 | FSQ | finite scalar quantisation (W6) |
-| G2P | grapheme-to-phoneme conversion (p17) |
-| GAN, LS-GAN | generative adversarial network (W6); least-squares GAN (p67) |
+| G2P | grapheme-to-phoneme conversion (p18) |
+| GAN, LS-GAN | generative adversarial network (W6); least-squares GAN (p69) |
 | HMM | hidden Markov model (W3) |
 | iSTFT, STFT | inverse short-time Fourier transform; short-time Fourier transform (W2) |
-| JVP | Jacobian–vector product (p52) |
+| JVP | Jacobian–vector product (p53) |
 | KV cache | key–value cache of a Transformer decoder (W4) |
 | LLM, LM | large language model (W1); language model |
 | LSD | log-spectral distance (W2) |
-| MAS | monotonic alignment search (p20) |
+| MAS | monotonic alignment search (p21) |
 | MC | misconception: a belief that sounds right, and what breaks it |
-| MFA | Montreal Forced Aligner (p20) |
+| MFA | Montreal Forced Aligner (p21) |
 | MMS | Massively Multilingual Speech (W3) |
 
 ## Acronyms in this deck, M–R
@@ -1450,27 +1474,27 @@ It can speak. Next: **whose voice, which emotion, how to measure it, how to stop
 | | |
 |:----|:----------------|
 | MOS | mean opinion score (W2) |
-| MPD, MSD | multi-period discriminator; multi-scale discriminator (p65, p66) |
-| MRF | multi-receptive-field residual blocks (p65) |
-| MSE | mean squared error (p48) |
-| MTP | multi-token prediction: FlashTTS (p80) |
-| NFE | number of function evaluations (p50) |
-| ODE, SDE | ordinary / stochastic differential equation (p44; p54) |
-| OT | optimal transport — Lipman's name for the straight path (p49) |
-| POJ | Pe̍h-ōe-jī, the romanisation of Taiwanese (p74) |
-| RK4 | fourth-order Runge–Kutta solver (p50) |
+| MPD, MSD | multi-period discriminator; multi-scale discriminator (p67, p68) |
+| MRF | multi-receptive-field residual blocks (p67) |
+| MSE | mean squared error (p49) |
+| MTP | multi-token prediction: FlashTTS (p83) |
+| NFE | number of function evaluations (p51) |
+| ODE, SDE | ordinary / stochastic differential equation (p45; p55) |
+| OT | optimal transport — Lipman's name for the straight path (p50) |
+| POJ | Pe̍h-ōe-jī, the romanisation of Taiwanese (p77) |
+| RK4 | fourth-order Runge–Kutta solver (p51) |
 | RL | reinforcement learning (W7) |
-| RTF | real-time factor (p57) |
+| RTF | real-time factor (p58) |
 | RVQ, VQ | residual vector quantisation; vector quantisation (W6) |
 
 ## Acronyms in this deck, S–W
 
 | | |
 |:----|:----------------|
-| SIM | speaker similarity, from a speaker-verification model (p89) |
-| SPSS | statistical parametric speech synthesis (p14) |
+| SIM | speaker similarity, from a speaker-verification model (p92) |
+| SPSS | statistical parametric speech synthesis (p15) |
 | TR | technical report (in the footers) |
 | TTS | text-to-speech (W1) |
-| VAE | variational autoencoder (p23) |
-| VP | variance-preserving: a diffusion schedule (p54) |
+| VAE | variational autoencoder (p24) |
+| VP | variance-preserving: a diffusion schedule (p55) |
 | WER | word error rate (W7) |

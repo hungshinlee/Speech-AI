@@ -46,7 +46,7 @@ ckpt = "F5TTS_v1_Base/model_1250000.safetensors"
 vocoder = "charactr/vocos-mel-24khz"
 nfe = 32
 # F5 的 cfg_strength 是原文 Eq. 4 的 α：v_CFG = v(c) + α (v(c) − v(∅))——Ho & Salimans 的寫法。
-# 投影片 p55 的寫法是 ṽ = v(∅) + w (v(c) − v(∅))，所以 w = α + 1：預設 α = 2 是投影片上的 w = 3。
+# 投影片 p56 的寫法是 ṽ = v(∅) + w (v(c) − v(∅))，所以 w = α + 1：預設 α = 2 是投影片上的 w = 3。
 cfg_strength = 2.0
 sway_sampling_coef = -1.0
 speed = 1.0

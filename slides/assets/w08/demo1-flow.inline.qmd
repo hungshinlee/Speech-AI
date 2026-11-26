@@ -1,0 +1,164 @@
+<!-- 由 scripts/make_figs_w08.py 產生，勿手改；投影片用 {{< include assets/w08/demo1-flow.inline.qmd >}} 貼入 -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 386" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
+<rect x="20.0" y="14.0" width="300.0" height="68.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="170.0" y="35.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">an x-vector</text>
+<text x="170.0" y="68.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">512 numbers · another speaker</text>
+<rect x="350.0" y="14.0" width="300.0" height="68.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="500.0" y="35.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">W3's sentence, as text</text>
+<text x="500.0" y="68.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">the same line for both models</text>
+<rect x="680.0" y="14.0" width="300.0" height="68.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
+<text x="830.0" y="35.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">a 4.9 s prompt</text>
+<text x="830.0" y="68.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">the same speaker, another line</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<line x1="170.0" y1="84.0" x2="170.0" y2="124.0" stroke="#b45309" stroke-width="1.6"/>
+<polygon points="170.0,132.0 165.0,124.0 175.0,124.0" fill="#b45309"/>
+<line x1="830.0" y1="84.0" x2="830.0" y2="124.0" stroke="#b45309" stroke-width="1.6"/>
+<polygon points="830.0,132.0 825.0,124.0 835.0,124.0" fill="#b45309"/>
+<line x1="400.0" y1="84.0" x2="297.3" y2="128.8" stroke="#15803d" stroke-width="1.6"/>
+<polygon points="290.0,132.0 295.3,124.2 299.3,133.4" fill="#15803d"/>
+<line x1="600.0" y1="84.0" x2="702.7" y2="128.8" stroke="#15803d" stroke-width="1.6"/>
+<polygon points="710.0,132.0 700.7,133.4 704.7,124.2" fill="#15803d"/>
+<rect x="20.0" y="136.0" width="300.0" height="96.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="170.0" y="158.0" font-size="19" font-weight="600" fill="#7c3aed" text-anchor="middle" dominant-baseline="middle">SpeechT5 · key 1</text>
+<text x="170.0" y="190.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">regresses the mel, 2 frames</text>
+<text x="170.0" y="215.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">a step; stops on its own</text>
+<rect x="350.0" y="136.0" width="300.0" height="96.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="500.0" y="158.0" font-size="19" font-weight="600" fill="#15803d" text-anchor="middle" dominant-baseline="middle">the real recording · key g</text>
+<text x="500.0" y="190.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">the same sentence, through</text>
+<text x="500.0" y="215.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">each model's own front end</text>
+<rect x="680.0" y="136.0" width="300.0" height="96.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="830.0" y="158.0" font-size="19" font-weight="600" fill="#0b5cad" text-anchor="middle" dominant-baseline="middle">F5-TTS · keys 2, 3</text>
+<text x="830.0" y="190.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">draws the mel from noise:</text>
+<text x="830.0" y="215.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">32 steps · seeds 1, 2, 3</text>
+<text x="20.0" y="262.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">each mel goes to its model's own vocoder and is played  ·  mels are compared only within a column</text>
+</g>
+<g class="fragment" data-fragment-index="2">
+<text x="20.0" y="304.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="auto">on the screen — three things to look at:</text>
+<rect x="20.0" y="320.0" width="300.0" height="40.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="32.0" y="346.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">key x: the grain, 2–6 kHz</text>
+<text x="300.0" y="341.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+<rect x="350.0" y="320.0" width="300.0" height="40.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="362.0" y="346.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">key 3: three seeds, lengths</text>
+<text x="630.0" y="341.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+<rect x="680.0" y="320.0" width="300.0" height="40.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="692.0" y="346.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto" textLength="97.4" lengthAdjust="spacing">key z: their</text>
+<svg x="794.507" y="329.516" width="24.168" height="22.0661" viewBox="0 0 24.168 22.066125"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w8t146-figure_1">
+  <g id="w8t146-patch_1">
+   <path d="M 0 22.066125 
+L 24.168 22.066125 
+L 24.168 0 
+L 0 0 
+L 0 22.066125 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w8t146-text_1">
+   <!-- $F_0$ -->
+   <g style="fill: #1f2328" transform="translate(0 17.324437) scale(0.228 -0.228)">
+    <defs>
+     <path id="w8t146-Cmmi10-46" d="M 300 0 
+Q 238 0 238 84 
+Q 241 100 250 139 
+Q 259 178 276 201 
+Q 294 225 319 225 
+Q 709 225 863 269 
+Q 947 297 984 441 
+L 1863 3956 
+Q 1875 4019 1875 4044 
+Q 1875 4113 1797 4122 
+Q 1678 4147 1338 4147 
+Q 1275 4147 1275 4231 
+Q 1278 4247 1287 4286 
+Q 1297 4325 1314 4348 
+Q 1331 4372 1356 4372 
+L 4738 4372 
+Q 4800 4372 4800 4288 
+L 4647 2963 
+Q 4647 2944 4625 2925 
+Q 4603 2906 4581 2906 
+L 4525 2906 
+Q 4459 2906 4459 2988 
+Q 4500 3278 4500 3463 
+Q 4500 3781 4362 3931 
+Q 4225 4081 4015 4114 
+Q 3806 4147 3438 4147 
+L 2753 4147 
+Q 2578 4147 2522 4117 
+Q 2466 4088 2419 3928 
+L 2009 2297 
+L 2491 2297 
+Q 2728 2297 2875 2322 
+Q 3022 2347 3119 2419 
+Q 3216 2491 3280 2627 
+Q 3344 2763 3397 2988 
+Q 3416 3047 3463 3047 
+L 3519 3047 
+Q 3584 3047 3584 2963 
+L 3194 1381 
+Q 3166 1325 3128 1325 
+L 3072 1325 
+Q 3009 1325 3009 1409 
+Q 3025 1475 3034 1519 
+Q 3044 1563 3058 1645 
+Q 3072 1728 3072 1791 
+Q 3072 1975 2909 2025 
+Q 2747 2075 2484 2075 
+L 1959 2075 
+L 1544 416 
+Q 1528 353 1528 353 
+Q 1528 278 1575 269 
+Q 1741 225 2228 225 
+Q 2291 225 2291 141 
+Q 2269 50 2256 25 
+Q 2244 0 2181 0 
+L 300 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w8t146-Cmr10-30" d="M 1600 -141 
+Q 816 -141 533 504 
+Q 250 1150 250 2041 
+Q 250 2597 351 3087 
+Q 453 3578 754 3920 
+Q 1056 4263 1600 4263 
+Q 2022 4263 2290 4056 
+Q 2559 3850 2700 3523 
+Q 2841 3197 2892 2823 
+Q 2944 2450 2944 2041 
+Q 2944 1491 2842 1011 
+Q 2741 531 2444 195 
+Q 2147 -141 1600 -141 
+z
+M 1600 25 
+Q 1956 25 2131 390 
+Q 2306 756 2347 1200 
+Q 2388 1644 2388 2144 
+Q 2388 2625 2347 3031 
+Q 2306 3438 2132 3767 
+Q 1959 4097 1600 4097 
+Q 1238 4097 1063 3765 
+Q 888 3434 847 3029 
+Q 806 2625 806 2144 
+Q 806 1788 823 1472 
+Q 841 1156 916 820 
+Q 991 484 1158 254 
+Q 1325 25 1600 25 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w8t146-Cmmi10-46" transform="translate(0 0.6875)"/>
+    <use xlink:href="#w8t146-Cmr10-30" transform="translate(64.306641 -16.31875) scale(0.7)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<text x="823.8" y="346.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto" textLength="104.1" lengthAdjust="spacing">and pauses</text>
+<text x="960.0" y="341.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+</g>
+</svg>
+```
