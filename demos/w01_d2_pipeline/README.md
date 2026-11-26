@@ -60,7 +60,7 @@ From `runs/rehearsal/utterance/result.json` (2026-09-21, M5 Max; whisper.cpp `sm
 | playout buffer (setting) | 100 | 100 |
 | **total** | **1388 ms** | 1391 (sum of p95s: an upper bound) |
 
-The transcript was right in all ten runs; the reply was the same 23-token sentence every time. (The slides quote an earlier rehearsal of the same setup, 2026-09-20, with a total of 1383 ms; the record checked in here is the re-run of the next day.)
+The transcript was right in all ten runs; the reply was the same 23-token sentence every time.
 
 The pause inside the recorded sentence measured **1040 ms**. The `endpoint` report shows what that does to a threshold: 300, 700 and even 1000 ms all fire *inside* the sentence (false endpoints at 2.59 / 2.99 / 3.29 s); only 1500 ms survives the pause — at the price of 1500 ms after the real end. The run used 1000 ms as the cascade's threshold, which is why that one cell is about seven tenths of the total.
 

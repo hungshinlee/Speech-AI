@@ -1080,7 +1080,7 @@ SLAM-ASR · Qwen3-ASR TR · W4 p64
 {{< include assets/w07/asr-tail.inline.qmd >}}
 
 ::: {.footer}
-W1 p38 · W4 Demo 2: 220 ms · W1 Demo 2: 68 ms · widths schematic
+W1 p38 · W4 Demo 2: 220 ms · W1 Demo 2: 70 ms · widths schematic
 :::
 
 ## Streaming a decoder-only model: when to read, when to write

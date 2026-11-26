@@ -22,7 +22,7 @@
 <text x="36.0" y="160.0" font-size="19" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="middle">streaming RNN-T</text>
 <text x="246.0" y="160.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">emission delay + endpoint — 220 ms median (W4 Demo 2)</text>
 <text x="36.0" y="190.0" font-size="19" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="middle">non-streaming AED</text>
-<text x="246.0" y="190.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">the whole decode — 68 ms p50, whisper.cpp small, here (W1 Demo 2)</text>
+<text x="246.0" y="190.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">the whole decode — 70 ms p50, whisper.cpp small, here (W1 Demo 2)</text>
 <text x="36.0" y="220.0" font-size="19" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="middle">LLM-based</text>
 <text x="246.0" y="220.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">prefill + first token + one LLM pass per further token</text>
 </g>
