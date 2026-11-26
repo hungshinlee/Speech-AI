@@ -97,4 +97,7 @@ For the local languages, three points of different strength. For Taiwanese Hokki
 - For end-to-end dialogue models in Taiwanese Hokkien or Hakka and for lexical tone in output tokens, we give search terms rather than citations: *Taiwanese Hokkien spoken language model*, *Hakka speech LLM*, *lexical tone discrete speech tokens speech-to-speech*
 
 **Further**
-- Other public omni and audio language models of 2025–2026, as search terms: *MiniCPM-o*, *Baichuan-Audio* (arXiv:2502.17239), *MiMo-Audio* (arXiv:2512.23808), *Fun-Audio-Chat technical report*, *Sesame conversational speech model*, *LFM3-Audio*
+- Cui et al. (36 authors), **MiniCPM-o 4.5: Towards Real-Time Full-Duplex Omni-Modal Interaction**, arXiv:2604.27393 (2026; technical report) — time-aligned interleaving of text and speech tokens; one model with both half-duplex and full-duplex modes
+- Xiaomi MiMo-Audio team, **MiMo-Audio: Audio Language Models are Few-Shot Learners**, arXiv:2512.23808 (2025; technical report) — discrete input compressed by patching to 6.25 Hz; a thinking mechanism added in post-training
+- The model cards of **Ming-3.0-audio-tiny** (inclusionAI) and **Haru-4B** (higurashi) on Hugging Face — model cards, **not papers**; the first is a Thinker with an optional Talker, the second a full-duplex base model with continuous latents on both input and output
+- Other public omni and audio language models of 2025–2026, as search terms: *Baichuan-Audio* (arXiv:2502.17239), *Fun-Audio-Chat technical report*, *Sesame conversational speech model*, *LFM3-Audio*
