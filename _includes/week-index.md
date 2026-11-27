@@ -13,6 +13,6 @@
 | **W9** | [Speech Synthesis II: Who Is the Judge — Controllability, Post-Training, Evaluation, and Misuse](weeks/w09.qmd)<br>[語音合成 II：裁判是誰——可控性、後訓練、評估與濫用防範]{.wk-zh} | Modules | [▶ Open](slides/w09.qmd) |
 | **W10** | [The Physical Layer of Full Duplex: The Microphone Hears More Than the User — VAD, AEC, Enhancement, Separation, Speakers](weeks/w10.qmd)<br>[全雙工的物理層：麥克風聽到的不只是使用者——VAD、AEC、增強、分離與說話人]{.wk-zh} | Modules | [▶ Open](slides/w10.qmd) |
 | **W11** | [Audio-Native Language Models: Where Does the Text Go? Building Half-Duplex Spoken Dialogue](weeks/w11.qmd)<br>[Audio-Native 語言模型：文字留在哪裡——半雙工語音對話的建成]{.wk-zh} | Dialogue Systems | [▶ Open](slides/w11.qmd) |
-| **W12** | Full-Duplex I: Linguistic Foundations and Modeling of Turn-Taking<br>[全雙工 I：Turn-Taking 的語言學基礎與建模]{.wk-zh} | Dialogue Systems | — |
+| **W12** | Full-Duplex I: Has the User Finished? Turn-Taking from Detection to Prediction<br>[全雙工 I：他講完了沒——Turn-Taking 從偵測到預測]{.wk-zh} | Dialogue Systems | — |
 | **W13** | Full-Duplex II: Architectures, Multi-Stream Modeling, and Data<br>[全雙工 II：架構路線、多串流建模與資料問題]{.wk-zh} | Dialogue Systems | — |
 | **W14** | Evaluation, Alignment, Deployment, and Open Problems<br>[評估、對齊、落地與 Open Problems]{.wk-zh} | Dialogue Systems | — |
