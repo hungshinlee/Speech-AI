@@ -269,12 +269,12 @@ Demo 1 · demos/w10_d1_echo_nlms · today: step one · the rest: p34–p35
 | what is subtracted from $y(n)$ | what is left, by ear | residual level, re. the microphone |
 |:----------|:--------|:--------|
 | nothing — the raw microphone | | $0$ dB, by definition |
-| $x(n)$, as played | | |
-| $g\,x(n - D)$: delayed to line up with the echo, scaled to fit | | |
+| $x(n)$, as played | | $+13.1$ dB: louder than before |
+| $g\,x(n - D)$: delayed to line up with the echo, scaled to fit | | $-0.9$ dB ($D = 141$ ms, $g = 0.10$) |
 :::
 
 ::: {.footer}
-Demo 1 · demos/w10_d1_echo_nlms · the table is filled at rehearsal → w10-metrics.json → demo1
+Demo 1 · demos/w10_d1_echo_nlms · measured 2026-11-23, this laptop, one room → w10-metrics.json → demo1
 :::
 
 ## MC 2 — "AEC subtracts the played signal from the microphone"
@@ -509,15 +509,15 @@ W5 p46 · W6 p32 · W7 p69 · W8 p54 · W9 p44–p45 · today's other shapes: p4
 ::: {.fragment fragment-index=1}
 | the recording, and the step-size rule | what the screen shows | measured |
 |:----------|:--------|:----|
-| system alone · NLMS from zero | time to converge; ERLE reached | |
-| I talk over it · fixed $\mu$ | ERLE during; echo after I stop | |
-| I talk over it · Geigel freeze | the same two | |
-| I talk over it · soft step (residual-to-error ratio) | the same two | |
-| loudspeaker distorting · NLMS | the ERLE ceiling | |
+| system alone · NLMS from zero | time to converge; ERLE reached | $10.6$ s; $22.5$ dB |
+| I talk over it · fixed $\mu$ | ERLE during; echo after I stop | $3.2$ dB; before → after: $14.7 \to 2.7$ dB, $2.3$ s to recover |
+| I talk over it · Geigel freeze | the same two | $-1.2$ dB; $9.6 \to -6.6$ dB: it does not hold |
+| I talk over it · soft step (residual-to-error ratio) | the same two | $0.5$ dB; $11.9 \to 15.2$ dB: it holds |
+| loudspeaker at maximum · NLMS | the ERLE ceiling | $19.6$ dB: $3$ dB below the first clip |
 :::
 
 ::: {.footer}
-Demo 1 · measured at rehearsal → w10-metrics.json → demo1 · the method: p25–p26, p29
+Demo 1 · measured 2026-11-23, one room → w10-metrics.json → demo1 · the method: p25–p26, p29
 :::
 
 ## Demo 1 — what the next model hears: VAD and Whisper
@@ -529,8 +529,8 @@ The same recording — the system speaking, then I interrupt — goes to a VAD a
 ::: {.fragment fragment-index=1}
 | | Silero VAD: when is it active? | Whisper small: what does it write? |
 |:----|:---------|:---------|
-| **before AEC**: the raw microphone | | |
-| **after AEC**: the residual $e(n)$ | | |
+| **before AEC**: the raw microphone | all the time: $100\%$ of the time when only the system speaks | the system's own sentence, with my interruption spliced into the middle |
+| **after AEC**: the residual $e(n)$ | $25\%$ of that time — not zero; $72\%$ of the time while I talk | my interruption, and nothing else |
 :::
 
 ::: {.fragment fragment-index=2}
