@@ -1,0 +1,22 @@
+<!-- 由 scripts/make_figs_w11.py 產生，勿手改；投影片用 {{< include assets/w11/scaling.inline.qmd >}} 貼入 -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 340" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
+<line x1="90.0" y1="290.0" x2="620.0" y2="290.0" stroke="#1f2328" stroke-width="1.6"/>
+<line x1="90.0" y1="290.0" x2="90.0" y2="20.0" stroke="#1f2328" stroke-width="1.6"/>
+<text x="345.0" y="326.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">compute (log scale)</text>
+<text x="34" y="160" font-size="19" fill="#6b7280" text-anchor="middle" transform="rotate(-90 34 160)">linguistic quality (log)</text>
+<polyline points="110.0,250.0 560.0,50.0" fill="none" stroke="#7c3aed" stroke-width="3.0"/>
+<polyline points="110.0,272.0 600.0,214.0" fill="none" stroke="#0b5cad" stroke-width="3.0"/>
+<text x="630.0" y="60.0" font-size="22" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="auto">text LLMs</text>
+<text x="630.0" y="222.0" font-size="22" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="auto">speech-only LMs</text>
+<text x="630.0" y="250.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">the same law — a shallower slope:</text>
+<text x="630.0" y="276.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">up to three orders of magnitude slower</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<polyline points="110.0,266.0 600.0,150.0" fill="none" stroke="#15803d" stroke-width="3.0" stroke-dasharray="9 5"/>
+<text x="630.0" y="128.0" font-size="22" font-weight="700" fill="#15803d" text-anchor="start" dominant-baseline="auto">interleaved, from a text LLM</text>
+<text x="630.0" y="156.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">more efficient than textless</text>
+</g>
+</svg>
+```

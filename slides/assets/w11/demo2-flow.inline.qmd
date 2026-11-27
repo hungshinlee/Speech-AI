@@ -1,0 +1,400 @@
+<!-- 由 scripts/make_figs_w11.py 產生，勿手改；投影片用 {{< include assets/w11/demo2-flow.inline.qmd >}} 貼入 -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 400" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
+<circle cx="38.0" cy="70.0" r="16.0" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.4"/>
+<text x="38.0" y="71.0" font-size="19" font-weight="700" fill="#7c3aed" text-anchor="middle" dominant-baseline="middle">a</text>
+<rect x="66.0" y="40.0" width="220.0" height="60.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.3"/>
+<text x="176.0" y="71.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">typed</text>
+<line x1="290.0" y1="70.0" x2="494.0" y2="70.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="502.0,70.0 494.0,75.0 494.0,65.0" fill="#94a3b8"/>
+<rect x="506.0" y="40.0" width="300.0" height="60.0" rx="6" fill="#ffffff" stroke="#1f2328" stroke-width="1.4"/>
+<svg x="526" y="57.9401" width="23.496" height="25.5502" viewBox="0 0 23.496 25.55025"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w11t30-figure_1">
+  <g id="w11t30-patch_1">
+   <path d="M 0 25.55025 
+L 23.496 25.55025 
+L 23.496 0 
+L 0 0 
+L 0 25.55025 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w11t30-text_1">
+   <!-- $\theta_0$ -->
+   <g style="fill: #1f2328" transform="translate(0 20.059875) scale(0.264 -0.264)">
+    <defs>
+     <path id="w11t30-Cmmi10-b5" d="M 1031 -72 
+Q 741 -72 566 140 
+Q 391 353 323 653 
+Q 256 953 256 1247 
+L 256 1253 
+Q 256 1572 317 1915 
+Q 378 2259 493 2601 
+Q 609 2944 744 3213 
+Q 838 3400 986 3631 
+Q 1134 3863 1317 4064 
+Q 1500 4266 1711 4389 
+Q 1922 4513 2138 4513 
+L 2144 4513 
+Q 2375 4513 2529 4384 
+Q 2684 4256 2770 4056 
+Q 2856 3856 2890 3628 
+Q 2925 3400 2925 3194 
+Q 2925 2709 2794 2204 
+Q 2663 1700 2431 1228 
+Q 2344 1050 2189 809 
+Q 2034 569 1861 378 
+Q 1688 188 1472 58 
+Q 1256 -72 1038 -72 
+L 1031 -72 
+z
+M 1044 97 
+Q 1256 97 1451 323 
+Q 1647 550 1794 873 
+Q 1941 1197 2052 1536 
+Q 2163 1875 2216 2113 
+L 909 2113 
+Q 809 1709 753 1417 
+Q 697 1125 697 844 
+Q 697 97 1044 97 
+z
+M 959 2338 
+L 2272 2338 
+Q 2341 2619 2381 2808 
+Q 2422 2997 2450 3206 
+Q 2478 3416 2478 3597 
+Q 2478 4347 2138 4347 
+Q 1731 4347 1436 3692 
+Q 1141 3038 959 2338 
+z
+" transform="scale(0.015625)"/>
+     <path id="w11t30-Cmr10-30" d="M 1600 -141 
+Q 816 -141 533 504 
+Q 250 1150 250 2041 
+Q 250 2597 351 3087 
+Q 453 3578 754 3920 
+Q 1056 4263 1600 4263 
+Q 2022 4263 2290 4056 
+Q 2559 3850 2700 3523 
+Q 2841 3197 2892 2823 
+Q 2944 2450 2944 2041 
+Q 2944 1491 2842 1011 
+Q 2741 531 2444 195 
+Q 2147 -141 1600 -141 
+z
+M 1600 25 
+Q 1956 25 2131 390 
+Q 2306 756 2347 1200 
+Q 2388 1644 2388 2144 
+Q 2388 2625 2347 3031 
+Q 2306 3438 2132 3767 
+Q 1959 4097 1600 4097 
+Q 1238 4097 1063 3765 
+Q 888 3434 847 3029 
+Q 806 2625 806 2144 
+Q 806 1788 823 1472 
+Q 841 1156 916 820 
+Q 991 484 1158 254 
+Q 1325 25 1600 25 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w11t30-Cmmi10-b5" transform="translate(0 0.484375)"/>
+    <use xlink:href="#w11t30-Cmr10-30" transform="translate(46.923828 -16.521875) scale(0.7)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<text x="566.0" y="71.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">the original text LLM</text>
+<circle cx="38.0" cy="148.0" r="16.0" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.4"/>
+<text x="38.0" y="149.0" font-size="19" font-weight="700" fill="#7c3aed" text-anchor="middle" dominant-baseline="middle">b</text>
+<rect x="66.0" y="118.0" width="220.0" height="60.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.3"/>
+<text x="176.0" y="149.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">typed</text>
+<line x1="290.0" y1="148.0" x2="494.0" y2="148.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="502.0,148.0 494.0,153.0 494.0,143.0" fill="#94a3b8"/>
+<rect x="506.0" y="118.0" width="300.0" height="60.0" rx="6" fill="#ffffff" stroke="#1f2328" stroke-width="1.4"/>
+<svg x="526" y="135.94" width="12.408" height="25.5502" viewBox="0 0 12.408 25.55025"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w11t31-figure_1">
+  <g id="w11t31-patch_1">
+   <path d="M 0 25.55025 
+L 12.408 25.55025 
+L 12.408 0 
+L 0 0 
+L 0 25.55025 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w11t31-text_1">
+   <!-- $\theta$ -->
+   <g style="fill: #1f2328" transform="translate(0 20.059875) scale(0.264 -0.264)">
+    <defs>
+     <path id="w11t31-Cmmi10-b5" d="M 1031 -72 
+Q 741 -72 566 140 
+Q 391 353 323 653 
+Q 256 953 256 1247 
+L 256 1253 
+Q 256 1572 317 1915 
+Q 378 2259 493 2601 
+Q 609 2944 744 3213 
+Q 838 3400 986 3631 
+Q 1134 3863 1317 4064 
+Q 1500 4266 1711 4389 
+Q 1922 4513 2138 4513 
+L 2144 4513 
+Q 2375 4513 2529 4384 
+Q 2684 4256 2770 4056 
+Q 2856 3856 2890 3628 
+Q 2925 3400 2925 3194 
+Q 2925 2709 2794 2204 
+Q 2663 1700 2431 1228 
+Q 2344 1050 2189 809 
+Q 2034 569 1861 378 
+Q 1688 188 1472 58 
+Q 1256 -72 1038 -72 
+L 1031 -72 
+z
+M 1044 97 
+Q 1256 97 1451 323 
+Q 1647 550 1794 873 
+Q 1941 1197 2052 1536 
+Q 2163 1875 2216 2113 
+L 909 2113 
+Q 809 1709 753 1417 
+Q 697 1125 697 844 
+Q 697 97 1044 97 
+z
+M 959 2338 
+L 2272 2338 
+Q 2341 2619 2381 2808 
+Q 2422 2997 2450 3206 
+Q 2478 3416 2478 3597 
+Q 2478 4347 2138 4347 
+Q 1731 4347 1436 3692 
+Q 1141 3038 959 2338 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w11t31-Cmmi10-b5" transform="translate(0 0.484375)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<text x="566.0" y="149.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">the audio model, reading</text>
+<text x="20.0" y="22.0" font-size="19" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">one question, four ways in — 40 multiple-choice, 10 with a format constraint</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<circle cx="38.0" cy="226.0" r="16.0" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.4"/>
+<text x="38.0" y="227.0" font-size="19" font-weight="700" fill="#0b5cad" text-anchor="middle" dominant-baseline="middle">c</text>
+<rect x="66.0" y="196.0" width="220.0" height="60.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.3"/>
+<text x="176.0" y="227.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">spoken (TTS voice)</text>
+<line x1="290.0" y1="226.0" x2="494.0" y2="226.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="502.0,226.0 494.0,231.0 494.0,221.0" fill="#94a3b8"/>
+<rect x="506.0" y="196.0" width="300.0" height="60.0" rx="6" fill="#ffffff" stroke="#1f2328" stroke-width="1.4"/>
+<svg x="526" y="213.94" width="12.408" height="25.5502" viewBox="0 0 12.408 25.55025"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w11t32-figure_1">
+  <g id="w11t32-patch_1">
+   <path d="M 0 25.55025 
+L 12.408 25.55025 
+L 12.408 0 
+L 0 0 
+L 0 25.55025 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w11t32-text_1">
+   <!-- $\theta$ -->
+   <g style="fill: #1f2328" transform="translate(0 20.059875) scale(0.264 -0.264)">
+    <defs>
+     <path id="w11t32-Cmmi10-b5" d="M 1031 -72 
+Q 741 -72 566 140 
+Q 391 353 323 653 
+Q 256 953 256 1247 
+L 256 1253 
+Q 256 1572 317 1915 
+Q 378 2259 493 2601 
+Q 609 2944 744 3213 
+Q 838 3400 986 3631 
+Q 1134 3863 1317 4064 
+Q 1500 4266 1711 4389 
+Q 1922 4513 2138 4513 
+L 2144 4513 
+Q 2375 4513 2529 4384 
+Q 2684 4256 2770 4056 
+Q 2856 3856 2890 3628 
+Q 2925 3400 2925 3194 
+Q 2925 2709 2794 2204 
+Q 2663 1700 2431 1228 
+Q 2344 1050 2189 809 
+Q 2034 569 1861 378 
+Q 1688 188 1472 58 
+Q 1256 -72 1038 -72 
+L 1031 -72 
+z
+M 1044 97 
+Q 1256 97 1451 323 
+Q 1647 550 1794 873 
+Q 1941 1197 2052 1536 
+Q 2163 1875 2216 2113 
+L 909 2113 
+Q 809 1709 753 1417 
+Q 697 1125 697 844 
+Q 697 97 1044 97 
+z
+M 959 2338 
+L 2272 2338 
+Q 2341 2619 2381 2808 
+Q 2422 2997 2450 3206 
+Q 2478 3416 2478 3597 
+Q 2478 4347 2138 4347 
+Q 1731 4347 1436 3692 
+Q 1141 3038 959 2338 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w11t32-Cmmi10-b5" transform="translate(0 0.484375)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<text x="566.0" y="227.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">the audio model, hearing</text>
+<circle cx="38.0" cy="304.0" r="16.0" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.4"/>
+<text x="38.0" y="305.0" font-size="19" font-weight="700" fill="#0b5cad" text-anchor="middle" dominant-baseline="middle">d</text>
+<rect x="66.0" y="274.0" width="220.0" height="60.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.3"/>
+<text x="176.0" y="305.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">spoken (TTS voice)</text>
+<line x1="290.0" y1="304.0" x2="304.0" y2="304.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="312.0,304.0 304.0,309.0 304.0,299.0" fill="#94a3b8"/>
+<rect x="316.0" y="274.0" width="160.0" height="60.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.3"/>
+<text x="396.0" y="305.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Whisper small</text>
+<line x1="480.0" y1="304.0" x2="494.0" y2="304.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="502.0,304.0 494.0,309.0 494.0,299.0" fill="#94a3b8"/>
+<rect x="506.0" y="274.0" width="300.0" height="60.0" rx="6" fill="#ffffff" stroke="#1f2328" stroke-width="1.4"/>
+<svg x="526" y="291.94" width="23.496" height="25.5502" viewBox="0 0 23.496 25.55025"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w11t33-figure_1">
+  <g id="w11t33-patch_1">
+   <path d="M 0 25.55025 
+L 23.496 25.55025 
+L 23.496 0 
+L 0 0 
+L 0 25.55025 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w11t33-text_1">
+   <!-- $\theta_0$ -->
+   <g style="fill: #1f2328" transform="translate(0 20.059875) scale(0.264 -0.264)">
+    <defs>
+     <path id="w11t33-Cmmi10-b5" d="M 1031 -72 
+Q 741 -72 566 140 
+Q 391 353 323 653 
+Q 256 953 256 1247 
+L 256 1253 
+Q 256 1572 317 1915 
+Q 378 2259 493 2601 
+Q 609 2944 744 3213 
+Q 838 3400 986 3631 
+Q 1134 3863 1317 4064 
+Q 1500 4266 1711 4389 
+Q 1922 4513 2138 4513 
+L 2144 4513 
+Q 2375 4513 2529 4384 
+Q 2684 4256 2770 4056 
+Q 2856 3856 2890 3628 
+Q 2925 3400 2925 3194 
+Q 2925 2709 2794 2204 
+Q 2663 1700 2431 1228 
+Q 2344 1050 2189 809 
+Q 2034 569 1861 378 
+Q 1688 188 1472 58 
+Q 1256 -72 1038 -72 
+L 1031 -72 
+z
+M 1044 97 
+Q 1256 97 1451 323 
+Q 1647 550 1794 873 
+Q 1941 1197 2052 1536 
+Q 2163 1875 2216 2113 
+L 909 2113 
+Q 809 1709 753 1417 
+Q 697 1125 697 844 
+Q 697 97 1044 97 
+z
+M 959 2338 
+L 2272 2338 
+Q 2341 2619 2381 2808 
+Q 2422 2997 2450 3206 
+Q 2478 3416 2478 3597 
+Q 2478 4347 2138 4347 
+Q 1731 4347 1436 3692 
+Q 1141 3038 959 2338 
+z
+" transform="scale(0.015625)"/>
+     <path id="w11t33-Cmr10-30" d="M 1600 -141 
+Q 816 -141 533 504 
+Q 250 1150 250 2041 
+Q 250 2597 351 3087 
+Q 453 3578 754 3920 
+Q 1056 4263 1600 4263 
+Q 2022 4263 2290 4056 
+Q 2559 3850 2700 3523 
+Q 2841 3197 2892 2823 
+Q 2944 2450 2944 2041 
+Q 2944 1491 2842 1011 
+Q 2741 531 2444 195 
+Q 2147 -141 1600 -141 
+z
+M 1600 25 
+Q 1956 25 2131 390 
+Q 2306 756 2347 1200 
+Q 2388 1644 2388 2144 
+Q 2388 2625 2347 3031 
+Q 2306 3438 2132 3767 
+Q 1959 4097 1600 4097 
+Q 1238 4097 1063 3765 
+Q 888 3434 847 3029 
+Q 806 2625 806 2144 
+Q 806 1788 823 1472 
+Q 841 1156 916 820 
+Q 991 484 1158 254 
+Q 1325 25 1600 25 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w11t33-Cmmi10-b5" transform="translate(0 0.484375)"/>
+    <use xlink:href="#w11t33-Cmr10-30" transform="translate(46.923828 -16.521875) scale(0.7)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<text x="566.0" y="305.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">the cascade</text>
+</g>
+<g class="fragment" data-fragment-index="2">
+<line x1="810.0" y1="70.0" x2="844.0" y2="70.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="852.0,70.0 844.0,75.0 844.0,65.0" fill="#94a3b8"/>
+<rect x="856.0" y="40.0" width="124.0" height="60.0" rx="6" fill="#ffffff" stroke="#dc2626" stroke-width="1.4"/>
+<text x="918.0" y="71.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+<line x1="810.0" y1="148.0" x2="844.0" y2="148.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="852.0,148.0 844.0,153.0 844.0,143.0" fill="#94a3b8"/>
+<rect x="856.0" y="118.0" width="124.0" height="60.0" rx="6" fill="#ffffff" stroke="#dc2626" stroke-width="1.4"/>
+<text x="918.0" y="149.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+<line x1="810.0" y1="226.0" x2="844.0" y2="226.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="852.0,226.0 844.0,231.0 844.0,221.0" fill="#94a3b8"/>
+<rect x="856.0" y="196.0" width="124.0" height="60.0" rx="6" fill="#ffffff" stroke="#dc2626" stroke-width="1.4"/>
+<text x="918.0" y="227.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+<line x1="810.0" y1="304.0" x2="844.0" y2="304.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="852.0,304.0 844.0,309.0 844.0,299.0" fill="#94a3b8"/>
+<rect x="856.0" y="274.0" width="124.0" height="60.0" rx="6" fill="#ffffff" stroke="#dc2626" stroke-width="1.4"/>
+<text x="918.0" y="305.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+<text x="918.0" y="22.0" font-size="19" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">correct, of 40</text>
+<text x="20.0" y="380.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">scored by rule: the option the reply names. Printed with a bootstrap interval, not a bare percentage.</text>
+</g>
+</svg>
+```

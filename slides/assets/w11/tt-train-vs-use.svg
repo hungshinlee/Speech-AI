@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 306" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
+<rect x="20.0" y="10.0" width="470.0" height="286.0" rx="8" fill="#ffffff" stroke="#0b5cad" stroke-width="1.4"/>
+<text x="34.0" y="38.0" font-size="22" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="auto">training</text>
+<text x="40.0" y="76.0" font-size="19" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">what the Talker reads:</text>
+<text x="40.0" y="104.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">the reference answer's text, and the</text>
+<text x="40.0" y="132.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">representations that go with it</text>
+<text x="40.0" y="174.0" font-size="19" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">what the Thinker hears back:</text>
+<text x="40.0" y="202.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">nothing — the Talker's output does</text>
+<text x="40.0" y="230.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">not return to the Thinker</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<rect x="510.0" y="10.0" width="470.0" height="286.0" rx="8" fill="#ffffff" stroke="#dc2626" stroke-width="1.4"/>
+<text x="524.0" y="38.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="auto">use</text>
+<text x="530.0" y="76.0" font-size="19" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">what the Talker reads:</text>
+<text x="530.0" y="104.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">whatever the Thinker just sampled:</text>
+<text x="530.0" y="132.0" font-size="19" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="auto">if the Thinker is wrong, it is read out</text>
+<text x="530.0" y="174.0" font-size="19" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">and between the two:</text>
+<text x="530.0" y="202.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">retrieval, tools or a safety filter may</text>
+<text x="530.0" y="230.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">edit the text — what is spoken is no</text>
+<text x="530.0" y="258.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">longer what was thought</text>
+</g>
+</svg>

@@ -22,6 +22,7 @@ project:
     - weeks/w08.qmd
     - weeks/w09.qmd
     - weeks/w10.qmd
+    - weeks/w11.qmd
     - slides/*.qmd
   resources:
     - slides/assets/**
@@ -104,9 +105,9 @@ website:
           - href: weeks/w08.qmd
           - href: weeks/w09.qmd
           - href: weeks/w10.qmd
-      # - section: "Part III — Dialogue Systems"
-      #   contents:
-      #     - href: weeks/w11.qmd
+      - section: "Part III — Dialogue Systems"
+        contents:
+          - href: weeks/w11.qmd
       #     - href: weeks/w12.qmd
       #     - href: weeks/w13.qmd
       #     - href: weeks/w14.qmd

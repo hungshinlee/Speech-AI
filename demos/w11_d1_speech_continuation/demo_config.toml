@@ -1,0 +1,83 @@
+# 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
+# W11 demo 1：序列裡沒有文字的語言模型接一段開頭。換內容只改這裡。
+# Whisper 與 WavLM-SV 沿用前面 demo 的權重與 commit；新下載的只有 Llama-Mimi 與 Mimi（transformers 的 MimiModel 用的那一份）。
+
+[prompt]
+# 開頭：W3 起每一週都用的那一句（LibriSpeech dev-clean，CC BY 4.0），不另外複製一份。
+utterance = "1272-128104-0000"
+wav = "../w03_d3_blank_heatmap/audio/utterance.wav"
+# 切在 3.2 s：12.5 Hz 之下剛好 40 個 frame（× 4 層 = 160 個 token），而且落在 CLASSES 與 AND 之間的停頓裡
+# （W3 Demo 3 的 CTC 尖峰：CLASSES 的最後一個在 3.11 s、AND 的第一個在 3.37 s）。切 3.0 s 會切在 CLASSES 中間，
+# 而且 Mimi 會把 37.5 個 frame 補成 38 個——「三秒 = 150 個 token」只是算術，做不出來。
+seconds = 3.2
+# 這 3.2 秒裡的字（交給文字 LLM 接的就是這一串）與這位說話人實際上接著說的。selftest 對 utterance.txt。
+text = "Mister Quilter is the apostle of the middle classes"
+rest_text = "and we are glad to welcome his gospel"
+
+[refs]
+# SIM 的尺：同一位說話人的另一句（W8 Demo 1 的 prompt，1272-128104-0010）、另一位說話人的一句（174-168635-0005，
+# 從 dev-clean 解出來的，進版控）。沒有這兩個數字，續寫的 SIM 是高是低沒有東西可比。
+same_speaker = "../w08_d1_mean_vs_sample/audio/prompt.wav"
+other_speaker = "audio/other_speaker.wav"
+
+[speech_lm]
+# Llama-Mimi-1.3B（Sugiura et al. 2025，arXiv:2509.14882）：一個 Llama 架構的 decoder，詞表裡加了 4 × 2048 個語音 token，
+# 把 Mimi 的頭 4 層攤平成每秒 50 個 token 做 next-token prediction。model card：英語、約 24 萬小時語音；
+# license 是 llama3.2（Llama 3.2 Community License），base_model 標 meta-llama/Llama-3.2-1B。
+repo = "llm-jp/Llama-Mimi-1.3B"
+mimi_repo = "kyutai/mimi"
+# 接幾秒。12 s = 150 frames = 600 個 token；連開頭共 762 個位置，在 card 示例的 max_length 1024 之內。
+continue_seconds = 12.0
+# 抽樣照 model card 的示例：temperature 0.8、top_k 30；top_p 沒有另外設，沿用權重附的 generation_config（0.9）。
+top_k = 30
+# auto = 有 MPS 就 mps。dtype auto = mps 上 bfloat16（card 的寫法）、cpu 上 float32。check 會兩個裝置各跑一次。
+device = "auto"
+dtype = "auto"
+
+# 同一個開頭抽四段：三段照 card 的 temperature，一段調低（低溫比較容易繞圈——是不是這樣彩排時看）。
+[[draws]]
+seed = 1
+temperature = 0.8
+[[draws]]
+seed = 2
+temperature = 0.8
+[[draws]]
+seed = 3
+temperature = 0.8
+[[draws]]
+seed = 4
+temperature = 0.5
+
+[live]
+# 鍵 g：現場再抽一段，seed 從這裡往上數
+seed_start = 5
+temperature = 0.8
+
+[text_lm]
+# 對照：W1 Demo 2 用的文字 LLM（mlx-lm，共用 .venv 裡已經有）。從「開頭的字」接，seed 與 temperature 跟語音那一邊的每一段相同。
+repo = "mlx-community/gemma-4-26b-a4b-it-4bit"
+# raw：不套對話模板，把那串字當成序列的開頭往下接（與語音 LM 做的是同一件事）。
+# chat：用下面那句指示請它接。check 兩種都跑一次、印出來；raw 的輸出不像在接下去時改成 chat。
+mode = "chat"
+instruction = "Continue this sentence in the same style for a few more sentences. Output only the continuation, with no introduction.\n\n{text}"
+top_k = 30
+# 「同樣長度」= 續寫的秒數 × 每秒語音對應的文字 token 數；後者讀 slides/assets/w11/w11-data.json（來源是 W6 Demo 2），讀不到用這個。
+tokens_per_second_fallback = 3.42
+
+[whisper]
+# 轉錄的裁判：W7 Demo 1 的類別（importlib 載它的 demo.py）——同一份權重、同一個 commit、CPU、溫度 0、不用前文。
+dir = "../w07_d1_hallucination"
+lock_from = "../w07_d1_hallucination/model.lock"
+repo = "openai/whisper-small"
+device = "cpu"
+
+[sim]
+# SIM 的裁判：W9 Demo 1 用的 WavLM Base+ 接 x-vector head（同一個 commit）。card 給的同一人門檻是 0.86。
+repo = "microsoft/wavlm-base-plus-sv"
+lock_from = "../w09_d1_cloning_leak/model.lock"
+threshold_from_card = 0.86
+device = "cpu"
+
+[check]
+# 體檢時每個裝置生成幾個 token 來量速度
+probe_tokens = 100

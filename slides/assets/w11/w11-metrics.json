@@ -1,0 +1,588 @@
+{
+ "demo1": {
+  "date": "2026-11-27T09:01:45",
+  "models": {
+   "speech_lm": {
+    "repo": "llm-jp/Llama-Mimi-1.3B",
+    "commit": "81996dbfdabc2057223783eb8c0929b3b83cb610",
+    "device": "mps",
+    "dtype": "bfloat16"
+   },
+   "whisper": {
+    "repo": "openai/whisper-small",
+    "commit": "973afd24965f72e36ca33b3055d56a652f456b4d",
+    "device": "cpu"
+   },
+   "sim": {
+    "repo": "microsoft/wavlm-base-plus-sv",
+    "commit": "feb593a6c23c1cc3d9510425c29b0a14d2b07b1e",
+    "device": "cpu"
+   },
+   "text_lm": {
+    "repo": "mlx-community/gemma-4-26b-a4b-it-4bit",
+    "commit": "0d77464eeb233a2da68ebf9d7dc4edaac7db956d",
+    "mode": "chat"
+   }
+  },
+  "prompt": {
+   "utterance": "1272-128104-0000",
+   "seconds": 3.2,
+   "n_frames": 40,
+   "n_speech_tokens": 160,
+   "text": "Mister Quilter is the apostle of the middle classes",
+   "text_tokens_text_lm": 11,
+   "text_tokens_llama": 12,
+   "speech_to_text_token_ratio": 14.5
+  },
+  "generation": {
+   "continue_seconds": 12.0,
+   "tokens_per_s_median": 105.45,
+   "rtf_median": 0.475,
+   "tokens_per_s_needed_for_real_time": 50.0,
+   "stops": [
+    "end tag",
+    "length",
+    "length",
+    "length"
+   ]
+  },
+  "sim": {
+   "draws": [
+    0.947,
+    0.951,
+    0.928,
+    0.954
+   ],
+   "real_rest": 0.973,
+   "prompt_mimi4": 0.951,
+   "same_speaker": 0.962,
+   "other_speaker": 0.593,
+   "threshold_from_card": 0.86
+  },
+  "whisper": {
+   "avg_logprob_draws": [
+    -0.08,
+    -0.045,
+    -0.154,
+    -0.082
+   ],
+   "avg_logprob_real_speech": -0.117,
+   "compression_ratio_draws": [
+    1.45,
+    1.39,
+    1.4,
+    1.55
+   ]
+  },
+  "draws": [
+   {
+    "seed": 1,
+    "temperature": 0.8,
+    "transcript": "and his office has held the same post on the second floor of the apartment. Mr. Treanor is the apostle of the second floor of the House of Dogs."
+   },
+   {
+    "seed": 2,
+    "temperature": 0.8,
+    "transcript": "and is disposed to settle for tomorrow. He has a scrupulous and demeaning class of men who are an innocent and disgraceful person, and they are more and more superior"
+   },
+   {
+    "seed": 3,
+    "temperature": 0.8,
+    "transcript": "and a germ of conquering Persians. This statesman has a deep intention of self-defense. He has here sometimes given the false life of his master. He was one of the largest and trust"
+   },
+   {
+    "seed": 4,
+    "temperature": 0.5,
+    "transcript": "and is a good man in the same way. He has been given to a man by his mother. He is not a man by his wife. He has made a court man. He has made a court clerk."
+   }
+  ],
+  "text_lm_draws": [
+   {
+    "seed": 1,
+    "text": "He is the prophet of the moderate, the high priest of the temperate, and the patron saint of the sensible. He does not seek the heights"
+   },
+   {
+    "seed": 2,
+    "text": "He is the voice of the comfortable, the herald of the moderate, and the patron saint of the sensible. He avoids the precipices of passion and the depths of despair, preferring instead the steady, level"
+   },
+   {
+    "seed": 3,
+    "text": "He is the thin, grey line between the extremes of the radical and the reactionary. He lives in the comfortable margin, dispensing his measured wisdom and his lukewarm judgments with equal precision. To him, the world"
+   },
+   {
+    "seed": 4,
+    "text": "He is the voice of the comfortable, the herald of the sensible, and the patron saint of the moderate. He neither seeks the heights of the sublime nor the depths of the tragic, but rather the steady"
+   }
+  ]
+ },
+ "demo3": {
+  "date": "2026-11-27T08:58:49",
+  "mode": "real",
+  "models": {
+   "lfm": {
+    "repo": "mlx-community/LFM2.5-Audio-1.5B-8bit",
+    "commit": "a569a7805a8e3eae954c244e54ba811d479a12c2",
+    "backend": "mlx",
+    "load_s": 1.1,
+    "config_ratio": [
+     6,
+     12
+    ],
+    "codebooks": 8,
+    "eos": 2048
+   },
+   "whisper": {
+    "repo": "openai/whisper-small",
+    "commit": "973afd24965f72e36ca33b3055d56a652f456b4d",
+    "device": "cpu"
+   }
+  },
+  "versions": {
+   "mlx": "0.32.2",
+   "mlx-audio": "0.5.4",
+   "transformers": "5.17.0",
+   "torch": "2.14.0",
+   "platform": "macOS-27.2.1-arm64-arm-64bit"
+  },
+  "config_digest": "727930773b63b710",
+  "frame_rate": 12.5,
+  "chunk_frames": 6,
+  "sampling": {
+   "text_temperature": 0.0,
+   "audio_temperature": 1.0,
+   "audio_top_k": 4,
+   "seed": 1,
+   "max_new_tokens": 300
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "text": "Why is the sky blue during the day, and why does it turn red at sunset?",
+    "seconds": 4.72,
+    "own_voice": false
+   },
+   {
+    "id": "q2",
+    "text": "What is the difference between weather and climate?",
+    "seconds": 3.52,
+    "own_voice": false
+   },
+   {
+    "id": "q3",
+    "text": "How does a refrigerator keep food cold?",
+    "seconds": 2.48,
+    "own_voice": false
+   }
+  ],
+  "settings": [
+   {
+    "setting": "6:12",
+    "label": "interleaved 6 : 12 (the default, trained on)",
+    "n_text": 6,
+    "n_audio": 12,
+    "n_questions": 3,
+    "chain": false,
+    "n_text_tokens": 93.0,
+    "first_text": 0.0329,
+    "first_frame": 0.0812,
+    "first_sound": 0.1513,
+    "rtf": 0.1948,
+    "D_text": 0.006,
+    "D_frame": 0.0129,
+    "R_txt": null,
+    "min_lead": null,
+    "blank_fraction": 0.011,
+    "underruns": 0,
+    "cut_off": 3,
+    "audio_s": 16.56,
+    "wer": {
+     "errors": 12,
+     "S": 11,
+     "D": 1,
+     "I": 0,
+     "n_ref": 150,
+     "n_hyp": 149,
+     "n_unspoken": 92,
+     "wer": 0.08
+    }
+   },
+   {
+    "setting": "2:12",
+    "label": "interleaved 2 : 12",
+    "n_text": 2,
+    "n_audio": 12,
+    "n_questions": 3,
+    "chain": false,
+    "n_text_tokens": 40.0,
+    "first_text": 0.0372,
+    "first_frame": 0.056,
+    "first_sound": 0.1239,
+    "rtf": 0.1727,
+    "D_text": 0.006,
+    "D_frame": 0.013,
+    "R_txt": null,
+    "min_lead": null,
+    "blank_fraction": 0.025,
+    "underruns": 0,
+    "cut_off": 3,
+    "audio_s": 20.8,
+    "wer": {
+     "errors": 106,
+     "S": 37,
+     "D": 2,
+     "I": 67,
+     "n_ref": 75,
+     "n_hyp": 140,
+     "n_unspoken": 11,
+     "wer": 1.4133
+    }
+   },
+   {
+    "setting": "12:12",
+    "label": "interleaved 12 : 12",
+    "n_text": 12,
+    "n_audio": 12,
+    "n_questions": 3,
+    "chain": false,
+    "n_text_tokens": 156.0,
+    "first_text": 0.0369,
+    "first_frame": 0.1175,
+    "first_sound": 0.1854,
+    "rtf": 0.246,
+    "D_text": 0.0061,
+    "D_frame": 0.0128,
+    "R_txt": null,
+    "min_lead": null,
+    "blank_fraction": 0.045,
+    "underruns": 0,
+    "cut_off": 3,
+    "audio_s": 11.52,
+    "wer": {
+     "errors": 71,
+     "S": 56,
+     "D": 11,
+     "I": 4,
+     "n_ref": 106,
+     "n_hyp": 99,
+     "n_unspoken": 204,
+     "wer": 0.6698
+    }
+   },
+   {
+    "setting": "24:12",
+    "label": "interleaved 24 : 12",
+    "n_text": 24,
+    "n_audio": 12,
+    "n_questions": 3,
+    "chain": false,
+    "n_text_tokens": 204.0,
+    "first_text": 0.028,
+    "first_frame": 0.1895,
+    "first_sound": 0.2585,
+    "rtf": 0.3283,
+    "D_text": 0.0063,
+    "D_frame": 0.0131,
+    "R_txt": null,
+    "min_lead": null,
+    "blank_fraction": 0.76,
+    "underruns": 0,
+    "cut_off": 3,
+    "audio_s": 7.68,
+    "wer": {
+     "errors": 28,
+     "S": 27,
+     "D": 0,
+     "I": 1,
+     "n_ref": 29,
+     "n_hyp": 30,
+     "n_unspoken": 35,
+     "wer": 0.9655
+    }
+   },
+   {
+    "setting": "all",
+    "label": "all the text first, then speech (two passes)",
+    "n_text": 0,
+    "n_audio": 0,
+    "n_questions": 3,
+    "chain": true,
+    "n_text_tokens": 120.0,
+    "first_text": 0.0337,
+    "first_frame": 0.7933,
+    "first_sound": 0.8482,
+    "rtf": 0.1672,
+    "D_text": 0.0061,
+    "D_frame": 0.0104,
+    "R_txt": 5.74,
+    "min_lead": 0.46,
+    "blank_fraction": 0.0,
+    "underruns": 0,
+    "cut_off": 0,
+    "audio_s": 20.4,
+    "wer": {
+     "errors": 125,
+     "S": 39,
+     "D": 73,
+     "I": 13,
+     "n_ref": 283,
+     "n_hyp": 223,
+     "n_unspoken": 0,
+     "wer": 0.4417
+    }
+   }
+  ],
+  "conditions": {
+   "R_txt": 3.42,
+   "R_txt_source": "W6 Demo 2 (no 6 : 12 answer finished within the step limit)",
+   "D_text": 0.006,
+   "D_frame": 0.0129,
+   "rows": [
+    {
+     "setting": "6:12",
+     "n_text": 6,
+     "n_audio": 12,
+     "i_lhs": 0.5,
+     "i_rhs": 0.2736,
+     "i_ok": true,
+     "round_audio_s": 0.96,
+     "round_gen_s": 0.1908,
+     "ii_ok": true,
+     "slack_s": 0.7692,
+     "mean_step_s": 0.0106,
+     "step_bound_s": 0.0533
+    },
+    {
+     "setting": "2:12",
+     "n_text": 2,
+     "n_audio": 12,
+     "i_lhs": 0.1667,
+     "i_rhs": 0.2736,
+     "i_ok": false,
+     "round_audio_s": 0.96,
+     "round_gen_s": 0.1668,
+     "ii_ok": true,
+     "slack_s": 0.7932,
+     "mean_step_s": 0.0119,
+     "step_bound_s": 0.0686
+    },
+    {
+     "setting": "12:12",
+     "n_text": 12,
+     "n_audio": 12,
+     "i_lhs": 1.0,
+     "i_rhs": 0.2736,
+     "i_ok": true,
+     "round_audio_s": 0.96,
+     "round_gen_s": 0.2268,
+     "ii_ok": true,
+     "slack_s": 0.7332,
+     "mean_step_s": 0.0095,
+     "step_bound_s": 0.04
+    },
+    {
+     "setting": "24:12",
+     "n_text": 24,
+     "n_audio": 12,
+     "i_lhs": 2.0,
+     "i_rhs": 0.2736,
+     "i_ok": true,
+     "round_audio_s": 0.96,
+     "round_gen_s": 0.2988,
+     "ii_ok": true,
+     "slack_s": 0.6612,
+     "mean_step_s": 0.0083,
+     "step_bound_s": 0.0267
+    }
+   ]
+  },
+  "per_question": [
+   {
+    "q": "q1",
+    "setting": "6:12",
+    "text": "The sky appears blue during the day because the Earth's atmosphere scatters sunlight in all directions. Shorter blue wavelengths scatter more than other colors, so the sky looks blue to our eyes. At sunset, the sun is lower on the horizon, and its light has to travel through more atmosphere. This longer path scatters the shorter blue and green wavelengths out of the line of sight, allowing the longer red and orange wavelengths to dominate and create the red sunset.",
+    "heard": "The sky appears blue during the day because the Earth's atmosphere statters sunlight in all directions. Shorter blue wavelengths statter more than other colors, so the sky looks blue to our eyes. At sunset, the sun is lower on the horizon, and its light has to travel through more atmosphere. This londre has",
+    "first_sound_s": 0.1482,
+    "wer": 0.0741,
+    "blank_fraction": 0.011
+   },
+   {
+    "q": "q1",
+    "setting": "2:12",
+    "text": "The sky appears blue during theescape time because the Earth's atmosphere scatters sunlight in all directions, and blue light is scattered more than[s. Does that answer are your curious?.htm",
+    "heard": "The sky is the brook and the light is scattered more than Zinn-ni-ti. Does that answer our",
+    "first_sound_s": 0.1179,
+    "wer": 0.8095,
+    "blank_fraction": 0.025
+   },
+   {
+    "q": "q1",
+    "setting": "12:12",
+    "text": "The sky appears blue during the      during the day because thes ares ares scatter sunlight in all directions, and.aspx.aspx.aspx.aspx.aspx's sunlight is scattered in all directionsしてくれるsometimesしてくれるsometimessometimesnot,so the blue light reaches“If“If is is. At sunset, the sky turns redEveryone high, high, and red because the sunlight has to545545545545545545545545545545545545without validation chainwithout solid evidence, and the sun is low—\n\n\n\n\n\n\n\n—The sun is low at sunset long long long long long long, and the sunlight has to be future, future, future, future, future, futureutututututututututututut long long long long long long",
+    "heard": "The sky appears blue during the day because these are a century cell dot PC cell light up a cell dot key cell light is scattered vintine signs So the blue light reaches a fifth is a class times red",
+    "first_sound_s": 0.1724,
+    "wer": 0.6444,
+    "blank_fraction": 0.051
+   },
+   {
+    "q": "q1",
+    "setting": "24:12",
+    "text": "The sky appears blue during the                  0                        blue because the Earth's atmosphere\n\n,                 is made up of different gases\n\n,                -                        is a mixture of nitrogen and\n\n,                utmost                      !                       The 2007–08 season was the",
+    "heard": "During me does blue during bossers. Boss this bus. Uh, boss maker of nitrogen",
+    "first_sound_s": 0.2518,
+    "wer": 0.8462,
+    "blank_fraction": 0.76
+   },
+   {
+    "q": "q1",
+    "setting": "all",
+    "text": "The sky appears blue during the day due to a phenomenon called Rayleigh scattering. When sunlight enters the Earth's atmosphere, it collides with molecules and small particles in the air. Blue light has a shorter wavelength and is scattered in all directions by these particles more than other colors. This scattered blue light is what we see when we look up at the sky.\n\nAs the sun sets, the light has to travel through a thicker layer of the atmosphere. The blue light is scattered out of the line of sight, leaving the longer wavelengths, such as red and orange, to dominate the sky. This",
+    "heard": "The sky appears blue during the day due to a phenomenon called Rayleigh Stattering, quays scattering, rance, ethane, sphagnus, and small particles in the air. Blue light has a shorter wavelength, your light has a shorter wavelength as none enter scattered in a bold directions by these particles more than other colors. This scattered blue light is what we see when we look up at the sky.",
+    "first_sound_s": 0.8424,
+    "wer": 0.6,
+    "blank_fraction": 0.0
+   },
+   {
+    "q": "q2",
+    "setting": "6:12",
+    "text": "Weather refers to the short term conditions of the atmosphere at a specific place and time, such as temperature, humidity, precipitation, and wind. Climate, on the other hand, describes the long-term average of these weather conditions over a significant period, typically 30 years or more, for a particular region. In other words, weather can change from day to day, while climate reflects the typical patterns and trends over a longer span.",
+    "heard": "Weather refers to the short-term conditions of the atmosphere at a specific present time, such as temperature, humidity, precipitation, and wind. Klanen, on the other hand, describes the long-term average of these weather conditions over a significant period, typically 30 years or more, for a particular region.",
+    "first_sound_s": 0.1513,
+    "wer": 0.06,
+    "blank_fraction": 0.011
+   },
+   {
+    "q": "q2",
+    "setting": "2:12",
+    "text": "Weather refers to short-term conditions in a specific place at a particular time..htm, on thes, is a seasonal pattern that can vary from year to year.s,by contrast今回は、/.",
+    "heard": "However, a leather rye, common, trings, fashions, or bears torn-trim conditions in a pattern seeping, and a specific cliglies and a particular clothes in a particular time. Tenen-ti-ti-h-tah-hi-en. The fact that ti-aj-ti-her-am-am-af-i-he is, as a seasonal pattern, is nine in ten at season of pattern, a kate-kiri-o-er-th-ap-hers-in-year-to-year-a-year, year.",
+    "first_sound_s": 0.1246,
+    "wer": 1.9677,
+    "blank_fraction": 0.024
+   },
+   {
+    "q": "q2",
+    "setting": "12:12",
+    "text": "Weather refers to the short      day‑to‑day conditions European dataisisisis in the United States, whilesometimes!sometimes!sometimes! is the long‑term average is is the climate, is the average of the weather over–––––. Weather can change from hour to specificss vs is the climate, is the average!!!!!!is the average of the weathered:ed:imimimimimimimim was was was was was was was was was was was wasillyillyillyillyilly was was was was was was was of of of of of of of of of of of of th was was was was was was was was was was was was was was was was was",
+    "heard": "Weather refers to the short TI dosas and usai sometimes as the long-term averages in the climate. The other can shift from our to Siviyath.",
+    "first_sound_s": 0.1854,
+    "wer": 0.8636,
+    "blank_fraction": 0.032
+   },
+   {
+    "q": "q2",
+    "setting": "24:12",
+    "text": "Weather refers to the short                  old‑day conditions that occur\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n..\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n..\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.\n\n.",
+    "heard": "It will take them then tell them and take an estivitation",
+    "first_sound_s": 0.2997,
+    "wer": 1.1,
+    "blank_fraction": 0.093
+   },
+   {
+    "q": "q2",
+    "setting": "all",
+    "text": "Weather and climate are two terms that are often used interchangeably, but they refer to different concepts. Weather refers to the short-term atmospheric conditions in a specific place at a specific time. It includes elements such as temperature, humidity, precipitation, wind, and atmospheric pressure. Weather is what you experience day-to-day, and it can change from minute to minute.\n\nClimate, on the other hand, is the long-term average of weather conditions in a particular area. It is the typical weather pattern that is observed over a long period, usually 30 years or more. Climate encompasses the average temperature",
+    "heard": "Weather and climate are kind of a twinned detrangeably, but they refer to different concepts. Weather refers to the short-term atmospheric conditions in a specific place at a specific time. It includes elements such as temperature, humidity, precipitation, wind, and atmospheric pressure. Weather is what you experience day to day, and it can change from minute to minute. Climate, on the other hand, is the long-term average of weather conditions in a particular area. It is the typical weather pattern that is observed over a long period, usually",
+    "first_sound_s": 0.8482,
+    "wer": 0.1146,
+    "blank_fraction": 0.0
+   },
+   {
+    "q": "q3",
+    "setting": "6:12",
+    "text": "A refrigerator keeps food cold by maintaining a low temperature inside its interior. It does this by using a refrigeration cycle that involves the compression, expansion, and evaporation of a refrigerant. The refrigerant absorbs heat from the inside of the refrigerator and turns into a gas, which is then released outside the unit as cold air. The cooled air circulates through the fridge to keep the interior space at a lower temperature. Additionally, the refrigerator is insulated to prevent heat from entering and to keep the cold air inside",
+    "heard": "My refrigerator teats food cold by maintaining a low temperature inside its interior. It does this by using a refrigeration cycle that involves the compression, extension, and evaporation of a refrigerator. The refrigerator absorbs heat from the inside of the refrigerator and turns into a gas.",
+    "first_sound_s": 0.1604,
+    "wer": 0.1087,
+    "blank_fraction": 0.0
+   },
+   {
+    "q": "q3",
+    "setting": "2:12",
+    "text": "A refrigerator European style you see-under the fridge uses a refrigeration cycle toum. is it a gass or an electric system?.htm",
+    "heard": "Refrigerator tile, European pan-style, you see easy cummer. Under the fridge uses a somber. The fridge edge uses a refrigeration cycle to divocrate and change the zone. Today to mean style, tumour. Is it a gas or an electric system? An excel, an electric system.",
+    "first_sound_s": 0.1239,
+    "wer": 1.2174,
+    "blank_fraction": 0.033
+   },
+   {
+    "q": "q3",
+    "setting": "12:12",
+    "text": "A refrigerator keeps food cold by      maintaining a low temperature insideDependingDependingDependingDependingDepending on the type of refrigerator. Most as. as. are as designed to keep the interior around dichlor dichlor dichloroethane, which isengines' the growth of bacteria and other microorganisms. The long long long long long long low temperature slows down the metabolicj.\n\nThe term \" refrigerator\" can also refer to is is is a is a type of air conditioner that.aspx.aspx.aspx.aspx. It is a device that removes heat andwould cool19. was a type of air conditionera.\n\nIn both cases, the refrigeration cycle works.aspx is.aspx ises the refrigeration cycle, which involves-.The",
+    "heard": "A refrigerator called by, maintaining a low temperature ensays that time died from the refrigerator, whose dies to keep the interior around bichloroethane, which is engines that grow through bacteria and other microorganisms.",
+    "first_sound_s": 0.187,
+    "wer": 0.5897,
+    "blank_fraction": 0.045
+   },
+   {
+    "q": "q3",
+    "setting": "24:12",
+    "text": "A refrigerator keeps food cold by                   scale a refrigeration cycle.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n by first cooling the air inside\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n up to about 40°F (\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n functional.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.",
+    "heard": "Refrigeration occur. I prefer cell phyocentrisalates.",
+    "first_sound_s": 0.2585,
+    "wer": 1.0,
+    "blank_fraction": 0.848
+   },
+   {
+    "q": "q3",
+    "setting": "all",
+    "text": "A refrigerator keeps food cold through a process called refrigeration, which involves the use of a refrigerant. Here's a simplified explanation of how it works:\n\n1. **Compression Cycle**: The refrigeration cycle starts with the compressor, which compresses a refrigerant gas. This makes the gas hot and more dense.\n\n2. **Condensation**: The hot, dense refrigerant gas then flows into the condenser coils located inside the refrigerator. Here, it releases heat to the surrounding air, causing it to condense into a liquid.\n\n3. **Expansion",
+    "heard": "Causes will take Rossitane, which involves the use of a refrigerant. Here's a simplified explanation of how it can dettution, because it's Gennay Chabia. The refrigeration cycle starts with the compressor, which compresses a refrigerant pass, then flows into the condensate coils located inside the refrigeration, locating for a toss, and as the zackened sees, a lot is to get to the juice wells.",
+    "first_sound_s": 0.8513,
+    "wer": 0.622,
+    "blank_fraction": 0.0
+   }
+  ],
+  "think": {
+   "question": "A train leaves the station with forty eight passengers. At the first stop, nineteen get off and seven get on. How many passengers are on the train now?",
+   "expected": 36,
+   "plain": {
+    "text": "To find out how many passengers are on the train now, you can follow these steps:\n\n1. **Initial passengers:** 48  \n2. **Passengers who get off at the first stop:** 19  \n3. **Passengers who get off at the second stop:** 7  \n4. **Passengers who get off at the third stop:** 7  \n\nNow, subtract the passengers who get off from the initial number:\n\n**48 - 19 - 7 =",
+    "heard": "To find out how many passengers are on the train now, you can follow these deaths. 8 points and 90 times 10, 10, time, time, 10. 10, 10, time, times, 10. 10, 10, time, time, 10.",
+    "U_th": 6,
+    "n_text_tokens": 102,
+    "audio_s": 15.84,
+    "first_sound_s": 0.1485,
+    "predicted_silence_s": 0.0378,
+    "final_number_written_at_s": 3.2913,
+    "answer_spoken_at_est_s": 18.13,
+    "last_number_in_text": 7,
+    "correct_in_text": false,
+    "correct_in_speech": false,
+    "D_text_s": 0.0063,
+    "D_frame_s": 0.0134
+   },
+   "reason": {
+    "text": "To determine the number of passengers on the train now, we need to consider the changes that occur at each stop.\n\n1. **Initial Condition**: The train starts with 48 passengers.\n2. **First Stop**: 19 passengers get off, and 7 passengers get on.\n   - Passengers after the first stop: \\( 48 - 19 + 7 = 36 \\)\n3. **Second Stop**: 7 passengers get off, and 19 passengers get on.\n   - Passengers after the second stop: \\( 36 - 7 + 19 = 48 \\)\n\nTherefore, the final answer is: **48 passengers**.",
+    "heard": "Passengers after the second stop, 36 their main renaissance is centered from Staven sex, Arthur Rowe Salver, 48 passengers Yvonne Yvonne in our mind-throughs and Techray.",
+    "U_th": 139,
+    "n_text_tokens": 139,
+    "audio_s": 10.96,
+    "first_sound_s": 0.9965,
+    "predicted_silence_s": 0.8479,
+    "final_number_written_at_s": 0.8969,
+    "answer_spoken_at_est_s": 11.96,
+    "last_number_in_text": 48,
+    "correct_in_text": false,
+    "correct_in_speech": false,
+    "D_text_s": 0.0061,
+    "D_frame_s": 0.0105
+   }
+  },
+  "cascade": {
+   "asr_tail_ms": 85,
+   "llm_first_token_ms": 98,
+   "tts_first_packet_ms": 127,
+   "repeats": 5,
+   "transcript": "Why is the sky blue during the day?And why does it turn red at sunset?",
+   "reply": "The sky is blue because Earth's atmosphere scatters shorter blue light waves more easily than other colors. At sunset, light must travel through more atmosphere, scattering away the blue and leaving only the longer red wavelengths to reach your eyes.",
+   "backends": {
+    "asr": "whisper.cpp small",
+    "llm": "mlx-community/gemma-4-26b-a4b-it-4bit",
+    "tts": "mlx-community/Kokoro-82M-bf16"
+   },
+   "source": "measured here, same question",
+   "first_sound_ms": 310
+  },
+  "_note": "times count from the moment the recorded question is handed to the model (no endpoint cell); first sound = first chunk_frames frames generated and decoded; WER = Whisper small on the generated speech against the model's own text, pooled over the questions; only 6:12 was seen in training"
+ }
+}

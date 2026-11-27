@@ -1,0 +1,401 @@
+<!-- 由 scripts/make_figs_w11.py 產生，勿手改；投影片用 {{< include assets/w11/io-asym.inline.qmd >}} 貼入 -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 330" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
+<rect x="20.0" y="10.0" width="470.0" height="310.0" rx="8" fill="#ffffff" stroke="#15803d" stroke-width="1.4"/>
+<text x="34.0" y="38.0" font-size="22" font-weight="700" fill="#15803d" text-anchor="start" dominant-baseline="auto">listening: no sampling</text>
+<rect x="40.0" y="66.0" width="180.0" height="64.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="130.0" y="85.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">encoder + adapter</text>
+<text x="130.0" y="112.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">a vector per frame</text>
+<line x1="224.0" y1="98.0" x2="276.0" y2="98.0" stroke="#15803d" stroke-width="2.0"/>
+<polygon points="286.0,98.0 276.0,103.0 276.0,93.0" fill="#15803d"/>
+<rect x="290.0" y="66.0" width="180.0" height="64.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="380.0" y="85.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">the LLM's input</text>
+<text x="380.0" y="112.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">taken as it is</text>
+<text x="255.0" y="152.0" font-size="19" font-weight="700" fill="#15803d" text-anchor="middle" dominant-baseline="auto">no arg min</text>
+<text x="40.0" y="176.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">quantising here would only discard</text>
+<text x="40.0" y="202.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">information (W6's quantisation error)</text>
+<text x="40.0" y="256.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">the price: these vectors are not in the</text>
+<text x="40.0" y="282.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">vocabulary — the model cannot say them</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<rect x="510.0" y="10.0" width="470.0" height="310.0" rx="8" fill="#ffffff" stroke="#0b5cad" stroke-width="1.4"/>
+<text x="524.0" y="38.0" font-size="22" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="auto">speaking: it must sample</text>
+<rect x="530.0" y="66.0" width="130.0" height="64.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="595.0" y="98.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">the LM head</text>
+<line x1="664.0" y1="98.0" x2="678.0" y2="98.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="686.0,98.0 678.0,103.0 678.0,93.0" fill="#94a3b8"/>
+<rect x="690.0" y="66.0" width="150.0" height="64.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="765.0" y="85.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">a categorical</text>
+<svg x="705.606" y="101.516" width="118.788" height="22.0661" viewBox="0 0 118.788 22.066125"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w11t47-figure_1">
+  <g id="w11t47-patch_1">
+   <path d="M 0 22.066125 
+L 118.788 22.066125 
+L 118.788 0 
+L 0 0 
+L 0 22.066125 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w11t47-text_1">
+   <!-- $\mathsf{over\ } V \mathsf{\ codes}$ -->
+   <g style="fill: #6b7280" transform="translate(0 17.324437) scale(0.228 -0.228)">
+    <defs>
+     <path id="w11t47-Cmss10-6f" d="M 1600 -72 
+Q 1203 -72 878 133 
+Q 553 338 365 680 
+Q 178 1022 178 1403 
+Q 178 1697 284 1976 
+Q 391 2256 580 2476 
+Q 769 2697 1033 2823 
+Q 1297 2950 1600 2950 
+Q 1900 2950 2161 2825 
+Q 2422 2700 2615 2476 
+Q 2809 2253 2912 1975 
+Q 3016 1697 3016 1403 
+Q 3016 1022 2830 680 
+Q 2644 338 2317 133 
+Q 1991 -72 1600 -72 
+z
+M 1600 366 
+Q 1894 366 2095 525 
+Q 2297 684 2394 940 
+Q 2491 1197 2491 1478 
+Q 2491 1753 2389 1995 
+Q 2288 2238 2086 2386 
+Q 1884 2534 1600 2534 
+Q 1313 2534 1111 2387 
+Q 909 2241 806 1997 
+Q 703 1753 703 1478 
+Q 703 1278 756 1079 
+Q 809 881 926 714 
+Q 1044 547 1214 456 
+Q 1384 366 1600 366 
+z
+" transform="scale(0.015625)"/>
+     <path id="w11t47-Cmss10-76" d="M 1178 0 
+L 91 2841 
+L 616 2841 
+Q 797 2359 944 1971 
+Q 1091 1584 1194 1300 
+Q 1297 1016 1390 716 
+Q 1484 416 1484 347 
+Q 1484 559 2350 2841 
+L 2853 2841 
+L 1766 0 
+L 1178 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w11t47-Cmss10-65" d="M 1594 -72 
+Q 1300 -72 1044 51 
+Q 788 175 602 390 
+Q 416 606 314 882 
+Q 213 1159 213 1441 
+Q 213 1806 373 2159 
+Q 534 2513 831 2731 
+Q 1128 2950 1503 2950 
+Q 2116 2950 2386 2500 
+Q 2656 2050 2656 1403 
+L 684 1403 
+Q 684 1150 801 904 
+Q 919 659 1130 503 
+Q 1341 347 1594 347 
+Q 2150 347 2584 691 
+L 2625 256 
+Q 2491 122 2162 25 
+Q 1834 -72 1594 -72 
+z
+M 722 1778 
+L 2259 1778 
+Q 2209 2103 2015 2318 
+Q 1822 2534 1503 2534 
+Q 1316 2534 1150 2426 
+Q 984 2319 876 2145 
+Q 769 1972 722 1778 
+z
+" transform="scale(0.015625)"/>
+     <path id="w11t47-Cmss10-72" d="M 513 0 
+L 513 2881 
+L 984 2881 
+L 984 2328 
+Q 1109 2503 1287 2637 
+Q 1466 2772 1670 2842 
+Q 1875 2913 2094 2913 
+L 2094 2456 
+Q 1809 2456 1561 2315 
+Q 1313 2175 1166 1933 
+Q 1019 1691 1019 1403 
+L 1019 0 
+L 513 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w11t47-Cmmi10-56" d="M 1409 -72 
+L 897 4006 
+Q 850 4147 416 4147 
+Q 353 4147 353 4231 
+Q 366 4300 384 4336 
+Q 403 4372 459 4372 
+L 2022 4372 
+Q 2056 4372 2072 4347 
+Q 2088 4322 2088 4288 
+Q 2063 4147 2003 4147 
+Q 1503 4147 1472 3975 
+L 1894 628 
+L 3866 3775 
+Q 3922 3881 3922 3944 
+Q 3922 4056 3820 4101 
+Q 3719 4147 3584 4147 
+Q 3519 4147 3519 4231 
+Q 3531 4281 3540 4309 
+Q 3550 4338 3569 4355 
+Q 3588 4372 3628 4372 
+L 4863 4372 
+Q 4922 4372 4922 4288 
+Q 4897 4147 4838 4147 
+Q 4356 4147 4084 3725 
+Q 4072 3713 4063 3713 
+L 1703 -72 
+Q 1656 -141 1581 -141 
+L 1491 -141 
+Q 1419 -141 1409 -72 
+z
+" transform="scale(0.015625)"/>
+     <path id="w11t47-Cmss10-63" d="M 1594 -72 
+Q 1309 -72 1053 50 
+Q 797 172 609 386 
+Q 422 600 320 870 
+Q 219 1141 219 1422 
+Q 219 1713 320 1988 
+Q 422 2263 608 2480 
+Q 794 2697 1044 2823 
+Q 1294 2950 1594 2950 
+Q 1934 2950 2136 2897 
+Q 2338 2844 2625 2675 
+L 2547 2228 
+Q 2288 2403 2102 2459 
+Q 1916 2516 1594 2516 
+Q 1322 2516 1126 2355 
+Q 931 2194 837 1945 
+Q 744 1697 744 1422 
+Q 744 1163 842 919 
+Q 941 675 1134 520 
+Q 1328 366 1594 366 
+Q 1894 366 2139 448 
+Q 2384 531 2619 697 
+L 2656 250 
+Q 2513 106 2183 17 
+Q 1853 -72 1594 -72 
+z
+" transform="scale(0.015625)"/>
+     <path id="w11t47-Cmss10-64" d="M 1300 -72 
+Q 959 -72 712 161 
+Q 466 394 342 741 
+Q 219 1088 219 1422 
+Q 219 1675 291 1933 
+Q 363 2191 500 2414 
+Q 638 2638 847 2775 
+Q 1056 2913 1319 2913 
+Q 1591 2913 1842 2822 
+Q 2094 2731 2284 2572 
+L 2284 4441 
+L 2791 4441 
+L 2791 0 
+L 2266 0 
+L 2266 319 
+Q 2059 128 1818 28 
+Q 1578 -72 1300 -72 
+z
+M 1594 347 
+Q 1806 347 1984 465 
+Q 2163 584 2266 781 
+L 2266 2163 
+Q 2166 2316 2006 2406 
+Q 1847 2497 1672 2497 
+Q 1372 2497 1161 2350 
+Q 950 2203 847 1958 
+Q 744 1713 744 1422 
+Q 744 981 959 664 
+Q 1175 347 1594 347 
+z
+" transform="scale(0.015625)"/>
+     <path id="w11t47-Cmss10-73" d="M 178 213 
+L 263 672 
+Q 716 359 1259 359 
+Q 1494 359 1659 461 
+Q 1825 563 1825 781 
+Q 1825 947 1698 1053 
+Q 1572 1159 1403 1191 
+L 1013 1269 
+Q 688 1334 450 1559 
+Q 213 1784 213 2100 
+Q 213 2391 353 2583 
+Q 494 2775 731 2862 
+Q 969 2950 1259 2950 
+Q 1538 2950 1745 2904 
+Q 1953 2859 2194 2747 
+L 2119 2297 
+Q 1888 2434 1673 2490 
+Q 1459 2547 1191 2547 
+Q 981 2547 836 2455 
+Q 691 2363 691 2163 
+Q 691 2025 800 1926 
+Q 909 1828 1063 1791 
+L 1491 1709 
+Q 1709 1659 1895 1537 
+Q 2081 1416 2192 1233 
+Q 2303 1050 2303 831 
+Q 2303 525 2167 323 
+Q 2031 122 1798 25 
+Q 1566 -72 1259 -72 
+Q 684 -72 178 213 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w11t47-Cmss10-6f" transform="translate(0 0.609375)"/>
+    <use xlink:href="#w11t47-Cmss10-76" transform="translate(50 0.609375)"/>
+    <use xlink:href="#w11t47-Cmss10-65" transform="translate(96.09375 0.609375)"/>
+    <use xlink:href="#w11t47-Cmss10-72" transform="translate(140.478516 0.609375)"/>
+    <use xlink:href="#w11t47-Cmmi10-56" transform="translate(203.824577 0.609375)"/>
+    <use xlink:href="#w11t47-Cmss10-63" transform="translate(291.389389 0.609375)"/>
+    <use xlink:href="#w11t47-Cmss10-6f" transform="translate(335.774154 0.609375)"/>
+    <use xlink:href="#w11t47-Cmss10-64" transform="translate(385.774154 0.609375)"/>
+    <use xlink:href="#w11t47-Cmss10-65" transform="translate(437.385482 0.609375)"/>
+    <use xlink:href="#w11t47-Cmss10-73" transform="translate(481.770248 0.609375)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<line x1="844.0" y1="98.0" x2="858.0" y2="98.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="866.0,98.0 858.0,103.0 858.0,93.0" fill="#94a3b8"/>
+<rect x="870.0" y="66.0" width="90.0" height="64.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="915.0" y="85.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">sample</text>
+<svg x="905.424" y="101.516" width="19.152" height="22.0661" viewBox="0 0 19.152 22.066125"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w11t48-figure_1">
+  <g id="w11t48-patch_1">
+   <path d="M 0 22.066125 
+L 19.152 22.066125 
+L 19.152 0 
+L 0 0 
+L 0 22.066125 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w11t48-text_1">
+   <!-- $k_t$ -->
+   <g style="fill: #6b7280" transform="translate(0 17.324437) scale(0.228 -0.228)">
+    <defs>
+     <path id="w11t48-Cmmi10-6b" d="M 341 116 
+Q 341 153 347 172 
+L 1275 3872 
+Q 1300 3981 1306 4044 
+Q 1306 4147 891 4147 
+Q 825 4147 825 4231 
+Q 828 4247 839 4287 
+Q 850 4328 867 4350 
+Q 884 4372 916 4372 
+L 1778 4441 
+L 1797 4441 
+Q 1797 4434 1819 4423 
+Q 1841 4413 1844 4409 
+Q 1856 4378 1856 4359 
+L 1184 1684 
+Q 1416 1781 1767 2145 
+Q 2119 2509 2317 2668 
+Q 2516 2828 2816 2828 
+Q 2994 2828 3119 2706 
+Q 3244 2584 3244 2406 
+Q 3244 2294 3197 2198 
+Q 3150 2103 3065 2043 
+Q 2981 1984 2869 1984 
+Q 2766 1984 2695 2048 
+Q 2625 2113 2625 2216 
+Q 2625 2369 2733 2473 
+Q 2841 2578 2994 2578 
+Q 2931 2663 2803 2663 
+Q 2613 2663 2436 2553 
+Q 2259 2444 2054 2239 
+Q 1850 2034 1681 1864 
+Q 1513 1694 1369 1606 
+Q 1747 1563 2025 1408 
+Q 2303 1253 2303 934 
+Q 2303 869 2278 769 
+Q 2222 528 2222 384 
+Q 2222 97 2419 97 
+Q 2650 97 2770 350 
+Q 2891 603 2969 941 
+Q 2981 978 3022 978 
+L 3097 978 
+Q 3122 978 3139 962 
+Q 3156 947 3156 922 
+Q 3156 916 3150 903 
+Q 2909 -72 2406 -72 
+Q 2225 -72 2086 12 
+Q 1947 97 1872 242 
+Q 1797 388 1797 569 
+Q 1797 672 1825 781 
+Q 1844 856 1844 922 
+Q 1844 1169 1625 1297 
+Q 1406 1425 1125 1453 
+L 800 147 
+Q 775 50 703 -11 
+Q 631 -72 538 -72 
+Q 456 -72 398 -17 
+Q 341 38 341 116 
+z
+" transform="scale(0.015625)"/>
+     <path id="w11t48-Cmmi10-74" d="M 397 519 
+Q 397 613 416 697 
+L 878 2534 
+L 206 2534 
+Q 141 2534 141 2619 
+Q 166 2759 225 2759 
+L 934 2759 
+L 1191 3803 
+Q 1216 3888 1291 3947 
+Q 1366 4006 1459 4006 
+Q 1541 4006 1595 3957 
+Q 1650 3909 1650 3828 
+Q 1650 3809 1648 3798 
+Q 1647 3788 1644 3775 
+L 1388 2759 
+L 2047 2759 
+Q 2113 2759 2113 2675 
+Q 2109 2659 2100 2621 
+Q 2091 2584 2075 2559 
+Q 2059 2534 2028 2534 
+L 1331 2534 
+L 872 684 
+Q 825 503 825 372 
+Q 825 97 1013 97 
+Q 1294 97 1511 361 
+Q 1728 625 1844 941 
+Q 1869 978 1894 978 
+L 1972 978 
+Q 1997 978 2012 961 
+Q 2028 944 2028 922 
+Q 2028 909 2022 903 
+Q 1881 516 1612 222 
+Q 1344 -72 997 -72 
+Q 744 -72 570 93 
+Q 397 259 397 519 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w11t48-Cmmi10-6b" transform="translate(0 0.609375)"/>
+    <use xlink:href="#w11t48-Cmmi10-74" transform="translate(52.001953 -16.396875) scale(0.7)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<text x="530.0" y="176.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">a discrete token gives a distribution</text>
+<text x="530.0" y="202.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">to draw from, for free</text>
+<text x="530.0" y="256.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">to speak in continuous latents: swap the</text>
+<text x="530.0" y="282.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">head for a flow or diffusion head (W8)</text>
+</g>
+</svg>
+```

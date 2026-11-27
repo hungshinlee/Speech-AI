@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 330" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
+<rect x="20.0" y="40.0" width="220.0" height="76.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="130.0" y="65.0" font-size="22" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">ASR</text>
+<text x="130.0" y="92.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">speech → text</text>
+<line x1="244.0" y1="78.0" x2="374.0" y2="78.0" stroke="#dc2626" stroke-width="2.6"/>
+<polygon points="386.0,78.0 374.0,83.0 374.0,73.0" fill="#dc2626"/>
+<text x="315.0" y="64.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">text</text>
+<rect x="390.0" y="40.0" width="220.0" height="76.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="500.0" y="65.0" font-size="22" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">LLM</text>
+<text x="500.0" y="92.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">text → text</text>
+<line x1="614.0" y1="78.0" x2="744.0" y2="78.0" stroke="#dc2626" stroke-width="2.6"/>
+<polygon points="756.0,78.0 744.0,83.0 744.0,73.0" fill="#dc2626"/>
+<text x="685.0" y="64.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">text</text>
+<rect x="760.0" y="40.0" width="220.0" height="76.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="870.0" y="65.0" font-size="22" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">TTS</text>
+<text x="870.0" y="92.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">text → speech</text>
+<text x="130.0" y="26.0" font-size="19" font-weight="400" fill="#15803d" text-anchor="middle" dominant-baseline="auto">the user speaks</text>
+<text x="870.0" y="26.0" font-size="19" font-weight="400" fill="#0b5cad" text-anchor="middle" dominant-baseline="auto">the system speaks</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<line x1="315.0" y1="96.0" x2="315.0" y2="150.0" stroke="#dc2626" stroke-width="1.4" stroke-dasharray="4 3"/>
+<line x1="685.0" y1="96.0" x2="685.0" y2="150.0" stroke="#dc2626" stroke-width="1.4" stroke-dasharray="4 3"/>
+<text x="315.0" y="176.0" font-size="19" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">does not cross this line:</text>
+<text x="315.0" y="204.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">tone, emotion, who is speaking,</text>
+<text x="315.0" y="230.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">laughter, timing</text>
+<text x="685.0" y="176.0" font-size="19" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">does not cross this one:</text>
+<text x="685.0" y="204.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">how the question sounded —</text>
+<text x="685.0" y="230.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">the voice that answers never heard it</text>
+<line x1="20.0" y1="268.0" x2="980.0" y2="268.0" stroke="#6b7280" stroke-width="1.6"/>
+<line x1="20.0" y1="261.0" x2="20.0" y2="268.0" stroke="#6b7280" stroke-width="1.6"/>
+<line x1="980.0" y1="261.0" x2="980.0" y2="268.0" stroke="#6b7280" stroke-width="1.6"/>
+<text x="500.0" y="292.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">three latencies, added</text>
+</g>
+</svg>

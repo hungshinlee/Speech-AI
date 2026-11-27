@@ -23,7 +23,7 @@
 </div>
 <div class="cm-col">
 <div class="cm-part">Part III — Dialogue Systems</div>
-<div class="cm-wk cm-soon"><span class="cm-n">W11</span><span class="cm-t">Audio-native LM</span></div>
+<a class="cm-wk" href="weeks/w11.html"><span class="cm-n">W11</span><span class="cm-t">Audio-native LM</span></a>
 <div class="cm-wk cm-soon"><span class="cm-n">W12</span><span class="cm-t">Turn-taking</span></div>
 <div class="cm-wk cm-soon"><span class="cm-n">W13</span><span class="cm-t">Full-duplex arch. &amp; data</span></div>
 <div class="cm-wk cm-soon"><span class="cm-n">W14</span><span class="cm-t">Evaluation &amp; deployment</span></div>

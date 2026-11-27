@@ -1,0 +1,94 @@
+{
+  "_note": "make_figs_w11.py 算的；全部是算術。量測的數字另進 w11-metrics.json（demo 建置後）。",
+  "token_rate": {
+    "source": "assets/w06/w06-metrics.json → demo2.budget (W6 Demo 2, 2026-10-18)",
+    "mimi_tokens_per_s": 100.0,
+    "mimi_f_r": 12.5,
+    "mimi_N_q": 8,
+    "llama_mimi_tokens_per_s": 50.0,
+    "text_tokens_per_s_mandarin": 2.84,
+    "text_tokens_per_s_english": 3.42,
+    "ratio_mimi8_to_text_mandarin": 35.2,
+    "ratio_mimi8_to_text_english": 29.3,
+    "ratio_llama_mimi_to_text_english": 14.6
+  },
+  "interleave": {
+    "glm4voice_13_26": {
+      "n_txt": 13,
+      "n_aud": 26,
+      "f_r": 12.5,
+      "N_step": 1,
+      "seconds_per_round": 2.08,
+      "text_tokens_per_second_of_speech": 6.25,
+      "D_token_max_ms": 53.3
+    },
+    "lfm2_audio_6_12": {
+      "n_txt": 6,
+      "n_aud": 12,
+      "f_r": 12.5,
+      "N_step": 1,
+      "seconds_per_round": 0.96,
+      "text_tokens_per_second_of_speech": 6.25,
+      "D_token_max_ms": 53.3
+    },
+    "glm4voice_first_audio": {
+      "text_tokens": 13,
+      "audio_tokens": 10,
+      "total": 23,
+      "source": "GLM-4-Voice (arXiv:2412.02612), Overall Latency"
+    }
+  },
+  "w1_demo2_budget_ms": {
+    "source": "demos/w01_d2_pipeline/runs/rehearsal/utterance/result.json (2026-09-21, medians of 10 runs)",
+    "endpoint": 1000,
+    "asr_tail": 70,
+    "llm_first_token": 94,
+    "tts_first_packet": 124,
+    "playout_buffer": 100,
+    "total": 1388,
+    "middle_three": 288,
+    "endpoint_share": 0.72
+  },
+  "context_30min": {
+    "assumption": "30 min; each side speaks half the time (900 s each); text of both sides kept in every setting",
+    "R_txt_per_s": 2.84,
+    "f_r_in": 12.5,
+    "text_only": 5116,
+    "single_level": 27616,
+    "flattened_8_levels": 106366
+  },
+  "moshi_table8": {
+    "source": "Défossez et al., arXiv:2410.00037, Table 8 (spoken QA accuracy, %)",
+    "rows": [
+      [
+        "Moshi without Inner Monologue",
+        9.2,
+        21.0,
+        7.3
+      ],
+      [
+        "Moshi",
+        26.6,
+        62.3,
+        22.8
+      ],
+      [
+        "Moshi, no text-only batches in pre-training",
+        23.2,
+        61.3,
+        18.3
+      ],
+      [
+        "Helium (the text LLM, reading text)",
+        32.3,
+        75.0,
+        56.4
+      ]
+    ],
+    "columns": [
+      "Web Questions",
+      "LlaMA Questions",
+      "Audio Trivia QA"
+    ]
+  }
+}

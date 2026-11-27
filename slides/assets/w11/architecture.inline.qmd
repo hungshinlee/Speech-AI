@@ -1,0 +1,406 @@
+<!-- 由 scripts/make_figs_w11.py 產生，勿手改；投影片用 {{< include assets/w11/architecture.inline.qmd >}} 貼入 -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 340" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
+<rect x="20.0" y="96.0" width="150.0" height="68.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="95.0" y="117.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">user speech</text>
+<svg x="75.164" y="127.816" width="39.672" height="27.7661" viewBox="0 -5.7 39.672 27.7661"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w11t17-figure_1">
+  <g id="w11t17-patch_1">
+   <path d="M 0 22.066125 
+L 39.672 22.066125 
+L 39.672 0 
+L 0 0 
+L 0 22.066125 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w11t17-text_1">
+   <!-- $\mathbf{X}^{\mathsf{usr}}$ -->
+   <g style="fill: #6b7280" transform="translate(0 17.324437) scale(0.228 -0.228)">
+    <defs>
+     <path id="w11t17-Cmb10-58" d="M 184 0 
+L 184 325 
+Q 856 325 909 384 
+L 2009 2106 
+L 825 4063 
+L 269 4063 
+L 269 4391 
+L 2291 4391 
+L 2291 4063 
+L 1838 4063 
+L 2528 2919 
+L 3225 4013 
+Q 3225 4028 3158 4036 
+Q 3091 4044 3053 4044 
+Q 2872 4063 2688 4063 
+L 2688 4391 
+L 4384 4391 
+L 4384 4063 
+Q 4159 4063 3925 4053 
+Q 3691 4044 3653 4006 
+L 2741 2572 
+L 4091 325 
+L 4653 325 
+L 4653 0 
+L 2625 0 
+L 2625 325 
+L 3084 325 
+L 2222 1759 
+L 1344 378 
+Q 1344 369 1411 358 
+Q 1478 347 1509 347 
+Q 1681 325 1881 325 
+L 1881 0 
+L 184 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w11t17-Cmss10-75" d="M 1147 -72 
+Q 906 -72 765 26 
+Q 625 125 565 297 
+Q 506 469 506 703 
+L 506 2841 
+L 1031 2841 
+L 1031 703 
+Q 1031 519 1093 436 
+Q 1156 353 1267 329 
+Q 1378 306 1563 306 
+Q 1841 306 2056 484 
+Q 2272 663 2272 934 
+L 2272 2841 
+L 2797 2841 
+L 2797 0 
+L 2291 0 
+L 2291 294 
+Q 2094 119 1786 23 
+Q 1478 -72 1147 -72 
+z
+" transform="scale(0.015625)"/>
+     <path id="w11t17-Cmss10-73" d="M 178 213 
+L 263 672 
+Q 716 359 1259 359 
+Q 1494 359 1659 461 
+Q 1825 563 1825 781 
+Q 1825 947 1698 1053 
+Q 1572 1159 1403 1191 
+L 1013 1269 
+Q 688 1334 450 1559 
+Q 213 1784 213 2100 
+Q 213 2391 353 2583 
+Q 494 2775 731 2862 
+Q 969 2950 1259 2950 
+Q 1538 2950 1745 2904 
+Q 1953 2859 2194 2747 
+L 2119 2297 
+Q 1888 2434 1673 2490 
+Q 1459 2547 1191 2547 
+Q 981 2547 836 2455 
+Q 691 2363 691 2163 
+Q 691 2025 800 1926 
+Q 909 1828 1063 1791 
+L 1491 1709 
+Q 1709 1659 1895 1537 
+Q 2081 1416 2192 1233 
+Q 2303 1050 2303 831 
+Q 2303 525 2167 323 
+Q 2031 122 1798 25 
+Q 1566 -72 1259 -72 
+Q 684 -72 178 213 
+z
+" transform="scale(0.015625)"/>
+     <path id="w11t17-Cmss10-72" d="M 513 0 
+L 513 2881 
+L 984 2881 
+L 984 2328 
+Q 1109 2503 1287 2637 
+Q 1466 2772 1670 2842 
+Q 1875 2913 2094 2913 
+L 2094 2456 
+Q 1809 2456 1561 2315 
+Q 1313 2175 1166 1933 
+Q 1019 1691 1019 1403 
+L 1019 0 
+L 513 0 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w11t17-Cmb10-58" transform="translate(0 0.470313)"/>
+    <use xlink:href="#w11t17-Cmss10-75" transform="translate(79.952422 38.734375) scale(0.7)"/>
+    <use xlink:href="#w11t17-Cmss10-73" transform="translate(116.080352 38.734375) scale(0.7)"/>
+    <use xlink:href="#w11t17-Cmss10-72" transform="translate(142.877227 38.734375) scale(0.7)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<line x1="174.0" y1="130.0" x2="188.0" y2="130.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="196.0,130.0 188.0,135.0 188.0,125.0" fill="#94a3b8"/>
+<rect x="200.0" y="96.0" width="190.0" height="68.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="295.0" y="117.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">encoder + adapter</text>
+<text x="295.0" y="144.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">continuous vectors</text>
+<line x1="394.0" y1="130.0" x2="416.0" y2="130.0" stroke="#b45309" stroke-width="2.2"/>
+<polygon points="426.0,130.0 416.0,135.0 416.0,125.0" fill="#b45309"/>
+<rect x="430.0" y="60.0" width="220.0" height="140.0" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.6"/>
+<text x="540.0" y="112.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">a Transformer</text>
+<text x="540.0" y="142.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">that started as</text>
+<text x="540.0" y="168.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">a text LLM</text>
+<line x1="654.0" y1="100.0" x2="677.1" y2="88.5" stroke="#b45309" stroke-width="2.2"/>
+<polygon points="686.0,84.0 679.3,92.9 674.8,84.0" fill="#b45309"/>
+<line x1="654.0" y1="160.0" x2="677.1" y2="171.5" stroke="#b45309" stroke-width="2.2"/>
+<polygon points="686.0,176.0 674.8,176.0 679.3,167.1" fill="#b45309"/>
+<rect x="690.0" y="48.0" width="150.0" height="68.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="765.0" y="69.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">text head</text>
+<svg x="748.356" y="79.8156" width="33.288" height="27.7661" viewBox="0 -5.7 33.288 27.7661"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w11t18-figure_1">
+  <g id="w11t18-patch_1">
+   <path d="M 0 22.066125 
+L 33.288 22.066125 
+L 33.288 0 
+L 0 0 
+L 0 22.066125 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w11t18-text_1">
+   <!-- $\ell^{\mathsf{sys}}$ -->
+   <g style="fill: #6b7280" transform="translate(0 17.324437) scale(0.228 -0.228)">
+    <defs>
+     <path id="w11t18-Cmmi10-60" d="M 153 475 
+Q 125 475 94 509 
+Q 63 544 63 575 
+Q 63 628 594 1113 
+Q 594 1141 592 1159 
+Q 591 1178 588 1197 
+Q 588 1472 631 1758 
+Q 675 2044 751 2328 
+Q 828 2613 943 2922 
+Q 1059 3231 1178 3463 
+Q 1384 3884 1628 4198 
+Q 1872 4513 2169 4513 
+Q 2372 4513 2459 4373 
+Q 2547 4234 2547 4025 
+Q 2547 2853 991 1269 
+Q 966 994 966 878 
+Q 966 78 1331 78 
+Q 1488 78 1642 161 
+Q 1797 244 1908 341 
+Q 2019 438 2216 628 
+Q 2228 641 2253 641 
+Q 2288 641 2319 603 
+Q 2350 566 2350 531 
+Q 2350 509 2322 488 
+Q 2038 209 1809 56 
+Q 1581 -97 1319 -97 
+Q 981 -97 817 193 
+Q 653 484 609 884 
+Q 438 713 191 488 
+Q 184 475 153 475 
+z
+M 1044 1575 
+Q 1384 1938 1681 2338 
+Q 1978 2738 2176 3180 
+Q 2375 3622 2375 4044 
+Q 2375 4347 2163 4347 
+Q 1934 4347 1696 3801 
+Q 1459 3256 1290 2622 
+Q 1122 1988 1044 1575 
+z
+" transform="scale(0.015625)"/>
+     <path id="w11t18-Cmss10-73" d="M 178 213 
+L 263 672 
+Q 716 359 1259 359 
+Q 1494 359 1659 461 
+Q 1825 563 1825 781 
+Q 1825 947 1698 1053 
+Q 1572 1159 1403 1191 
+L 1013 1269 
+Q 688 1334 450 1559 
+Q 213 1784 213 2100 
+Q 213 2391 353 2583 
+Q 494 2775 731 2862 
+Q 969 2950 1259 2950 
+Q 1538 2950 1745 2904 
+Q 1953 2859 2194 2747 
+L 2119 2297 
+Q 1888 2434 1673 2490 
+Q 1459 2547 1191 2547 
+Q 981 2547 836 2455 
+Q 691 2363 691 2163 
+Q 691 2025 800 1926 
+Q 909 1828 1063 1791 
+L 1491 1709 
+Q 1709 1659 1895 1537 
+Q 2081 1416 2192 1233 
+Q 2303 1050 2303 831 
+Q 2303 525 2167 323 
+Q 2031 122 1798 25 
+Q 1566 -72 1259 -72 
+Q 684 -72 178 213 
+z
+" transform="scale(0.015625)"/>
+     <path id="w11t18-Cmss10-79" d="M 275 -1259 
+L 238 -819 
+Q 484 -922 769 -922 
+Q 903 -922 989 -773 
+Q 1075 -625 1153 -416 
+L 1319 0 
+L 91 2841 
+L 622 2841 
+Q 850 2319 1047 1841 
+Q 1244 1363 1380 953 
+Q 1516 544 1516 347 
+Q 1519 547 1647 964 
+Q 1775 1381 1965 1875 
+Q 2156 2369 2350 2841 
+L 2853 2841 
+L 1550 -416 
+Q 1425 -716 1347 -872 
+Q 1269 -1028 1119 -1170 
+Q 969 -1313 769 -1313 
+Q 728 -1313 515 -1297 
+Q 303 -1281 275 -1259 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w11t18-Cmmi10-60" transform="translate(0 0.470313)"/>
+    <use xlink:href="#w11t18-Cmss10-73" transform="translate(53.43375 38.734375) scale(0.7)"/>
+    <use xlink:href="#w11t18-Cmss10-79" transform="translate(80.230625 38.734375) scale(0.7)"/>
+    <use xlink:href="#w11t18-Cmss10-73" transform="translate(112.49625 38.734375) scale(0.7)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<rect x="690.0" y="144.0" width="150.0" height="68.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="765.0" y="165.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">audio head</text>
+<svg x="747.9" y="175.816" width="34.2" height="27.7661" viewBox="0 -5.7 34.2 27.7661"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w11t19-figure_1">
+  <g id="w11t19-patch_1">
+   <path d="M 0 22.066125 
+L 34.2 22.066125 
+L 34.2 0 
+L 0 0 
+L 0 22.066125 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w11t19-text_1">
+   <!-- $\mathbf{k}^{\mathsf{sys}}$ -->
+   <g style="fill: #6b7280" transform="translate(0 17.324437) scale(0.228 -0.228)">
+    <defs>
+     <path id="w11t19-Cmb10-6b" d="M 91 0 
+L 91 325 
+L 531 325 
+L 531 3884 
+Q 531 4003 406 4033 
+Q 281 4063 91 4063 
+L 91 4391 
+L 1247 4441 
+L 1247 1619 
+L 2150 2463 
+Q 2150 2491 2040 2503 
+Q 1931 2516 1863 2516 
+L 1863 2841 
+L 3122 2841 
+L 3122 2516 
+Q 2688 2516 2625 2456 
+L 1906 1784 
+L 2847 384 
+Q 2913 325 3272 325 
+L 3272 0 
+L 1838 0 
+L 1838 325 
+Q 2075 325 2075 378 
+L 1428 1338 
+L 1216 1141 
+L 1216 325 
+L 1650 325 
+L 1650 0 
+L 91 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w11t19-Cmss10-73" d="M 178 213 
+L 263 672 
+Q 716 359 1259 359 
+Q 1494 359 1659 461 
+Q 1825 563 1825 781 
+Q 1825 947 1698 1053 
+Q 1572 1159 1403 1191 
+L 1013 1269 
+Q 688 1334 450 1559 
+Q 213 1784 213 2100 
+Q 213 2391 353 2583 
+Q 494 2775 731 2862 
+Q 969 2950 1259 2950 
+Q 1538 2950 1745 2904 
+Q 1953 2859 2194 2747 
+L 2119 2297 
+Q 1888 2434 1673 2490 
+Q 1459 2547 1191 2547 
+Q 981 2547 836 2455 
+Q 691 2363 691 2163 
+Q 691 2025 800 1926 
+Q 909 1828 1063 1791 
+L 1491 1709 
+Q 1709 1659 1895 1537 
+Q 2081 1416 2192 1233 
+Q 2303 1050 2303 831 
+Q 2303 525 2167 323 
+Q 2031 122 1798 25 
+Q 1566 -72 1259 -72 
+Q 684 -72 178 213 
+z
+" transform="scale(0.015625)"/>
+     <path id="w11t19-Cmss10-79" d="M 275 -1259 
+L 238 -819 
+Q 484 -922 769 -922 
+Q 903 -922 989 -773 
+Q 1075 -625 1153 -416 
+L 1319 0 
+L 91 2841 
+L 622 2841 
+Q 850 2319 1047 1841 
+Q 1244 1363 1380 953 
+Q 1516 544 1516 347 
+Q 1519 547 1647 964 
+Q 1775 1381 1965 1875 
+Q 2156 2369 2350 2841 
+L 2853 2841 
+L 1550 -416 
+Q 1425 -716 1347 -872 
+Q 1269 -1028 1119 -1170 
+Q 969 -1313 769 -1313 
+Q 728 -1313 515 -1297 
+Q 303 -1281 275 -1259 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w11t19-Cmb10-6b" transform="translate(0 0.470313)"/>
+    <use xlink:href="#w11t19-Cmss10-73" transform="translate(57.149687 38.734375) scale(0.7)"/>
+    <use xlink:href="#w11t19-Cmss10-79" transform="translate(83.946562 38.734375) scale(0.7)"/>
+    <use xlink:href="#w11t19-Cmss10-73" transform="translate(116.212187 38.734375) scale(0.7)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<line x1="844.0" y1="178.0" x2="858.0" y2="178.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="866.0,178.0 858.0,183.0 858.0,173.0" fill="#94a3b8"/>
+<rect x="870.0" y="144.0" width="110.0" height="68.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="925.0" y="165.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">decoder</text>
+<text x="925.0" y="192.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">W6 / W8</text>
+<text x="20.0" y="30.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">three things: what the user said, the reply's text, the reply's speech tokens</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<circle cx="410.0" cy="100.0" r="15.0" fill="#b45309" stroke="#b45309" stroke-width="1.4"/>
+<text x="410.0" y="101.0" font-size="19" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">1</text>
+<circle cx="668.0" cy="130.0" r="15.0" fill="#b45309" stroke="#b45309" stroke-width="1.4"/>
+<text x="668.0" y="131.0" font-size="19" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">2</text>
+<text x="20.0" y="262.0" font-size="19" font-weight="700" fill="#b45309" text-anchor="start" dominant-baseline="auto">1 · speech meets text in the input embedding space: not aligned → the modality gap (first half)</text>
+<text x="20.0" y="304.0" font-size="19" font-weight="700" fill="#b45309" text-anchor="start" dominant-baseline="auto">2 · they meet again in the output sequence: how they are ordered → the text's lead (second half)</text>
+</g>
+</svg>
+```

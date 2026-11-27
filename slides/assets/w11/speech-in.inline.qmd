@@ -1,0 +1,709 @@
+<!-- 由 scripts/make_figs_w11.py 產生，勿手改；投影片用 {{< include assets/w11/speech-in.inline.qmd >}} 貼入 -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 320" width="100%" style="display:block;height:auto" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
+<rect x="20.0" y="30.0" width="150.0" height="68.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="95.0" y="51.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">user speech</text>
+<svg x="75.164" y="61.8156" width="39.672" height="27.7661" viewBox="0 -5.7 39.672 27.7661"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w11t24-figure_1">
+  <g id="w11t24-patch_1">
+   <path d="M 0 22.066125 
+L 39.672 22.066125 
+L 39.672 0 
+L 0 0 
+L 0 22.066125 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w11t24-text_1">
+   <!-- $\mathbf{X}^{\mathsf{usr}}$ -->
+   <g style="fill: #6b7280" transform="translate(0 17.324437) scale(0.228 -0.228)">
+    <defs>
+     <path id="w11t24-Cmb10-58" d="M 184 0 
+L 184 325 
+Q 856 325 909 384 
+L 2009 2106 
+L 825 4063 
+L 269 4063 
+L 269 4391 
+L 2291 4391 
+L 2291 4063 
+L 1838 4063 
+L 2528 2919 
+L 3225 4013 
+Q 3225 4028 3158 4036 
+Q 3091 4044 3053 4044 
+Q 2872 4063 2688 4063 
+L 2688 4391 
+L 4384 4391 
+L 4384 4063 
+Q 4159 4063 3925 4053 
+Q 3691 4044 3653 4006 
+L 2741 2572 
+L 4091 325 
+L 4653 325 
+L 4653 0 
+L 2625 0 
+L 2625 325 
+L 3084 325 
+L 2222 1759 
+L 1344 378 
+Q 1344 369 1411 358 
+Q 1478 347 1509 347 
+Q 1681 325 1881 325 
+L 1881 0 
+L 184 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w11t24-Cmss10-75" d="M 1147 -72 
+Q 906 -72 765 26 
+Q 625 125 565 297 
+Q 506 469 506 703 
+L 506 2841 
+L 1031 2841 
+L 1031 703 
+Q 1031 519 1093 436 
+Q 1156 353 1267 329 
+Q 1378 306 1563 306 
+Q 1841 306 2056 484 
+Q 2272 663 2272 934 
+L 2272 2841 
+L 2797 2841 
+L 2797 0 
+L 2291 0 
+L 2291 294 
+Q 2094 119 1786 23 
+Q 1478 -72 1147 -72 
+z
+" transform="scale(0.015625)"/>
+     <path id="w11t24-Cmss10-73" d="M 178 213 
+L 263 672 
+Q 716 359 1259 359 
+Q 1494 359 1659 461 
+Q 1825 563 1825 781 
+Q 1825 947 1698 1053 
+Q 1572 1159 1403 1191 
+L 1013 1269 
+Q 688 1334 450 1559 
+Q 213 1784 213 2100 
+Q 213 2391 353 2583 
+Q 494 2775 731 2862 
+Q 969 2950 1259 2950 
+Q 1538 2950 1745 2904 
+Q 1953 2859 2194 2747 
+L 2119 2297 
+Q 1888 2434 1673 2490 
+Q 1459 2547 1191 2547 
+Q 981 2547 836 2455 
+Q 691 2363 691 2163 
+Q 691 2025 800 1926 
+Q 909 1828 1063 1791 
+L 1491 1709 
+Q 1709 1659 1895 1537 
+Q 2081 1416 2192 1233 
+Q 2303 1050 2303 831 
+Q 2303 525 2167 323 
+Q 2031 122 1798 25 
+Q 1566 -72 1259 -72 
+Q 684 -72 178 213 
+z
+" transform="scale(0.015625)"/>
+     <path id="w11t24-Cmss10-72" d="M 513 0 
+L 513 2881 
+L 984 2881 
+L 984 2328 
+Q 1109 2503 1287 2637 
+Q 1466 2772 1670 2842 
+Q 1875 2913 2094 2913 
+L 2094 2456 
+Q 1809 2456 1561 2315 
+Q 1313 2175 1166 1933 
+Q 1019 1691 1019 1403 
+L 1019 0 
+L 513 0 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w11t24-Cmb10-58" transform="translate(0 0.470313)"/>
+    <use xlink:href="#w11t24-Cmss10-75" transform="translate(79.952422 38.734375) scale(0.7)"/>
+    <use xlink:href="#w11t24-Cmss10-73" transform="translate(116.080352 38.734375) scale(0.7)"/>
+    <use xlink:href="#w11t24-Cmss10-72" transform="translate(142.877227 38.734375) scale(0.7)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<line x1="174.0" y1="64.0" x2="188.0" y2="64.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="196.0,64.0 188.0,69.0 188.0,59.0" fill="#94a3b8"/>
+<rect x="200.0" y="30.0" width="130.0" height="68.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="265.0" y="51.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">encoder</text>
+<text x="265.0" y="78.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">W5 / W7</text>
+<line x1="334.0" y1="64.0" x2="348.0" y2="64.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="356.0,64.0 348.0,69.0 348.0,59.0" fill="#94a3b8"/>
+<rect x="360.0" y="30.0" width="130.0" height="68.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="425.0" y="51.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">adapter</text>
+<svg x="403.568" y="67.5619" width="42.864" height="22.0661" viewBox="0 0 42.864 22.066125"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w11t25-figure_1">
+  <g id="w11t25-patch_1">
+   <path d="M 0 22.066125 
+L 42.864 22.066125 
+L 42.864 0 
+L 0 0 
+L 0 22.066125 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w11t25-text_1">
+   <!-- $\mathrm{Proj}$ -->
+   <g style="fill: #6b7280" transform="translate(0 17.278125) scale(0.228 -0.228)">
+    <defs>
+     <path id="w11t25-Cmr10-50" d="M 213 0 
+L 213 225 
+Q 872 225 872 428 
+L 872 3944 
+Q 872 4147 213 4147 
+L 213 4372 
+L 2491 4372 
+Q 2841 4372 3191 4228 
+Q 3541 4084 3767 3809 
+Q 3994 3534 3994 3169 
+Q 3994 2813 3766 2544 
+Q 3538 2275 3191 2136 
+Q 2844 1997 2491 1997 
+L 1466 1997 
+L 1466 428 
+Q 1466 225 2125 225 
+L 2125 0 
+L 213 0 
+z
+M 1447 2188 
+L 2316 2188 
+Q 2669 2188 2887 2289 
+Q 3106 2391 3207 2605 
+Q 3309 2819 3309 3169 
+Q 3309 3691 3079 3919 
+Q 2850 4147 2316 4147 
+L 1772 4147 
+Q 1656 4147 1592 4137 
+Q 1528 4128 1487 4083 
+Q 1447 4038 1447 3944 
+L 1447 2188 
+z
+" transform="scale(0.015625)"/>
+     <path id="w11t25-Cmr10-72" d="M 166 0 
+L 166 225 
+Q 384 225 525 259 
+Q 666 294 666 428 
+L 666 2175 
+Q 666 2347 614 2423 
+Q 563 2500 466 2517 
+Q 369 2534 166 2534 
+L 166 2759 
+L 1081 2828 
+L 1081 2203 
+Q 1184 2481 1375 2654 
+Q 1566 2828 1838 2828 
+Q 2028 2828 2178 2715 
+Q 2328 2603 2328 2419 
+Q 2328 2303 2245 2217 
+Q 2163 2131 2041 2131 
+Q 1922 2131 1837 2215 
+Q 1753 2300 1753 2419 
+Q 1753 2591 1875 2663 
+L 1838 2663 
+Q 1578 2663 1414 2475 
+Q 1250 2288 1181 2009 
+Q 1113 1731 1113 1478 
+L 1113 428 
+Q 1113 225 1734 225 
+L 1734 0 
+L 166 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w11t25-Cmr10-6f" d="M 1600 -72 
+Q 1216 -72 887 123 
+Q 559 319 368 647 
+Q 178 975 178 1363 
+Q 178 1656 283 1928 
+Q 388 2200 583 2414 
+Q 778 2628 1037 2748 
+Q 1297 2869 1600 2869 
+Q 1994 2869 2317 2661 
+Q 2641 2453 2828 2104 
+Q 3016 1756 3016 1363 
+Q 3016 978 2825 648 
+Q 2634 319 2307 123 
+Q 1981 -72 1600 -72 
+z
+M 1600 116 
+Q 2113 116 2284 487 
+Q 2456 859 2456 1434 
+Q 2456 1756 2422 1967 
+Q 2388 2178 2272 2350 
+Q 2200 2456 2089 2536 
+Q 1978 2616 1854 2658 
+Q 1731 2700 1600 2700 
+Q 1400 2700 1220 2609 
+Q 1041 2519 922 2350 
+Q 803 2169 770 1951 
+Q 738 1734 738 1434 
+Q 738 1075 800 789 
+Q 863 503 1052 309 
+Q 1241 116 1600 116 
+z
+" transform="scale(0.015625)"/>
+     <path id="w11t25-Cmr10-6a" d="M 128 -1075 
+Q 275 -1147 459 -1147 
+Q 713 -1147 811 -889 
+Q 909 -631 909 -331 
+L 909 2175 
+Q 909 2347 846 2423 
+Q 784 2500 676 2517 
+Q 569 2534 359 2534 
+L 359 2759 
+L 1356 2828 
+L 1356 -359 
+Q 1356 -606 1234 -826 
+Q 1113 -1047 903 -1180 
+Q 694 -1313 447 -1313 
+Q 169 -1313 -56 -1175 
+Q -281 -1038 -281 -788 
+Q -281 -663 -190 -572 
+Q -100 -481 25 -481 
+Q 150 -481 240 -572 
+Q 331 -663 331 -788 
+Q 331 -884 276 -965 
+Q 222 -1047 128 -1075 
+z
+M 653 3928 
+Q 653 4069 759 4175 
+Q 866 4281 1006 4281 
+Q 1094 4281 1178 4234 
+Q 1263 4188 1309 4103 
+Q 1356 4019 1356 3928 
+Q 1356 3791 1253 3684 
+Q 1150 3578 1006 3578 
+Q 866 3578 759 3684 
+Q 653 3791 653 3928 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w11t25-Cmr10-50" transform="translate(0 0.6875)"/>
+    <use xlink:href="#w11t25-Cmr10-72" transform="translate(68.017578 0.6875)"/>
+    <use xlink:href="#w11t25-Cmr10-6f" transform="translate(107.128906 0.6875)"/>
+    <use xlink:href="#w11t25-Cmr10-6a" transform="translate(157.128906 0.6875)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<line x1="494.0" y1="64.0" x2="508.0" y2="64.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="516.0,64.0 508.0,69.0 508.0,59.0" fill="#94a3b8"/>
+<rect x="520.0" y="50.0" width="16.0" height="28.0" rx="2" fill="#dcfce7" stroke="#15803d" stroke-width="1.1"/>
+<rect x="538.0" y="50.0" width="16.0" height="28.0" rx="2" fill="#dcfce7" stroke="#15803d" stroke-width="1.1"/>
+<rect x="556.0" y="50.0" width="16.0" height="28.0" rx="2" fill="#dcfce7" stroke="#15803d" stroke-width="1.1"/>
+<rect x="574.0" y="50.0" width="16.0" height="28.0" rx="2" fill="#dcfce7" stroke="#15803d" stroke-width="1.1"/>
+<rect x="592.0" y="50.0" width="16.0" height="28.0" rx="2" fill="#dcfce7" stroke="#15803d" stroke-width="1.1"/>
+<rect x="610.0" y="50.0" width="16.0" height="28.0" rx="2" fill="#dcfce7" stroke="#15803d" stroke-width="1.1"/>
+<rect x="628.0" y="50.0" width="16.0" height="28.0" rx="2" fill="#dcfce7" stroke="#15803d" stroke-width="1.1"/>
+<rect x="654.0" y="50.0" width="16.0" height="28.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.1"/>
+<rect x="672.0" y="50.0" width="16.0" height="28.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.1"/>
+<rect x="690.0" y="50.0" width="16.0" height="28.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.1"/>
+<svg x="520" y="16.6756" width="40.128" height="22.0661" viewBox="0 0 40.128 22.066125"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w11t26-figure_1">
+  <g id="w11t26-patch_1">
+   <path d="M 0 22.066125 
+L 40.128 22.066125 
+L 40.128 0 
+L 0 0 
+L 0 22.066125 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w11t26-text_1">
+   <!-- $\mathbf{e}_{1:J}$ -->
+   <g style="fill: #15803d" transform="translate(0 17.324437) scale(0.228 -0.228)">
+    <defs>
+     <path id="w11t26-Cmb10-65" d="M 178 1441 
+Q 178 1856 350 2189 
+Q 522 2522 842 2711 
+Q 1163 2900 1581 2900 
+Q 2003 2900 2275 2726 
+Q 2547 2553 2675 2242 
+Q 2803 1931 2803 1522 
+Q 2803 1428 2700 1394 
+L 1025 1394 
+Q 1025 1078 1070 829 
+Q 1116 581 1275 412 
+Q 1434 244 1741 244 
+Q 2000 244 2208 394 
+Q 2416 544 2484 788 
+Q 2519 847 2578 863 
+L 2700 863 
+Q 2803 841 2803 750 
+Q 2803 744 2797 709 
+Q 2722 475 2553 308 
+Q 2384 141 2150 51 
+Q 1916 -38 1672 -38 
+Q 1347 -38 1072 67 
+Q 797 172 597 367 
+Q 397 563 287 836 
+Q 178 1109 178 1441 
+z
+M 1025 1631 
+L 2169 1631 
+Q 2169 1869 2120 2095 
+Q 2072 2322 1940 2483 
+Q 1809 2644 1581 2644 
+Q 1250 2644 1137 2341 
+Q 1025 2038 1025 1631 
+z
+" transform="scale(0.015625)"/>
+     <path id="w11t26-Cmr10-31" d="M 594 0 
+L 594 225 
+Q 1394 225 1394 428 
+L 1394 3788 
+Q 1063 3628 556 3628 
+L 556 3853 
+Q 1341 3853 1741 4263 
+L 1831 4263 
+Q 1853 4263 1873 4245 
+Q 1894 4228 1894 4206 
+L 1894 428 
+Q 1894 225 2694 225 
+L 2694 0 
+L 594 0 
+z
+" transform="scale(0.015625)"/>
+     <path id="w11t26-Cmr10-3a" d="M 538 353 
+Q 538 497 644 600 
+Q 750 703 891 703 
+Q 978 703 1062 656 
+Q 1147 609 1194 525 
+Q 1241 441 1241 353 
+Q 1241 213 1137 106 
+Q 1034 0 891 0 
+Q 750 0 644 106 
+Q 538 213 538 353 
+z
+M 538 2406 
+Q 538 2497 584 2578 
+Q 631 2659 714 2709 
+Q 797 2759 891 2759 
+Q 981 2759 1064 2709 
+Q 1147 2659 1194 2578 
+Q 1241 2497 1241 2406 
+Q 1241 2263 1139 2158 
+Q 1038 2053 891 2053 
+Q 747 2053 642 2158 
+Q 538 2263 538 2406 
+z
+" transform="scale(0.015625)"/>
+     <path id="w11t26-Cmmi10-4a" d="M 697 384 
+Q 759 206 928 115 
+Q 1097 25 1294 25 
+Q 1494 25 1680 164 
+Q 1866 303 1995 512 
+Q 2125 722 2175 928 
+L 2931 3956 
+Q 2938 3981 2939 3993 
+Q 2941 4006 2944 4019 
+Q 2944 4088 2894 4103 
+Q 2725 4147 2209 4147 
+Q 2144 4147 2144 4231 
+Q 2156 4281 2164 4309 
+Q 2172 4338 2192 4355 
+Q 2213 4372 2253 4372 
+L 3988 4372 
+Q 4050 4372 4050 4288 
+Q 4025 4147 3969 4147 
+Q 3744 4147 3628 4112 
+Q 3513 4078 3469 3928 
+L 2713 903 
+Q 2641 606 2420 367 
+Q 2200 128 1897 -6 
+Q 1594 -141 1288 -141 
+Q 950 -141 695 46 
+Q 441 234 441 556 
+Q 441 769 556 922 
+Q 672 1075 884 1075 
+Q 1006 1075 1089 1000 
+Q 1172 925 1172 806 
+Q 1172 634 1044 506 
+Q 916 378 744 378 
+Q 709 378 697 384 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w11t26-Cmb10-65" transform="translate(0 0.6875)"/>
+    <use xlink:href="#w11t26-Cmr10-31" transform="translate(51.046172 -16.31875) scale(0.7)"/>
+    <use xlink:href="#w11t26-Cmr10-3a" transform="translate(98.337187 -16.31875) scale(0.7)"/>
+    <use xlink:href="#w11t26-Cmmi10-4a" transform="translate(130.008086 -16.31875) scale(0.7)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<svg x="654" y="16.6756" width="12.768" height="22.0661" viewBox="0 0 12.768 22.066125"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w11t27-figure_1">
+  <g id="w11t27-patch_1">
+   <path d="M 0 22.066125 
+L 12.768 22.066125 
+L 12.768 0 
+L 0 0 
+L 0 22.066125 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w11t27-text_1">
+   <!-- $\mathbf{p}$ -->
+   <g style="fill: #7c3aed" transform="translate(0 17.324437) scale(0.228 -0.228)">
+    <defs>
+     <path id="w11t27-Cmb10-70" d="M 91 -1241 
+L 91 -916 
+L 531 -916 
+L 531 2394 
+Q 531 2503 91 2503 
+L 91 2828 
+L 1247 2881 
+L 1247 2619 
+Q 1600 2881 2047 2881 
+Q 2366 2881 2608 2765 
+Q 2850 2650 3011 2453 
+Q 3172 2256 3256 1987 
+Q 3341 1719 3341 1422 
+Q 3341 1000 3170 667 
+Q 3000 334 2679 148 
+Q 2359 -38 1941 -38 
+Q 1566 -38 1288 184 
+L 1288 -916 
+L 1728 -916 
+L 1728 -1241 
+L 91 -1241 
+z
+M 1288 581 
+Q 1519 219 1881 219 
+Q 2219 219 2358 609 
+Q 2497 1000 2497 1422 
+Q 2497 1825 2376 2211 
+Q 2256 2597 1953 2597 
+Q 1763 2597 1588 2508 
+Q 1413 2419 1288 2259 
+L 1288 581 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w11t27-Cmb10-70" transform="translate(0 0.984375)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<line x1="712.0" y1="64.0" x2="726.0" y2="64.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="734.0,64.0 726.0,69.0 726.0,59.0" fill="#94a3b8"/>
+<rect x="738.0" y="30.0" width="130.0" height="68.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="803.0" y="51.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">a text LLM</text>
+<text x="803.0" y="78.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">W7: frozen</text>
+<line x1="872.0" y1="64.0" x2="886.0" y2="64.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="894.0,64.0 886.0,69.0 886.0,59.0" fill="#94a3b8"/>
+<svg x="900" y="44.3401" width="38.544" height="32.1502" viewBox="0 -6.6 38.544 32.1502"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w11t28-figure_1">
+  <g id="w11t28-patch_1">
+   <path d="M 0 25.55025 
+L 38.544 25.55025 
+L 38.544 0 
+L 0 0 
+L 0 25.55025 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w11t28-text_1">
+   <!-- $\ell^{\mathsf{sys}}$ -->
+   <g style="fill: #7c3aed" transform="translate(0 20.059875) scale(0.264 -0.264)">
+    <defs>
+     <path id="w11t28-Cmmi10-60" d="M 153 475 
+Q 125 475 94 509 
+Q 63 544 63 575 
+Q 63 628 594 1113 
+Q 594 1141 592 1159 
+Q 591 1178 588 1197 
+Q 588 1472 631 1758 
+Q 675 2044 751 2328 
+Q 828 2613 943 2922 
+Q 1059 3231 1178 3463 
+Q 1384 3884 1628 4198 
+Q 1872 4513 2169 4513 
+Q 2372 4513 2459 4373 
+Q 2547 4234 2547 4025 
+Q 2547 2853 991 1269 
+Q 966 994 966 878 
+Q 966 78 1331 78 
+Q 1488 78 1642 161 
+Q 1797 244 1908 341 
+Q 2019 438 2216 628 
+Q 2228 641 2253 641 
+Q 2288 641 2319 603 
+Q 2350 566 2350 531 
+Q 2350 509 2322 488 
+Q 2038 209 1809 56 
+Q 1581 -97 1319 -97 
+Q 981 -97 817 193 
+Q 653 484 609 884 
+Q 438 713 191 488 
+Q 184 475 153 475 
+z
+M 1044 1575 
+Q 1384 1938 1681 2338 
+Q 1978 2738 2176 3180 
+Q 2375 3622 2375 4044 
+Q 2375 4347 2163 4347 
+Q 1934 4347 1696 3801 
+Q 1459 3256 1290 2622 
+Q 1122 1988 1044 1575 
+z
+" transform="scale(0.015625)"/>
+     <path id="w11t28-Cmss10-73" d="M 178 213 
+L 263 672 
+Q 716 359 1259 359 
+Q 1494 359 1659 461 
+Q 1825 563 1825 781 
+Q 1825 947 1698 1053 
+Q 1572 1159 1403 1191 
+L 1013 1269 
+Q 688 1334 450 1559 
+Q 213 1784 213 2100 
+Q 213 2391 353 2583 
+Q 494 2775 731 2862 
+Q 969 2950 1259 2950 
+Q 1538 2950 1745 2904 
+Q 1953 2859 2194 2747 
+L 2119 2297 
+Q 1888 2434 1673 2490 
+Q 1459 2547 1191 2547 
+Q 981 2547 836 2455 
+Q 691 2363 691 2163 
+Q 691 2025 800 1926 
+Q 909 1828 1063 1791 
+L 1491 1709 
+Q 1709 1659 1895 1537 
+Q 2081 1416 2192 1233 
+Q 2303 1050 2303 831 
+Q 2303 525 2167 323 
+Q 2031 122 1798 25 
+Q 1566 -72 1259 -72 
+Q 684 -72 178 213 
+z
+" transform="scale(0.015625)"/>
+     <path id="w11t28-Cmss10-79" d="M 275 -1259 
+L 238 -819 
+Q 484 -922 769 -922 
+Q 903 -922 989 -773 
+Q 1075 -625 1153 -416 
+L 1319 0 
+L 91 2841 
+L 622 2841 
+Q 850 2319 1047 1841 
+Q 1244 1363 1380 953 
+Q 1516 544 1516 347 
+Q 1519 547 1647 964 
+Q 1775 1381 1965 1875 
+Q 2156 2369 2350 2841 
+L 2853 2841 
+L 1550 -416 
+Q 1425 -716 1347 -872 
+Q 1269 -1028 1119 -1170 
+Q 969 -1313 769 -1313 
+Q 728 -1313 515 -1297 
+Q 303 -1281 275 -1259 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w11t28-Cmmi10-60" transform="translate(0 0.470313)"/>
+    <use xlink:href="#w11t28-Cmss10-73" transform="translate(53.43375 38.734375) scale(0.7)"/>
+    <use xlink:href="#w11t28-Cmss10-79" transform="translate(80.230625 38.734375) scale(0.7)"/>
+    <use xlink:href="#w11t28-Cmss10-73" transform="translate(112.49625 38.734375) scale(0.7)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<text x="20.0" y="130.0" font-size="19" font-weight="400" fill="#15803d" text-anchor="start" dominant-baseline="auto">vectors, not tokens: no arg min on this path</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<line x1="672.0" y1="82.0" x2="672.0" y2="150.0" stroke="#7c3aed" stroke-width="1.4" stroke-dasharray="4 3"/>
+<rect x="380.0" y="158.0" width="600.0" height="42.0" rx="6" fill="#ffffff" stroke="#6b7280" stroke-width="1.3"/>
+<text x="396.0" y="185.0" font-size="19" font-weight="700" fill="#6b7280" text-anchor="start" dominant-baseline="auto">W7</text>
+<text x="480.0" y="185.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">“Transcribe the speech.”</text>
+<rect x="380.0" y="208.0" width="600.0" height="42.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.3"/>
+<text x="396.0" y="235.0" font-size="19" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="auto">today</text>
+<text x="480.0" y="235.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">any instruction</text>
+<rect x="380.0" y="258.0" width="600.0" height="42.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.3"/>
+<text x="396.0" y="285.0" font-size="19" font-weight="700" fill="#7c3aed" text-anchor="start" dominant-baseline="auto">or</text>
+<text x="480.0" y="285.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">none — the speech is the question</text>
+<text x="20.0" y="200.0" font-size="19" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto" textLength="99.2" lengthAdjust="spacing">the prompt</text>
+<svg x="124.287" y="182.676" width="12.768" height="22.0661" viewBox="0 0 12.768 22.066125"><defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="w11t29-figure_1">
+  <g id="w11t29-patch_1">
+   <path d="M 0 22.066125 
+L 12.768 22.066125 
+L 12.768 0 
+L 0 0 
+L 0 22.066125 
+z
+" style="fill: none"/>
+  </g>
+  <g id="w11t29-text_1">
+   <!-- $\mathbf{p}$ -->
+   <g style="fill: #1f2328" transform="translate(0 17.324437) scale(0.228 -0.228)">
+    <defs>
+     <path id="w11t29-Cmb10-70" d="M 91 -1241 
+L 91 -916 
+L 531 -916 
+L 531 2394 
+Q 531 2503 91 2503 
+L 91 2828 
+L 1247 2881 
+L 1247 2619 
+Q 1600 2881 2047 2881 
+Q 2366 2881 2608 2765 
+Q 2850 2650 3011 2453 
+Q 3172 2256 3256 1987 
+Q 3341 1719 3341 1422 
+Q 3341 1000 3170 667 
+Q 3000 334 2679 148 
+Q 2359 -38 1941 -38 
+Q 1566 -38 1288 184 
+L 1288 -916 
+L 1728 -916 
+L 1728 -1241 
+L 91 -1241 
+z
+M 1288 581 
+Q 1519 219 1881 219 
+Q 2219 219 2358 609 
+Q 2497 1000 2497 1422 
+Q 2497 1825 2376 2211 
+Q 2256 2597 1953 2597 
+Q 1763 2597 1588 2508 
+Q 1413 2419 1288 2259 
+L 1288 581 
+z
+" transform="scale(0.015625)"/>
+    </defs>
+    <use xlink:href="#w11t29-Cmb10-70" transform="translate(0 0.984375)"/>
+   </g>
+  </g>
+ </g>
+</svg>
+<text x="142.2" y="200.0" font-size="19" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto" textLength="84.2" lengthAdjust="spacing">changes;</text>
+<text x="20.0" y="228.0" font-size="19" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">the picture does not</text>
+</g>
+</svg>
+```

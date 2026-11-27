@@ -1,0 +1,243 @@
+{
+ "date": "2026-11-27T09:01:45",
+ "tag": "",
+ "digest": "6ba7bc65f56b2177",
+ "versions": {
+  "python": "3.12.14",
+  "platform": "macOS-27.2.1-arm64-arm-64bit",
+  "numpy": "2.4.4",
+  "scipy": "1.17.1",
+  "matplotlib": "3.10.9",
+  "sounddevice": "0.5.6",
+  "torch": "2.14.0",
+  "transformers": "5.17.0",
+  "huggingface_hub": "1.32.0",
+  "mlx": "0.32.2",
+  "mlx-lm": "0.32.0"
+ },
+ "models": {
+  "speech_lm": {
+   "repo": "llm-jp/Llama-Mimi-1.3B",
+   "commit": "81996dbfdabc2057223783eb8c0929b3b83cb610",
+   "mimi_repo": "kyutai/mimi",
+   "mimi_commit": "89091b3e466eb6a9d11e537bf26b144f194978f7",
+   "device": "mps",
+   "dtype": "bfloat16",
+   "n_params": 1252657152,
+   "num_quantizers": 4,
+   "codebook_size": 2048,
+   "frame_rate": 12.5,
+   "top_k": 30,
+   "top_p_from_generation_config": 0.9,
+   "layout": {
+    "base": 128256,
+    "start": 136448,
+    "end": 136449,
+    "bos": 128000,
+    "text_vocab": 128256,
+    "vocab": 136480
+   },
+   "load_s": 1.7
+  },
+  "whisper": {
+   "repo": "openai/whisper-small",
+   "commit": "973afd24965f72e36ca33b3055d56a652f456b4d",
+   "device": "cpu"
+  },
+  "sim": {
+   "repo": "microsoft/wavlm-base-plus-sv",
+   "commit": "feb593a6c23c1cc3d9510425c29b0a14d2b07b1e",
+   "device": "cpu",
+   "threshold_from_card": 0.86
+  },
+  "text_lm": {
+   "repo": "mlx-community/gemma-4-26b-a4b-it-4bit",
+   "commit": "0d77464eeb233a2da68ebf9d7dc4edaac7db956d",
+   "mode": "chat",
+   "top_k": 30,
+   "load_s": 1.8
+  }
+ },
+ "prompt": {
+  "utterance": "1272-128104-0000",
+  "seconds": 3.2,
+  "text": "Mister Quilter is the apostle of the middle classes",
+  "rest_text": "and we are glad to welcome his gospel",
+  "rest_seconds": 2.65,
+  "n_frames": 40,
+  "n_speech_tokens": 160,
+  "text_tokens_llama": 12,
+  "expected_frames": 40,
+  "whisper": {
+   "text": "Mr. Quilter is the apostle of the middle classes.",
+   "n_words": 9,
+   "avg_logprob": -0.198,
+   "compression_ratio": 0.94,
+   "repeat_3gram": 0.0
+  },
+  "text_tokens_text_lm": 11
+ },
+ "draws": [
+  {
+   "k": 1,
+   "seed": 1,
+   "temperature": 0.8,
+   "n_new_tokens": 421,
+   "n_frames": 105,
+   "n_speech_tokens": 420,
+   "audio_s": 8.4,
+   "stop": "end tag",
+   "gen_s": 3.93,
+   "decode_s": 0.105,
+   "tokens_per_s": 107.0,
+   "rtf": 0.47,
+   "whisper": {
+    "text": "and his office has held the same post on the second floor of the apartment. Mr. Treanor is the apostle of the second floor of the House of Dogs.",
+    "n_words": 29,
+    "avg_logprob": -0.08,
+    "compression_ratio": 1.45,
+    "repeat_3gram": 0.111
+   },
+   "sim_to_prompt": 0.947
+  },
+  {
+   "k": 2,
+   "seed": 2,
+   "temperature": 0.8,
+   "n_new_tokens": 600,
+   "n_frames": 150,
+   "n_speech_tokens": 600,
+   "audio_s": 12.0,
+   "stop": "length",
+   "gen_s": 5.68,
+   "decode_s": 0.11,
+   "tokens_per_s": 105.7,
+   "rtf": 0.47,
+   "whisper": {
+    "text": "and is disposed to settle for tomorrow. He has a scrupulous and demeaning class of men who are an innocent and disgraceful person, and they are more and more superior",
+    "n_words": 30,
+    "avg_logprob": -0.045,
+    "compression_ratio": 1.39,
+    "repeat_3gram": 0.0
+   },
+   "sim_to_prompt": 0.951
+  },
+  {
+   "k": 3,
+   "seed": 3,
+   "temperature": 0.8,
+   "n_new_tokens": 600,
+   "n_frames": 150,
+   "n_speech_tokens": 600,
+   "audio_s": 12.0,
+   "stop": "length",
+   "gen_s": 5.7,
+   "decode_s": 0.055,
+   "tokens_per_s": 105.2,
+   "rtf": 0.48,
+   "whisper": {
+    "text": "and a germ of conquering Persians. This statesman has a deep intention of self-defense. He has here sometimes given the false life of his master. He was one of the largest and trust",
+    "n_words": 34,
+    "avg_logprob": -0.154,
+    "compression_ratio": 1.4,
+    "repeat_3gram": 0.0
+   },
+   "sim_to_prompt": 0.928
+  },
+  {
+   "k": 4,
+   "seed": 4,
+   "temperature": 0.5,
+   "n_new_tokens": 600,
+   "n_frames": 150,
+   "n_speech_tokens": 600,
+   "audio_s": 12.0,
+   "stop": "length",
+   "gen_s": 6.19,
+   "decode_s": 0.062,
+   "tokens_per_s": 97.0,
+   "rtf": 0.52,
+   "whisper": {
+    "text": "and is a good man in the same way. He has been given to a man by his mother. He is not a man by his wife. He has made a court man. He has made a court clerk.",
+    "n_words": 39,
+    "avg_logprob": -0.082,
+    "compression_ratio": 1.55,
+    "repeat_3gram": 0.135
+   },
+   "sim_to_prompt": 0.954
+  }
+ ],
+ "refs": {
+  "real_rest": {
+   "what": "the same utterance, after the cut (what the speaker actually said next)",
+   "whisper": {
+    "text": "and we are glad to welcome his gospel.",
+    "n_words": 8,
+    "avg_logprob": -0.117,
+    "compression_ratio": 0.86,
+    "repeat_3gram": 0.0
+   },
+   "sim_to_prompt": 0.973
+  },
+  "prompt_mimi4": {
+   "what": "the prompt itself through Mimi, 4 levels (the codec's ceiling)",
+   "sim_to_prompt": 0.951
+  },
+  "same_speaker": {
+   "what": "another utterance by the same speaker",
+   "file": "../w08_d1_mean_vs_sample/audio/prompt.wav",
+   "sim_to_prompt": 0.962
+  },
+  "other_speaker": {
+   "what": "an utterance by a different speaker",
+   "file": "audio/other_speaker.wav",
+   "sim_to_prompt": 0.593
+  }
+ },
+ "text_lm": {
+  "text_tokens_per_s": 3.42,
+  "rate_source": "w11-data.json → token_rate (W6 Demo 2)",
+  "draws": [
+   {
+    "k": 1,
+    "seed": 1,
+    "temperature": 0.8,
+    "max_tokens": 29,
+    "text": "He is the prophet of the moderate, the high priest of the temperate, and the patron saint of the sensible. He does not seek the heights",
+    "n_tokens": 29,
+    "tokens_per_s": 139.5,
+    "seconds": 0.39
+   },
+   {
+    "k": 2,
+    "seed": 2,
+    "temperature": 0.8,
+    "max_tokens": 41,
+    "text": "He is the voice of the comfortable, the herald of the moderate, and the patron saint of the sensible. He avoids the precipices of passion and the depths of despair, preferring instead the steady, level",
+    "n_tokens": 41,
+    "tokens_per_s": 138.4,
+    "seconds": 0.38
+   },
+   {
+    "k": 3,
+    "seed": 3,
+    "temperature": 0.8,
+    "max_tokens": 41,
+    "text": "He is the thin, grey line between the extremes of the radical and the reactionary. He lives in the comfortable margin, dispensing his measured wisdom and his lukewarm judgments with equal precision. To him, the world",
+    "n_tokens": 41,
+    "tokens_per_s": 136.6,
+    "seconds": 0.38
+   },
+   {
+    "k": 4,
+    "seed": 4,
+    "temperature": 0.5,
+    "max_tokens": 41,
+    "text": "He is the voice of the comfortable, the herald of the sensible, and the patron saint of the moderate. He neither seeks the heights of the sublime nor the depths of the tragic, but rather the steady",
+    "n_tokens": 41,
+    "tokens_per_s": 136.9,
+    "seconds": 0.39
+   }
+  ]
+ }
+}

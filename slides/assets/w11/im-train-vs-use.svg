@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 320" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
+<rect x="20.0" y="10.0" width="470.0" height="300.0" rx="8" fill="#ffffff" stroke="#0b5cad" stroke-width="1.4"/>
+<text x="34.0" y="38.0" font-size="22" font-weight="700" fill="#0b5cad" text-anchor="start" dominant-baseline="auto">training</text>
+<text x="40.0" y="76.0" font-size="19" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">where each word sits in time:</text>
+<text x="40.0" y="104.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">from an ASR model's word timestamps</text>
+<text x="40.0" y="132.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">(Moshi: Whisper) — or synthesised</text>
+<text x="40.0" y="160.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">straight from text corpora</text>
+<text x="40.0" y="202.0" font-size="19" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">the user's side of the dialogue:</text>
+<text x="40.0" y="230.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">mostly a TTS voice</text>
+<text x="40.0" y="272.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">the text: given, already aligned</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<rect x="510.0" y="10.0" width="470.0" height="300.0" rx="8" fill="#ffffff" stroke="#dc2626" stroke-width="1.4"/>
+<text x="524.0" y="38.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="auto">use</text>
+<text x="530.0" y="76.0" font-size="19" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">where each word sits in time:</text>
+<text x="530.0" y="104.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">nobody aligns it — the model writes</text>
+<text x="530.0" y="132.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">its own text stream, frame by frame</text>
+<text x="530.0" y="188.0" font-size="19" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">the user's side of the dialogue:</text>
+<text x="530.0" y="216.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">a real person: accent, age, noise</text>
+<text x="530.0" y="258.0" font-size="19" font-weight="700" fill="#dc2626" text-anchor="start" dominant-baseline="auto">the text: its own, errors included</text>
+</g>
+</svg>

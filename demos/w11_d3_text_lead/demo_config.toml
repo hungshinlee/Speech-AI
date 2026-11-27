@@ -1,0 +1,120 @@
+# 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
+# W11 demo 3：文字領先多少——把輸出一個 token 一個 token 印出來。換內容只改這裡。
+# 新下載的只有 LFM2.5-Audio；Whisper 沿用 W7 Demo 1 的權重與 commit，cascade 那一列沿用 W1 Demo 2 的三個後端。
+
+[model]
+# LFM2.5-Audio-1.5B（Liquid AI）：FastConformer 讀連續的語音輸入、LFM2.5 的主幹、每個 frame 由一個小的 depth transformer
+# 出 8 層 code（12.5 Hz，Mimi 相容），自己的 detokenizer 轉回 24 kHz 的波形。model card：只支援英語；
+# 授權是 LFM Open License v1.0（不是 Apache／MIT；條款在權重 repo 的 LICENSE）。
+repo = "mlx-community/LFM2.5-Audio-1.5B-8bit"
+frame_rate = 12.5
+codebooks = 8
+# 對話用的 system prompt 照 model card 逐字；交錯的比例 card 的預設是 6 : 12（設定檔裡的 interleaved_n_text／_n_audio）。
+system = "Respond with interleaved text and audio."
+# 抽樣：聲音照 card 的示例（temperature 1.0、top-k 4）；文字取 argmax（temperature 0），
+# 這樣不同比例之間文字的差別來自排法、不是來自抽樣。seed 管聲音那一半。
+text_temperature = 0.0
+audio_temperature = 1.0
+audio_top_k = 4
+seed = 1
+# 一次回答最多幾步（文字 token 與聲音 frame 合計）。300 步在 6 : 12 之下大約是 16 秒的聲音。
+max_new_tokens = 300
+# 「第一段解得出聲音的」取幾個 frame。這個模型的 detokenizer 一次解一整段，沒有串流的介面；
+# 這裡取 6 個 frame（0.48 秒）當一塊，是本 demo 的設定值——改它，「第一個聲音」那一欄跟著變。
+chunk_frames = 6
+
+[tts]
+# 問題的聲音由同一個模型念（card 的 TTS 用法：sequential、固定的 system prompt 選四個內建聲音之一；聲音的抽樣照 card）。
+# 檔案進 audio/，是合成的聲音、沒有任何人的錄音。想用自己的聲音問：./present.sh record q1
+system = "Perform TTS. Use the US female voice."
+# 文字那一半取 argmax：TTS 模式下模型的第一個 token 應該就是「開始出聲音」的標記；讓它抽樣的話，它可能先寫一串不會被用到的字。
+temperature = 0.0
+audio_temperature = 0.8
+audio_top_k = 64
+seed = 1
+
+# 前半的問題：三題，回答都要兩三句話（WER 要有足夠的詞才有意義）。現場按鍵用第一題；表格是三題合起來。
+[[questions]]
+id = "q1"
+text = "Why is the sky blue during the day, and why does it turn red at sunset?"
+[[questions]]
+id = "q2"
+text = "What is the difference between weather and climate?"
+[[questions]]
+id = "q3"
+text = "How does a refrigerator keep food cold?"
+
+# 交錯的比例 n_text : n_audio——每一輪寫幾個文字 token、接著出幾個聲音 frame。模型只在 6 : 12 上訓練過。
+[[settings]]
+key = "6:12"
+n_text = 6
+n_audio = 12
+label = "interleaved 6 : 12 (the default, trained on)"
+[[settings]]
+key = "2:12"
+n_text = 2
+n_audio = 12
+label = "interleaved 2 : 12"
+[[settings]]
+key = "12:12"
+n_text = 12
+n_audio = 12
+label = "interleaved 12 : 12"
+[[settings]]
+key = "24:12"
+n_text = 24
+n_audio = 12
+label = "interleaved 24 : 12"
+[[settings]]
+# 文字全部寫完才出聲音。這個模型在對話的 system prompt 之下做不到（它只見過 6 : 12）；做得到的方式是兩趟，見 [chain]。
+key = "all"
+chain = true
+n_text = 0
+n_audio = 0
+label = "all the text first, then speech (two passes)"
+
+[chain]
+# 第一趟：不給 system prompt、sequential——模型只寫字，寫到它自己的結束標記或這個上限。
+# 第二趟：card 的 TTS 用法（[tts] 的設定），把第一趟寫的字念出來（只念到最後一個完整的句子）。
+max_text_tokens = 120
+max_frames = 600
+# 想在第一趟的問題後面加一句打字的指示（例如要它簡短）就寫在這裡；空字串＝不加。
+user_text = ""
+
+[live]
+# 鍵 1 現場跑哪兩個設定（照順序）、鍵 2 掃哪幾個
+key1 = ["all", "6:12"]
+key2 = ["2:12", "6:12", "12:12", "24:12"]
+
+[think]
+# 後半：同一道兩步的算術題，兩種做法。
+#   plain   預設的對話（6 : 12）：邊寫邊念。
+#   reason  先想再說：第一趟不給 system prompt、sequential，只寫字（問題後面加下面那句打字的指示）；
+#           第二趟用 TTS 只把最後一句念出來。推理的 token 不會變成聲音。
+id = "q4"
+text = "A train leaves the station with forty eight passengers. At the first stop, nineteen get off and seven get on. How many passengers are on the train now?"
+expected = 36
+max_new_tokens = 300
+silent_user_text = "Think step by step. End with one short sentence that states the final answer."
+silent_max_text_tokens = 200
+
+[cascade]
+# 同一個問題走 W1 Demo 2 的管線（whisper.cpp → mlx-lm → Kokoro）：import 它的 demo.py、用它的三個後端，
+# 只把語言相關的設定換成英語。量的是 W1 的那三格（ASR tail、LLM 的第一個 token、TTS 的第一包），取中位數。
+dir = "../w01_d2_pipeline"
+repeats = 5
+language = "en"
+system_prompt = "You are a voice assistant. Answer in two or three short sentences."
+max_tokens = 80
+lang_code = "a"
+voice = "af_heart"
+
+[whisper]
+# 「念的跟寫的一不一樣」的裁判：W7 Demo 1 的 Whisper small（importlib 載它的類別；同一份權重、同一個 commit、CPU、溫度 0）。
+dir = "../w07_d1_hallucination"
+lock_from = "../w07_d1_hallucination/model.lock"
+repo = "openai/whisper-small"
+device = "cpu"
+
+[check]
+probe_steps = 60

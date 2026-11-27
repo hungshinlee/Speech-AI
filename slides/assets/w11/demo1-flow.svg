@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 400" width="100%" role="img" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<g class="fragment" data-fragment-index="0">
+<rect x="20.0" y="14.0" width="220.5" height="68.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
+<text x="130.2" y="35.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">a 3 s prompt</text>
+<text x="130.2" y="62.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">LibriSpeech dev-clean</text>
+<line x1="243.5" y1="48.0" x2="255.5" y2="48.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="263.5,48.0 255.5,53.0 255.5,43.0" fill="#94a3b8"/>
+<rect x="266.5" y="14.0" width="220.5" height="68.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="376.8" y="35.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Mimi encoder</text>
+<text x="376.8" y="62.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">4 levels: 50 tokens / s</text>
+<line x1="490.0" y1="48.0" x2="502.0" y2="48.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="510.0,48.0 502.0,53.0 502.0,43.0" fill="#94a3b8"/>
+<rect x="513.0" y="14.0" width="220.5" height="68.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="623.2" y="35.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Llama-Mimi-1.3B</text>
+<text x="623.2" y="62.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">next token, flattened</text>
+<line x1="736.5" y1="48.0" x2="748.5" y2="48.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="756.5,48.0 748.5,53.0 748.5,43.0" fill="#94a3b8"/>
+<rect x="759.5" y="14.0" width="220.5" height="68.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="869.8" y="35.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Mimi decoder</text>
+<text x="869.8" y="62.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">10–15 s of audio</text>
+<text x="623.2" y="108.0" font-size="19" font-weight="700" fill="#0b5cad" text-anchor="middle" dominant-baseline="auto">no text anywhere on this row</text>
+<text x="869.8" y="108.0" font-size="19" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">1 · we listen first</text>
+</g>
+<g class="fragment" data-fragment-index="1">
+<line x1="869.8" y1="118.0" x2="869.8" y2="144.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="869.8,152.0 864.8,144.0 874.8,144.0" fill="#94a3b8"/>
+<rect x="759.5" y="156.0" width="220.5" height="68.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="869.8" y="177.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Whisper small</text>
+<text x="869.8" y="204.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">W7: a transcript</text>
+<line x1="130.2" y1="86.0" x2="130.2" y2="144.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="130.2,152.0 125.2,144.0 135.2,144.0" fill="#94a3b8"/>
+<rect x="20.0" y="156.0" width="220.5" height="68.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="130.2" y="177.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">its transcript</text>
+<text x="130.2" y="204.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">the prompt, as text</text>
+<line x1="243.5" y1="190.0" x2="298.5" y2="190.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="306.5,190.0 298.5,195.0 298.5,185.0" fill="#94a3b8"/>
+<rect x="310.5" y="156.0" width="300.0" height="68.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="460.5" y="177.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">a text LLM (W1 Demo 2)</text>
+<text x="460.5" y="204.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">continues the same opening</text>
+<text x="869.8" y="248.0" font-size="19" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">2 · then we read</text>
+</g>
+<g class="fragment" data-fragment-index="2">
+<rect x="20.0" y="274.0" width="308.0" height="112.0" rx="8" fill="#ffffff" stroke="#15803d" stroke-width="1.4"/>
+<text x="174.0" y="302.0" font-size="19" font-weight="700" fill="#15803d" text-anchor="middle" dominant-baseline="auto">the prompt, in words</text>
+<text x="174.0" y="352.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="middle" dominant-baseline="auto">the opening words</text>
+<rect x="346.0" y="274.0" width="308.0" height="112.0" rx="8" fill="#ffffff" stroke="#0b5cad" stroke-width="1.4"/>
+<text x="500.0" y="302.0" font-size="19" font-weight="700" fill="#0b5cad" text-anchor="middle" dominant-baseline="auto">the speech LM, transcribed</text>
+<text x="500.0" y="352.0" font-size="22" font-weight="700" fill="#0b5cad" text-anchor="middle" dominant-baseline="auto">?</text>
+<rect x="672.0" y="274.0" width="308.0" height="112.0" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.4"/>
+<text x="826.0" y="302.0" font-size="19" font-weight="700" fill="#7c3aed" text-anchor="middle" dominant-baseline="auto">the text LLM</text>
+<text x="826.0" y="352.0" font-size="22" font-weight="700" fill="#7c3aed" text-anchor="middle" dominant-baseline="auto">?</text>
+</g>
+</svg>

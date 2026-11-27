@@ -14,7 +14,7 @@
 | [W8](weeks/w08.qmd) | TTS I | Lipman et al., *Flow Matching for Generative Modeling*, ICLR 2023 |
 | [W9](weeks/w09.qmd) | TTS II | Rafailov et al., *DPO*, NeurIPS 2023 + ITU-T P.808 |
 | [W10](weeks/w10.qmd) | Acoustic front end | Iwamoto et al., *How Bad Are Artifacts?*, Interspeech 2022 + Haeb-Umbach et al., *Far-Field Automatic Speech Recognition*, Proc. IEEE 2021 |
-| W11 | Audio-native LM | Défossez et al., *Moshi*, arXiv:2410.00037 |
+| [W11](weeks/w11.qmd) | Audio-native LM | Défossez et al., *Moshi*, arXiv:2410.00037 |
 | W12 | Turn-taking | Skantze, *Turn-Taking in Conversational Systems: A Review*, CSL 2021 |
 | W13 | Full-duplex architectures | Nguyen et al., *dGSLM*, TACL 2023 |
 | W14 | Evaluation and alignment | Lin et al., *Full-Duplex-Bench*, ASRU 2025 |
