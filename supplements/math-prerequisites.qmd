@@ -1,0 +1,98 @@
+---
+title: "Math Prerequisites: Six Things the First Four Weeks Use"
+subtitle: "數學前置清單：前四週用到的六件事"
+toc-depth: 2
+---
+
+<!-- 此檔由 scripts/build_weeks.py 自動產生，請勿直接編輯；請改 supplements/*.md 後重跑腳本。 -->
+
+<!-- 此檔由 bin/publish_supplements.py 從 private repo 的 <course>/supplements/ 過濾產生，請勿在公開 repo 直接編輯。 -->
+
+這門課沒有先修要求，但前四週的投影片會用到六件數學上的事。這一頁把它們各用幾行寫完：**一句白話、一條式子、投影片在哪裡用到、一題自我檢查**。答案在最後。
+
+每一項都會在課堂上用到之前再講一次，所以這一頁不是門檻，是對照表：課堂上哪一步沒跟上，回來找那一項。記號與投影片相同——向量與矩陣是粗體（$\mathbf{x}$、$\mathbf{X}$），純量是斜體（$T$、$\mu$），對數一律是自然對數 $\ln$。
+
+## 1. 求和與平均
+
+**白話**：$\sum$ 是「把下面這些一個一個加起來」；平均是加起來再除以個數。
+
+$$\sum_{j=0}^{C-1} j = 0 + 1 + \dots + (C-1) = \frac{C(C-1)}{2}$$
+
+**在哪裡用到**：第一週〈Why $\alpha$ is an interval〉。模型每 $C$ 個 frame 處理一次，一個 frame 落在這一塊的第 $j$ 格時要等 $(C-1-j)\Delta$ 才輪到它；對 $j$ 取平均：
+
+$$\frac{1}{C}\sum_{j=0}^{C-1}(C-1-j)\,\Delta = \frac{C-1}{2}\,\Delta$$
+
+**自我檢查 1**：$C = 4$、$\Delta = 10$ ms。四個位置各等多久？平均是多少？
+
+## 2. 向量、內積與投影
+
+**白話**：內積回答「這個向量裡，有多少是那個方向的」。
+
+$$\langle \mathbf{x}, \mathbf{b} \rangle = \sum_{n} x(n)\, b(n)$$
+
+（$\mathbf{b}$ 是複數向量時，右邊的 $b(n)$ 要取共軛——第 3 項會用到。）$\mathbf{b}$ 的長度是 1 時，$\langle \mathbf{x}, \mathbf{b} \rangle$ 就是 $\mathbf{x}$ 在 $\mathbf{b}$ 上的**投影**有多長。兩個向量的內積是 0，叫**正交**：彼此裡面完全沒有對方的成分。一組兩兩正交的向量可以當座標軸——把 $\mathbf{x}$ 對每一根軸做內積，得到的那一串數字就是 $\mathbf{x}$ 在新座標裡的位置，什麼都沒有丟。
+
+**在哪裡用到**：第二週〈A spectrum is a set of inner products〉——頻譜的每一個數字都是一個內積。第二週的 mel 濾波器、第五週以後的「兩個表徵像不像」（cosine similarity）也是它。
+
+**自我檢查 2**：$\mathbf{x} = (3, 4)$。它在 $\mathbf{b}_1 = (1, 0)$ 上的投影多長？在 $\mathbf{b}_2 = \tfrac{1}{\sqrt{2}}(1, 1)$ 上呢？$\mathbf{b}_1$ 與 $\mathbf{b}_2$ 正交嗎？
+
+## 3. 複數與 Euler 公式
+
+**白話**：一個複數同時記兩件事——多大（magnitude），和轉了多少（phase）。
+
+$$e^{j\theta} = \cos\theta + j\sin\theta, \qquad z = a + jb \;\Rightarrow\; |z| = \sqrt{a^2 + b^2}, \quad \angle z = \operatorname{atan2}(b, a)$$
+
+工程上虛數單位寫 $j$（$j^2 = -1$）。$e^{j\theta}$ 是單位圓上角度 $\theta$ 的那一點；$\theta$ 隨時間等速增加，它就繞著圓轉——實部是 cosine，虛部是 sine。所以「一個頻率」可以用一個複指數 $\mathbf{b}_k(n) = e^{j2\pi kn/N}$ 表示。
+
+**在哪裡用到**：第二週的 DFT，$X(k) = \langle \mathbf{x}, \mathbf{b}_k \rangle = \sum_{n=0}^{N-1} x(n)\, e^{-j2\pi kn/N}$（指數上的負號就是第 2 項說的共軛）。$|X(k)|$ 是訊號裡這個頻率有多少，$\angle X(k)$ 是那個波形要平移多少才對得上。
+
+**自我檢查 3**：$z = 1 + j$ 的 magnitude 與 phase 各是多少？$e^{j\pi}$ 等於多少？
+
+## 4. 機率的三條規則
+
+**白話**：(a) 看不到的變數，把它所有可能的值加起來；(b) 一串事情一起發生的機率，可以拆成一個接一個的條件機率；(c) 「條件獨立」是一個**假設**，它把 (b) 的每一項簡化。
+
+$$\text{(a) 邊際化：}\quad P(\ell \mid \mathbf{X}) = \sum_{\pi} P(\ell, \pi \mid \mathbf{X})$$
+
+$$\text{(b) chain rule：}\quad P(\pi \mid \mathbf{X}) = \prod_{t=1}^{T} P(\pi_t \mid \pi_{1:t-1}, \mathbf{X})$$
+
+$$\text{(c) 條件獨立（假設）：}\quad P(\pi_t \mid \pi_{1:t-1}, \mathbf{X}) = P(\pi_t \mid \mathbf{X})$$
+
+(a) 與 (b) 永遠成立；(c) 不是定理，是模型的設計選擇，選了就要付代價。直線 $\mid$ 右邊是「已經知道的」，左邊是「在問的」。
+
+**在哪裡用到**：第三週〈Marginalisation: sum out what you cannot see〉與〈Chain rule, then conditional independence〉——$\pi$ 是「哪一格 frame 對哪一個符號」的對齊，沒有人標過，所以對它求和；CTC 的全部假設就是 (c) 那一行。第四週的 RNN-T 把 (c) 拿掉一部分。
+
+**自我檢查 4**：一個詞有兩種對齊方式能產生它，機率分別是 0.06 與 0.04，其他對齊都產生不了它。這個詞的機率是多少？如果第一格是符號 a 的機率 0.5、第二格是 b 的機率 0.2，而且兩格條件獨立，路徑 (a, b) 的機率是多少？
+
+## 5. 對數：乘變加，加變 log-sum-exp
+
+**白話**：很多個小於 1 的數乘在一起，電腦會把它算成 0；先取對數，乘法就變成加法。
+
+$$\ln \prod_t y_t = \sum_t \ln y_t, \qquad \ln \sum_i e^{a_i} = a^{*} + \ln \sum_i e^{a_i - a^{*}}, \quad a^{*} = \max_i a_i$$
+
+第二條是「在對數的世界裡做加法」：手上只有 $a_i = \ln p_i$，要的是 $\ln(p_1 + p_2 + \dots)$。先把最大的 $a^{*}$ 提出來，剩下的指數都不大於 0，不會溢位。例：$\ln p_1 = -1000$、$\ln p_2 = -1001$；直接算 $e^{-1000}$ 在電腦裡是 0，但 $-1000 + \ln(1 + e^{-1}) = -1000 + 0.313 = -999.687$ 算得出來。
+
+**在哪裡用到**：第三週〈Log domain: products become sums, sums become log-sum-exp〉，之後每一個 forward 演算法、每一個 loss 都在對數域裡算。損失函數寫成 $-\ln P$ 也是這個原因：機率越大，$-\ln P$ 越小。
+
+**自我檢查 5**：$\ln p_1 = -3$、$\ln p_2 = -4$，$\ln(p_1 + p_2)$ 是多少？（$\ln(1 + e^{-1}) = 0.313$。）
+
+## 6. softmax、loss 與梯度下降
+
+**白話**：softmax 把一排任意的分數變成一排加起來是 1 的機率；loss 量「正確答案被給了多少機率」；梯度告訴每一個分數該往哪邊動，梯度下降就照著動一小步。
+
+$$y_k = \frac{e^{u_k}}{\sum_j e^{u_j}}, \qquad \mathcal{L} = -\ln y_{k^{*}}, \qquad \frac{\partial \mathcal{L}}{\partial u_j} = y_j - [\,j = k^{*}\,], \qquad \theta \leftarrow \theta - \eta\, \nabla_\theta \mathcal{L}$$
+
+$u_k$ 是網路給第 $k$ 個符號的分數（logit），$k^{*}$ 是正確答案，$[\,\cdot\,]$ 在條件成立時是 1、否則是 0，$\eta$ 是步長（learning rate）。第三條值得記：**梯度＝模型給的機率，減掉它應該給的**。正確答案那一格是 $y_{k^{*}} - 1$（負的，所以分數會被往上推），其他格是 $y_j$（正的，往下壓）。
+
+**在哪裡用到**：第三週 CTC 的梯度是同一個形狀，只是「應該給的」從 0 或 1 換成一個介於中間的數 $\gamma_t(k)$——因為正確的對齊不知道，只知道每一格是每個符號的後驗機率；第四週的 RNN-T 也是。這門課不要求訓練模型，但每一個 loss 的讀法都從這一行來。
+
+**自我檢查 6**：兩個符號，分數 $\mathbf{u} = (0, 0)$，正確答案是第一個。$\mathbf{y}$、$\mathcal{L}$ 與 $\partial \mathcal{L} / \partial \mathbf{u}$ 各是多少？
+
+## 答案
+
+1. 等 30、20、10、0 ms；平均 15 ms，就是 $\tfrac{C-1}{2}\Delta = 1.5 \times 10$。
+2. 3；$\tfrac{3 + 4}{\sqrt{2}} = 4.95$；不正交——$\langle \mathbf{b}_1, \mathbf{b}_2 \rangle = \tfrac{1}{\sqrt{2}} \neq 0$。
+3. $|z| = \sqrt{2}$、$\angle z = \pi/4$（45°）；$e^{j\pi} = -1$。
+4. $0.06 + 0.04 = 0.10$（邊際化）；$0.5 \times 0.2 = 0.10$（條件獨立時相乘）。
+5. $-3 + \ln(1 + e^{-1}) = -2.687$。
+6. $\mathbf{y} = (0.5, 0.5)$；$\mathcal{L} = -\ln 0.5 = 0.693$；$\partial \mathcal{L} / \partial \mathbf{u} = (0.5 - 1,\; 0.5) = (-0.5, 0.5)$。
