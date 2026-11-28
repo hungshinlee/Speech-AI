@@ -399,36 +399,40 @@ z
 <text x="765.9" y="90.8" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto" textLength="24.6" lengthAdjust="spacing">dB</text>
 </g>
 <g class="fragment" data-fragment-index="1">
-<text x="20.0" y="140.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="auto">every noisy sentence → three front ends → two recognisers:</text>
-<rect x="20.0" y="152.0" width="200.0" height="96.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="120.0" y="174.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">none</text>
-<text x="120.0" y="206.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">the noisy sentence,</text>
-<text x="120.0" y="231.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">as it is</text>
-<rect x="230.0" y="152.0" width="200.0" height="96.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
-<text x="330.0" y="174.0" font-size="19" font-weight="600" fill="#0b5cad" text-anchor="middle" dominant-baseline="middle">statistical</text>
-<text x="330.0" y="206.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">a few lines of numpy:</text>
-<text x="330.0" y="231.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">a gain for every cell</text>
-<rect x="440.0" y="152.0" width="200.0" height="96.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
-<text x="540.0" y="174.0" font-size="19" font-weight="600" fill="#7c3aed" text-anchor="middle" dominant-baseline="middle">MetricGAN+</text>
-<text x="540.0" y="206.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">a neural network;</text>
-<text x="540.0" y="231.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">its target: PESQ</text>
-<line x1="644.0" y1="200.0" x2="664.0" y2="200.0" stroke="#94a3b8" stroke-width="1.6"/>
-<polygon points="672.0,200.0 664.0,205.0 664.0,195.0" fill="#94a3b8"/>
-<rect x="676.0" y="152.0" width="304.0" height="44.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="828.0" y="174.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">CTC, clean-trained (W3)</text>
-<rect x="676.0" y="204.0" width="304.0" height="44.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
-<text x="828.0" y="226.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Whisper small (W7)</text>
+<text x="20.0" y="140.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="auto">every noisy sentence → four front ends → two recognisers:</text>
+<rect x="20.0" y="152.0" width="164.0" height="96.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="102.0" y="174.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">none</text>
+<text x="102.0" y="206.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">the noisy input,</text>
+<text x="102.0" y="231.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">as it is</text>
+<rect x="190.0" y="152.0" width="164.0" height="96.0" rx="6" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.2"/>
+<text x="272.0" y="174.0" font-size="19" font-weight="600" fill="#0b5cad" text-anchor="middle" dominant-baseline="middle">statistical</text>
+<text x="272.0" y="206.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">numpy: a gain</text>
+<text x="272.0" y="231.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">for every cell</text>
+<rect x="360.0" y="152.0" width="164.0" height="96.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="442.0" y="174.0" font-size="19" font-weight="600" fill="#7c3aed" text-anchor="middle" dominant-baseline="middle">MetricGAN+</text>
+<text x="442.0" y="206.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">a network;</text>
+<text x="442.0" y="231.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">its target: PESQ</text>
+<rect x="530.0" y="152.0" width="164.0" height="96.0" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="612.0" y="174.0" font-size="19" font-weight="600" fill="#7c3aed" text-anchor="middle" dominant-baseline="middle">SepFormer</text>
+<text x="612.0" y="206.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">a separation net,</text>
+<text x="612.0" y="231.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="middle" dominant-baseline="auto">for denoising</text>
+<line x1="698.0" y1="200.0" x2="714.0" y2="200.0" stroke="#94a3b8" stroke-width="1.6"/>
+<polygon points="722.0,200.0 714.0,205.0 714.0,195.0" fill="#94a3b8"/>
+<rect x="726.0" y="152.0" width="254.0" height="44.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="853.0" y="174.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">CTC, clean-trained (W3)</text>
+<rect x="726.0" y="204.0" width="254.0" height="44.0" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="853.0" y="226.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle" dominant-baseline="middle">Whisper small (W7)</text>
 </g>
 <g class="fragment" data-fragment-index="2">
 <text x="20.0" y="284.0" font-size="19" font-weight="600" fill="#1f2328" text-anchor="start" dominant-baseline="auto">on the screen — first by ear, then by the recognisers:</text>
-<rect x="20.0" y="296.0" width="290.0" height="34.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
-<text x="32.0" y="319.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">key 1: which sounds best</text>
-<text x="290.0" y="314.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
-<rect x="326.0" y="296.0" width="330.0" height="34.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
-<text x="338.0" y="319.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">keys 2, 3: WER against SNR</text>
-<text x="636.0" y="314.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
-<rect x="672.0" y="296.0" width="308.0" height="34.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
-<text x="684.0" y="319.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">key 4: how each one fails</text>
+<rect x="20.0" y="296.0" width="312.0" height="34.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="32.0" y="319.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">keys 1, x: which sounds best</text>
+<text x="312.0" y="314.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+<rect x="348.0" y="296.0" width="312.0" height="34.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="360.0" y="319.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">keys 2, 3: WER against SNR</text>
+<text x="640.0" y="314.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
+<rect x="676.0" y="296.0" width="304.0" height="34.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="688.0" y="319.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">key 4: how each one fails</text>
 <text x="960.0" y="314.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
 <rect x="20.0" y="336.0" width="960.0" height="34.0" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
 <text x="32.0" y="359.8" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="auto">at 0 dB — noisy as it is, or enhanced: which gets the lower WER; the same for both recognisers</text>

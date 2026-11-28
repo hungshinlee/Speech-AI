@@ -58,7 +58,7 @@ cd w11_d1_speech_continuation
 ./present.sh replay                        # the same without loading any model
 ```
 
-`runs/rehearsal/` holds the audio and numbers behind the slide. Sampling is seeded, but a different machine, device or precision gives different continuations — that is expected, and it is part of the point: every draw is different, and each of them sounds like speech.
+`runs/rehearsal/` holds the audio and numbers behind the slide — **except the four continuations themselves**: their audio (`draw_*.wav`, `cont_*.wav`) and their transcripts are not in this repository. They are unreviewed samples from the model, so run `./present.sh rehearse` to make and hear your own; `replay` still shows the numbers and plays the prompt, the real continuation and the codec's ceiling. Sampling is seeded, but a different machine, device or precision gives different continuations — that is expected, and it is part of the point: every draw is different, and each of them sounds like speech.
 
 The text LLM is a 26B model (about 15 GB at 4-bit); `./present.sh rehearse --no-text` skips it, and `--text-repo <repo>` substitutes another `mlx-lm` model. In `demo_config.toml`, `[text_lm] mode = "chat"` (the setting used for the rehearsal) asks the model for a continuation with one instruction; `"raw"` feeds the prompt's words as the start of the sequence with no chat template — the same thing the speech model is asked to do, but this text model is instruction-tuned and, without its template, produced only repeated fragments (rehearsal of 2026-11-26). So the comparison is not like for like: the speech model continues, the text model is *asked* to continue.
 

@@ -182,6 +182,10 @@ $c-muted: #6b7280;
   td:first-child, th:first-child { white-space: normal; }
 }
 
+// 首欄是句子的表：包在 ::: {.wrap1} 裡，首欄允許換行。2026-11-28 從 W7–W11 各自的 YAML 搬來
+// （`speech_ai/CLAUDE.md` 4.171；規則逐字相同。W12 的 YAML 還留一份，重複無害）。這一段是本課專屬，NLP-LLM 的 theme 沒有。
+.reveal .wrap1 table td:first-child, .reveal .wrap1 table th:first-child { white-space: normal; }
+
 // ── 引用與出處 ──────────────────────────────────────────────
 .reveal .cite {                    // T5
   font-size: $fs-meta;

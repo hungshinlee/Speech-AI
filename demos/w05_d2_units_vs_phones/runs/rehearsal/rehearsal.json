@@ -1937,7 +1937,7 @@
   },
   "seq_meta": {
    "key": "1272-128104-0000",
-   "wav": "/Users/winston/Course-Hub/speech_ai/demos/_media/w05_d1/wav/1272-128104-0000.wav",
+   "wav": "<demos>/_media/w05_d1/wav/1272-128104-0000.wav",
    "T": 292,
    "T_model": 292,
    "T_mfcc": 293,
@@ -4542,5 +4542,6 @@
     }
    }
   ]
- }
+ },
+ "_redacted": "keys ['sentence.seq_meta.wav'] were replaced before publishing (bin/publish_demos.py); see this demo's README"
 }

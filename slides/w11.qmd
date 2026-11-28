@@ -30,12 +30,7 @@ format:
     # 講稿（notes 區塊）裡的數學只輸出 MathML（與 w02.qmd～w10.qmd 相同的做法）。
     # presenter view 是另一個視窗，沒有 KaTeX 的 CSS；KaTeX 預設同時輸出 HTML 與 MathML，
     # 沒有 CSS 時兩份都會顯示，符號就重複了（例如 ℓℓ）。MathML 由瀏覽器原生排版，不需要 CSS。
-    # 本 deck 自用：表格首欄允許換行（theme 的 .reveal table 首欄是 nowrap，首欄是句子的表要包在 ::: {.wrap1} 裡）。
-    include-in-header:
-      - text: |
-          <style>
-          .reveal .wrap1 table td:first-child, .reveal .wrap1 table th:first-child { white-space: normal; }
-          </style>
+    # 表格首欄換行的 .wrap1 在 theme.scss（2026-11-28 從各 deck 的 YAML 搬過去）。
     include-after-body:
       - text: |
           <script>
@@ -310,7 +305,7 @@ Demo 1 · Mimi: W6 p36 · Whisper small: W7 · the text LLM: W1 Demo 2
 ::: {.fragment fragment-index=1}
 | | what we observed |
 |:---------|:-----------|
-| by ear: the same voice? a natural rhythm? | |
+| by ear: the same voice? a natural rhythm? | to be heard |
 | by transcript: grammatical? on the subject? for how long? | Sentences in all four draws; none stays with Mr Quilter. The cooler draw ($0.5$) starts to circle. |
 | the text LLM, continuing the same words | On the subject, all four: "He is the prophet of the moderate, the high priest of the temperate, …" |
 | the prompt: 3.2 s = 40 frames × 4 = 160 speech tokens — and as text tokens | $11$ text tokens: $14.5\times$ fewer |

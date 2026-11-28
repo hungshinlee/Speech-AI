@@ -30,12 +30,7 @@ format:
     # 講稿（notes 區塊）裡的數學只輸出 MathML（與 w02.qmd～w09.qmd 相同的做法）。
     # presenter view 是另一個視窗，沒有 KaTeX 的 CSS；KaTeX 預設同時輸出 HTML 與 MathML，
     # 沒有 CSS 時兩份都會顯示，符號就重複了（例如 ℓℓ）。MathML 由瀏覽器原生排版，不需要 CSS。
-    # 本 deck 自用：表格首欄允許換行（theme 的 .reveal table 首欄是 nowrap，首欄是句子的表要包在 ::: {.wrap1} 裡）。
-    include-in-header:
-      - text: |
-          <style>
-          .reveal .wrap1 table td:first-child, .reveal .wrap1 table th:first-child { white-space: normal; }
-          </style>
+    # 表格首欄換行的 .wrap1 在 theme.scss（2026-11-28 從各 deck 的 YAML 搬過去）。
     include-after-body:
       - text: |
           <script>
@@ -268,9 +263,9 @@ Demo 1 · demos/w10_d1_echo_nlms · today: step one · the rest: p34–p35
 ::: {.fragment fragment-index=1}
 | what is subtracted from $y(n)$ | what is left, by ear | residual level, re. the microphone |
 |:----------|:--------|:--------|
-| nothing — the raw microphone | | $0$ dB, by definition |
-| $x(n)$, as played | | $+13.1$ dB: louder than before |
-| $g\,x(n - D)$: delayed to line up with the echo, scaled to fit | | $-0.9$ dB ($D = 141$ ms, $g = 0.10$) |
+| nothing — the raw microphone | to be heard | $0$ dB, by definition |
+| $x(n)$, as played | ″ | $+13.1$ dB: louder than before |
+| $g\,x(n - D)$: delayed to line up with the echo, scaled to fit | ″ | $-0.9$ dB ($D = 141$ ms, $g = 0.10$) |
 :::
 
 ::: {.footer}
@@ -730,7 +725,7 @@ SI-SDR: Le Roux et al. 2019 (W2 p72) · MetricGAN+: Fu et al. 2021 · W9 p54: ju
 | | |
 |:---|:-----------------|
 | **Why** | The judges enhancement is trained against were built for human ears, or count energy. The judge that matters here is the recogniser. Do the two kinds agree? This is one of the course's six core failure cases. |
-| **What runs** | 40 LibriSpeech sentences, with white noise added at five SNRs, from $20$ down to $-5$ dB. **Three front ends**: none; a statistical one written in `numpy`; a neural one trained with PESQ as its target (MetricGAN+). **Two recognisers**, chosen to differ: a CTC model that has only heard clean read speech (W3), and Whisper small (W7). The next slide draws it. |
+| **What runs** | 40 LibriSpeech sentences, with white noise added at five SNRs, from $20$ down to $-5$ dB. **Four front ends**: none; a statistical one written in `numpy`; a neural one trained with PESQ as its target (MetricGAN+); a separation network trained for denoising (SepFormer). **Two recognisers**, chosen to differ: a CTC model that has only heard clean read speech (W3), and Whisper small (W7). The next slide draws it. |
 | **Watch for** | At 0 dB: which has the lower WER — the noisy sentence, or the enhanced one? **Is the answer the same for both recognisers?** And when each recogniser fails on enhanced speech: what does the failure look like? |
 :::
 
@@ -758,9 +753,11 @@ Demo 2 · demos/w10_d2_enhance_wer · computed at rehearsal, read back today · 
 | CTC, clean-trained (W3) | none | $3.9$ | $19.3$ | $55.6$ | $93.9$ | $100.0$ |
 | | statistical | $3.9$ | $10.2$ | $26.2$ | $58.7$ | $87.9$ |
 | | MetricGAN+ | $4.5$ | $21.5$ | $55.3$ | $92.2$ | $99.5$ |
+| | SepFormer | $2.4$ | $6.2$ | $16.4$ | $41.2$ | $67.4$ |
 | Whisper small (W7) | none | $3.8$ | $6.2$ | $11.1$ | $40.5$ | $53.1$ |
 | | statistical | $3.8$ | $5.9$ | $12.0$ | $23.4$ | $56.6$ |
 | | MetricGAN+ | $6.0$ | $17.4$ | $43.3$ | $86.6$ | $99.1$ |
+| | SepFormer | $3.8$ | $7.4$ | $14.9$ | $34.4$ | $63.6$ |
 :::
 
 ::: {.footer}
@@ -863,7 +860,16 @@ toy vectors: $\hat{\mathbf{s}} = 0.9\,\mathbf{s} + 0.2\,\mathbf{v} + 0.3\,\mathb
 |:-------|:--|:--|:--|:--|:--|
 | SNR, SAR (dB) | $20.9$, $-3.2$ | $9.5$, $1.8$ | $5.2$, $6.6$ | $2.2$, $14.3$ | $0$, $\infty$ |
 | WER — CTC; Whisper | $92.2$; $86.6$ | $85.6$; $38.9$ | $87.7$; $28.9$ | $91.6$; $25.3$ | $93.9$; $40.5$ |
-| real speech called spoof by AASIST (W9 Demo 3) | $40/40$ | $36/40$ | $40/40$ | $40/40$ | $40/40$ |
+:::
+
+::: {.fragment fragment-index=1}
+::: {.small}
+And W9's spoofing detector (AASIST, W9 Demo 3) on the same 40 real sentences **with no noise added** — with noise, it calls nearly all of them spoof:
+:::
+
+| front end | as recorded | statistical | MetricGAN+ | SepFormer |
+|:-------|:--|:--|:--|:--|
+| real speech called spoof, of 40 | $11$ | $20$ | $14$ | $11$ |
 :::
 
 ::: {.footer}

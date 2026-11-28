@@ -30816,7 +30816,7 @@
      "tokens_30min_speech_only": 6148.590947907771
     }
    },
-   "tokenizer_path": "/Users/winston/Data/04_checkpoints/pretrained/hf_home/hub/models--mlx-community--gemma-4-26b-a4b-it-4bit/snapshots/0d77464eeb233a2da68ebf9d7dc4edaac7db956d",
+   "tokenizer_path": "<local Hugging Face cache>/models--mlx-community--gemma-4-26b-a4b-it-4bit/snapshots/0d77464eeb233a2da68ebf9d7dc4edaac7db956d",
    "tokenizer_class": "GemmaTokenizer"
   }
  },
@@ -32716,5 +32716,6 @@
     }
    }
   }
- }
+ },
+ "_redacted": "keys ['budget.text.tokenizer_path'] were replaced before publishing (bin/publish_demos.py); see this demo's README"
 }

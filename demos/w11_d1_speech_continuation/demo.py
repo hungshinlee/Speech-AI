@@ -599,7 +599,9 @@ def summary(rec: dict) -> dict:
             "whisper": {"avg_logprob_draws": [d["whisper"]["avg_logprob"] for d in dr if "whisper" in d],
                         "avg_logprob_real_speech": rec.get("refs", {}).get("real_rest", {}).get("whisper", {}).get("avg_logprob"),
                         "compression_ratio_draws": [d["whisper"]["compression_ratio"] for d in dr if "whisper" in d]},
-            "draws": [{"seed": d["seed"], "temperature": d["temperature"], "transcript": d.get("whisper", {}).get("text")} for d in dr],
+            # 逐字稿不寫進 w11-metrics.json（2026-11-28，使用者決定抽樣的內容先不上站；speech_ai/CLAUDE.md 4.171）——
+            # 這個檔隨投影片的 assets 原樣上站、沒有遮蔽的通道。逐字稿在 runs/rehearsal/rehearsal.json（上站的複本遮蔽了）。
+            "draws": [{"seed": d["seed"], "temperature": d["temperature"]} for d in dr],
             "text_lm_draws": [{"seed": t["seed"], "text": t["text"]} for t in rec.get("text_lm", {}).get("draws", [])]}
 
 

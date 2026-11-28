@@ -30,12 +30,7 @@ format:
     # 講稿（notes 區塊）裡的數學只輸出 MathML（與 w02.qmd～w08.qmd 相同的做法）。
     # presenter view 是另一個視窗，沒有 KaTeX 的 CSS；KaTeX 預設同時輸出 HTML 與 MathML，
     # 沒有 CSS 時兩份都會顯示，符號就重複了（例如 ℓℓ）。MathML 由瀏覽器原生排版，不需要 CSS。
-    # 本 deck 自用：表格首欄允許換行（theme 的 .reveal table 首欄是 nowrap，首欄是句子的表要包在 ::: {.wrap1} 裡）。
-    include-in-header:
-      - text: |
-          <style>
-          .reveal .wrap1 table td:first-child, .reveal .wrap1 table th:first-child { white-space: normal; }
-          </style>
+    # 表格首欄換行的 .wrap1 在 theme.scss（2026-11-28 從各 deck 的 YAML 搬過去）。
     include-after-body:
       - text: |
           <script>
@@ -246,7 +241,7 @@ Demo 1 · demos/w09_d1_cloning_leak · all twelve outputs are computed before th
 | + music | $-28.3$ | $-34.2$ | $-26.7$ |
 | telephone band — energy above 4 kHz (dB; clean) | $-41.5$ ($-13.8$) | $-52.0$ ($-7.8$) | $-45.8$ ($-17.8$) |
 | SIM vs the clean prompt / vs that version (+ noise row) | $0.864$ / $0.893$ | $0.874$ / $0.932$ | $0.907$ / $0.948$ |
-| what we heard | | | |
+| what we heard | to be heard | ″ | ″ |
 :::
 
 ::: {.footer}
@@ -263,7 +258,7 @@ A prompt spoken with an obvious mood; the sentence to read is neutral. A Mandari
 | the prompt | the text to read | F5-TTS | Qwen3-TTS |
 |:---------|:-----|:----|:----|
 | one sentence in an obvious mood (the lecturer's own voice; $F_0$ span $17.3$ semitones) | a neutral sentence | span $11.3$ | span $17.1$ |
-| a Mandarin prompt (the lecturer's own voice) | an English sentence | | |
+| a Mandarin prompt (the lecturer's own voice) | an English sentence | to be heard | ″ |
 :::
 
 ::: {.claim}
@@ -971,10 +966,10 @@ Demo 2 · rehearsed 2026-11-14, M5 Max → w09-metrics.json → demo2 · last tw
 
 | the judge | its first choice | syllables / s | std of log-$F_0$, semitones | what we heard |
 |:---|:---|:---|:---|:---|
-| WER (Whisper) | draw 2 — tied with 7, 8, 9, 12 | $3.90$ (the five: $4.07$) | $5.81$ (the five: $4.93$) | |
-| SIM | draw 8 | $4.22$ | $5.19$ | |
-| predicted MOS | draw 2 | $3.90$ | $5.81$ | |
-| the lecturer, by ear (blind) | draw 8 | $4.22$ | $5.19$ | |
+| WER (Whisper) | draw 2 — tied with 7, 8, 9, 12 | $3.90$ (the five: $4.07$) | $5.81$ (the five: $4.93$) | to be heard |
+| SIM | draw 8 | $4.22$ | $5.19$ | ″ |
+| predicted MOS | draw 2 | $3.90$ | $5.81$ | ″ |
+| the lecturer, by ear (blind) | draw 8 | $4.22$ | $5.19$ | ″ |
 
 ::: {.ask}
 Are the four first choices the same draw?
@@ -1346,7 +1341,7 @@ p79–p80 · as with "DER depends on the collar": a number does not travel witho
 :::
 
 ::: {.claim .warn}
-And the other direction: **genuine speech** that has passed through an enhancer or a codec may be called fake. A detector trained on vocoded real speech learns the vocoder's traces (Wang & Yamagishi 2023) — not "syntheticness".
+And the other direction: **genuine speech** that has passed through an enhancer, or a codec at a low bitrate, may be called fake. A detector trained on vocoded real speech learns the vocoder's traces (Wang & Yamagishi 2023) — not "syntheticness".
 :::
 
 ::: {.footer}
@@ -1441,13 +1436,14 @@ Demo 3 · demos/w09_d3_two_defences · AASIST (2019 LA weights) · AudioSeal
 ## Demo 3 — the detector: a 2019 judge meets 2025 generators
 
 ::: {.ask}
-**Demo 3, first half.** A detector trained on 2019 data. Does it catch F5, Qwen3-TTS, Kokoro? And real speech that has been through Mimi or EnCodec: genuine, or fake?
+**Demo 3, first half.** A detector trained on 2019 data. Does it catch F5, Qwen3-TTS, Kokoro? And forty real speakers, one sentence each: how many does it call fake?
 :::
 
 ::: {.fragment .wrap1 fragment-index=1}
 | the audio | the score $s(\mathbf{x})$ | called |
 |:----------|:-----|:-----|
-| real: dev-clean; the lecturer, live | $+1.90$ · rehearsal take: $-5.58$ | bona fide · **spoof** |
+| real: one dev-clean sentence; the lecturer, live | $+1.90$ · rehearsal take: $-5.58$ | bona fide · **spoof** |
+| real: 40 dev-clean speakers, one sentence each | median $+1.91$; from $-3.69$ to $+8.35$ | **11 of 40 spoof** |
 | W2 Demo 2: Griffin-Lim | $-4.53$ | spoof |
 | W8: SpeechT5 + HiFi-GAN · F5 + Vocos | $-2.23$ · $-0.82$ | spoof · spoof |
 | W8: Kokoro · Qwen3-TTS · MMS-TTS `nan` | $+3.41$ · $+1.65$ · $-3.89$ | **bona fide · bona fide** · spoof |
@@ -1455,7 +1451,7 @@ Demo 3 · demos/w09_d3_two_defences · AASIST (2019 LA weights) · AudioSeal
 :::
 
 ::: {.footer}
-Demo 3 · rehearsed 2026-11-16 → w09-metrics.json → demo3 · threshold $0$, fixed in advance · 40 real speakers: 11 called spoof
+Demo 3 · rehearsed 2026-11-16 → w09-metrics.json → demo3 · threshold $0$, fixed in advance
 :::
 
 ## Demo 3 — the watermark: localise, then regenerate
@@ -1475,7 +1471,7 @@ Demo 3 · rehearsed 2026-11-16 → w09-metrics.json → demo3 · threshold $0$, 
 :::
 
 ::: {.claim}
-The detector breaks on **what it has not seen**; the watermark breaks on **being generated again**. W6's codec and W8's vocoder are the breach on both sides — and $n_q$ is the dial.
+The detector breaks on **what it has not seen** — two new generators, and 11 of 40 real speakers. The watermark breaks on **being generated again** ($n_q$ is the dial) — and on noise at 20 dB.
 :::
 
 ::: {.footer}
@@ -1490,7 +1486,7 @@ Demo 3 · rehearsed 2026-11-16 · one utterance, one run · p85: published resul
 | who must cooperate | nobody | the generating side |
 | the adversary | the generating side | anyone who holds the audio |
 | a generator that appeared after training | **fails** | works — if that generator adds the mark |
-| after one pass through a neural codec | degrades; genuine speech may be called fake | depends on watermark, codec, bitrate |
+| after one pass through a neural codec | degrades; genuine speech may be called fake at a low bitrate | depends on watermark, codec, bitrate |
 | localisation, attribution | no | yes: per sample; a message of $b$ bits |
 | neighbours | voice anonymisation (VoicePrivacy 2020) | proactive defence: perturb your own recordings (AntiFake) |
 :::

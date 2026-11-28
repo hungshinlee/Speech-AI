@@ -376,7 +376,7 @@ def extract(codecs: dict, out, only_missing: bool = True) -> None:
     for key, cd in codecs.items():
         p = cache_path(key)
         if only_missing and p.exists():
-            out(f"  {LABEL[key]:<16s} 快取已有：{p}")
+            out(f"  {LABEL[key]:<16s} 快取已有：{_short(p)}")
             continue
         out(f"  {LABEL[key]:<16s} encode {len(utts)} 句 …")
         codes_list, offsets, paths_acc, ms = [], [0], {}, []
@@ -463,6 +463,21 @@ def text_sources() -> dict:
     return src
 
 
+def hf_cache_label(path) -> str:
+    """紀錄裡不寫本機的絕對路徑（2026-11-28，speech_ai/CLAUDE.md 4.171）：只留 HF cache 裡 models--… 以下那一段。"""
+    s = str(path)
+    i = s.find("models--")
+    return "<local Hugging Face cache>/" + s[i:] if i >= 0 else "<local Hugging Face cache>"
+
+
+def _short(p) -> str:
+    """印給人看的快取路徑：相對 demos/（不印本機的絕對路徑）。"""
+    try:
+        return "<demos>/" + str(Path(p).resolve().relative_to(HERE.parent))
+    except ValueError:
+        return str(p)
+
+
 def budget_text(out, tok=None) -> dict:
     """文字那一列：兩句的 token 數 → tokens/s → 30 分鐘。tok=None 時試著載 tokenizer；載不起來就只回估計值。"""
     b = CFG["budget"]
@@ -470,7 +485,7 @@ def budget_text(out, tok=None) -> dict:
     try:
         if tok is None:
             tok, path = load_tokenizer()
-            res["tokenizer_path"] = str(path)
+            res["tokenizer_path"] = hf_cache_label(path)
         res["tokenizer_class"] = type(tok).__name__
     except Exception as e:
         res["error"] = repr(e)
@@ -974,7 +989,10 @@ def export(rec_path: Path) -> None:
                               "stages": [{kk: (round(vv, 4) if isinstance(vv, float) else vv) for kk, vv in s.items()} for s in st["stages"]],
                               "residual": {n: {"stage_offset": r["stage_offset"], "n_stages": r["n_stages"], "ratios": [round(v, 5) for v in r["ratios"]],
                                                "after": {a: round(b, 5) for a, b in r["after"].items()}} for n, r in st["residual"].items()}}
-    demo2["budget"] = rec.get("budget", {})
+    demo2["budget"] = json.loads(json.dumps(rec.get("budget", {})))
+    tp = demo2["budget"].get("text", {}).get("tokenizer_path")
+    if tp and not tp.startswith("<"):          # 2026-11-28 以前的彩排紀錄寫的是絕對路徑
+        demo2["budget"]["text"]["tokenizer_path"] = hf_cache_label(tp)
     d["demo2"] = demo2
     METRICS_JSON.parent.mkdir(parents=True, exist_ok=True)
     METRICS_JSON.write_text(json.dumps(d, ensure_ascii=False, indent=1), encoding="utf-8")

@@ -85,7 +85,7 @@ def load_alignment(path: Path) -> dict:
     if [w["word"] for w in words] != text.split():
         raise ValueError(f"對齊裡的字與文字不一致：{[w['word'] for w in words]} vs {text.split()}")
     return {"text": text, "T": d["sections"]["numbers"]["T"], "frame_ms": frame_ms, "words": words,
-            "source": str(path), "source_time": d.get("time")}
+            "source": os.path.relpath(path, HERE), "source_time": d.get("time")}   # 相對路徑：紀錄與 w04-metrics.json 不寫本機的絕對路徑（2026-11-28）
 
 
 # ── 符號 → 字、字 → 參考字 ─────────────────────────────────────
@@ -726,7 +726,8 @@ def export() -> None:
                                    "gap_wall_ms": None if w["gap_wall"] is None else round(1000 * w["gap_wall"])} for w in r["words"]]}
     data["demo2"] = {"source": "demos/w04_d2_stream_chunks/runs/rehearsal/rehearsal.json", "time": log["time"], "backend": log["backend"],
                      "sentence": log["alignment"].get("text") or " ".join(w["word"] for w in log["alignment"]["words"]),
-                     "acoustic_end_source": log["alignment"]["source"], "settings": rows}
+                     "acoustic_end_source": (os.path.relpath(log["alignment"]["source"], HERE) if os.path.isabs(log["alignment"]["source"])
+                                             else log["alignment"]["source"]), "settings": rows}
     dst.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     print(f"→ {dst}  (demo2)")
 

@@ -598,13 +598,19 @@ z
 <text x="20.0" y="216.0" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">what is in the reference — and what gets through the bottleneck</text>
 <rect x="20.0" y="234.0" width="186.0" height="38.0" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.2"/>
 <text x="113.0" y="253.0" font-size="19" font-weight="600" fill="#15803d" text-anchor="middle" dominant-baseline="middle">timbre</text>
-<rect x="213.0" y="234.0" width="186.0" height="38.0" rx="6" fill="#ffffff" stroke="#6b7280" stroke-width="1.2"/>
-<text x="306.0" y="253.0" font-size="19" font-weight="600" fill="#6b7280" text-anchor="middle" dominant-baseline="middle" text-decoration="line-through">prosody, emotion</text>
+<rect x="213.0" y="234.0" width="186.0" height="38.0" rx="6" fill="#ffffff" stroke="#6b7280" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="306.0" y="253.0" font-size="19" font-weight="600" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">prosody, emotion</text>
+<circle cx="387.0" cy="234.0" r="11.0" fill="#ffffff" stroke="#6b7280" stroke-width="1.2"/>
+<text x="387.0" y="235.0" font-size="19" font-weight="700" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">?</text>
 <rect x="406.0" y="234.0" width="186.0" height="38.0" rx="6" fill="#fff7ed" stroke="#b45309" stroke-width="1.2"/>
 <text x="499.0" y="253.0" font-size="19" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="middle">accent</text>
-<rect x="599.0" y="234.0" width="186.0" height="38.0" rx="6" fill="#ffffff" stroke="#6b7280" stroke-width="1.2"/>
-<text x="692.0" y="253.0" font-size="19" font-weight="600" fill="#6b7280" text-anchor="middle" dominant-baseline="middle" text-decoration="line-through">room, microphone</text>
-<rect x="792.0" y="234.0" width="186.0" height="38.0" rx="6" fill="#ffffff" stroke="#6b7280" stroke-width="1.2"/>
-<text x="885.0" y="253.0" font-size="19" font-weight="600" fill="#6b7280" text-anchor="middle" dominant-baseline="middle" text-decoration="line-through">noise, music</text>
+<rect x="599.0" y="234.0" width="186.0" height="38.0" rx="6" fill="#ffffff" stroke="#6b7280" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="692.0" y="253.0" font-size="19" font-weight="600" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">room, microphone</text>
+<circle cx="773.0" cy="234.0" r="11.0" fill="#ffffff" stroke="#6b7280" stroke-width="1.2"/>
+<text x="773.0" y="235.0" font-size="19" font-weight="700" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">?</text>
+<rect x="792.0" y="234.0" width="186.0" height="38.0" rx="6" fill="#ffffff" stroke="#6b7280" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="885.0" y="253.0" font-size="19" font-weight="600" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">noise, music</text>
+<circle cx="966.0" cy="234.0" r="11.0" fill="#ffffff" stroke="#6b7280" stroke-width="1.2"/>
+<text x="966.0" y="235.0" font-size="19" font-weight="700" fill="#6b7280" text-anchor="middle" dominant-baseline="middle">?</text>
 </g>
 </svg>

@@ -30,12 +30,7 @@ format:
     # 講稿（notes 區塊）裡的數學只輸出 MathML（與 w02.qmd～w07.qmd 相同的做法）。
     # presenter view 是另一個視窗，沒有 KaTeX 的 CSS；KaTeX 預設同時輸出 HTML 與 MathML，
     # 沒有 CSS 時兩份都會顯示，符號就重複了（例如 ℓℓ）。MathML 由瀏覽器原生排版，不需要 CSS。
-    # 本 deck 自用（2026-11-18，同 w09.qmd）：表格首欄允許換行——theme 的 .reveal table 首欄是 nowrap，首欄是句子的表要包在 ::: {.wrap1} 裡。
-    include-in-header:
-      - text: |
-          <style>
-          .reveal .wrap1 table td:first-child, .reveal .wrap1 table th:first-child { white-space: normal; }
-          </style>
+    # 表格首欄換行的 .wrap1 在 theme.scss（2026-11-28 從各 deck 的 YAML 搬過去）。
     include-after-body:
       - text: |
           <script>
@@ -969,11 +964,11 @@ Demo 2 · `demos/w08_d2_nfe_cfg_first_packet` · F5's `cfg_strength` is $w - 1$ 
 | $N_{\text{FE}}$ | 1 | 2 | 4 | 8 | 16 | 32 |
 |:---|---:|---:|---:|---:|---:|---:|
 | time (s) | 0.09 | 0.16 | 0.30 | 0.59 | 1.14 | 2.27 |
-| what we heard | | | | | | |
+| what we heard | to be heard | ″ | ″ | ″ | ″ | ″ |
 
 | $w$ (at $N_{\text{FE}} = 16$) | 0 | 1 | 2 | 3 (F5's default) | 4 | sway $s = -1$ vs $0$ |
 |:---|---:|---:|---:|---:|---:|:---|
-| what we heard | | | | | | |
+| what we heard | to be heard | ″ | ″ | ″ | ″ | ″ |
 :::
 
 ::: {.footer}
@@ -1162,7 +1157,7 @@ Demo 3 · demos/w08_d3_vocoder_three_things · rehearsed 2026-11-08 here (MPS) �
 | model | VITS, one speaker, New Testament readings, 16 kHz, CC-BY-NC 4.0 | same |
 | input (the card says nothing; `vocab.json` does) | 48 symbols: Latin letters + Pe̍h-ōe-jī marks (o͘, the 8th-tone ̍, ḿ, ǹ) — **romanised Taiwanese, not characters** | 43 symbols incl. ṳ, f, v, y — Hakka Pha̍k-fa-sṳ |
 | so a character input | is dropped by the tokenizer: a Taiwanese G2P (several readings; **tone sandhi**) must come first | same |
-| which accent | — | to be heard (Sixian? Hailu?) — after the rehearsal |
+| which accent | — | to be heard (Sixian? Hailu?) |
 
 ::: {.claim}
 "A model exists" and "it is usable" differ by an orthography and an accent — and for Taiwanese the input itself is unsettled (p90).

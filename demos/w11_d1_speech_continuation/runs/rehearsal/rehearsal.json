@@ -92,7 +92,7 @@
    "tokens_per_s": 107.0,
    "rtf": 0.47,
    "whisper": {
-    "text": "and his office has held the same post on the second floor of the apartment. Mr. Treanor is the apostle of the second floor of the House of Dogs.",
+    "text": "(not published: the model's sampled continuation; ./present.sh rehearse makes your own)",
     "n_words": 29,
     "avg_logprob": -0.08,
     "compression_ratio": 1.45,
@@ -114,7 +114,7 @@
    "tokens_per_s": 105.7,
    "rtf": 0.47,
    "whisper": {
-    "text": "and is disposed to settle for tomorrow. He has a scrupulous and demeaning class of men who are an innocent and disgraceful person, and they are more and more superior",
+    "text": "(not published: the model's sampled continuation; ./present.sh rehearse makes your own)",
     "n_words": 30,
     "avg_logprob": -0.045,
     "compression_ratio": 1.39,
@@ -136,7 +136,7 @@
    "tokens_per_s": 105.2,
    "rtf": 0.48,
    "whisper": {
-    "text": "and a germ of conquering Persians. This statesman has a deep intention of self-defense. He has here sometimes given the false life of his master. He was one of the largest and trust",
+    "text": "(not published: the model's sampled continuation; ./present.sh rehearse makes your own)",
     "n_words": 34,
     "avg_logprob": -0.154,
     "compression_ratio": 1.4,
@@ -158,7 +158,7 @@
    "tokens_per_s": 97.0,
    "rtf": 0.52,
    "whisper": {
-    "text": "and is a good man in the same way. He has been given to a man by his mother. He is not a man by his wife. He has made a court man. He has made a court clerk.",
+    "text": "(not published: the model's sampled continuation; ./present.sh rehearse makes your own)",
     "n_words": 39,
     "avg_logprob": -0.082,
     "compression_ratio": 1.55,
@@ -239,5 +239,6 @@
     "seconds": 0.39
    }
   ]
- }
+ },
+ "_redacted": "keys ['draws.0.whisper.text', 'draws.1.whisper.text', 'draws.2.whisper.text', 'draws.3.whisper.text'] were replaced before publishing (bin/publish_demos.py); see this demo's README"
 }
