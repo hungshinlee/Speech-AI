@@ -168,7 +168,7 @@ outline 〈key maths 1〉 · the first line holds for every system this week
 | **every component already exists** | for a language with a recogniser and a synthesiser, a cascade can be built today |
 
 ::: {.claim .fragment}
-On benchmarks of **meaning**, a recogniser plus the same LLM still often beats the end-to-end model. Keep this row in mind until p35.
+On benchmarks of **meaning**, a recogniser plus the same LLM still often beats the end-to-end model. Demo 2 (p35) puts it to the test on this laptop.
 :::
 
 ::: {.footer}
@@ -471,17 +471,22 @@ Demo 2 · demos/w11_d2_typed_vs_spoken · scoring and intervals: score.py
 :::
 
 ::: {.fragment fragment-index=1}
-| | the question arrives as | answered by | correct, of 40 | format kept, of 10 |
+| | the question arrives as | answered by | Mandarin, of 39 | English, of 40 |
 |:--|:---------|:---------|:----|:----|
-| **a** | text | $\theta_0$: the original text LLM (approx.) | | |
-| **b** | text | $\theta$: the audio model | | |
-| **c** | speech, a TTS voice | $\theta$: the audio model | | |
-| **c′** | speech, my own voice (10 questions) | $\theta$: the audio model | | |
-| **d** | speech → Whisper small → text | $\theta_0$ | | |
+| **a** | text | $\theta_0$: the original text LLM (approx.) | $33$ $[28, 37]$ | $37$ $[33, 40]$ |
+| **b** | text | $\theta$: the audio model | $34$ $[30, 38]$ | $36$ $[32, 39]$ |
+| **c** | speech, a TTS voice | $\theta$: the audio model | $36$ $[32, 39]$ | $39$ $[37, 40]$ |
+| **c′** | speech, my own voice | $\theta$: the audio model | $7$ of $9$ (TTS: $8$) | — |
+| **d** | speech → Whisper small → text | $\theta_0$ | $33$ $[28, 37]$ | $34$ $[29, 38]$ |
+| | format kept: a · b · c · d | | $7 \cdot 9 \cdot 9 \cdot 7$ of $9$ | $10 \cdot 10 \cdot 9 \cdot 10$ of $10$ |
+:::
+
+::: {.claim .fragment fragment-index=2}
+No gap on these questions: spoken is answered as well as typed.
 :::
 
 ::: {.footer}
-Demo 2 · filled at rehearsal → w11-metrics.json · 2–3 questions apart is not a gap
+Demo 2 · rehearsed 2026-11-28 → w11-metrics.json · [ ]: 95% bootstrap interval · 2–3 questions apart is not a gap
 :::
 
 ## The gap is an identity: forgetting plus misalignment
@@ -493,7 +498,7 @@ $$\underbrace{a - c}_{\text{text–speech understanding gap}} \;=\; \underbrace{
 :::
 
 ::: {.footer}
-outline 〈key maths 5〉 · Cuervo et al. 2025 call $a - c$ the gap; Xiang et al. 2025, $b - c$
+schematic, as papers report it — on p35 no term exceeds a few questions · Cuervo et al. 2025: $a - c$; Xiang et al. 2025: $b - c$
 :::
 
 ## MC 5 — "the modality gap is a recognition error"
@@ -505,13 +510,13 @@ The model can transcribe the question **correctly** and still answer it **wrongl
 ::: {.wrap1}
 | the evidence | what it rules out |
 |:-----------|:-----------------|
-| row **d** loses only $a - d$: the cost of mis-hearing itself | if $a - c$ is clearly larger, the surplus is not mis-hearing |
+| an ASR transcript fed to the same LLM, as a control | recognition explains part of the gap in some settings — not all |
 | the same model transcribes the question correctly | it knows the words; the answer is still worse |
 | speech and text **align** in the middle layers; the last layers still separate | aligned in geometry is not equivalent in function (Hsu et al. 2026) |
 :::
 
 ::: {.footer}
-Demo 2, rows a, c, d (p35) · Hsu et al., NeurIPS 2026 · Xiang et al., EMNLP 2025
+Hsu et al., NeurIPS 2026 · Xiang et al., EMNLP 2025 · our Demo 2 had no gap to split (p35)
 :::
 
 ## MC 6 — "end-to-end is always better than a cascade"
@@ -590,7 +595,7 @@ W9 p44–p46: weights change, inference does not · Wang et al. 2026 · Step-Aud
 ## MC 8 — "speech input is just transcription, then text"
 
 ::: {.claim .warn}
-Wrong in both directions. It is **worse** than that — the modality gap. And it should be **better** than that — the voice carries more than the words — yet models often hear the cue and do not use it.
+Wrong in both directions. Papers find it **worse** than that — the modality gap (our Demo 2 did not, p35). And it should be **better** than that — the voice carries more than the words — yet models often hear the cue and do not use it.
 :::
 
 | | what the model was asked | what was found |
@@ -647,11 +652,11 @@ Kuan et al. 2024 · W7 p33–p36: W7 Demo 1, the prior alone · tested next, on 
 :::
 
 ::: {.fragment fragment-index=1}
-| the probe | what goes in | what we look at | observed |
-|:------|:---------|:---------|:---|
-| **silence** | 5 s of silence · 5 s of white noise · "What did I just say?" | does it say so — or make something up? | |
-| **tone** | "I got the job." said two ways, in my own voice: delighted, dejected · the same follow-up | do the two replies differ? then, asked directly: "How do I sound?" | |
-| **noise** | row c again, with babble added at 5 dB — against row d under the same noise | which is hurt first: the model that hears, or the recogniser? | |
+| the probe | what goes in | observed |
+|:----|:-------------|:--------------------|
+| **silence** | 5 s of silence, or of white noise — alone, then with the typed "What did I just say?" | alone: "no valid question"; "white noise or static" — it heard. The typed question over white noise: "You just said 'What did I just say?'" |
+| **tone** | "I got the job.", delighted and dejected, in my own voice · the same follow-up · then "How do I sound?" | the same list of ways to celebrate, twice. Asked directly: "joy and pride" against "natural, professional" — heard, not used |
+| **noise** | rows c and d again, babble at 5 dB — which is hurt first? | Mandarin: c $36 \to 33$, d $33 \to 28$ · English: c $39 \to 40$, d $34 \to 35$ |
 :::
 
 ::: {.footer}
@@ -1126,7 +1131,7 @@ A real voice — its accent, age, noise and disfluencies — is **out of distrib
 |:-----------|:-----------------|
 | the training dialogues (p58) | hesitations, restarts, a child's voice, a regional accent |
 | the benchmark questions (p57: read out by a TTS engine) | a room, a microphone, someone else talking |
-| our own Demo 2, rows c and d | row c′: ten questions in my own voice |
+| our own Demo 2, rows c and d | row c′: nine questions in my own voice — and a second TTS voice alone cost six (p35) |
 
 ::: {.footer}
 VoiceBench (Chen et al. 2024): real recordings · W5: domain shift · W10 p45: synthetic pairs
@@ -1231,7 +1236,7 @@ p5: join them into one model — where does the text go; what is lost by removin
 |:------|:-----------------|
 | **1 · The only interface** | Tone and timing are lost at two substitutions; the LLM's whole ability and a readable trace are kept. |
 | **2 · No text** | Everything in the voice is kept; meaning is learned along a slope a thousand times shallower. |
-| **3 · Text back: listening** | It hears — and answers worse than it reads: forgetting plus misalignment, not mis-hearing. |
+| **3 · Text back: listening** | Papers: worse than it reads — forgetting plus misalignment, not mis-hearing. Ours did not. |
 | **4 · Speaking** | Four orders; the less the text leads, the sooner the sound, the harder the alignment. |
 | **5 · Thinking** | Unspoken text is silence, token for token — unless it is moved into speaking or listening time. |
 | **6 · The bill** | The seams between three models are saved; the largest cell, the endpoint, is untouched. |

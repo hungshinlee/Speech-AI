@@ -1,0 +1,125 @@
+# 此檔由 bin/publish_demos.py 從 private repo 的 <course>/demos/ 複製而來，請勿在公開 repo 直接編輯。
+# W11 demo 2：同一題，用打的與用說的。換內容只改這裡。
+#
+# 設計（2026-11-26；理由見 README）：
+#   一份為這門課寫的題目（questions.py：40 題四選一＋10 題帶格式限制的，英語與華語各一版），用四種方式問：
+#     a  打字 → 原來的文字 LLM（θ0）          b  打字 → 會聽的模型（θ）
+#     c  說   → 會聽的模型（θ）               d  說 → Whisper small → 文字 → θ0（cascade）
+#   同一題在四個條件下是同一個字串；說的條件把那個字串交給 TTS 念。沒有任何模型被訓練或微調；全部是推論。
+
+[run]
+langs = ["zh", "en"]      # 彩排時兩種語言都跑；課堂上先看 main，鍵 l 換另一種
+main = "zh"
+max_new_tokens = 768      # 這兩個模型不要求就會一步一步推；給得太短，答案還沒出來就被截斷（表上的 cut 那一欄數的就是這個）。
+                          # 2026-11-28 由 384 放寬：第一次彩排華語 c 有 6／39 題截斷、其中 3 題答案沒寫出來——量到的是上限，不是聽
+temperature = 0.0         # 貪婪解碼：同一題再問一次答案相同，差別只來自「怎麼進去」
+thinking = false          # 兩個模型的 chat template 都有推理的開關，四個條件都關
+system_prompt = ""        # 四個條件都不加 system prompt；題目本身就是全部的輸入
+seed = 20261126
+# 某種語言整題不跑：四個條件（打字、聽、先辨識再讀、噪音）與自己念的那兩列一起拿掉，比較仍是同一批題目。
+# 2026-11-27 晚上：華語的 k10（鐵、銅、鋁、水銀）兩個聲音、f01（紅蘿蔔、馬鈴薯、香蕉、洋蔥）第二個聲音，
+# Qwen3-TTS 換到 seed 3 仍念錯——使用者決定不再換 seed、整題拿掉。華語因此是 39 題四選一＋9 題格式（自己念的 9 題）。
+skip = { zh = ["k10", "f01"] }
+bootstrap = 10000
+
+# θ：會聽的模型。Ming-3.0-audio-tiny 的 MLX 版（mlx-audio 的 sts 模組；Thinker 是 8-bit，其餘是浮點）。
+[theta]
+repo = "mlx-community/Ming-3.0-audio-tiny-8bit"
+label = "Ming-3.0-audio-tiny"
+[theta.talker_voice]
+zh = "灵小柔"
+en = "US_James"
+
+# θ0：原來的文字 LLM。Ming-3.0-audio-tiny 的文字主幹與 Ling-3.0-tiny 的設定逐欄相同（層數、寬度、專家數、詞表），
+# 但 model card 沒有寫它是不是從這一份權重起始——所以是「近似」，螢幕上與投影片上都這樣標。
+# source = "convert"：fetch 時從官方權重用 mlx-lm 自己轉成與 θ 相同的量化（8-bit、group 64），存在 dir。
+# source = "hub"：直接用 hub_repo 的 MLX 權重（要是這個環境的 mlx-lm 載得起來的）。
+[theta0]
+source = "convert"
+hf_repo = "inclusionAI/Ling-3.0-tiny"
+bits = 8
+group_size = 64
+dir = "../_media/w11_d2/theta0-8bit"
+hub_repo = ""
+label = "Ling-3.0-tiny"
+
+# 把題目念出來的聲音，每種語言兩個。表上的 c、d 用第一個；第二個是鍵 2。
+# 英語：Kokoro（W1 Demo 2 的那一個）。華語：Qwen3-TTS（W8 Demo 2 的那一份權重），聲音仍是 Kokoro 的那兩個 voice——
+# Kokoro 先用它念一句沒有字母的華語當參考音，Qwen3-TTS 照那個聲音念題目。2026-11-27 改：選項的代號是 A–D，
+# Kokoro 的華語聲音不念字母（mlx-audio 0.5.4 的 ZHG2P 沒有接英語），切開來念再接也不行。舊的聲音在 tts/、tts-abcd*/。
+[tts]
+repo = "mlx-community/Kokoro-82M-bf16"
+lock_from = "../w08_d2_nfe_cfg_first_packet/model.lock"
+dir = "../_media/w11_d2/tts-qwen3"
+[tts.qwen3]
+repo = "mlx-community/Qwen3-TTS-12Hz-0.6B-Base-bf16"
+ref_text = "今天天氣很好，我們下午一起去公園散步，晚上再回家吃飯。"
+temperature = 0.9
+seed = 1
+lang_code = "auto"
+streaming_interval = 2.0
+# 個別題目換 seed：Qwen3-TTS 是抽樣的，同一個 seed 重念多半是同一段聲音。念錯的題目刪掉那個 wav、在這裡給它
+# 一個新的 seed，再 ./present.sh tts（只補念不存在的檔）。鍵是 <語言>/v<第幾個聲音>/<題號>；沒列的用上面的 seed。
+# 換之前先用耳朵確認是 TTS 念錯、不是 Whisper 聽錯——後者是 d 列要量的東西，不能靠換 seed 把它換掉。
+# 2026-11-27 晚上：第一個聲音的 a02、a08、k10、f01 刪掉重念（預覽裡 Whisper 寫成「9×1 期」「C 140」「冬、力」「紅蘿藏、馬列屬」），
+# seed 2 之後 a02、a08、f01 聽過可用。k10（兩個聲音）與第二個聲音的 f01 換到 seed 3 仍念錯，整題拿掉（[run] skip），不再列在這裡。
+# v1/f01 的檔留著（seed 2，念對了），但 f01 已在 skip 裡、華語不會用到它。
+[tts.qwen3.seed_by_item]
+"zh/v1/a02" = 2
+"zh/v1/a08" = 2
+"zh/v1/f01" = 2
+[[tts.zh]]
+voice = "zf_xiaobei"
+lang_code = "z"
+engine = "qwen3"
+[[tts.zh]]
+voice = "zm_yunxi"
+lang_code = "z"
+engine = "qwen3"
+[[tts.en]]
+voice = "af_heart"
+lang_code = "a"
+[[tts.en]]
+voice = "am_michael"
+lang_code = "a"
+
+# cascade 的辨識器：Whisper small（W2 Demo 3 起用的同一份權重），CPU。
+[asr]
+repo = "openai/whisper-small"
+lock_from = "../w02_d3_frontend_mismatch/model.lock"
+
+# c′：授課者自己念的 10 題（./present.sh record own）。錄音放在 _media，不進版控、不上站。
+[own]
+ids = ["k03", "k06", "k10", "k13", "a02", "a06", "a12", "r03", "r05", "r11"]
+dir = "../_media/w11_d2/own-abcd"   # 同上：自己念的十題要照新的題目重錄；兩段 tone 從 own/ 複製過來
+max_seconds = 40
+
+# 噪音那一欄：c 與 d 的題目加 babble（同一種語言的另外 k 段題目錄音相加）到這個 SNR，再問一次。
+[noise]
+snr_db = 5.0
+k = 6
+
+# 兩個探針（不計分，看回答）。
+[probe]
+seconds = 5.0
+noise_rms = 0.05
+[probe.question]
+en = "What did I just say?"
+zh = "我剛剛說了什麼？"
+[probe.tone_sentence]
+en = "I got the job."
+zh = "我拿到那份工作了。"
+[probe.tone_followup]
+en = "What should I do this evening?"
+zh = "那我今天晚上該做什麼？"
+[probe.tone_direct]
+en = "How do I sound?"
+zh = "我聽起來怎麼樣？"
+
+# 「聽對了」的門檻：轉錄對題目文字的錯誤率不超過這個值（華語算字、英語算詞）。
+[audit]
+tol = 0.05
+
+# 鍵 q 現場問的題目（依序；鍵 n 換下一題）。
+[live]
+ids = ["r05", "a06", "k06", "r03", "f05"]

@@ -185,7 +185,7 @@ z
  </g>
 </svg>
 <text x="566.0" y="149.0" font-size="19" font-weight="400" fill="#1f2328" text-anchor="start" dominant-baseline="middle">the audio model, reading</text>
-<text x="20.0" y="22.0" font-size="19" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">one question, four ways in — 40 multiple-choice, 10 with a format constraint</text>
+<text x="20.0" y="22.0" font-size="19" font-weight="700" fill="#1f2328" text-anchor="start" dominant-baseline="auto">one question, four ways in — 40 multiple-choice + 10 format (Mandarin: 39 + 9)</text>
 </g>
 <g class="fragment" data-fragment-index="1">
 <circle cx="38.0" cy="226.0" r="16.0" fill="#dbeafe" stroke="#0b5cad" stroke-width="1.4"/>
@@ -393,7 +393,7 @@ z
 <polygon points="852.0,304.0 844.0,309.0 844.0,299.0" fill="#94a3b8"/>
 <rect x="856.0" y="274.0" width="124.0" height="60.0" rx="6" fill="#ffffff" stroke="#dc2626" stroke-width="1.4"/>
 <text x="918.0" y="305.0" font-size="22" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">?</text>
-<text x="918.0" y="22.0" font-size="19" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">correct, of 40</text>
+<text x="918.0" y="22.0" font-size="19" font-weight="700" fill="#dc2626" text-anchor="middle" dominant-baseline="auto">number correct</text>
 <text x="20.0" y="380.0" font-size="19" font-weight="400" fill="#6b7280" text-anchor="start" dominant-baseline="auto">scored by rule: the option the reply names. Printed with a bootstrap interval, not a bare percentage.</text>
 </g>
 </svg>

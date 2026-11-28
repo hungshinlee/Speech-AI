@@ -584,5 +584,940 @@
    "first_sound_ms": 310
   },
   "_note": "times count from the moment the recorded question is handed to the model (no endpoint cell); first sound = first chunk_frames frames generated and decoded; WER = Whisper small on the generated speech against the model's own text, pooled over the questions; only 6:12 was seen in training"
+ },
+ "demo2": {
+  "date": "2026-11-28T09:35:46",
+  "main": "zh",
+  "models": {
+   "theta": {
+    "repo": "mlx-community/Ming-3.0-audio-tiny-8bit",
+    "sha": "b92d0d10226ffb45bf0c73ad86b30e273c243914"
+   },
+   "theta0": {
+    "repo": "inclusionAI/Ling-3.0-tiny",
+    "sha": "9a98e35fe1c9ee255f78dd64771c7ae15a799481",
+    "source": "convert",
+    "bits": 8
+   },
+   "tts": "mlx-community/Kokoro-82M-bf16",
+   "asr": "openai/whisper-small"
+  },
+  "versions": {
+   "python": "3.12.14",
+   "platform": "macOS-27.2.1-arm64-arm-64bit",
+   "numpy": "2.4.4",
+   "scipy": "1.17.1",
+   "matplotlib": null,
+   "sounddevice": "0.5.6",
+   "mlx": "0.32.5",
+   "mlx-audio": "0.6.8",
+   "mlx-lm": "0.32.2",
+   "transformers": "5.24.1",
+   "huggingface_hub": "2.4.0"
+  },
+  "fake": false,
+  "n_mc": 40,
+  "n_format": 10,
+  "skip": {
+   "zh": [
+    "f01",
+    "k10"
+   ]
+  },
+  "lang": {
+   "zh": {
+    "rows": {
+     "a": {
+      "k": 33,
+      "n": 39,
+      "lo": 28.0,
+      "hi": 37.0,
+      "cut": 0,
+      "no_pick": 0,
+      "t_mean": 0.4,
+      "tok_mean": 67.8,
+      "by_kind": {
+       "knowledge": [
+        12,
+        13
+       ],
+       "arithmetic": [
+        11,
+        13
+       ],
+       "reasoning": [
+        10,
+        13
+       ]
+      }
+     },
+     "b": {
+      "k": 34,
+      "n": 39,
+      "lo": 30.0,
+      "hi": 38.0,
+      "cut": 0,
+      "no_pick": 0,
+      "t_mean": 0.41,
+      "tok_mean": 60.6,
+      "by_kind": {
+       "knowledge": [
+        12,
+        13
+       ],
+       "arithmetic": [
+        13,
+        13
+       ],
+       "reasoning": [
+        9,
+        13
+       ]
+      }
+     },
+     "c1": {
+      "k": 36,
+      "n": 39,
+      "lo": 32.0,
+      "hi": 39.0,
+      "cut": 3,
+      "no_pick": 1,
+      "t_mean": 1.38,
+      "tok_mean": 192.3,
+      "by_kind": {
+       "knowledge": [
+        12,
+        13
+       ],
+       "arithmetic": [
+        12,
+        13
+       ],
+       "reasoning": [
+        12,
+        13
+       ]
+      }
+     },
+     "d1": {
+      "k": 33,
+      "n": 39,
+      "lo": 28.0,
+      "hi": 37.0,
+      "cut": 0,
+      "no_pick": 0,
+      "t_mean": 0.58,
+      "tok_mean": 85.2,
+      "by_kind": {
+       "knowledge": [
+        8,
+        13
+       ],
+       "arithmetic": [
+        13,
+        13
+       ],
+       "reasoning": [
+        12,
+        13
+       ]
+      }
+     },
+     "e1": {
+      "k": 27,
+      "n": 39,
+      "lo": 21.0,
+      "hi": 32.0,
+      "cut": 1,
+      "no_pick": 1,
+      "t_mean": 0.56,
+      "tok_mean": 80.3,
+      "by_kind": {
+       "knowledge": [
+        10,
+        13
+       ],
+       "arithmetic": [
+        9,
+        13
+       ],
+       "reasoning": [
+        8,
+        13
+       ]
+      }
+     },
+     "c2": {
+      "k": 30,
+      "n": 39,
+      "lo": 25.0,
+      "hi": 35.0,
+      "cut": 2,
+      "no_pick": 2,
+      "t_mean": 1.42,
+      "tok_mean": 204.7,
+      "by_kind": {
+       "knowledge": [
+        10,
+        13
+       ],
+       "arithmetic": [
+        11,
+        13
+       ],
+       "reasoning": [
+        9,
+        13
+       ]
+      }
+     },
+     "d2": {
+      "k": 30,
+      "n": 39,
+      "lo": 24.0,
+      "hi": 35.0,
+      "cut": 2,
+      "no_pick": 1,
+      "t_mean": 0.66,
+      "tok_mean": 118.6,
+      "by_kind": {
+       "knowledge": [
+        10,
+        13
+       ],
+       "arithmetic": [
+        11,
+        13
+       ],
+       "reasoning": [
+        9,
+        13
+       ]
+      }
+     },
+     "co": {
+      "k": 7,
+      "n": 9,
+      "lo": 4.0,
+      "hi": 9.0,
+      "cut": 1,
+      "no_pick": 0,
+      "t_mean": 0.92,
+      "tok_mean": 133.3,
+      "by_kind": {
+       "knowledge": [
+        2,
+        3
+       ],
+       "arithmetic": [
+        3,
+        3
+       ],
+       "reasoning": [
+        2,
+        3
+       ]
+      }
+     },
+     "do": {
+      "k": 6,
+      "n": 9,
+      "lo": 3.0,
+      "hi": 8.0,
+      "cut": 0,
+      "no_pick": 0,
+      "t_mean": 0.78,
+      "tok_mean": 132.8,
+      "by_kind": {
+       "knowledge": [
+        1,
+        3
+       ],
+       "arithmetic": [
+        3,
+        3
+       ],
+       "reasoning": [
+        2,
+        3
+       ]
+      }
+     },
+     "cn": {
+      "k": 33,
+      "n": 39,
+      "lo": 28.0,
+      "hi": 37.0,
+      "cut": 4,
+      "no_pick": 1,
+      "t_mean": 2.21,
+      "tok_mean": 268.7,
+      "by_kind": {
+       "knowledge": [
+        11,
+        13
+       ],
+       "arithmetic": [
+        11,
+        13
+       ],
+       "reasoning": [
+        11,
+        13
+       ]
+      }
+     },
+     "dn": {
+      "k": 28,
+      "n": 39,
+      "lo": 22.0,
+      "hi": 33.0,
+      "cut": 0,
+      "no_pick": 1,
+      "t_mean": 0.73,
+      "tok_mean": 117.4,
+      "by_kind": {
+       "knowledge": [
+        9,
+        13
+       ],
+       "arithmetic": [
+        10,
+        13
+       ],
+       "reasoning": [
+        9,
+        13
+       ]
+      }
+     }
+    },
+    "format": {
+     "a": {
+      "kept": 7,
+      "n": 9,
+      "content": 6,
+      "n_content": 8
+     },
+     "b": {
+      "kept": 9,
+      "n": 9,
+      "content": 8,
+      "n_content": 8
+     },
+     "c1": {
+      "kept": 9,
+      "n": 9,
+      "content": 6,
+      "n_content": 8
+     },
+     "d1": {
+      "kept": 7,
+      "n": 9,
+      "content": 6,
+      "n_content": 8
+     },
+     "e1": {
+      "kept": 8,
+      "n": 9,
+      "content": 6,
+      "n_content": 8
+     },
+     "c2": {
+      "kept": 9,
+      "n": 9,
+      "content": 7,
+      "n_content": 8
+     },
+     "d2": {
+      "kept": 9,
+      "n": 9,
+      "content": 6,
+      "n_content": 8
+     },
+     "cn": {
+      "kept": 7,
+      "n": 9,
+      "content": 6,
+      "n_content": 8
+     },
+     "dn": {
+      "kept": 6,
+      "n": 9,
+      "content": 5,
+      "n_content": 8
+     }
+    },
+    "pairs": {
+     "a-b": {
+      "diff": -1,
+      "lo": -6.0,
+      "hi": 4.0,
+      "only_x": 3,
+      "only_y": 4,
+      "p_sign": 1.0,
+      "n": 39
+     },
+     "b-c1": {
+      "diff": -2,
+      "lo": -7.0,
+      "hi": 3.0,
+      "only_x": 2,
+      "only_y": 4,
+      "p_sign": 0.6875,
+      "n": 39
+     },
+     "a-c1": {
+      "diff": -3,
+      "lo": -8.0,
+      "hi": 1.0,
+      "only_x": 1,
+      "only_y": 4,
+      "p_sign": 0.375,
+      "n": 39
+     },
+     "a-d1": {
+      "diff": 0,
+      "lo": -6.0,
+      "hi": 6.0,
+      "only_x": 5,
+      "only_y": 5,
+      "p_sign": 1.0,
+      "n": 39
+     },
+     "c1-d1": {
+      "diff": 3,
+      "lo": -1.0,
+      "hi": 7.0,
+      "only_x": 4,
+      "only_y": 1,
+      "p_sign": 0.375,
+      "n": 39
+     },
+     "b-e1": {
+      "diff": 7,
+      "lo": 1.0,
+      "hi": 13.0,
+      "only_x": 9,
+      "only_y": 2,
+      "p_sign": 0.0654296875,
+      "n": 39
+     },
+     "e1-c1": {
+      "diff": -9,
+      "lo": -14.0,
+      "hi": -4.0,
+      "only_x": 0,
+      "only_y": 9,
+      "p_sign": 0.00390625,
+      "n": 39
+     },
+     "c1-c2": {
+      "diff": 6,
+      "lo": 1.0,
+      "hi": 11.0,
+      "only_x": 7,
+      "only_y": 1,
+      "p_sign": 0.0703125,
+      "n": 39
+     },
+     "c1-cn": {
+      "diff": 3,
+      "lo": -2.0,
+      "hi": 8.0,
+      "only_x": 5,
+      "only_y": 2,
+      "p_sign": 0.453125,
+      "n": 39
+     },
+     "d1-dn": {
+      "diff": 5,
+      "lo": 0.0,
+      "hi": 10.0,
+      "only_x": 6,
+      "only_y": 1,
+      "p_sign": 0.125,
+      "n": 39
+     }
+    },
+    "own_vs_tts": {
+     "own": {
+      "k": 7,
+      "n": 9,
+      "lo": 4.0,
+      "hi": 9.0,
+      "cut": 1,
+      "no_pick": 0,
+      "t_mean": 0.92,
+      "tok_mean": 133.3,
+      "by_kind": {
+       "knowledge": [
+        2,
+        3
+       ],
+       "arithmetic": [
+        3,
+        3
+       ],
+       "reasoning": [
+        2,
+        3
+       ]
+      }
+     },
+     "tts_same_ids": {
+      "k": 8,
+      "n": 9,
+      "lo": 6.0,
+      "hi": 9.0,
+      "cut": 2,
+      "no_pick": 0,
+      "t_mean": 1.43,
+      "tok_mean": 203.1,
+      "by_kind": {
+       "knowledge": [
+        3,
+        3
+       ],
+       "arithmetic": [
+        3,
+        3
+       ],
+       "reasoning": [
+        2,
+        3
+       ]
+      }
+     },
+     "pair": {
+      "diff": 1,
+      "lo": -2.0,
+      "hi": 4.0,
+      "only_x": 2,
+      "only_y": 1,
+      "p_sign": 1.0,
+      "n": 9
+     }
+    },
+    "audit": {
+     "heard_right": 13,
+     "n": 39,
+     "exact": 10,
+     "right_but_wrong": [],
+     "wrong_c": 3,
+     "mean_er": 0.2184
+    },
+    "probe": {
+     "silence": {
+      "alone": "The provided input does not contain a valid question or query to analyze. It appears to be empty or malformed.\n\nTo provide a meaningful answer, please provide the specific question or problem you would like me to solve.\nNo valid question provided",
+      "asked": "你剛剛說了什麼？"
+     },
+     "white": {
+      "alone": "The audio consists of a continuous, high-amplitude broadband noise resembling white noise or static. It lacks any discernible speech, music, or distinct sound events, presenting as a uniform sonic texture from start to finish.\n\\text{White noise}",
+      "asked": "你剛剛說了「我剛剛說了什麼？」。"
+     },
+     "tone": {
+      "happy": {
+       "alone": "我拿到那份工作了。",
+       "followup": "既然你拿到了那份工作，今晚可以好好庆祝一下！🎉\n\n这里有几个建议供你参考：\n\n1. **犒劳自己**：点一份你一直想吃的晚餐，或者去常去的小馆子享受一顿美食。\n2. **和朋友聚会**：约上一起恭喜你的朋友或同事，喝杯饮料或吃个火锅庆祝。\n3. **给自己放个假**：今晚早点休息，好好放松一下，为接下来的新工作做准备。\n4. **小庆祝**：买一束花，或者给自己买件喜欢的东西，作为新工作的开始。\n\n无论你选择做什么，最重要的是开心！恭喜你！🎊",
+       "direct": "你聽起來很好聽，聲音清晰、語速適中，語氣也充滿了喜悅與自豪感！🎉\n\n「我拿到那份工作了」這句話配上這麼開心的語氣，真的是一个好消息的慶祝語氣呢！恭喜你，這絕對是一個值得慶祝的里程碑！",
+       "heard": "我拿到那份工作了"
+      },
+      "flat": {
+       "alone": "Chinese\t我拿到那份工作了",
+       "followup": "既然你拿到了那份工作，今晚可以好好慶祝一下！以下是一些建議：\n\n### 🎉 與朋友/家人聚會\n- **聚餐或烤肉**：找一家好吃的餐廳或在家煮點東西，和親朋好友一起慶祝。\n- **看電影或遊戲**：挑一部好片子，或者和朋友打一局電玩。\n\n### 🍽️ 犒賞自己\n- **吃預算內的大餐**：既然工作有了，犒勞一下自己吧！\n- **去喜歡的地方**：如果有空，去一間你一直想去的餐廳或咖啡廳坐坐。\n\n### 📚 享受新開始\n- **放鬆一下**：工作新開始，夜晚可以放鬆心情，看個電影或聽音樂。\n- **計劃未來**：稍微想一想接下來的計劃，享受這個新階段的開始。\n\n### 🌙 溫馨獨處\n- **獨處放鬆**：如果喜歡獨處，可以煮點宵夜，聽點音樂，讓自己放鬆一下。\n\n無論你選擇什麼，祝你今晚愉快！🎉",
+       "direct": "你聽起來很好聽，聲音清晰、語速適中，沒有異常的停頓或口誤。語氣自然，聽起來很專業。",
+       "heard": "我拿到那份工作了"
+      }
+     }
+    }
+   },
+   "en": {
+    "rows": {
+     "a": {
+      "k": 37,
+      "n": 40,
+      "lo": 33.0,
+      "hi": 40.0,
+      "cut": 0,
+      "no_pick": 1,
+      "t_mean": 0.42,
+      "tok_mean": 54.8,
+      "by_kind": {
+       "knowledge": [
+        14,
+        14
+       ],
+       "arithmetic": [
+        13,
+        13
+       ],
+       "reasoning": [
+        10,
+        13
+       ]
+      }
+     },
+     "b": {
+      "k": 36,
+      "n": 40,
+      "lo": 32.0,
+      "hi": 39.0,
+      "cut": 0,
+      "no_pick": 1,
+      "t_mean": 0.47,
+      "tok_mean": 50.6,
+      "by_kind": {
+       "knowledge": [
+        13,
+        14
+       ],
+       "arithmetic": [
+        12,
+        13
+       ],
+       "reasoning": [
+        11,
+        13
+       ]
+      }
+     },
+     "c1": {
+      "k": 39,
+      "n": 40,
+      "lo": 37.0,
+      "hi": 40.0,
+      "cut": 0,
+      "no_pick": 0,
+      "t_mean": 0.79,
+      "tok_mean": 89.9,
+      "by_kind": {
+       "knowledge": [
+        14,
+        14
+       ],
+       "arithmetic": [
+        12,
+        13
+       ],
+       "reasoning": [
+        13,
+        13
+       ]
+      }
+     },
+     "d1": {
+      "k": 34,
+      "n": 40,
+      "lo": 29.0,
+      "hi": 38.0,
+      "cut": 0,
+      "no_pick": 2,
+      "t_mean": 0.45,
+      "tok_mean": 74.5,
+      "by_kind": {
+       "knowledge": [
+        14,
+        14
+       ],
+       "arithmetic": [
+        13,
+        13
+       ],
+       "reasoning": [
+        7,
+        13
+       ]
+      }
+     },
+     "e1": {
+      "k": 33,
+      "n": 40,
+      "lo": 28.0,
+      "hi": 37.0,
+      "cut": 0,
+      "no_pick": 1,
+      "t_mean": 0.53,
+      "tok_mean": 72.7,
+      "by_kind": {
+       "knowledge": [
+        13,
+        14
+       ],
+       "arithmetic": [
+        11,
+        13
+       ],
+       "reasoning": [
+        9,
+        13
+       ]
+      }
+     },
+     "c2": {
+      "k": 39,
+      "n": 40,
+      "lo": 37.0,
+      "hi": 40.0,
+      "cut": 0,
+      "no_pick": 0,
+      "t_mean": 0.61,
+      "tok_mean": 75.3,
+      "by_kind": {
+       "knowledge": [
+        14,
+        14
+       ],
+       "arithmetic": [
+        12,
+        13
+       ],
+       "reasoning": [
+        13,
+        13
+       ]
+      }
+     },
+     "d2": {
+      "k": 31,
+      "n": 40,
+      "lo": 26.0,
+      "hi": 36.0,
+      "cut": 0,
+      "no_pick": 1,
+      "t_mean": 0.4,
+      "tok_mean": 67.6,
+      "by_kind": {
+       "knowledge": [
+        13,
+        14
+       ],
+       "arithmetic": [
+        11,
+        13
+       ],
+       "reasoning": [
+        7,
+        13
+       ]
+      }
+     },
+     "cn": {
+      "k": 40,
+      "n": 40,
+      "lo": 40.0,
+      "hi": 40.0,
+      "cut": 0,
+      "no_pick": 0,
+      "t_mean": 1.02,
+      "tok_mean": 136.8,
+      "by_kind": {
+       "knowledge": [
+        14,
+        14
+       ],
+       "arithmetic": [
+        13,
+        13
+       ],
+       "reasoning": [
+        13,
+        13
+       ]
+      }
+     },
+     "dn": {
+      "k": 35,
+      "n": 40,
+      "lo": 31.0,
+      "hi": 39.0,
+      "cut": 0,
+      "no_pick": 1,
+      "t_mean": 0.4,
+      "tok_mean": 67.5,
+      "by_kind": {
+       "knowledge": [
+        13,
+        14
+       ],
+       "arithmetic": [
+        12,
+        13
+       ],
+       "reasoning": [
+        10,
+        13
+       ]
+      }
+     }
+    },
+    "format": {
+     "a": {
+      "kept": 10,
+      "n": 10,
+      "content": 9,
+      "n_content": 9
+     },
+     "b": {
+      "kept": 10,
+      "n": 10,
+      "content": 9,
+      "n_content": 9
+     },
+     "c1": {
+      "kept": 9,
+      "n": 10,
+      "content": 9,
+      "n_content": 9
+     },
+     "d1": {
+      "kept": 10,
+      "n": 10,
+      "content": 8,
+      "n_content": 9
+     },
+     "e1": {
+      "kept": 10,
+      "n": 10,
+      "content": 8,
+      "n_content": 9
+     },
+     "c2": {
+      "kept": 9,
+      "n": 10,
+      "content": 9,
+      "n_content": 9
+     },
+     "d2": {
+      "kept": 10,
+      "n": 10,
+      "content": 8,
+      "n_content": 9
+     },
+     "cn": {
+      "kept": 10,
+      "n": 10,
+      "content": 9,
+      "n_content": 9
+     },
+     "dn": {
+      "kept": 10,
+      "n": 10,
+      "content": 8,
+      "n_content": 9
+     }
+    },
+    "pairs": {
+     "a-b": {
+      "diff": 1,
+      "lo": -4.0,
+      "hi": 6.0,
+      "only_x": 4,
+      "only_y": 3,
+      "p_sign": 1.0,
+      "n": 40
+     },
+     "b-c1": {
+      "diff": -3,
+      "lo": -7.0,
+      "hi": 0.0,
+      "only_x": 0,
+      "only_y": 3,
+      "p_sign": 0.25,
+      "n": 40
+     },
+     "a-c1": {
+      "diff": -2,
+      "lo": -6.0,
+      "hi": 2.0,
+      "only_x": 1,
+      "only_y": 3,
+      "p_sign": 0.625,
+      "n": 40
+     },
+     "a-d1": {
+      "diff": 3,
+      "lo": 0.0,
+      "hi": 7.0,
+      "only_x": 3,
+      "only_y": 0,
+      "p_sign": 0.25,
+      "n": 40
+     },
+     "c1-d1": {
+      "diff": 5,
+      "lo": 0.0,
+      "hi": 10.0,
+      "only_x": 6,
+      "only_y": 1,
+      "p_sign": 0.125,
+      "n": 40
+     },
+     "b-e1": {
+      "diff": 3,
+      "lo": -1.0,
+      "hi": 7.0,
+      "only_x": 4,
+      "only_y": 1,
+      "p_sign": 0.375,
+      "n": 40
+     },
+     "e1-c1": {
+      "diff": -6,
+      "lo": -11.0,
+      "hi": -2.0,
+      "only_x": 0,
+      "only_y": 6,
+      "p_sign": 0.03125,
+      "n": 40
+     },
+     "c1-c2": {
+      "diff": 0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "only_x": 0,
+      "only_y": 0,
+      "p_sign": 1.0,
+      "n": 40
+     },
+     "c1-cn": {
+      "diff": -1,
+      "lo": -3.0,
+      "hi": 0.0,
+      "only_x": 0,
+      "only_y": 1,
+      "p_sign": 1.0,
+      "n": 40
+     },
+     "d1-dn": {
+      "diff": -1,
+      "lo": -5.0,
+      "hi": 3.0,
+      "only_x": 2,
+      "only_y": 3,
+      "p_sign": 1.0,
+      "n": 40
+     }
+    },
+    "audit": {
+     "heard_right": 1,
+     "n": 40,
+     "exact": 1,
+     "right_but_wrong": [],
+     "wrong_c": 1,
+     "mean_er": 1.1693
+    },
+    "probe": {
+     "silence": {
+      "alone": "The provided input does not contain a valid question or query to analyze. It appears to be empty or malformed.\n\nTo provide a meaningful answer, please provide the specific question or problem you would like me to solve.\nNo valid question provided",
+      "asked": "You haven't said anything yet. This is the beginning of our conversation. Feel free to ask me anything you'd like to know!"
+     },
+     "white": {
+      "alone": "The audio consists of a continuous, high-amplitude broadband noise resembling white noise or static. It lacks any discernible speech, music, or distinct sound events, presenting as a uniform sonic texture from start to finish.\n\\text{White noise}",
+      "asked": "You just said \"What did I just say?\""
+     }
+    }
+   }
+  }
  }
 }
