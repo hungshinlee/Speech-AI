@@ -80,7 +80,7 @@ Budget, formulas and the $\ell = 30$ example are all Week 1's — nothing here i
 {{< include assets/w02/problem-map.inline.qmd >}}
 
 ::: {.claim}
-**The front end decides what every later layer is allowed to know** — and how long it waits to know it.
+**The front end decides what every later layer is allowed to know** — and how late.
 :::
 
 ::: {.footer}
@@ -212,7 +212,7 @@ Vowels live in a two-dimensional space:
 :::
 
 ::: {.footer}
-Reference points: Peterson & Barney, JASA 24:175–184, 1952 · adult male averages
+Reference points: Peterson & Barney, JASA 24:175–184, 1952
 :::
 
 ## The minimum phonetics you need for the next three weeks
@@ -418,7 +418,7 @@ Computed: tones at 1000 and 1060 Hz, Hann window · w02-data.json
 {{< include assets/w02/latency-window.inline.qmd >}}
 
 - The **hop** $H$ is the frame shift — $\Delta = H / f_s$ in seconds. Frame rate $= f_s / H$. **This is last week's $\Delta$**
-- A frame stamped at time $t$ needs samples up to $t + L/2$. That is **lookahead**, paid before any model runs
+- A frame stamped at $t$ needs samples up to $t + L/2$: **lookahead**, paid before any model runs
 
 | Knob | Decides |
 |:--|:--|

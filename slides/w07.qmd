@@ -265,7 +265,7 @@ Whisper Table 1, §2.3 (20 ms) · 292 and 114 / 144: W4 Demo 3 (W4 p64), `small`
 
 | | hours | what it is |
 |:---|-----:|:--------------|
-| English transcription | ≈ 438,000 | audio paired with English text from the web |
+| English transcription | $\approx$ 438,000 | audio paired with English text from the web |
 | other languages, transcription | 117,000 | 96 languages |
 | $X \to$ English translation | 125,000 | audio in another language, English text |
 | **total** | **680,000** | none of it labelled by a person for this purpose |
@@ -312,7 +312,7 @@ Cross-entropy at every position except the previous text: language ID, task, wor
 
 ::: {.fragment fragment-index=3}
 ::: {.small}
-The recipe (§2.4): batches of 256 segments · about a million updates ≈ 2–3 passes over the data · no augmentation, no regularisation.
+The recipe (§2.4): batches of 256 segments · about a million updates $\approx$ 2–3 passes over the data · no augmentation, no regularisation.
 :::
 :::
 
@@ -328,8 +328,8 @@ Whisper §2.3 (the loss), §2.4 (the recipe) · teacher forcing: W4 p35 · "six 
 
 | | on LibriSpeech test-clean | on the other datasets |
 |:---|:-----|:-----|
-| a model **trained on** LibriSpeech, same clean WER | ≈ the same | much worse: it learned the dataset |
-| **Whisper, zero-shot** | ≈ the same | **55.2% fewer errors on average** (§3.3) |
+| a model **trained on** LibriSpeech, same clean WER | $\approx$ the same | much worse: it learned the dataset |
+| **Whisper, zero-shot** | $\approx$ the same | **55.2% fewer errors on average** (§3.3) |
 
 ::: {.claim}
 Whisper's claim is not "lowest WER" — on LibriSpeech the specialised models win. It is **the smallest drop when the test set changes**: a prior trained on everything is hard to surprise. Judge any ASR on the *gap* between its home benchmark and the rest.
@@ -451,7 +451,7 @@ Whisper §3.3 · Kumar et al., SLT 2026 (WER 36.71 → 22.09)
 | input (LibriSpeech, WER %) | dev-clean | test-clean | dev-other | test-other | what goes in |
 |:---|----:|----:|----:|----:|:-----------|
 | **FBank** (filterbank: W2's log-mel) | 2.5 | 6.3 | 2.6 | 6.2 | 100 Hz frames |
-| **discrete units** | 2.2 | 4.5 | 2.4 | 4.6 | k-means on WavLM-large layer 21, de-duplicated, then BPE: **≈ 60% shorter** |
+| **discrete units** | 2.2 | 4.5 | 2.4 | 4.6 | k-means on WavLM-large layer 21, de-duplicated, then BPE: **$\approx$ 60% shorter** |
 | **continuous SSL** | 1.9 | 3.7 | 1.9 | 3.7 | 50 Hz features |
 
 ::: {.claim}
@@ -585,7 +585,7 @@ Whisper §4.5 thresholds · "the ratio catches loops" is our reading · W4 p68
 
 | trigger | why the evidence goes flat | countermeasure | what it costs |
 |:---|:------|:----------|:------|
-| **non-speech** | silence, noise, music, pauses: nothing to condition on (p31) | a VAD first, ≤ 30 s segments (WhisperX); `no_speech` **with** the log-prob | a VAD has its own errors (W10) |
+| **non-speech** | silence, noise, music, pauses: nothing to condition on (p31) | a VAD first, $\leq$ 30 s segments (WhisperX); `no_speech` **with** the log-prob | a VAD has its own errors (W10) |
 | **carry-over** | one window's hallucination primes the next (p37) | fallback; ratio and log-prob gates; drop the previous text | outputs no longer reproducible |
 | **stopping** | end-of-text must beat one more fluent token | timestamps from alignment (WhisperX, CrisperWhisper); RL that calibrates stopping (p75) | a second model, or a training run |
 
@@ -621,7 +621,7 @@ WhisperX §2.2–2.3, Table 1 · Whisper §4.5 · CrisperWhisper §3.2 · the or
 |:-----|:---------|:---------|
 | **3** gates | 10 s silence → `you`, log-prob $-0.53$, no-speech $0.94$ | **let through**: $-0.53 > -1$ |
 | **3** gates | 10 s white noise → `you`, $-1.3$ to $-1.9$ | dropped as silence |
-| **3** ratio gate | `I'm sorry` × 40, ratio $18.3$ | caught: $18.3 > 2.4$ |
+| **3** ratio gate | `I'm sorry` $\times$ 40, ratio $18.3$ | caught: $18.3 > 2.4$ |
 | **3** retry hotter | the noise again, temperature $1.0$ | a 12-word sentence, then dropped |
 | **1 + 2 + 4** WhisperX | vs. Whisper `large-v2`, two test sets | insertions $7.7 \to 6.7$, $3.2 \to 2.2$%; repeated 5-grams $221 \to 189$, $131 \to 75$ |
 | **5** training | CrisperWhisper; Distil-Whisper | no harmful case on p32's files; $1.3\times$ fewer repeats |
@@ -698,7 +698,7 @@ Hannun et al. 2014, Algorithm 1 · Graves & Jaitly 2014 §5 · W3 p34
 | | per column | across columns | gives |
 |:---|:------|:------|:------|
 | **greedy** | $\max_k y^t_k$ | concatenate, then $\mathcal{B}$ | the best **path** |
-| **prefix beam** | $\sum$ over paths into each prefix | keep the top $N_{\text{beam}}$ | ≈ the best **label sequence** |
+| **prefix beam** | $\sum$ over paths into each prefix | keep the top $N_{\text{beam}}$ | $\approx$ the best **label sequence** |
 | **Viterbi** | $\max$ over the paths of one $\ell$ | keep all | the best **alignment** |
 
 | | what each prefix in the beam carries |
@@ -1036,7 +1036,7 @@ Ma et al. 2024 §3.1, Table 4 · Fathullah et al. 2024 · Qwen3-ASR TR 2026
 
 ::: {.fragment fragment-index=2}
 ::: {.small}
-SLAM-ASR: encoder and LLM frozen, 5 frames stacked (50 → 10 Hz), projector Linear–ReLU–Linear · or a Q-Former: fixed queries per window · Qwen3-ASR: its encoder (AuT) downsamples 8× → 12.5 Hz, W6's Mimi number.
+SLAM-ASR: encoder and LLM frozen, 5 frames stacked (50 → 10 Hz), projector Linear–ReLU–Linear · or a Q-Former: fixed queries per window · Qwen3-ASR: its encoder (AuT) downsamples 8$\times$ → 12.5 Hz, W6's Mimi number.
 :::
 :::
 
@@ -1068,7 +1068,7 @@ SLAM-ASR §3.1.3 · Fathullah 2024 (LoRA) · W5 p46 · W6 p32
 
 ::: {.fragment fragment-index=2}
 ::: {.claim .warn}
-After stacking, speech is still **2–4× longer than its own transcript** — and who decides the rate is now the LLM's context length and its decoding budget.
+After stacking, speech is still **2–4$\times$ longer than its own transcript** — and who decides the rate is now the LLM's context length and its decoding budget.
 :::
 :::
 
@@ -1107,7 +1107,7 @@ W1 p38 · W4 Demo 2: 220 ms · W1 Demo 2: 70 ms · widths schematic
 | | how it streams | the cost |
 |:---|:--------|:--------|
 | **RNN-T** (W4) | emit-or-advance is inside the loss | emission delay: 220 ms (W4 Demo 2) |
-| **Tsunoo 2024** | block-wise speech prompts grow the prefix; CTC drops blank frames | ≈ 8% rel. WER on test-other; 2× faster |
+| **Tsunoo 2024** | block-wise speech prompts grow the prefix; CTC drops blank frames | $\approx$ 8% rel. WER on test-other; 2$\times$ faster |
 | **Wan 2026** | speech segments interleaved with text; a read / write policy + monotonic chunkwise attention (MoChA) | latency traded against CER |
 | **TRADE 2026** | Transducer-Augmented Decoder: a transducer branch on the LLM's hidden states | one checkpoint, offline or streaming |
 | **Qwen3-ASR** | a dynamic 1–8 s window; vLLM only | WER 4.40 vs 3.48 offline (0.6B, model card) |

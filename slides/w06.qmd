@@ -574,7 +574,7 @@ prediction from the design · heard: rehearsal 2026-10-19, one sentence, one lis
 | | |
 |:---|:-----------------|
 | **Why** | We have heard what the stages carry; now look at the tokens themselves. Three claims so far rest on a picture or a sentence — the residual curve (p26), "stage 1 is the most language-like", and how many codes are actually used — and all three are measured on real codecs here: the curve on p26 already came from this demo. |
-| **What runs** | The same sentence through Mimi, EnCodec and DAC: the $N_q \times T$ matrix printed in the terminal. Then, on the W5 dev-clean subset (40 speakers × 10 sentences, cached), three counts per stage: the unigram entropy over $\log_2 V$ and the number of codes used; residual energy $\mathbb{E}\lVert \mathbf{r}_{t,i} \rVert^2 / \mathbb{E}\lVert \mathbf{z}_t \rVert^2$; the bigram conditional entropy against the unigram one. The next slide draws the order. |
+| **What runs** | The same sentence through Mimi, EnCodec and DAC: the $N_q \times T$ matrix printed in the terminal. Then, on the W5 dev-clean subset (40 speakers $\times$ 10 sentences, cached), three counts per stage: the unigram entropy over $\log_2 V$ and the number of codes used; residual energy $\mathbb{E}\lVert \mathbf{r}_{t,i} \rVert^2 / \mathbb{E}\lVert \mathbf{z}_t \rVert^2$; the bigram conditional entropy against the unigram one. The next slide draws the order. |
 | **Watch for** | Which stage has the longest runs of repeated tokens. Whether the usage and entropy ratios fall with the stage — and what that says about the late residual. Where Mimi's semantic path sits relative to its acoustic path. |
 :::
 
@@ -605,7 +605,7 @@ Demo 2 · code: `demos/w06_d2_token_matrix` · stage 3: only an example · key 5
 :::
 
 ::: {.footer}
-Demo 2 · demos/w06_d2_token_matrix · dev-clean 40 × 10 · measured 2026-10-18
+Demo 2 · demos/w06_d2_token_matrix · dev-clean 40 $\times$ 10 · measured 2026-10-18
 :::
 
 # Can one alphabet hold both the voice and the words? {.section-title}
@@ -705,7 +705,7 @@ Every column is a function of the three freedoms. **Speech tokens outnumber text
 :::
 
 ::: {.footer}
-Demo 2 · codecs: arithmetic · text: one sentence × 30 min, 2026-10-18 · RQ = residual-quantized
+Demo 2 · codecs: arithmetic · text: one sentence $\times$ 30 min, 2026-10-18 · RQ = residual-quantized
 :::
 
 ## MC 6 — "lower bitrate is always better"
@@ -782,7 +782,7 @@ Codec-SUPERB 2024 · DASB, TMLR 2026, §5 · Park et al., ASRU 2025
 
 | | text token | codec token |
 |:---|:----------|:---------------|
-| **rate** | ~2–3 per second of speech, read aloud | **10–100× more**: 100 to 600 per second |
+| **rate** | ~2–3 per second of speech, read aloud | **10–100$\times$ more**: 100 to 600 per second |
 | **per step** | one token | **$N_q$ tokens** — and the LM must decide how to order them |
 | **dependence** | independent symbols | stage $i$ is the residual of stages $1 \dots i-1$: **dependent by construction** |
 | **drift** | the same word is the same token for everyone | the distribution **drifts** with speaker, room and microphone |

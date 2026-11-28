@@ -308,7 +308,7 @@ Demo 1 · Mimi: W6 p36 · Whisper small: W7 · the text LLM: W1 Demo 2
 | by ear: the same voice? a natural rhythm? | to be heard |
 | by transcript: grammatical? on the subject? for how long? | Sentences in all four draws; none stays with Mr Quilter. The cooler draw ($0.5$) starts to circle. |
 | the text LLM, continuing the same words | On the subject, all four: "He is the prophet of the moderate, the high priest of the temperate, …" |
-| the prompt: 3.2 s = 40 frames × 4 = 160 speech tokens — and as text tokens | $11$ text tokens: $14.5\times$ fewer |
+| the prompt: 3.2 s = 40 frames $\times$ 4 = 160 speech tokens — and as text tokens | $11$ text tokens: $14.5\times$ fewer |
 | generation: tokens per second; real-time factor | about $105$ per second; $0.48$ (real time needs $50$) |
 | speaker similarity, prompt against continuation (W9's SIM) | $0.93$–$0.95$; same speaker, another sentence: $0.96$; another speaker: $0.59$ |
 :::
@@ -326,7 +326,7 @@ The words of a sentence sit **one to two orders of magnitude further apart** in 
 :::
 
 ::: {.footer}
-W6 p51: the bill · W6 p57: MC 9 · Demo 1's model: 50 tokens/s, about 15× English text
+W6 p51: the bill · W6 p57: MC 9 · Demo 1's model: 50 tokens/s, about 15$\times$ English text
 :::
 
 ## Where the loss goes

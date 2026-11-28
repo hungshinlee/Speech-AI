@@ -267,7 +267,7 @@ $$
 $$
 
 ::: {.footer}
-Ren et al. 2019 §3.2–3.3 · FastSpeech 2 §2.3: MFA, pitch, energy · 269× faster mel (Table 2)
+Ren et al. 2019 §3.2–3.3 · FastSpeech 2 §2.3: MFA, pitch, energy · 269$\times$ faster mel (Table 2)
 :::
 
 ## Where the teacher durations come from: attention, MFA, MAS
@@ -904,7 +904,7 @@ Eskimez et al., E2 TTS, SLT 2024 §2.1, §2.2, §2.4 · Chen et al., F5 §3.1–
 | length | a separate duration model | the duration predictor MAS teaches | given from outside |
 | alignment | explicit, inspectable | explicit, learned | implicit, in attention |
 | front end | G2P + aligner | G2P | nothing |
-| generation | CFM, infilling, 60k h | OT-CFM, 2–10 NFE | CFM, infilling, Emilia ≈ 95k h |
+| generation | CFM, infilling, 60k h | OT-CFM, 2–10 NFE | CFM, infilling, Emilia $\approx$ 95k h |
 
 ::: {.claim}
 Left to right: the front end gets simpler and the alignment becomes a black box. The length question is answered by a model, by a teacher, and then **by nobody inside**.
@@ -943,7 +943,7 @@ p25 row (d) · p33 (MaskGCT) · contrast FastSpeech: $d_u$ is a number you can p
 :::
 
 ::: {.footer}
-Demo 2 · `demos/w08_d2_nfe_cfg_first_packet` · rehearsed 2026-11-09 on this laptop (MPS; F5 ≈ 70 ms per step) · listen before you trust the mels
+Demo 2 · `demos/w08_d2_nfe_cfg_first_packet` · rehearsed 2026-11-09 on this laptop (MPS; F5 $\approx$ 70 ms per step) · listen before you trust the mels
 :::
 
 ## Demo 2: how it runs
@@ -999,7 +999,7 @@ W2 p56 MC 5 · W2 p47–p49, p53 · W6 p30, p32 · Demo 3 (p74–p77) plays all 
 |:---|:---------|:---------|
 | $G$ | transposed convolutions upsample the mel to the sample rate; multi-receptive-field (MRF) residual blocks in between | — |
 | **MPD**, multi-period | five 2-D discriminators; each reshapes the waveform into $p$ rows, $p \in \{2, 3, 5, 7, 11\}$ | **periodic structure**: harmonics, W2's source (next slide) |
-| **MSD**, multi-scale | three 1-D discriminators on the raw waveform, and on ×2 and ×4 average-pooled versions (MelGAN's family) | long-range, continuous structure |
+| **MSD**, multi-scale | three 1-D discriminators on the raw waveform, and on $\times 2$ and $\times 4$ average-pooled versions (MelGAN's family) | long-range, continuous structure |
 
 ::: {.claim}
 Two discriminator families because speech has two kinds of structure the generator must get right: **what repeats** (MPD) and **what continues** (MSD).
@@ -1015,7 +1015,7 @@ Kong, Kim & Bae, NeurIPS 2020 §2.1–2.3 · coprime periods "to avoid overlaps"
 
 ::: {.fragment fragment-index=2}
 ::: {.small}
-Harmonics are periodicity — W2's source. Five MPDs, $p = 2, 3, 5, 7, 11$: coprime, so they tile different fundamental frequencies without overlap. The MSD is the other family: 1-D, at ×1, ×2, ×4 downsampling — long-range continuity. In a tone language the period is lexical: **this discriminator is checking our words.**
+Harmonics are periodicity — W2's source. Five MPDs, $p = 2, 3, 5, 7, 11$: coprime, so they tile different fundamental frequencies without overlap. The MSD is the other family: 1-D, at $\times 1$, $\times 2$, $\times 4$ downsampling — long-range continuity. In a tone language the period is lexical: **this discriminator is checking our words.**
 :::
 :::
 
@@ -1072,7 +1072,7 @@ Vocos never leaves the frame rate: it predicts a full STFT and lets the **invers
 
 ::: {.fragment fragment-index=1}
 ::: {.small}
-HiFi-GAN's $G$ upsamples in the time domain, sample by sample; Vocos does all of it with one inverse FFT: ≈ 13× faster than HiFi-GAN on an A100, ≈ 29× on CPU (§4.3, Table 6). The price: a predicted STFT need not be consistent (W2 p49).
+HiFi-GAN's $G$ upsamples in the time domain, sample by sample; Vocos does all of it with one inverse FFT: $\approx$ 13$\times$ faster than HiFi-GAN on an A100, $\approx$ 29$\times$ on CPU (§4.3, Table 6). The price: a predicted STFT need not be consistent (W2 p49).
 :::
 :::
 
@@ -1102,7 +1102,7 @@ It sets the ceiling on quality and is often the **largest consumer of compute an
 | | time-domain $G$ (HiFi-GAN, BigVGAN) | iSTFT family (iSTFTNet, Vocos) |
 |:---|:---------|:---------|
 | where the network runs | up to the sample rate | at the frame rate |
-| relative cost | 1 | ≈ 1/13 on GPU, ≈ 1/29 on CPU (Vocos vs HiFi-GAN, Table 6) |
+| relative cost | 1 | $\approx$ 1/13 on GPU, $\approx$ 1/29 on CPU (Vocos vs HiFi-GAN, Table 6) |
 | phase | implicit in the samples | explicit, as $(\cos\phi, \sin\phi)$; consistency not guaranteed |
 | three jobs (p66) | all three, learned | all three — with the phase job made explicit |
 
@@ -1247,7 +1247,7 @@ CosyVoice 2 §2.3: $N = 5$, $M = 15$; Eq. 12 adds $N d_{\text{llm}}$ · DSM: 150
 ## MC 9 — "flow is always slower than AR"
 
 ::: {.claim .warn}
-Speed is set by **implementation, token rate and chunk design**, not by the paradigm. A flow decoder at 1–2 NFE (MeanFlow) is a handful of passes per chunk; an AR model at 75 Hz × 8 levels was 600 steps per second (W6 p51). The 2026 systems use one of each precisely because neither is "the fast one".
+Speed is set by **implementation, token rate and chunk design**, not by the paradigm. A flow decoder at 1–2 NFE (MeanFlow) is a handful of passes per chunk; an AR model at 75 Hz $\times$ 8 levels was 600 steps per second (W6 p51). The 2026 systems use one of each precisely because neither is "the fast one".
 :::
 
 | number | system, hardware, definition — **do not put these in one table** |
@@ -1317,7 +1317,7 @@ p79–p82 · "每個 chunk 都是一個第四週的 streaming encoder 問題，�
 |:---|:---------|:---------|:---------|
 | Tacotron 2, FastSpeech 2 | mel | W2: 80 bins, $\Delta = 10$ / 12.5 ms | the front end's hop |
 | VITS, MMS-TTS, Kokoro | the waveform | W2's first slot | the sample rate |
-| VALL-E | RVQ tokens $k_{t,i}$ | W6: EnCodec 75 Hz × 8 | the codec (chosen for the LM) |
+| VALL-E | RVQ tokens $k_{t,i}$ | W6: EnCodec 75 Hz $\times$ 8 | the codec (chosen for the LM) |
 | CosyVoice 2 | semantic tokens, 25 Hz → mel by flow | W6's semantic token → W2's mel | **the generator's steps/s** |
 | CuteTTS | latents, 12.5 Hz, patched to 6.25 | between W5 and W6 | the same — W6 p51's $R_{\text{tok}}$ |
 
@@ -1335,7 +1335,7 @@ W2 p73 · W5 p70 · W6 p58 · W7 p83 · W6 p51: $R_{\text{tok}}$
 |:---|:------|:------|:------|
 | tens of hours, one speaker | LJSpeech-era studio recordings | Tacotron 2, FastSpeech 2 | one voice, clean; no cloning |
 | 60,000 h, unlabelled + ASR transcripts | LibriLight + a W7 ASR | VALL-E, Voicebox | thousands of voices: continuation learns "keep the prompt" |
-| $10^5$–$10^6$ h in the wild | Emilia ≈ 95k h (F5); 5M h (Qwen3-TTS) | F5, CosyVoice 3, Qwen3-TTS | robustness, languages, styles — and the channel comes along |
+| $10^5$–$10^6$ h in the wild | Emilia $\approx$ 95k h (F5); 5M h (Qwen3-TTS) | F5, CosyVoice 3, Qwen3-TTS | robustness, languages, styles — and the channel comes along |
 | preference / reward data | WER, SIM, MOS predictors as rewards | W9 | **previewed only** |
 
 | axis | this week |

@@ -105,7 +105,7 @@ Tested on one machine — an Apple M5 Max (64 GB, no CUDA), macOS 27.2, Python 3
 - Minixhofer, Klejch & Bell, **TTSDS — Text-to-Speech Distribution Score**, SLT 2024, pp. 766–773 (DOI 10.1109/SLT61566.2024.10832178; arXiv:2407.12707); and **TTSDS2: Resources and Benchmark for Evaluating Human-Quality Text to Speech Systems**, arXiv:2506.19441 (2025) — evaluation by distributions rather than single utterances
 - Varadhan, Thomas, S., Bhooshan & Khapra, **The State Of TTS: A Case Study with Human Fooling Rates**, Interspeech 2025, pp. 2285–2289 (DOI 10.21437/Interspeech.2025-2765; arXiv:2508.04179) — "can it fool a listener" as an alternative to MOS
 - Shen et al. (8 authors), **Iterate to Differentiate: Enhancing Discriminability and Reliability in Zero-Shot TTS Evaluation**, Interspeech 2026, pp. 1327–1336 (DOI 10.21437/Interspeech.2026-2414; arXiv:2603.24430) — separating top systems once objective metrics saturate
-- **JM3**, the evaluation section of the chapter *Text-to-Speech*
+- **JM3** Ch 17, the evaluation section of *Text-to-Speech*
 - Other quality predictors: search *NISQA speech quality*, *DNSMOS P.835*, *SpeechLMScore*, *Audiobox Aesthetics*
 
 **Misuse: detection, watermarking, privacy**

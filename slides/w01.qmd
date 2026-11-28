@@ -265,7 +265,7 @@ Nothing is forced through a transcript. But text does not disappear — it moves
 ## What end-to-end costs
 
 - **Semantic degradation.** Speech token sequences are one to two orders of magnitude longer than text for the same content. Training a language model on them erodes the language ability. `[W11]`
-- **Context cost.** Frame rate × codebooks × conversation length. We will compute this in W6 and it is worse than people expect.
+- **Context cost.** Frame rate $\times$ codebooks $\times$ conversation length. We will compute this in W6 and it is worse than people expect.
 - **Controllability and auditability.** Tool calls, long-term memory, and "why did it say that" are all harder when there is no transcript to inspect.
 
 ::: {.claim}
@@ -326,7 +326,7 @@ A VAD-gated cascade **decides once** — when the endpoint fires — and then pl
 
 ::: {.fragment fragment-index=1}
 ::: {.small}
-**End-to-end** — speech tokens: 12.5–75 frames a second × codebooks; only what the codebook keeps, at its clock (W6).
+**End-to-end** — speech tokens: 12.5–75 frames a second $\times$ codebooks; only what the codebook keeps, at its clock (W6).
 :::
 :::
 
@@ -373,7 +373,7 @@ the route: p12 · first half: p6–p28 · second half: p30–p57 · answered: p6
 
 Across 10 languages from 5 continents, informal conversation follows one norm: **minimal gap, minimal overlap.** Most turn transitions land near zero.
 
-- Cross-language means differ by at most **±250 ms**
+- Cross-language means differ by at most **$\pm 250$ ms**
 - Responses that do not answer the question, or that go against its bias, come **measurably later** — and listeners read that delay as meaning
 
 ::: {.claim}
