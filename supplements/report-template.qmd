@@ -8,7 +8,7 @@ toc-depth: 2
 
 <!-- 此檔由 bin/publish_report_template.py 從 private repo 的 speech_ai/report-template/README.md 產生，請勿在公開 repo 直接編輯；zip 也是同一支腳本的產物。 -->
 
-**Download: [speech-ai-report-template.zip](speech-ai-report-template.zip)** (43 files, 505 KB; version `d408345`). Import the ZIP into Prism as a new project; the file layout and the instructions below are the template's own `README.md`.
+**Download: [speech-ai-report-template.zip](speech-ai-report-template.zip)** (44 files, 541 KB; version `c388ea3`). Import the ZIP into Prism as a new project; the file layout and the instructions below are the template's own `README.md`.
 
 This is the Prism project template for the midterm report and the final paper.
 Both use the format of an **Interspeech long paper**, built on the official Interspeech 2026
@@ -33,8 +33,8 @@ red brackets mark the places you still have to write.
 │   ├── figures/
 │   └── sections/           one .tex file per section
 └── final/                  final paper: a complete Interspeech long paper
-    ├── main.tex
-    ├── supplementary.tex
+    ├── main.tex            <- compile this file: the paper
+    ├── supplementary.tex   <- the supplementary material (changes since the midterm, links, details)
     ├── metadata.tex
     ├── references.bib
     ├── Interspeech.cls
@@ -55,7 +55,9 @@ understanding, generating or evaluating it, or interacting with machines through
    template and shares the project with the other members too; a working title is fine until
    the topic is settled. Sharing the project is how you hand in: there is no separate PDF to
    submit. The instructor announces each deadline; at the midterm deadline, the instructor
-   compiles `midterm/main.tex` as it stands and grades that PDF, so make sure it compiles.
+   compiles `midterm/main.tex` as it stands and grades that PDF, and at the final deadline
+   `final/main.tex`, so make sure they compile. The final paper is written in the same
+   project; leave the `midterm/` folder as it was at the midterm deadline.
 3. Compile `midterm/main.tex` for the midterm report and `final/main.tex` for the final paper,
    with pdfLaTeX (the default) and BibTeX. `supplementary.tex` in the same folder is a separate
    document; compile it on its own if you use it. If your paper must show Chinese, Taiwanese
@@ -65,6 +67,10 @@ understanding, generating or evaluating it, or interacting with machines through
    how to find, investigate and choose a problem. Keep a record of your candidates, searches
    and AI-assisted steps from the first day; the supplementary material has an optional section
    (Problem Discovery Log) where you can include it.
+   For the final paper, start with the box "What the final paper is" after the abstract.
+   Sections 3 to 6 carry one set of boxes for each kind of contribution (method, resource,
+   analysis): follow the boxes for yours and delete the others. The last box, before the
+   Acknowledgments, is the checklist to go through before the deadline.
 5. Fill in `metadata.tex`. For each group member: the English name exactly as it appears on
    the passport, given name first (e.g. `\author[affiliation={1}]{Hung-Shin}{Lee}`), the
    student ID, and an email address.
@@ -84,7 +90,8 @@ understanding, generating or evaluating it, or interacting with machines through
   compile, and look through the PDF: no red marker may remain.** One exception: in the midterm report,
   the cells of the planned-results table (Evaluation Plan) stay `\pending` until the final
   paper. In the proof-of-concept table, delete a row you did not run, and write `--` where
-  there is no published or predicted value to expect. (Searching the source also finds the
+  there is no published or predicted value to expect. The final paper has no exception:
+  delete a row or a column you could not measure, and adjust the claim that depended on it. (Searching the source also finds the
   markers that the guidance boxes mention; the PDF is what counts.)
 - **Every measured number in every table must come from your own code.** If you have not run
   it yet, write `\pending`; never fill a cell with the value you hope to get. The only other
@@ -108,10 +115,32 @@ understanding, generating or evaluating it, or interacting with machines through
   and Ethical considerations sections, and any appendix.
 - What does not fit goes into the supplementary material (`supplementary.tex`), which
   reviewers may read but are not required to. The paper must be understandable without it.
-- These limits apply to the final paper. The midterm report has no length limit, in either
+- These limits apply to the final paper, and there they are enforced: whatever lies beyond
+  them (body text, figures or tables after page 8, and anything after page 10) is not graded.
+  Check the length with `\showguidesfalse`. The midterm report has no length limit, in either
   direction; it keeps the same layout.
 - For comparison, an Interspeech regular paper has at most 6 pages: 4 of content and 2 reserved.
   The final paper of this course is a long paper.
+
+## What goes with the final paper
+
+There is nothing to hand in besides the Prism project, so the evidence is linked from the
+paper: in a footnote of the Experimental Setup section, or in the supplementary material
+(Reproducibility Details). Make sure the instructor can open every link.
+
+- **Code repository (required):** an environment file, the configuration files, and the
+  script that produces the numbers of the main table; for a resource, the collection,
+  annotation and scoring scripts; for an analysis, the measurement and statistics scripts.
+- **Demo page (required if the output is audio):** for synthesis, voice conversion,
+  enhancement, separation and audio-generating dialogue systems, audio samples for your
+  system and the strongest baseline on the same inputs, including failures.
+- **Checkpoints and data (encouraged):** if they are small enough and the licenses and the
+  speakers' consent allow it. If something cannot be released, say so and say why.
+- **Changes since the midterm:** the first section of `final/supplementary.tex` lists what
+  changed since the midterm report (question, hypothesis, contribution type, data, measures)
+  and why. Changing is fine; the paper states the question as it is now. For a different
+  topic altogether, tell the instructor first. A negative or mixed result, reported clearly,
+  is a finding.
 
 ## References
 
