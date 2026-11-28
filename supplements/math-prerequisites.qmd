@@ -18,7 +18,7 @@ toc-depth: 2
 
 $$\sum_{j=0}^{C-1} j = 0 + 1 + \dots + (C-1) = \frac{C(C-1)}{2}$$
 
-**在哪裡用到**：第一週〈Why $\alpha$ is an interval〉。模型每 $C$ 個 frame 處理一次，一個 frame 落在這一塊的第 $j$ 格時要等 $(C-1-j)\Delta$ 才輪到它；對 $j$ 取平均：
+**在哪裡用到**：第一週〈Why $\alpha \in [\tfrac12, 1]$: waiting for the chunk to fill〉。模型每 $C$ 個 frame 處理一次，一個 frame 落在這一塊的第 $j$ 格時要等 $(C-1-j)\Delta$ 才輪到它；對 $j$ 取平均：
 
 $$\frac{1}{C}\sum_{j=0}^{C-1}(C-1-j)\,\Delta = \frac{C-1}{2}\,\Delta$$
 

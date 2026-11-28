@@ -682,6 +682,10 @@ def show_noise(res: dict, lang: str) -> None:
 
 def show_audit(res: dict, lang: str) -> None:
     C.banner("聽對了，卻答錯？（θ 自己轉錄每一題，再看它聽同一段語音時答對沒有）")
+    if lang in CFG["audit"].get("no_transcript", []):
+        print(f"  {LANG_NAME[lang]}：θ 不轉錄這些題目——題目本身是問句，轉錄指示是固定的一句英文，它照問句直接回答。")
+        print("  這一項只看華語（按 l 換語言）。")
+        return
     a = audit(res, lang)
     if a is None:
         print(f"  {C.GREY}彩排裡沒有這一項{C.RESET}")

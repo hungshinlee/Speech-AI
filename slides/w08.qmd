@@ -729,7 +729,7 @@ $$
 
 ::: {.fragment fragment-index=2}
 ::: {.small}
-Lipman's "OT path" (§4.1 Example II): $\mu_\tau = \tau\mathbf{X}_1$, $\sigma_\tau = 1 - (1 - \sigma_{\min})\tau$ (Eq. 20), conditional field $\mathbf{u}_\tau(\mathbf{X} \mid \mathbf{X}_1) = \dfrac{\mathbf{X}_1 - (1 - \sigma_{\min})\mathbf{X}}{1 - (1 - \sigma_{\min})\tau}$ (Eq. 21); with $\sigma_{\min} \to 0$ it is the line above. Rectified flow sets $\sigma_{\min} = 0$; Matcha-TTS, Voicebox, E2 / F5 use this family.
+Lipman's optimal-transport (OT) path (§4.1 Example II): $\mu_\tau = \tau\mathbf{X}_1$, $\sigma_\tau = 1 - (1 - \sigma_{\min})\tau$ (Eq. 20), conditional field $\mathbf{u}_\tau(\mathbf{X} \mid \mathbf{X}_1) = \dfrac{\mathbf{X}_1 - (1 - \sigma_{\min})\mathbf{X}}{1 - (1 - \sigma_{\min})\tau}$ (Eq. 21); with $\sigma_{\min} \to 0$ it is the line above. Rectified flow sets $\sigma_{\min} = 0$; Matcha-TTS, Voicebox, E2 / F5 use this family.
 :::
 :::
 
@@ -746,7 +746,7 @@ $$
 {{< include assets/w08/euler-steps.inline.qmd >}}
 
 ::: {.footer}
-NFE: forward passes per utterance · midpoint / RK4: more accuracy per step · CFG doubles each
+NFE: forward passes per utterance · midpoint / RK4 (fourth-order Runge–Kutta): more accuracy per step · CFG doubles each
 :::
 
 ## Step 7 — why the marginal field bends: crossing lines
@@ -981,7 +981,7 @@ Demo 2 · demos/w08_d2_nfe_cfg_first_packet · rehearsed 2026-11-09 (M5 Max, MPS
 
 | W2 p56 said a vocoder must | because | this week |
 |:---|:---------|:---------|
-| **1** put the phase back | the mel kept only magnitudes; Griffin-Lim showed the phase is largely recoverable but the algorithm is slow and buzzy (W2 p47–p49) | a GAN generator learns it; or Vocos predicts it directly (p71) |
+| **1** put the phase back | the mel kept only magnitudes; Griffin-Lim showed the phase is largely recoverable but the algorithm is slow and buzzy (W2 p47–p49) | a GAN (generative adversarial network) generator learns it; or Vocos predicts it directly (p71) |
 | **2** undo the mel compression | 80 bins from 513: the pseudo-inverse is minimum-norm, not the original (W2 p53) | learned from data — the generator has seen what real spectra look like |
 | **3** sharpen a *predicted* mel | the acoustic model regressed: its mel is an average (p10) — the third job, promised in W2, delivered today | discriminators (W6 p30) push the output toward real speech, not toward the blurred input |
 
@@ -1451,8 +1451,8 @@ It can speak. Next: **whose voice, which emotion, how to measure it, how to stop
 | | |
 |:----|:----------------|
 | FSQ | finite scalar quantisation (W6) |
-| G2P | grapheme-to-phoneme conversion (p18) |
-| GAN, LS-GAN | generative adversarial network (W6); least-squares GAN (p69) |
+| G2P | grapheme-to-phoneme conversion (p21) |
+| GAN, LS-GAN | generative adversarial network (p66); least-squares GAN (p69) |
 | HMM | hidden Markov model (W3) |
 | iSTFT, STFT | inverse short-time Fourier transform; short-time Fourier transform (W2) |
 | JVP | Jacobian–vector product (p53) |

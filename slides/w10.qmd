@@ -1298,8 +1298,8 @@ DER: diarization error rate · toy: w10-data.json → der · last column: DIHARD
 ::: {.fragment fragment-index=1}
 | pyannote's output on the "conversation" | collar 0.25 s, overlap skipped | collar 0.25 s, overlap scored | no collar, overlap scored |
 |:------|:---|:---|:---|
-| DER | | | |
-| of which: false alarm · missed · wrong speaker | | | |
+| DER | not run yet | not run yet | not run yet |
+| of which: false alarm · missed · wrong speaker | ″ | ″ | ″ |
 | DER of a home-made clustering, one speaker per frame | $0.7\%$ | $8.1\%$ | $15.4\%$ |
 :::
 

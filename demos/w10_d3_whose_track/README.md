@@ -52,6 +52,7 @@ Per 10 ms frame, with $N_{\text{ref}}$ speakers active in the reference, $N_{\te
 
 **Reading the results honestly**
 
+- **The pyannote half has not been run on the demo machine yet** (as of 2026-11-28). The pyannote rows of the slide p87 table read *not run yet*; `runs/rehearsal/` holds the first half (separation, SIM, Whisper) and the clustering baseline (`*_der_naive.png`) only. `./present.sh fetch` and `rehearse` fill in the rest once the pipeline's terms have been accepted on Hugging Face.
 - This is blind separation followed by picking a track with SIM. It is **not** target speaker extraction (p74): no model here is conditioned on the enrolment.
 - Whether the user's track index changes between chunks depends on the model, the voices, the chunk length, and small numerical details. It is not guaranteed to change — and nothing guarantees that it will not. The second pair of voices (`g`) is there to show a different outcome.
 - The two SIM numbers for the same pair of voices come from two different embedding spaces. Their thresholds (0.25 from SpeechBrain's verification interface, 0.86 from the WavLM model card) are the publishers' examples, not tuned on this data, and are not interchangeable.

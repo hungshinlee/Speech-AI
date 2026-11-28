@@ -13,7 +13,7 @@ A failure case worth trying: set `pitch.ceiling_hz = 150` in `demo_config.toml` 
 
 The signal processing is all in `../dsp.py` (STFT, autocorrelation $F_0$, LPC formants), written in plain numpy so that it can be read. Formants are the roots of a 12th-order LPC polynomial on audio down-sampled to 10 kHz; the dot is the median of the last five frames. Known limit: on real voices, especially high-pitched ones, LPC sometimes picks a harmonic instead of a formant, so the dot jumps. The grey reference points /a/ /i/ /u/ on the chart are approximate male-average formant values for American English vowels, used only as landmarks.
 
-`w02_d1.praat` is a Praat script for the moments when a precise reading is needed (formant and $F_0$ values, three plots side by side). It is driven by `./present.sh praat <name>`; it had not been run in Praat at the time of writing, so expect to fix a parameter count on first use.
+`w02_d1.praat` is a Praat script for the moments when a precise reading is needed (formant and $F_0$ values, three plots side by side). It is driven by `./present.sh praat <name>`; it was run on the three fallback recordings on 2026-11-02 without errors, and it also saves the whole Praat picture as `runs/live/praat_<name>.png`.
 
 ## Requirements
 
@@ -21,7 +21,7 @@ The signal processing is all in `../dsp.py` (STFT, autocorrelation $F_0$, LPC fo
 |---|---|
 | Packages | the shared `.venv`: `numpy 2.4.4`, `scipy 1.17.1`, `matplotlib 3.10.9`, `sounddevice 0.5.6` |
 | Hardware | a microphone and a display; no model, no GPU |
-| Rehearsal records | **none checked in** — this demo is live capture; the three fallback recordings (`vowels`, `tones`, `question`) are made by `rehearse` and were not recorded at the time of publishing |
+| Rehearsal records | this demo is live capture; the three fallback recordings (`vowels`, `tones`, `question`) were made with `rehearse` on 2026-11-02. Their pictures are in `runs/rehearsal/*.png`; the recordings themselves are the lecturer's own voice and are not published — make your own with `./present.sh rehearse` |
 | Optional | Praat (`brew install --cask praat`) for `./present.sh praat` |
 | Tested on | Apple M5 Max, macOS 26.6, Python 3.12; the window updates every 60 ms recomputing a 4 s spectrogram |
 
