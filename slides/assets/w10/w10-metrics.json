@@ -2742,7 +2742,7 @@
  },
  "demo3": {
   "source": "demos/w10_d3_whose_track/runs/rehearsal/rehearsal.json",
-  "time": "2026-11-23T15:01:58",
+  "time": "2026-11-28T22:22:36",
   "models": {
    "sep": {
     "repo": "speechbrain/sepformer-libri2mix",
@@ -2772,7 +2772,7 @@
    },
    "diar": {
     "repo": "pyannote/speaker-diarization-community-1",
-    "commit": null
+    "commit": "3533c8cf8e369892e6b79ff1bf80f7b0286a54ee"
    }
   },
   "chunk_s": 4.0,
@@ -3876,7 +3876,55 @@
       ]
      },
      "pyannote": {
-      "error": "快取裡沒有 pyannote/speaker-diarization-community-1（LocalEntryNotFoundError）：先同意使用條款、登入，再跑 ./present.sh fetch"
+      "n_speakers": 2,
+      "n_segments": 20,
+      "der": [
+       {
+        "name": "collar 0.25 s, overlap skipped",
+        "collar": 0.25,
+        "skip_overlap": true,
+        "der": 0.035283194057567316,
+        "fa": 0.0,
+        "miss": 0.08,
+        "conf": 0.68,
+        "total": 21.54,
+        "scored_s": 22.61,
+        "map": {
+         "SPEAKER_01": "user",
+         "SPEAKER_00": "other"
+        }
+       },
+       {
+        "name": "collar 0.25 s, overlap scored",
+        "collar": 0.25,
+        "skip_overlap": false,
+        "der": 0.04008097165991903,
+        "fa": 0.0,
+        "miss": 0.31,
+        "conf": 0.68,
+        "total": 24.7,
+        "scored_s": 24.19,
+        "map": {
+         "SPEAKER_01": "user",
+         "SPEAKER_00": "other"
+        }
+       },
+       {
+        "name": "no collar, overlap scored",
+        "collar": 0.0,
+        "skip_overlap": false,
+        "der": 0.1265206812652068,
+        "fa": 1.93,
+        "miss": 1.55,
+        "conf": 1.2,
+        "total": 36.99,
+        "scored_s": 39.38,
+        "map": {
+         "SPEAKER_01": "user",
+         "SPEAKER_00": "other"
+        }
+       }
+      ]
      }
     }
    },
@@ -5019,7 +5067,55 @@
       ]
      },
      "pyannote": {
-      "error": "快取裡沒有 pyannote/speaker-diarization-community-1（LocalEntryNotFoundError）：先同意使用條款、登入，再跑 ./present.sh fetch"
+      "n_speakers": 2,
+      "n_segments": 11,
+      "der": [
+       {
+        "name": "collar 0.25 s, overlap skipped",
+        "collar": 0.25,
+        "skip_overlap": true,
+        "der": 0.014508138711960368,
+        "fa": 0.0,
+        "miss": 0.41000000000000003,
+        "conf": 0.0,
+        "total": 28.26,
+        "scored_s": 29.2,
+        "map": {
+         "SPEAKER_01": "user",
+         "SPEAKER_00": "other"
+        }
+       },
+       {
+        "name": "collar 0.25 s, overlap scored",
+        "collar": 0.25,
+        "skip_overlap": false,
+        "der": 0.022002551020408167,
+        "fa": 0.0,
+        "miss": 0.6900000000000001,
+        "conf": 0.0,
+        "total": 31.36,
+        "scored_s": 30.75,
+        "map": {
+         "SPEAKER_01": "user",
+         "SPEAKER_00": "other"
+        }
+       },
+       {
+        "name": "no collar, overlap scored",
+        "collar": 0.0,
+        "skip_overlap": false,
+        "der": 0.09720246562351825,
+        "fa": 0.96,
+        "miss": 3.14,
+        "conf": 0.0,
+        "total": 42.18,
+        "scored_s": 42.82,
+        "map": {
+         "SPEAKER_01": "user",
+         "SPEAKER_00": "other"
+        }
+       }
+      ]
      }
     }
    }

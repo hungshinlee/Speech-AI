@@ -42,7 +42,6 @@
     whole  塊 1/1
     Whisper
     diarization
-    pyannote：快取裡沒有 pyannote/speaker-diarization-community-1（LocalEntryNotFoundError）：先同意使用條款、登入，再跑 ./present.sh fetch
   user 1272 (m) + speaker 2277 (f)
     完全重疊的那一段
     4 s  塊 1/11
@@ -85,8 +84,7 @@
     whole  塊 1/1
     Whisper
     diarization
-    pyannote：快取裡沒有 pyannote/speaker-diarization-community-1（LocalEntryNotFoundError）：先同意使用條款、登入，再跑 ./present.sh fetch
-  算完：62 s
+  算完：69 s
 
 ────────────────────────────────────────────────────────────────────────
 完全重疊的 4.9 秒：user 1272 (m) + speaker 174 (m)
@@ -279,22 +277,21 @@
     接起來送 Whisper：不設門檻 44.3%／34.4%，設門檻 16.4%／16.4%（ECAPA／WavLM-SV；插入 22／15 → 2／2，刪除 0／0 → 1／1）
 
 ────────────────────────────────────────────────────────────────────────
-diarization：home-made clustering (ECAPA windows) 聽同一段「對話」
+diarization：pyannote (community-1) 聽同一段「對話」
 ────────────────────────────────────────────────────────────────────────
-    沒有 pyannote 的輸出（快取裡沒有 pyannote/speaker-diarization-community-1（LocalEntryNotFoundError）：先同意使用條款、登入，再跑 ./present.sh fetch）——下面是土法聚類的。
     參考標註：使用者 18.9 s、另一位 18.1 s；同時說 4.0 s（有人說話的時間的 12%）；沒人說話 6.3 s
-    系統輸出：21 段、5 位說話人
-    系統的編號 → 參考的說話人：{'cluster 2': 'user', 'cluster 1': 'other'}
-    最嚴的計分下，三種錯各幾秒：false alarm 0.00、missed 4.26、wrong speaker 1.44
+    系統輸出：20 段、2 位說話人；mps，0.8 s
+    系統的編號 → 參考的說話人：{'SPEAKER_01': 'user', 'SPEAKER_00': 'other'}
+    最嚴的計分下，三種錯各幾秒：false alarm 1.93、missed 1.55、wrong speaker 1.20
 
 ────────────────────────────────────────────────────────────────────────
-同一份輸出（home-made clustering (ECAPA windows)）、三種計分
+同一份輸出（pyannote (community-1)）、三種計分
 ────────────────────────────────────────────────────────────────────────
     計分                                     DER       FA   miss   conf       ÷ 語音總長      計分的時間
-    collar 0.25 s, overlap skipped        0.7%     0.00   0.00   0.16       21.54 s     22.61 s
-    collar 0.25 s, overlap scored         8.1%     0.00   1.58   0.42       24.70 s     24.19 s
-    no collar, overlap scored            15.4%     0.00   4.26   1.44       36.99 s     39.38 s
-    最嚴的是最寬的 20.7 倍
+    collar 0.25 s, overlap skipped        3.5%     0.00   0.08   0.68       21.54 s     22.61 s
+    collar 0.25 s, overlap scored         4.0%     0.00   0.31   0.68       24.70 s     24.19 s
+    no collar, overlap scored            12.7%     1.93   1.55   1.20       36.99 s     39.38 s
+    最嚴的是最寬的 3.6 倍
     collar：參考標註的每個邊界前後各 0.25 秒不計；overlap skipped：參考標註裡兩位同時說的格子不計。10 ms 一格。
 
 ────────────────────────────────────────────────────────────────────────
@@ -316,7 +313,7 @@ diarization：home-made clustering (ECAPA windows) 聽同一段「對話」
     collar：參考標註的每個邊界前後各 0.25 秒不計；overlap skipped：參考標註裡兩位同時說的格子不計。10 ms 一格。
 
 ────────────────────────────────────────────────────────────────────────
-投影片 p75 的表
+投影片 p78 的表
 ────────────────────────────────────────────────────────────────────────
     | chunk | SIM to the enrolment: track 1 · track 2 (ECAPA) | the same, WavLM-SV | picked | the user is really in |
     | 1 (0–4 s; user 2.6 s) | -0.04 · 0.52 | 0.73 · 0.94 | 2 | track 2 |
@@ -331,9 +328,11 @@ diarization：home-made clustering (ECAPA windows) 聽同一段「對話」
     | 10 (36–39 s; user 2.9 s) | 0.16 · 0.43 | 0.81 · 0.88 | 2 | track 2 |
 
 ────────────────────────────────────────────────────────────────────────
-投影片 p84 的表
+投影片 p87 的表
 ────────────────────────────────────────────────────────────────────────
-    pyannote (community-1)：快取裡沒有 pyannote/speaker-diarization-community-1（LocalEntryNotFoundError）：先同意使用條款、登入，再跑 ./present.sh fetch
+    pyannote (community-1)（2 speakers）
+    | DER | 3.5% | 4.0% | 12.7% |
+    | FA · missed · wrong speaker (s) | 0.00 · 0.08 · 0.68 | 0.00 · 0.31 · 0.68 | 1.93 · 1.55 · 1.20 |
     home-made clustering (ECAPA windows)（5 speakers）
     | DER | 0.7% | 8.1% | 15.4% |
     | FA · missed · wrong speaker (s) | 0.00 · 0.00 · 0.16 | 0.00 · 1.58 · 0.42 | 0.00 · 4.26 · 1.44 |
@@ -486,7 +485,7 @@ diarization：home-made clustering (ECAPA windows) 聽同一段「對話」
     使用者在場的 1 塊裡，軌的編號換了 0 次；照 SIM 挑對的：ECAPA 1/1、WavLM-SV 1/1
     「其實在」＝對使用者乾淨的那一軌 SI-SDR 較高、而且 ≥ 0 dB 的那一軌；— ＝使用者不在任何一軌
     兩個 encoder 挑得不一樣的塊：沒有；同一軌的 SIM：ECAPA +0.16…+0.63、WavLM-SV +0.40…+0.94
-    整段一次處理：SI-SDR 對使用者 -48.1／11.1 dB、對另一位 21.5／-49.1 dB（1.7 s）
+    整段一次處理：SI-SDR 對使用者 -48.1／11.1 dB、對另一位 21.5／-49.1 dB（1.6 s）
 
 ────────────────────────────────────────────────────────────────────────
 接起來送 Whisper（每 4 秒一塊）：只算使用者說的那 61 個詞
@@ -532,22 +531,21 @@ diarization：home-made clustering (ECAPA windows) 聽同一段「對話」
     接起來送 Whisper：不設門檻 63.9%／18.0%，設門檻 9.8%／36.1%（ECAPA／WavLM-SV；插入 37／9 → 3／1，刪除 0／0 → 0／18）
 
 ────────────────────────────────────────────────────────────────────────
-diarization：home-made clustering (ECAPA windows) 聽同一段「對話」
+diarization：pyannote (community-1) 聽同一段「對話」
 ────────────────────────────────────────────────────────────────────────
-    沒有 pyannote 的輸出（快取裡沒有 pyannote/speaker-diarization-community-1（LocalEntryNotFoundError）：先同意使用條款、登入，再跑 ./present.sh fetch）——下面是土法聚類的。
     參考標註：使用者 18.9 s、另一位 23.3 s；同時說 3.8 s（有人說話的時間的 10%）；沒人說話 4.4 s
-    系統輸出：18 段、5 位說話人
-    系統的編號 → 參考的說話人：{'cluster 2': 'user', 'cluster 1': 'other'}
-    最嚴的計分下，三種錯各幾秒：false alarm 0.00、missed 3.79、wrong speaker 2.45
+    系統輸出：11 段、2 位說話人；mps，1.2 s
+    系統的編號 → 參考的說話人：{'SPEAKER_01': 'user', 'SPEAKER_00': 'other'}
+    最嚴的計分下，三種錯各幾秒：false alarm 0.96、missed 3.14、wrong speaker 0.00
 
 ────────────────────────────────────────────────────────────────────────
-同一份輸出（home-made clustering (ECAPA windows)）、三種計分
+同一份輸出（pyannote (community-1)）、三種計分
 ────────────────────────────────────────────────────────────────────────
     計分                                     DER       FA   miss   conf       ÷ 語音總長      計分的時間
-    collar 0.25 s, overlap skipped        2.1%     0.00   0.00   0.58       28.26 s     29.20 s
-    collar 0.25 s, overlap scored         7.0%     0.00   1.55   0.66       31.36 s     30.75 s
-    no collar, overlap scored            14.8%     0.00   3.79   2.45       42.18 s     42.82 s
-    最嚴的是最寬的 7.2 倍
+    collar 0.25 s, overlap skipped        1.5%     0.00   0.41   0.00       28.26 s     29.20 s
+    collar 0.25 s, overlap scored         2.2%     0.00   0.69   0.00       31.36 s     30.75 s
+    no collar, overlap scored             9.7%     0.96   3.14   0.00       42.18 s     42.82 s
+    最嚴的是最寬的 6.7 倍
     collar：參考標註的每個邊界前後各 0.25 秒不計；overlap skipped：參考標註裡兩位同時說的格子不計。10 ms 一格。
 
 ────────────────────────────────────────────────────────────────────────
@@ -569,7 +567,7 @@ diarization：home-made clustering (ECAPA windows) 聽同一段「對話」
     collar：參考標註的每個邊界前後各 0.25 秒不計；overlap skipped：參考標註裡兩位同時說的格子不計。10 ms 一格。
 
 ────────────────────────────────────────────────────────────────────────
-投影片 p75 的表
+投影片 p78 的表
 ────────────────────────────────────────────────────────────────────────
     | chunk | SIM to the enrolment: track 1 · track 2 (ECAPA) | the same, WavLM-SV | picked | the user is really in |
     | 1 (0–4 s; user 2.6 s) | 0.04 · 0.54 | 0.28 · 0.95 | 2 | track 2 |
@@ -585,9 +583,11 @@ diarization：home-made clustering (ECAPA windows) 聽同一段「對話」
     | 11 (40–43 s; user 2.3 s) | 0.15 · 0.35 | 0.88 · 0.89 | 2 | track 2 |
 
 ────────────────────────────────────────────────────────────────────────
-投影片 p84 的表
+投影片 p87 的表
 ────────────────────────────────────────────────────────────────────────
-    pyannote (community-1)：快取裡沒有 pyannote/speaker-diarization-community-1（LocalEntryNotFoundError）：先同意使用條款、登入，再跑 ./present.sh fetch
+    pyannote (community-1)（2 speakers）
+    | DER | 1.5% | 2.2% | 9.7% |
+    | FA · missed · wrong speaker (s) | 0.00 · 0.41 · 0.00 | 0.00 · 0.69 · 0.00 | 0.96 · 3.14 · 0.00 |
     home-made clustering (ECAPA windows)（5 speakers）
     | DER | 2.1% | 7.0% | 14.8% |
     | FA · missed · wrong speaker (s) | 0.00 · 0.00 · 0.58 | 0.00 · 1.55 · 0.66 | 0.00 · 3.79 · 2.45 |

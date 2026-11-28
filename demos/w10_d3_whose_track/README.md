@@ -52,7 +52,8 @@ Per 10 ms frame, with $N_{\text{ref}}$ speakers active in the reference, $N_{\te
 
 **Reading the results honestly**
 
-- **The pyannote half has not been run on the demo machine yet** (as of 2026-11-28). The pyannote rows of the slide p87 table read *not run yet*; `runs/rehearsal/` holds the first half (separation, SIM, Whisper) and the clustering baseline (`*_der_naive.png`) only. `./present.sh fetch` and `rehearse` fill in the rest once the pipeline's terms have been accepted on Hugging Face.
+- **The second half was rehearsed later than the first** (pyannote on 2026-11-28, the rest on 2026-11-23; the first-half numbers did not change). pyannote found the two speakers and scored 3.5%, 4.0% and 12.7% under the three scorings (`*_der_pyannote.png`); the clustering baseline scored 0.7%, 8.1% and 15.4%. So the baseline looks better under the most lenient scoring and worse once overlap is counted — with the second pair of voices (`g`) pyannote is lower under all three. On the M5 Max pyannote gave the same segments on `mps` as on `cpu`.
+- `der.py` and `pyannote.metrics` agree exactly on the baseline and differ by 0.03 percentage points on pyannote's output: pyannote's boundaries do not fall on `der.py`'s 10 ms grid.
 - This is blind separation followed by picking a track with SIM. It is **not** target speaker extraction (p74): no model here is conditioned on the enrolment.
 - Whether the user's track index changes between chunks depends on the model, the voices, the chunk length, and small numerical details. It is not guaranteed to change — and nothing guarantees that it will not. The second pair of voices (`g`) is there to show a different outcome.
 - The two SIM numbers for the same pair of voices come from two different embedding spaces. Their thresholds (0.25 from SpeechBrain's verification interface, 0.86 from the WavLM model card) are the publishers' examples, not tuned on this data, and are not interchangeable.

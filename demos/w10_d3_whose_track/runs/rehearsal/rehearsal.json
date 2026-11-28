@@ -1,5 +1,5 @@
 {
- "time": "2026-11-23T15:01:58",
+ "time": "2026-11-28T22:22:36",
  "tag": "rehearse",
  "fake": false,
  "main": "m",
@@ -244,7 +244,7 @@
       "wer": 0.0
      }
     },
-    "compute_s": 0.276366458972916
+    "compute_s": 0.27815416700104834
    },
    "chunkings": {
     "4": {
@@ -611,7 +611,7 @@
        }
       }
      ],
-     "compute_s": 1.839368541026488,
+     "compute_s": 1.8490132500010077,
      "n_present": 7,
      "n_swaps": 4,
      "n_right": {
@@ -1343,7 +1343,7 @@
        }
       }
      ],
-     "compute_s": 2.3718320410698652,
+     "compute_s": 2.341555833001621,
      "n_present": 13,
      "n_swaps": 6,
      "n_right": {
@@ -1535,7 +1535,7 @@
        }
       }
      ],
-     "compute_s": 1.5536724999547005,
+     "compute_s": 1.4510194590002357,
      "n_present": 5,
      "n_swaps": 2,
      "n_right": {
@@ -1583,7 +1583,7 @@
        }
       }
      ],
-     "compute_s": 1.5264304999727756,
+     "compute_s": 1.4588544159996673,
      "n_present": 1,
      "n_swaps": 0,
      "n_right": {
@@ -1817,7 +1817,166 @@
      ]
     },
     "pyannote": {
-     "error": "快取裡沒有 pyannote/speaker-diarization-community-1（LocalEntryNotFoundError）：先同意使用條款、登入，再跑 ./present.sh fetch"
+     "segments": [
+      [
+       0.503,
+       1.027,
+       "SPEAKER_01"
+      ],
+      [
+       1.027,
+       1.06,
+       "SPEAKER_00"
+      ],
+      [
+       1.06,
+       1.162,
+       "SPEAKER_01"
+      ],
+      [
+       1.162,
+       1.887,
+       "SPEAKER_00"
+      ],
+      [
+       1.887,
+       2.191,
+       "SPEAKER_01"
+      ],
+      [
+       2.68,
+       2.697,
+       "SPEAKER_01"
+      ],
+      [
+       2.697,
+       6.899,
+       "SPEAKER_00"
+      ],
+      [
+       3.406,
+       4.132,
+       "SPEAKER_01"
+      ],
+      [
+       7.945,
+       11.995,
+       "SPEAKER_01"
+      ],
+      [
+       11.118,
+       14.122,
+       "SPEAKER_00"
+      ],
+      [
+       14.797,
+       16.889,
+       "SPEAKER_00"
+      ],
+      [
+       16.973,
+       17.024,
+       "SPEAKER_00"
+      ],
+      [
+       17.125,
+       20.888,
+       "SPEAKER_00"
+      ],
+      [
+       20.23,
+       23.909,
+       "SPEAKER_01"
+      ],
+      [
+       24.348,
+       26.17,
+       "SPEAKER_00"
+      ],
+      [
+       26.356,
+       27.47,
+       "SPEAKER_00"
+      ],
+      [
+       26.845,
+       30.777,
+       "SPEAKER_01"
+      ],
+      [
+       31.942,
+       32.667,
+       "SPEAKER_00"
+      ],
+      [
+       32.785,
+       35.654,
+       "SPEAKER_00"
+      ],
+      [
+       35.215,
+       38.843,
+       "SPEAKER_01"
+      ]
+     ],
+     "n_speakers": 2,
+     "der": [
+      {
+       "name": "collar 0.25 s, overlap skipped",
+       "collar": 0.25,
+       "skip_overlap": true,
+       "der": 0.035283194057567316,
+       "fa": 0.0,
+       "miss": 0.08,
+       "conf": 0.68,
+       "total": 21.54,
+       "scored_s": 22.61,
+       "map": {
+        "SPEAKER_01": "user",
+        "SPEAKER_00": "other"
+       }
+      },
+      {
+       "name": "collar 0.25 s, overlap scored",
+       "collar": 0.25,
+       "skip_overlap": false,
+       "der": 0.04008097165991903,
+       "fa": 0.0,
+       "miss": 0.31,
+       "conf": 0.68,
+       "total": 24.7,
+       "scored_s": 24.19,
+       "map": {
+        "SPEAKER_01": "user",
+        "SPEAKER_00": "other"
+       }
+      },
+      {
+       "name": "no collar, overlap scored",
+       "collar": 0.0,
+       "skip_overlap": false,
+       "der": 0.1265206812652068,
+       "fa": 1.93,
+       "miss": 1.55,
+       "conf": 1.2,
+       "total": 36.99,
+       "scored_s": 39.38,
+       "map": {
+        "SPEAKER_01": "user",
+        "SPEAKER_00": "other"
+       }
+      }
+     ],
+     "device": "mps",
+     "compute_s": 0.8258334169986483,
+     "commit": "3533c8cf8e369892e6b79ff1bf80f7b0286a54ee",
+     "versions": {
+      "pyannote.audio": "4.1.1",
+      "pyannote.metrics": "4.2.0",
+      "pyannote.core": "6.1.0",
+      "torch": "2.14.0",
+      "torchaudio": "2.11.0"
+     }
     }
    }
   },
@@ -2031,7 +2190,7 @@
       "wer": 0.0
      }
     },
-    "compute_s": 0.13883116701617837
+    "compute_s": 0.1431215839984361
    },
    "chunkings": {
     "4": {
@@ -2434,7 +2593,7 @@
        }
       }
      ],
-     "compute_s": 1.9231987500097603,
+     "compute_s": 1.9654845830009435,
      "n_present": 9,
      "n_swaps": 0,
      "n_right": {
@@ -3202,7 +3361,7 @@
        }
       }
      ],
-     "compute_s": 2.3418041670229286,
+     "compute_s": 2.3812322079975274,
      "n_present": 12,
      "n_swaps": 2,
      "n_right": {
@@ -3394,7 +3553,7 @@
        }
       }
      ],
-     "compute_s": 1.4843303750967607,
+     "compute_s": 1.4921662910019222,
      "n_present": 5,
      "n_swaps": 0,
      "n_right": {
@@ -3442,7 +3601,7 @@
        }
       }
      ],
-     "compute_s": 1.6639270830200985,
+     "compute_s": 1.5634101659998123,
      "n_present": 1,
      "n_swaps": 0,
      "n_right": {
@@ -3661,7 +3820,121 @@
      ]
     },
     "pyannote": {
-     "error": "快取裡沒有 pyannote/speaker-diarization-community-1（LocalEntryNotFoundError）：先同意使用條款、登入，再跑 ./present.sh fetch"
+     "segments": [
+      [
+       0.487,
+       2.107,
+       "SPEAKER_01"
+      ],
+      [
+       2.68,
+       4.03,
+       "SPEAKER_01"
+      ],
+      [
+       3.457,
+       7.253,
+       "SPEAKER_00"
+      ],
+      [
+       7.878,
+       11.843,
+       "SPEAKER_01"
+      ],
+      [
+       11.371,
+       17.311,
+       "SPEAKER_00"
+      ],
+      [
+       18.307,
+       22.61,
+       "SPEAKER_00"
+      ],
+      [
+       22.205,
+       25.9,
+       "SPEAKER_01"
+      ],
+      [
+       26.828,
+       30.237,
+       "SPEAKER_00"
+      ],
+      [
+       29.663,
+       33.629,
+       "SPEAKER_01"
+      ],
+      [
+       34.642,
+       38.945,
+       "SPEAKER_00"
+      ],
+      [
+       38.658,
+       42.32,
+       "SPEAKER_01"
+      ]
+     ],
+     "n_speakers": 2,
+     "der": [
+      {
+       "name": "collar 0.25 s, overlap skipped",
+       "collar": 0.25,
+       "skip_overlap": true,
+       "der": 0.014508138711960368,
+       "fa": 0.0,
+       "miss": 0.41000000000000003,
+       "conf": 0.0,
+       "total": 28.26,
+       "scored_s": 29.2,
+       "map": {
+        "SPEAKER_01": "user",
+        "SPEAKER_00": "other"
+       }
+      },
+      {
+       "name": "collar 0.25 s, overlap scored",
+       "collar": 0.25,
+       "skip_overlap": false,
+       "der": 0.022002551020408167,
+       "fa": 0.0,
+       "miss": 0.6900000000000001,
+       "conf": 0.0,
+       "total": 31.36,
+       "scored_s": 30.75,
+       "map": {
+        "SPEAKER_01": "user",
+        "SPEAKER_00": "other"
+       }
+      },
+      {
+       "name": "no collar, overlap scored",
+       "collar": 0.0,
+       "skip_overlap": false,
+       "der": 0.09720246562351825,
+       "fa": 0.96,
+       "miss": 3.14,
+       "conf": 0.0,
+       "total": 42.18,
+       "scored_s": 42.82,
+       "map": {
+        "SPEAKER_01": "user",
+        "SPEAKER_00": "other"
+       }
+      }
+     ],
+     "device": "mps",
+     "compute_s": 1.2448207500019635,
+     "commit": "3533c8cf8e369892e6b79ff1bf80f7b0286a54ee",
+     "versions": {
+      "pyannote.audio": "4.1.1",
+      "pyannote.metrics": "4.2.0",
+      "pyannote.core": "6.1.0",
+      "torch": "2.14.0",
+      "torchaudio": "2.11.0"
+     }
     }
    }
   }
@@ -3695,7 +3968,7 @@
   },
   "diar": {
    "repo": "pyannote/speaker-diarization-community-1",
-   "commit": null
+   "commit": "3533c8cf8e369892e6b79ff1bf80f7b0286a54ee"
   }
  },
  "versions": {
@@ -3711,5 +3984,5 @@
   "speechbrain": "1.1.2",
   "huggingface_hub": "1.33.0"
  },
- "compute_s": 62.153191249934025
+ "compute_s": 68.73837033400196
 }
