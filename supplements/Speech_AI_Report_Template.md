@@ -4,7 +4,7 @@
 <!-- summary: The LaTeX project for both reports, in the INTERSPEECH long-paper format of the official 2026 paper kit, with guidance boxes on writing and research. Download the ZIP and import it into Prism. -->
 <!-- 此檔由 bin/publish_report_template.py 從 private repo 的 speech_ai/report-template/README.md 產生，請勿在公開 repo 直接編輯；zip 也是同一支腳本的產物。 -->
 
-**Download: [speech-ai-report-template.zip](speech-ai-report-template.zip)** (44 files, 541 KB; version `c388ea3`). Import the ZIP into Prism as a new project; the file layout and the instructions below are the template's own `README.md`.
+**Download: [speech-ai-report-template.zip](speech-ai-report-template.zip)** (44 files, 542 KB; version `da0ad7b`). Import the ZIP into Prism as a new project; the file layout and the instructions below are the template's own `README.md`.
 
 This is the Prism project template for the midterm report and the final paper.
 Both use the format of an **Interspeech long paper**, built on the official Interspeech 2026
@@ -120,18 +120,21 @@ understanding, generating or evaluating it, or interacting with machines through
 
 ## What goes with the final paper
 
-There is nothing to hand in besides the Prism project, so the evidence is linked from the
-paper: in a footnote of the Experimental Setup section, or in the supplementary material
-(Reproducibility Details). Make sure the instructor can open every link.
+There is nothing to hand in besides the Prism project. A code repository is not required,
+but it is recommended: put your code in a GitHub repository and give its link in the paper,
+in a footnote of the Experimental Setup section or in the supplementary material
+(Reproducibility Details). If you give links, make sure the instructor can open them.
 
-- **Code repository (required):** an environment file, the configuration files, and the
+- **Code repository (recommended):** an environment file, the configuration files, and the
   script that produces the numbers of the main table; for a resource, the collection,
   annotation and scoring scripts; for an analysis, the measurement and statistics scripts.
-- **Demo page (required if the output is audio):** for synthesis, voice conversion,
-  enhancement, separation and audio-generating dialogue systems, audio samples for your
-  system and the strongest baseline on the same inputs, including failures.
-- **Checkpoints and data (encouraged):** if they are small enough and the licenses and the
-  speakers' consent allow it. If something cannot be released, say so and say why.
+- **Demo (even better):** if your output is audio (synthesis, voice conversion, enhancement,
+  separation, audio-generating dialogue systems), audio samples for your system and the
+  strongest baseline on the same inputs, including failures. GitHub Pages of the same
+  repository is the simplest place for it; link it from the repository's README and from
+  the paper.
+- **Checkpoints and data (optional):** if they are small enough and the licenses and the
+  speakers' consent allow it.
 - **Changes since the midterm:** the first section of `final/supplementary.tex` lists what
   changed since the midterm report (question, hypothesis, contribution type, data, measures)
   and why. Changing is fine; the paper states the question as it is now. For a different

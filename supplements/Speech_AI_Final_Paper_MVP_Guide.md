@@ -1,7 +1,7 @@
 # 期末論文：從研究提案走到一篇完整的論文
 <!-- en: Final Paper: From a Proposal to a Complete Paper -->
 <!-- order: 3 -->
-<!-- summary: The route from the midterm proposal to a complete INTERSPEECH long paper: what may change after the midterm, what each contribution type (method, resource, analysis) has to show, negative results, the enforced 8+2 page limit, the code and demo links that go with the paper, and a hand-in checklist. -->
+<!-- summary: The route from the midterm proposal to a complete INTERSPEECH long paper: what may change after the midterm, what each contribution type (method, resource, analysis) has to show, negative results, the enforced 8+2 page limit, the recommended GitHub repository and demo, and a hand-in checklist. -->
 <!-- 此檔由 bin/publish_supplements.py 從 private repo 的 <course>/supplements/ 過濾產生，請勿在公開 repo 直接編輯。 -->
 
 期末論文是一篇**完整的論文**，用 INTERSPEECH long paper 的格式，寫在〈[報告範本](report-template.qmd)〉的 `final/` 裡，和期中是同一個 Prism 專案。**分享就是交件，不用另交 PDF**：老師公告期限，期限當下把 `final/main.tex` 編譯成 PDF 打分數，所以期限前要確認它編譯得過。標準和投稿一樣：期中許下的承諾，現在要換成證據。
@@ -111,11 +111,13 @@ Limitations 寫具體、會限制你主張的地方。Ethical considerations 在
 
 ## 程式、示範頁與資料：連結寫進論文
 
-除了 Prism 專案之外沒有別的東西要交，所以證據用連結附在論文裡：寫在 §4 的註腳，或補充材料的 Reproducibility Details。**確認授課老師打得開每一個連結**（公開，或分享給老師）。
+除了 Prism 專案之外沒有別的東西要交。**程式庫不是必交的，但建議把程式放在 GitHub 的 repo，並把連結寫進論文**：寫在 §4 的註腳，或補充材料的 Reproducibility Details。有附連結的話，確認授課老師打得開（公開，或分享給老師）。
 
-- **程式庫（必附）**：環境檔、設定檔，以及產生主表數字的那支程式；資源型另附收集、標註與評分的程式，分析型附測量與統計的程式。寫明論文裡的數字出自哪一個 commit 或 tag。
-- **示範頁（輸出是聲音的必附）**：語音合成、語音轉換、增強、分離，以及會輸出語音的對話系統，要有一頁示範音檔：你的系統與最強的 baseline、同樣的輸入、包含失敗的例子。指標有爭議時，讓讀的人自己聽。
-- **checkpoint 與資料（鼓勵）**：大小允許、授權與說話人的同意也允許時釋出。不能釋出的，寫明不能、以及為什麼。向老師拿的語料不能轉給別人或公開，釋出資料或模型之前先確認。
+- **程式庫（建議）**：環境檔、設定檔，以及產生主表數字的那支程式；資源型另附收集、標註與評分的程式，分析型附測量與統計的程式。寫明論文裡的數字出自哪一個 commit 或 tag。
+- **demo（有更好）**：輸出是聲音的題目（語音合成、語音轉換、增強、分離，以及會輸出語音的對話系統），放一頁示範音檔：你的系統與最強的 baseline、同樣的輸入、包含失敗的例子。善用 GitHub：用同一個 repo 的 GitHub Pages 放示範頁，連結寫在 repo 的 README 與論文裡。指標有爭議時，讓讀的人自己聽。
+- **checkpoint 與資料（選擇性）**：大小允許、授權與說話人的同意也允許時釋出。向老師拿的語料不能轉給別人或公開，釋出資料或模型之前先確認。
+
+不論有沒有附程式庫，判斷主張與重做這份工作所需要的細節，都要寫在論文與補充材料裡。
 
 真正投稿時，這些連結與示範頁都要匿名（見〈論文寫作與敘事〉的〈真正投稿時〉清單）；課程交件不用。
 
@@ -148,7 +150,7 @@ Limitations 寫具體、會限制你主張的地方。Ethical considerations 在
 - 錯誤分析有類別與次數，也有失敗的例子。
 - 每個歸給某篇論文的主張都有 `\src{}`；每一筆 BibTeX 都從官方來源匯出，並有 `doi` 或 `url`；有正式版本的不引 arXiv 版。
 - 摘要不超過 1000 字元、只用 ASCII 字元、沒有引用。
-- 程式庫的連結在論文或補充材料裡，老師打得開；輸出是聲音的，示範頁也是。
+- 有程式庫或 demo 的話（建議放 GitHub），連結在論文或補充材料裡，老師打得開。
 - 期中之後有改動的話，補充材料第一節寫了；有用補充材料的話，它單獨編譯得過。
 - Limitations 寫了（包括期中計畫裡沒做的實驗）；需要時，Ethical considerations 也寫了；Generative AI Use Disclosure 寫好了。
 - PDF 裡有中文、台語或客語的話，用 XeLaTeX 編譯、每段都包在 `\zh{...}` 裡，編譯紀錄裡沒有 `Missing character`。
@@ -157,4 +159,4 @@ Limitations 寫具體、會限制你主張的地方。Ethical considerations 在
 
 ## 版本
 
-- 2026-11-28：改寫成路線圖，對齊 INTERSPEECH long paper 的 Prism 範本、〈期中報告〉與〈論文寫作與敘事〉。前一版寫的 4 頁正文＋1 頁參考文獻、套 ICASSP 或 INTERSPEECH 雙欄模板、200 字的摘要、從 Google Scholar 匯出 BibTeX、另交程式庫與模型權重都已不適用。範本的 `final/` 同日改成方法、資源、分析三型都有導引；交件是分享 Prism 專案，期限當下老師編譯 `final/main.tex` 打分數；8＋2 頁是硬限制；程式庫與示範頁的連結寫進論文；期中之後的改動寫在補充材料第一節；負面結果照實報告。
+- 2026-11-28：改寫成路線圖，對齊 INTERSPEECH long paper 的 Prism 範本、〈期中報告〉與〈論文寫作與敘事〉。前一版寫的 4 頁正文＋1 頁參考文獻、套 ICASSP 或 INTERSPEECH 雙欄模板、200 字的摘要、從 Google Scholar 匯出 BibTeX、另交程式庫與模型權重都已不適用。範本的 `final/` 同日改成方法、資源、分析三型都有導引；交件是分享 Prism 專案，期限當下老師編譯 `final/main.tex` 打分數；8＋2 頁是硬限制；程式庫不是必交，但建議放在 GitHub 並把連結寫進論文，有 demo 更好；期中之後的改動寫在補充材料第一節；負面結果照實報告。
